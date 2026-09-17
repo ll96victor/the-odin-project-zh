@@ -43,13 +43,11 @@
 
 ## 在线 Demo
 
-在线版计划通过 GitHub Pages 提供，地址将是：
+在线版已通过 GitHub Pages 发布，打开即用、无需安装：
 
-```
-https://ll96victor.github.io/the-odin-project-zh/
-```
+**https://ll96victor.github.io/the-odin-project-zh/**
 
-> 该地址在仓库发布并开启 Pages 后生效；当前尚未上线，请以本地运行方式体验。
+> 纯静态站，没有任何后端，打开就能开始学。注意：浏览器的学习数据按「打开地址」隔离，在线版（`ll96victor.github.io`）与本地版（`127.0.0.1:8765`）各自保存一份互不相通的档案；换地址时用「导出 / 导入学习档案」搬家即可。
 
 ## 本地运行
 
