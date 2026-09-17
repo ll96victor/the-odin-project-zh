@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="344" viewBox="0 0 720 344" role="img" aria-labelledby="t5 d5">
+  <title id="t5">结构与样式的关系：HTML 与 CSS 如何合成一个网页</title>
+  <desc id="d5">左边是 HTML 文件，里面有一个 class 为 title 的 h1 元素，内容是“你好”，还有一个段落“这是一段文字。”。右边是 CSS 文件，里面有一条 .title 规则，把颜色设为深绿色、字号设为 32 像素。两个方框之间有一条虚线，说明 CSS 的选择器 .title 与 HTML 元素的 class 同名，因此匹配成功。两个方框各有一条箭头指向底部的渲染结果：深绿色的大号“你好”和正常大小的“这是一段文字。”。</desc>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; }
+    .box { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .boxtitle { font-size: 14px; font-weight: 700; fill: #276148; }
+    .code { font-size: 13px; }
+    .match { stroke: #a4553f; stroke-width: 1.8; stroke-dasharray: 6 4; fill: none; }
+    .matchtext { font-size: 13px; fill: #a4553f; font-weight: 700; }
+    .mid { font-size: 13.5px; fill: #56625c; }
+    .flow { stroke: #276148; stroke-width: 2; fill: none; }
+    .result { fill: #edf3ee; stroke: #276148; stroke-width: 1.5; }
+    .big { font-size: 30px; font-weight: 700; fill: #276148; }
+    .plain { font-size: 15px; }
+    .cap { font-size: 13px; fill: #56625c; }
+  </style>
+
+  <rect class="box" x="20" y="30" width="250" height="150" rx="8"/>
+  <text class="boxtitle" x="145" y="54" text-anchor="middle">HTML 文件 · index.html</text>
+  <text class="code mono" x="36" y="86">&lt;h1 class="title"&gt;</text>
+  <text class="code mono" x="36" y="108">&#160;&#160;你好</text>
+  <text class="code mono" x="36" y="130">&lt;/h1&gt;</text>
+  <text class="code mono" x="36" y="152">&lt;p&gt;这是一段文字。&lt;/p&gt;</text>
+
+  <rect class="box" x="450" y="30" width="250" height="150" rx="8"/>
+  <text class="boxtitle" x="575" y="54" text-anchor="middle">CSS 文件 · style.css</text>
+  <text class="code mono" x="466" y="86">.title {</text>
+  <text class="code mono" x="466" y="108">&#160;&#160;color: #276148;</text>
+  <text class="code mono" x="466" y="130">&#160;&#160;font-size: 32px;</text>
+  <text class="code mono" x="466" y="152">}</text>
+
+  <path class="match" d="M270,80 L450,80"/>
+  <text class="matchtext" x="360" y="70" text-anchor="middle">选择器与 class 同名</text>
+  <text class="mid" x="360" y="112" text-anchor="middle">HTML 说有什么内容</text>
+  <text class="mid" x="360" y="136" text-anchor="middle">CSS 说长什么样子</text>
+  <text class="mid" x="360" y="162" text-anchor="middle">两份文件合成一个网页</text>
+
+  <path class="flow" d="M145,180 L296,224" marker-end="url(#ar)"/>
+  <path class="flow" d="M575,180 L424,224" marker-end="url(#ar)"/>
+
+  <rect class="result" x="140" y="228" width="440" height="98" rx="8"/>
+  <text class="big" x="168" y="272">你好</text>
+  <text class="plain" x="168" y="300">这是一段文字。</text>
+  <text class="cap" x="360" y="320" text-anchor="middle">浏览器把两份文件合起来，渲染成这个样子</text>
+</svg>

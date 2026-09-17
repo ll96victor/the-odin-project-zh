@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="340" viewBox="0 0 720 340" role="img" aria-labelledby="t1 d1">
+  <title id="t1">HTML、CSS、JavaScript 的分工</title>
+  <desc id="d1">三个并列的方框分别表示 HTML 负责结构与内容、CSS 负责样式与外观、JavaScript 负责行为与交互，三个方框各有一条向下的箭头，汇入底部同一个方框，表示它们在浏览器里共同组成同一个网页。</desc>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .box { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .name { font-size: 21px; font-weight: 700; }
+    .role { font-size: 16px; font-weight: 700; fill: #276148; }
+    .line { font-size: 14px; fill: #56625c; }
+    .flow { stroke: #276148; stroke-width: 2; fill: none; }
+    .sum { fill: #edf3ee; stroke: #276148; stroke-width: 1.5; }
+    .sumname { font-size: 18px; font-weight: 700; }
+    .sumline { font-size: 14.5px; }
+  </style>
+
+  <rect class="box" x="20" y="26" width="200" height="146" rx="8"/>
+  <text class="name" x="120" y="58" text-anchor="middle">HTML</text>
+  <text class="role" x="120" y="84" text-anchor="middle">结构 · 内容</text>
+  <text class="line" x="120" y="110" text-anchor="middle">页面里有什么</text>
+  <text class="line" x="120" y="134" text-anchor="middle">标题、段落</text>
+  <text class="line" x="120" y="156" text-anchor="middle">图片、链接</text>
+
+  <rect class="box" x="260" y="26" width="200" height="146" rx="8"/>
+  <text class="name" x="360" y="58" text-anchor="middle">CSS</text>
+  <text class="role" x="360" y="84" text-anchor="middle">样式 · 外观</text>
+  <text class="line" x="360" y="110" text-anchor="middle">看起来是什么样</text>
+  <text class="line" x="360" y="134" text-anchor="middle">颜色、字号</text>
+  <text class="line" x="360" y="156" text-anchor="middle">间距、布局</text>
+
+  <rect class="box" x="500" y="26" width="200" height="146" rx="8"/>
+  <text class="name" x="600" y="58" text-anchor="middle">JavaScript</text>
+  <text class="role" x="600" y="84" text-anchor="middle">行为 · 交互</text>
+  <text class="line" x="600" y="110" text-anchor="middle">能做什么反应</text>
+  <text class="line" x="600" y="134" text-anchor="middle">响应点击</text>
+  <text class="line" x="600" y="156" text-anchor="middle">更新内容、校验</text>
+
+  <path class="flow" d="M120,172 L120,224" marker-end="url(#ar)"/>
+  <path class="flow" d="M360,172 L360,224" marker-end="url(#ar)"/>
+  <path class="flow" d="M600,172 L600,224" marker-end="url(#ar)"/>
+
+  <rect class="sum" x="20" y="230" width="680" height="92" rx="8"/>
+  <text class="sumname" x="360" y="262" text-anchor="middle">浏览器里的同一个网页</text>
+  <text class="sumline" x="360" y="288" text-anchor="middle">三者各管一件事，合起来才是完整网页：HTML 决定内容，CSS 决定外观，</text>
+  <text class="sumline" x="360" y="310" text-anchor="middle">JavaScript 决定交互。只学其中一样，都只能做出残缺的页面。</text>
+</svg>

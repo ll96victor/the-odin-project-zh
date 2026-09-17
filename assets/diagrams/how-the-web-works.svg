@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="350" viewBox="0 0 720 350" role="img" aria-labelledby="t2 d2">
+  <title id="t2">在浏览器输入网址之后发生了什么</title>
+  <desc id="d2">时序图。三条竖直的生命线分别代表浏览器、DNS 服务器和 Web 服务器。浏览器先向 DNS 服务器询问域名对应的 IP 地址，DNS 服务器回答 IP 地址；浏览器再用这个 IP 向 Web 服务器发出 HTTP 请求，Web 服务器返回 HTML 文件；最后浏览器解析 HTML 并渲染成网页。</desc>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .head { fill: #edf3ee; stroke: #276148; stroke-width: 1.5; }
+    .headtext { font-size: 16px; font-weight: 700; }
+    .life { stroke: #c8d3cb; stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .msg { stroke: #276148; stroke-width: 2; fill: none; }
+    .msgtext { font-size: 13.5px; }
+    .note { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .notetext { font-size: 13.5px; fill: #56625c; }
+  </style>
+
+  <rect class="head" x="30" y="20" width="160" height="42" rx="6"/>
+  <text class="headtext" x="110" y="47" text-anchor="middle">你的浏览器</text>
+  <rect class="head" x="280" y="20" width="160" height="42" rx="6"/>
+  <text class="headtext" x="360" y="47" text-anchor="middle">DNS 服务器</text>
+  <rect class="head" x="520" y="20" width="180" height="42" rx="6"/>
+  <text class="headtext" x="610" y="47" text-anchor="middle">Web 服务器</text>
+
+  <path class="life" d="M110,62 L110,330"/>
+  <path class="life" d="M360,62 L360,250"/>
+  <path class="life" d="M610,62 L610,250"/>
+
+  <path class="msg" d="M110,96 L356,96" marker-end="url(#ar)"/>
+  <text class="msgtext" x="233" y="88" text-anchor="middle">① 域名 example.com 的 IP 是多少？</text>
+
+  <path class="msg" d="M360,138 L114,138" marker-end="url(#ar)"/>
+  <text class="msgtext" x="233" y="130" text-anchor="middle">② 是 93.184.216.34</text>
+
+  <path class="msg" d="M110,190 L606,190" marker-end="url(#ar)"/>
+  <text class="msgtext" x="358" y="182" text-anchor="middle">③ 用这个 IP 地址请求网页（HTTP 请求）</text>
+
+  <path class="msg" d="M610,232 L114,232" marker-end="url(#ar)"/>
+  <text class="msgtext" x="358" y="224" text-anchor="middle">④ 把 HTML 文件发回来（HTTP 响应）</text>
+
+  <rect class="note" x="30" y="272" width="670" height="52" rx="6"/>
+  <text class="notetext" x="365" y="294" text-anchor="middle">⑤ 浏览器解析收到的 HTML，按里面的结构把文字、图片、链接渲染成你看到的网页。</text>
+  <text class="notetext" x="365" y="314" text-anchor="middle">域名只是给人记的名字，网络上真正用来找到服务器的地址是 IP 地址，DNS 负责在两者之间翻译。</text>
+</svg>

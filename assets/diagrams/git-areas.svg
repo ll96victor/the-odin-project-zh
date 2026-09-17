@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" role="img" aria-labelledby="t4 d4">
+  <title id="t4">Git 的四个区域：工作区、暂存区、本地仓库、远端仓库</title>
+  <desc id="d4">从左到右四个方框：工作区是你正在编辑的文件，改动只发生在这里；git add 把挑出来的改动放进暂存区；git commit 把暂存区的内容记录成本地仓库里的一次提交；git push 把本地仓库的提交上传到 GitHub 上的远端仓库。另有一条虚线箭头从远端仓库指回本地仓库，表示 git pull 或 git clone 可以把远端的内容取回本地。</desc>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a4553f"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; }
+    .box { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .remote { fill: #edf3ee; stroke: #276148; stroke-width: 1.5; }
+    .zh { font-size: 17px; font-weight: 700; }
+    .en { font-size: 11.5px; fill: #56625c; }
+    .desc { font-size: 12.5px; }
+    .flow { stroke: #276148; stroke-width: 2; fill: none; }
+    .back { stroke: #a4553f; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+    .cmd { font-size: 12.5px; font-weight: 700; fill: #276148; }
+    .cmdback { font-size: 12.5px; font-weight: 700; fill: #a4553f; }
+    .note { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .notetext { font-size: 13.5px; }
+  </style>
+
+  <rect class="box" x="20" y="112" width="140" height="108" rx="8"/>
+  <text class="zh" x="90" y="142" text-anchor="middle">工作区</text>
+  <text class="en" x="90" y="162" text-anchor="middle">Working Directory</text>
+  <text class="desc" x="90" y="186" text-anchor="middle">你正在编辑的文件</text>
+  <text class="desc" x="90" y="206" text-anchor="middle">改动只发生在这里</text>
+
+  <rect class="box" x="220" y="112" width="140" height="108" rx="8"/>
+  <text class="zh" x="290" y="142" text-anchor="middle">暂存区</text>
+  <text class="en" x="290" y="162" text-anchor="middle">Staging Area</text>
+  <text class="desc" x="290" y="186" text-anchor="middle">挑出来准备记录的</text>
+  <text class="desc" x="290" y="206" text-anchor="middle">那一批改动</text>
+
+  <rect class="box" x="420" y="112" width="140" height="108" rx="8"/>
+  <text class="zh" x="490" y="142" text-anchor="middle">本地仓库</text>
+  <text class="en" x="490" y="162" text-anchor="middle">Local Repository</text>
+  <text class="desc" x="490" y="186" text-anchor="middle">已记录成一次提交的</text>
+  <text class="desc" x="490" y="206" text-anchor="middle">版本历史</text>
+
+  <rect class="remote" x="620" y="112" width="140" height="108" rx="8"/>
+  <text class="zh" x="690" y="142" text-anchor="middle">远端仓库</text>
+  <text class="en" x="690" y="162" text-anchor="middle">GitHub Remote</text>
+  <text class="desc" x="690" y="186" text-anchor="middle">团队共享的</text>
+  <text class="desc" x="690" y="206" text-anchor="middle">那一份副本</text>
+
+  <path class="flow" d="M160,166 L216,166" marker-end="url(#ar)"/>
+  <text class="cmd mono" x="188" y="100" text-anchor="middle">git add</text>
+  <path class="flow" d="M360,166 L416,166" marker-end="url(#ar)"/>
+  <text class="cmd mono" x="388" y="100" text-anchor="middle">git commit</text>
+  <path class="flow" d="M560,166 L616,166" marker-end="url(#ar)"/>
+  <text class="cmd mono" x="588" y="100" text-anchor="middle">git push</text>
+
+  <path class="back" d="M690,220 L690,258 L490,258 L490,224" marker-end="url(#ar2)"/>
+  <text class="cmdback mono" x="590" y="252" text-anchor="middle">git pull / git clone</text>
+
+  <text class="cmd" x="188" y="76" text-anchor="middle">挑出要记录的改动</text>
+  <text class="cmd" x="388" y="76" text-anchor="middle">真的记下一个版本</text>
+  <text class="cmd" x="588" y="76" text-anchor="middle">上传到 GitHub</text>
+
+  <rect class="note" x="20" y="280" width="740" height="48" rx="8"/>
+  <text class="notetext" x="390" y="302" text-anchor="middle">关键区别：add 只是“挑出这次要记录哪些改动”，commit 才是“真的记下一个版本”。</text>
+  <text class="notetext" x="390" y="320" text-anchor="middle">没有 add 的改动不会进 commit；没有 push 的 commit 只存在你自己这台电脑上。</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="t6 d6">
+  <title id="t6">一个 HTML 元素的解剖：开始标签、内容、嵌套、结束标签</title>
+  <desc id="d6">一行代码 p 元素包含“你好，”和一个嵌套的 strong 元素，strong 里是“世界”。绿色的部分是开始标签 p 和结束标签 /p，深色的部分是元素内容，红棕色的部分是嵌套的 strong 元素。下方四张卡片分别解释开始标签、元素内容、嵌套元素和结束标签，最下面的说明指出一个元素等于开始标签加内容加结束标签。</desc>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; }
+    .code { font-size: 19px; }
+    .tag { fill: #276148; font-weight: 700; }
+    .nest { fill: #a4553f; }
+    .card { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .term { font-size: 15.5px; font-weight: 700; }
+    .snip { font-size: 13px; fill: #56625c; }
+    .expl { font-size: 13px; }
+    .note { fill: #edf3ee; stroke: #276148; stroke-width: 1.5; }
+    .notetext { font-size: 13.5px; }
+  </style>
+
+  <text class="code mono tag" x="30" y="62">&lt;p&gt;</text>
+  <text class="code mono" x="78" y="62">你好，</text>
+  <text class="code mono nest" x="150" y="62">&lt;strong&gt;</text>
+  <text class="code mono nest" x="248" y="62">世界</text>
+  <text class="code mono nest" x="302" y="62">&lt;/strong&gt;</text>
+  <text class="code mono tag" x="410" y="62">&lt;/p&gt;</text>
+
+  <rect x="28" y="72" width="34" height="4" rx="2" fill="#276148"/>
+  <rect x="76" y="72" width="58" height="4" rx="2" fill="#56625c"/>
+  <rect x="148" y="72" width="246" height="4" rx="2" fill="#a4553f"/>
+  <rect x="408" y="72" width="44" height="4" rx="2" fill="#276148"/>
+
+  <rect class="card" x="20" y="100" width="330" height="96" rx="8"/>
+  <rect x="36" y="118" width="14" height="14" rx="3" fill="#276148"/>
+  <text class="term" x="60" y="130">开始标签</text>
+  <text class="snip mono" x="60" y="152">&lt;p&gt;</text>
+  <text class="expl" x="36" y="174">元素从这里开始。尖括号里的 p</text>
+  <text class="expl" x="36" y="190">叫标签名，决定这是哪一种元素。</text>
+
+  <rect class="card" x="370" y="100" width="330" height="96" rx="8"/>
+  <rect x="386" y="118" width="14" height="14" rx="3" fill="#56625c"/>
+  <text class="term" x="410" y="130">元素内容</text>
+  <text class="snip mono" x="410" y="152">你好，</text>
+  <text class="expl" x="386" y="174">开始标签与结束标签之间的部分，</text>
+  <text class="expl" x="386" y="190">就是这个元素的内容。</text>
+
+  <rect class="card" x="20" y="208" width="330" height="96" rx="8"/>
+  <rect x="36" y="226" width="14" height="14" rx="3" fill="#a4553f"/>
+  <text class="term" x="60" y="238">嵌套元素</text>
+  <text class="snip mono" x="60" y="260">&lt;strong&gt;世界&lt;/strong&gt;</text>
+  <text class="expl" x="36" y="282">内容里可以再放一个完整的元素，</text>
+  <text class="expl" x="36" y="298">它自己也有开始与结束标签。</text>
+
+  <rect class="card" x="370" y="208" width="330" height="96" rx="8"/>
+  <rect x="386" y="226" width="14" height="14" rx="3" fill="#276148"/>
+  <text class="term" x="410" y="238">结束标签</text>
+  <text class="snip mono" x="410" y="260">&lt;/p&gt;</text>
+  <text class="expl" x="386" y="282">带斜杠，元素到这里结束；标签名</text>
+  <text class="expl" x="386" y="298">必须与开始标签一致。</text>
+
+  <rect class="note" x="20" y="320" width="680" height="64" rx="8"/>
+  <text class="notetext" x="360" y="346" text-anchor="middle">一个元素 = 开始标签 + 内容 + 结束标签。</text>
+  <text class="notetext" x="360" y="368" text-anchor="middle">浏览器靠标签名和配对关系决定“谁包着谁”，所以漏写结束标签会让后面的内容被错误地包进去。</text>
+</svg>

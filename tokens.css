@@ -1,0 +1,432 @@
+:root {
+  color-scheme: light;
+  --color-paper: #fbf8f2;
+  --color-ink: #29243a;
+  --color-muted: #625c70;
+  --color-accent: #51408f;
+  --color-wash: #f0edf8;
+  --color-rule: #d8d2e5;
+  --color-button-ink: #fffdfb;
+  --color-warn: #9f4938;
+  --color-code-bg: #28233a;
+  --color-code-ink: #f0edf8;
+  --font-display: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  --font-heading-ui: var(--font-body);
+  --font-body: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+  --space-xs: .25rem;
+  --space-sm: .5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --text-small: .875rem;
+  --text-body: 1.0625rem;
+  --text-lead: 1.125rem;
+  --radius-small: .25rem;
+  /* v4 新增：中度 UI 优化用的圆角、阴影与金色（头像框）。
+   * 深色模式本轮未实现（交接 §8.1 允许只预留 tokens），因此这里不引入
+   * 一整套用不上的暗色变量，避免留下无法验证的死配置。 */
+  --radius-medium: .5rem;
+  --color-gold: #a8791c;
+  --shadow-soft: 0 1px 2px rgba(37, 49, 44, .08);
+  --shadow-lift: 0 2px 8px rgba(37, 49, 44, .12);
+  /* v4.5.2 Final Concept Match：容器分级 token。
+   * 一级容器（Hero / 档案封面 / 伙伴展示区）用 large 圆角 + primary 阴影；
+   * 二级容器继续用 radius-small/medium + 细描边 + 无阴影。
+   * grow 双值是固定语义色（成长 / 完成），与地图节点既有用色同源，不随主题变。 */
+  --radius-large: 1.25rem;
+  --color-grow: #3f7b58;
+  --color-grow-soft: #6f9c85;
+  --shadow-primary: 0 12px 30px rgba(81, 64, 143, .13);
+}
+
+/* ===================== v4.2 页面主题（交接 §13） =====================
+ * 主题只覆盖颜色 token，不碰字号、间距与布局；对比度按“正文可读、代码块
+ * 可读”手工调过。garden 是 :root 默认值，不重复写。
+ * 切换由 app.js 设 <html data-theme="...">，无运行时样式计算。 */
+html[data-theme="paper"] {
+  color-scheme: light;
+  --color-paper: #fdf8ee;
+  --color-ink: #3d3427;
+  --color-muted: #75695a;
+  --color-accent: #7a5230;
+  --color-wash: #f5eee0;
+  --color-rule: #ddd2bd;
+  --color-button-ink: #fdf8ee;
+  --color-warn: #a4553f;
+  --color-code-bg: #2e2a22;
+  --color-code-ink: #efe9db;
+}
+html[data-theme="warm"] {
+  color-scheme: light;
+  --color-paper: #fdf6f3;
+  --color-ink: #402e2c;
+  --color-muted: #7c6460;
+  --color-accent: #9c4736;
+  --color-wash: #f7e8e2;
+  --color-rule: #e3cfc7;
+  --color-button-ink: #fdf6f3;
+  --color-warn: #8a3b52;
+  --color-code-bg: #38231f;
+  --color-code-ink: #f4e6df;
+}
+html[data-theme="ocean"] {
+  color-scheme: light;
+  --color-paper: #f2f8fa;
+  --color-ink: #1d3a44;
+  --color-muted: #52707a;
+  --color-accent: #1d6f7e;
+  --color-wash: #e0f0f4;
+  --color-rule: #c2dbe2;
+  --color-button-ink: #f2f8fa;
+  --color-warn: #a4553f;
+  --color-code-bg: #14343d;
+  --color-code-ink: #dff0f4;
+}
+html[data-theme="terminal"] {
+  color-scheme: dark;
+  --color-paper: #1b2420;
+  --color-ink: #cfe6d6;
+  --color-muted: #8fa89a;
+  --color-accent: #58c98b;
+  --color-wash: #24312a;
+  --color-rule: #3c4f45;
+  --color-button-ink: #10201a;
+  --color-warn: #d98b5f;
+  --color-code-bg: #10201a;
+  --color-code-ink: #b8e6c8;
+}
+html[data-theme="night"] {
+  color-scheme: dark;
+  --color-paper: #171c2b;
+  --color-ink: #d6dcf0;
+  --color-muted: #97a0bd;
+  --color-accent: #7f96e8;
+  --color-wash: #202842;
+  --color-rule: #394261;
+  --color-button-ink: #131a30;
+  --color-warn: #c8897d;
+  --color-code-bg: #121828;
+  --color-code-ink: #ccd6f4;
+}
+/* v4.3（交接 B2）新增默认主题：亚麻（中性灰绿布纹）与苔原（黄绿林间） */
+html[data-theme="linen"] {
+  color-scheme: light;
+  --color-paper: #f6f5f0;
+  --color-ink: #33382e;
+  --color-muted: #6e6f63;
+  --color-accent: #5f6f52;
+  --color-wash: #eceae2;
+  --color-rule: #d5d3c8;
+  --color-button-ink: #f6f5f0;
+  --color-warn: #a4553f;
+  --color-code-bg: #2c2e26;
+  --color-code-ink: #e8e9df;
+}
+html[data-theme="moss"] {
+  color-scheme: light;
+  --color-paper: #f4f7ec;
+  --color-ink: #2c331f;
+  --color-muted: #66704f;
+  --color-accent: #4a6b2f;
+  --color-wash: #e7eed9;
+  --color-rule: #c9d4b4;
+  --color-button-ink: #f4f7ec;
+  --color-warn: #a4553f;
+  --color-code-bg: #252b1c;
+  --color-code-ink: #e2e9d4;
+}
+/* v4.3 Batch 6（交接 H/J）：梅子（等级解锁）与陶土（低档位叶片解锁） */
+html[data-theme="plum"] {
+  color-scheme: light;
+  --color-paper: #f9f4f7;
+  --color-ink: #38272f;
+  --color-muted: #75606c;
+  --color-accent: #7c4a63;
+  --color-wash: #f0e5ec;
+  --color-rule: #dcc8d4;
+  --color-button-ink: #f9f4f7;
+  --color-warn: #a4553f;
+  --color-code-bg: #2e2129;
+  --color-code-ink: #ecdfe7;
+}
+html[data-theme="clay"] {
+  color-scheme: light;
+  --color-paper: #f8f2ec;
+  --color-ink: #3a2e26;
+  --color-muted: #77645a;
+  --color-accent: #9c5e3a;
+  --color-wash: #f1e6db;
+  --color-rule: #ddcabb;
+  --color-button-ink: #f8f2ec;
+  --color-warn: #a4553f;
+  --color-code-bg: #2f2620;
+  --color-code-ink: #eee2d8;
+}
+
+/* ===================== v4.4 主题系统 2.0（交接 C1/C3）：新增 20 套 =====================
+ * 全部本站原创配色；每套的六组对比度（正文/次要/强调/代码块/按钮/警示）已由
+ * tests/themes-contrast.test.cjs 按 WCAG 相对亮度公式程序化断言 ≥ 4.5:1。
+ * 每套声明 color-scheme（audit U1），浏览器原生控件与滚动条跟随明暗。 */
+html[data-theme="mint"] {
+  color-scheme: light;
+  --color-paper: #f3faf6;
+  --color-ink: #22352c;
+  --color-muted: #55695e;
+  --color-accent: #2e7d5b;
+  --color-wash: #e4f3ea;
+  --color-rule: #c3ddce;
+  --color-button-ink: #f3faf6;
+  --color-warn: #a4553f;
+  --color-code-bg: #1e3229;
+  --color-code-ink: #dff0e5;
+}
+html[data-theme="glacier"] {
+  color-scheme: light;
+  --color-paper: #f4f8fb;
+  --color-ink: #24313d;
+  --color-muted: #586a7a;
+  --color-accent: #3a6ea5;
+  --color-wash: #e6eef5;
+  --color-rule: #c6d5e2;
+  --color-button-ink: #f4f8fb;
+  --color-warn: #a4553f;
+  --color-code-bg: #1c2b3a;
+  --color-code-ink: #dce8f2;
+}
+html[data-theme="seasalt"] {
+  color-scheme: light;
+  --color-paper: #f6f8f9;
+  --color-ink: #2a3539;
+  --color-muted: #5d6c72;
+  --color-accent: #4a6b82;
+  --color-wash: #e9eef1;
+  --color-rule: #cbd5da;
+  --color-button-ink: #f6f8f9;
+  --color-warn: #a4553f;
+  --color-code-bg: #212c33;
+  --color-code-ink: #dde6eb;
+}
+html[data-theme="porcelain"] {
+  color-scheme: light;
+  --color-paper: #fbfcfc;
+  --color-ink: #2a2e33;
+  --color-muted: #5f666d;
+  --color-accent: #33567a;
+  --color-wash: #eef1f4;
+  --color-rule: #d0d6dc;
+  --color-button-ink: #fbfcfc;
+  --color-warn: #96543f;
+  --color-code-bg: #20262e;
+  --color-code-ink: #e0e5ec;
+}
+html[data-theme="milktea"] {
+  color-scheme: light;
+  --color-paper: #f9f4ec;
+  --color-ink: #3a302a;
+  --color-muted: #75675c;
+  --color-accent: #7d6244;
+  --color-wash: #f1e8dc;
+  --color-rule: #ddcdba;
+  --color-button-ink: #f9f4ec;
+  --color-warn: #a4553f;
+  --color-code-bg: #2c241d;
+  --color-code-ink: #eee4d8;
+}
+html[data-theme="caramel"] {
+  color-scheme: light;
+  --color-paper: #fdf7f0;
+  --color-ink: #3c2f22;
+  --color-muted: #7a6650;
+  --color-accent: #8f5a1e;
+  --color-wash: #f6ead9;
+  --color-rule: #e2cdb0;
+  --color-button-ink: #fdf7f0;
+  --color-warn: #a4553f;
+  --color-code-bg: #30241a;
+  --color-code-ink: #f2e5d2;
+}
+html[data-theme="autumn"] {
+  color-scheme: light;
+  --color-paper: #fbf6ef;
+  --color-ink: #3a2f26;
+  --color-muted: #77655a;
+  --color-accent: #a05a1d;
+  --color-wash: #f4e9dd;
+  --color-rule: #e0cdbb;
+  --color-button-ink: #fbf6ef;
+  --color-warn: #8a3b52;
+  --color-code-bg: #2e231c;
+  --color-code-ink: #f0e3d6;
+}
+html[data-theme="dusk"] {
+  color-scheme: light;
+  --color-paper: #f9f2f0;
+  --color-ink: #38292c;
+  --color-muted: #75605f;
+  --color-accent: #8a4a4e;
+  --color-wash: #f1e4e2;
+  --color-rule: #dcc7c5;
+  --color-button-ink: #f9f2f0;
+  --color-warn: #a4553f;
+  --color-code-bg: #2b1f21;
+  --color-code-ink: #eedee0;
+}
+html[data-theme="forest"] {
+  color-scheme: light;
+  --color-paper: #f3f7f1;
+  --color-ink: #22301f;
+  --color-muted: #576951;
+  --color-accent: #2a5c43;
+  --color-wash: #e5eee2;
+  --color-rule: #c5d5bf;
+  --color-button-ink: #f3f7f1;
+  --color-warn: #a4553f;
+  --color-code-bg: #1e2e1c;
+  --color-code-ink: #dfeadb;
+}
+html[data-theme="bamboo"] {
+  color-scheme: light;
+  --color-paper: #f7f8f0;
+  --color-ink: #2c3323;
+  --color-muted: #61694f;
+  --color-accent: #587a46;
+  --color-wash: #eceee0;
+  --color-rule: #cfd4bb;
+  --color-button-ink: #f7f8f0;
+  --color-warn: #a4553f;
+  --color-code-bg: #242a1c;
+  --color-code-ink: #e3e8d4;
+}
+html[data-theme="lake"] {
+  color-scheme: light;
+  --color-paper: #f1f6f9;
+  --color-ink: #1f2f3a;
+  --color-muted: #54687a;
+  --color-accent: #25608f;
+  --color-wash: #e3ecf3;
+  --color-rule: #c4d3e0;
+  --color-button-ink: #f1f6f9;
+  --color-warn: #a4553f;
+  --color-code-bg: #1a2b3a;
+  --color-code-ink: #dbe7f1;
+}
+html[data-theme="dune"] {
+  color-scheme: light;
+  --color-paper: #faf6ee;
+  --color-ink: #38311f;
+  --color-muted: #71684f;
+  --color-accent: #8a6d2a;
+  --color-wash: #f2ebdb;
+  --color-rule: #ddd2b6;
+  --color-button-ink: #faf6ee;
+  --color-warn: #a4553f;
+  --color-code-bg: #2a251a;
+  --color-code-ink: #ece5d2;
+}
+html[data-theme="deepsea"] {
+  color-scheme: dark;
+  --color-paper: #101f28;
+  --color-ink: #c8dce6;
+  --color-muted: #7e9aa8;
+  --color-accent: #4fa3c7;
+  --color-wash: #182b36;
+  --color-rule: #2c4451;
+  --color-button-ink: #0c1a22;
+  --color-warn: #d98b5f;
+  --color-code-bg: #0b1a22;
+  --color-code-ink: #c9e2ee;
+}
+html[data-theme="graphite"] {
+  color-scheme: dark;
+  --color-paper: #1c1c1e;
+  --color-ink: #d8d8da;
+  --color-muted: #98989c;
+  --color-accent: #9db1c8;
+  --color-wash: #26262a;
+  --color-rule: #3a3a40;
+  --color-button-ink: #161618;
+  --color-warn: #d09a78;
+  --color-code-bg: #131315;
+  --color-code-ink: #d5d5d8;
+}
+html[data-theme="violet"] {
+  color-scheme: dark;
+  --color-paper: #1d1830;
+  --color-ink: #ddd4f0;
+  --color-muted: #a395c2;
+  --color-accent: #a78bda;
+  --color-wash: #271f42;
+  --color-rule: #3c3160;
+  --color-button-ink: #171228;
+  --color-warn: #d99a7e;
+  --color-code-bg: #16112a;
+  --color-code-ink: #d8ccf0;
+}
+html[data-theme="ink"] {
+  color-scheme: dark;
+  --color-paper: #161616;
+  --color-ink: #d4d0c8;
+  --color-muted: #8f8b83;
+  --color-accent: #c2a878;
+  --color-wash: #1f1e1c;
+  --color-rule: #33312e;
+  --color-button-ink: #121110;
+  --color-warn: #c98d6e;
+  --color-code-bg: #101010;
+  --color-code-ink: #cfc9bd;
+}
+html[data-theme="crt"] {
+  color-scheme: dark;
+  --color-paper: #1a140e;
+  --color-ink: #e8c88a;
+  --color-muted: #a88c5e;
+  --color-accent: #e0a040;
+  --color-wash: #241b12;
+  --color-rule: #3d2f1e;
+  --color-button-ink: #150f08;
+  --color-warn: #e07850;
+  --color-code-bg: #120e08;
+  --color-code-ink: #e5c489;
+}
+html[data-theme="pixel"] {
+  color-scheme: light;
+  --color-paper: #f5f2e9;
+  --color-ink: #2a2a35;
+  --color-muted: #63636e;
+  --color-accent: #4a4ad8;
+  --color-wash: #eae6da;
+  --color-rule: #cfcbc0;
+  --color-button-ink: #f5f2e9;
+  --color-warn: #b04a4a;
+  --color-code-bg: #22222e;
+  --color-code-ink: #dcdcf0;
+}
+html[data-theme="cyber"] {
+  color-scheme: dark;
+  --color-paper: #16111f;
+  --color-ink: #ecd9f2;
+  --color-muted: #ab8fb8;
+  --color-accent: #e05fa8;
+  --color-wash: #211830;
+  --color-rule: #3d2c55;
+  --color-button-ink: #160e1e;
+  --color-warn: #f0a050;
+  --color-code-bg: #100b18;
+  --color-code-ink: #f0d8f5;
+}
+html[data-theme="softpink"] {
+  color-scheme: light;
+  --color-paper: #fdf5f8;
+  --color-ink: #3d2a32;
+  --color-muted: #7a6069;
+  --color-accent: #b04a76;
+  --color-wash: #f8e9ef;
+  --color-rule: #e2cbd5;
+  --color-button-ink: #fdf5f8;
+  --color-warn: #a4553f;
+  --color-code-bg: #2e1f26;
+  --color-code-ink: #eed9e2;
+}

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="t3 d3">
+  <title id="t3">目录树与 pwd、ls、cd 三个命令</title>
+  <desc id="d3">左边是一棵目录树：C 盘下有 Users，Users 下有 alex，alex 是当前所在目录，它里面有 Documents、Downloads、Pictures 三个子目录，各自还有文件。右边是四个命令卡片：pwd 打印当前目录的完整路径，ls 列出当前目录里有什么，cd Documents 进入子目录，cd 加两个点回到上一级目录。</desc>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; }
+    .panel { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .title { font-size: 15px; font-weight: 700; fill: #276148; }
+    .tree { font-size: 14px; }
+    .here { fill: #a4553f; font-weight: 700; }
+    .card { fill: #edf3ee; stroke: #c8d3cb; stroke-width: 1.5; }
+    .cmd { font-size: 15px; font-weight: 700; fill: #276148; }
+    .what { font-size: 13.5px; }
+    .why { font-size: 13px; fill: #56625c; }
+  </style>
+
+  <rect class="panel" x="20" y="20" width="330" height="320" rx="8"/>
+  <text class="title" x="40" y="50">磁盘上的目录树</text>
+  <text class="tree mono" x="40" y="82">C:\</text>
+  <text class="tree mono" x="40" y="108">└─ Users</text>
+  <text class="tree mono" x="40" y="134">   └─ alex</text>
+  <text class="tree mono here" x="172" y="134">← 你在这里</text>
+  <text class="tree mono" x="40" y="160">      ├─ Documents</text>
+  <text class="tree mono" x="40" y="186">      │  ├─ notes.txt</text>
+  <text class="tree mono" x="40" y="212">      │  └─ report.md</text>
+  <text class="tree mono" x="40" y="238">      ├─ Downloads</text>
+  <text class="tree mono" x="40" y="264">      │  └─ setup.exe</text>
+  <text class="tree mono" x="40" y="290">      └─ Pictures</text>
+  <text class="tree mono" x="40" y="316">         └─ cat.jpg</text>
+
+  <rect class="card" x="370" y="20" width="330" height="72" rx="8"/>
+  <text class="cmd mono" x="390" y="48">pwd</text>
+  <text class="what" x="390" y="70">我在哪：打印当前目录的完整路径</text>
+  <text class="why mono" x="390" y="88">C:\Users\alex</text>
+
+  <rect class="card" x="370" y="100" width="330" height="72" rx="8"/>
+  <text class="cmd mono" x="390" y="128">ls</text>
+  <text class="what" x="390" y="150">这里有什么：列出当前目录的内容</text>
+  <text class="why mono" x="390" y="168">Documents  Downloads  Pictures</text>
+
+  <rect class="card" x="370" y="180" width="330" height="72" rx="8"/>
+  <text class="cmd mono" x="390" y="208">cd Documents</text>
+  <text class="what" x="390" y="230">去别处：进入指定的子目录</text>
+  <text class="why mono" x="390" y="248">C:\Users\alex\Documents</text>
+
+  <rect class="card" x="370" y="260" width="330" height="72" rx="8"/>
+  <text class="cmd mono" x="390" y="288">cd ..</text>
+  <text class="what" x="390" y="310">往回走：两个点代表上一级目录</text>
+  <text class="why mono" x="390" y="328">C:\Users\alex</text>
+</svg>

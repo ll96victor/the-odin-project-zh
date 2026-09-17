@@ -1,0 +1,217 @@
+{
+  "verifiedAt": "2026-09-09",
+  "courseUrl": "https://www.theodinproject.com/paths/foundations/courses/foundations",
+  "excludedBoundary": "https://www.theodinproject.com/lessons/foundations-recipes",
+  "method": "读取官方线上目录和全部 19 课正文，再核对官方 curriculum Markdown；sha256 为本次读取 Markdown 的摘要。",
+  "lessons": [
+    {
+      "order": 1,
+      "title": "How This Course Will Work",
+      "id": "how-this-course-will-work",
+      "url": "https://www.theodinproject.com/lessons/foundations-how-this-course-will-work",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/how_this_course_will_work.md",
+      "sha256": "67d649b15ce14d2f11a34ebe8d4f46930bc56e468803337da1593599721ec73e",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 2,
+      "title": "Introduction to Web Development",
+      "id": "introduction-to-web-development",
+      "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-web-development",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/introduction_to_web_development.md",
+      "sha256": "15516fb43ea8b4e9ca80495be45e80ae694c5fbdd8fc45d67cde6a40abc030e5",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 3,
+      "title": "Motivation and Mindset",
+      "id": "motivation-and-mindset",
+      "url": "https://www.theodinproject.com/lessons/foundations-motivation-and-mindset",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/motivation_and_mindset.md",
+      "sha256": "b823d2d5ae49e2c0304a6e70097d877aa66e10468f9cad4033b622d9f1d137b8",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 4,
+      "title": "Asking For Help",
+      "id": "asking-for-help",
+      "url": "https://www.theodinproject.com/lessons/foundations-asking-for-help",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/asking_for_help.md",
+      "sha256": "b9363e0d58bc5c1217439ff470b1f32b2ed414881ede19a6a15b433b5cca7b95",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 5,
+      "title": "Join the Odin Community",
+      "id": "join-the-odin-community",
+      "url": "https://www.theodinproject.com/lessons/foundations-join-the-odin-community",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/join_the_odin_community.md",
+      "sha256": "21ec5016df0142f01d1c84068e41242d0c6ee5726eef20e735e7c1ec7d2f3170",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 6,
+      "title": "How Does the Web Work?",
+      "id": "how-does-the-web-work",
+      "url": "https://www.theodinproject.com/lessons/foundations-how-does-the-web-work",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/how_does_the_web_work.md",
+      "sha256": "a2b61415e0f99792dd8f2151ca819714beb2a6cf1b075212a61a75cf2fa36e6d",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 7,
+      "title": "Installations",
+      "id": "installations",
+      "url": "https://www.theodinproject.com/lessons/foundations-installations",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/installations.md",
+      "sha256": "498a87c8a66f40ad9bb8a06834104a3ced53979b7229500aa492d3da85e7355e",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 8,
+      "title": "Text Editors",
+      "id": "text-editors",
+      "url": "https://www.theodinproject.com/lessons/foundations-text-editors",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/text_editors.md",
+      "sha256": "f310ff092d98fd3a8a1b3b9b6adf236518ab22dcfa13f10666aa642e05b18fd0",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 9,
+      "title": "Command Line Basics",
+      "id": "command-line-basics",
+      "url": "https://www.theodinproject.com/lessons/foundations-command-line-basics",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/command_line_basics.md",
+      "sha256": "b55c2407f0f1df9793f96823644ad22a78e53c6bbe319d2180c6cfc02914431a",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 10,
+      "title": "Setting up Git",
+      "id": "setting-up-git",
+      "url": "https://www.theodinproject.com/lessons/foundations-setting-up-git",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/setting_up_git.md",
+      "sha256": "d58a50f5062246d8f21442d2a33491d86a1750e732fdb514f430dd13a164cb56",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 11,
+      "title": "Introduction to Git",
+      "id": "introduction-to-git",
+      "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-git",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/git/foundations_git/introduction_to_git.md",
+      "sha256": "c8294bd368708276a0306b9a49b9971d0a3d913fec9d65f2a14ba9694c6fc847",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 12,
+      "title": "Git Basics",
+      "id": "git-basics",
+      "url": "https://www.theodinproject.com/lessons/foundations-git-basics",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/git/foundations_git/git_basics.md",
+      "sha256": "f0799bae4620e07c958070a6ae73479d5577ec1f00631e8c572c62f69eaf8712",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 13,
+      "title": "Introduction to HTML and CSS",
+      "id": "introduction-to-html-and-css",
+      "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-html-and-css",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/intro_to_html_css.md",
+      "sha256": "5b4fed2b946e308e8b2af30003504623922a6a911a0e39f9d10341559591a0be",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 14,
+      "title": "Elements and Tags",
+      "id": "elements-and-tags",
+      "url": "https://www.theodinproject.com/lessons/foundations-elements-and-tags",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/elements_and_tags.md",
+      "sha256": "043a63a046152cbcaaf2976386f8b43c0ef5687c8033ef223dea03a0a1762190",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 15,
+      "title": "HTML Boilerplate",
+      "id": "html-boilerplate",
+      "url": "https://www.theodinproject.com/lessons/foundations-html-boilerplate",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/html_boilerplate.md",
+      "sha256": "aca920f0cda981bff27b772847413476d139192833b983df25b082197c01dd23",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 16,
+      "title": "Working with Text",
+      "id": "working-with-text",
+      "url": "https://www.theodinproject.com/lessons/foundations-working-with-text",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/working_with_text.md",
+      "sha256": "0fc721eab0f2faef475222363596fc69290ab1566c78b64890f89a612b0440ae",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 17,
+      "title": "Lists",
+      "id": "lists",
+      "url": "https://www.theodinproject.com/lessons/foundations-lists",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/lists.md",
+      "sha256": "46b6fdddaddcd9d940edf06527f8101e9a53e52c36ab5df25c78a81a2d0fcaec",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 18,
+      "title": "Links and Images",
+      "id": "links-and-images",
+      "url": "https://www.theodinproject.com/lessons/foundations-links-and-images",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/links_and_images.md",
+      "sha256": "1d439ea2a20e55f449814ca86c7bbfe3d228dc4fa06d2075a4140b9a4027b012",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 19,
+      "title": "Commit Messages",
+      "id": "commit-messages",
+      "url": "https://www.theodinproject.com/lessons/foundations-commit-messages",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/git/foundations_git/commit_messages.md",
+      "sha256": "0df78378e6c5c60d84781c08d49f6e1ab21cc0fd02b25578659a37d5d5637d1a",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    }
+  ]
+}

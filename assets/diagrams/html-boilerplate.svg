@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="396" viewBox="0 0 760 396" role="img" aria-labelledby="t7 d7">
+  <title id="t7">HTML 文档骨架：每一行是干什么的</title>
+  <desc id="d7">左边是一份最小的 HTML 文档骨架代码，从上到下依次是 DOCTYPE 声明、html 根元素、head 里的 meta charset 与 title、body 里的 h1 与 p，最后是闭合的 body 与 html。右边逐行解释：DOCTYPE 声明这是 HTML5 文档且不是标签；html 是包住整个页面的根元素，lang 属性告诉浏览器页面语言；head 里放给浏览器和搜索引擎看的信息，不显示在页面上；meta charset 决定字符编码，缺了中文容易乱码；title 显示在浏览器标签页与搜索结果上；body 里放用户真正看到的全部内容。</desc>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; }
+    .panel { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .colhead { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .code { font-size: 13.5px; }
+    .struct { fill: #276148; font-weight: 700; }
+    .ann { font-size: 12.5px; fill: #56625c; }
+    .annkey { font-size: 12.5px; fill: #276148; font-weight: 700; }
+    .divider { stroke: #c8d3cb; stroke-width: 1; stroke-dasharray: 4 4; }
+  </style>
+
+  <rect class="panel" x="20" y="18" width="720" height="358" rx="8"/>
+  <text class="colhead" x="40" y="46">代码</text>
+  <text class="colhead" x="300" y="46">这一行是干什么的</text>
+  <path class="divider" d="M286,58 L286,352"/>
+
+  <text class="code mono" x="40" y="76">&lt;!DOCTYPE html&gt;</text>
+  <text class="annkey" x="300" y="76">声明这是 HTML5 文档；它不是标签，没有结束标签</text>
+
+  <text class="code mono struct" x="40" y="102">&lt;html lang="zh-CN"&gt;</text>
+  <text class="annkey" x="300" y="102">根元素，包住整个页面；lang 说明页面用的是哪种语言</text>
+
+  <text class="code mono struct" x="40" y="128">&#160;&#160;&lt;head&gt;</text>
+  <text class="annkey" x="300" y="128">头部：给浏览器与搜索引擎看的信息，不显示在页面上</text>
+
+  <text class="code mono" x="40" y="154">&#160;&#160;&#160;&#160;&lt;meta charset="UTF-8"&gt;</text>
+  <text class="ann" x="300" y="154">字符编码。缺了这一行，中文很容易显示成乱码</text>
+
+  <text class="code mono" x="40" y="180">&#160;&#160;&#160;&#160;&lt;title&gt;页面标题&lt;/title&gt;</text>
+  <text class="ann" x="300" y="180">显示在浏览器标签页和搜索结果上，不显示在页面正文里</text>
+
+  <text class="code mono struct" x="40" y="206">&#160;&#160;&lt;/head&gt;</text>
+
+  <text class="code mono struct" x="40" y="232">&#160;&#160;&lt;body&gt;</text>
+  <text class="annkey" x="300" y="232">主体：你在页面上真正看到的全部内容都写在这里</text>
+
+  <text class="code mono" x="40" y="258">&#160;&#160;&#160;&#160;&lt;h1&gt;你好&lt;/h1&gt;</text>
+  <text class="ann" x="300" y="258">一级标题，通常一个页面只有一个</text>
+
+  <text class="code mono" x="40" y="284">&#160;&#160;&#160;&#160;&lt;p&gt;这是一段文字。&lt;/p&gt;</text>
+  <text class="ann" x="300" y="284">段落，正文里最常见的元素</text>
+
+  <text class="code mono struct" x="40" y="310">&#160;&#160;&lt;/body&gt;</text>
+
+  <text class="code mono struct" x="40" y="336">&lt;/html&gt;</text>
+  <text class="ann" x="300" y="336">根元素结束，整份文档到此为止</text>
+
+  <text class="ann" x="40" y="366">这 11 行就是每一个 HTML 页面都要有的骨架；编辑器一般能一条命令生成，但你得知道每行的作用。</text>
+</svg>

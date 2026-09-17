@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="432" viewBox="0 0 720 432" role="img" aria-labelledby="t8 d8">
+  <title id="t8">绝对 URL、相对路径与图片路径</title>
+  <desc id="d8">三个部分。第一部分解释绝对 URL：一个完整地址由协议、域名和路径三段组成，可以指向互联网上任何地方。第二部分解释相对路径：假设当前文件是 /courses/html/index.html，写 about.html 或 ./about.html 都指向同目录下的 /courses/html/about.html，写 ../css/style.css 会先回到上一级、指向 /courses/css/style.css，以斜杠开头的 /images/cat.jpg 则从网站根目录算起。第三部分解释图片路径：img 元素的 src 属性用的就是同一套路径规则，并给出记法：以斜杠开头从网站根目录算，不以斜杠开头从当前文件所在目录算，两个点表示上一级。</desc>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #25312c; }
+    .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; }
+    .panel { fill: #fafbf9; stroke: #c8d3cb; stroke-width: 1.5; }
+    .title { font-size: 14.5px; font-weight: 700; fill: #276148; }
+    .code { font-size: 13px; }
+    .ctx { font-size: 12.5px; fill: #56625c; }
+    .ann { font-size: 12.5px; fill: #56625c; }
+    .seg { stroke: #a4553f; stroke-width: 1.5; fill: none; }
+    .segtext { font-size: 12px; fill: #a4553f; font-weight: 700; }
+    .arrowtext { font-size: 13px; fill: #276148; }
+    .keyline { font-size: 12.5px; }
+  </style>
+
+  <rect class="panel" x="20" y="18" width="680" height="114" rx="8"/>
+  <text class="title" x="40" y="44">绝对 URL：完整地址，可以指向互联网上的任何地方</text>
+  <text class="code mono" x="40" y="72">https://www.theodinproject.com/lessons/foundations-links-and-images</text>
+  <path class="seg" d="M40,82 L40,88 L98,88 L98,82"/>
+  <path class="seg" d="M98,82 L98,92 L256,92 L256,82"/>
+  <path class="seg" d="M256,82 L256,96 L522,96 L522,82"/>
+  <text class="segtext" x="69" y="112" text-anchor="middle">协议</text>
+  <text class="segtext" x="177" y="118" text-anchor="middle">域名（哪台服务器）</text>
+  <text class="segtext" x="389" y="122" text-anchor="middle">路径（服务器上的哪一个文件）</text>
+
+  <rect class="panel" x="20" y="144" width="680" height="164" rx="8"/>
+  <text class="title" x="40" y="170">相对路径：从当前这个文件出发，只用在同一个网站内部</text>
+  <text class="ctx mono" x="40" y="194">当前文件：/courses/html/index.html</text>
+  <text class="code mono" x="40" y="220">about.html</text>
+  <text class="arrowtext" x="172" y="220">→</text>
+  <text class="code mono" x="196" y="220">/courses/html/about.html</text>
+  <text class="ann" x="392" y="220">同一目录，直接写文件名</text>
+  <text class="code mono" x="40" y="244">./about.html</text>
+  <text class="arrowtext" x="172" y="244">→</text>
+  <text class="code mono" x="196" y="244">/courses/html/about.html</text>
+  <text class="ann" x="392" y="244">点斜杠就是“当前目录”，结果相同</text>
+  <text class="code mono" x="40" y="268">../css/style.css</text>
+  <text class="arrowtext" x="172" y="268">→</text>
+  <text class="code mono" x="196" y="268">/courses/css/style.css</text>
+  <text class="ann" x="392" y="268">两个点先回到上一级目录</text>
+  <text class="code mono" x="40" y="292">/images/cat.jpg</text>
+  <text class="arrowtext" x="172" y="292">→</text>
+  <text class="code mono" x="196" y="292">/images/cat.jpg</text>
+  <text class="ann" x="392" y="292">以斜杠开头：从网站根目录算起</text>
+
+  <rect class="panel" x="20" y="320" width="680" height="100" rx="8"/>
+  <text class="title" x="40" y="346">图片路径：img 的 src 用的就是同一套路径规则</text>
+  <text class="code mono" x="40" y="374">&lt;img src="images/cat.jpg" alt="一只猫"&gt;</text>
+  <text class="ann" x="382" y="368">images/cat.jpg 是相对路径：先在当前目录下</text>
+  <text class="ann" x="382" y="388">找 images 文件夹，再找里面的 cat.jpg。</text>
+  <text class="keyline" x="40" y="410">记法：以 / 开头从网站根目录算；不以 / 开头从当前文件所在目录算；.. 表示上一级。</text>
+</svg>
