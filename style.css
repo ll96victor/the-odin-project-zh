@@ -157,6 +157,14 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 .resource-zh-type { flex: 1 0 100%; margin: 0; color: var(--color-muted); font-size: var(--text-small); overflow-wrap: anywhere; }
 .resource-license { margin: var(--space-sm) 0 0; font-size: var(--text-small); overflow-wrap: anywhere; }
 .resource-note { margin: var(--space-xs) 0 0; padding: var(--space-sm); background: var(--color-wash); border-left: 3px solid var(--color-warn); border-radius: var(--radius-small); font-size: var(--text-small); overflow-wrap: anywhere; }
+/* v4.11.1 C 档：CC 许可来源的本站中文精译区块（静态展开，与资源卡既有纪律一致）。
+ * 与 .resource-note 同构但用 accent 左边线：warn 色留给「核验说明」，品牌色标识「本站译文」。 */
+.resource-translation { margin-top: var(--space-md); padding: var(--space-sm) var(--space-md); background: var(--color-wash); border-left: 3px solid var(--color-accent); border-radius: var(--radius-small); overflow-wrap: anywhere; }
+.resource-translation-title { margin: 0; font-weight: 700; }
+.resource-translation-h { margin: var(--space-sm) 0 0; font-weight: 700; }
+.resource-translation p { margin: var(--space-xs) 0 0; }
+.resource-translation-list { margin: var(--space-xs) 0 0; padding-left: 1.2rem; }
+.resource-translation-list li { margin-bottom: var(--space-xs); }
 @media (min-width: 40rem) {
   .resource-guide { grid-template-columns: minmax(7rem, auto) minmax(0, 1fr); }
   .resource-guide dt { grid-column: 1; }

@@ -134,6 +134,8 @@ RES.forEach(r => {
   assert.ok(Array.isArray(r.zhGuide.points) && r.zhGuide.points.length >= 2, `${r.title} 的中文要点至少 2 条`);
   assert.ok(Array.isArray(r.zhGuide.terms) && r.zhGuide.terms.length >= 1, `${r.title} 至少给出 1 个重要英文词`);
   r.zhGuide.points.forEach(p => assert.ok(typeof p === 'string' && p.length > 10, `${r.title} 的要点为有意义的中文句子`));
+  /* v4.11.1 B 档：每条资源都有中文速览 overview——沿用 points 的「有意义的中文句子」同类标准 */
+  assert.ok(typeof r.zhGuide.overview === 'string' && r.zhGuide.overview.trim().length > 10, `${r.title} 缺少有意义的 zhGuide.overview 中文速览`);
   /* zhUrl 与 zhType 必须成对：给出中文地址就必须说明它的性质，反之亦然 */
   assert.ok(r.zhUrl === null || typeof r.zhUrl === 'string', `${r.title} 的 zhUrl 为字符串或 null`);
   assert.ok(r.zhType === null || typeof r.zhType === 'string', `${r.title} 的 zhType 为字符串或 null`);
@@ -180,18 +182,108 @@ RES.filter(r => r.type === '视频').forEach(r => {
     `视频《${r.title}》的导读未声称有中文字幕`);
 });
 
-/* §3.3 不使用 iframe、不代理网页、不注入第三方页面；处理方式一律为仅链接 */
-assert.ok(RES.every(r => r.handling === 'link-only'), '所有资源的处理方式均为 link-only');
+/* §3.3 不使用 iframe、不代理网页、不注入第三方页面。
+ * v4.11.1（C3）：handling 允许两个值——link-only（只链接与本站原创导读）与
+ * zh-translation（对许可明确为 CC 系列的来源提供本站中文精译，译文采用与原作
+ * 相同的 CC 许可并带署名）。精译是本站的译文内容，不改变“不代理、不 iframe、
+ * 不注入第三方页面”的边界；除这两个值外不得出现其他处理方式。 */
+assert.ok(RES.every(r => ['link-only', 'zh-translation'].includes(r.handling)), '所有资源的处理方式为 link-only 或 zh-translation，不得为其他值');
+/* handling 与数据一致：当且仅当条目带有 zhTranslation 时才允许标 zh-translation */
+RES.forEach(r => {
+  assert.equal(Boolean(r.zhTranslation), r.handling === 'zh-translation', `${r.title}: handling 与 zhTranslation 存在性一致`);
+});
+
+/* ===== v4.11.1 C 档：中文精译的完整性与范围纪律 ===== */
+const TRANSLATED = RES.filter(r => r.handling === 'zh-translation');
+assert.equal(TRANSLATED.length, 14, 'zh-translation 共 14 条（15 条 CC 且无官方中文版中，shell-lesson-data.zip 为二进制数据文件无文本可译，保持 link-only）');
+assert.equal(resourceData.stats.withTranslation, TRANSLATED.length, 'stats.withTranslation 与实际精译条数一致');
+TRANSLATED.forEach(r => {
+  const t = r.zhTranslation;
+  /* C2：每篇精译必须带署名与来源标注、相同 CC 许可声明、译者与修改说明 */
+  for (const f of ['attribution', 'licenseNote', 'translatorNote', 'modifications']) {
+    assert.ok(typeof t[f] === 'string' && t[f].trim(), `${r.title}: zhTranslation.${f} 非空`);
+  }
+  assert.ok(['full', 'core'].includes(t.kind), `${r.title}: kind 为 full 或 core`);
+  assert.ok(/CC/.test(t.licenseNote) && /相同/.test(t.licenseNote), `${r.title}: 许可声明写明采用与原作相同的 CC 许可`);
+  assert.ok(Array.isArray(t.body) && t.body.length >= 3 && t.body.every(line => typeof line === 'string' && line.trim()), `${r.title}: body 为不少于 3 行的非空字符串数组`);
+  /* C4：只有许可明确为 CC 系列的条目才允许精译 */
+  assert.ok(/CC[ -]?BY/i.test(r.license), `${r.title}: 仅许可明确为 CC 系列的条目可为 zh-translation`);
+  /* 已有官方中文版的条目不需要本站译文（官方中文版优先） */
+  assert.equal(r.zhUrl, null, `${r.title}: zh-translation 条目应无官方中文版（有则应直接给官方链接）`);
+});
+/* C4 反向：许可未明确 CC 的条目一律保持 link-only、不得携带译文 */
+RES.filter(r => !/CC[ -]?BY/i.test(r.license)).forEach(r => {
+  assert.equal(r.handling, 'link-only', `${r.title}: 许可未明确为 CC 的条目保持 link-only`);
+  assert.ok(!r.zhTranslation, `${r.title}: 许可未明确为 CC 的条目不得携带译文`);
+});
+
+/* ===== v4.11.1 A1 数据前提：受限地址可精确匹配、恰好分布于 3 课 ===== */
+const LIMITED = resourceData.audit.verifyLimitedUrls;
+assert.ok(Array.isArray(LIMITED) && LIMITED.length === 5, 'verifyLimitedUrls 共 5 条');
+LIMITED.forEach(entry => {
+  const url = entry.split('（')[0];
+  assert.ok(RES.some(r => r.originalUrl === url), `受限地址 ${url} 能按全角括号前缀与某条资源 originalUrl 精确匹配`);
+});
+const limitedLessons = new Set();
+RES.forEach(r => { if (LIMITED.some(e => e.split('（')[0] === r.originalUrl)) limitedLessons.add(r.lessonId); });
+assert.deepEqual([...limitedLessons].sort(), ['html-boilerplate', 'join-the-odin-community', 'links-and-images'],
+  '受限条目恰好分布于 3 课——「按课显示提示」的数据前提');
 const resourceSource = fs.readFileSync(path.join(root, 'external-resources.js'), 'utf8');
 assert.ok(!/\bfetch\(|XMLHttpRequest|innerHTML|<iframe/.test(resourceSource), 'external-resources.js 不联网、不使用 innerHTML、不含 iframe');
 /* §2.2 清单是公开教学数据，不得夹带任何账号凭据值 */
 assert.ok(!/document\.cookie/.test(resourceSource), 'external-resources.js 不读写 cookie');
 assert.ok(!/(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|xox[baprs]-[A-Za-z0-9-]{10,})/.test(resourceSource), '清单中不含任何真实 token');
-/* 沿用全站繁体保险，覆盖新增的中文导读文本 */
-const resourceChinese = RES.map(r => r.titleZh + JSON.stringify(r.zhGuide) + r.note).join('');
+/* 沿用全站繁体保险，覆盖新增的中文导读文本与 v4.11.1 的速览 / 精译文本 */
+const resourceChinese = RES.map(r => r.titleZh + JSON.stringify(r.zhGuide) + JSON.stringify(r.zhTranslation || '') + r.note).join('');
 TRADITIONAL_CHARS.split('').forEach(ch => {
-  assert.ok(!resourceChinese.includes(ch), `外部资料导读未使用繁体字「${ch}」`);
+  assert.ok(!resourceChinese.includes(ch), `外部资料导读与译文未使用繁体字「${ch}」`);
 });
 assert.ok(!fs.existsSync(path.join(root, 'package.json')), '无构建与运行依赖');
+
+/* ===== v4.11.1 渲染验证：A1 按课提示 / B 档速览 / C 档译文（dom-stub 真实挂载路径） ===== */
+const { newPage, makeStorage, collectByClass } = require('./dom-stub.cjs');
+const textOf = el => (!el ? '' : el._text ? el._text : (el.childNodes || []).map(textOf).join(''));
+const mountLesson = id => newPage({ storage: makeStorage(), page: 'lesson', search: `?id=${id}`, href: `http://127.0.0.1:8765/lesson.html?id=${id}` });
+const noticeTexts = page => collectByClass(page.dom.body, 'notice').map(textOf).filter(t => t.includes('自动核验受限'));
+
+/* A1：本课有受限条目 → 恰有一条提示，措辞与本课一致，不再出现全局「以上 5 条」 */
+{
+  const page = mountLesson('join-the-odin-community');
+  const notices = noticeTexts(page);
+  assert.equal(notices.length, 1, 'join-the-odin-community 恰有一条自动核验受限提示');
+  assert.ok(notices[0].includes('本课 3 条'), '提示措辞点名本课 3 条');
+  assert.ok(!notices[0].includes('以上 5 条'), '提示不再使用全局措辞「以上 5 条」');
+  const page2 = mountLesson('html-boilerplate');
+  assert.equal(noticeTexts(page2).length, 1, 'html-boilerplate 恰有一条提示');
+  assert.ok(noticeTexts(page2)[0].includes('本课 1 条'), 'html-boilerplate 提示点名本课 1 条');
+}
+/* A1：本课无受限条目 → 无提示（这是本轮修复的直接证明——修复前 19 课全部显示） */
+for (const id of ['how-this-course-will-work', 'working-with-text', 'commit-messages']) {
+  assert.equal(noticeTexts(mountLesson(id)).length, 0, `${id} 无受限条目则无提示`);
+}
+/* B 档：速览渲染为导读 dl 的第一行；C 档：译文块静态展开且署名可见 */
+{
+  const page = mountLesson('how-this-course-will-work');
+  const dls = collectByClass(page.dom.body, 'resource-guide');
+  assert.equal(dls.length, 2, '课01 两张资料卡');
+  dls.forEach(dl => {
+    const dtTexts = dl.childNodes.filter(n => n.tagName === 'DT').map(textOf);
+    assert.equal(dtTexts[0], '中文速览', '导读第一行是中文速览');
+  });
+  const trs = collectByClass(page.dom.body, 'resource-translation');
+  assert.equal(trs.length, 2, '课01 两条 CC 条目都有译文块');
+  const firstText = textOf(trs[0]);
+  assert.ok(firstText.includes('署名与来源：'), '译文块含署名与来源标注');
+  assert.ok(firstText.includes('许可声明：') && firstText.includes('相同的'), '译文块含相同许可声明');
+  assert.ok(firstText.includes('译者说明：') && firstText.includes('修改说明：'), '译文块含译者与修改说明');
+  /* 译文块不得引入 details/summary（browser-smoke 钉住课页 details 数 = quiz 数；资源卡纪律为静态展开） */
+  let detailsInTranslation = 0;
+  const walk = n => { if (n.tagName === 'DETAILS' || n.tagName === 'SUMMARY') detailsInTranslation += 1; (n.childNodes || []).forEach(walk); };
+  trs.forEach(walk);
+  assert.equal(detailsInTranslation, 0, '译文块零 details/summary');
+}
+/* C 档反向：无 CC 精译条目的课不渲染译文块 */
+assert.equal(collectByClass(mountLesson('working-with-text').dom.body, 'resource-translation').length, 0, '课16 无译文块');
+
 const quizTotal = data.lessons.reduce((n, l) => n + l.quiz.length, 0);
-console.log(`通过：19 课顺序与来源、每课六类内容、${quizTotal} 道自测、${V2_LESSONS.length} 课 v2 自足讲解格式与繁体保险、重点任务及范围边界、本地资源和无构建依赖、${RES.length} 条外部资料（其中 ${resourceData.stats.withZh} 条有已核验中文版、${resourceData.stats.guideOnly} 条为本站中文导读 + 英文原文）。`);
+console.log(`通过：19 课顺序与来源、每课六类内容、${quizTotal} 道自测、${V2_LESSONS.length} 课 v2 自足讲解格式与繁体保险、重点任务及范围边界、本地资源和无构建依赖、${RES.length} 条外部资料（其中 ${resourceData.stats.withZh} 条有已核验中文版、${resourceData.stats.guideOnly} 条为本站中文导读 + 英文原文；${RES.length} 条全部带中文速览、${TRANSLATED.length} 条 CC 来源带本站中文精译；A1 受限提示按课渲染已验证）。`);

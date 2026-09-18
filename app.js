@@ -5834,6 +5834,9 @@
 
     const guide = node('dl', undefined, 'resource-guide');
     const guideRow = (term, value) => { guide.append(node('dt', term), value); };
+    /* v4.11.1 B 档：中文速览——一段连贯的中文概览，让读者不点开外链也知道这篇讲什么、
+     * 为什么要读。放在导读 dl 的第一行；字段缺失时静默跳过（数据分批补齐期间的兼容）。 */
+    if (resource.zhGuide.overview) guideRow('中文速览', node('dd', resource.zhGuide.overview));
     guideRow('为什么要看', node('dd', resource.zhGuide.why));
     const pointsValue = node('dd');
     pointsValue.append(list(resource.zhGuide.points));
@@ -5844,6 +5847,37 @@
     guideRow('阅读 / 观看重点', node('dd', resource.zhGuide.focus));
     guideRow('看完应理解', node('dd', resource.zhGuide.takeaway));
     card.append(guide);
+
+    /* v4.11.1 C 档：CC 许可来源的本站中文精译。静态展开，不使用 details/summary
+     * 折叠——资源卡既有纪律是静态展开，且 browser-smoke 钉住「课页 details 数量 =
+     * quiz 数量」，卡片里加 summary 会破坏这两条。
+     * body 行前缀规则（与数据文件约定一致）：'# ' → 小节标题；'- ' → 列表项
+     * （连续行合并为一个 ul）；其余 → 段落。全部经 textContent 渲染，无标记注入。
+     * 署名 / 许可声明 / 译者与修改说明按 C2 要求逐条渲染在译文之后。 */
+    if (resource.zhTranslation) {
+      const translation = resource.zhTranslation;
+      const box = node('div', undefined, 'resource-translation');
+      box.append(node('p', `本站中文精译：${resource.titleZh}`, 'resource-translation-title'));
+      let bulletList = null;
+      translation.body.forEach(line => {
+        if (line.startsWith('- ')) {
+          if (!bulletList) {
+            bulletList = node('ul', undefined, 'resource-translation-list');
+            box.append(bulletList);
+          }
+          bulletList.append(node('li', line.slice(2)));
+          return;
+        }
+        bulletList = null;
+        if (line.startsWith('# ')) box.append(node('p', line.slice(2), 'resource-translation-h'));
+        else box.append(node('p', line));
+      });
+      box.append(node('p', `署名与来源：${translation.attribution}`, 'meta'));
+      box.append(node('p', `许可声明：${translation.licenseNote}`, 'meta'));
+      box.append(node('p', `译者说明：${translation.translatorNote}`, 'meta'));
+      box.append(node('p', `修改说明：${translation.modifications}`, 'meta'));
+      card.append(box);
+    }
 
     const links = node('div', undefined, 'resource-links');
     if (resource.zhUrl) {
@@ -5868,10 +5902,24 @@
     const withZh = items.filter(resource => resource.zhUrl).length;
     const block = [];
     block.push(node('h3', `本课外部资料（本站中文辅助 · ${items.length} 条）`));
-    block.push(node('p', '以下是官方原课在正文、Assignment 与 Knowledge Check 中明确要求学习的外部资料。本站只做中文辅助入口与本站原创导读，不搬运、不整篇翻译第三方内容；链接一律在新标签页打开，打开后会离开本站。', 'muted'));
+    block.push(node('p', '以下是官方原课在正文、Assignment 与 Knowledge Check 中明确要求学习的外部资料。本站提供中文辅助入口与本站原创导读；对许可明确为 CC 系列且没有官方中文版的来源，本站另提供采用与原作相同许可的中文精译（卡内附署名与来源标注）；其余第三方内容不搬运、不翻译，只做原创导读与原文链接。链接一律在新标签页打开，打开后会离开本站。', 'muted'));
     block.push(node('p', `其中 ${withZh} 条有已核验的官方中文版，另外 ${items.length - withZh} 条没有可靠中文版，只提供本站中文导读要点加英文原文链接。全部地址已于 ${resourceData.verifiedAt} 逐条核验：先看 HTTP 状态码，再看重定向后的目标是否仍是同一主题，最后做内容级语言核验（统计正文汉字数与标题，不只看状态码是否为 200）；视频另用 YouTube oEmbed 接口核验可用性与真实标题。`, 'meta'));
-    if (resourceData.audit && resourceData.audit.verifyLimitedNote) {
-      block.push(node('p', `自动核验受限：${resourceData.audit.verifyLimitedNote}`, 'notice'));
+    /* v4.11.1 A1：受限核验提示按课显示。
+     * 旧实现无条件渲染全局 verifyLimitedNote（“以上 5 条……”），但那 5 条受限地址
+     * 实际只分属 3 课的资源，其余 16 课页面上的“以上”指向不存在的条目。
+     * 现按当前课资源与 audit.verifyLimitedUrls 求交集：只在本课确有受限条目时显示，
+     * 且措辞点名本课的具体资源，不再引用全局条数。
+     * verifyLimitedUrls 条目格式为“URL（情况说明）”——URL 与全角括号之间没有空格，
+     * 且 URL 本身不含全角括号，按第一个“（”截取首段即可与资源 originalUrl 精确匹配。
+     * 三种情形全覆盖：本课有受限条目 → 显示；本课无受限条目 → 不显示；
+     * 全局无受限条目（verifyLimitedUrls 缺失或为空数组）→ 交集必为空，不显示。
+     * audit.verifyLimitedNote 字段保留在数据文件中作为全局审计记录，不再直接渲染。 */
+    if (resourceData.audit && Array.isArray(resourceData.audit.verifyLimitedUrls)) {
+      const limitedHere = items.filter(resource =>
+        resourceData.audit.verifyLimitedUrls.some(entry => entry.split('（')[0] === resource.originalUrl));
+      if (limitedHere.length) {
+        block.push(node('p', `自动核验受限：本课 ${limitedHere.length} 条（${limitedHere.map(resource => resource.titleZh).join('、')}）无法用命令行自动确认可达性，未声称为“已验证可访问”，已在各自卡片的核验说明中如实记录。这些地址均直接取自官方 Markdown 原文，本站未做替换。`, 'notice'));
+      }
     }
     const cards = node('ul', undefined, 'resource-list');
     items.forEach(resource => cards.append(buildResourceCard(resource)));
