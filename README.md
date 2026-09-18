@@ -98,7 +98,7 @@ tests/                          Node 测试 + Python 服务冒烟 + 官方链接
 sources.json                    19 课官方原文 SHA-256 指纹（内容核对用）
 ```
 
-跑测试同样零依赖：`node tests/<名称>.test.cjs`（35 个）、`python tests/serve_test.py`；`python -X utf8 tests/check_links.py` 会联网核验官方课程链接。
+跑测试同样零依赖：`node tests/<名称>.test.cjs`（38 个）、`python tests/serve_test.py`；`python -X utf8 tests/check_links.py` 会联网核验官方课程链接。
 
 ## License 与 Sources
 
@@ -114,6 +114,7 @@ sources.json                    19 课官方原文 SHA-256 指纹（内容核对
 - 只有 Foundations 前 19 课有中文内容；后续课程（Recipes 起）与其他 World 尚未开放，扩展会按官方课程逐课核对推进。
 - 学习数据绑定浏览器与打开地址，跨设备只能靠导出 / 导入档案手动搬。
 - 刻意保持纯静态、本地优先：不计划引入框架、构建工具、后端或账号体系。
+- **已知问题**：深色主题下首页路线预览条的绿色状态文字对比度约 3.2:1，低于无障碍正文 4.5:1 的通行标准（夜空 3.2:1 / 石墨 3.26:1）。不影响功能与可点击性，后续版本评估是否调整。
 
 ## 参与贡献
 

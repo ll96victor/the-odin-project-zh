@@ -358,4 +358,111 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
   assert.ok(Logic.ACHIEVEMENT_CATEGORIES.some(category => category.id === 'boss'), check('成就类别表含 boss'));
 }
 
-console.log(`通过：Foundations 地图与 Boss 挑战 ${checks} 项断言（节点五阶状态推导、46 节点总地图、Boss 入口只在已开放单元、题库全部来自本站已讲课程、评分四档压线边界、同日幂等防刷、首战基线固定、submitBoss 集成解锁成就与晋升、预检口径、goalProgress 指标、无远程引用）。`);
+/* ===================== v4.11 补丁：已破甲 / 已击破 必须可区分 =====================
+ * 证明的验收标准：Foundations 地图路线上「已破甲（只勾了本课完成）」与
+ * 「已击破（完成 + 官方任务 + 本站自测三项齐全）」在**颜色**上可区分，而
+ * **几何零改动**（节点尺寸 / 间距 / gap 环外径 / 层级全部不变）。
+ *
+ * 为什么要这一组：Sprout Signal 段曾把 is-broken 与 is-defeated 合并成同一条规则，
+ * 而 base 规则原本留给击破的金色描边又被 .foundation-map 的纸色 gap 环按特异性盖掉；
+ * 真实浏览器实测两个状态的 background / border-color / box-shadow / color 逐项相同。
+ * 纯逻辑测试（本文件上面那些）查不出这类问题——它们只看状态推导、不看渲染。
+ * 这一组把「两个状态必须有不同的有效颜色声明、且差异只落在颜色上」钉成回归网。 */
+{
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const patchStart = css.indexOf('v4.11 补丁：Foundations 地图');
+  assert.ok(patchStart > 0, check('补丁段存在（地图节点状态色）'));
+  const patch = css.slice(patchStart);
+  const patchRules = patch.split('\n').filter(line => /^\s*\.map-node\.is-defeated/.test(line));
+
+  /* ---------- 1. 旧的合并规则必须已经消失 ---------- */
+  assert.equal(css.indexOf('.map-node.is-broken, .map-node.is-defeated'), -1,
+    check('旧合并规则已拆掉——两个状态不再共用同一条声明（回退到同色会立刻红）'));
+  assert.equal(patchRules.length, 1,
+    check('补丁只新增 1 条规则（一条就够：它的特异性天然压过 .foundation-map 的纸环，不必写上下文特例）'));
+
+  /* ---------- 2. 已破甲 = 纯绿实心（生效的那条是文件里最后一个 .is-broken 声明） ----------
+   * 注意：`.map-node.is-broken` 在文件里有两处——base 规则（accent 底，v4.3 原版）与
+   * Sprout Signal 段（绿底，现行）。生效的是最后一条，所以要取 last，不能取第一个匹配。 */
+  const brokenRules = [...css.matchAll(/\.map-node\.is-broken \{([^}]*)\}/g)];
+  assert.ok(brokenRules.length >= 2,
+    check(`已破甲在文件里有两处声明（base 与 Sprout Signal，count=${brokenRules.length}），取最后一条生效`));
+  const broken = brokenRules[brokenRules.length - 1][1];
+  assert.ok(broken.includes('background: #3f7b58'), check('已破甲：绿实心 #3f7b58'));
+  assert.ok(broken.includes('border-color: #3f7b58'), check('已破甲：描边同为绿（纯绿一档，没有金色）'));
+  assert.ok(!broken.includes('#d4af37'), check('已破甲不含金色——金色专属「已击破」及以上'));
+
+  /* ---------- 3. 已击破 = 绿实心 + 金环（底色与描边不动，只换 gap 环） ---------- */
+  const defeated = /\.map-node\.is-defeated:not\(\.is-current\) \{([^}]*)\}/.exec(patch)[1];
+  assert.ok(defeated.includes('background: #3f7b58'), check('已击破：底色仍是绿实心（不换底色，只在绿上加金）'));
+  assert.ok(defeated.includes('border-color: #3f7b58'), check('已击破：描边仍是绿——绿色本体不变，区分靠外圈金环'));
+  assert.ok(/box-shadow:\s*0 0 0 3px #d4af37/.test(defeated), check('已击破：gap 环换成金色 #d4af37（金环）'));
+  assert.ok(!defeated.includes('var(--color-paper)'),
+    check('已击破的 gap 环不再用纸色——纸色环在浅底上等于隐形，那正是它被击破与击破混同的原因之一'));
+
+  /* ---------- 4. 两个状态的有效颜色声明确实不同（这条直接对应「看不看得出来」） ---------- */
+  const colorDecls = decl => (decl.match(/(?:background|border-color|box-shadow|color):[^;]+/g) || [])
+    .map(item => item.trim()).join(' | ');
+  assert.notEqual(colorDecls(broken), colorDecls(defeated),
+    check('两个状态的颜色声明集合不同（不再是同一套值）'));
+  assert.ok(/border-color:\s*#3f7b58/.test(colorDecls(broken))
+    && /box-shadow:\s*0 0 0 3px #d4af37/.test(colorDecls(defeated)),
+    check('差异落在外圈：破甲无金环、击破有金环（填充同为绿，靠金环区分）'));
+
+  /* ---------- 5. 只改颜色：规则里不许出现其它几何属性 ---------- */
+  const geometry = /(?:^|;)\s*(width|height|min-width|min-height|padding|margin|inset|top|right|bottom|left|position|transform|border-width|border-style|border-radius|font-size|gap|flex)\s*:/;
+  assert.ok(!geometry.test(defeated),
+    check('已击破的补丁规则零几何属性——只改颜色，不改尺寸 / 位置 / 描边宽度'));
+  assert.ok(!geometry.test(broken), check('已破甲的规则同样零几何属性'));
+
+  /* ---------- 6. 环宽与既有纸色 gap 环逐字一致（这才叫「外径没被撑大」） ---------- */
+  const ringWidth = ruleText => {
+    const m = /box-shadow:\s*0 0 0 (\d+)px/.exec(ruleText);
+    return m ? Number(m[1]) : null;
+  };
+  const existingRings = [...css.matchAll(/\.foundation-map \.map-node \{ box-shadow: 0 0 0 (\d+)px var\(--color-paper\); \}/g)]
+    .map(m => Number(m[1]));
+  assert.ok(existingRings.length >= 1, check('既有 Foundations 纸色 gap 环规则在位'));
+  const effectiveRing = existingRings[existingRings.length - 1];
+  assert.equal(ringWidth(defeated), effectiveRing,
+    check(`补丁金环 ${ringWidth(defeated)}px 与既有生效纸环 ${effectiveRing}px 同宽——外径逐字不变，零布局影响`));
+  assert.ok(css.includes(`.foundation-map .map-node { box-shadow: 0 0 0 ${effectiveRing}px var(--color-paper); }`),
+    check('既有纸色 gap 环规则原样在位，未被本轮改写'));
+  assert.ok(css.includes('.map-node { display: inline-flex; align-items: center; justify-content: center; width: 2.3rem;'),
+    check('节点自身的尺寸规则零改动（宽度 / 圆角 / 描边位置都没碰）'));
+
+  /* ---------- 7. 当前课节点的强调环不被这条补丁改写 ---------- */
+  assert.ok(/:not\(\.is-current\)/.test(patchRules[0]),
+    check('带 :not(.is-current) 守卫——当前课节点的强调环不受影响（守卫在选择器上，不在声明块里）'));
+  assert.ok(css.includes('.map-node.is-current { outline-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-accent); }'),
+    check('当前课节点的既有强调环规则原样在位'));
+
+  /* ---------- 8. 金色真的分得出来（对比度，不是「alpha 等于某个值」） ---------- */
+  const lin = c => { const v = c / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const hexToRgb = h => [1, 3, 5].map(i => parseInt(h.substr(i, 2), 16));
+  const lum = ([r, g, b]) => 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+  const contrast = (a, b) => {
+    const [x, y] = [lum(hexToRgb(a)), lum(hexToRgb(b))];
+    return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+  };
+  const goldGreen = contrast('#d4af37', '#3f7b58');
+  assert.ok(goldGreen >= 2.2,
+    check(`金环对绿底的对比度 ${goldGreen.toFixed(2)}:1 ≥ 2.2:1（与本项目「非文本图形下限」同一口径）`));
+  const dimGoldGreen = contrast('#a8791c', '#3f7b58');
+  assert.ok(dimGoldGreen < 2.2,
+    check(`偏暗的 --color-gold 对绿底只有 ${dimGoldGreen.toFixed(2)}:1，确实不可辨——所以补丁用的是亮金 #d4af37`));
+
+  /* ---------- 9. 纪律：零动画 / 零外链 / 零新 token ---------- */
+  for (const [name, body] of [['已破甲规则', broken], ['已击破补丁规则', defeated]]) {
+    assert.ok(!/animation\s*:/.test(body) && !/@keyframes/.test(body), check(`${name}零动画`));
+    assert.ok(!/url\s*\(|https?:/.test(body), check(`${name}零外链零位图`));
+    assert.ok(!/--color-[a-z-]+\s*:/.test(body), check(`${name}零新 token 定义`));
+  }
+
+  /* ---------- 10. 图例与节点同源：修一处两处都好 ---------- */
+  const appSrc = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  assert.ok(/dotClass:\s*`map-node \$\{meta\.css\}`/.test(appSrc),
+    check('图例色点仍复用节点的同一批 class（修好节点样式，图例两个色点跟着一起可区分）'));
+}
+
+console.log(`通过：Foundations 地图与 Boss 挑战 ${checks} 项断言（节点五阶状态推导、46 节点总地图、Boss 入口只在已开放单元、题库全部来自本站已讲课程、评分四档压线边界、同日幂等防刷、首战基线固定、submitBoss 集成解锁成就与晋升、预检口径、goalProgress 指标、无远程引用，以及「已破甲 / 已击破」两个状态的颜色必须可区分（旧合并规则已拆、击破保留绿底绿描边只把 gap 环换成金环、金对绿底对比度 ≥ 2.2:1、环宽与既有纸环逐字同宽所以几何零改动））。`);

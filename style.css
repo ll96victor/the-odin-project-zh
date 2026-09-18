@@ -1265,7 +1265,10 @@ body[data-page="home"] .home-hero h1 { font-family: var(--font-heading-ui); font
 .entry-card:hover { box-shadow: 0 5px 14px rgba(81, 64, 143, .16); }
 .map-unit { background: var(--color-wash); border-color: var(--color-rule); }
 .map-node.is-current { outline-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-accent); }
-.map-node.is-broken, .map-node.is-defeated { background: #3f7b58; border-color: #3f7b58; }
+.map-node.is-broken { background: #3f7b58; border-color: #3f7b58; }
+/* 已击破（is-defeated）原本与本行合并成同一条规则，两个状态因此完全同色（真实浏览器实测
+ * background / border-color / box-shadow / color 逐项相同）。现已拆分，它的金色 gap 环写在
+ * 文件末尾的「地图节点状态色补丁」段；本行只负责已破甲的纯绿实心。 */
 .map-node.is-mastered { background: linear-gradient(145deg, #d4af37, #a8791c); }
 .map-node.is-current.is-broken, .map-node.is-current.is-defeated { outline-color: var(--color-accent); }
 .appearance-group { background: var(--color-paper); }
@@ -1354,27 +1357,79 @@ body[data-page="home"] .entry-card:hover { background: var(--color-paper); borde
  * 地面弧线），分层实现、不引入位图、无任何持续动画（静态场景，天然满足
  * prefers-reduced-motion）；装饰层一律 z-index:-1（画在内容之下）或
  * pointer-events:none，绝不拦截交互。 */
-.home-hero { position: relative; isolation: isolate; display: grid; gap: var(--space-xl); margin-top: var(--space-lg); padding: clamp(1.5rem, 4vw, 2.75rem); background: linear-gradient(150deg, var(--color-wash) 0%, color-mix(in srgb, var(--color-wash) 42%, var(--color-paper)) 48%, var(--color-paper) 78%); border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-rule)); border-radius: var(--radius-large); box-shadow: var(--shadow-primary); overflow: hidden; }
+/* v4.11 Hero 场景一体化（统一光场 / 地面承托 / 信息带过渡）：本段与下面
+ * ::before / ::after / stage::after / continue 几条合起来，只做一件事——把
+ * 原本各自成层的窗光、紫晕、植物、书桌、伙伴收进**同一个空间**：大块柔和
+ * 色面落在容器背景，光落在负层伪元素，物件留在装饰层。
+ * 本轮不新增图片、不新增 SVG、不新增 DOM、不新增组件；伙伴、文案、CTA 与
+ * 交互逻辑一字未动（回滚=还原 history/ 备份，或删掉本段新增的那几层）。 */
+.home-hero { position: relative; isolation: isolate; display: grid; gap: var(--space-xl); margin-top: var(--space-lg); padding: clamp(1.5rem, 4vw, 2.75rem); background: radial-gradient(50rem 34rem at 92% 82%, color-mix(in srgb, var(--color-grow-soft) 14%, transparent), transparent 72%), linear-gradient(150deg, var(--color-wash) 0%, color-mix(in srgb, var(--color-wash) 42%, var(--color-paper)) 48%, var(--color-paper) 78%); border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-rule)); border-radius: var(--radius-large); box-shadow: var(--shadow-primary), 0 24px 48px -26px color-mix(in srgb, var(--color-accent) 30%, transparent); overflow: hidden; }
 /* 窗光：两道暖白斜向柔光带从右上入射（角色站在光里）+ 原紫色光晕。
  * 光带是物理光效隐喻，用固定暖白 rgba——浅色主题下是阳光，深色主题下
- * 自动退为微弱月光（html[data-dark] 整体调暗），不随主题色相漂移。 */
-.home-hero::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(114deg, transparent 54%, rgba(255, 252, 244, .5) 60%, rgba(255, 252, 244, .16) 68%, transparent 76%), linear-gradient(114deg, transparent 71%, rgba(255, 252, 244, .3) 76%, transparent 84%), radial-gradient(26rem 26rem at calc(100% + 4rem) -8rem, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 66%); }
+ * 自动退为微弱月光（html[data-dark] 整体调暗），不随主题色相漂移。
+ * v4.11 Hero 场景一体化：追加第四层「桌面暖光池」——同一支暖白、同一套
+ * 物理光纪律（固定 rgba 值、深色主题随本层一起退月光），落在右下书桌与
+ * 台灯所在的区域。它把「台灯亮着」从一张孤立的小图变成照亮场景的一处
+ * 光源，也是伙伴与书桌共享同一空间的光学依据。紫晕仍是 18%，一字未动。 */
+.home-hero::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(114deg, transparent 54%, rgba(255, 252, 244, .5) 60%, rgba(255, 252, 244, .16) 68%, transparent 76%), linear-gradient(114deg, transparent 71%, rgba(255, 252, 244, .3) 76%, transparent 84%), radial-gradient(26rem 26rem at calc(100% + 4rem) -8rem, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 66%), radial-gradient(30rem 19rem at 68% 84%, rgba(255, 252, 244, .32), transparent 74%); }
 html[data-dark] .home-hero::before { opacity: .38; }
-/* 底部环境带：绿调远丘柔光 + 三枚光斑，让角色与信息带有可站立的“地面” */
-.home-hero::after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; height: 52%; background: radial-gradient(.4rem .4rem at 16% 34%, rgba(212, 175, 55, .5) 40%, transparent 60%), radial-gradient(.3rem .3rem at 31% 18%, rgba(167, 139, 218, .45) 40%, transparent 60%), radial-gradient(.35rem .35rem at 74% 26%, rgba(201, 113, 79, .4) 40%, transparent 60%), radial-gradient(130% 105% at 50% 130%, color-mix(in srgb, var(--color-grow-soft) 15%, transparent) 0 42%, color-mix(in srgb, var(--color-grow-soft) 6%, transparent) 60%, transparent 78%); }
+/* 底部环境带：绿调远丘柔光 + 三枚光斑，让角色与信息带有可站立的“地面”。
+ * v4.11 Hero 场景一体化：这一层从「伙伴脚下的绿丘」扩成**整条 Hero 的地面**——
+ * ① 带高 52% → 60%，绿丘压得更低（色标峰值由 42% 移到 38%）、横向铺到 140%，
+ *    左右两侧的植物剪影、右下书桌的桌腿与伙伴的接地影因此落在同一块地上，
+ *    不再各站各的；
+ * ② 末层追加一条朝页面纸色的底部渐变：Hero 下缘不再是「色面突然截断」，
+ *    而是向下自然化入页面底色，与下方信息带（--space-2xl 之外）接上气口。
+ * 三枚光斑的绝对落点按新带高同比换算（52/60），视觉位置与改前一致。 */
+.home-hero::after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; height: 60%; background: radial-gradient(.4rem .4rem at 16% 30%, rgba(212, 175, 55, .5) 40%, transparent 60%), radial-gradient(.3rem .3rem at 31% 16%, rgba(167, 139, 218, .45) 40%, transparent 60%), radial-gradient(.35rem .35rem at 74% 23%, rgba(201, 113, 79, .4) 40%, transparent 60%), radial-gradient(140% 92% at 50% 126%, color-mix(in srgb, var(--color-grow-soft) 26%, transparent) 0 38%, color-mix(in srgb, var(--color-grow-soft) 11%, transparent) 60%, transparent 80%), linear-gradient(0deg, color-mix(in srgb, var(--color-paper) 46%, transparent) 0, transparent 26%); }
 /* Hero 左下角植物剪影（app.js HERO_SCENE_SVG，纯装饰；窄屏与打印隐藏） */
-.hero-scene-decor { position: absolute; z-index: -1; left: 0; bottom: 0; width: clamp(10rem, 20vw, 16rem); height: auto; pointer-events: none; }
+.hero-scene-decor { position: absolute; z-index: -1; left: 0; bottom: 0; width: clamp(12rem, 24vw, 20rem); height: auto; pointer-events: none; }
+/* Hero 右下角学习场景道具层（v4.11 批次 E，app.js HERO_STUDY_SVG）：书桌轮廓 +
+ * 台灯 + 一小摞书，补的是「角色正在学习」的具体语义。绝不遮挡主文案 / CTA /
+ * 伙伴脸与身体主体；pointer-events:none 不拦截指针。只落在右下区域，边界交给
+ * .home-hero 既有的 overflow:hidden 裁切。
+ *
+ * v4.11 批次 F（B0）层级修复：批次 E 给的是 z-index:-1，理由写的是「画在内容
+ * 之下」——但 .home-hero 的背景环境带 .home-hero::before / ::after 同样是
+ * z-index:-1，而负层内部按**树序**绘制，::after 永远是 .home-hero 的最后一个
+ * 子节点：于是那块覆盖底部 52% 的「绿丘柔光 + 光斑」带整层盖在道具之上。真实
+ * 浏览器（1440 档）把道具 pointer-events 临时打开后 elementFromPoint 取样，
+ * 道具框内的点返回 home-hero 而不是 IMG——DOM 存在、尺寸正常、图片已加载，
+ * 但用户看到的是被背景洗掉的空场，这就是用户报的「书桌台灯书本完全看不到」。
+ * 修复=道具提到 z-index:0（正层第一步，仍画在 Hero 自身背景层**之上**），
+ * 内容与伙伴再各自高于道具：.hero-main 显式 position:relative + z-index:1；
+ * .hero-companion 无需改动——它的 stage 已是 z-index:1，且它自身是定位元素
+ * （z-index:auto，与道具同为「正层 0」），树序排在道具之后，天然绘制在道具之上。
+ * 因此层级关系恒为：Hero 背景(::before/::after, -1) < 道具(0) < 伙伴 < 主文案。 */
+.hero-study-decor { position: absolute; z-index: 0; right: 0; bottom: 0; width: clamp(15rem, 30vw, 27rem); height: auto; pointer-events: none; }
 @media (min-width: 56rem) {
   .home-hero { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
 }
-.hero-main { min-width: 0; }
+/* 学习场景道具只在宽屏（Hero 两列构图）显示：<56rem 起 Hero 收成单列，伙伴移到
+ * 文字下方居中，道具层会与伙伴立绘挤在同一列里——直接隐藏，不为移动端机械缩小
+ * 整套场景，也不另做第二套小尺寸 SVG。56rem 与上面的两列断点严格互斥。 */
+@media (max-width: 55.9375rem) {
+  .hero-study-decor { display: none; }
+}
+/* v4.11 批次 F（B0）：主文案列显式抬到道具之上。道具从 z-index:-1 提到 0 后
+ * 进入「正层」，而 .hero-main 是不定位的常规流内容（绘制顺序在定位元素之前）
+ * ——不显式抬升的话，道具在两者几何相交时会压住主标题 / 副标题 / CTA。1440 档
+ * 实测两列并不相交（道具宽度与伙伴列同为 30vw，中间还隔着 --space-xl 的列间距），
+ * 这里是为更窄两列宽度准备的兜底，不依赖「刚好不重叠」这个巧合。 */
+.hero-main { position: relative; z-index: 1; min-width: 0; }
 .home-hero h1 { margin-block: var(--space-xs) var(--space-sm); }
 .home-hero .home-lead { max-width: 40rem; }
 /* continue-card 在 Hero 内降级为「当前课程」信息块：不再是独立卡片 */
 body[data-page="home"] .home-hero .continue-card { margin-top: var(--space-xl); padding: var(--space-lg) 0 0; background: transparent; border: none; border-top: 1px solid color-mix(in srgb, var(--color-accent) 24%, var(--color-rule)); border-radius: 0; box-shadow: none; }
 body[data-page="home"] .home-hero .continue-card::before { display: none; }
 body[data-page="home"] .home-hero .continue-title { max-width: 26rem; }
-body[data-page="home"] .home-hero .continue-actions { margin-top: var(--space-lg); max-width: 26rem; }
+/* v4.11 Hero 场景一体化：CTA 主次关系——把操作区与上方文案的间距抬一档
+ * （--space-lg → --space-xl），并给主 CTA 加一层更实的投影，让「继续学习」
+ * 在有了统一环境光之后仍是 Hero 里唯一最强的操作焦点；辅助入口「查看全部
+ * World」的样式一字未动（弱化靠不加权重实现，不靠压对比度）。按钮文案、
+ * 点击逻辑、入口数量与层级全部不变。 */
+body[data-page="home"] .home-hero .continue-actions { margin-top: var(--space-xl); max-width: 26rem; }
+body[data-page="home"] .home-hero .continue-primary { box-shadow: 0 12px 26px rgba(81, 64, 143, .28), 0 2px 6px rgba(81, 64, 143, .16); }
 /* 右侧学习伙伴陪伴舞台（v4.7 场景化）：圆盘底座退役——角色直接站进场景里。
    地面弧线、左右植物剪影与光斑由 .hero-decor（HERO_DECOR_SVG）绘制，
    stage 只保留两层光效：无边框半透明“绿巢”柔光（成长绿 22% 色温，延续
@@ -1382,10 +1437,23 @@ body[data-page="home"] .home-hero .continue-actions { margin-top: var(--space-lg
    形象占 stage 96%–100%，clamp 上限 17rem→24rem（v4.8 角色放大：默认角色
    小诺的正式立绘是 600×800 透明竖图，放大到 24rem=384px 不模糊）。 */
 .hero-companion { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); justify-self: center; min-width: 0; }
-.hero-companion-stage { position: relative; z-index: 1; display: grid; place-items: center; width: clamp(14rem, 30vw, 24rem); aspect-ratio: 1; }
-.hero-companion-stage::before { content: ''; position: absolute; z-index: -1; inset: -10%; border-radius: 50%; background: radial-gradient(circle at 50% 58%, color-mix(in srgb, var(--color-grow-soft) 22%, transparent) 0 30%, color-mix(in srgb, var(--color-wash) 40%, transparent) 56%, transparent 76%); }
-.hero-companion-stage::after { content: ''; position: absolute; z-index: -1; left: 50%; bottom: 1.5%; transform: translateX(-50%); width: 58%; height: 5.5%; border-radius: 50%; background: radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-ink) 30%, transparent), transparent 72%); }
-.hero-decor { position: absolute; left: 50%; bottom: 1rem; z-index: 0; width: min(168%, 26rem); height: auto; transform: translateX(-50%); opacity: .95; pointer-events: none; }
+/* v4.11 批次 D（D2a）：舞台相框由正方形改 3:4 竖版——伙伴立绘源图即 600×800
+ * （3:4）。真实浏览器实测推翻了规划阶段的推算：旧 aspect-ratio:1 盒子其实被
+ * 立绘的内容最小尺寸撑成约 384×512 渲染（并非「288×384 内含左右各 12.5% 留白、
+ * 只显示 0.48x」——旧版已经零留白），也就是说旧布局依赖的是内容撑开盒子的隐式
+ * 行为；显式对齐 3:4 的价值是消除这层依赖。1440px 档舞台宽度由 384px（clamp
+ * 上限 24rem）增至 432px（上限 27rem），渲染缩放 0.64x→0.72x，真实线性增益
+ * 约 +12.5%（仍 <1，纯缩小不会糊）。
+ * 绿巢柔光随之改用显式尺寸 + aspect-ratio:1 保证正圆（inset 百分比在 3:4 盒子
+ * 里会拉成椭圆）；紫晕 18% 为低饱和上限，再加强必须重新规划。 */
+.hero-companion-stage { position: relative; z-index: 1; display: grid; place-items: center; width: clamp(14rem, 30vw, 27rem); aspect-ratio: 3 / 4; }
+.hero-companion-stage::before { content: ''; position: absolute; z-index: -1; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 120%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 58%, color-mix(in srgb, var(--color-grow-soft) 22%, transparent) 0 30%, color-mix(in srgb, var(--color-wash) 40%, transparent) 56%, transparent 76%); }
+/* v4.11 Hero 场景一体化：接地影加宽一点、压低一点，并在外缘接一圈成长绿——
+ * 伙伴的影子因此是「落在那块绿地上」而不是「浮在画面上」；色相与地面带同源，
+ * 中心仍用 --color-ink 保持既有接地影的重量。宽度/高度/落点是本文件里允许
+ * 现场微调的三项（见 tests/hero-scene.test.cjs 第 4 组注释）。 */
+.hero-companion-stage::after { content: ''; position: absolute; z-index: -1; left: 50%; bottom: 1.5%; transform: translateX(-50%); width: 54%; height: 5%; border-radius: 50%; background: radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-ink) 28%, transparent), color-mix(in srgb, var(--color-grow) 14%, transparent) 62%, transparent 80%); }
+.hero-decor { position: absolute; left: 50%; bottom: 1rem; z-index: 0; width: min(150%, 26rem); height: auto; transform: translateX(-50%); opacity: .95; pointer-events: none; }
 .hero-companion-img { width: 96%; height: 96%; object-fit: contain; filter: drop-shadow(0 14px 20px color-mix(in srgb, var(--color-ink) 22%, transparent)); }
 .hero-companion-img.is-file { width: 100%; height: 100%; object-position: center bottom; }
 /* v4.9：.hero-companion-name（Hero 下的「昵称 · 成长阶段」行）已随「Hero 只出
@@ -1460,7 +1528,11 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 .map-current-row { margin-top: 0; margin-bottom: var(--space-xs); }
 
 /* ---------- P0-5：个人档案封面（一级容器） ---------- */
-.identity-panel .profile-cover { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--space-lg); margin-top: var(--space-sm); padding: var(--space-xl); background: linear-gradient(140deg, color-mix(in srgb, var(--color-accent) 90%, var(--color-paper)), color-mix(in srgb, var(--color-accent) 58%, var(--color-wash))); border-radius: var(--radius-large); box-shadow: var(--shadow-primary); color: var(--color-button-ink); overflow: hidden; }
+/* v4.11 批次 C（D4）：封面氛围带——原 accent 渐变之前 prepend 两层 button-ink 光效
+ * （右下径向光斑 12% + 左上斜向光带 10%，与既有 ::before 13% 光斑同量级），原
+ * linear-gradient(140deg,…) 层逐字保留为最底层；color-mix 变量驱动，深色主题自动
+ * 适配、无需 data-dark 分支；print 的 background:#fff 简写覆盖自动剥离全部叠层。 */
+.identity-panel .profile-cover { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--space-lg); margin-top: var(--space-sm); padding: var(--space-xl); background: radial-gradient(26rem 18rem at 108% 118%, color-mix(in srgb, var(--color-button-ink) 12%, transparent), transparent 72%), linear-gradient(200deg, color-mix(in srgb, var(--color-button-ink) 10%, transparent), transparent 42%), linear-gradient(140deg, color-mix(in srgb, var(--color-accent) 90%, var(--color-paper)), color-mix(in srgb, var(--color-accent) 58%, var(--color-wash))); border-radius: var(--radius-large); box-shadow: var(--shadow-primary); color: var(--color-button-ink); overflow: hidden; }
 .identity-panel .profile-cover::before { content: ''; position: absolute; z-index: -1; right: -3.5rem; bottom: -4.5rem; width: 15rem; height: 15rem; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--color-button-ink) 13%, transparent), transparent 70%); }
 .identity-panel .profile-cover::after { content: '学习档案'; position: absolute; top: var(--space-md); right: var(--space-lg); font-size: var(--text-small); letter-spacing: .14em; opacity: .66; }
 .profile-cover .avatar-lg { width: 6rem; height: 6rem; }
@@ -1492,8 +1564,8 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 /* ---------- 响应式 / 打印 / 动效 ---------- */
 @media (max-width: 30rem) {
   .home-hero { padding: var(--space-lg) var(--space-md); }
-  .hero-companion-stage { width: 11.5rem; }
-  .hero-decor { width: min(150%, 19rem); }
+  .hero-companion-stage { width: 11.5rem; aspect-ratio: 3 / 4; }
+  .hero-decor { width: min(135%, 19rem); }
   .hero-scene-decor { display: none; }
   .home-secondary { padding: var(--space-sm); }
   .skill-list > li::before, .foundation-map .journey-phase::before { left: .72rem; }
@@ -1508,7 +1580,10 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
   .appearance-group-companion .appearance-group-body > img { width: 6.5rem; height: 6.5rem; }
 }
 @media print {
-  .hero-companion, .home-secondary, .hero-scene-decor { display: none; }
+  .hero-companion, .home-secondary, .hero-scene-decor, .hero-study-decor { display: none; }
+  /* 路线预览条本身住在 .home-secondary 里、打印已整体移除；这条是兜底，
+   * 防止它将来被移出该容器时把色晕带进打印稿（批次 F B3） */
+  .world-preview-item::before { display: none; }
   .home-hero::before, .home-hero::after { content: none; }
   .home-hero { background: #fff; border: 1px solid #000; box-shadow: none; }
   .home-hero .continue-card { border-top: 1px solid #000; }
@@ -1539,6 +1614,63 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
   .world-preview-more { display: none; }
 }
 
+/* ---------- v4.11 批次 F（B3）：首页路线预览条四项轻量场景化 ----------
+ * 首页次级信息带末尾的「路线预览」条（app.js worldPreviewBar）整体是**一个**
+ * button，内含 4 个 .world-preview-item（Foundations / HTML & CSS / JavaScript /
+ * Node.js）。本轮给这四格各加一层低饱和环境暗示：色相来自 app.js
+ * PREVIEW_STAGES 的 `tone`（写进 data-world-tone，纯展示钩子，不是课程数据）。
+ *
+ * 为什么用 data 属性而不是 :nth-of-type：条子里除了这四格还有「路线预览」标签与
+ * 「进学习地图 →」两个 span，nth-of-type 会随这两个节点的增删静默错位——色相是
+ * 语义映射（绿=成长 / 蓝=结构 / 橙=节点 / 青=连接），错位是无声的视觉 Bug。
+ *
+ * 画法纪律：只用 CSS 渐变 + ::before 一个伪元素——零位图、零外链、零动画、
+ * 零新 token（引用的都是固定 rgba，与 HERO_STUDY_SVG / 批次 C 暖白光斑同先例）、
+ * 零课程数据改动。层级上 ::before 的 z-index:-1 配本格 isolation:isolate，
+ * 只压在本格自己的背景之下、名称与状态之上——文字永远画在色晕上面；
+ * 伪元素一律 pointer-events:none，不拦截指针、不参与命中，整条仍是同一个
+ * 可聚焦 button，键盘与点击语义一字不变。色晕用负 inset 微微外扩，横向共
+ * 1rem < 列间距 --space-lg(1.5rem)，相邻两格不会互相染色；四格都不改 padding，
+ * 文字的排布与换行行为与改动前完全一致。
+ *
+ * 强度纪律：所有色标 alpha ≤ .16（低饱和、不抢标题），未开放三格再统一降到
+ * 55% 不透明度——视觉权重严格低于已开放的 Foundations，不给学生「已经开放」
+ * 的错觉。窄屏（<40rem）整套色晕收起，四格的名称与状态照旧完整保留。 */
+.world-preview-item { position: relative; isolation: isolate; }
+.world-preview-item::before { content: ''; position: absolute; z-index: -1; inset: -.12rem -.5rem; border-radius: var(--radius-small); pointer-events: none; opacity: .55; }
+.world-preview-item.is-open::before { opacity: 1; }
+/* Foundations：成长绿 + 自底部升起的山谷弧（已开放，唯一满强度的一格） */
+.world-preview-item[data-world-tone="foundations"]::before {
+  background:
+    radial-gradient(120% 92% at 50% 128%, rgba(63, 123, 88, .16) 0 40%, rgba(63, 123, 88, .05) 60%, transparent 78%),
+    linear-gradient(0deg, rgba(63, 123, 88, .07), rgba(63, 123, 88, .07));
+}
+/* HTML & CSS：冷蓝 + 等距结构竖线，底缘一层淡弧收口 */
+.world-preview-item[data-world-tone="html-css"]::before {
+  background:
+    repeating-linear-gradient(90deg, rgba(72, 106, 148, .14) 0 1px, transparent 1px 6px),
+    radial-gradient(130% 100% at 50% 132%, rgba(72, 106, 148, .10) 0 42%, transparent 72%);
+}
+/* JavaScript：低饱和暖橙 + 两枚小节点 */
+.world-preview-item[data-world-tone="javascript"]::before {
+  background:
+    radial-gradient(.22rem .22rem at 15% 26%, rgba(176, 130, 62, .16) 40%, transparent 70%),
+    radial-gradient(.28rem .28rem at 76% 80%, rgba(176, 130, 62, .16) 40%, transparent 70%),
+    linear-gradient(0deg, rgba(176, 130, 62, .07), rgba(176, 130, 62, .07));
+}
+/* Node.js：青绿 + 左右两个节点由一条细连接线贯通 */
+.world-preview-item[data-world-tone="nodejs"]::before {
+  background:
+    linear-gradient(90deg, transparent 18%, rgba(60, 120, 112, .13) 18% 82%, transparent 82%) 50% 50% / 100% 1px no-repeat,
+    radial-gradient(.24rem .24rem at 12% 50%, rgba(60, 120, 112, .16) 40%, transparent 70%),
+    radial-gradient(.24rem .24rem at 88% 50%, rgba(60, 120, 112, .16) 40%, transparent 70%),
+    linear-gradient(0deg, rgba(60, 120, 112, .07), rgba(60, 120, 112, .07));
+}
+/* 窄屏：色晕收起，四项名称与状态一字不动 */
+@media (max-width: 40rem) {
+  .world-preview-item::before { display: none; }
+}
+
 /* ---------- P1-2：学习地图 sheet 的环境与卡片质感（与首页 Hero 环境层同族） ---------- */
 dialog.sheet[aria-labelledby="sheet-title-map"] .sheet-body { background: linear-gradient(180deg, color-mix(in srgb, var(--color-wash) 55%, transparent) 0, transparent 14rem); }
 dialog.sheet[aria-labelledby="sheet-title-map"] .map-tab.is-active { background: linear-gradient(140deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 82%, var(--color-grow))); box-shadow: 0 3px 10px color-mix(in srgb, var(--color-accent) 26%, transparent); }
@@ -1547,3 +1679,279 @@ dialog.sheet[aria-labelledby="sheet-title-map"] .world-card.is-open { background
 /* ---------- P1-2：个人中心的环境点缀（档案封面之下的一层薄 wash + 伙伴区绿晕） ---------- */
 .profile-dialog .profile-body { background: linear-gradient(180deg, color-mix(in srgb, var(--color-wash) 50%, transparent) 0, transparent 12rem); }
 .appearance-group-companion::after { content: ''; position: absolute; z-index: -1; left: -2rem; bottom: -2.5rem; width: 9rem; height: 9rem; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--color-grow-soft) 16%, transparent), transparent 70%); }
+
+/* ===================== v4.11 批次 A：视觉氛围升级（页面节奏与留白） =====================
+ * 与 tokens.css 的默认主题柔化（雾白纸底 / 低饱和 wash / 轻柔 rule / 克制阴影）配套：
+ * 本节只调纵向节奏与少数容器的呼吸感，不改信息架构、类名、组件结构与交互语义。
+ * sheet 内部的紧凑节奏由既有 `.sheet-body .section`（更高特异性）钉住，不受本节影响；
+ * 窄屏（≤30rem）既有的收紧规则全部保留，本节只增纵向留白，不产生横向尺寸。 */
+/* 页面级：宽屏下 main 顶部多一档呼吸（底部维持既有 --space-3xl 收尾） */
+@media (min-width: 40rem) {
+  main { padding-block-start: calc(var(--space-2xl) + var(--space-md)); }
+}
+/* 分组节奏：大块内容区（课程单元 / 首页区块）之间间距加大一档，分组更易读 */
+.section, .unit { margin-top: calc(var(--space-2xl) + var(--space-sm)); }
+/* 首页：Hero 与次级信息带的间隔拉开，主次分层更清楚 */
+body[data-page="home"] .home-secondary { margin-top: var(--space-xl); }
+/* 课页进度 dashboard：宽屏下内边距放宽一档（仍是二级容器：细描边 + 轻阴影） */
+@media (min-width: 40rem) {
+  .dashboard { padding: var(--space-xl); }
+}
+
+/* ===================== v4.11 批次 C：氛围背景层（D1 全局氛围背景 + D4 封面氛围带） =====================
+ * D4 的封面叠层在上方 P0-5 节 .profile-cover 的 background 简写里（prepend 两层，
+ * 原 accent 渐变逐字保留为最底层）；本节承载 D1 的全站 body::before 氛围层。
+ * 纪律（继承批次 A/B 与 hero 窗光先例）：
+ * 1. 中心中性——四层全部角/边锚定、中心一律 transparent：顶边雾带（wash 40%，
+ *    14rem 内归零）、右上 accent 角晕 7%、左下 grow 绿角晕 6%、右上暖白光斑 35%。
+ *    阅读区中心保持中性纸色，dune/bamboo 薄冰点配对的实际背景不受染。
+ * 2. 暖白光斑沿用 L1358 hero 窗光（.home-hero::before）物理光纪律——固定暖白
+ *    rgba(255,252,244) 不随主题色相漂移；深色主题整体退为微弱月光（opacity .38，
+ *    与 html[data-dark] .home-hero::before 同档先例）。
+ * 3. alpha 上限 40·7·6·35 已锁（tests/atmosphere-layer.test.cjs 钉住）；加强必须
+ *    重新规划，不得顺手漂移。
+ * 4. 零新 token、零 per-theme 值——30 套主题经既有 --color-wash / --color-accent /
+ *    --color-grow 变量自动适配；accent / ink / warn 的值不动。
+ * 5. 无动画（prefers-reduced-motion 零涉及）；打印完全移除（content: none）。
+ * 6. 绘制顺序：本层 z-index:-1 进入根堆叠上下文负层且树序最先（body 首个伪元素）；
+ *    既有负 z 装饰（continue-card::before / hero-scene-decor 等）树序更深、后绘，
+ *    仍画在本层之上——相对顺序不变，无翻转风险（真机以 hero 窗光与植物剪影仍可见
+ *    为回归项）。 */
+body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, color-mix(in srgb, var(--color-wash) 40%, transparent) 0, transparent 14rem), radial-gradient(42rem 30rem at 100% -6rem, color-mix(in srgb, var(--color-accent) 7%, transparent), transparent 70%), radial-gradient(36rem 26rem at -8rem 108%, color-mix(in srgb, var(--color-grow) 6%, transparent), transparent 70%), radial-gradient(18rem 12rem at 82% 10%, rgba(255, 252, 244, .35), transparent 70%); }
+html[data-dark] body::before { opacity: .38; }
+@media print {
+  body::before { content: none; }
+}
+
+/* ===================== v4.11 G2a：学习地图 8 张 World 卡的轻量场景层 =====================
+ * 对象：学习地图 sheet →「世界地图」Tab 里的 8 张 `.world-card`（app.js
+ * worldListChildren）。首页路线预览条 `.world-preview` 的场景化是批次 F（B3）的
+ * 成果，本轮**一字不动**；Hero / 个人中心 / 课页 / 批次 C 氛围层同样不碰。
+ *
+ * 色相来自 app.js 的 WORLD_CARD_TONES（写进 data-world-tone），键是稳定的
+ * course.order——不是课程数据，不进 curriculum、不进档案、不参与开放判定。
+ * **映射按 curriculum.js 的真实顺序绑定**：1 foundations / 2 html-css /
+ * 3 javascript / 4 html-css-deep / 5·6·8 world-generic / 7 nodejs。G2a 规划
+ * 交接的语义表把 Node.js 写在 World 4，与本地数据不符（真实 World 4 是
+ * advanced-html-and-css「高级 HTML 与 CSS」，NodeJS 在 World 7），已由用户
+ * 2026-09-18 确认按真实数据修正；前四个 tone 与批次 F 的 PREVIEW_STAGES 共用
+ * 同一套色相词汇，同一个 World 在首页预览条与地图卡上是同一个颜色。
+ *
+ * 绘制层级（交接 §六 的强度顺位）：文字 / 状态 / 进度  >  ::after 环境轮廓  >
+ * ::before 背景色晕。两层伪元素都是 z-index:-1，配本卡 isolation:isolate，
+ * 只压在本卡自己的背景之上、全部内容之下——标题、统计、提示、进度条永远画在
+ * 装饰上面。伪元素一律 pointer-events:none，不拦截指针、不参与命中，卡片仍是
+ * 一个 button，键盘焦点与点击语义一字不变。卡片结构、文案与 aria-label 零改动。
+ *
+ * 强度纪律：所有色标 alpha ≤ .22（远景色晕 ≤ .16、细轮廓线 ≤ .22）；未开放卡
+ * 整套降到 .68，唯一开放的 Foundations 保持 1——未开放的视觉权重严格低于
+ * Foundations，不给「已经开放中文内容」的错觉。窄屏（<40rem）整套收起，卡片的
+ * 文字与状态照旧完整；打印另加一层 content:none 兜底（`.world-list` 本身在既有
+ * print 规则里已是 display:none，这一条是防止将来放开打印时装饰跟着漏出来）。
+ *
+ * 画法纪律：只用 CSS 渐变与圆角，零位图、零外链、零 url()、零新 token、
+ * 零关键帧动画、零新增 transition。
+ *
+ * 注：这里刻意不写出两个关键字的字面量——「批次 C 氛围层」与「批次 F（B3）」
+ * 两个专项测试的切片都是「从本段段首一直切到文件末尾」，而 G2a 段恰好追加在它们后面，
+ * 写成字面量会被它们的正则扫到。本段的真实约束没有变：没有关键帧动画、
+ * 没有 animation 声明、没有新定义任何自定义属性。 */
+.world-card { position: relative; isolation: isolate; }
+.world-card::before,
+.world-card::after { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: inherit; pointer-events: none; opacity: .68; }
+/* 唯一开放的 World 1 满强度；其余 7 张停在 .68 */
+.world-card.is-open::before,
+.world-card.is-open::after { opacity: 1; }
+
+/* Foundations（World 1）——成长绿 + 自右下升起的两层山谷弧 */
+.world-card[data-world-tone="foundations"]::before {
+  background:
+    radial-gradient(58% 152% at 100% 112%, rgba(63, 123, 88, .16) 0 36%, rgba(63, 123, 88, .06) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 46%, rgba(63, 123, 88, .07) 86%, rgba(63, 123, 88, .10));
+}
+.world-card[data-world-tone="foundations"]::after {
+  background:
+    radial-gradient(52% 118% at 104% 148%, transparent 0 70%, rgba(63, 123, 88, .22) 70% calc(70% + 1.4px), transparent calc(70% + 1.4px)),
+    radial-gradient(38% 88% at 106% 150%, transparent 0 70%, rgba(63, 123, 88, .16) 70% calc(70% + 1.4px), transparent calc(70% + 1.4px));
+}
+/* 中级 HTML 与 CSS（World 2）——冷蓝 + 单向结构竖线，底部一条基线 */
+.world-card[data-world-tone="html-css"]::before {
+  background:
+    radial-gradient(58% 152% at 100% 112%, rgba(72, 106, 148, .14) 0 36%, rgba(72, 106, 148, .05) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 50%, rgba(72, 106, 148, .08));
+}
+.world-card[data-world-tone="html-css"]::after {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 .66rem, rgba(72, 106, 148, .14) .66rem calc(.66rem + 1px)),
+    linear-gradient(0deg, transparent 64%, rgba(72, 106, 148, .11) 64% calc(64% + 1px), transparent calc(64% + 1px));
+}
+/* 高级 HTML 与 CSS（World 4）——冷蓝深化 + **双向更密**结构网格（与 World 2 同族不重样） */
+.world-card[data-world-tone="html-css-deep"]::before {
+  background:
+    radial-gradient(58% 152% at 100% 112%, rgba(52, 84, 132, .16) 0 36%, rgba(52, 84, 132, .06) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 44%, rgba(52, 84, 132, .10));
+}
+.world-card[data-world-tone="html-css-deep"]::after {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 .34rem, rgba(52, 84, 132, .13) .34rem calc(.34rem + 1px)),
+    repeating-linear-gradient(0deg, transparent 0 .34rem, rgba(52, 84, 132, .09) .34rem calc(.34rem + 1px));
+}
+/* JavaScript（World 3）——暖橙 + 两枚节点与一条斜向连接线 */
+.world-card[data-world-tone="javascript"]::before {
+  background:
+    radial-gradient(58% 152% at 100% 112%, rgba(176, 130, 62, .14) 0 36%, rgba(176, 130, 62, .05) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 50%, rgba(176, 130, 62, .08));
+}
+.world-card[data-world-tone="javascript"]::after {
+  background:
+    linear-gradient(112deg, transparent 0 47%, rgba(176, 130, 62, .17) 47% calc(47% + 1px), transparent calc(47% + 1px)),
+    radial-gradient(.30rem .30rem at 88% 68%, rgba(176, 130, 62, .22) 38%, rgba(176, 130, 62, .07) 70%, transparent 78%),
+    radial-gradient(.24rem .24rem at 68% 46%, rgba(176, 130, 62, .20) 38%, rgba(176, 130, 62, .06) 70%, transparent 78%);
+}
+/* NodeJS（World 7，**未开放**，所以停在弱化档）——青绿 + 两端节点由一条连接线贯通 */
+.world-card[data-world-tone="nodejs"]::before {
+  background:
+    radial-gradient(58% 152% at 100% 112%, rgba(60, 120, 112, .14) 0 36%, rgba(60, 120, 112, .05) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 50%, rgba(60, 120, 112, .08));
+}
+.world-card[data-world-tone="nodejs"]::after {
+  background:
+    linear-gradient(90deg, transparent 56%, rgba(60, 120, 112, .16) 56% 94%, transparent 94%) 50% 64% / 100% 1px no-repeat,
+    radial-gradient(.30rem .30rem at 62% 64%, rgba(60, 120, 112, .22) 38%, rgba(60, 120, 112, .06) 70%, transparent 78%),
+    radial-gradient(.30rem .30rem at 90% 64%, rgba(60, 120, 112, .22) 38%, rgba(60, 120, 112, .06) 70%, transparent 78%);
+}
+/* 后续世界（World 5 / 6 / 8）——统一的低对比中性环境层：只有一层极弱色晕，
+ * 没有轮廓层。三张各换一个锚点，避免整条路线看起来是同一张图盖了三次章，
+ * 但都明确停在「这里还没开放」的强度上。 */
+.world-card[data-world-tone="world-generic-a"]::before { background: linear-gradient(0deg, rgba(118, 114, 104, .09) 0, transparent 58%); }
+.world-card[data-world-tone="world-generic-b"]::before { background: radial-gradient(56% 152% at 100% 112%, rgba(118, 114, 104, .09) 0 34%, transparent 76%); }
+.world-card[data-world-tone="world-generic-c"]::before { background: linear-gradient(180deg, rgba(118, 114, 104, .08) 0, transparent 46%); }
+
+/* 窄屏（<40rem）：整套装饰收起，8 张卡的编号 / 名称 / 统计 / 状态一字不动 */
+@media (max-width: 40rem) {
+  .world-card::before, .world-card::after { content: none; }
+}
+/* 打印兜底：装饰层完全移除（.world-list 在既有 print 规则里已整体 display:none） */
+@media print {
+  .world-card::before, .world-card::after { content: none; }
+}
+
+/* ---------- v4.11 补丁：Foundations 地图「已破甲 / 已击破」的状态色区分 ----------
+ * 起因：Sprout Signal 段把 is-broken 与 is-defeated 合并成同一条规则（填充与描边都是
+ * #3f7b58），而 base 规则原本留给 is-defeated 的金色描边又被 .foundation-map 段的纸色
+ * gap 环按特异性盖掉。真实浏览器实测（Foundations 探索 Tab）两个状态的 background /
+ * border-color / box-shadow / color **逐项完全相同**——学生在路线上分不出「只勾了本课完成」
+ * 与「完成 + 官方任务 + 本站自测三项齐全」；图例的两个色点也同色（图例与节点共用同一批 class，
+ * 所以这一处修好，图例跟着一起修好）。
+ *
+ * 修法：已破甲保持纯绿实心；已击破**底色与描边都不变**，只把它原来那条纸色 gap 环换成金色。
+ * 于是四阶递进成立——未探索 / 已侦察（只描边）→ 已破甲（纯绿实心）→ 已击破（绿实心 + 金环）
+ * → 已精通（整颗金色渐变），向右递进，相邻两档不会撞车。
+ *
+ * 为什么只换 gap 环、不把金环画到更外面：节点在窄屏 32px、宽屏 36.8px，而相邻节点的中心距
+ * 只有 39.2 / 44px。现有 3px gap 环的外径（38 / 42.8px）与邻点只剩 1.2px 净空，**已经贴到极限**；
+ * 再往外画（例如技能路线那种「纸环 + 外圈金环」的两层写法）就会与相邻节点重叠，两个相邻的
+ * 已击破节点还会连成一串。沿用同一个 3px 环位，外径与占位**逐字节不变**：零布局影响、零碰撞。
+ * 换环这条规则的 (0,3,0) 特异性也天然压过 .foundation-map .map-node 那条 (0,2,0)，
+ * 一条规则覆盖节点与图例两处，不需要再写上下文特例。
+ *
+ * 金色取 #d4af37（「已精通」渐变已经在用的那一支点亮金，同族）。刻意不用偏暗的 --color-gold：
+ * 它对绿底的对比度只有 1.29:1，涂上去跟没涂一样；#d4af37 对绿底 2.39:1，对纸底 1.98:1，
+ * 前者高于本项目既有的「非文本图形下限 2.2:1」口径（见 Hero 道具辨识度那条）。
+ *
+ * 纪律：零新 token、零动画、零外链、零位图、零几何改动（尺寸 / 间距 / 环宽 / 层级 / 交互全未动）。
+ * `:not(.is-current)` 是守卫——当前课节点自带强调环，不该被这条补丁改写（实际上已击破必然
+ * 已完成、不可能是「继续学习」那一课，这条守卫是防御性的）。 */
+.map-node.is-defeated:not(.is-current) { background: #3f7b58; border-color: #3f7b58; box-shadow: 0 0 0 3px #d4af37; }
+
+/* ===================== v4.11 首页信息带：连续学习工作台的容器语言 =====================
+ * 对象：首页 `body[data-page="home"]` 的 `.home-secondary`——今日条 + 三个功能入口
+ * + 路线预览条同住的那条次级信息带（app.js renderHome）。**Hero、学习地图 sheet、
+ * 课页、个人中心、主题 token 全部不碰**；`.world-card` 的 G2a 场景层与地图状态色
+ * 补丁在上一段，本段一条都不改。
+ *
+ * 这条带被两轮收口，本段是两轮的合并结果，注释按「现在为什么是这个值」组织。
+ *
+ * ── 第一轮的结论（结构语言）──────────────────────────────────────────────
+ * 改之前三段各自成块：左边缘各缩进一个值（24 / 16 / 0px）、纵向上毫无连接、
+ * 路线预览条还独自带着虚线框。第一轮做的是把它们连成一条带——统一左轨、
+ * 用两道 `--color-rule` 细线代替留白分段、虚线框退场、hover 去浮起阴影。
+ *
+ * ── 本轮的结论（呼吸与圆角）────────────────────────────────────────────
+ * 真实页面实测（1440px，见 TEST-REPORT）暴露了第一轮把「留白全换成线」的副作用：
+ *   · 三段之间 **gap 实测为 0**，整条带 219.1px 里三段是紧贴的——线把三段「连」
+ *     起来了，但也把三段「压」在了一起，读起来是密不透风的顶格；
+ *   · 三个入口的**列间距只有 8px**，而入口卡在首页是透明无边框的，列间距就是这条带
+ *     里唯一读得出来的「节奏」本身——8px 只能读出「挤」，读不出「三个入口」；
+ *   · 容器圆角 8px 配 0.67px 细边，在 928px 宽的大容器上偏「硬」。
+ * 所以本轮**只做两件事：补呼吸、抬圆角**，不加任何装饰。
+ * ① **线两侧补回留白**——第一/第二道分隔线各再给上 `--space-md`(16px)、下
+ *    `--space-sm`(8px)，形成「线 → 留白 → 内容 → 留白 → 线」的节奏；线仍在，
+ *    连接感不丢，但三段不再是顶格的。
+ * ② **列间距 8px → `--space-lg`(24px)**——透明卡片的间隙即节奏，这是本轮让「三个
+ *    入口」真正读成三块的唯一改动，也是整条带最明显的一处松绑。
+ * ③ **圆角层级抬一档**——容器 8px → 14px（与 `.dashboard` / `.map-unit` 这些二级
+ *    容器同档，仍低于 Hero 一级容器的 20px，不会来抢层级）；带内两个可点元素
+ *    （今日条 / 入口卡）统一到 `--radius-medium`，与容器的圆角形成清楚的大小关系。
+ * ④ **容器内边距 `--space-sm` → `--space-md`**：整条带自己的四周留白。
+ * ⑤ **Hero 与带的间距 `--space-xl`(32px) → `--space-2xl`(48px)**：Hero 是一级视觉、
+ *    带是次级，两者之间拉开一档，主次分层更明确（Hero 自身高度、伙伴、文案、CTA
+ *    与 `overflow:hidden` 全部未动，只动带自己的 `margin-top`）。
+ *
+ * ── 本轮同时纠正了上一轮的一个失误 ──────────────────────────────────────
+ * 上一轮新增过一条 `body[data-page="home"] .home-secondary .entry-icon` 覆盖，注释写的是
+ * 「补齐缺失的圆角」，但 **`.entry-icon` 在 L1442 本来就有 `border-radius: .75rem`(12px)**；
+ * 那条覆盖实际是把圆角从 12px **降到** 4px，顺带把色权重从 10%/18% 压到 8%/14%。
+ * 意图与事实不符，且方向是视觉退化（4px 在 40px 的徽章上几乎读不出圆角）。本轮
+ * **整条删除该覆盖**，图标回到项目原本的 12px / 10% / 18%（三项仍然一致，因为三项
+ * 共用同一条规则）。这也让「少量色彩锚点」落在这三个徽章上——它们是本段唯一不通过
+ * 新增元素取得的色彩落点。
+ *
+ * 纪律：零新 token（只引用既有 `--color-*` / `--space-*` / `--radius-*`；14px 沿用
+ * `.dashboard` / `.map-unit` 那一档的既有字面量，未新增 token）、零外链、零位图、
+ * 零动效、零新增 transition（入口卡既有 transition 一个字未动）；三段仍是
+ * button / nav，`aria-label`、`aria-haspopup`、点击路径、结构层级全部不变；
+ * 打印隐藏逻辑不动（`.home-secondary` 仍在既有 print 规则里整体移除）。
+ *
+ * 注：本段追加在文件末尾，而批次 C 与批次 F（B3）两个专项测试都是「从各自段首一直
+ * 切到**文件末尾**」扫纪律，所以本段的注释与选择器里**不出现被它们扫的字面量**
+ * （`animation` 冒号、关键帧引导符），选择器也一律带 `body[data-page="home"]` 前缀，
+ * 不让任何一行以裸类名开头（G2a / 单卡原型两段都踩过同类坑，已记在 MAINTENANCE）。
+ *
+ * 回退：删掉本段即可，改前结构与本段之外的所有规则原样生效。 */
+
+/* 容器：整条带的唯一容器。底与描边沿用上一轮的柔化值，本轮把圆角抬到二级容器档
+ * （14px，与 `.dashboard` / `.map-unit` 同档、低于 Hero 的 20px），并给出自己的
+ * 四周留白；`margin-top` 从 `--space-xl` 抬到 `--space-2xl`，与 Hero 拉开主次。 */
+body[data-page="home"] .home-secondary { margin-top: var(--space-2xl); padding: var(--space-md); background: color-mix(in srgb, var(--color-wash) 32%, transparent); border-color: color-mix(in srgb, var(--color-rule) 74%, transparent); border-radius: 14px; }
+
+/* 第一段：今日状态带（带子的头）。透明、无边框、无阴影的既有事实保持不动；本轮把
+ * 圆角抬到 `--radius-medium`，与下面两个可点元素同档（带内部圆角语言统一）。 */
+body[data-page="home"] .home-secondary .today-strip { padding-inline: var(--space-sm); border-radius: var(--radius-medium); }
+body[data-page="home"] .home-secondary .today-strip:hover { background: color-mix(in srgb, var(--color-paper) 66%, transparent); border-color: color-mix(in srgb, var(--color-rule) 80%, transparent); }
+
+/* 第一道细分隔线：今日条 → 三入口。线两侧各留一档空白（上 `--space-md` / 下
+ * `--space-sm`）——上一轮把留白全换成线之后三段实测是零间距、顶格紧贴，本轮给线
+ * 补回两侧呼吸：线仍在（连接感不丢），但三段不再互相压着。 */
+body[data-page="home"] .home-secondary .entry-grid-wrap { margin-top: 0; padding: var(--space-md) 0 var(--space-sm); border-top: 1px solid color-mix(in srgb, var(--color-rule) 80%, transparent); }
+
+/* 第二段：三个功能入口。列间距是这条带里唯一读得出来的「节奏」——入口卡自身透明
+ * 无边框，间隙就是节奏本身；8px 只能读出「挤」，`--space-lg` 才让三项各自成一块。
+ * 圆角抬到 `--radius-medium`，与今日条同档。 */
+body[data-page="home"] .home-secondary .entry-grid { gap: var(--space-lg); }
+body[data-page="home"] .home-secondary .entry-card { padding-inline: var(--space-sm); border-radius: var(--radius-medium); }
+body[data-page="home"] .home-secondary .entry-card:hover { background: color-mix(in srgb, var(--color-paper) 70%, transparent); border-color: color-mix(in srgb, var(--color-rule) 80%, transparent); box-shadow: none; }
+
+/* 第二道细分隔线 + 底部收束：三入口 → 路线预览条。虚线框语言退场，换成与第一道同值的
+ * 细上边线；线两侧同样各留一档空白，带的尾巴才有收束感而不是被切断。
+ * 整条仍是一个 button、`min-height: 44px` 由基础规则保留，点击与焦点语义不变。
+ * hover 只点亮这条线（整条是横贯全宽的带尾，铺一层底色会把「带」重新切回「块」）。 */
+body[data-page="home"] .home-secondary .world-preview { margin-top: 0; padding: var(--space-md) var(--space-sm) var(--space-sm); background: transparent; border: none; border-top: 1px solid color-mix(in srgb, var(--color-rule) 80%, transparent); border-radius: 0; }
+body[data-page="home"] .home-secondary .world-preview:hover { background: transparent; border-top-color: var(--color-accent); }
+
+/* 窄屏：容器边距回到 `--space-sm`（与既有窄屏收口同值），信息带在 320px 下不产生
+ * 任何横向尺寸；三段的 padding-inline 已是 8px，窄屏沿用同一左轨。
+ * 列间距在窄屏仍由基础规则的 1 列接管，本段的 `--space-lg` 不影响单列读数。 */
+@media (max-width: 30rem) {
+  body[data-page="home"] .home-secondary { padding: var(--space-sm); }
+}

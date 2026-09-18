@@ -67,7 +67,28 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
 {
   assert.ok(THEMES.themes.length >= 24 && THEMES.themes.length <= 30,
     check(`主题总数在交接 C1 的 24–30 区间（实际 ${THEMES.themes.length}）`));
-  assert.equal(THEMES.defaultThemeId, 'garden', check('默认主题仍是园地'));
+  /* v4.11 批次 F（B1）：默认主题由园地改为夜空——新用户 / 缺合法主题的档案
+   * 默认进夜间阅读。这里钉的是数据文件的事实；「新档案真的落到 night 且老用户
+   * 已存的 garden 不被覆盖」由 collections.test.cjs 与真实浏览器验证承担。 */
+  assert.equal(THEMES.defaultThemeId, 'night', check('默认主题是夜空'));
+  {
+    const night = THEMES.themes.find(t => t.id === THEMES.defaultThemeId);
+    assert.ok(night, check('默认主题 id 在主题清单里存在'));
+    assert.equal(night.dark, true, check('默认主题是深色主题（暗光环境的低刺激默认）'));
+    assert.equal(night.unlock.kind, 'default',
+      check('默认主题默认开放——新用户第一眼看到的一定是自己已经拥有的主题'));
+  }
+
+  /* v4.11 批次 F（B2）：主题选择器的展示优先顺序。白名单只影响**展示顺序**，
+   * 因此这里同时钉住「白名单本身合法」与「其存在不改变主题集合」。 */
+  assert.deepEqual(THEMES.recommendedThemeIds, ['night', 'graphite', 'glacier'],
+    check('推荐展示顺序是 夜空 → 石墨 → 冰川'));
+  {
+    const ids = new Set(THEMES.themes.map(t => t.id));
+    for (const id of THEMES.recommendedThemeIds) {
+      assert.ok(ids.has(id), check(`推荐顺序里的 ${id} 是清单内真实存在的主题（改名时这里先红）`));
+    }
+  }
 
   const ids = THEMES.themes.map(t => t.id);
   assert.equal(new Set(ids).size, ids.length, check('主题 id 不重复'));

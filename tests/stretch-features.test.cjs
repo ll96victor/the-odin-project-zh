@@ -180,8 +180,23 @@ function clickChip(dialog, label) {
 
 /* ===================== 3. I1 最近使用主题（内存级） ===================== */
 {
-  const page = newPage({ storage: makeStorage() });
+  /* v4.11 批次 F（B1）：默认主题已改为夜空，空档案下「夜空」就是**使用中**的
+   * 主题——而 picker 对使用中的卡是「点一下取消预览、回到已存主题」（既有设计，
+   * 见 themePickerBody）。继续用空档案会把本组变成在测「取消预览」，测不到
+   * 「预览 → 使用 → 最近使用」这条链路。所以显式种一个非夜空的已存主题
+   * （园地），让夜空重新成为"未使用但已解锁"的卡，断言强度一条不减。 */
+  const page = newPage({ storage: seededStorage({ cosmetics: { purchases: {}, companionId: 'nono', themeId: 'garden' } }) });
   const { dom } = page;
+  /* 种了档案就会触发既有的「读档前自动备份」，localStorage 里因此本来就多一条
+   * backups key——那是档案机制，不是本组要考的主题功能。所以基线改成取「页面
+   * 打开完成之后」的 key 集合，末尾比对的是主题预览 / 切换有没有**再**多出条目。
+   * 断言强度不变：仍然是「主题链路零新增持久化 key」。 */
+  const storageKeys = () => {
+    const list = [];
+    for (let i = 0; i < page.sandbox.localStorage.length; i += 1) list.push(page.sandbox.localStorage.key(i));
+    return list.sort();
+  };
+  const keysAtStart = storageKeys();
   const openPicker = () => {
     dispatch(querySelect(dom.body, '.theme-quick'), 'click', {});
     return collectByClass(dom.body, 'picker-dialog').find(d => d.open);
@@ -217,10 +232,9 @@ function clickChip(dialog, label) {
   dispatch(recent2[1], 'click', {});
   assert.equal(dom.documentElement.dataset.theme, 'night', check('点最近使用 chip 即预览'));
   assert.equal(JSON.parse(page.sandbox.localStorage.getItem(STORAGE_KEY)).cosmetics.themeId, 'garden', check('预览不保存：档案里仍是园地'));
-  /* 不新增持久化 key：档案 key 之外没有任何新 localStorage 条目 */
-  const keys = [];
-  for (let i = 0; i < page.sandbox.localStorage.length; i += 1) keys.push(page.sandbox.localStorage.key(i));
-  assert.deepEqual(keys, [STORAGE_KEY], check('最近使用纯内存：localStorage 无新增 key'));
+  /* 不新增持久化 key：主题预览 / 切换跑完一轮后，localStorage 的 key 集合与
+   * 页面刚打开时逐字相同（「最近使用」是纯内存状态，绝不落盘）。 */
+  assert.deepEqual(storageKeys(), keysAtStart, check('最近使用纯内存：主题预览/切换不新增任何 localStorage key'));
 }
 
 /* ===================== 4. I4 小奥当日成就庆祝 ===================== */
@@ -286,4 +300,89 @@ function clickChip(dialog, label) {
   assert.ok(dialog.textContent.includes('重置学习进度'), check('重置按钮本体不变'));
 }
 
-console.log(`通过：Batch 10 Stretch 功能 ${checks} 项断言（目录搜索/已开放/需要复习过滤、命令面板 Ctrl+K 全量 33 条无截断/键盘导航/执行跳转、最近使用主题内存级零新 key、小奥当日成就庆祝、世界地图完成度进度条、microcopy 去后台腔）。`);
+/* ============ 7. v4.11 批次 F（B2）：主题选择器展示优先顺序 ============
+ * 证明的验收标准：主题选择器的全局展示优先顺序是 夜空 → 石墨 → 冰川 → 其他。
+ * 关键限定：这次只动**展示顺序**——主题集合、分类归属、解锁判定、色卡、
+ * 各分类计数与「最近使用」一行都不受影响（最近使用见本文件第 3 组）。
+ * 断言按「集合相等 + 顺序前缀」写：集合证明没丢主题，前缀证明顺序生效；
+ * 全量比对清单 zh 而不是只数个数，避免删一个加一个也能蒙混过关。 */
+{
+  const page = newPage({ storage: seededStorage({ cosmetics: { purchases: {}, companionId: 'nono', themeId: 'garden' } }) });
+  const { dom } = page;
+  const themesData = page.sandbox.window.ODIN_THEMES;
+  const openPicker = () => {
+    dispatch(querySelect(dom.body, '.theme-quick'), 'click', {});
+    return collectByClass(dom.body, 'picker-dialog').find(d => d.open);
+  };
+  /* 卡名读 .theme-card-name，去掉「使用中 / 预览中」状态徽标 */
+  const namesOf = picker => collectByClass(picker, 'theme-card')
+    .map(card => (querySelect(card, '.theme-card-name') || { textContent: '' }).textContent.replace(/使用中|预览中/g, ''));
+  const chipOf = (picker, text) => collectByClass(picker, 'theme-chip').find(c => c.textContent.startsWith(text));
+  /* Array.from 不是多余的：themesData 来自 vm 沙箱，沙箱里的数组原型与宿主 realm
+   * 不同，deepStrictEqual 会比原型，直接用会得到「内容一样却断言失败」的假红。 */
+  const listZhOf = filterFn => Array.from(themesData.themes).filter(filterFn).map(t => t.zh);
+
+  let picker = openPicker();
+  assert.deepEqual(namesOf(picker).slice(0, 3), ['夜空', '石墨', '冰川'],
+    check('F/B2：「全部」视图前三项是 夜空 → 石墨 → 冰川'));
+
+  const allNames = namesOf(picker);
+  assert.equal(allNames.length, themesData.themes.length,
+    check(`F/B2：「全部」视图仍是全部 ${themesData.themes.length} 套（不因重排丢卡）`));
+  assert.deepEqual([...allNames].sort(), listZhOf(() => true).sort(),
+    check('F/B2：「全部」视图的主题集合与清单逐项一致（无丢失、无重复、无替换）'));
+  assert.equal(new Set(allNames).size, allNames.length, check('F/B2：「全部」视图无重复主题'));
+
+  /* 分类筛选：数量不变、分类内的推荐主题排在该分类最前、集合与清单一致 */
+  dispatch(chipOf(picker, '清爽系'), 'click', {});
+  assert.deepEqual([...namesOf(picker)].sort(), listZhOf(t => t.category === 'fresh').sort(),
+    check('F/B2：清爽系筛选的集合与清单 fresh 分类逐项一致（分类筛选不丢主题）'));
+  assert.equal(namesOf(picker)[0], '冰川', check('F/B2：清爽系里推荐主题冰川排在最前'));
+
+  /* 「深色系」chip 的 id 与「浅色/深色」伪筛选的 id 撞车（都是 'dark'），
+   * themeMatchesFilter 走的是 `dark === true` 那一支——这是 v4.4 就存在的既有
+   * 行为（chip 上写「深色系 6」但筛出来是全部 8 套深色主题），本轮只调顺序、
+   * 不碰筛选口径，所以这里按**实际契约**断言，不掩盖也不顺手改掉它；
+   * 该处 label/计数与实际结果不一致已作为「超出本轮范围」记入实施记录。 */
+  dispatch(chipOf(picker, '深色系'), 'click', {});
+  assert.deepEqual(namesOf(picker).slice(0, 2), ['夜空', '石墨'],
+    check('F/B2：深色系里夜空、石墨排在最前（与「全部」视图的推荐顺序同源）'));
+  assert.deepEqual([...namesOf(picker)].sort(), listZhOf(t => t.dark).sort(),
+    check('F/B2：深色系筛选的集合与清单中全部深色主题逐项一致'));
+
+  dispatch(chipOf(picker, '暖色系'), 'click', {});
+  assert.deepEqual(namesOf(picker), listZhOf(t => t.category === 'warm'),
+    check('F/B2：没有推荐主题的分类保持清单原始顺序（重排不波及无关分类）'));
+
+  /* 搜索：命中集合仍由关键词决定，重排不改变成员 */
+  dispatch(chipOf(picker, '全部'), 'click', {});
+  const search = querySelect(picker, '.theme-search');
+  search.value = '夜';
+  dispatch(search, 'input', {});
+  const hit = namesOf(picker);
+  assert.ok(hit.includes('夜空'), check('F/B2：搜索「夜」仍命中夜空'));
+  assert.deepEqual([...hit].sort(), listZhOf(t => `${t.zh}${t.desc}${t.id}`.toLowerCase().includes('夜')).sort(),
+    check('F/B2：搜索命中集合与清单匹配口径逐项一致'));
+  search.value = '';
+  dispatch(search, 'input', {});
+  assert.deepEqual(namesOf(picker).slice(0, 3), ['夜空', '石墨', '冰川'],
+    check('F/B2：清空搜索后恢复推荐顺序'));
+
+  /* 数据事实未被顺带修改：id / 分类 / 暗色标记 / 色卡 / 解锁方式逐字对齐清单 */
+  const cardTexts = collectByClass(picker, 'theme-card').map(c => c.textContent);
+  const mismatched = Array.from(themesData.themes).filter(theme => {
+    const card = collectByClass(picker, 'theme-card').find(c => c.textContent.includes(theme.zh));
+    const tags = querySelect(card, '.theme-card-tags');
+    return !card || !tags || !tags.textContent.includes(theme.dark ? 'Dark 深色' : 'Light 浅色');
+  });
+  assert.deepEqual(mismatched, [], check('F/B2：每张卡的 Light/Dark 标签仍与清单 dark 字段一致（重排没碰数据）'));
+  assert.equal(cardTexts.length, themesData.themes.length, check('F/B2：卡片总数与清单一致'));
+  /* 重排只作用于展示副本：清单数组本身仍是文件里的原始顺序（园地仍是第一项） */
+  assert.equal(themesData.themes[0].id, 'garden',
+    check('F/B2：themes.js 的 themes 数组仍是文件原始顺序（重排发生在展示层，不改数据事实源）'));
+  assert.deepEqual(Array.from(themesData.recommendedThemeIds), ['night', 'graphite', 'glacier'],
+    check('F/B2：推荐顺序由 themes.js 单一事实源声明'));
+  picker.close();
+}
+
+console.log(`通过：Batch 10 Stretch 功能 ${checks} 项断言（目录搜索/已开放/需要复习过滤、命令面板 Ctrl+K 全量 33 条无截断/键盘导航/执行跳转、最近使用主题内存级零新 key、小奥当日成就庆祝、世界地图完成度进度条、microcopy 去后台腔、主题选择器展示优先顺序 夜空→石墨→冰川 且只动顺序不动数据）。`);

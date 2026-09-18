@@ -9,6 +9,8 @@
  *
  * 基础设施与 dom-mount.test.cjs 共享（tests/dom-stub.cjs）。 */
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const {
   FIRST_LESSON, querySelect, collectByClass, dispatch, makeStorage, newPage
@@ -475,4 +477,815 @@ function openSheetOf(page) {
   assert.equal(page.progress.cosmetics().companionId, 'odin-boy', check('D1：装备状态持久'));
 }
 
-console.log(`通过：首页信息架构 ${checks} 项断言（首页默认 DOM 极简、v4.5 主入口 6→3=学习进度/今日计划/学习地图、学习地图三 Tab 技能路线/世界地图/Foundations 探索、sheet 真实打开、焦点归还、目录 dialog 19+27 红线、header 玩家区/主题快捷、badge 随数据刷新、成就收藏与统计归个人中心、小奥面板 2.0 默认极简/四入口/双角色/设置同源）。`);
+/* ============ v4.11 批次 F（B3）：首页路线预览条的轻量场景化 ============
+ * 证明的验收标准：首页四格路线预览（Foundations / HTML & CSS / JavaScript /
+ * Node.js）各自带一层低饱和环境暗示，而**结构、数量、状态、进度与点击语义
+ * 一字不变**——整条仍是一个 button，四格仍不可聚焦、不可单独点击；学习地图
+ * sheet 里的 8 张 .world-card 不属于本组范围（它们的场景层是 v4.11 G2a 的
+ * 独立任务，下面另有一组断言专项钉住）。
+ * 说明：交接原文写的是「首页四张 World 卡」，但本地真实首页没有 .world-card
+ * （那 8 张在学习地图 sheet 内），首页对应物是这条 .world-preview 预览条——
+ * 已与用户确认按真实 DOM 收敛为「路线预览条四项」，属于实现锚点纠正。 */
+{
+  const root = path.resolve(__dirname, '..');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const page = newPage({ storage: makeStorage() });
+  const { dom } = page;
+
+  const bar = querySelect(dom.body, '.world-preview');
+  assert.ok(bar, check('F/B3：首页有路线预览条 .world-preview'));
+  assert.equal(bar.tagName, 'BUTTON', check('F/B3：整条预览条仍是**一个** button（没有改造成四张大卡）'));
+  assert.equal(bar.type, 'button', check('F/B3：button type=button 原样'));
+
+  const items = collectByClass(bar, 'world-preview-item');
+  assert.equal(items.length, 4, check('F/B3：预览条仍是 4 格'));
+  assert.deepEqual(items.map(i => querySelect(i, '.world-preview-name').textContent),
+    ['Foundations', 'HTML & CSS', 'JavaScript', 'Node.js'],
+    check('F/B3：四格名称一字不变'));
+  assert.deepEqual(items.map(i => querySelect(i, '.world-preview-state').textContent),
+    ['0 / 46', '尚未开放', '尚未开放', '尚未开放'],
+    check('F/B3：四格状态文案与进度口径一字不变（Foundations 带真实进度）'));
+  assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true, false, false, false],
+    check('F/B3：开放/未开放标记不变（只有 Foundations 是 is-open）'));
+
+  /* 场景化的钩子：色相写在 data-world-tone 上，是纯展示层，不是课程数据 */
+  assert.deepEqual(items.map(i => i.dataset.worldTone),
+    ['foundations', 'html-css', 'javascript', 'nodejs'],
+    check('F/B3：四格各带一个 data-world-tone 色相钩子（绿/冷蓝/暖橙/青绿）'));
+  const curriculum = page.sandbox.window.ODIN_CURRICULUM;
+  const tones = new Set(items.map(i => i.dataset.worldTone));
+  assert.equal(tones.size, 4, check('F/B3：四个色相两两不同（四格视觉可区分）'));
+  assert.ok(!/world-tone[^"']*"\s*:\s*(true|false|\d)/.test(JSON.stringify(curriculum)),
+    check('F/B3：tone 没有写进课程数据（curriculum.js 一字未动）'));
+
+  /* 点击语义：整条仍打开学习地图，四格本身不可聚焦、不可点击 */
+  for (const item of items) {
+    assert.equal(item.tagName, 'SPAN', check('F/B3：格子仍是 span（不是 button/link，保持不可聚焦）'));
+    assert.equal(item.getAttribute('tabindex'), null, check('F/B3：格子没有 tabindex（不进 Tab 序列）'));
+    assert.equal((item.listeners && item.listeners.click) || null, null, check('F/B3：格子自身没有 click 监听'));
+  }
+  dispatch(bar, 'click', {});
+  const sheet = collectByClass(dom.body, 'sheet').find(s => s.open);
+  assert.ok(sheet, check('F/B3：点击整条预览条仍打开学习地图 sheet'));
+  assert.equal(collectByClass(sheet, 'world-card').length, 8,
+    check('F/B3：点开学习地图仍是 8 张 .world-card（B3 只加首页预览条色晕，未改动这 8 张的数量与结构）'));
+  sheet.close();
+
+  /* ---------- 色晕的 CSS 纪律 ----------
+   * 只在批次 F（B3）那一段里找规则：`.world-preview-item` 在文件里有多条（基础
+   * 排版那条在前），全文件取首个匹配会拿到基础排版规则而不是色晕规则。 */
+  const b3 = css.slice(css.indexOf('v4.11 批次 F（B3）'));
+  assert.ok(b3.length > 0, check('F/B3：style.css 里有批次 F（B3）色晕段'));
+  const ruleBody = selector => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = new RegExp(`(?:^|\\n)\\s*${escaped} \\{([^}]*)\\}`).exec(b3);
+    assert.ok(m, check(`规则存在：${selector}`));
+    return m[1];
+  };
+  const base = ruleBody('.world-preview-item');
+  assert.ok(base.includes('position: relative') && base.includes('isolation: isolate'),
+    check('F/B3：.world-preview-item 建自己的层叠上下文（色晕只压在本格文字之下）'));
+  const veil = ruleBody('.world-preview-item::before');
+  assert.ok(veil.includes("content: ''"), check('F/B3：色晕由 ::before 生成'));
+  assert.ok(veil.includes('pointer-events: none'), check('F/B3：色晕 pointer-events:none——绝不拦截指针'));
+  assert.ok(veil.includes('z-index: -1'), check('F/B3：色晕 z-index:-1——画在名称与状态文字之下，不遮挡'));
+  assert.ok(/opacity:\s*\.55/.test(veil), check('F/B3：未开放三格统一降到 55% 不透明度'));
+  assert.ok(/opacity:\s*1/.test(ruleBody('.world-preview-item.is-open::before')),
+    check('F/B3：已开放的 Foundations 是唯一满强度的一格（未开放项视觉权重严格更低）'));
+
+  const toneRules = ['foundations', 'html-css', 'javascript', 'nodejs']
+    .map(tone => ruleBody(`.world-preview-item[data-world-tone="${tone}"]::before`));
+  assert.equal(toneRules.filter(body => /background:/.test(body)).length, 4,
+    check('F/B3：四个色相各有自己的 background（不是四格同一套）'));
+
+  /* 低饱和与无动画：整段色晕里每个色标的 alpha ≤ .16 */
+  const alphas = [];
+  for (const body of [veil, ...toneRules]) {
+    for (const m of body.matchAll(/rgba?\(([^)]+)\)/g)) {
+      const parts = m[1].split(',').map(s => s.trim());
+      alphas.push(parts.length === 4 ? Number(parts[3]) : 1);
+    }
+    assert.ok(!/animation\s*:/.test(body) && !/@keyframes/.test(body),
+      check('F/B3：色晕规则零 animation / @keyframes'));
+    assert.ok(!/--color-[a-z-]+\s*:/.test(body), check('F/B3：色晕规则零新 token 定义'));
+    assert.ok(!/url\s*\(|https?:/.test(body), check('F/B3：色晕只用渐变，零位图 / 零外链'));
+  }
+  assert.ok(alphas.length >= 12, check(`F/B3：色晕逐层显式控制透明度（${alphas.length} 个色标）`));
+  assert.ok(alphas.every(a => a <= .16),
+    check(`F/B3：全部色标 alpha ≤ .16（实际上限 ${Math.max(...alphas)}）——低饱和、不抢课程标题`));
+
+  /* 窄屏与打印：装饰收起，文字与状态保留 */
+  const narrow = [...css.matchAll(/@media \(max-width: 40rem\) \{([\s\S]*?)\n\}/g)].map(m => m[1]);
+  assert.ok(narrow.some(b => /\.world-preview-item::before \{ display: none; \}/.test(b)),
+    check('F/B3：<40rem 收起色晕（四项文字与状态由基础规则保留，不做第二套小尺寸装饰）'));
+  assert.ok(/@media print \{[\s\S]*?\.world-preview-item::before \{ display: none; \}/.test(css),
+    check('F/B3：print 不残留色晕（兜底；预览条本身已在 .home-secondary 里被打印隐藏）'));
+}
+
+/* ===================== v4.11 G2a：学习地图 8 张 World 卡的轻量场景层 =====================
+ * 证明的验收标准（交接 §十 的 1–15 条）：
+ *   1. 8 张 .world-card 的数量、World 1–8 顺序、button 语义、开放/锁定状态、文案结构、
+ *      进度条有无、aria-label 与点击路径**一字不变**；
+ *   2. 每张卡多一个**纯展示**色相钩子 data-world-tone，与 course.order 一一对应，
+ *      不写进 curriculum.js、不进 localStorage；
+ *   3. 对应的 CSS 场景层满足层级 / 强度 / 零动画 / 零外链纪律，且未开放卡严格弱于
+ *      唯一开放的 Foundations；
+ *   4. 首页路线预览条（批次 F B3 的成果）零回归。
+ * **映射按 curriculum.js 的真实顺序绑定**：G2a 规划交接的语义表把 Node.js 写在
+ * World 4，与本地数据不符（真实 World 4 是 advanced-html-and-css「高级 HTML 与
+ * CSS」，NodeJS 在 World 7），已由用户 2026-09-18 确认按真实数据修正。本组用真实
+ * 中文名与 id 逐张钉住，任何回退到「World 4 = Node.js」的写法都会立刻变红。 */
+{
+  const G2A_TONES = ['foundations', 'html-css', 'javascript', 'html-css-deep',
+    'world-generic-a', 'world-generic-b', 'nodejs', 'world-generic-c'];
+  const G2A_ZH = ['Foundations 前端基础', '中级 HTML 与 CSS', 'JavaScript', '高级 HTML 与 CSS',
+    'React', '数据库', 'NodeJS', '求职之路'];
+  const root = path.resolve(__dirname, '..');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const page = newPage({ storage: makeStorage() });
+  const { dom } = page;
+
+  const storageKeys = () => {
+    const list = [];
+    for (let i = 0; i < page.sandbox.localStorage.length; i += 1) list.push(page.sandbox.localStorage.key(i));
+    return list.sort();
+  };
+  const keysAtStart = storageKeys();
+
+  clickEntry(page, '学习地图');
+  const sheet = openSheetOf(page);
+  const worldTab = collectByClass(sheet, 'map-tab').find(t => t.textContent.includes('世界地图'));
+  dispatch(worldTab, 'click', {});
+  const cards = collectByClass(sheet, 'world-card');
+  const textAt = (card, cls) => (querySelect(card, '.' + cls) || { textContent: '' }).textContent;
+
+  /* ---------- 1. 卡片业务事实零改动（G2a 只加表现层） ---------- */
+  assert.equal(cards.length, 8, check('G2a：学习地图仍是 8 张 World 卡'));
+  assert.deepEqual(cards.map(c => textAt(c, 'world-order')),
+    ['World 1', 'World 2', 'World 3', 'World 4', 'World 5', 'World 6', 'World 7', 'World 8'],
+    check('G2a：World 1–8 顺序一字不变'));
+  assert.deepEqual(cards.map(c => textAt(c, 'world-zh')), G2A_ZH,
+    check('G2a：8 个 World 的中文名与 curriculum.js 真实顺序一致（钉住 World 4 = 高级 HTML 与 CSS，不是 Node.js）'));
+  assert.ok(cards.every(c => c.tagName === 'BUTTON' && c.type === 'button'),
+    check('G2a：8 张卡仍然都是 button（type=button），没有变成 div 或链接'));
+  assert.deepEqual(cards.map(c => c.classList.contains('is-open')), [true, false, false, false, false, false, false, false],
+    check('G2a：开放状态不变——只有 World 1 Foundations 是 is-open'));
+  assert.deepEqual(cards.map(c => c.classList.contains('is-locked')), [false, true, true, true, true, true, true, true],
+    check('G2a：锁定状态不变——其余 7 张仍是 is-locked'));
+  assert.ok(cards.every(c => ['world-order', 'world-zh', 'world-en', 'world-stats', 'world-hint']
+    .every(cls => querySelect(c, '.' + cls))),
+    check('G2a：每张卡的文案结构（编号 / 中文名 / 英文名 / 统计 / 提示）完整保留'));
+  assert.deepEqual(cards.map(c => Boolean(querySelect(c, '.world-mini-progress'))),
+    [true, false, false, false, false, false, false, false],
+    check('G2a：只有开放的 World 1 带完成度进度条，未开放卡不放假进度'));
+  assert.ok(cards[0].textContent.includes('前 19 课已有中文学习内容'),
+    check('G2a：World 1 的中文覆盖说明保留（自 Hero 下沉的那句）'));
+  assert.ok(cards.slice(1).every(c => c.textContent.includes('尚未开放中文内容')),
+    check('G2a：7 张未开放卡仍明确写「尚未开放中文内容」——装饰不替代状态文案'));
+  assert.ok(cards.every((c, i) => {
+    const label = c.getAttribute('aria-label') || '';
+    return label.startsWith('World ' + (i + 1) + ' ') && label.includes(G2A_ZH[i]);
+  }), check('G2a：aria-label 仍按「World N + 中文名」组织，没有被色相钩子改写'));
+  const focusables = [];
+  for (const card of cards) {
+    if (card.getAttribute('tabindex') !== null) focusables.push('tabindex');
+    (function walk(el) {
+      for (const child of el.children) {
+        if (['BUTTON', 'A', 'INPUT', 'SELECT', 'TEXTAREA'].includes(child.tagName)) focusables.push(child.tagName);
+        walk(child);
+      }
+    })(card);
+  }
+  assert.equal(focusables.length, 0,
+    check('G2a：卡内没有新增任何可聚焦元素（仍是每张卡一个 Tab 停靠点）'));
+
+  /* ---------- 2. 纯展示色相钩子：与 course.order 一一对应 ---------- */
+  assert.deepEqual(cards.map(c => c.dataset.worldTone), G2A_TONES,
+    check('G2a：8 张卡各带一个 data-world-tone，逐项等于锁定映射（1 foundations … 4 html-css-deep … 7 nodejs … 8 world-generic-c）'));
+  assert.equal(new Set(cards.map(c => c.dataset.worldTone)).size, 8,
+    check('G2a：8 个 tone 两两不同——无缺失、无重复错误'));
+  assert.equal(cards.filter(c => c.dataset.worldTone === 'nodejs').length, 1,
+    check('G2a：青绿的 nodejs 只出现在 1 张卡上'));
+  assert.equal(cards.findIndex(c => c.dataset.worldTone === 'nodejs'), 6,
+    check('G2a：nodejs 绑定的是第 7 张（NodeJS）'));
+  assert.notEqual(cards[3].dataset.worldTone, 'nodejs',
+    check('G2a：World 4（高级 HTML 与 CSS）不得被画成 Node.js——交接表错误已被钉死'));
+  assert.equal(cards.filter(c => c.dataset.worldTone.startsWith('world-generic')).length, 3,
+    check('G2a：World 5 / 6 / 8 三张走统一的后续世界弱化 tone'));
+
+  /* 映射依据是真实课程数据，不是中文名匹配 */
+  const cur = page.sandbox.window.ODIN_CURRICULUM;
+  const byOrder = [...cur.courses].sort((a, b) => a.order - b.order);
+  assert.deepEqual(byOrder.map(c => c.order), [1, 2, 3, 4, 5, 6, 7, 8],
+    check('G2a：curriculum 的 course.order 是 1–8 连续（映射键本身稳定）'));
+  assert.equal(byOrder[3].id, 'advanced-html-and-css',
+    check('G2a：第 4 个 World 的真实 id 是 advanced-html-and-css（交接表把它写成 Node.js 是错的）'));
+  assert.equal(byOrder[6].id, 'nodejs',
+    check('G2a：NodeJS 的真实位置是第 7 个 World'));
+  assert.ok(byOrder.every((c, i) => c.zh === G2A_ZH[i]),
+    check('G2a：DOM 第 i 张卡的中文名与 order=i+1 的真实课程逐一对应（顺序与色相共用同一把尺）'));
+
+  /* 色相不进课程数据、不进存档 */
+  const curJson = JSON.stringify(cur);
+  /* 这里刻意**不**用「tone 字面量都不出现」来判：tone 词汇故意沿用了官方命名，
+   * 'javascript' 与 'nodejs' 本身就是 World 3 / World 7 的 course.id，字符串层
+   * 判定必然假红。改成结构化判定——课程对象里不许出现任何色相 / 装饰类字段。 */
+  assert.ok(byOrder.every(c => !Object.prototype.hasOwnProperty.call(c, 'tone')),
+    check('G2a：curriculum 的课程对象里没有 tone 字段'));
+  assert.ok(byOrder.every(c => !Object.keys(c).some(k => /tone|decor|scene/i.test(k))),
+    check('G2a：课程对象里没有任何色相 / 装饰类新字段'));
+  assert.ok(curJson.indexOf('world-generic') === -1 && curJson.indexOf('html-css-deep') === -1,
+    check('G2a：只有 G2a 才有的两个 tone（world-generic / html-css-deep）不出现在 curriculum.js 里'));
+  assert.ok(!/worldTone|data-world-tone/.test(curJson),
+    check('G2a：curriculum 里没有色相钩子字段（纯表现层）'));
+
+  /* ---------- 3. 点击路径与零持久化 ---------- */
+  dispatch(cards[0], 'click', {});
+  assert.ok(collectByClass(sheet, 'map-nodes').length >= 1,
+    check('G2a：World 1 仍能进入 Foundations 探索地图（装饰层没有拦截点击）'));
+  dispatch(collectByClass(sheet, 'world-back')[0], 'click', {});
+  assert.equal(collectByClass(sheet, 'world-card').length, 8,
+    check('G2a：返回后回到 8 张 World 卡'));
+  dispatch(collectByClass(sheet, 'world-card')[4], 'click', {});
+  assert.ok(sheet.textContent.includes('React') && collectByClass(sheet, 'lesson-link').length === 0,
+    check('G2a：未开放 World 仍是结构占位、零 lesson.html 链接（F3 红线不回归）'));
+  dispatch(collectByClass(sheet, 'world-back')[0], 'click', {});
+  assert.deepEqual(storageKeys(), keysAtStart,
+    check('G2a：整条「开列表 → 进 World → 返回」链路零新增 localStorage key（色相不进存档、不进 schema）'));
+  sheet.close();
+
+  /* ---------- 4. CSS 场景层纪律（只在 G2a 段里找规则） ---------- */
+  const g2a = css.slice(css.indexOf('v4.11 G2a'));
+  assert.ok(g2a.length > 0, check('G2a：style.css 里有 G2a 段'));
+  const ruleBody = selector => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = new RegExp('(?:^|\\n)\\s*' + escaped + ' \\{([^}]*)\\}').exec(g2a);
+    assert.ok(m, check('G2a：规则存在 ' + selector));
+    return m[1];
+  };
+  const cardBase = ruleBody('.world-card');
+  assert.ok(/position:\s*relative/.test(cardBase) && /isolation:\s*isolate/.test(cardBase),
+    check('G2a：卡片建立自己的叠加上下文（position:relative + isolation:isolate）——装饰才可能只压在本卡背景之上、内容之下'));
+
+  const pseudo = /\.world-card::before,\s*\.world-card::after \{([^}]*)\}/.exec(g2a);
+  assert.ok(pseudo, check('G2a：::before / ::after 共用一条基础规则'));
+  const pseudoBody = pseudo ? pseudo[1] : '';
+  for (const pair of [
+    ['z-index: -1', '两层装饰都在负层，文字永远画在它们之上'],
+    ['inset: 0', '两层都铺满卡片'],
+    ['pointer-events: none', '不拦截指针、不参与命中'],
+    ['border-radius: inherit', '铺满时不溢出卡片圆角'],
+    ['opacity: .68', '未开放档的强度']
+  ]) {
+    assert.ok(pseudoBody.indexOf(pair[0]) !== -1, check('G2a：装饰基础规则含 ' + pair[0] + '（' + pair[1] + '）'));
+  }
+  const openBody = /\.world-card\.is-open::before,\s*\.world-card\.is-open::after \{([^}]*)\}/.exec(g2a);
+  assert.ok(openBody && /opacity:\s*1/.test(openBody[1]),
+    check('G2a：唯一开放的 Foundations 走满强度（未开放的 7 张停在 .68，视觉权重严格更低）'));
+
+  /* 每个 tone 都有色晕层；主场景另有轮廓层；三个 generic 只有一层 */
+  const toneVeils = {};
+  const toneOutlines = {};
+  for (const tone of G2A_TONES) {
+    const veil = ruleBody('.world-card[data-world-tone="' + tone + '"]::before');
+    assert.ok(/background:/.test(veil), check('G2a：' + tone + ' 的色晕层有自己的 background（不是所有卡同一套）'));
+    toneVeils[tone] = veil;
+    const outline = new RegExp('\\.world-card\\[data-world-tone="' + tone + '"\\]::after \\{([^}]*)\\}').exec(g2a);
+    if (outline) toneOutlines[tone] = outline[1];
+  }
+  assert.deepEqual(Object.keys(toneOutlines).sort(),
+    ['foundations', 'html-css', 'html-css-deep', 'javascript', 'nodejs'],
+    check('G2a：四个主场景（foundations / html-css / html-css-deep / javascript / nodejs）各有轮廓层，共 5 个'));
+  assert.ok(G2A_TONES.filter(t => t.startsWith('world-generic')).every(t => !toneOutlines[t]),
+    check('G2a：三个后续世界只有一层色晕、没有轮廓层（层级上就更弱）'));
+
+  /* 强度与低饱和 */
+  const alphaOf = body => [...body.matchAll(/rgba?\(([^)]+)\)/g)].map(m => {
+    const parts = m[1].split(',').map(s => s.trim());
+    return parts.length === 4 ? Number(parts[3]) : 1;
+  });
+  const allBodies = [...Object.values(toneVeils), ...Object.values(toneOutlines), pseudoBody];
+  const allAlphas = allBodies.reduce((acc, b) => acc.concat(alphaOf(b)), []);
+  assert.ok(allAlphas.length >= 30, check('G2a：逐层显式控制透明度（' + allAlphas.length + ' 个色标）'));
+  assert.ok(allAlphas.every(a => a <= .22),
+    check('G2a：全部色标 alpha ≤ .22（实际上限 ' + Math.max.apply(null, allAlphas) + '）——低饱和、不抢 World 名称与状态'));
+  const fndAlphas = alphaOf(toneVeils.foundations).concat(alphaOf(toneOutlines.foundations));
+  assert.ok(Math.max.apply(null, fndAlphas) >= .16,
+    check('G2a：Foundations 至少有一处 ≥ .16 ——「最清楚的一档」不是空话'));
+  const genAlphas = G2A_TONES.filter(t => t.startsWith('world-generic'))
+    .reduce((acc, t) => acc.concat(alphaOf(toneVeils[t])), []);
+  assert.ok(genAlphas.every(a => a <= .09),
+    check('G2a：三个后续世界色标全部 ≤ .09（实际上限 ' + Math.max.apply(null, genAlphas) + '）——比任何主场景都弱'));
+  assert.notEqual(toneVeils['html-css-deep'], toneVeils['html-css'],
+    check('G2a：World 4 的 html-css-deep 与 World 2 的 html-css 同族但不重样（色相更深）'));
+  assert.ok(toneOutlines['html-css-deep'].indexOf('.34rem') !== -1 && toneOutlines['html-css'].indexOf('.66rem') !== -1,
+    check('G2a：World 4 的结构线比 World 2 更密（.34rem vs .66rem），两张卡不会看成同一张'));
+
+  /* 与批次 F 首页预览条共用同一套色相词汇 */
+  for (const pair of [
+    ['rgba(63, 123, 88', 'Foundations 成长绿'],
+    ['rgba(72, 106, 148', 'HTML & CSS 冷蓝'],
+    ['rgba(176, 130, 62', 'JavaScript 暖橙'],
+    ['rgba(60, 120, 112', 'NodeJS 青绿']
+  ]) {
+    assert.ok(g2a.indexOf(pair[0]) !== -1,
+      check('G2a：' + pair[1] + ' 复用批次 F 预览条同一色值（' + pair[0] + '…）'));
+  }
+
+  /* 零动画 / 零外链 / 零新 token */
+  const named = Object.assign({}, toneVeils, toneOutlines);
+  for (const name of Object.keys(named)) {
+    const body = named[name];
+    assert.ok(!/animation\s*:/.test(body) && !/@keyframes/.test(body),
+      check('G2a：' + name + ' 零 animation / @keyframes'));
+    assert.ok(!/url\s*\(|https?:/.test(body), check('G2a：' + name + ' 只用渐变，零位图 / 零外链'));
+    assert.ok(!/transition\s*:/.test(body), check('G2a：' + name + ' 没有新增 transition（卡片既有过渡不受影响）'));
+    assert.ok(!/--color-[a-z-]+\s*:/.test(body), check('G2a：' + name + ' 零新 token 定义'));
+  }
+
+  /* 响应式与打印 */
+  const narrow = [...css.matchAll(/@media \(max-width: 40rem\) \{([\s\S]*?)\n\}/g)].map(m => m[1]);
+  assert.ok(narrow.some(b => /\.world-card::before, \.world-card::after \{ content: none; \}/.test(b)),
+    check('G2a：<40rem 收起整套装饰（8 张卡的文字 / 状态 / 提示由基础规则完整保留）'));
+  assert.ok(/@media print \{[\s\S]{0,220}?\.world-card::before, \.world-card::after \{ content: none; \}/.test(css),
+    check('G2a：print 不残留装饰（兜底；.world-list 本身在既有 print 规则里已整体 display:none）'));
+  assert.ok(/@media print \{[\s\S]{0,220}?\.world-list, \.world-back \{ display: none; \}/.test(css),
+    check('G2a：既有「打印隐藏 World 列表」规则原样在位（本轮没有放开打印）'));
+
+  /* ---------- 5. 首页路线预览条零回归（G2a 不碰首页） ---------- */
+  const bar = querySelect(dom.body, '.world-preview');
+  assert.ok(bar && bar.tagName === 'BUTTON', check('G2a：首页路线预览条仍是一个 button（G2a 未改动首页）'));
+  assert.deepEqual(collectByClass(bar, 'world-preview-item').map(i => i.dataset.worldTone),
+    ['foundations', 'html-css', 'javascript', 'nodejs'],
+    check('G2a：首页预览条四项色相仍是批次 F 那四个，未被 G2a 改写成地图卡的八色'));
+}
+
+/* ============ v4.11：World 图片原型定向撤回 + 首页信息带（两轮）============
+ * 组内有三条互不替代的验收线：
+ *   A. **定向撤回**（不是回滚）：v5 Foundations 单卡场景图原型经真实页面比较后不采用，
+ *      图片资产 / 挂载代码 / 样式段 / 上一版本文件里的旧断言组一起移除。**同时保留**：
+ *      G2a 的纯 CSS/SVG 场景层、8 张 World 卡、tone 映射、地图状态色补丁、
+ *      Hero、默认夜空、课程 / 状态 / 进度 / 存储逻辑。
+ *   B. **首页信息带第一轮（结构语言）**：Hero 下方 `.home-secondary` 从「三块堆叠」
+ *      收成「一条带」——统一左轨 / 两道细分隔线 / 虚线框退场 / hover 降重。
+ *   C. **首页信息带第二轮（呼吸与圆角）**：第一轮把留白全换成线，真实页面实测三段
+ *      **零间距顶格**、三入口**列间距只有 8px**、容器圆角 8px 偏硬 → 本轮补呼吸
+ *      （线两侧留白 + 列间距 24px + Hero 与带拉开到 48px）与抬圆角（容器 14px、
+ *      带内可点元素 `--radius-medium`），并**删掉第一轮那条把图标圆角从项目原本的
+ *      12px 压到 4px 的误解覆盖**（该覆盖的注释写的是「补齐缺失的圆角」，与事实不符）。
+ * 三段的结构、数量、状态、文案、aria 与点击路径在 B/C 两轮里都一字未变。
+ * 本组是**替换**：最早的「单卡原型」断言组整组删除——它钉的是已撤回的挂载方式，
+ * 留着就是一组永远红的规则。G2a 组与批次 F（B3）组原样保留，一条未删改。
+ * 「首页看起来是否更连贯 / 更有呼吸」属于用户主观验收，不在本组范围。 */
+{
+  const root = path.resolve(__dirname, '..');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const appSrc = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const page = newPage({ storage: makeStorage() });
+  const { dom } = page;
+
+  const storageKeys = () => {
+    const list = [];
+    for (let i = 0; i < page.sandbox.localStorage.length; i += 1) list.push(page.sandbox.localStorage.key(i));
+    return list.sort();
+  };
+  const keysAtStart = storageKeys();
+
+  /* ---------- A1–A2. v5 定向撤回：产品源码与资产里零残留 ---------- */
+  /* 逐个字面量扫，而不是「看起来没有了」：撤回最容易留下的就是孤儿标识符与孤儿路径。 */
+  for (const literal of ['WORLD_CARD_ART', 'worldCardArt', 'world-card-art', 'has-world-art', 'foundations-v5', 'assets/worlds']) {
+    assert.ok(!appSrc.includes(literal), check(`撤回：app.js 不含已删除的字面量「${literal}」`));
+    assert.ok(!css.includes(literal), check(`撤回：style.css 不含已删除的字面量「${literal}」`));
+  }
+  assert.ok(!fs.existsSync(path.join(root, 'assets', 'worlds')),
+    check('撤回：assets/worlds/ 目录已随资产一并移除（不留空目录）'));
+  const assetFiles = [];
+  const walkAssets = dir => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walkAssets(full);
+      else assetFiles.push(path.relative(root, full).replace(/\\/g, '/'));
+    }
+  };
+  walkAssets(path.join(root, 'assets'));
+  assert.ok(!assetFiles.some(f => /\.png$/i.test(f)),
+    check('撤回：assets/ 下不再有任何 PNG（v5 是唯一一张，未留残影）'));
+
+  /* ---------- A3–A6. G2a 与地图状态色补丁必须原样在位 ---------- */
+  clickEntry(page, '学习地图');
+  const sheet = openSheetOf(page);
+  dispatch(collectByClass(sheet, 'map-tab').find(t => t.textContent.includes('世界地图')), 'click', {});
+  const cards = collectByClass(sheet, 'world-card');
+
+  assert.equal(cards.length, 8, check('撤回：学习地图仍是 8 张 World 卡（撤回没有动到卡片数量）'));
+  assert.deepEqual(cards.map(c => (querySelect(c, '.world-order') || {}).textContent),
+    ['World 1', 'World 2', 'World 3', 'World 4', 'World 5', 'World 6', 'World 7', 'World 8'],
+    check('撤回：World 1–8 顺序一字不变'));
+  assert.ok(cards.every(c => c.tagName === 'BUTTON' && c.type === 'button'),
+    check('撤回：8 张卡仍然都是 button'));
+  assert.equal(collectByClass(sheet, 'world-card-art').length, 0,
+    check('撤回：整张地图上零个 .world-card-art（场景图原型已完全卸下）'));
+  assert.deepEqual(cards.map(c => c.classList.contains('has-world-art')),
+    [false, false, false, false, false, false, false, false],
+    check('撤回：8 张卡都没有 .has-world-art 钩子（没有留下半截样式钩子）'));
+  assert.equal(cards[0].children[0], querySelect(cards[0], '.world-head'),
+    check('撤回：World 1 的第一块重新是 .world-head（DOM 与 G2a 阶段逐字一致）'));
+  assert.deepEqual(cards.map(c => c.dataset.worldTone),
+    ['foundations', 'html-css', 'javascript', 'html-css-deep', 'world-generic-a', 'world-generic-b', 'nodejs', 'world-generic-c'],
+    check('撤回：G2a 的 8 个 tone 映射逐项未变（World 4 仍是 html-css-deep、World 7 仍是 nodejs）'));
+  assert.deepEqual(cards.map(c => c.classList.contains('is-open')),
+    [true, false, false, false, false, false, false, false],
+    check('撤回：开放/锁定状态未变——只有 World 1 是 is-open'));
+  assert.ok(cards.every((c, i) => (c.getAttribute('aria-label') || '').startsWith(`World ${i + 1} `)),
+    check('撤回：8 张卡的 aria-label 仍按「World N + 中文名」组织'));
+  assert.ok(css.includes('v4.11 G2a：学习地图 8 张 World 卡的轻量场景层'),
+    check('撤回：G2a 段仍在 style.css 里（只撤图片原型，不动 CSS/SVG 场景层）'));
+  assert.ok(/\.world-card\[data-world-tone="foundations"\]::before \{/.test(css),
+    check('撤回：Foundations 的 G2a 色晕规则原样在位'));
+  assert.ok(/\.map-node\.is-defeated:not\(\.is-current\) \{[^}]*box-shadow: 0 0 0 3px #d4af37/.test(css),
+    check('撤回：地图状态色补丁仍在（已击破的金色 gap 环没有被本轮碰到）'));
+  dispatch(cards[0], 'click', {});
+  assert.ok(collectByClass(sheet, 'map-nodes').length >= 1,
+    check('撤回：World 1 仍能进入 Foundations 探索地图（DOM 回到 G2a 阶段后点击路径不变）'));
+  dispatch(collectByClass(sheet, 'world-back')[0], 'click', {});
+  assert.equal(collectByClass(sheet, 'world-card').length, 8, check('撤回：返回后仍回到 8 张 World 卡'));
+  sheet.close();
+
+  /* ---------- B1–B4. 首页信息带：结构、数量、语义零改动 ---------- */
+  const band = querySelect(dom.body, '.home-secondary');
+  assert.ok(band, check('信息带：首页仍有 .home-secondary 次级信息带'));
+  assert.deepEqual(band.children.map(c => c.className),
+    ['today-strip', 'entry-grid-wrap', 'world-preview'],
+    check('信息带：三段 DOM 顺序仍是 今日条 → 入口网格 → 路线预览条（收口只动样式，不动结构）'));
+
+  const strip = querySelect(band, '.today-strip');
+  assert.equal(strip.tagName, 'BUTTON', check('信息带：today-strip 仍是一个 button'));
+  assert.equal(strip.type, 'button', check('信息带：today-strip type=button 原样'));
+  assert.equal(strip.getAttribute('aria-haspopup'), 'dialog', check('信息带：today-strip 仍带 aria-haspopup="dialog"'));
+  assert.ok((strip.getAttribute('aria-label') || '').includes('打开今日计划详情'),
+    check('信息带：today-strip 的 aria-label 仍描述「打开今日计划详情」的操作语义'));
+  assert.deepEqual(strip.children.map(c => c.className.split(' ')[0]),
+    ['today-item', 'today-mini-progress', 'today-item', 'today-item', 'today-more'],
+    check('信息带：今日条四类内容顺序未变（今日时长+目标进度 / 迷你进度 / 连续天数 / 待复习 / 详情）'));
+  assert.ok(!/target|_blank/.test(strip.getAttribute('target') || ''), check('信息带：今日条不是外链（仍走站内 sheet）'));
+  const todayText = strip.textContent;
+  assert.match(todayText, /今日/, check('信息带：今日条仍显示今日学习'));
+  assert.match(todayText, /连续 \d+ 天/, check('信息带：今日条仍显示连续天数'));
+  assert.match(todayText, /复习/, check('信息带：今日条仍显示待复习状态'));
+
+  const wrap = querySelect(band, '.entry-grid-wrap');
+  assert.equal(wrap.tagName, 'NAV', check('信息带：entry-grid-wrap 仍是 nav'));
+  assert.equal(wrap.getAttribute('aria-label'), '功能入口', check('信息带：entry-grid-wrap 的 aria-label 未变'));
+  const entryCards = collectByClass(wrap, 'entry-card');
+  assert.equal(entryCards.length, 3, check('信息带：入口卡仍是 3 个（本轮不增不减）'));
+  assert.ok(entryCards.every(c => c.tagName === 'BUTTON' && c.type === 'button'),
+    check('信息带：三个入口仍都是 button（没有被改成展示块）'));
+  assert.deepEqual(entryCards.map(c => querySelect(c, '.entry-title').textContent),
+    ['学习进度', '今日计划', '学习地图'],
+    check('信息带：三个入口标题与顺序一字不变'));
+  assert.ok(entryCards.every(c => querySelect(c, '.entry-desc') && querySelect(c, '.entry-icon') && querySelect(c, '.entry-badge')),
+    check('信息带：三个入口的 图标 / 描述 / badge 三件套都还在'));
+  assert.ok(entryCards.every((c, i) => (c.getAttribute('aria-label') || '').startsWith(['学习进度', '今日计划', '学习地图'][i])),
+    check('信息带：三个入口的 aria-label 仍以各自标题开头'));
+  /* aria-label 由「标题：描述（badge）」拼成（entryGridChildren）——按真实 DOM 的
+   * 标题与描述逐卡比对，不硬编码文案，任何一处无障碍降级都会红。 */
+  assert.ok(entryCards.every(c => {
+    const title = querySelect(c, '.entry-title').textContent;
+    const desc = querySelect(c, '.entry-desc').textContent;
+    const label = c.getAttribute('aria-label') || '';
+    return label.startsWith(`${title}：${desc}`) && label.includes(querySelect(c, '.entry-badge').textContent);
+  }), check('信息带：三个入口的 aria-label 仍是「标题：描述（badge）」的完整等价（无障碍未降级）'));
+  assert.ok(entryCards.every(c => c.getAttribute('aria-haspopup') === 'dialog'),
+    check('信息带：三个入口仍带 aria-haspopup="dialog"'));
+
+  /* 点击路径：今日条 → 今日计划；三个入口 → 各自 sheet；路线预览条 → 学习地图 */
+  dispatch(strip, 'click', {});
+  const tasksSheet = openSheetOf(page);
+  assert.ok(tasksSheet, check('信息带：今日条点击仍打开今日计划'));
+  dispatch(querySelect(tasksSheet, '.dialog-close'), 'click', {});
+  for (const [label, marker] of [['学习进度', 'stat-grid'], ['今日计划', 'challenge-list'], ['学习地图', 'map-tab']]) {
+    const card = entryCards.find(c => querySelect(c, '.entry-title').textContent.includes(label));
+    dispatch(card, 'click', {});
+    const opened = openSheetOf(page);
+    assert.ok(opened && collectByClass(opened, marker).length >= 1,
+      check(`信息带：「${label}」入口点击仍开启对应面板（含 .${marker}）`));
+    dispatch(querySelect(opened, '.dialog-close'), 'click', {});
+  }
+
+  const bar = querySelect(band, '.world-preview');
+  assert.equal(bar.tagName, 'BUTTON', check('信息带：world-preview 仍是一个 button（没有改成四张卡 / 多个按钮）'));
+  assert.equal(bar.type, 'button', check('信息带：world-preview type=button 原样'));
+  const previewItems = collectByClass(bar, 'world-preview-item');
+  assert.equal(previewItems.length, 4, check('信息带：路线预览条仍是 4 格'));
+  assert.deepEqual(previewItems.map(i => querySelect(i, '.world-preview-name').textContent),
+    ['Foundations', 'HTML & CSS', 'JavaScript', 'Node.js'],
+    check('信息带：预览条四项名称与顺序一字不变'));
+  assert.deepEqual(previewItems.map(i => querySelect(i, '.world-preview-state').textContent),
+    ['0 / 46', '尚未开放', '尚未开放', '尚未开放'],
+    check('信息带：预览条四项状态文案未变（状态没有因为收口被改写）'));
+  assert.deepEqual(previewItems.map(i => i.classList.contains('is-open')), [true, false, false, false],
+    check('信息带：预览条开放标记未变（只有 Foundations 是 is-open）'));
+  assert.deepEqual(previewItems.map(i => i.dataset.worldTone),
+    ['foundations', 'html-css', 'javascript', 'nodejs'],
+    check('信息带：预览条四项 data-world-tone 未漂移'));
+  dispatch(bar, 'click', {});
+  const mapSheet = openSheetOf(page);
+  assert.ok(mapSheet && collectByClass(mapSheet, 'world-card').length === 8,
+    check('信息带：路线预览条点击仍进入学习地图，8 张 World 卡齐备'));
+  dispatch(querySelect(mapSheet, '.dialog-close'), 'click', {});
+  assert.deepEqual(storageKeys(), keysAtStart,
+    check('信息带：整条链路零新增 localStorage key（收口不进存档、不进 schema）'));
+
+  /* ---------- B5–B6. 收口的 CSS 事实（只在收口段里找规则） ---------- */
+  const bandCss = css.slice(css.indexOf('v4.11 首页信息带：连续学习工作台的容器语言'));
+  assert.ok(bandCss.length > 0, check('信息带：style.css 里有首页信息带收口段'));
+  const ruleBody = selector => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = new RegExp('(?:^|\\n)\\s*' + escaped + ' \\{([^}]*)\\}').exec(bandCss);
+    assert.ok(m, check(`信息带：规则存在 ${selector}`));
+    return m[1];
+  };
+  const P = 'body[data-page="home"] .home-secondary ';
+  const stripBody = ruleBody(P + '.today-strip');
+  const cardBody = ruleBody(P + '.entry-card');
+  const barBody = ruleBody(P + '.world-preview');
+  const wrapBody = ruleBody(P + '.entry-grid-wrap');
+
+  /* 一条左轨：三段的左内边距同值，左边缘才落在同一条竖线上。
+   * 三段的 padding 写法不同（今日条 / 入口卡用 padding-inline，预览条用四值简写），
+   * 所以按 CSS padding 简写的取值规则解出「左」值再比对，而不是让三段都写同一个字符串——
+   * 第二轮给预览条补了上下留白，它必须仍是三值简写，匹配固定字符串会假红。 */
+  const padLeftOf = body => {
+    const shorthand = /(?:^|;)\s*padding:\s*([^;]+);/.exec(body);
+    if (shorthand) {
+      const v = shorthand[1].trim().split(/\s+/);
+      return v.length === 1 ? v[0] : v.length === 2 ? v[1] : v.length === 3 ? v[1] : v[3];
+    }
+    const inline = /(?:^|;)\s*padding-inline:\s*([^;]+);/.exec(body);
+    return inline ? inline[1].trim() : null;
+  };
+  assert.deepEqual([stripBody, cardBody, barBody].map(padLeftOf),
+    ['var(--space-sm)', 'var(--space-sm)', 'var(--space-sm)'],
+    check('信息带：三段统一到同一条 --space-sm 左轨（今日条文字 / 入口图标 / 预览标签左对齐）'));
+  /* 两道细分隔线：留白改成线，三段才连成一条带 */
+  assert.ok(/border-top:\s*1px solid color-mix\(in srgb, var\(--color-rule\) 80%, transparent\)/.test(wrapBody),
+    check('信息带：今日条与三入口之间是细分隔线（不再是留白堆叠）'));
+  assert.ok(/margin-top:\s*0/.test(wrapBody), check('信息带：入口网格与今日条之间零外边距——分离靠分隔线而不是空白'));
+  assert.ok(/border:\s*none/.test(barBody)
+    && /border-top:\s*1px solid color-mix\(in srgb, var\(--color-rule\) 80%, transparent\)/.test(barBody),
+    check('信息带：路线预览条的虚线框退场，换成与第一道同值的第二道细分隔线'));
+  assert.ok(/border-radius:\s*0/.test(barBody),
+    check('信息带：预览条不再自带圆角——它现在是带的尾段而不是一张独立的框'));
+  assert.ok(/margin-top:\s*0/.test(barBody), check('信息带：预览条与入口组之间零外边距（垂直间距由分隔线的 padding 承担）'));
+  /* hover 降重：厚重感来自 hover 那一下（实心纸面 + 边框 + 浮起阴影） */
+  assert.ok(/box-shadow:\s*none/.test(ruleBody(P + '.entry-card:hover')),
+    check('信息带：入口卡 hover 不再浮起（去掉 shadow-lift）——「厚重卡片感」来自这一下而不是常态'));
+  assert.ok(/background:\s*transparent/.test(barBody),
+    check('信息带：预览条自带底色退场，露出容器同一条底（三段共享一个 surface）'));
+  assert.ok(/color-mix\(in srgb, var\(--color-wash\) 32%, transparent\)/.test(ruleBody('body[data-page="home"] .home-secondary')),
+    check('信息带：容器底由 wash 40% 收到 32%（从「面板」回到「带」）'));
+
+  /* ---------- C1–C4. 第二轮：呼吸（留白与节奏） ----------
+   * 第一轮把「留白」整个换成了「线」，连接感有了但实测三段 gap 为 0、三入口列间距只有 8px
+   * ——整条带读起来是顶格密排。下面四条把本轮的松绑逐项钉住。 */
+  const bandBase = ruleBody('body[data-page="home"] .home-secondary');
+  assert.ok(/margin-top:\s*var\(--space-2xl\)/.test(bandBase),
+    check('信息带：带与 Hero 的间距抬到 --space-2xl(48px)——Hero 一级、带二级，主次分层拉开一档'));
+  assert.ok(/padding:\s*var\(--space-md\)/.test(bandBase),
+    check('信息带：容器四周留白 --space-md(16px)——带子自己的呼吸（原为上下 8px）'));
+  assert.ok(/padding:\s*var\(--space-md\) 0 var\(--space-sm\)/.test(wrapBody),
+    check('信息带：第一道分隔线上 16px / 下 8px——线两侧补回留白，三段不再顶格紧贴'));
+  assert.ok(/padding:\s*var\(--space-md\) var\(--space-sm\) var\(--space-sm\)/.test(barBody),
+    check('信息带：第二道分隔线上 16px / 下 8px——与第一道同值，两道线的节奏一致'));
+  assert.ok(/gap:\s*var\(--space-lg\)/.test(ruleBody(P + '.entry-grid')),
+    check('信息带：三入口列间距 --space-lg(24px)——入口卡透明无边框，列间距就是这条带读得出的节奏（原为 8px）'));
+
+  /* ---------- C5–C7. 第二轮：圆角层级 ---------- */
+  assert.ok(/border-radius:\s*14px/.test(bandBase),
+    check('信息带：容器圆角 14px——与 .dashboard / .map-unit 等二级容器同档，仍低于 Hero 一级容器的 20px'));
+  assert.ok(/border-radius:\s*var\(--radius-medium\)/.test(stripBody)
+    && /border-radius:\s*var\(--radius-medium\)/.test(cardBody),
+    check('信息带：今日条与入口卡圆角同档（--radius-medium），带内可点元素的圆角语言统一'));
+  /* 第一轮曾在这里加过一条 `.entry-icon` 覆盖，把项目原本的 `border-radius: .75rem` 压成
+   * `--radius-small`(4px)。本轮整条删除：40px 的徽章配 4px 几乎读不出圆角，是视觉退化；
+   * 回到 L1442 那条共享规则后三项仍天然一致（三项共用同一条规则）。 */
+  /* 注意：不能用 `bandCss.includes('.entry-icon')` 判定——本段注释里为了记录这次纠正
+   * 会提到该选择器，任何「整段扫类名字面量」的断言都会扫到注释而假红（G2a 段与单卡
+   * 原型段都在这个坑上摔过）。改成匹配**完整规则选择器**，只认真存在的规则。 */
+  assert.ok(!/\.home-secondary \.entry-icon \{/.test(bandCss),
+    check('信息带：收口段不再有 .entry-icon 规则（第一轮那条把项目原本的 12px 圆角压成 4px，本轮整条删除）'));
+  assert.ok(/\.entry-icon \{[^}]*border-radius: \.75rem/.test(css),
+    check('信息带：图标圆角回到项目原本的 .75rem(12px)，三项共用同一条规则因而天然一致'));
+
+  /* ---------- B7–B8. 纪律：零新 token / 零位图 / 零外链 / 零动效 / 零新增 transition ---------- */
+  assert.equal(bandCss.match(/--color-[a-z-]+\s*:/g), null,
+    check('信息带：收口段零新 token 定义（不触发 swatch 与主题对比度同步义务）'));
+  assert.ok(!/url\s*\(/.test(bandCss), check('信息带：收口段零位图引用'));
+  assert.ok(!/https?:/.test(bandCss), check('信息带：收口段零外链'));
+  assert.ok(!/animation\s*:/.test(bandCss) && !/@keyframes/.test(bandCss), check('信息带：收口段零动效'));
+  assert.ok(!/transition\s*:/.test(bandCss),
+    check('信息带：收口段零新增 transition（入口卡既有过渡一个字未动）'));
+  /* 收口段每条规则的选择器都带首页前缀——不允许出现裸类名，避免污染课页 / 个人中心 */
+  const bandSelectors = [...bandCss.matchAll(/(?:^|\n)([^\n{}]+)\{/g)]
+    .map(m => m[1].trim())
+    .filter(sel => !sel.startsWith('*') && !sel.startsWith('/*') && !sel.startsWith('@'));
+  assert.ok(bandSelectors.length >= 6, check(`信息带：收口段解析出 ${bandSelectors.length} 条规则选择器`));
+  assert.ok(bandSelectors.every(sel => sel.startsWith('body[data-page="home"]')),
+    check('信息带：收口段每条规则都带 body[data-page="home"] 前缀（不泄漏到课页 / 个人中心）'));
+
+  /* ---------- B9. 响应式规则与打印规则仍在 ---------- */
+  const narrow30 = [...css.matchAll(/@media \(max-width: 30rem\) \{([\s\S]*?)\n\}/g)].map(m => m[1]);
+  assert.ok(narrow30.some(b => /\.entry-grid \{ grid-template-columns: minmax\(0, 1fr\); \}/.test(b)),
+    check('信息带：窄屏三入口单列规则仍在（320px 仍单列易点）'));
+  assert.ok(narrow30.some(b => /body\[data-page="home"\] \.home-secondary \{ padding: var\(--space-sm\); \}/.test(b)),
+    check('信息带：收口段的窄屏容器内边距与既有窄屏收口同值（320px 无横向尺寸）'));
+  assert.ok(/\.world-preview-more \{ display: none; \}/.test(narrow30.join('\n')),
+    check('信息带：窄屏「进学习地图 →」收起规则仍在'));
+  assert.ok(css.includes('.today-strip:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }'),
+    check('信息带：今日条焦点环规则逐字未变'));
+  assert.ok(css.includes('.entry-card:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }'),
+    check('信息带：入口卡焦点环规则逐字未变'));
+  assert.ok(css.includes('.world-preview:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }'),
+    check('信息带：路线预览条焦点环规则逐字未变'));
+  assert.ok(css.includes('.today-strip, .entry-grid-wrap, .theme-quick, .sheet, .site-usage { display: none; }'),
+    check('信息带：首页新块的整体打印隐藏规则逐字未变'));
+  assert.ok(css.includes('.hero-companion, .home-secondary, .hero-scene-decor, .hero-study-decor { display: none; }'),
+    check('信息带：信息带的打印隐藏规则逐字未变（打印隐藏逻辑零改动）'));
+  assert.ok(/@media print \{[\s\S]*?\.world-preview-item::before \{ display: none; \}/.test(css),
+    check('信息带：预览条色晕的打印兜底仍在'));
+}
+
+/* ============ v4.11 Hero 场景一体化：统一光场 / 地面承托 / 信息带过渡 ============
+ * 证明的验收标准（本轮交接 §七 的 1–8 条）。本组只钉**结构、层级与纪律**——
+ * 「首页是否更接近参考效果图」是用户主观美感验收，自动化测不出，也不冒充。
+ *   1. Hero 没有新增业务组件（子节点仍是 装饰图 ×2 + 主文案列 + 伙伴）；
+ *   2. Hero 仍有唯一主 CTA（Hero 作用域内 continue-primary 恰好 1 个）；
+ *   3. Hero 与信息带之间的视觉衔接规则存在（地面带 / 底部化入页面的渐变 /
+ *      向下柔光承托 + 带自身 --space-2xl 的间距不变）；
+ *   4. 伙伴、主文案、CTA 的层级关系没有下降（主文案 > 伙伴 > 道具 > 背景伪元素）；
+ *   5. 新规则不引入图片、外链、动画或新 token；
+ *   6. 移动端与 print 规则仍在；
+ *   7. Hero 高度与伙伴尺寸的关键约束仍保留；
+ *   8. G2a World 卡与地图状态色没有回归。
+ * 本轮只改 style.css 的表现层，app.js / 课程数据 / 主题 token / 存储逻辑未动。 */
+{
+  const root = path.resolve(__dirname, '..');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const page = newPage({ storage: makeStorage() });
+  const { dom } = page;
+  const hero = querySelect(dom.body, '.home-hero');
+  assert.ok(hero, check('一体化：首页仍有 .home-hero'));
+
+  /* 取一条规则的声明体（首个匹配） */
+  const ruleBody = selector => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = new RegExp(`(?:^|\\n)\\s*${escaped} \\{([^}]*)\\}`).exec(css);
+    assert.ok(m, check(`一体化：规则存在 ${selector}`));
+    return m[1];
+  };
+  const zIndexOf = selector => {
+    const m = /(?:^|;)\s*z-index\s*:\s*(-?\d+)/.exec(ruleBody(selector));
+    assert.ok(m, check(`一体化：${selector} 显式声明 z-index`));
+    return Number(m[1]);
+  };
+  const descendants = (rootEl, predicate) => {
+    const found = [];
+    (function walk(el) {
+      for (const child of el.children) {
+        if (predicate(child)) found.push(child);
+        walk(child);
+      }
+    })(rootEl);
+    return found;
+  };
+
+  /* ---------- 1. Hero 没有新增业务组件 ---------- */
+  assert.equal(hero.children.length, 4,
+    check(`一体化：Hero 仍是 4 个子节点（实际 ${hero.children.length}）——零新增 DOM 组件`));
+  assert.deepEqual(hero.children.map(c => c.className),
+    ['hero-scene-decor', 'hero-study-decor', 'hero-main', 'hero-companion'],
+    check('一体化：Hero 子节点仍只有 装饰层 ×2 + 主文案列 + 伙伴，树序不变'));
+  const heroImgs = descendants(hero, el => el.tagName === 'IMG').map(el => el.className.split(' ')[0]);
+  assert.deepEqual(heroImgs.slice().sort(),
+    ['hero-companion-img', 'hero-decor', 'hero-scene-decor', 'hero-study-decor'].sort(),
+    check(`一体化：Hero 内 4 张图全部是既有装饰层与伙伴立绘（实际 ${heroImgs.join(' / ')}）——本轮零新增图片资产`));
+  const heroFocusables = descendants(hero, el => ['BUTTON', 'A', 'INPUT', 'SELECT', 'TEXTAREA'].includes(el.tagName));
+  assert.equal(heroFocusables.length, 2,
+    check(`一体化：Hero 内可聚焦元素仍是 2 个（实际 ${heroFocusables.length}）——主 CTA + 查看全部 World，入口数量与交互语义不变`));
+
+  /* ---------- 2. Hero 仍有唯一主 CTA ---------- */
+  assert.equal(collectByClass(hero, 'continue-primary').length, 1,
+    check('一体化：Hero 作用域内 continue-primary 恰好 1 个（唯一主 CTA）'));
+  const cta = heroFocusables.find(el => /continue-primary/.test(el.className));
+  assert.ok(cta && String(cta.href || '').includes('lesson.html?id='),
+    check('一体化：唯一主 CTA 仍是指向课程页的「继续学习」链接（文案与目标一字未改）'));
+  assert.equal(heroFocusables.filter(el => /continue-primary/.test(el.className)).length, 1,
+    check('一体化：Hero 内没有第二个同等级主按钮（CTA 主次关系未被装饰改动稀释）'));
+  assert.equal(cta.parentNode.className, 'continue-actions',
+    check('一体化：主 CTA 仍住在 .continue-actions 里（结构层级未变）'));
+
+  /* ---------- 3. Hero 与信息带之间的视觉衔接规则存在 ---------- */
+  const heroBody = ruleBody('.home-hero');
+  assert.ok(/box-shadow:\s*var\(--shadow-primary\), 0 24px 48px -26px/.test(heroBody),
+    check('一体化：Hero 在 --shadow-primary 之上再叠一层向下柔光承托——Hero 与下方信息带被连进同一平面，而不是两块硬边面板'));
+  assert.ok(/radial-gradient\(50rem 34rem at 92% 82%/.test(heroBody),
+    check('一体化：Hero 右下（伙伴与书桌一侧）有一块成长绿环境色面——左 wash 与右绿合成一个空间'));
+  assert.ok(heroBody.includes('linear-gradient(150deg, var(--color-wash) 0%, color-mix(in srgb, var(--color-wash) 42%, var(--color-paper)) 48%, var(--color-paper) 78%)'),
+    check('一体化：原 150deg 环境底逐字保留为最底层（新增层是叠上去的，不是替换）'));
+  const heroAfter = ruleBody('.home-hero::after');
+  assert.ok(/height:\s*60%/.test(heroAfter),
+    check('一体化：底部环境带由 52% 扩到 60%——地面从「伙伴脚下」扩成整条 Hero 的地面'));
+  assert.ok(/radial-gradient\(140% 92% at 50% 126%/.test(heroAfter),
+    check('一体化：地面带横向铺到 140%、峰值压到 126%（左右植物与右下书桌落在同一块地上）'));
+  assert.ok(/color-mix\(in srgb, var\(--color-paper\) 46%, transparent\)/.test(heroAfter),
+    check('一体化：地面带末层是朝页面纸色的底部渐变——Hero 下缘向下自然化入页面，不再是色面突然截断'));
+  const heroBefore = ruleBody('.home-hero::before');
+  assert.ok(/rgba\(255, 252, 244, \.32\)/.test(heroBefore),
+    check('一体化：窗光层追加桌面暖光池（同一支固定暖白 rgba，深色主题随 html[data-dark] 一起退月光）'));
+  assert.ok(heroBefore.includes('color-mix(in srgb, var(--color-accent) 18%, transparent)'),
+    check('一体化：紫晕仍是 18%——本轮加强的是地面与暖光，没有动紫晕上限'));
+  /* 生效值取「最后一条带 margin-top 的声明」——文件末尾的窄屏块里还有一条只改
+   * padding 的 .home-secondary 规则，直接取最后一个匹配会拿到它。 */
+  const bandBodies = [...css.matchAll(/body\[data-page="home"\] \.home-secondary \{([^}]*)\}/g)].map(m => m[1]);
+  const bandEffective = bandBodies.filter(b => /margin-top/.test(b)).pop();
+  assert.ok(/margin-top:\s*var\(--space-2xl\)/.test(bandEffective),
+    check('一体化：信息带与 Hero 的间距仍是 --space-2xl——衔接靠色面与光，不靠挪间距'));
+
+  /* ---------- 4. 伙伴 / 主文案 / CTA 的层级没有下降 ---------- */
+  const zBefore = zIndexOf('.home-hero::before');
+  const zAfter = zIndexOf('.home-hero::after');
+  const zStudy = zIndexOf('.hero-study-decor');
+  const zStage = zIndexOf('.hero-companion-stage');
+  const zMain = zIndexOf('.hero-main');
+  assert.ok(zBefore === -1 && zAfter === -1,
+    check(`一体化：Hero 两层背景伪元素仍在负层（实际 ${zBefore} / ${zAfter}）`));
+  assert.ok(zStudy >= 0 && zStudy > Math.max(zBefore, zAfter),
+    check(`一体化：道具层严格高于背景层（道具 ${zStudy} > 背景 ${Math.max(zBefore, zAfter)}）——批次 F B0 的可见性结论未被削弱`));
+  assert.ok(zMain > zStudy && zStage > zStudy,
+    check(`一体化：主文案 ${zMain} 与伙伴舞台 ${zStage} 都严格高于道具 ${zStudy}——标题 / 副标题 / CTA / 立绘永不被装饰压住`));
+  for (const selector of ['.hero-study-decor', '.hero-decor', '.hero-scene-decor']) {
+    assert.ok(/pointer-events:\s*none/.test(ruleBody(selector)),
+      check(`一体化：${selector} 仍 pointer-events:none——装饰层绝不拦截 CTA 指针`));
+  }
+  assert.equal(zIndexOf('.hero-companion-stage::before'), -1,
+    check('一体化：伙伴绿巢柔光仍在舞台负层（装饰不盖立绘）'));
+
+  /* ---------- 5. 新规则不引入图片、外链、动画或新 token ---------- */
+  const heroStart = css.indexOf('/* ---------- P0-1 / P0-2：首页 Hero + 次级信息带 ----------');
+  const heroEnd = css.indexOf('/* ---------- P0-4：学习旅程脊线');
+  assert.ok(heroStart > 0 && heroEnd > heroStart, check('一体化：Hero 段（P0-1/P0-2 → P0-4）定位成功'));
+  const heroCss = css.slice(heroStart, heroEnd);
+  assert.ok(!/url\s*\(/.test(heroCss), check('一体化：Hero 段零位图引用（本轮未生成、未接入任何图片）'));
+  assert.ok(!/https?:/.test(heroCss), check('一体化：Hero 段零外链（不引远程资源）'));
+  assert.ok(!/animation\s*:/.test(heroCss) && !/@keyframes/.test(heroCss),
+    check('一体化：Hero 段零动画 / 零关键帧（本轮的视觉强化全在静态渐变与层级上）'));
+  assert.equal(heroCss.match(/--color-[a-z-]+\s*:/g), null,
+    check('一体化：Hero 段零新 token 定义（只引用既有 --color-* / --space-* / --radius-*）'));
+  assert.ok(css.includes('body[data-page="home"] .home-hero .continue-primary { box-shadow: 0 12px 26px rgba(81, 64, 143, .28), 0 2px 6px rgba(81, 64, 143, .16); }'),
+    check('一体化：主 CTA 的投影加强只落在首页 Hero 作用域内（不泄漏到课页 / 个人中心）'));
+
+  /* ---------- 6. 移动端与 print 规则仍在 ---------- */
+  const narrow30 = [...css.matchAll(/@media \(max-width: 30rem\) \{([\s\S]*?)\n\}/g)].map(m => m[1]);
+  assert.ok(narrow30.some(b => /\.hero-companion-stage \{ width: 11\.5rem; aspect-ratio: 3 \/ 4; \}/.test(b)),
+    check('一体化：窄屏伙伴舞台 11.5rem + 3:4 仍在（手机端不机械缩放整套场景）'));
+  assert.ok(narrow30.some(b => /\.home-hero \{ padding: var\(--space-lg\) var\(--space-md\); \}/.test(b)),
+    check('一体化：窄屏 Hero 内边距收口仍在'));
+  assert.ok(/@media print \{[\s\S]*?\.hero-companion, \.home-secondary, \.hero-scene-decor, \.hero-study-decor \{ display: none; \}/.test(css),
+    check('一体化：打印隐藏 Hero 装饰与信息带的规则逐字未变'));
+  assert.ok(/@media print \{[\s\S]*?\.home-hero::before, \.home-hero::after \{ content: none; \}/.test(css),
+    check('一体化：打印仍整体移除 Hero 环境层（新增的暖光池与地面带一并被同一条规则收走）'));
+  assert.ok(/@media print \{[\s\S]*?\.home-hero \{ background: #fff; border: 1px solid #000; box-shadow: none; \}/.test(css),
+    check('一体化：打印仍是白底无阴影（新增的承托投影被既有 print 规则覆盖，打印行为不回归）'));
+
+  /* ---------- 7. Hero 高度与伙伴尺寸的关键约束仍保留 ---------- */
+  assert.ok(heroBody.includes('padding: clamp(1.5rem, 4vw, 2.75rem)'),
+    check('一体化：Hero 内边距档 clamp(1.5rem, 4vw, 2.75rem) 未变'));
+  assert.ok(!/(?:^|;)\s*(?:height|min-height|max-height)\s*:/.test(heroBody),
+    check('一体化：Hero 仍未设显式高度——高度只由内容与既有内边距决定，本轮没有引入高度跃升的来源'));
+  assert.ok(ruleBody('.hero-companion-stage').includes('width: clamp(14rem, 30vw, 27rem)'),
+    check('一体化：伙伴舞台宽度档 clamp(14rem, 30vw, 27rem) 未变'));
+  assert.ok(ruleBody('.hero-companion-stage').includes('aspect-ratio: 3 / 4'),
+    check('一体化：舞台仍是 3:4 竖版'));
+  assert.ok(ruleBody('.hero-companion-img').includes('width: 96%; height: 96%'),
+    check('一体化：伙伴立绘 96% 占比未变（本轮未放大、未改资产）'));
+  assert.ok(css.includes('body[data-page="home"] .home-hero .continue-actions { margin-top: var(--space-xl); max-width: 26rem; }'),
+    check('一体化：CTA 区与上方文案的间距只抬一档（--space-lg → --space-xl），是本轮唯一的纵向加高来源'));
+  assert.ok(/height:\s*auto/.test(ruleBody('.hero-study-decor')) && ruleBody('.hero-study-decor').includes('z-index: 0'),
+    check('一体化：学习场景道具层的落位与层级保持现状（本轮只动背景与光，不动道具）'));
+
+  /* ---------- 8. G2a World 卡与地图状态色没有回归 ---------- */
+  assert.ok(css.includes('v4.11 G2a：学习地图 8 张 World 卡的轻量场景层'),
+    check('一体化：G2a 段仍在 style.css 里'));
+  assert.ok(/\.world-card\[data-world-tone="foundations"\]::before \{/.test(css),
+    check('一体化：G2a 的 Foundations 色晕规则原样在位'));
+  assert.ok(/\.map-node\.is-broken \{ background: #3f7b58; border-color: #3f7b58; \}/.test(css),
+    check('一体化：地图「已破甲」仍是纯绿实心（本轮未碰地图状态色）'));
+  assert.ok(/\.map-node\.is-defeated:not\(\.is-current\) \{[^}]*box-shadow: 0 0 0 3px #d4af37/.test(css),
+    check('一体化：地图「已击破」仍是绿实心 + 金色 gap 环（未回归到与已破甲同色）'));
+  const previewBar = querySelect(dom.body, '.world-preview');
+  assert.deepEqual(collectByClass(previewBar, 'world-preview-item').map(i => i.dataset.worldTone),
+    ['foundations', 'html-css', 'javascript', 'nodejs'],
+    check('一体化：首页路线预览条四项色相未漂移'));
+}
+
+console.log(`通过：首页信息架构 ${checks} 项断言（首页默认 DOM 极简、v4.5 主入口 6→3=学习进度/今日计划/学习地图、学习地图三 Tab 技能路线/世界地图/Foundations 探索、sheet 真实打开、焦点归还、目录 dialog 19+27 红线、header 玩家区/主题快捷、badge 随数据刷新、成就收藏与统计归个人中心、小奥面板 2.0 默认极简/四入口/双角色/设置同源、路线预览条四项轻量场景化只加色晕不动结构/状态/点击、学习地图 8 张 World 卡按真实 curriculum 顺序加纯展示色相钩子与低饱和场景层（数量/顺序/button/状态/文案/进度/aria-label/点击路径零改动，tone 不进 curriculum 不进存档，未开放卡严格弱于 Foundations）、v4.11 World 图片原型定向撤回（v5 Foundations 单卡场景图经真实页面比较后不采用：资产 / 挂载代码 / 样式段 / 旧断言组一并移除，产品源码与 assets 零残留 PNG，G2a 色相钩子、8 张 World 卡、地图状态色补丁原样保留）、首页信息带两轮收口（第一轮结构语言：today-strip / 三入口 / 路线预览条统一 --space-sm 左轨 + 两道细分隔线 + 虚线框退场 + hover 降重；第二轮呼吸与圆角：Hero→带间距抬到 --space-2xl、容器 16px 四周留白、两道分隔线上 16/下 8、三入口列间距 8→24px、容器圆角 14px 与带内可点元素 --radius-medium 形成层级、并删掉第一轮那条把图标圆角从项目原本 12px 压到 4px 的误解覆盖；两轮都保持三段结构/数量/状态/文案/aria/点击路径零改动，收口段零新 token/零位图/零外链/零动效/零新增 transition，窄屏与打印规则逐字未变，真实观感仍属用户主观验收）、v4.11 Hero 场景一体化（统一光场 / 地面承托 / 信息带过渡：Hero 右侧成长绿环境色面 + 窗光层追加桌面暖光池 + 底部地面带 52%→60% 横向铺到 140% 并把下缘化入页面纸色 + Hero 向下一层柔光承托；DOM 仍是 4 个子节点、图片仍是既有 4 张、可聚焦元素仍是 2 个、continue-primary 仍是唯一主 CTA，层级恒为 背景伪元素(-1) < 道具(0) < 伙伴 < 主文案，窄屏与 print 规则逐字未变；是否更接近参考效果图仍属用户主观美感验收））。`);

@@ -150,6 +150,25 @@ const avatarAssets = withType('avatar', AVATARS.avatars);
 
   /* 非法字段 */
   const mk = overrides => Logic.parseImport(JSON.stringify(Object.assign({}, legacy, { schemaVersion: 3 }, overrides)), lessonIds);
+
+  /* ===== v4.11 批次 F（B1）：默认主题"园地 → 夜空"的数据边界 =====
+   * 证明的验收标准：新档案与「缺失 / 非法主题」的回落一律落到 night；而**已存
+   * 档案里合法的 themeId（含老用户的 garden）原样保留**——默认值的改动不得
+   * 静默改写任何已有用户的主题选择，也不得引入第二套默认值字面量。 */
+  assert.equal(Logic.DEFAULT_THEME_ID, 'night', check('F/B1：progress.js 的默认主题是夜空'));
+  assert.equal(Logic.emptyCosmetics().themeId, 'night',
+    check('F/B1：新档案（emptyCosmetics）的 themeId 是夜空'));
+  assert.equal(THEMES.defaultThemeId, Logic.DEFAULT_THEME_ID,
+    check('F/B1：themes.js 与 progress.js 的默认主题是同一个值（单一事实源，无第二套字面量）'));
+  {
+    const keptGarden = mk({ cosmetics: { purchases: {}, companionId: 'sprout', themeId: 'garden' } });
+    assert.equal(keptGarden.state.cosmetics.themeId, 'garden',
+      check('F/B1：已存的合法主题 garden 原样保留，不被新默认值覆盖（老用户零影响）'));
+    const noTheme = mk({ cosmetics: { purchases: {}, companionId: 'sprout' } });
+    assert.equal(noTheme.state.cosmetics.themeId, 'night',
+      check('F/B1：档案缺 themeId 字段时回落夜空'));
+  }
+
   let r = mk({ cosmetics: { purchases: { gem: true, bad: 'yes' }, companionId: 'cat', themeId: 'night' } });
   assert.equal(r.state.cosmetics.purchases.gem, true, check('购买闩锁只收 true：合法值保留'));
   assert.equal(r.state.cosmetics.purchases.bad, undefined, check('购买闩锁只收 true：非法值丢弃'));

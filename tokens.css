@@ -1,11 +1,18 @@
 :root {
   color-scheme: light;
-  --color-paper: #fbf8f2;
+  /* v4.11 批次 A（视觉氛围升级）：默认 garden 的底色三件套做「低刺激柔化」——
+   * paper 从暖奶油白退到更中性的雾白、wash 降饱和、rule 更轻柔，让长时间学习
+   * 的页面更舒缓。ink / accent / warn / button-ink 是 Sprout Signal 钉住的品牌
+   * 语义色（深靛紫主操作、珊瑚橙情绪），一律不动；accent 同时被 style.css 里
+   * 7 处 rgba(81,64,143,…) 硬编码阴影引用，改它会牵连全部一级容器。
+   * 新值经 themes-contrast.test.cjs 同一 WCAG 公式把关：正文 14.04 / muted 6.02 /
+   * accent 7.97 / warn 5.67 / 按钮 8.35 / accent-wash 7.41，全部达标。 */
+  --color-paper: #f9f8f4;
   --color-ink: #29243a;
   --color-muted: #625c70;
   --color-accent: #51408f;
-  --color-wash: #f0edf8;
-  --color-rule: #d8d2e5;
+  --color-wash: #f0eff5;
+  --color-rule: #d9d5e4;
   --color-button-ink: #fffdfb;
   --color-warn: #9f4938;
   --color-code-bg: #28233a;
@@ -30,8 +37,11 @@
    * 一整套用不上的暗色变量，避免留下无法验证的死配置。 */
   --radius-medium: .5rem;
   --color-gold: #a8791c;
-  --shadow-soft: 0 1px 2px rgba(37, 49, 44, .08);
-  --shadow-lift: 0 2px 8px rgba(37, 49, 44, .12);
+  /* v4.11 批次 A：阴影整体「克制化」——降 alpha、加大扩散，卡片层次更多靠
+   * 轻柔边框（--color-rule 同步柔化）而不是投影。基色不变（浅层中性深绿灰 /
+   * primary 随 accent 靛紫），30 套主题共享这三个 token，观感变化是全局轻微变柔。 */
+  --shadow-soft: 0 1px 3px rgba(37, 49, 44, .06);
+  --shadow-lift: 0 3px 10px rgba(37, 49, 44, .09);
   /* v4.5.2 Final Concept Match：容器分级 token。
    * 一级容器（Hero / 档案封面 / 伙伴展示区）用 large 圆角 + primary 阴影；
    * 二级容器继续用 radius-small/medium + 细描边 + 无阴影。
@@ -39,48 +49,57 @@
   --radius-large: 1.25rem;
   --color-grow: #3f7b58;
   --color-grow-soft: #6f9c85;
-  --shadow-primary: 0 12px 30px rgba(81, 64, 143, .13);
+  --shadow-primary: 0 14px 32px rgba(81, 64, 143, .1);
 }
 
 /* ===================== v4.2 页面主题（交接 §13） =====================
  * 主题只覆盖颜色 token，不碰字号、间距与布局；对比度按“正文可读、代码块
  * 可读”手工调过。garden 是 :root 默认值，不重复写。
  * 切换由 app.js 设 <html data-theme="...">，无运行时样式计算。 */
+/* v4.11 批次 B（全主题视觉氛围统一）：把批次 A 对 garden 的「低刺激柔化」纪律推广到
+ * 其余 29 套——HSL 空间只降饱和度、色相与明度不变：浅色主题 paper/wash S×0.55、
+ * rule S×0.75，button-ink 原值等于 paper 的跟随 paper（按钮文字=纸色的既有约定）；
+ * 深色主题只柔化 wash/rule（S×0.70），paper 不动（深色身份锚点，本身已低刺激）。
+ * ink / accent / warn / code 双值一律不动；特别系（crt/cyber/pixel）的氛围由 accent
+ * 承载，同样不动。例外：dune 的 accent 对旧 paper 本就仅 4.53 余量，降饱和后跌破
+ * 4.5，对其 paper 定向 +L 0.25% 补救（accent 不动）。全部新值经
+ * themes-contrast.test.cjs 同一 WCAG 公式复检 30 套 × 7 组达标；themes.js 中
+ * paper 变化主题的 swatch.bg 已逐字同步。 */
 html[data-theme="paper"] {
   color-scheme: light;
-  --color-paper: #fdf8ee;
+  --color-paper: #faf7f1;
   --color-ink: #3d3427;
   --color-muted: #75695a;
   --color-accent: #7a5230;
-  --color-wash: #f5eee0;
-  --color-rule: #ddd2bd;
-  --color-button-ink: #fdf8ee;
+  --color-wash: #f0ece5;
+  --color-rule: #d9d1c1;
+  --color-button-ink: #faf7f1;
   --color-warn: #a4553f;
   --color-code-bg: #2e2a22;
   --color-code-ink: #efe9db;
 }
 html[data-theme="warm"] {
   color-scheme: light;
-  --color-paper: #fdf6f3;
+  --color-paper: #fbf7f5;
   --color-ink: #402e2c;
   --color-muted: #7c6460;
   --color-accent: #9c4736;
-  --color-wash: #f7e8e2;
-  --color-rule: #e3cfc7;
-  --color-button-ink: #fdf6f3;
+  --color-wash: #f2eae7;
+  --color-rule: #dfd1cb;
+  --color-button-ink: #fbf7f5;
   --color-warn: #8a3b52;
   --color-code-bg: #38231f;
   --color-code-ink: #f4e6df;
 }
 html[data-theme="ocean"] {
   color-scheme: light;
-  --color-paper: #f2f8fa;
+  --color-paper: #f4f7f8;
   --color-ink: #1d3a44;
   --color-muted: #52707a;
   --color-accent: #1d6f7e;
-  --color-wash: #e0f0f4;
-  --color-rule: #c2dbe2;
-  --color-button-ink: #f2f8fa;
+  --color-wash: #e5edf0;
+  --color-rule: #c6d9de;
+  --color-button-ink: #f4f7f8;
   --color-warn: #a4553f;
   --color-code-bg: #14343d;
   --color-code-ink: #dff0f4;
@@ -91,8 +110,8 @@ html[data-theme="terminal"] {
   --color-ink: #cfe6d6;
   --color-muted: #8fa89a;
   --color-accent: #58c98b;
-  --color-wash: #24312a;
-  --color-rule: #3c4f45;
+  --color-wash: #262f2a;
+  --color-rule: #3f4c45;
   --color-button-ink: #10201a;
   --color-warn: #d98b5f;
   --color-code-bg: #10201a;
@@ -104,8 +123,8 @@ html[data-theme="night"] {
   --color-ink: #d6dcf0;
   --color-muted: #97a0bd;
   --color-accent: #7f96e8;
-  --color-wash: #202842;
-  --color-rule: #394261;
+  --color-wash: #252b3d;
+  --color-rule: #3f455b;
   --color-button-ink: #131a30;
   --color-warn: #c8897d;
   --color-code-bg: #121828;
@@ -114,26 +133,26 @@ html[data-theme="night"] {
 /* v4.3（交接 B2）新增默认主题：亚麻（中性灰绿布纹）与苔原（黄绿林间） */
 html[data-theme="linen"] {
   color-scheme: light;
-  --color-paper: #f6f5f0;
+  --color-paper: #f5f4f1;
   --color-ink: #33382e;
   --color-muted: #6e6f63;
   --color-accent: #5f6f52;
-  --color-wash: #eceae2;
-  --color-rule: #d5d3c8;
-  --color-button-ink: #f6f5f0;
+  --color-wash: #eae9e4;
+  --color-rule: #d3d2ca;
+  --color-button-ink: #f5f4f1;
   --color-warn: #a4553f;
   --color-code-bg: #2c2e26;
   --color-code-ink: #e8e9df;
 }
 html[data-theme="moss"] {
   color-scheme: light;
-  --color-paper: #f4f7ec;
+  --color-paper: #f3f5ee;
   --color-ink: #2c331f;
   --color-muted: #66704f;
   --color-accent: #4a6b2f;
-  --color-wash: #e7eed9;
-  --color-rule: #c9d4b4;
-  --color-button-ink: #f4f7ec;
+  --color-wash: #e5e9de;
+  --color-rule: #c8d0b8;
+  --color-button-ink: #f3f5ee;
   --color-warn: #a4553f;
   --color-code-bg: #252b1c;
   --color-code-ink: #e2e9d4;
@@ -141,26 +160,26 @@ html[data-theme="moss"] {
 /* v4.3 Batch 6（交接 H/J）：梅子（等级解锁）与陶土（低档位叶片解锁） */
 html[data-theme="plum"] {
   color-scheme: light;
-  --color-paper: #f9f4f7;
+  --color-paper: #f8f5f7;
   --color-ink: #38272f;
   --color-muted: #75606c;
   --color-accent: #7c4a63;
-  --color-wash: #f0e5ec;
-  --color-rule: #dcc8d4;
-  --color-button-ink: #f9f4f7;
+  --color-wash: #eee7eb;
+  --color-rule: #dacbd3;
+  --color-button-ink: #f8f5f7;
   --color-warn: #a4553f;
   --color-code-bg: #2e2129;
   --color-code-ink: #ecdfe7;
 }
 html[data-theme="clay"] {
   color-scheme: light;
-  --color-paper: #f8f2ec;
+  --color-paper: #f5f2ef;
   --color-ink: #3a2e26;
   --color-muted: #77645a;
   --color-accent: #9c5e3a;
-  --color-wash: #f1e6db;
-  --color-rule: #ddcabb;
-  --color-button-ink: #f8f2ec;
+  --color-wash: #ece6e0;
+  --color-rule: #d9cbbf;
+  --color-button-ink: #f5f2ef;
   --color-warn: #a4553f;
   --color-code-bg: #2f2620;
   --color-code-ink: #eee2d8;
@@ -172,39 +191,39 @@ html[data-theme="clay"] {
  * 每套声明 color-scheme（audit U1），浏览器原生控件与滚动条跟随明暗。 */
 html[data-theme="mint"] {
   color-scheme: light;
-  --color-paper: #f3faf6;
+  --color-paper: #f5f8f6;
   --color-ink: #22352c;
   --color-muted: #55695e;
   --color-accent: #2e7d5b;
-  --color-wash: #e4f3ea;
-  --color-rule: #c3ddce;
-  --color-button-ink: #f3faf6;
+  --color-wash: #e7f0eb;
+  --color-rule: #c6dacf;
+  --color-button-ink: #f5f8f6;
   --color-warn: #a4553f;
   --color-code-bg: #1e3229;
   --color-code-ink: #dff0e5;
 }
 html[data-theme="glacier"] {
   color-scheme: light;
-  --color-paper: #f4f8fb;
+  --color-paper: #f6f8f9;
   --color-ink: #24313d;
   --color-muted: #586a7a;
   --color-accent: #3a6ea5;
-  --color-wash: #e6eef5;
-  --color-rule: #c6d5e2;
-  --color-button-ink: #f4f8fb;
+  --color-wash: #e9eef2;
+  --color-rule: #cad5de;
+  --color-button-ink: #f6f8f9;
   --color-warn: #a4553f;
   --color-code-bg: #1c2b3a;
   --color-code-ink: #dce8f2;
 }
 html[data-theme="seasalt"] {
   color-scheme: light;
-  --color-paper: #f6f8f9;
+  --color-paper: #f7f8f8;
   --color-ink: #2a3539;
   --color-muted: #5d6c72;
   --color-accent: #4a6b82;
-  --color-wash: #e9eef1;
-  --color-rule: #cbd5da;
-  --color-button-ink: #f6f8f9;
+  --color-wash: #ebeeef;
+  --color-rule: #cdd4d8;
+  --color-button-ink: #f7f8f8;
   --color-warn: #a4553f;
   --color-code-bg: #212c33;
   --color-code-ink: #dde6eb;
@@ -215,8 +234,8 @@ html[data-theme="porcelain"] {
   --color-ink: #2a2e33;
   --color-muted: #5f666d;
   --color-accent: #33567a;
-  --color-wash: #eef1f4;
-  --color-rule: #d0d6dc;
+  --color-wash: #eff1f3;
+  --color-rule: #d2d6db;
   --color-button-ink: #fbfcfc;
   --color-warn: #96543f;
   --color-code-bg: #20262e;
@@ -224,104 +243,104 @@ html[data-theme="porcelain"] {
 }
 html[data-theme="milktea"] {
   color-scheme: light;
-  --color-paper: #f9f4ec;
+  --color-paper: #f6f3ef;
   --color-ink: #3a302a;
   --color-muted: #75675c;
   --color-accent: #7d6244;
-  --color-wash: #f1e8dc;
-  --color-rule: #ddcdba;
-  --color-button-ink: #f9f4ec;
+  --color-wash: #ece7e1;
+  --color-rule: #d9cdbe;
+  --color-button-ink: #f6f3ef;
   --color-warn: #a4553f;
   --color-code-bg: #2c241d;
   --color-code-ink: #eee4d8;
 }
 html[data-theme="caramel"] {
   color-scheme: light;
-  --color-paper: #fdf7f0;
+  --color-paper: #faf7f3;
   --color-ink: #3c2f22;
   --color-muted: #7a6650;
   --color-accent: #8f5a1e;
-  --color-wash: #f6ead9;
-  --color-rule: #e2cdb0;
-  --color-button-ink: #fdf7f0;
+  --color-wash: #efe9e0;
+  --color-rule: #dcccb6;
+  --color-button-ink: #faf7f3;
   --color-warn: #a4553f;
   --color-code-bg: #30241a;
   --color-code-ink: #f2e5d2;
 }
 html[data-theme="autumn"] {
   color-scheme: light;
-  --color-paper: #fbf6ef;
+  --color-paper: #f8f6f2;
   --color-ink: #3a2f26;
   --color-muted: #77655a;
   --color-accent: #a05a1d;
-  --color-wash: #f4e9dd;
-  --color-rule: #e0cdbb;
-  --color-button-ink: #fbf6ef;
+  --color-wash: #efe9e2;
+  --color-rule: #dbcdc0;
+  --color-button-ink: #f8f6f2;
   --color-warn: #8a3b52;
   --color-code-bg: #2e231c;
   --color-code-ink: #f0e3d6;
 }
 html[data-theme="dusk"] {
   color-scheme: light;
-  --color-paper: #f9f2f0;
+  --color-paper: #f7f3f2;
   --color-ink: #38292c;
   --color-muted: #75605f;
   --color-accent: #8a4a4e;
-  --color-wash: #f1e4e2;
-  --color-rule: #dcc7c5;
-  --color-button-ink: #f9f2f0;
+  --color-wash: #eee6e5;
+  --color-rule: #d9c9c8;
+  --color-button-ink: #f7f3f2;
   --color-warn: #a4553f;
   --color-code-bg: #2b1f21;
   --color-code-ink: #eedee0;
 }
 html[data-theme="forest"] {
   color-scheme: light;
-  --color-paper: #f3f7f1;
+  --color-paper: #f3f6f2;
   --color-ink: #22301f;
   --color-muted: #576951;
   --color-accent: #2a5c43;
-  --color-wash: #e5eee2;
-  --color-rule: #c5d5bf;
-  --color-button-ink: #f3f7f1;
+  --color-wash: #e6ebe5;
+  --color-rule: #c6d2c2;
+  --color-button-ink: #f3f6f2;
   --color-warn: #a4553f;
   --color-code-bg: #1e2e1c;
   --color-code-ink: #dfeadb;
 }
 html[data-theme="bamboo"] {
   color-scheme: light;
-  --color-paper: #f7f8f0;
+  --color-paper: #f6f6f2;
   --color-ink: #2c3323;
   --color-muted: #61694f;
   --color-accent: #587a46;
-  --color-wash: #eceee0;
-  --color-rule: #cfd4bb;
-  --color-button-ink: #f7f8f0;
+  --color-wash: #eaebe3;
+  --color-rule: #cdd1be;
+  --color-button-ink: #f6f6f2;
   --color-warn: #a4553f;
   --color-code-bg: #242a1c;
   --color-code-ink: #e3e8d4;
 }
 html[data-theme="lake"] {
   color-scheme: light;
-  --color-paper: #f1f6f9;
+  --color-paper: #f3f6f7;
   --color-ink: #1f2f3a;
   --color-muted: #54687a;
   --color-accent: #25608f;
-  --color-wash: #e3ecf3;
-  --color-rule: #c4d3e0;
-  --color-button-ink: #f1f6f9;
+  --color-wash: #e7ecef;
+  --color-rule: #c8d3dc;
+  --color-button-ink: #f3f6f7;
   --color-warn: #a4553f;
   --color-code-bg: #1a2b3a;
   --color-code-ink: #dbe7f1;
 }
 html[data-theme="dune"] {
   color-scheme: light;
-  --color-paper: #faf6ee;
+  --color-paper: #f8f6f2;
   --color-ink: #38311f;
   --color-muted: #71684f;
   --color-accent: #8a6d2a;
-  --color-wash: #f2ebdb;
-  --color-rule: #ddd2b6;
-  --color-button-ink: #faf6ee;
+  --color-wash: #ede9e0;
+  --color-rule: #d8d0bb;
+  --color-button-ink: #f8f6f2;
   --color-warn: #a4553f;
   --color-code-bg: #2a251a;
   --color-code-ink: #ece5d2;
@@ -332,8 +351,8 @@ html[data-theme="deepsea"] {
   --color-ink: #c8dce6;
   --color-muted: #7e9aa8;
   --color-accent: #4fa3c7;
-  --color-wash: #182b36;
-  --color-rule: #2c4451;
+  --color-wash: #1d2a32;
+  --color-rule: #32424b;
   --color-button-ink: #0c1a22;
   --color-warn: #d98b5f;
   --color-code-bg: #0b1a22;
@@ -345,8 +364,8 @@ html[data-theme="graphite"] {
   --color-ink: #d8d8da;
   --color-muted: #98989c;
   --color-accent: #9db1c8;
-  --color-wash: #26262a;
-  --color-rule: #3a3a40;
+  --color-wash: #272729;
+  --color-rule: #3b3b3f;
   --color-button-ink: #161618;
   --color-warn: #d09a78;
   --color-code-bg: #131315;
@@ -358,8 +377,8 @@ html[data-theme="violet"] {
   --color-ink: #ddd4f0;
   --color-muted: #a395c2;
   --color-accent: #a78bda;
-  --color-wash: #271f42;
-  --color-rule: #3c3160;
+  --color-wash: #2a243d;
+  --color-rule: #403859;
   --color-button-ink: #171228;
   --color-warn: #d99a7e;
   --color-code-bg: #16112a;
@@ -372,7 +391,7 @@ html[data-theme="ink"] {
   --color-muted: #8f8b83;
   --color-accent: #c2a878;
   --color-wash: #1f1e1c;
-  --color-rule: #33312e;
+  --color-rule: #32312f;
   --color-button-ink: #121110;
   --color-warn: #c98d6e;
   --color-code-bg: #101010;
@@ -384,8 +403,8 @@ html[data-theme="crt"] {
   --color-ink: #e8c88a;
   --color-muted: #a88c5e;
   --color-accent: #e0a040;
-  --color-wash: #241b12;
-  --color-rule: #3d2f1e;
+  --color-wash: #211b15;
+  --color-rule: #382f23;
   --color-button-ink: #150f08;
   --color-warn: #e07850;
   --color-code-bg: #120e08;
@@ -393,13 +412,13 @@ html[data-theme="crt"] {
 }
 html[data-theme="pixel"] {
   color-scheme: light;
-  --color-paper: #f5f2e9;
+  --color-paper: #f2f1ec;
   --color-ink: #2a2a35;
   --color-muted: #63636e;
   --color-accent: #4a4ad8;
-  --color-wash: #eae6da;
-  --color-rule: #cfcbc0;
-  --color-button-ink: #f5f2e9;
+  --color-wash: #e6e4de;
+  --color-rule: #cdcac2;
+  --color-button-ink: #f2f1ec;
   --color-warn: #b04a4a;
   --color-code-bg: #22222e;
   --color-code-ink: #dcdcf0;
@@ -410,8 +429,8 @@ html[data-theme="cyber"] {
   --color-ink: #ecd9f2;
   --color-muted: #ab8fb8;
   --color-accent: #e05fa8;
-  --color-wash: #211830;
-  --color-rule: #3d2c55;
+  --color-wash: #221c2c;
+  --color-rule: #3e324f;
   --color-button-ink: #160e1e;
   --color-warn: #f0a050;
   --color-code-bg: #100b18;
@@ -419,13 +438,13 @@ html[data-theme="cyber"] {
 }
 html[data-theme="softpink"] {
   color-scheme: light;
-  --color-paper: #fdf5f8;
+  --color-paper: #fbf7f8;
   --color-ink: #3d2a32;
   --color-muted: #7a6069;
   --color-accent: #b04a76;
-  --color-wash: #f8e9ef;
-  --color-rule: #e2cbd5;
-  --color-button-ink: #fdf5f8;
+  --color-wash: #f5ecf0;
+  --color-rule: #dfced5;
+  --color-button-ink: #fbf7f8;
   --color-warn: #a4553f;
   --color-code-bg: #2e1f26;
   --color-code-ink: #eed9e2;

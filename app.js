@@ -3830,6 +3830,25 @@
     return true;
   }
 
+  /* v4.11 批次 F（B2）：主题选择器的**展示顺序**。
+   * themes.js 的 recommendedThemeIds 是这份顺序的唯一事实源（当前为
+   * 夜空 / 石墨 / 冰川）；白名单内的主题排到最前、组内按白名单顺序，其余主题
+   * 保持清单里的原始相对顺序（Array#sort 在现代 JS 里是稳定排序，靠的就是这条）。
+   * 只重排**展示副本**：themes.themes 与其中每个主题对象一字不动，因此分类筛选、
+   * 搜索、计数、解锁判定、预览/保存全部照旧；「最近使用」是独立的时间序行，
+   * 不经过这里，不会被静态推荐顺序顶掉。
+   * 白名单里的未知 id 静默忽略（清单改名不会让 picker 抛错）；白名单缺失/为空时
+   * 原样返回，退回 v4.4 的清单顺序。 */
+  function orderThemesForDisplay(list) {
+    const recommended = themes && Array.isArray(themes.recommendedThemeIds) ? themes.recommendedThemeIds : [];
+    if (!recommended.length) return list;
+    const rank = id => {
+      const index = recommended.indexOf(id);
+      return index < 0 ? recommended.length : index;
+    };
+    return list.slice().sort((a, b) => rank(a.id) - rank(b.id));
+  }
+
   function themeCategoryZh(theme) {
     const cat = themes.categories.find(item => item.id === theme.category);
     return cat ? cat.zh.replace('系', '') : '';
@@ -3851,7 +3870,10 @@
   }
 
   function themePickerBody() {
-    const items = typedAssets('theme', themes && Array.isArray(themes.themes) ? themes.themes : []);
+    /* v4.11 批次 F（B2）：items 是展示序副本——「全部 / 分类 / 浅色深色 / 搜索」
+     * 四个视图都从它过滤，所以推荐顺序在各视图内自然生效；主题数量与分类计数
+     * 不受重排影响（计数只看集合，不看顺序）。 */
+    const items = orderThemesForDisplay(typedAssets('theme', themes && Array.isArray(themes.themes) ? themes.themes : []));
     const children = [];
     children.push(node('p', `${items.length} 套主题按五大类组织：点主题卡即时预览（整页换色但不保存），点「使用这个主题」才真正保存；关闭窗口会自动恢复原主题。主题只改颜色，不改布局与字号；每套配色的六组对比度都经过程序化检查（正文 / 次要文字 / 链接 / 代码块 / 按钮 / 警示全部达标）。`, 'meta'));
 
@@ -5164,6 +5186,30 @@
   /* Hero 左下角植物剪影：挂在 .home-hero 上（.hero-scene-decor），纯装饰
    * z-index:-1 + pointer-events:none，绝不拦截交互；窄屏（≤30rem）与打印隐藏。 */
   const HERO_SCENE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240"><path d="M8 240C4 196 16 158 44 128 52 152 44 196 26 240Z" fill="#3f7b58" opacity=".2"/><path d="M34 240C40 186 62 146 100 118 100 150 78 196 52 240Z" fill="#6f9c85" opacity=".24"/><path d="M66 240C84 198 112 170 150 154 140 182 112 214 86 240Z" fill="#3f7b58" opacity=".16"/><path d="M104 240C126 214 152 198 184 192 168 212 140 230 120 240Z" fill="#6f9c85" opacity=".18"/><circle cx="128" cy="92" r="3" fill="#d4af37" opacity=".3"/><circle cx="196" cy="136" r="2.4" fill="#a78bda" opacity=".3"/><circle cx="56" cy="82" r="2.2" fill="#c9714f" opacity=".26"/></svg>';
+  /* Hero 右下角学习场景道具层（v4.11 批次 E）：书桌轮廓 + 台灯 + 一小摞书，
+   * 挂在 .home-hero 上（.hero-study-decor）。v4.7 起 Hero 已有窗光 / 紫晕 /
+   * 植物 / 地面弧线，但角色周围缺少「正在学习」的具体语义——本层补的就是
+   * 这件道具叙事，让伙伴从「单独展示的立绘」变成「陪伴学习的场景角色」。
+   * 依旧纯装饰：空 alt + pointer-events:none，不遮主文案与 CTA、不进可访问名称、
+   * 不拦截指针；窄屏（<56rem）与打印隐藏。层级见 style.css 的 .hero-study-decor
+   * （z-index:0，画在 Hero 自身背景层之上、伙伴与主文案之下）。
+   * 沿用 v4.7 中间调（成长绿 / 深成长绿 / 金 / 陶 / 浅紫），全部原创低饱和
+   * 几何线稿——零位图、零外链、零脚本、零动画、零交互，不碰 companion 资产。
+   *
+   * v4.11 批次 F 补丁（辨识度）：批次 E 的原始 alpha 让整层几乎不可见——把 SVG
+   * 栅格化后测像素，9695 个非透明像素里 5393 个（56%）的 alpha 只有 .15–.25，
+   * 逐元素算 WCAG 对比度只有 1.11:1–1.65:1（文本/图形可辨阈值是 3:1）。根因不是
+   * 位置也不是被伙伴挡住（实测伙伴立绘 ink 只压住台灯顶部 5px），而是**调色板
+   * 在浅色底上的对比度上限**：金 #d4af37 即使全不透明也只有 1.98:1、浅紫 #a78bda
+   * 上限 2.69:1，靠加 alpha 永远救不回来。所以本轮改的是**分工**而不是整体加浓：
+   *   · 结构骨架（桌面沿 / 桌腿 / 台灯罩轮廓 / 三个书脊轮廓）用成长绿 #3f7b58
+   *     —— 它是五色里唯一在明暗两端都随 alpha 单调变好的颜色（浅底 .84→~3.0:1，
+   *     深底 .84→~2.6:1），靠它把「书桌 / 台灯 / 一摞书」三个形状读出来；
+   *   · 金 / 浅紫 / 陶 退为**填充与点缀**（≤ .78），保留原有色相与低饱和气质，
+   *     不再承担「必须被认出来」的职责。
+   * 逐元素 alpha 上限 .84（不到实色），元素种类、坐标、viewBox 与五色调色板
+   * 一律未动；对比度下限由 tests/hero-scene.test.cjs 第 10 组按 WCAG 公式钉住。 */
+  const HERO_STUDY_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="130" viewBox="0 0 420 130"><ellipse cx="62" cy="56" rx="42" ry="16" fill="#d4af37" opacity=".2"/><rect x="14" y="60" width="392" height="8" rx="4" fill="#6f9c85" opacity=".42"/><path d="M14 60H406" fill="none" stroke="#3f7b58" stroke-width="3.2" stroke-linecap="round" opacity=".84"/><path d="M48 68V126" fill="none" stroke="#3f7b58" stroke-width="4.6" stroke-linecap="round" opacity=".74"/><path d="M372 68V126" fill="none" stroke="#3f7b58" stroke-width="4.6" stroke-linecap="round" opacity=".74"/><path d="M62 18L104 50H20L62 18Z" fill="#d4af37" fill-opacity=".5" stroke="#3f7b58" stroke-opacity=".84" stroke-width="2.2" stroke-linejoin="round"/><path d="M28 50H96" fill="none" stroke="#d4af37" stroke-width="2.4" stroke-linecap="round" opacity=".7"/><path d="M62 50V60" fill="none" stroke="#c9714f" stroke-width="3.4" stroke-linecap="round" opacity=".78"/><ellipse cx="62" cy="60" rx="16" ry="3.5" fill="#c9714f" fill-opacity=".55" stroke="#3f7b58" stroke-opacity=".7" stroke-width="1.6"/><rect x="256" y="48" width="104" height="12" rx="3" fill="#3f7b58" fill-opacity=".5" stroke="#3f7b58" stroke-opacity=".84" stroke-width="1.8"/><rect x="264" y="36" width="88" height="12" rx="3" fill="#a78bda" fill-opacity=".55" stroke="#3f7b58" stroke-opacity=".84" stroke-width="1.8"/><rect x="274" y="23" width="70" height="13" rx="3" fill="#c9714f" fill-opacity=".55" stroke="#3f7b58" stroke-opacity=".84" stroke-width="1.8"/><path d="M306 23V17" fill="none" stroke="#d4af37" stroke-width="2.8" stroke-linecap="round" opacity=".78"/><circle cx="196" cy="32" r="2.8" fill="#d4af37" opacity=".55"/></svg>';
 
   function heroCompanionFigure() {
     if (!progress) return null;
@@ -5450,6 +5496,40 @@
     return curriculum.courses.reduce((sum, course) => sum + course.totalLessons, 0);
   }
 
+  /* v4.11 G2a：8 张 World 卡的**纯展示**色相钩子（写进 data-world-tone，
+   * style.css 的 G2a 段据此给卡片加一层低饱和环境暗示）。
+   *
+   * 为什么要有这张表：.world-card 上没有任何 per-World 的表现层钩子（只有
+   * is-open / is-locked 两个状态类），只靠 CSS 的 :nth-child 去猜顺序，一旦
+   * 卡片增删或顺序变动就会**无声错配**——把绿色的山谷画到 NodeJS 卡上。
+   * 键用 `course.order`（稳定业务事实），不按中文名匹配、不复制课程名称 /
+   * 数量 / 进度，也**不参与**开放判定、aria-label 与点击行为。
+   *
+   * ⚠️ 映射以 curriculum.js 的**真实**顺序为准（G2a 规划交接的 §六 语义表把
+   * Node.js 写在 World 4，与本地数据不符：真实 World 4 是 advanced-html-and-css
+   * 「高级 HTML 与 CSS」，NodeJS 在 World 7）。已由用户 2026-09-18 确认按真实
+   * 数据绑定，避免把「高级 HTML 与 CSS」画成网络服务。前四个 tone 的名字与
+   * 批次 F 首页路线预览条 PREVIEW_STAGES 共用同一套词汇（同一个 World 在首页
+   * 预览条与地图卡上是同一色相）。
+   *
+   * 缺表项时（例如日后官方路线扩到第 9 个 World）不设钩子——CSS 没有对应选择器，
+   * 卡片自然退回无装饰的原样，不会画错色，也不会报错。 */
+  const WORLD_CARD_TONES = {
+    1: 'foundations',      /* Foundations 前端基础——成长绿 / 山谷弧线（唯一开放，最强一档） */
+    2: 'html-css',         /* 中级 HTML 与 CSS——冷蓝 / 结构网格 */
+    3: 'javascript',       /* JavaScript——暖橙 / 节点连接 */
+    4: 'html-css-deep',    /* 高级 HTML 与 CSS——冷蓝深化 + 更密结构线（与 World 2 同族但不重样） */
+    5: 'world-generic-a',  /* React——后续世界弱化层 */
+    6: 'world-generic-b',  /* 数据库——后续世界弱化层 */
+    7: 'nodejs',           /* NodeJS——青绿 / 网络服务连接（未开放，仍走弱化档） */
+    8: 'world-generic-c'   /* 求职之路——后续世界弱化层 */
+  };
+  /* v4.11 的 World 1 单卡场景图原型已于 2026-09-18 **定向撤回**：真实页面比较后，
+   * 用户判定图片接入与既有 World 卡结构不协调，不采用。图片资产与挂载代码一并移除，
+   * 上一段（G2a）的纯 CSS/SVG 场景层原样保留——这里不留任何残留钩子。
+   * 撤回原因、证据与“不是视觉事故”的口径见 MAINTENANCE.md「废弃功能与旧方案库」。
+   * 本注释刻意不写出已删除的标识符与资产路径：产品源码里不留它们的字面量。 */
+
   function worldListChildren() {
     const summary = progress.summary();
     const children = [];
@@ -5460,6 +5540,9 @@
       const open = Boolean(course.lessonsInCatalog);
       const card = node('button', undefined, `world-card${open ? ' is-open' : ' is-locked'}`);
       card.type = 'button';
+      /* G2a：纯展示色相钩子（见 WORLD_CARD_TONES 注释）——只回答「这张卡画什么
+       * 环境」，不改状态、不改 aria-label、不改点击行为。 */
+      if (WORLD_CARD_TONES[course.order]) card.dataset.worldTone = WORLD_CARD_TONES[course.order];
       const head = node('span', undefined, 'world-head');
       head.append(node('span', `World ${course.order}`, 'world-order'));
       head.append(node('span', course.zh, 'world-zh'));
@@ -6192,7 +6275,15 @@
    * 靠 zh 正则/等值判断会在改名后静默少一个节点且无测试可捕捉。
    * PREVIEW_STAGES 里的 name 是刻意精简的**展示文案**（单行预览条要短，
    * 故写 'Node.js' 而非目录里的 'NodeJS'），不是课程数据副本。 */
-  const PREVIEW_STAGES = [{ order: 2, name: 'HTML & CSS' }, { order: 3, name: 'JavaScript' }, { order: 7, name: 'Node.js' }];
+  /* v4.11 批次 F（B3）：每个节点多带一个 `tone`——**纯表现层**的色相钩子
+   * （写进 `data-world-tone`，style.css 据此给该节点加低饱和环境暗示）。
+   * 它不是课程数据：order 仍是唯一匹配键，name 仍是展示文案，tone 只回答
+   * 「这一格用什么色相」，不进 curriculum、不进档案、不参与任何判定。 */
+  const PREVIEW_STAGES = [
+    { order: 2, name: 'HTML & CSS', tone: 'html-css' },
+    { order: 3, name: 'JavaScript', tone: 'javascript' },
+    { order: 7, name: 'Node.js', tone: 'nodejs' }
+  ];
   function worldPreviewBar() {
     if (!progress || !curriculum || !Array.isArray(curriculum.courses) || !curriculum.courses.length) return null;
     const courseAt = order => curriculum.courses.find(item => item.order === order) || null;
@@ -6204,16 +6295,22 @@
     const stages = [{
       name: 'Foundations',
       state: total ? `${summary.completedCount} / ${total}` : `已完成 ${summary.completedCount}`,
-      open: true
+      open: true,
+      tone: 'foundations'
     }];
     PREVIEW_STAGES.forEach(stage => {
-      if (courseAt(stage.order)) stages.push({ name: stage.name, state: '尚未开放', open: false });
+      /* tone 必须一起带过去（B3）：这里是从 PREVIEW_STAGES 重建展示对象，
+       * 漏掉 tone 会让四格里的三格没有色相钩子。 */
+      if (courseAt(stage.order)) stages.push({ name: stage.name, state: '尚未开放', open: false, tone: stage.tone });
     });
     const bar = node('button', undefined, 'world-preview');
     bar.type = 'button';
     bar.append(node('span', '路线预览', 'world-preview-label'));
     stages.forEach(stage => {
       const item = node('span', undefined, `world-preview-item${stage.open ? ' is-open' : ''}`);
+      /* 纯展示钩子（B3）：色相由 CSS 消费，读屏与 aria-label 不受影响——
+       * 整条 bar 仍是单个 button，节点本身不可聚焦、不可点击，点击行为不变。 */
+      if (stage.tone) item.dataset.worldTone = stage.tone;
       item.append(node('span', stage.name, 'world-preview-name'));
       item.append(node('span', stage.state, 'world-preview-state'));
       bar.append(item);
@@ -6239,6 +6336,10 @@
     /* 左下角植物剪影（内联 SVG data URL）：alt 为空、CSS 层 z-index:-1 +
      * pointer-events:none，不进 textContent、不拦截交互。 */
     hero.append(svgImage(HERO_SCENE_SVG, '', 'hero-scene-decor'));
+    /* v4.11 批次 E：右下角学习场景道具层（书桌 / 台灯 / 一小摞书），与左侧
+     * 植物剪影同属 Hero 纯装饰环境层。挂在文字列与伙伴列之前——装饰层只在
+     * 树序上先于内容，不进可访问名称、不进交互流，IA 仍是 Hero 两列结构。 */
+    hero.append(svgImage(HERO_STUDY_SVG, '', 'hero-study-decor'));
     const heroMain = node('div', undefined, 'hero-main');
     /* 第三轮（首页与课页导航收口）：Hero 主文案收敛为两行——主标题承担路线名，
      * 副标题一句话定位；World 数量、中文覆盖与官方任务说明全部下沉到

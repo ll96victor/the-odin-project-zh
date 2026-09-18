@@ -136,7 +136,13 @@
    * 缺失时回落历史值 'sprout'（降级路径，正常两页 registry 都先于本文件加载）。 */
   const ASSET_ID_PATTERN = /^[a-z][a-z0-9-]{0,31}$/;
   const DEFAULT_COMPANION_ID = (companionRegistry && companionRegistry.defaultCompanionId) || 'sprout';
-  const DEFAULT_THEME_ID = 'garden';
+  /* v4.11 批次 F（B1）：默认主题「园地」→「夜空」，与 themes.js 的
+   * defaultThemeId 逐字一致（collections.test 断言两处相等，项目不允许出现
+   * 第二套默认值字面量）。作用范围只有**新档案**（emptyCosmetics）与
+   * **缺失 / 非法主题的回落**（sanitize）；已存档案里合法的 themeId——包括
+   * 老用户的 garden——一律原样保留，不迁移、不覆盖、不改 storage key /
+   * schemaVersion。 */
+  const DEFAULT_THEME_ID = 'night';
 
   /* ---------- v4.9：退役默认值的读取层归一化 ----------
    * v4.8 把产品默认形象 / 头像 / 默认名换成了小诺，但只改了默认值：老档案里
