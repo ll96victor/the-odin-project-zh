@@ -5969,6 +5969,11 @@
     const resourceHead = node('h3', `本课外部资料（本站中文辅助 · ${items.length} 条）`);
     resourceHead.id = 'lesson-resources';
     block.push(resourceHead);
+    /* v4.11.7：条数与题目数的对应关系说明——紧贴条数标题，读者一看到「N 条」
+     * 就能读到「为什么不是 15 条」。v4.11.6 挂在自查题 / 任务列表下方是错位：
+     * 那里没有数字可对照，反而与资源区的条数并列成两个打架的数字。 */
+    const relationshipNote = taskResourceNote(lesson, items.length);
+    if (relationshipNote) block.push(node('p', relationshipNote, 'meta task-resource-note'));
     block.push(node('p', '以下是官方原课在正文、Assignment 与 Knowledge Check 中明确要求学习的外部资料。本站提供中文辅助入口与本站原创导读；对许可明确为 CC 系列且没有官方中文版的来源，本站另提供采用与原作相同许可的中文精译（卡内附署名与来源标注）；其余第三方内容不搬运、不翻译，只做原创导读与原文链接。链接一律在新标签页打开，打开后会离开本站。', 'muted'));
     /* v4.11.4 文案瘦身（规则出处 CONTENT-STYLE-GUIDE.md 第 1 节「读者页面零审计信息」）：
      * v4.11.2 的三分类计数句（「其中 X 条有已核验的官方中文版……」）、全局核验日期句
@@ -6032,46 +6037,50 @@
     return element;
   }
 
-  /* ---------- v4.11.6（交接 §3.2）：任务与资料对应关系标注 ----------
-   * 官方题数 / 任务数与可点击的外部资料数不一致时，读者会困惑「点哪里」。
-   * 标注给一次对应关系说明。文案是关于**官方课程结构**的事实说明
-   * （CONTENT-STYLE-GUIDE.md 第 1 节的例外条款），不是本站核验审计信息——
-   * 绝不写「本站核验了 N 条 / 资料不全 / 只提供部分参考」。
-   * 纯函数：数字全部由课数据 + lesson-task-links.js 映射现算，无线索返回
-   * null、调用方不渲染（tests/task-resource-note.test.cjs 钉住「数据变了
-   * 文案没变」必红）。去重资料数按 taskLinkBase 口径（去锚点、去尾斜杠），
-   * 与内联链接渲染同口径。
-   * 渲染纪律：<p class="meta">，不得用 <a>（节级直接子链接为 0 是既有
-   * 断言）；不得含「中文辅助」（D7 计数钉死渲染层恰 5 处）；不以「其中」
-   * 开头（A1 前言禁语的同一口径）。落点是 section-official 直接子级、
-   * 标题 h3 与折叠容器之间——列表收起时不展开也能读到。 */
-  function taskResourceNote(lesson, kind) {
-    const links = taskLinkMap(lesson.id, kind);
-    if (!links) return null;
-    const linkedNums = Object.keys(links).filter(num => Array.isArray(links[num]) && links[num].length);
-    if (!linkedNums.length) return null;
-    if (kind === 'k') {
-      const total = lesson.official.knowledgeCheck.length;
-      const materials = new Set();
-      linkedNums.forEach(num => links[num].forEach(url => materials.add(taskLinkBase(url))));
-      /* A 类（题题带链、多题共用同一篇）：{N} 道自查题指向下方 {M} 份资料 */
-      if (linkedNums.length === total && total > materials.size) {
-        return `${total} 道自查题指向下方 ${materials.size} 份资料：多道题共用同一篇，点开就能看。`;
+  /* ---------- v4.11.7：资料条数与题目数的对应关系说明 ----------
+   * 读者最容易困惑的时刻是**在资源区看到条数**：官方明明有 15 道自查题、
+   * 22 条任务，这里为什么只有 9 条？v4.11.6 曾把说明挂在自查题 / 任务列表下方，
+   * 但那里既不是数字出现的位置，又让页面上同时出现两个互相打架的数字
+   * （实测 how-does-the-web-work：资源区「9 条」2 处 vs 标注「7 份」1 处，
+   * 读者比不理解时更困惑）。v4.11.7 改为**只在资源区说一次**——数字出现的地方。
+   *
+   * 文案是关于**官方课程结构**的事实说明（CONTENT-STYLE-GUIDE.md 第 1 节例外条款），
+   * 不是本站核验审计信息——绝不写「本站核验了 N 条 / 资料不全 / 只提供部分参考」。
+   * 纯函数：数字全部由课数据 + lesson-task-links.js 映射现算，无线索返回 null、
+   * 调用方不渲染（tests/task-resource-note.test.cjs 钉住「数据变了文案没变」必红）。
+   *
+   * 三种情形各自成立才拼接，最多两句：
+   *   · 自查题题题带链、且题数 > 资料条数 → 说明「多题共用同一份」；
+   *   · 自查题只有部分带链 → 说明其余题指向原课自身章节（映射纪律
+   *     「宁可少接不可接错」，页内锚点一律不接——见 lesson-task-links.js）；
+   *   · 任务未接链条目 ≥ 5 → 说明多数任务是终端 / 界面上的动手操作。
+   *
+   * 渲染纪律：<p class="meta">，不得用 <a>（节级直接子链接为 0 是既有断言）；
+   * 不得含「中文辅助」（D7 计数钉死渲染层恰 5 处）；不以「其中」开头
+   * （A1 前言禁语的同一口径）。落点是 section-official 直接子级；资源区永不
+   * 折叠（v4.11.5 红线），因此这条说明始终可见。 */
+  function taskResourceNote(lesson, resourceCount) {
+    const official = lesson.official || {};
+    const parts = [];
+    const kcLinks = taskLinkMap(lesson.id, 'k');
+    if (kcLinks && Array.isArray(official.knowledgeCheck)) {
+      const kcLinked = Object.keys(kcLinks).filter(num => Array.isArray(kcLinks[num]) && kcLinks[num].length);
+      const kcTotal = official.knowledgeCheck.length;
+      if (kcLinked.length && kcLinked.length === kcTotal && kcTotal > resourceCount) {
+        parts.push(`官方 ${kcTotal} 道自查题都从这些资料中取用——多道题共用同一份，所以题目数比资料条数多。`);
+      } else if (kcLinked.length && kcLinked.length < kcTotal) {
+        parts.push(`官方 ${kcTotal} 道自查题中有 ${kcLinked.length} 道需要外部资料，其余各题指向原课自身的章节。`);
       }
-      /* B 类（部分题带链）：其余各题是官方原课的页内锚点题（映射纪律
-       * 「宁可少接不可接错」，页内锚点一律不接——见 lesson-task-links.js） */
-      if (linkedNums.length < total) {
-        return `${total} 道题中有 ${linkedNums.length} 道需要外部资料，指向下方 ${materials.size} 份；其余各题指向官方原课自身的章节，本站未接外链。`;
+    }
+    const aLinks = taskLinkMap(lesson.id, 'a');
+    if (aLinks && Array.isArray(official.assignment)) {
+      const aLinked = Object.keys(aLinks).filter(num => Array.isArray(aLinks[num]) && aLinks[num].length);
+      const aTotal = official.assignment.length;
+      if (aLinked.length && aTotal - aLinked.length >= 5) {
+        parts.push(`官方 ${aTotal} 条任务大多是终端与 GitHub 上的动手操作，其中 ${aLinked.length} 条需要外部文章，已附链接。`);
       }
-      return null;
     }
-    /* Assignment 侧：只有「大多数条目确是本地动手操作」成立（未接链条目
-     * ≥ 5）才标注，避免对小清单过度解释 */
-    const total = lesson.official.assignment.length;
-    if (total - linkedNums.length >= 5) {
-      return `${total} 条任务大多是终端与 GitHub 上的动手操作；其中 ${linkedNums.length} 条需要外部文章，已附链接。`;
-    }
-    return null;
+    return parts.length ? parts.join(' ') : null;
   }
 
   /* ---------- v4.11.5（交接 3.A / 3.A2 / 3.B）：官方任务节折叠与页内跳转 ----------
@@ -6828,10 +6837,6 @@
     const assignmentBody = buildCollapseBody('official-assignment-body', collapseNow);
     assignmentBody.append(taskList(lesson.official.assignment, lesson.id, taskLinkMap(lesson.id, 'a'), true));
     official.append(assignmentHead);
-    /* v4.11.6（交接 §3.2）：任务与资料对应关系标注——标题 h3 之后、折叠
-     * 容器之前（section-official 直接子 p），列表收起时也能读到 */
-    const assignmentNote = taskResourceNote(lesson, 'a');
-    if (assignmentNote) official.append(node('p', assignmentNote, 'meta task-resource-note'));
     official.append(assignmentBody);
     if (lesson.official.exercise.length) official.append(node('h3', 'Exercise（动手练习）'), list(lesson.official.exercise, true));
     if (lesson.official.knowledgeCheck.length) {
@@ -6852,9 +6857,6 @@
       });
       kcBody.append(kcList);
       official.append(kcHead);
-      /* v4.11.6（交接 §3.2）：KC 标注同落点——h3 之后、列表之前 */
-      const kcNote = taskResourceNote(lesson, 'k');
-      if (kcNote) official.append(node('p', kcNote, 'meta task-resource-note'));
       official.append(kcBody);
     }
     const optionalItems = lesson.official.optional.concat(lesson.optional);

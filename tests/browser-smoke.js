@@ -35,14 +35,14 @@ async page => {
     const V1_H2 = ['中文导读', '重要英文术语', '今天实际要做什么', '简单自测'];
     const V2_H2_WITH_CODE = ['这一课为什么重要', '中文讲解', '重要英文术语', '代码示例', '常见错误', '官方任务', '简单自测'];
     const V2_H2_NO_CODE = ['这一课为什么重要', '中文讲解', '重要英文术语', '常见错误', '官方任务', '简单自测'];
-    // v4.11.6（交接 §3.2/§3.6）：任务与资料对应关系标注的每课数量名单
-    //（KC 6 课 + Assignment 3 课，command-line-basics 双份 = 2；其余 13 课 0）。
+    // v4.11.7：资料条数与题目数对应关系说明的每课数量名单（每课至多 1 条，
+    // 两类情形同时命中时合成一句；恰 7 课命中，其余 12 课 0）。
     // 文案与数字跟数据的一致性由 tests/task-resource-note.test.cjs 钉住，
     // 这里只钉真实浏览器里的存在性与落点。
     const NOTE_COUNTS = {
-      'how-does-the-web-work': 1, 'commit-messages': 1, 'command-line-basics': 2,
-      'introduction-to-git': 1, 'introduction-to-html-and-css': 1, 'links-and-images': 1,
-      'setting-up-git': 1, 'git-basics': 1
+      'how-does-the-web-work': 1, 'command-line-basics': 1, 'setting-up-git': 1,
+      'introduction-to-git': 1, 'git-basics': 1, 'introduction-to-html-and-css': 1,
+      'links-and-images': 1
     };
     for (const [index, lesson] of lessons.entries()) {
       await page.goto(base + `lesson.html?id=${lesson.id}`);
@@ -79,17 +79,16 @@ async page => {
       assert(await page.locator('.section-official h3 .resource-jump').getAttribute('href') === '#lesson-resources', `跳转入口应指向资源区锚点：${lesson.id}`);
       await page.locator('.section-official h3 .resource-jump').click();
       assert(await page.locator('#lesson-resources').isVisible(), `跳转后资源区标题必须可见（资源区永不折叠）：${lesson.id}`);
-      // v4.11.6：标注存在性 + 落点（section-official 直接子 p、h3 与折叠容器之间）
-      assert(await page.locator('.section-official > p.task-resource-note').count() === (NOTE_COUNTS[lesson.id] || 0), `任务与资料标注数量：${lesson.id}`);
+      // v4.11.7：关系说明存在性 + 落点（紧跟资源区标题 #lesson-resources 之后——
+      // 条数出现的位置；不得回到 v4.11.6「自查题/任务列表下方」的旧落点）
+      assert(await page.locator('.section-official > p.task-resource-note').count() === (NOTE_COUNTS[lesson.id] || 0), `资料与题目关系说明数量：${lesson.id}`);
       if (NOTE_COUNTS[lesson.id]) {
         const notesOk = await page.evaluate(() => [...document.querySelectorAll('.section-official > p.task-resource-note')].every(p => {
           const prev = p.previousElementSibling;
-          const next = p.nextElementSibling;
-          return Boolean(prev && prev.tagName === 'H3' && next
-            && (next.id === 'official-assignment-body' || next.id === 'official-kc-body')
+          return Boolean(prev && prev.tagName === 'H3' && prev.id === 'lesson-resources'
             && p.querySelectorAll('a').length === 0);
         }));
-        assert(notesOk, `标注应落在 h3 与折叠容器之间且不含链接：${lesson.id}`);
+        assert(notesOk, `关系说明应紧跟资源区标题之后且不含链接：${lesson.id}`);
       }
       await page.locator('summary').first().click();
       assert(await page.locator('.answer').first().isVisible(), '点击后应显示答案');

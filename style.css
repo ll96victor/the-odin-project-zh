@@ -1679,7 +1679,20 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 .world-preview-item { display: inline-flex; align-items: baseline; gap: .35rem; min-width: 0; white-space: nowrap; }
 .world-preview-name { font-weight: 600; }
 .world-preview-state { color: var(--color-muted); }
-.world-preview-item.is-open .world-preview-state { color: var(--color-grow); font-weight: 700; font-variant-numeric: tabular-nums; }
+.world-preview-item.is-open .world-preview-state { color: #336847; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* v4.11.7：路线预览条「已开放」状态文字的对比度修正（真实浏览器像素实测选值）。
+ * 原色 --color-grow #3f7b58 实测：深色主题 2.88–3.33:1、浅色主题 4.19–4.21:1，
+ * **两档都低于正文 4.5:1**。历史记录（v4.11 批次 F）只记了深色档的 3.2/3.26，
+ * 浅色档同样偏低是 v4.11.7 实测才发现的。
+ *   · 浅色 → #336847（同色相加深；**全部 22 套浅色主题**实测 4.95–5.46）
+ *   · 深色 → var(--color-grow-soft) #6f9c85（既有 token；**全部 8 套深色主题** 4.62–5.44）
+ * **浅色值 4.95 是全部 22 套浅色主题的最差档**（pixel，底色 #dee1da 为最深的浅色纸）；
+ * 中间稿曾取 #38704f，当时只抽了 3 套浅色主题（最差 4.85）就落值，全量复核才发现
+ * pixel 只有 4.42——**改这一处必须跑满 30 套，不能抽样**。
+ * 只覆盖状态文字，**不动 --color-grow 本身**——它是地图节点 / 氛围层共用的固定
+ * 语义色（tokens.css 明写「不随主题变」），改它会牵连全站配色与对比度断言。
+ * 取色依据与逐候选实测值见 answers/ 本轮实施记录。 */
+html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--color-grow-soft); }
 .world-preview-more { margin-left: auto; color: var(--color-accent); white-space: nowrap; }
 @media (max-width: 30rem) {
   .world-preview { gap: var(--space-xs) var(--space-md); }

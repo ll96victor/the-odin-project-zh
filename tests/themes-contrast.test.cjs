@@ -219,4 +219,32 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
     check('打印媒体下概念图反相与透明底还原（filter: none + 原底色）'));
 }
 
-console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原）。`);
+/* ============ 7. v4.11.7：预览条「已开放」状态文字配色钉子 ============
+ * **本项刻意不假算对比度**。该文字的底色是 .world-preview-item::before 的
+ * 径向 + 线性渐变叠在容器底上，不是 --color-paper / --color-wash 中的任何一个：
+ * 实测 terminal 主题真实合成底是 #212c27（对 paper 按公式算只得 2.92），
+ * 而真实浏览器量到 4.66——差 1.6 倍。按 token 算会**误判为不达标**，
+ * 那样的断言是假的，不如不写。
+ *
+ * 因此这里只钉「取色规则本身」：两条规则必须在位、颜色精确、不得改回低对比的原色。
+ * 换色必须重新用真实浏览器逐主题量（方法与本轮实测值见 answers 实施记录）。
+ * 实测基线（2026-09-19，chromium 像素采样，**全部 30 套主题**）：
+ *   深色 8 套 var(--color-grow-soft) → 4.62（terminal，最低）～5.44（cyber）
+ *   浅色 22 套 #336847               → 4.95（pixel，最低）～5.46（porcelain）
+ *   修复前同口径：#3f7b58 深色 2.88–3.33 / 浅色 4.19–4.21（两档都 < 4.5）。
+ * **抽样会漏**：中间稿取 #38704f 时只量了 3 套浅色主题（最差 4.85）就落值，
+ * 全量复核发现 pixel（底色 #dee1da，最深的浅色纸）只有 4.42——**换色必须跑满 30 套**。 */
+{
+  const styleCss = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  assert.ok(styleCss.includes('.world-preview-item.is-open .world-preview-state { color: #336847;'),
+    check('浅色：预览条已开放状态文字取 #336847（全部 22 套浅色主题实测 4.95–5.46 ≥ 4.5）'));
+  assert.ok(styleCss.includes('html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--color-grow-soft); }'),
+    check('深色：预览条已开放状态文字取 --color-grow-soft（全部 8 套深色主题实测 4.62–5.44 ≥ 4.5）'));
+  /* 反向钉子：不得改回原色 --color-grow（深色 2.88–3.33 / 浅色 4.19–4.21，两档都不达标） */
+  const previewStateRules = styleCss.match(/[^{}\n]*\.world-preview-item\.is-open \.world-preview-state\s*\{[^}]*\}/g) || [];
+  assert.ok(previewStateRules.length >= 2, check('预览条状态文字的两条配色规则都在位'));
+  previewStateRules.forEach(rule => assert.ok(!/color:\s*var\(--color-grow\)\s*;/.test(rule),
+    check('预览条状态文字不得直接取 --color-grow（对比度两档都不达标）')));
+}
+
+console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退）。`);
