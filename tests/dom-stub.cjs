@@ -16,7 +16,7 @@ const root = path.resolve(__dirname, '..');
 const FIRST_LESSON = 'how-this-course-will-work';
 const SCRIPTS = [
   'version.js',
-  'lessons.js', 'external-resources.js', 'diagrams.js', 'avatars.js', 'icons.js',
+  'lessons.js', 'external-resources.js', 'lesson-task-links.js', 'diagrams.js', 'avatars.js', 'icons.js',
   'catalog.js', 'companions.js', 'companion-registry.js', 'companion-view.js', 'companion-wardrobe.js', 'themes.js', 'bosses.js', 'curriculum.js', 'map.js', 'economy.js',
   'collections.js', 'daily.js', 'stats.js', 'challenges.js', 'tiers.js',
   'history.js', 'progress.js', 'app.js'

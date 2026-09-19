@@ -239,7 +239,14 @@ function clickChip(dialog, label) {
 
 /* ===================== 4. I4 小奥当日成就庆祝 ===================== */
 {
-  const today = new Date().toISOString().slice(0, 10);
+  /* v4.11.2 顺手修复的既有日期翻车缺陷（基线提交 33516ca 上同样复现，与本轮
+   * 改动无关）：应用侧判定是 latestAchievement.date（ISO 时间戳前 10 位）与
+   * dayKeyFromDate(new Date())（**本地**日期键）比较；旧 seeding 用
+   * toISOString() 取的是 **UTC** 日期，在东八区本地 00:00–08:00 之间会把
+   * 「今天」seed 成本地昨天，祝贺行断言必挂。改为与 progress.js 同口径的
+   * 本地日期键。 */
+  const dayKey = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  const today = dayKey(new Date());
   /* 今天解锁了成就的档案。companionId 用 odin-boy（procedural 人形带 bust
    * 多表情生成器，celebrate 走生成器输出；v4.8 起默认角色是 fixed-art 整图
    * 的小诺，历史默认 sprout 已退役） */
@@ -257,8 +264,8 @@ function clickChip(dialog, label) {
   assert.ok(bust && String(bust.alt).includes('庆祝'), check(`当日成就 → celebrate 表情（alt=${bust ? bust.alt : ''}）`));
   dialog.close();
 
-  /* 成就是昨天的 → 不祝贺（确定性规则：日期 == 今天） */
-  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  /* 成就是昨天的 → 不祝贺（确定性规则：日期 == 今天；本地日期键同口径） */
+  const yesterday = dayKey(new Date(Date.now() - 86400000));
   const page2 = newPage({
     storage: seededStorage({ achievements: { 'first-lesson': `${yesterday}T09:00:00.000Z` } })
   });

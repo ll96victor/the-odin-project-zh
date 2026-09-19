@@ -303,7 +303,8 @@ def behaviour_checks():
                   f'取回 {len(body)} 字节，磁盘 {len(index_bytes)} 字节')
 
             for path in ['/lesson.html', '/lessons.js', '/progress.js', '/app.js',
-                         '/external-resources.js', '/style.css', '/tokens.css', '/version.js']:
+                         '/external-resources.js', '/lesson-task-links.js', '/style.css',
+                         '/tokens.css', '/version.js']:
                 code, payload = fetch(TEST_PORT, path)
                 check(f'{path} 返回 200', code == 200, f'实际 {code}')
                 if code == 200:

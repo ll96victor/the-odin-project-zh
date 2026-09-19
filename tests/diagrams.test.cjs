@@ -30,7 +30,7 @@ const EXPECTED_BINDINGS = [
   ['roles-html-css-js', 'introduction-to-html-and-css'],
   ['how-the-web-works', 'how-does-the-web-work'],
   ['command-line-tree', 'command-line-basics'],
-  ['git-areas', 'introduction-to-git'],
+  ['git-areas', 'git-basics'], /* v4.11.2 B：四区域工作流图归位到实际讲 add/commit/push 的课 */
   ['structure-and-style', 'introduction-to-html-and-css'],
   ['tag-anatomy', 'elements-and-tags'],
   ['html-boilerplate', 'html-boilerplate'],

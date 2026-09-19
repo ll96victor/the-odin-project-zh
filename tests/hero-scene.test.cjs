@@ -276,13 +276,14 @@ function ruleBody(selector) {
   assert.ok(ruleBody('.home-hero').includes('overflow: hidden'),
     check('8.8 .home-hero 仍是 overflow:hidden（装饰层边界由既有裁切承担）'));
 
-  /* 8.9 旧口径清除 + 测试文件数（批次 E 扩展现有文件，不新增第 39 个） */
+  /* 8.9 旧口径清除 + 测试文件数（批次 E 扩展现有文件；v4.11.2 起课页读者向
+   * 修复的收口断言住进第 39 个文件 lesson-reader-fixes.test.cjs，属有意新增） */
   const self = fs.readFileSync(__filename, 'utf8');
   assert.ok(!/\+3[3]%/.test(self),
     check('8.9 本文件零残留的旧高度增益口径（第 1 组已改为批次 D 实测的真实线性增益）'));
   const testFiles = fs.readdirSync(path.join(root, 'tests')).filter(f => f.endsWith('.test.cjs'));
-  assert.equal(testFiles.length, 38,
-    check(`8.9 Node 测试文件总数仍为 38（批次 E 扩展现有文件；实际 ${testFiles.length}）`));
+  assert.equal(testFiles.length, 39,
+    check(`8.9 Node 测试文件总数为 39（v4.11.2 新增 lesson-reader-fixes；实际 ${testFiles.length}）`));
 }
 
 /* ============ 9. v4.11 批次 F（B0）：Hero 道具**可见性**层级 ============
@@ -488,4 +489,4 @@ function ruleBody(selector) {
     check('10.7 加辨识度没有引入位图 / 外链 / 外部资源'));
 }
 
-console.log(`通过：v4.11 Hero 场景专项 ${checks} 项断言。批次 D 部分：舞台 3:4 + 27rem 档、窄屏同步、紫晕 18% 防漂移 + 窗光带逐字、绿巢正圆防椭圆、批次 C 氛围层/封面双零回归钉、改动区零新 token 零动画。批次 E 部分：HERO_STUDY_SVG 三类几何（书桌/台灯/书堆）+ 安全属性零外链零事件零脚本 + 五色调色板与 opacity ≤ .5 + svgImage 空 alt 挂载与树序 + <56rem 与 print 隐藏 + 既有层零回归 + 测试文件数仍 38。批次 F（B0）部分：道具 z-index 非负且严格高于 .home-hero::before/::after、.hero-main 与 .hero-companion-stage 严格高于道具、pointer-events:none 保留——钉的是层与层的相对关系，不是孤立数值，足以捕捉「元素存在但用户看不见」。真实浏览器八档溢出 / 装饰显隐 / 遮挡层级 / 四主题观感 / print / garden 零漂移见 TEST-REPORT「v4.11 批次 E / 批次 F 验收」。`);
+console.log(`通过：v4.11 Hero 场景专项 ${checks} 项断言。批次 D 部分：舞台 3:4 + 27rem 档、窄屏同步、紫晕 18% 防漂移 + 窗光带逐字、绿巢正圆防椭圆、批次 C 氛围层/封面双零回归钉、改动区零新 token 零动画。批次 E 部分：HERO_STUDY_SVG 三类几何（书桌/台灯/书堆）+ 安全属性零外链零事件零脚本 + 五色调色板与 opacity ≤ .5 + svgImage 空 alt 挂载与树序 + <56rem 与 print 隐藏 + 既有层零回归 + 测试文件数 39（v4.11.2 新增 lesson-reader-fixes）。批次 F（B0）部分：道具 z-index 非负且严格高于 .home-hero::before/::after、.hero-main 与 .hero-companion-stage 严格高于道具、pointer-events:none 保留——钉的是层与层的相对关系，不是孤立数值，足以捕捉「元素存在但用户看不见」。真实浏览器八档溢出 / 装饰显隐 / 遮挡层级 / 四主题观感 / print / garden 零漂移见 TEST-REPORT「v4.11 批次 E / 批次 F 验收」。`);

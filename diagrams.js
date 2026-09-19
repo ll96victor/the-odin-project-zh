@@ -54,7 +54,14 @@ window.ODIN_DIAGRAMS = {
     {
       id: 'git-areas',
       file: 'git-areas.svg',
-      lessonId: 'introduction-to-git',
+      /* v4.11.2 B：归属从 introduction-to-git 修正为 git-basics。
+       * introduction-to-git 的 6 章全部是概念介绍（版本控制是什么、Git 与文本
+       * 编辑器保存的区别、本地与远端的分工），不讲暂存区与四区域工作流；
+       * git-basics 的第 6/8/10 章（git status / add / commit / push 工作流）
+       * 才是这张图的内容。alt / caption / points 在 git-basics 语境下逐条核对
+       * 仍成立，未改措辞。introduction-to-git 因此暂时没有配图——它的概念章
+       * 没有「看不见摸不着」到需要图解的结构，宁缺毋滥（§9 图是补充不是主体）。 */
+      lessonId: 'git-basics',
       zhTitle: 'Git 的四个区域',
       alt: '从左到右四个方框：工作区是你正在编辑的文件，改动只发生在这里；git add 把挑出来的改动放进暂存区；git commit 把暂存区的内容记录成本地仓库里的一次提交；git push 把本地仓库的提交上传到 GitHub 上的远端仓库。另有一条虚线箭头从远端仓库指回本地仓库，表示 git pull 或 git clone 可以把远端内容取回本地。',
       caption: 'Git 不是“自动保存”：改动要经过 add、commit 两步才真正进入版本历史，再经过 push 才会出现在 GitHub 上。',

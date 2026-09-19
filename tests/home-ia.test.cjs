@@ -112,16 +112,22 @@ function openSheetOf(page) {
   assert.ok(!main.textContent.includes('核对日期 2026-09-09'), check('v4.5.1：首页主内容移除核对日期'));
 }
 
-/* ===================== 1c. v4.5.1 关于本站只有三个短 FAQ ===================== */
+/* ===================== 1c. v4.5.1 关于本站只有短 FAQ（v4.11.2 起 4 个） ===================== */
 {
   const page = newPage({ storage: makeStorage() });
   const usage = querySelect(page.dom.body, '.site-usage');
   assert.ok(usage, check('v4.5.1：首页保留低打扰「关于本站」折叠区'));
   const faqItems = collectByClass(usage, 'site-faq-item');
-  assert.equal(faqItems.length, 3, check('v4.5.1：关于本站恰好 3 个 FAQ 主项'));
+  assert.equal(faqItems.length, 4, check('v4.5.1：关于本站恰好 4 个 FAQ 主项（v4.11.2 A2：第 4 项承接从课页资源区移出的核验方法论）'));
   assert.deepEqual(faqItems.map(item => querySelect(item, '.site-faq-question').textContent),
-    ['本站怎么用？', '中文内容覆盖到哪里？', '哪些内容需要联网？'],
-    check('v4.5.1：三个 FAQ 标题精确且顺序稳定（第二轮：移除「为什么只有前 19 课」的误导设问）'));
+    ['本站怎么用？', '中文内容覆盖到哪里？', '哪些内容需要联网？', '外部资料链接是怎么核验的？'],
+    check('v4.5.1：FAQ 标题精确且顺序稳定（第二轮：移除「为什么只有前 19 课」的误导设问；v4.11.2：新增核验方法 FAQ）'));
+  /* v4.11.2 A2 证明：核验方法论（状态码 / oEmbed 等审计信息）完整落在首页 FAQ 第 4 项，
+   * 课页资源区前言不再出现（对应断言在 content.test.cjs 的渲染段）。
+   * method 字段的原话是「逐条 curl 核验状态码」「YouTube oEmbed 公开接口」，按子串断言。 */
+  const methodAnswer = faqItems[3].textContent;
+  assert.ok(methodAnswer.includes('oEmbed') && methodAnswer.includes('状态码'), check('v4.11.2 A2：核验方法论全文在首页 FAQ 第 4 项'));
+  assert.ok(methodAnswer.includes('逐条核验') && /\d{4}-\d{2}-\d{2}/.test(methodAnswer), check('v4.11.2 A2：FAQ 第 4 项含核验日期'));
   assert.ok(!usage.textContent.includes('Additional Resources'), check('v4.5.1：首页不再长篇解释 Additional Resources'));
   assert.ok(!usage.textContent.includes('不会同步 TOP 学习进度'), check('v4.5.1：首页移除同步规则长说明'));
 }

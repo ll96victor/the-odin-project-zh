@@ -7,6 +7,9 @@
   const progress = window.ODIN_PROGRESS || null;
   /* 外部资料清单同样是纯数据文件，本文件只读取并渲染，不在这里做联网校验。 */
   const resourceData = window.ODIN_RESOURCES || null;
+  /* v4.11.2 C：任务条目 → 外部资料的内联链接映射（lesson-task-links.js 纯数据）。
+   * 缺失时全部任务条目回落纯文本渲染（与 v4.11.1 行为一致），不影响课程阅读。 */
+  const taskLinkData = window.ODIN_TASK_LINKS || null;
   /* 以下三个也都是纯数据文件；缺任何一个都只降级对应的界面区块，不影响课程阅读。 */
   const avatars = window.ODIN_AVATARS || null;
   const icons = window.ODIN_ICONS || null;
@@ -5903,7 +5906,20 @@
     const block = [];
     block.push(node('h3', `本课外部资料（本站中文辅助 · ${items.length} 条）`));
     block.push(node('p', '以下是官方原课在正文、Assignment 与 Knowledge Check 中明确要求学习的外部资料。本站提供中文辅助入口与本站原创导读；对许可明确为 CC 系列且没有官方中文版的来源，本站另提供采用与原作相同许可的中文精译（卡内附署名与来源标注）；其余第三方内容不搬运、不翻译，只做原创导读与原文链接。链接一律在新标签页打开，打开后会离开本站。', 'muted'));
-    block.push(node('p', `其中 ${withZh} 条有已核验的官方中文版，另外 ${items.length - withZh} 条没有可靠中文版，只提供本站中文导读要点加英文原文链接。全部地址已于 ${resourceData.verifiedAt} 逐条核验：先看 HTTP 状态码，再看重定向后的目标是否仍是同一主题，最后做内容级语言核验（统计正文汉字数与标题，不只看状态码是否为 200）；视频另用 YouTube oEmbed 接口核验可用性与真实标题。`, 'meta'));
+    /* v4.11.2 A1：三分类计数。v4.11.1 起外部资料有三类中文辅助形态（已核验官方
+     * 中文版 / 本站中文精译 / 只有本站导读与速览），旧的二分法口径在含精译的课上
+     * 自相矛盾（课 01 曾写「0 条官方中文版、另外 2 条没有可靠中文版」，页面却同时
+     * 渲染两篇中文精译）。计数全部由本课卡片数据实时算出，与渲染结果恒一致。
+     * v4.11.2 A2：核验方法论（HTTP 状态码 / 重定向 / 汉字统计 / oEmbed）是审计
+     * 信息不是读者选资料时需要的内容，已移到首页「关于本站」FAQ；资源区只保留
+     * 核验日期与指引一句。 */
+    const withTranslation = items.filter(resource => !resource.zhUrl && resource.zhTranslation).length;
+    const guideOnly = items.length - withZh - withTranslation;
+    const categoryParts = [];
+    if (withZh) categoryParts.push(`${withZh} 条有已核验的官方中文版`);
+    if (withTranslation) categoryParts.push(`${withTranslation} 条提供本站中文精译（卡内附署名与许可声明）`);
+    if (guideOnly) categoryParts.push(`${guideOnly} 条只有本站中文导读与速览，附英文原文链接`);
+    block.push(node('p', `其中 ${categoryParts.join('，')}。全部地址已于 ${resourceData.verifiedAt} 逐条核验，核验方法见首页「关于本站」。`, 'meta'));
     /* v4.11.1 A1：受限核验提示按课显示。
      * 旧实现无条件渲染全局 verifyLimitedNote（“以上 5 条……”），但那 5 条受限地址
      * 实际只分属 3 课的资源，其余 16 课页面上的“以上”指向不存在的条目。
@@ -5925,6 +5941,56 @@
     items.forEach(resource => cards.append(buildResourceCard(resource)));
     block.push(cards);
     return block;
+  }
+
+  /* ---------- v4.11.2 C：任务条目内联链接 ----------
+   * 映射数据住在 lesson-task-links.js（独立数据文件，lessons.js 红线不动）。
+   * 渲染纪律：
+   *   · 链接文字用资源清单的 titleZh，按地址在本课资源里反查；查不到的地址
+   *     整条不渲染链接——宁可少一个链接也不出悬空引用（测试钉住映射文件里
+   *     每个地址都能反查到本课资源）；
+   *   · 地址比对去掉锚点与尾部斜杠：部分长页面沿用官方 KC 的原锚点
+   *     （softcover 各命令小节、cbea.ms #intro/#limit-50 等）；
+   *   · 全部是外链：新标签页 + noopener noreferrer，与资源卡同一纪律；
+   *   · 条目文本本身一字不改，链接追加在文本之后（li / kc-q 的内联尾部）。 */
+  function taskLinkBase(url) {
+    return String(url).split('#')[0].replace(/\/+$/, '');
+  }
+
+  function taskLinkResource(lessonId, url) {
+    if (!resourceData || !Array.isArray(resourceData.resources)) return null;
+    const wanted = taskLinkBase(url);
+    return resourceData.resources.find(resource => resource.lessonId === lessonId
+      && (taskLinkBase(resource.originalUrl) === wanted
+        || (resource.zhUrl && taskLinkBase(resource.zhUrl) === wanted))) || null;
+  }
+
+  function taskLinkMap(lessonId, kind) {
+    if (!taskLinkData || !taskLinkData.links) return null;
+    const entry = taskLinkData.links[lessonId];
+    return entry ? entry[kind] || null : null;
+  }
+
+  function appendTaskLinks(container, lessonId, urls) {
+    urls.forEach((url, index) => {
+      const resource = taskLinkResource(lessonId, url);
+      if (!resource) return;
+      container.append(node('span', index === 0 ? ' ' : '、', 'task-link-sep'));
+      container.append(link(`${resource.titleZh} ↗`, url, 'task-link', true));
+    });
+  }
+
+  /* 带内联链接的任务列表：links 为 { 1-based 条目号: [href] }；无映射数据时
+   * 与 list() 行为完全一致。只用于 v2 官方任务区（v1 兼容分支不接）。 */
+  function taskList(items, lessonId, links, ordered = false) {
+    const element = node(ordered ? 'ol' : 'ul');
+    items.forEach((item, index) => {
+      const li = node('li', item);
+      const urls = links ? links[index + 1] : null;
+      if (Array.isArray(urls) && urls.length) appendTaskLinks(li, lessonId, urls);
+      element.append(li);
+    });
+    return element;
   }
 
   if (!data || !Array.isArray(data.lessons)) {
@@ -6427,9 +6493,16 @@
     usage.append(node('summary', '关于本站'));
     const usageBody = node('div', undefined, 'site-usage-body');
     const faqItems = [
-      ['本站怎么用？', '前 19 课有完整中文学习内容：讲解、示例与本站自测帮你理解原课的概念和术语；Assignment、Exercise、Knowledge Check 与 Project 的正式完成动作仍在 TOP 原课进行，每课页面都提供官方入口与中文对照说明。'],
+      ['本站怎么用？', '前 19 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 与 Knowledge Check 的中文化重述和中文答案——可以在本站学完并自查。Project、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
       ['中文内容覆盖到哪里？', 'Foundations 的前 19 课（Recipes 之前）已有完整中文学习内容；本站同时展示 8 个 World、197 课的完整路线结构，其余课程请回官方原课学习。'],
-      ['哪些内容需要联网？', '中文课程与学习记录可在本地使用；TOP 原课、视频及外部资料需要联网。官方课程如有更新，以 TOP 为准。']
+      ['哪些内容需要联网？', '中文课程与学习记录可在本地使用；TOP 原课、视频及外部资料需要联网。官方课程如有更新，以 TOP 为准。'],
+      /* v4.11.2 A2：外部资料核验方法论从课页资源区移到这里。方法论（状态码、
+       * 重定向、内容级语言核验、oEmbed）是审计信息，读者主动打开「关于本站」时
+       * 才需要看到；课页资源区只保留一句「核验方法见首页『关于本站』」。
+       * 文案直接引用数据文件的 method 字段，不在这里另抄一份方法论。 */
+      ['外部资料链接是怎么核验的？', resourceData
+        ? `${resourceData.method}全部地址于 ${resourceData.verifiedAt} 逐条核验；自动核验受限的条目已在对应课程页的资源卡内如实标注，未声称为“已验证可访问”。`
+        : '外部资料地址均逐条核验过可达性与语言；细节见各课资源卡内的核验说明。']
     ];
     faqItems.forEach(([question, answer]) => {
       const item = node('section', undefined, 'site-faq-item');
@@ -6459,7 +6532,9 @@
     main.append(node('h1', lesson.zh), node('p', lesson.title, 'english'), node('p', lesson.summary, 'lead'));
     const start = node('div', undefined, 'official-start');
     start.append(officialButton(lesson));
-    start.append(node('p', lesson.sections ? '新标签页打开 · 原课用于核对其官方正文与完成任务' : '新标签页打开 · 中文导读与英文原课对照使用', 'meta'));
+    /* v4.11.2 D：顶部官方入口的说明与「本站自足」口径一致——原课是内容来源
+     * 与延伸（Project、社区、后续课程），不再是「完成任务必须去的地方」。 */
+    start.append(node('p', lesson.sections ? '新标签页打开 · 原课是本课内容的来源，也通向 Project、社区与其后课程' : '新标签页打开 · 中文导读与英文原课对照使用', 'meta'));
     main.append(start);
 
     if (Array.isArray(lesson.sections)) {
@@ -6479,7 +6554,9 @@
       main.append(terms);
 
       const tasks = section('今天实际要做什么');
-      tasks.append(node('p', '以下是官方正文与 Assignment 的执行提示。具体命令、示例、视频和阅读链接，请在原课中查看；这些外部资料的中文辅助入口与本站原创导读见本节末尾的「本课外部资料」。', 'muted'));
+      /* v4.11.2 D3：兼容分支的口径与 v2 路径一致——先说本页有中文辅助，
+       * 原课只作为英文原文的核对处，不再是「请去原课查看」。 */
+      tasks.append(node('p', '以下是官方正文与 Assignment 的执行提示。这些外部资料的中文辅助（官方中文版入口 / 本站中文精译 / 中文速览）与本站原创导读见本节末尾的「本课外部资料」，可先在本页看懂；具体命令与示例的英文原文可在原课中核对。', 'muted'));
       tasks.append(link('在原课中查看 Assignment ↗', `${lesson.url}#assignment`, undefined, true));
       if (lesson.note) tasks.append(node('p', lesson.note, 'notice'));
       tasks.append(list(lesson.tasks, true));
@@ -6526,6 +6603,14 @@
     main.classList.add('lesson-v2');
     const why = section('这一课为什么重要', 'section-why');
     why.append(node('p', lesson.why));
+    /* v4.11.2 D1：读者点任何外链离开本页之前，第 1 节就明确告知本站的中文辅助
+     * 已自足（D0）：外部资料三种中文形态 + 官方自查题中文答案全部在本页，
+     * 不必先去啃英文原文。红线（D6）：不声称本站即官方课程——Project、社区
+     * 与其后课程仍在官方，末节与页尾的既有声明保持不变。
+     * 资源分句按数据存在性拼接：external-resources.js 缺失时不承诺不存在的辅助。 */
+    const whyHasResources = Boolean(resourceData && Array.isArray(resourceData.resources)
+      && resourceData.resources.some(resource => resource.lessonId === lesson.id));
+    why.append(node('p', `${whyHasResources ? '本课要求的外部文章与视频，本站都备好了中文辅助——官方中文版入口、本站中文精译或中文速览，都在「官方任务」一节末尾的「本课外部资料」里；' : ''}官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页。你可以直接在本页学完这一课并自查，不必先去啃英文原文。`, 'muted'));
     main.append(why);
 
     const explain = section('中文讲解', 'section-explain');
@@ -6572,16 +6657,24 @@
     main.append(pitfalls);
 
     const official = section('官方任务', 'section-official');
-    official.append(node('p', '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化重述（保留必要英文原词）。这些任务要求的外部文章与视频，其中文辅助入口与本站原创导读见本节末尾的「本课外部资料」。', 'muted'));
+    /* v4.11.2 D2：读者点「在原课中查看 Assignment ↗」之前（本段就渲染在该按钮
+     * 之前）即明确：中文辅助与官方自查题中文答案都在本节，先在本页看懂再点外链。 */
+    official.append(node('p', '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化重述（保留必要英文原词）。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」；官方自查题的题目与中文答案也全部渲染在本节。先在本页看懂，再去点外链或到原课核对英文原文。', 'muted'));
     official.append(link('在原课中查看 Assignment ↗', `${lesson.url}#assignment`, undefined, true));
-    official.append(node('h3', 'Assignment（必做）'), list(lesson.official.assignment, true));
+    official.append(node('h3', 'Assignment（必做）'), taskList(lesson.official.assignment, lesson.id, taskLinkMap(lesson.id, 'a'), true));
     if (lesson.official.exercise.length) official.append(node('h3', 'Exercise（动手练习）'), list(lesson.official.exercise, true));
     if (lesson.official.knowledgeCheck.length) {
       official.append(node('h3', 'Knowledge Check（官方自查）'));
       const kcList = node('div', undefined, 'kc-list');
-      lesson.official.knowledgeCheck.forEach(item => {
+      /* v4.11.2 C：官方 KC 题目若被官方原文链接到某份外部资料，题号后追加
+       * 内联链接（映射与依据见 lesson-task-links.js）；页内锚点题不接。 */
+      const kcLinks = taskLinkMap(lesson.id, 'k');
+      lesson.official.knowledgeCheck.forEach((item, kcIndex) => {
         const kcItem = node('div', undefined, 'kc-item');
-        kcItem.append(node('p', item.q, 'kc-q'), node('p', item.a, 'kc-a'));
+        const kcQuestion = node('p', item.q, 'kc-q');
+        const kcUrls = kcLinks ? kcLinks[kcIndex + 1] : null;
+        if (Array.isArray(kcUrls) && kcUrls.length) appendTaskLinks(kcQuestion, lesson.id, kcUrls);
+        kcItem.append(kcQuestion, node('p', item.a, 'kc-a'));
         kcList.append(kcItem);
       });
       official.append(kcList);
@@ -6610,7 +6703,13 @@
     main.append(quiz);
 
     const backToOfficial = section('回到官方原课', 'section-back');
-    backToOfficial.append(node('p', '本页中文讲解已覆盖官方正文要点；Assignment 的外部资料与 Knowledge Check 仍需在原课逐项完成，确认无遗漏后再从 TOP 进入下一课。'));
+    /* v4.11.2 D4：旧文案「外部资料与 Knowledge Check 仍需在原课逐项完成」与事实
+     * 不符——96 道官方自查题的题目与中文答案全部渲染在本站。改为如实陈述：
+     * 本页可学完并自查；官方原页是来源与延伸（Project、社区、后续课程）。
+     * D5 保留项不动：下方两行来源/核对日期与「课程更新以原课为准」仍在，
+     * 页尾「非官方中文辅助页」声明仍在。h2「回到官方原课」为 browser-smoke
+     * 钉住的章节序列，不得改名。 */
+    backToOfficial.append(node('p', '本页已提供这一课的完整中文学习内容：中文讲解、外部资料的中文辅助与官方自查题的中文对照，你可以在这里学完并自查。官方原页是本课内容的来源，也通向 Project、Discord 社区与其后课程；学完本页后，可从下方入口去官方原页，再从 TOP 进入下一课。'));
     backToOfficial.append(officialButton(lesson));
     if (lesson.sources) backToOfficial.append(node('p', `本课来源：${lesson.sources.basedOn} · 本课核验日期 ${lesson.sources.verifiedAt}`, 'meta'));
     backToOfficial.append(node('p', `来源：The Odin Project · 全局核对日期 ${data.verifiedAt} · 课程更新以原课为准。`, 'meta'));

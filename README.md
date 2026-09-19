@@ -4,7 +4,7 @@
 
 面向中文学习者的 The Odin Project 学习辅助站，提供中文讲解、学习进度、学习伙伴与路线导航。
 
-> **非官方项目声明**：本站是个人维护的学习辅助工具，与 [The Odin Project](https://www.theodinproject.com/) 官方**无隶属关系，未获官方授权或背书**。正课始终是官方原课：Assignment、Exercise、Knowledge Check 与 Project 都在官方页面完成，本站每课都提供直达入口。「The Odin Project」名称、课程结构与官方内容归其原权利方所有。
+> **非官方项目声明**：本站是个人维护的学习辅助工具，与 [The Odin Project](https://www.theodinproject.com/) 官方**无隶属关系，未获官方授权或背书**。本站对前 19 课提供完整中文学习内容与官方 Assignment、Knowledge Check 的中文对照，可以在本站学完并自查；Project、Discord 社区与其后课程在 TOP 官方进行，本站每课都提供官方直达入口。「The Odin Project」名称、课程结构与官方内容归其原权利方所有。
 
 ## 这个站是什么
 
@@ -27,7 +27,7 @@
 - **学习伙伴**：右下角的小诺（昵称可自定义、可关闭；按钮上只有她的头像，点开面板才显示「学习助手 · 小诺」）随你的真实学习数据长出成长阶段，给今日建议与低干扰提醒。
 - **收藏与装扮**：学习叶片只由学习行为获得（完全免费、无充值），用来解锁头像（面板 63 款可选：36 个原创几何头像 + 27 个学习伙伴形象头像）、头像框（28 款）、学习伙伴形象（含 14 个正式立绘角色与可换装的人形形态）、30 套页面主题。
 - **成就系统**：61 个一次性成就（12 类）+ 6 族铜/银/金循环成就；每日/每周/每月挑战卡。
-- **外部资料中文辅助**：官方指定的第三方文章与视频，给已核验的官方中文版链接，或本站原创中文速览与导读要点 + 英文原文链接；对许可明确为 CC 系列且没有官方中文版的 14 条来源，本站另提供采用与原作相同许可的中文精译（卡内附署名、来源、许可声明与译者说明）。只链接、不搬运、不代理。
+- **外部资料中文辅助**：官方指定的第三方文章与视频，给已核验的官方中文版链接，或本站原创中文速览与导读要点 + 英文原文链接；对许可明确为 CC 系列且没有官方中文版的 14 条来源，本站另提供采用与原作相同许可的中文精译（卡内附署名、来源、许可声明与译者说明）。官方任务与自查条目内联对应资料的直达链接（v4.11.2，46 条任务 + 31 道自查题）。只链接、不搬运、不代理。
 - **8 张原创 SVG 概念图**：DNS、命令行目录树、HTML 结构等抽象概念的可视化辅助。
 
 ## 中文内容覆盖范围
@@ -91,20 +91,20 @@ python serve.py
 ```
 index.html / lesson.html        两个页面骨架（首页 + 课程页）
 style.css / tokens.css          全站样式与设计 token
-*.js（24 个）                   运行时脚本：课程数据、进度引擎、UI、伙伴、主题等
+*.js（25 个）                   运行时脚本：课程数据、进度引擎、UI、伙伴、主题等
 assets/                         学习伙伴立绘（WebP）与原创概念图（SVG）
 serve.py + start.bat/.command   本地启动脚本（Python 3 标准库，零依赖）
 tests/                          Node 测试 + Python 服务冒烟 + 官方链接核验
 sources.json                    19 课官方原文 SHA-256 指纹（内容核对用）
 ```
 
-跑测试同样零依赖：`node tests/<名称>.test.cjs`（38 个）、`python tests/serve_test.py`；`python -X utf8 tests/check_links.py` 会联网核验官方课程链接。
+跑测试同样零依赖：`node tests/<名称>.test.cjs`（39 个）、`python tests/serve_test.py`；`python -X utf8 tests/check_links.py` 会联网核验官方课程链接。
 
 ## License 与 Sources
 
 - **代码**（本仓库的 HTML / CSS / JavaScript / Python / 脚本）：[MIT License](LICENSE)。
 - **中文讲解、自测与内容整理**：由本站对照官方原文逐课自行编写（未改编自任何第三方中文课程），沿用官方课程同一许可 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)（署名-非商业性使用-相同方式共享）。
-- **The Odin Project 官方内容**：原课程作者为 Erik Trautman 与 The Odin Project 贡献者，课程内容按其 [官方许可证](https://github.com/TheOdinProject/curriculum/blob/main/license.md)（CC BY-NC-SA 4.0）授权；本站只做链接与原创中文导读，不搬运、不整篇翻译官方或第三方原文。
+- **The Odin Project 官方内容**：原课程作者为 Erik Trautman 与 The Odin Project 贡献者，课程内容按其 [官方许可证](https://github.com/TheOdinProject/curriculum/blob/main/license.md)（CC BY-NC-SA 4.0）授权；本站不搬运官方原文，只做链接、原创中文导读与中文对照讲解。第三方来源中许可明确为 CC 系列且没有官方中文版的，本站提供采用与原作相同许可的中文精译（卡内附署名与来源标注）；其余第三方内容只链接、不翻译、不搬运。
 - **视觉资产**：头像、图标、概念图与 procedural 角色为手工编写的原创 SVG，随内容许可；`assets/companions/` 的学习伙伴角色立绘为 **AI 生成资产**（基于项目确认的设计稿风格生成、本地后处理），其制作方式与使用边界在 [SOURCES.md](SOURCES.md) 中如实登记，不纳入 MIT 代码许可声明。
 
 详细来源、逐课核验记录与授权边界见 [SOURCES.md](SOURCES.md)。
