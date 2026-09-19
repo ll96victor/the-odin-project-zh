@@ -196,4 +196,27 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
   }
 }
 
-console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退）。`);
+/* ============ 6. v4.11.5（交接 3.F）：深色主题 ↔ 概念图反相适配清单同步 ============
+ * 概念图经 <img> 引入、不继承 CSS 变量，浅色硬编码在深色主题下是亮斑；
+ * style.css 用 invert + hue-rotate 做近似反相。选择器清单必须与 themes.js 的
+ * dark:true 清单**一一对应**：新增深色主题而漏加反相规则 → 这里红；
+ * 反相规则写成深色清单之外的选择器（误伤浅色主题）→ 同样红。 */
+{
+  const styleCss = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const darkIds = THEMES.themes.filter(t => t.dark === true).map(t => t.id);
+  assert.deepEqual(darkIds.slice().sort(),
+    ['crt', 'cyber', 'deepsea', 'graphite', 'ink', 'night', 'terminal', 'violet'],
+    check('深色主题集合 = v4.11.5 基线 8 套（新增深色主题需同步 3.F 适配与本文断言）'));
+  /* 从 style.css 反解反相规则的选择器集合 */
+  const filterRule = styleCss.match(/([^{}]+)\{\s*filter:\s*invert\(1\)\s*hue-rotate\(180deg\)\s*saturate\(\.92\);/);
+  assert.ok(filterRule, check('style.css 存在概念图反相规则（invert + hue-rotate + saturate）'));
+  const selectorIds = (filterRule[1].match(/html\[data-theme="([a-z-]+)"\]\s*\.concept-diagram\s*img/g) || [])
+    .map(selector => selector.match(/data-theme="([a-z-]+)"/)[1]);
+  assert.deepEqual(selectorIds.slice().sort(), darkIds.slice().sort(),
+    check('反相规则选择器与 themes.js 深色清单一一对应（不漏不误伤）'));
+  /* 打印兜底：纸上出图必须还原原色与原底 */
+  assert.ok(styleCss.includes('html[data-theme] .concept-diagram img { filter: none; background: var(--color-paper); }'),
+    check('打印媒体下概念图反相与透明底还原（filter: none + 原底色）'));
+}
+
+console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原）。`);

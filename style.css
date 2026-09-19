@@ -86,7 +86,13 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 .lesson-v2 p, .lesson-v2 figcaption { overflow-wrap: anywhere; }
 .code-example { margin: var(--space-lg) 0 0; min-width: 0; }
 .code-example pre { margin: 0; padding: var(--space-md); max-width: 100%; overflow-x: auto; background: var(--color-code-bg); color: var(--color-code-ink); border-radius: var(--radius-small); font-family: var(--font-mono); font-size: var(--text-small); line-height: 1.7; }
-.code-example code { font-family: inherit; white-space: pre; }
+/* v4.11.5 存量缺陷修复（基线 fd43b72 实测复现，非本轮改动引入）：white-space:pre
+ * 让长代码行的 <code> 矩形在 320–768px 视口下伸出右缘（10 课中招），撞 browser-smoke
+ * 的「main 与 main 内所有元素零越界」断言——pre 自己套 overflow-x:auto 也救不了内层。
+ * 改为 pre-wrap + anywhere：超宽行折行而不是横向滚动，与概念图区既有取舍同一哲学
+ * （见下方 §9 概念图注释「刻意不给图片设 min-width 再套横向滚动容器」）。
+ * 1280px 下所有现有代码行都放得下，宽屏视觉零变化；pre 的 overflow-x 保留兜底。 */
+.code-example code { font-family: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
 .code-example figcaption { margin-top: var(--space-sm); }
 .pitfall { margin-top: var(--space-lg); padding: var(--space-md) var(--space-lg); background: var(--color-wash); border-left: 4px solid var(--color-warn); border-radius: 0 var(--radius-small) var(--radius-small) 0; }
 .pitfall h3 { margin-block: 0 var(--space-sm); }
@@ -96,6 +102,23 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 .kc-item:last-child { border-bottom: none; }
 .kc-q { font-weight: 600; }
 .kc-a { margin-top: var(--space-xs); color: var(--color-muted); }
+/* ===== v4.11.5：官方任务节折叠头与页内跳转（交接 3.A / 3.B，CONTENT-STYLE-GUIDE.md 第 9 节） =====
+ * 折叠头是 button[aria-expanded] + 受控容器 .collapse-body[hidden]（零 details/summary，
+ * 实现原因见 app.js buildCollapseToggle 注释）。按钮刻意比 .button-secondary 轻一级：
+ * 它是节内控件不是页面主行动；44px 触控高度不适用（非主 CTA），但保持可聚焦轮廓。
+ * 跳转链接挂在 Assignment 标题内，目标 #lesson-resources 永不折叠；sticky 站头会盖住
+ * 锚点定位后的标题，用 scroll-margin-top 留出头部高度。 */
+.collapse-toggle { display: inline-block; min-height: 2rem; margin-inline-start: var(--space-sm); padding: .1rem .6rem; background: transparent; color: var(--color-accent); border: 1px solid var(--color-rule); border-radius: var(--radius-small); font-family: inherit; font-size: var(--text-small); font-weight: 400; line-height: 1.7; white-space: normal; cursor: pointer; vertical-align: baseline; }
+.collapse-toggle:hover { background: var(--color-wash); border-color: var(--color-accent); }
+.collapse-toggle:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.collapse-body[hidden] { display: none; }
+.resource-jump { margin-inline-start: var(--space-sm); font-size: var(--text-small); font-weight: 400; overflow-wrap: anywhere; }
+#lesson-resources { scroll-margin-top: 6.5rem; }
+@media print {
+  /* 打印/PDF 必须内容完整：折叠区强制展开，折叠头与页内跳转链接无意义、隐藏 */
+  .collapse-body[hidden] { display: block !important; }
+  .collapse-toggle, .resource-jump { display: none; }
+}
 /* ===== v3 学习进度：Dashboard、课页进度控件、成就提示 ===== */
 .dashboard { padding: var(--space-lg); border: 1px solid var(--color-rule); border-radius: var(--radius-small); }
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--space-md); margin-top: var(--space-md); }
@@ -348,9 +371,36 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
   .concept-diagram { margin-top: var(--space-lg); }
   .diagram-caption { padding: var(--space-sm); }
 }
+/* ===== v4.11.5（交接 3.F）：深色主题下概念图的近似反相适配 =====
+ * <img> 引入的 SVG 是独立文档，不继承本页 CSS 变量（Web 平台事实）；既有图
+ * 浅色硬编码（底 #fafbf9、线 #276148），在 8 套深色主题下是一整块亮斑。
+ * 这里用一条近似反相：invert 把浅底翻成深底，hue-rotate(180deg) 把反相跑偏
+ * 的色相转回原方向，saturate(.92) 略降饱和压刺眼。不追求逐主题精确配色
+ * （交接明确「近似适配」）。配色纪律（生成器只用中性灰阶 + 单一低饱和强调色）
+ * 是这条反相成立的前提，见 tools/build-diagrams.mjs 头注释。
+ * 选择器清单由 themes.js dark:true 的 8 套生成（terminal / night / deepsea /
+ * graphite / violet / ink / crt / cyber），tests/themes-contrast.test.cjs 钉住
+ * 「themes.js 深色清单 ↔ 本规则清单」一一对应——日后新增深色主题漏改会红。 */
+html[data-theme="terminal"] .concept-diagram img,
+html[data-theme="night"] .concept-diagram img,
+html[data-theme="deepsea"] .concept-diagram img,
+html[data-theme="graphite"] .concept-diagram img,
+html[data-theme="violet"] .concept-diagram img,
+html[data-theme="ink"] .concept-diagram img,
+html[data-theme="crt"] .concept-diagram img,
+html[data-theme="cyber"] .concept-diagram img {
+  filter: invert(1) hue-rotate(180deg) saturate(.92);
+  /* 交接 3.F 原方案只写了 filter；实测发现 filter 会把 .diagram-img 的 CSS
+   * 浅色底一并反相成亮块（filter 作用于元素整体渲染，含背景）。深色主题下
+   * 把底改透明，让页面深色底透出来，反相只作用于 SVG 内容本身：浅底方框
+   * 翻成深色卡、深字翻成浅字、低饱和绿经 hue-rotate 回到绿色方向。 */
+  background: transparent;
+}
 @media print {
   .concept-diagram { break-inside: avoid; }
   .diagram-img { border-color: #000; }
+  /* 打印按浅色纸张出图：深色主题的图反相是屏幕口径，纸上必须还原原色与原底 */
+  html[data-theme] .concept-diagram img { filter: none; background: var(--color-paper); }
 }
 
 /* ===== v4 学习助手「小奥」 + §8.1 中度 UI 收口 =====
@@ -416,6 +466,20 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 .lesson-back:hover { color: var(--color-accent); text-decoration: underline; }
 .lesson-back:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
 .lesson-link:focus-visible { outline: 3px solid var(--color-accent); outline-offset: -3px; }
+
+/* v4.11.3 A：课页三处「本站中文辅助已自足」引导（今天实际要做什么 / 这一课为什么重要 /
+ * 官方任务开头）的视觉层级——此前是全站最弱的 muted 灰字，读者扫一眼看不到。
+ * 提升为带左侧主题色条的提示块：与首页 .continue-card::before 的左轨视觉语言一致，
+ * 比 .notice（同为 wash 底但无色条）层级更高。措辞沿用 v4.11.2 定稿文案，只改呈现。
+ * 作用域钉死在课页，不泄漏到首页与个人中心；色条与底色全部取主题 token，
+ * 30 套主题自动适配，零动画零位移动 preferences-reduced-motion 纪律不受影响。 */
+body[data-page="lesson"] .lesson-guide {
+  margin: var(--space-lg) 0 0;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-wash);
+  border-left: .45rem solid var(--color-accent);
+  border-radius: var(--radius-small);
+}
 
 @media (max-width: 40rem) {
   /* 手机：区块间距收紧，翻页链接改成整宽堆叠，助手面板占满可用宽度 */

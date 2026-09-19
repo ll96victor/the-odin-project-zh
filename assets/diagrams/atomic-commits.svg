@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="268" viewBox="0 0 740 268" role="img" aria-labelledby="t-atomic-commits d-atomic-commits">
+  <title id="t-atomic-commits">最佳实践：原子提交</title>
+  <desc id="d-atomic-commits">双栏对比图。左栏是原子提交（atomic commit，官方推荐）：一次提交只包含与一个功能或一个任务相关的改动；如果某个改动后来被证明造成了问题，可以只回退这个具体改动、不牵连其他改动；提交消息更有用——每条消息只需要讲清楚一件事，未来的协作者（包括几个月后的你自己）一看就懂。右栏是不这样做的混合提交：一次提交混入多个不相关的改动；出问题时无法只回退其中某一个改动；消息要一次讲清多件事，回看困难。底部注释：Git 不只在与他人协作时有用——独立工作时同样重要，将来回看旧代码你会越来越依赖自己留下的提交历史。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="176" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">原子提交（官方推荐）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">一次提交只包含与一个功能或一个任务相关的改动</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">某个改动被证明造成问题时，只回退这个具体改动，</tspan><tspan x="52" dy="18">不牵连其他</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">每条提交消息只讲清楚一件事，未来的协作者一看</tspan><tspan x="52" dy="18">就懂</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="176" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">混在一起的提交</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">一次提交混入多个不相关的改动</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">出问题时无法只回退其中某一个改动</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">消息要一次讲清多件事，几个月后的自己也难回看</tspan></text>
+  <rect class="note" x="22" y="212" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="234" text-anchor="middle"><tspan x="370">Git 不只在与他人协作时有用——独立工作时同样重要：将来回看旧代码，你会越来越依赖自己留下的提交历史。</tspan></text>
+</svg>

@@ -992,11 +992,11 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方把这个视频作为上一篇 MDN DNS 文章的替代选项——原文用词是 Alternatively，不想读文章可以看它，属于二选一的可选项而不是必做项。本站已用 YouTube oEmbed 接口核验其真实标题「DNS Explained」与作者 DNS Made Easy Videos；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。看之前建议先读本课中文讲解里的 DNS 定义，这样视频里的术语不至于陌生。',
+      overview: '官方把这个视频作为上一篇 MDN DNS 文章的替代选项——原文用词是 Alternatively，不想读文章可以看它，属于二选一的可选项而不是必做项。本站已用 YouTube oEmbed 接口核验其真实标题「DNS Explained」与作者 DNS Made Easy Videos；观看需要 YouTube 访问权限。看之前建议先读本课中文讲解里的 DNS 定义，这样视频里的术语不至于陌生。',
       why: '官方把它作为上一篇 MDN DNS 文章的替代选项：不想读文章可以看这个视频。',
       points: [
         '官方用词是 Alternatively，所以它是二选一的可选项，不是必须完成的项目。',
-        '需要 YouTube 访问权限才能观看；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。',
+        '需要 YouTube 访问权限才能观看。',
         '看之前建议先读本课中文讲解里的 DNS 定义，这样视频里的术语不至于陌生。'
       ],
       terms: ['DNS（域名系统）', 'resolver（解析器）', 'IP address（IP 地址）'],
@@ -1021,18 +1021,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第一条就是看这个 BBC 短片，官方称它为「互联网怎样运作的概览」——定位是总览而非深入讲解。本站已用 oEmbed 核验其真实标题与作者 BBC Click（BBC 的科技节目，内容为英语讲述）；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。把它当作整课的热身来看，抓住「互联网是很多网络互相连接」这个直观印象，再进入后面的技术细节。',
+      overview: '官方 Assignment 第一条就是看这个 BBC 短片，官方称它为「互联网怎样运作的概览」——定位是总览而非深入讲解。本站已用 oEmbed 核验其真实标题与作者 BBC Click（BBC 的科技节目，内容为英语讲述）；观看需要 YouTube 访问权限。把它当作整课的热身来看，抓住「互联网是很多网络互相连接」这个直观印象，再进入后面的技术细节。',
       why: '官方 Assignment 第一条就是看这个 BBC 短片，作为整课的总览。',
       points: [
         '官方称它为 a BBC short for an overview of how the internet works，定位是概览而非深入讲解。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。',
+        '需要 YouTube 访问权限。',
         'BBC Click 是 BBC 的科技节目，内容为英语讲述。'
       ],
       terms: ['internet（互联网）', 'network（网络）'],
       focus: '当作整课的热身看，抓住“互联网是很多网络互相连接”这个印象即可。',
       takeaway: '对互联网的规模与结构有一个直观印象，再进入后面的技术细节。'
     },
-    license: 'BBC Click 官方频道视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: 'BBC Click 官方频道视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -1050,18 +1050,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '这是本课被官方引用两次的资源：Assignment 第三条要求看这个 5 分钟视频，Knowledge Check 的「解释互联网怎样工作」也指向它，属于必看的总览材料。本站已用 oEmbed 核验其真实标题与作者 Aaron；官方链接以 youtu.be 短链并带起播参数给出，与本站链接指向同一视频。观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕；看时注意它对「数据怎样在机器之间找到彼此」的解释，这与官方 KC 的问题直接对应。',
+      overview: '这是本课被官方引用两次的资源：Assignment 第三条要求看这个 5 分钟视频，Knowledge Check 的「解释互联网怎样工作」也指向它，属于必看的总览材料。本站已用 oEmbed 核验其真实标题与作者 Aaron；官方链接以 youtu.be 短链并带起播参数给出，与本站链接指向同一视频。观看需要 YouTube 访问权限；看时注意它对「数据怎样在机器之间找到彼此」的解释，这与官方 KC 的问题直接对应。',
       why: '官方 Assignment 第三条要求看这个 5 分钟视频，官方 Knowledge Check 也把“解释互联网怎样工作”指向它。',
       points: [
         '这是本课被引用两次的资源：既在 Assignment，也在 Knowledge Check，属于必看的总览材料。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。',
+        '需要 YouTube 访问权限。',
         '官方链接以 youtu.be 短链并带 t=46s 起播参数给出，与本站的 watch 链接指向同一视频。'
       ],
       terms: ['internet（互联网）', 'IP address（IP 地址）', 'protocol（协议）'],
       focus: '注意它对“数据怎样在机器之间找到彼此”的解释，这与官方 KC 的问题直接对应。',
       takeaway: '能用五句话向别人解释互联网怎样工作。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -1079,18 +1079,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第五条的前半：先看这个 Google 短片了解浏览器是什么，然后去 whatsmybrowser.org 查出自己当前的浏览器与版本。本课正文已给出定义：网页浏览器是让你访问并显示网页的软件，例如 Chrome、Firefox、Safari、Edge；Knowledge Check 的「网页浏览器是什么」一题指向这个视频。本站已用 oEmbed 核验其真实标题与作者 Google；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。',
+      overview: '官方 Assignment 第五条的前半：先看这个 Google 短片了解浏览器是什么，然后去 whatsmybrowser.org 查出自己当前的浏览器与版本。本课正文已给出定义：网页浏览器是让你访问并显示网页的软件，例如 Chrome、Firefox、Safari、Edge；Knowledge Check 的「网页浏览器是什么」一题指向这个视频。本站已用 oEmbed 核验其真实标题与作者 Google；观看需要 YouTube 访问权限。',
       why: '官方 Assignment 第五条：先看这个 Google 短片了解浏览器是什么，然后去 whatsmybrowser.org 查出自己当前的浏览器与版本。',
       points: [
         '官方 Knowledge Check 有一题是“网页浏览器是什么”，指向这个视频。',
         '本课正文已给出定义：网页浏览器是让你访问并显示网页的软件，例如 Chrome、Firefox、Safari、Edge。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['web browser（网页浏览器）', 'render（渲染）'],
       focus: '看完立刻做官方的第二步：查出自己的浏览器与版本号，这是第 7 课安装 Chrome 的前提。',
       takeaway: '知道自己现在用的是什么浏览器、什么版本。'
     },
-    license: 'Google 官方频道视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: 'Google 官方频道视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -1225,18 +1225,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方在正文用这个视频解释虚拟机是什么——它是 Windows 用户可选的两条路径之一（另一条是 WSL2）。本课正文已给出定义：虚拟机是在你现有操作系统内运行的计算机仿真，让你在一个程序里使用另一个操作系统（例如在 Windows 里跑 Linux）；安装和普通软件一样简单，且没有风险，不喜欢可以直接删掉。本站已用 oEmbed 核验其真实标题与作者 Victor Dozal；官方评价虚拟机是新手快速上手的好方式。观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。',
+      overview: '官方在正文用这个视频解释虚拟机是什么——它是 Windows 用户可选的两条路径之一（另一条是 WSL2）。本课正文已给出定义：虚拟机是在你现有操作系统内运行的计算机仿真，让你在一个程序里使用另一个操作系统（例如在 Windows 里跑 Linux）；安装和普通软件一样简单，且没有风险，不喜欢可以直接删掉。本站已用 oEmbed 核验其真实标题与作者 Victor Dozal；官方评价虚拟机是新手快速上手的好方式。观看需要 YouTube 访问权限。',
       why: '官方在正文用这个视频解释虚拟机是什么，作为 Windows 用户可选的两条路径之一。',
       points: [
         '官方正文已给出定义：虚拟机是在你现有操作系统内运行的计算机仿真，让你在一个程序里使用另一个操作系统（例如在 Windows 里跑 Linux）；安装和普通软件一样简单，且没有风险，不喜欢 Linux 可以直接删掉虚拟机。',
         '官方评价虚拟机是新手快速上手的好方式。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['virtual machine / VM（虚拟机）', 'emulation（仿真）', 'host OS（宿主系统）'],
       focus: '看完后决定自己走 WSL2 还是虚拟机；本课正文的 Windows 小节会给出官方建议。',
       takeaway: '理解虚拟机的原理与风险边界，能做出环境选择。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -1373,18 +1373,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第二条：熟悉 VS Code 能帮你节省时间、提高效率，看这个视频可以了解 VS Code 提供的全部功能。官方还特别交代了看法——不用真的跟着敲代码，只要看视频里 VS Code 是怎样被使用的。本站已用 YouTube oEmbed 接口核验其真实标题与作者 Tech With Tim；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。按官方说法「只看用法」，注意它怎样打开文件、怎样用内置终端、怎样装扩展，对编辑器界面与常用操作建立整体印象。',
+      overview: '官方 Assignment 第二条：熟悉 VS Code 能帮你节省时间、提高效率，看这个视频可以了解 VS Code 提供的全部功能。官方还特别交代了看法——不用真的跟着敲代码，只要看视频里 VS Code 是怎样被使用的。本站已用 YouTube oEmbed 接口核验其真实标题与作者 Tech With Tim；观看需要 YouTube 访问权限。按官方说法「只看用法」，注意它怎样打开文件、怎样用内置终端、怎样装扩展，对编辑器界面与常用操作建立整体印象。',
       why: '官方 Assignment 第二条：熟悉 VSCode 能帮你节省时间、提高效率；看这个视频可以了解 VSCode 提供的全部功能。',
       points: [
         '官方特别交代了看法：不用真的跟着敲代码，只要看视频里 VSCode 是怎样被使用的。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。',
+        '需要 YouTube 访问权限。',
         '官方链接带 t=103 起播参数，本站按同一视频归并。'
       ],
       terms: ['VS Code（Visual Studio Code）', 'terminal（内置终端）', 'extension（扩展）', 'IntelliSense（智能提示）'],
       focus: '按官方说法“只看用法”，注意它怎样打开文件、怎样用内置终端、怎样装扩展。',
       takeaway: '对编辑器界面与常用操作有整体印象，后续课程上手更快。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -2115,18 +2115,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第二条：看这个「2 分钟讲清什么是 Git」的视频，它讲的是 Git 是什么，以及它怎样改善个人与团队开发者的工作流；官方 Knowledge Check 的「为什么 Git 对开发者有用」一题同样指向它。本站已用 oEmbed 接口核验其真实标题与作者 Programming with Mosh；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。两分钟很短，重点听它怎样解释「保存历史版本」这件事的价值，官方描述强调的个人工作流与团队协作两个层面可以分别对照。',
+      overview: '官方 Assignment 第二条：看这个「2 分钟讲清什么是 Git」的视频，它讲的是 Git 是什么，以及它怎样改善个人与团队开发者的工作流；官方 Knowledge Check 的「为什么 Git 对开发者有用」一题同样指向它。本站已用 oEmbed 接口核验其真实标题与作者 Programming with Mosh；观看需要 YouTube 访问权限。两分钟很短，重点听它怎样解释「保存历史版本」这件事的价值，官方描述强调的个人工作流与团队协作两个层面可以分别对照。',
       why: '官方 Assignment 第二条：看这个“2 分钟讲清什么是 Git”的视频，它讲的是 Git 是什么，以及它怎样改善个人与团队开发者的工作流。',
       points: [
         '官方 Knowledge Check 有一题是“为什么 Git 对开发者有用”，同样指向这个视频。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。',
+        '需要 YouTube 访问权限。',
         '官方描述强调两个层面：个人工作流与团队协作，看的时候可以分别对照。'
       ],
       terms: ['Git', 'version control（版本控制）', 'workflow（工作流）'],
       focus: '两分钟很短，重点听它怎样解释“保存历史版本”这件事的价值。',
       takeaway: '能用一两句话说清 Git 解决了什么问题。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -2346,18 +2346,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第一条：看这个视频，在你深入每一项技术之前，它会快速概述 HTML、CSS、JavaScript 这三种技术怎样协同工作。官方定位它是「深入之前的快速总览」，所以不必指望它讲细节；本课是 HTML 与 CSS 单元的入口课，官方要求先看总览再进入后面的具体课程。本站已用 oEmbed 接口核验其真实标题与作者 Danielle Thé；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。看时注意它怎样说明三者的分工与配合顺序。',
+      overview: '官方 Assignment 第一条：看这个视频，在你深入每一项技术之前，它会快速概述 HTML、CSS、JavaScript 这三种技术怎样协同工作。官方定位它是「深入之前的快速总览」，所以不必指望它讲细节；本课是 HTML 与 CSS 单元的入口课，官方要求先看总览再进入后面的具体课程。本站已用 oEmbed 接口核验其真实标题与作者 Danielle Thé；观看需要 YouTube 访问权限。看时注意它怎样说明三者的分工与配合顺序。',
       why: '官方 Assignment 第一条：看这个视频，在你深入每一项技术之前，它会快速概述这三种技术怎样协同工作。',
       points: [
         '官方定位它是“深入之前的快速总览”，所以不必指望它讲细节。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。',
+        '需要 YouTube 访问权限。',
         '本课是 HTML 与 CSS 单元的入口课，官方要求先看总览再进入后面的具体课程。'
       ],
       terms: ['HTML', 'CSS', 'JavaScript', 'front end（前端）'],
       focus: '注意它怎样说明三者的分工与配合顺序。',
       takeaway: '对整个前端技术栈有一个整体框架，再开始逐课深入。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -2406,18 +2406,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第一条就是看 Kevin Powell 的这个视频，它是 HTML 单元的第一份视频材料。HTML 的定义要点本课正文已给出：HTML 由元素组成，元素通过标签告诉浏览器怎样显示内容；标签通常成对出现，有开始标签和结束标签。Kevin Powell 是官方在 HTML 与 CSS 单元多次引用的作者，后续第 15、16、18 课都有他的视频。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。对照本课中文讲解的元素与标签结构看，注意他怎样解释成对标签。',
+      overview: '官方 Assignment 第一条就是看 Kevin Powell 的这个视频，它是 HTML 单元的第一份视频材料。HTML 的定义要点本课正文已给出：HTML 由元素组成，元素通过标签告诉浏览器怎样显示内容；标签通常成对出现，有开始标签和结束标签。Kevin Powell 是官方在 HTML 与 CSS 单元多次引用的作者，后续第 15、16、18 课都有他的视频。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限。对照本课中文讲解的元素与标签结构看，注意他怎样解释成对标签。',
       why: '官方 Assignment 第一条就是看 Kevin Powell 的这个视频，它是 HTML 单元的第一份视频材料。',
       points: [
         '本课正文已给出 HTML 的定义要点：HTML 由元素组成，元素通过标签告诉浏览器怎样显示内容；标签通常成对出现，有开始标签和结束标签。',
         'Kevin Powell 是官方在 HTML 与 CSS 单元多次引用的作者，后续第 15、16、18 课都有他的视频。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['HTML element（元素）', 'tag（标签）', 'opening tag / closing tag（开始 / 结束标签）', 'attribute（属性）'],
       focus: '对照本课中文讲解的元素与标签结构看，注意他怎样解释成对标签。',
       takeaway: '能自己写出一个带开始标签、内容与结束标签的完整元素。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -2465,18 +2465,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第一条：看并跟着做 Kevin Powell 这个精彩的「搭建你的第一个网页」视频——官方用的是 Watch and follow along（看并跟着做），所以这一项要求动手，不只是观看。boilerplate 的固定组成本课正文已列出：DOCTYPE 声明、html 元素及其 lang 属性、head 与 body、meta charset、title。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。跟着敲一遍完整的 boilerplate，重点理解每一行为什么必须存在。',
+      overview: '官方 Assignment 第一条：看并跟着做 Kevin Powell 这个精彩的「搭建你的第一个网页」视频——官方用的是 Watch and follow along（看并跟着做），所以这一项要求动手，不只是观看。boilerplate 的固定组成本课正文已列出：DOCTYPE 声明、html 元素及其 lang 属性、head 与 body、meta charset、title。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限。跟着敲一遍完整的 boilerplate，重点理解每一行为什么必须存在。',
       why: '官方 Assignment 第一条：看并跟着做 Kevin Powell 这个精彩的“搭建你的第一个网页”视频。',
       points: [
         '官方用的是 Watch and follow along（看并跟着做），所以这一项要求动手，不只是观看。',
         '本课正文已列出 boilerplate 的固定组成：DOCTYPE 声明、html 元素及其 lang 属性、head 与 body、meta charset、title。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['boilerplate（样板代码）', 'DOCTYPE（文档类型声明）', 'head / body（头部 / 主体）', 'meta charset（字符编码声明）'],
       focus: '跟着敲一遍完整的 boilerplate，重点理解每一行为什么必须存在。',
       takeaway: '不看参考也能写出一个合法的 HTML boilerplate。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: '官方链接带 t=93s 起播参数，本站按同一视频归并。'
@@ -2524,18 +2524,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第一条要求看 Kevin Powell 的段落与标题视频，对应本课最核心的两组元素。要点本课正文已给出：段落用 p 元素；标题用 h1 到 h6 六个层级，h1 最重要、通常每页只用一次，h6 最次要。官方在本课还特别提醒不要靠加粗或放大字号来伪装标题，而要用真正的标题元素——这与可访问性和搜索排名有关。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。看时注意他怎样选择合适的标题层级、为什么不跳级使用。',
+      overview: '官方 Assignment 第一条要求看 Kevin Powell 的段落与标题视频，对应本课最核心的两组元素。要点本课正文已给出：段落用 p 元素；标题用 h1 到 h6 六个层级，h1 最重要、通常每页只用一次，h6 最次要。官方在本课还特别提醒不要靠加粗或放大字号来伪装标题，而要用真正的标题元素——这与可访问性和搜索排名有关。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限。看时注意他怎样选择合适的标题层级、为什么不跳级使用。',
       why: '官方 Assignment 第一条要求看 Kevin Powell 的段落与标题视频，对应本课最核心的两组元素。',
       points: [
         '本课正文已给出要点：段落用 p 元素；标题用 h1 到 h6 六个层级，h1 最重要、通常每页只用一次，h6 最次要。',
         '官方在本课还特别提醒不要靠加粗或放大字号来伪装标题，而要用真正的标题元素，这与可访问性和搜索排名有关。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['paragraph（段落，p 元素）', 'heading（标题，h1–h6）', 'heading hierarchy（标题层级）'],
       focus: '注意他怎样选择合适的标题层级，以及为什么不能跳级使用。',
       takeaway: '能用正确的 p 与 h1–h6 组织一篇文章的结构。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: '官方链接带 t=35s 起播参数，本站按同一视频归并。'
@@ -2553,18 +2553,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第二条要求看这个视频，它覆盖粗体、斜体文本与 HTML 注释。本课正文已区分了两组元素：b 与 strong 都显示为粗体，i 与 em 都显示为斜体，但 strong 与 em 带有语义含义，浏览器与辅助技术会区别对待；官方 Assignment 第 3 条的练习任务明确要求段落中要有加粗和斜体的文字，所以这一集与练习直接对应。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。重点听语义元素与非语义元素的差别，这是本课常考的点。',
+      overview: '官方 Assignment 第二条要求看这个视频，它覆盖粗体、斜体文本与 HTML 注释。本课正文已区分了两组元素：b 与 strong 都显示为粗体，i 与 em 都显示为斜体，但 strong 与 em 带有语义含义，浏览器与辅助技术会区别对待；官方 Assignment 第 3 条的练习任务明确要求段落中要有加粗和斜体的文字，所以这一集与练习直接对应。本站已用 oEmbed 接口核验其真实标题与作者；观看需要 YouTube 访问权限。重点听语义元素与非语义元素的差别，这是本课常考的点。',
       why: '官方 Assignment 第二条要求看这个视频，它覆盖粗体、斜体文本与 HTML 注释。',
       points: [
         '本课正文已区分了两组元素：b 与 strong 都显示为粗体，i 与 em 都显示为斜体，但 strong 与 em 带有语义含义，浏览器与辅助技术会区别对待。',
         '官方 Assignment 第 3 条的练习任务明确要求段落中要有加粗和斜体的文字，所以这一集与练习直接对应。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['strong / b（强调 / 粗体）', 'em / i（着重 / 斜体）', 'HTML comment（HTML 注释）'],
       focus: '重点听语义元素与非语义元素的差别，这是本课 KC 常考的点。',
       takeaway: '知道什么时候该用 strong/em 而不是 b/i，并会写 HTML 注释。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: '官方链接带 t=5s 起播参数，本站按同一视频归并。'
@@ -2884,18 +2884,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 视频列表第 1 项，对应本课的链接部分。链接要点本课正文已给出：a 元素配合 href 属性创建链接；链接目标可以是绝对链接或相对链接；target="_blank" 让链接在新标签页打开；正文还讲了 rel 属性的 noopener 与 noreferrer 两个取值及其安全与隐私作用。本站已用 oEmbed 接口核验其真实标题与作者 Kevin Powell；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。对照本课正文的绝对链接与相对链接区别看，注意他怎么写 href。',
+      overview: '官方 Assignment 视频列表第 1 项，对应本课的链接部分。链接要点本课正文已给出：a 元素配合 href 属性创建链接；链接目标可以是绝对链接或相对链接；target="_blank" 让链接在新标签页打开；正文还讲了 rel 属性的 noopener 与 noreferrer 两个取值及其安全与隐私作用。本站已用 oEmbed 接口核验其真实标题与作者 Kevin Powell；观看需要 YouTube 访问权限。对照本课正文的绝对链接与相对链接区别看，注意他怎么写 href。',
       why: '官方 Assignment 的视频列表第 1 项，对应本课的链接部分。',
       points: [
         '本课正文已给出链接要点：a 元素配合 href 属性创建链接；链接目标可以是绝对链接或相对链接；target="_blank" 让链接在新标签页打开。',
         '正文还讲了 rel 属性的 noopener 与 noreferrer 两个取值及其安全与隐私作用。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['anchor / a element（锚元素）', 'href（超链接引用）', 'target（打开方式）', 'rel（关系属性）'],
       focus: '对照本课正文的绝对链接与相对链接区别看，注意他怎么写 href。',
       takeaway: '能正确写出站内相对链接与站外绝对链接，并按需加上 rel 属性。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -2913,18 +2913,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 视频列表第 2 项，对应本课的图片部分。图片要点本课正文已给出：img 元素是自闭合元素，用 src 指定图片位置，用 alt 提供替代文本；官方特别强调应当给所有图片设置 width 与 height 属性——这一点与它推荐的 Interneting is Hard 文章的建议不同，以 TOP 课程要求为准。本站已用 oEmbed 接口核验其真实标题与作者 Kevin Powell；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。注意 alt 文本怎么写才有意义，以及宽高属性的作用。',
+      overview: '官方 Assignment 视频列表第 2 项，对应本课的图片部分。图片要点本课正文已给出：img 元素是自闭合元素，用 src 指定图片位置，用 alt 提供替代文本；官方特别强调应当给所有图片设置 width 与 height 属性——这一点与它推荐的 Interneting is Hard 文章的建议不同，以 TOP 课程要求为准。本站已用 oEmbed 接口核验其真实标题与作者 Kevin Powell；观看需要 YouTube 访问权限。注意 alt 文本怎么写才有意义，以及宽高属性的作用。',
       why: '官方 Assignment 的视频列表第 2 项，对应本课的图片部分。',
       points: [
         '本课正文已给出图片要点：img 元素是自闭合元素，用 src 指定图片位置，用 alt 提供替代文本。',
         '官方特别强调应当给所有图片设置 width 与 height 属性，这一点与它推荐的 Interneting is Hard 文章的建议不同，以 TOP 课程要求为准。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['img element（图片元素）', 'src（来源）', 'alt（替代文本）', 'self-closing tag（自闭合标签）'],
       focus: '注意 alt 文本怎么写才有意义，以及宽高属性的作用。',
       takeaway: '能写出带 src、alt、width、height 的完整图片元素。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''
@@ -2942,18 +2942,18 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 视频列表第 3 项，讲的是项目文件怎样组织，直接决定相对路径怎么写。做法本课正文已给出：Assignment 要求把下载的练习图片移进项目里刚创建的 images 目录，也就是把素材集中放在专门目录下；文件结构清晰之后相对路径才稳定——从 HTML 文件指向 images 目录下的图片，写法形如 images/文件名。本站已用 oEmbed 接口核验其真实标题与作者 Kevin Powell；观看需要 YouTube 访问权限，本站没有可靠证据证明该视频提供中文字幕。',
+      overview: '官方 Assignment 视频列表第 3 项，讲的是项目文件怎样组织，直接决定相对路径怎么写。做法本课正文已给出：Assignment 要求把下载的练习图片移进项目里刚创建的 images 目录，也就是把素材集中放在专门目录下；文件结构清晰之后相对路径才稳定——从 HTML 文件指向 images 目录下的图片，写法形如 images/文件名。本站已用 oEmbed 接口核验其真实标题与作者 Kevin Powell；观看需要 YouTube 访问权限。',
       why: '官方 Assignment 的视频列表第 3 项，讲的是项目文件怎样组织，直接决定相对路径怎么写。',
       points: [
         '本课正文已给出做法：Assignment 要求把下载的练习图片移进项目里刚创建的 images 目录，也就是把素材集中放在专门目录下。',
         '文件结构清晰之后，相对路径才稳定：从 HTML 文件指向 images 目录下的图片，写法形如 images/文件名。',
-        '需要 YouTube 访问权限；本站没有可靠证据证明该视频提供中文字幕，因此不声称有中文字幕。'
+        '需要 YouTube 访问权限。'
       ],
       terms: ['file structure（文件结构）', 'directory / folder（目录）', 'relative path（相对路径）'],
       focus: '注意他怎样安排 HTML 文件与图片目录的相对位置。',
       takeaway: '能规划一个清晰的项目目录，并据此写出正确的相对路径。'
     },
-    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频。',
+    license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: ''

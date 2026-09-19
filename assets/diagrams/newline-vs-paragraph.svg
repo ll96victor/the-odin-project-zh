@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="250" viewBox="0 0 740 250" role="img" aria-labelledby="t-newline-vs-paragraph d-newline-vs-paragraph">
+  <title id="t-newline-vs-paragraph">段落：源代码里的换行不等于分段</title>
+  <desc id="d-newline-vs-paragraph">双栏对比图。左栏是源代码里的换行：浏览器在 HTML 里遇到换行时，会把它们压缩成一个单独的空格；结果所有文字挤成一长行；看起来像两段不等于显示成两段——这是官方一上来就给的反直觉例子。右栏是 p 段落元素：用一个 &lt;p&gt; 标签把文字内容包起来；浏览器会在每个段落之后添加一个新行；想在 HTML 里创建段落，就需要使用段落元素。底部注释：把官方那个空行隔开的两段文字的例子改成使用段落元素，问题就解决了。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">源代码里的换行</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">浏览器遇到 HTML 里的换行，会把它们压缩成一个</tspan><tspan x="52" dy="18">单独的空格</tspan></text>
+  <circle cx="42" cy="130" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="134" text-anchor="start"><tspan x="52">结果：所有文字挤成一长行</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">看起来像两段 ≠ 显示成两段（官方反直觉例子）</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">&lt;p&gt; 段落元素</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">用一个 &lt;p&gt; 标签把文字内容包起来</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">浏览器在每个段落之后添加一个新行</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">想在 HTML 里创建段落，就需要使用段落元素</tspan></text>
+  <rect class="note" x="22" y="194" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="216" text-anchor="middle"><tspan x="370">官方例子：空行隔开的两段文字被浏览器压成一长行；改成 p 元素包起来，问题就解决了。</tspan></text>
+</svg>

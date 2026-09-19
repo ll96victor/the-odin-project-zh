@@ -277,13 +277,15 @@ function ruleBody(selector) {
     check('8.8 .home-hero 仍是 overflow:hidden（装饰层边界由既有裁切承担）'));
 
   /* 8.9 旧口径清除 + 测试文件数（批次 E 扩展现有文件；v4.11.2 起课页读者向
-   * 修复的收口断言住进第 39 个文件 lesson-reader-fixes.test.cjs，属有意新增） */
+   * 修复的收口断言住进第 39 个文件 lesson-reader-fixes.test.cjs；v4.11.6 任务与
+   * 资料对应关系标注的收口断言住进第 41 个文件 task-resource-note.test.cjs，
+   * 均属有意新增） */
   const self = fs.readFileSync(__filename, 'utf8');
   assert.ok(!/\+3[3]%/.test(self),
     check('8.9 本文件零残留的旧高度增益口径（第 1 组已改为批次 D 实测的真实线性增益）'));
   const testFiles = fs.readdirSync(path.join(root, 'tests')).filter(f => f.endsWith('.test.cjs'));
-  assert.equal(testFiles.length, 39,
-    check(`8.9 Node 测试文件总数为 39（v4.11.2 新增 lesson-reader-fixes；实际 ${testFiles.length}）`));
+  assert.equal(testFiles.length, 41,
+    check(`8.9 Node 测试文件总数为 41（v4.11.2 新增 lesson-reader-fixes；v4.11.3 新增 heavy-lesson；v4.11.6 新增 task-resource-note；实际 ${testFiles.length}）`));
 }
 
 /* ============ 9. v4.11 批次 F（B0）：Hero 道具**可见性**层级 ============

@@ -357,7 +357,7 @@ const dailyFor = days => {
   const list = Logic.ACHIEVEMENTS;
   /* v4.2（交接 §7）：53 + 3 个每日目标连续成就；v4.3（交接 C1）+ first-steps = 57 */
   assert.ok(list.length >= 55 && list.length <= 65, check(`成就总数落在 §7 要求的 55–65 个之间（实际 ${list.length}）`));
-  assert.equal(list.length, 61, check('成就总数为 61（v4.2 的 56 + v4.3 的 first-steps / boss-first / boss-precheck-high + Batch 10 隐藏成就 precheck-master / mastered-3）'));
+  assert.equal(list.length, 63, check('成就总数为 63（v4.3 的 61 + v4.11.3 的 heavy-first / heavy-all）'));
 
   const ids = list.map(a => a.id);
   assert.equal(new Set(ids).size, ids.length, check('成就 id 不重复'));
@@ -371,7 +371,7 @@ const dailyFor = days => {
   const KNOWN_KINDS = ['seconds', 'streak', 'completed', 'completedAll', 'official', 'officialAll',
     'quiz', 'quizAll', 'unit', 'firstLesson', 'started', 'startedCount', 'reviewEver', 'reviewCleared',
     'daySeconds', 'level', 'purchases', 'dailyGoalDays', 'firstLessonVisit', 'bossPass', 'bossPrecheckHigh',
-    'precheckUnits', 'masteredCount'];
+    'precheckUnits', 'masteredCount', 'completedHeavy'];
   const categoryIds = Logic.ACHIEVEMENT_CATEGORIES.map(c => c.id);
   for (const item of list) {
     assert.ok(typeof item.id === 'string' && item.id.trim(), check(`${item.id}: id 非空`));
@@ -588,7 +588,7 @@ const dailyFor = days => {
       Logic.setLessonFlag(state, lessonIds[index], 'needsReview', false, AT, 0);
     });
     Logic.evaluateAchievements(state, lessons, AT, DAY);
-    assert.equal(Object.keys(state.achievements).length, Logic.ACHIEVEMENTS.length, check('该状态解锁全部 61 个成就（含 2 个 Batch 10 隐藏成就）'));
+    assert.equal(Object.keys(state.achievements).length, Logic.ACHIEVEMENTS.length, check('该状态解锁全部 63 个成就（含 2 个 Batch 10 隐藏成就 + v4.11.3 两个大课成就）'));
     assert.equal(Logic.unlockedFrames(state).length, Logic.FRAMES.length - 8, check('该状态解锁全部非叶片头像框（8 个叶片框未解锁，刻意不算已解锁）'));
     assert.equal(state.xp, xpBefore, check('解锁全部成就与非兑换头像框都不发放任何 XP'));
     assert.equal(state.minuteXpAwarded, 0, check('直接改 totalActiveSeconds 不会绕过分钟 XP 结算位点'));
@@ -773,7 +773,7 @@ const dailyFor = days => {
   assert.equal(s.reviewEverMarked, false, check('summary 暴露复习闩锁（直接改 entry 不算标记过）'));
   assert.equal(s.totalLessons, 19, check('summary 课程总数仍为当前开放的 19'));
   assert.equal(s.level, 4, check('summary 等级（v4.5 曲线：250 XP = Lv.4）'));
-  assert.equal(s.achievementTotal, 61, check('summary 成就总数为 61'));
+  assert.equal(s.achievementTotal, 63, check('summary 成就总数为 63（v4.11.3 起含两个大课成就）'));
 
   /* 走正常入口标记复习时，闩锁必须置位 */
   const viaApi = fresh();
@@ -784,4 +784,4 @@ const dailyFor = days => {
   assert.equal(viaApi.reviewEverMarked, true, check('取消复习不会复位闩锁'));
 }
 
-console.log(`通过：个人资料模块 ${checks} 项断言（默认头像与 SVG 安全、昵称清洗与截断、头像 id 与数据白名单、上传类型与大小校验、profile 导出导入与未解锁框回落、61 个成就的配置与十二类门槛边界、复习清零的闩锁语义、成就与头像框均不发 XP、28 个头像框（4 默认）的等级/成就/叶片解锁边界、目标提示排序与隐藏成就排除、summary 新字段）。`);
+console.log(`通过：个人资料模块 ${checks} 项断言（默认头像与 SVG 安全、昵称清洗与截断、头像 id 与数据白名单、上传类型与大小校验、profile 导出导入与未解锁框回落、63 个成就的配置与十二类门槛边界、复习清零的闩锁语义、成就与头像框均不发 XP、28 个头像框（4 默认）的等级/成就/叶片解锁边界、目标提示排序与隐藏成就排除、summary 新字段）。`);

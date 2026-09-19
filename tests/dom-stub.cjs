@@ -94,6 +94,16 @@ function makeDom(pageOptions = {}) {
       this.childNodes[index] = newChild;
       return oldChild;
     }
+    /* v4.11.5（交接 3.E）：概念图按 sectionIndex 插入章节之间需要 insertBefore。
+     * 与真实 DOM 一致：refChild 不在子列表里时按 append 处理。 */
+    insertBefore(newChild, refChild) {
+      const index = refChild ? this.childNodes.indexOf(refChild) : -1;
+      if (newChild.parentNode) newChild.parentNode.removeNode(newChild);
+      newChild.parentNode = this;
+      if (index >= 0) this.childNodes.splice(index, 0, newChild);
+      else this.childNodes.push(newChild);
+      return newChild;
+    }
     remove() {
       if (this.parentNode) this.parentNode.removeNode(this);
       this.parentNode = null;

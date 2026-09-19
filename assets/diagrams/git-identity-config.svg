@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="299" viewBox="0 0 760 299" role="img" aria-labelledby="t-git-identity-config d-git-identity-config">
+  <title id="t-git-identity-config">告诉 Git 你是谁：三条配置</title>
+  <desc id="d-git-identity-config">解剖图。顶部三个小盒说明这一步的目的：让本地的 Git 用户（也就是你）和 GitHub 关联起来；在团队里工作时让人们能看到你提交了什么、每一行代码是谁提交的；配置完用 git config --get 验证输出。主体横条从左到右三段命令：git config --global user.name——引号里填入你自己的信息但保留引号本身；git config --global user.email——如果你在 GitHub 上选择了让邮箱保持私有，就使用那个特殊的 GitHub 私有邮箱，示例形如 123456789+odin@users.noreply.github.com；git config --global init.defaultBranch main——GitHub 已把新仓库默认分支从 master 改成 main，用这条命令修改 Git 的默认分支。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="100" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="180" y="39" text-anchor="middle"><tspan x="180">让本地 Git 用户和</tspan><tspan x="180" dy="17">GitHub 关联</tspan></text>
+  <rect class="chip" x="300" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="380" y="39" text-anchor="middle"><tspan x="380">团队里能看到每行代码是</tspan><tspan x="380" dy="17">谁提交的</tspan></text>
+  <path class="edge" d="M264,43 L293,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="500" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="580" y="48" text-anchor="middle"><tspan x="580">配完用 --get 验证</tspan></text>
+  <path class="edge" d="M464,43 L493,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">告诉 Git 你是谁的三条配置</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="202" height="54" rx="6"/>
+  <text class="hb" x="125" y="159" text-anchor="middle"><tspan x="125">git config --global</tspan><tspan x="125" dy="18">user.name</tspan></text>
+  <rect class="box" x="226" y="136" width="209" height="54"/>
+  <text class="hb" x="331" y="159" text-anchor="middle"><tspan x="331">git config --global</tspan><tspan x="331" dy="18">user.email</tspan></text>
+  <path class="divider" d="M226,136 L226,190"/>
+  <rect class="box" x="435" y="136" width="301" height="54"/>
+  <text class="hb" x="586" y="159" text-anchor="middle"><tspan x="586">git config --global</tspan><tspan x="586" dy="18">init.defaultBranch main</tspan></text>
+  <path class="divider" d="M435,136 L435,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M125,196 L125,206 L136,218"/>
+  <text class="s" x="136" y="239" text-anchor="middle"><tspan x="136">引号里填你自己的名字（保留引号</tspan><tspan x="136" dy="17">本身）</tspan></text>
+  <path class="spoke" d="M331,196 L331,206 L380,218"/>
+  <text class="s" x="380" y="239" text-anchor="middle"><tspan x="380">GitHub 上选了邮箱私有的话，用专用</tspan><tspan x="380" dy="17">私有邮箱，形如</tspan><tspan x="380" dy="17">123456789+odin@users.noreply.github.com</tspan></text>
+  <path class="spoke" d="M586,196 L586,206 L624,218"/>
+  <text class="s" x="624" y="239" text-anchor="middle"><tspan x="624">GitHub 已把新仓库默认分支从</tspan><tspan x="624" dy="17">master 改成 main，这条命令让</tspan><tspan x="624" dy="17">Git 跟上</tspan></text>
+</svg>

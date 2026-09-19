@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="792" height="172" viewBox="0 0 792 172" role="img" aria-labelledby="t-four-setup-options d-four-setup-options">
+  <title id="t-four-setup-options">四种搭建方式怎么选</title>
+  <desc id="d-four-setup-options">四盒流程图，从左到右按选择优先级排列：VirtualBox 虚拟机——官方推荐给初学者，虚拟机是在现有系统内运行的电脑仿真，安装像任何程序一样直接、没有风险，不喜欢 Linux 可以轻松移除；双系统——开机时选择启动哪个系统，操作系统能用电脑全部资源、运行快得多，但改动硬盘分区会有一些风险，不着急仔细按说明做就没问题；ChromeOS / ChromeOS Flex——给 Chromebook 拥有者或想在旧硬件上安装的用户，很多 Chromebook 有内置 Linux 支持；WSL2——官方标为高级，让你在 Windows 内直接运行 Linux，但两个系统之间没有多少视觉分隔、容易操作到错误的系统，不推荐初学者。底部注释：读完还是不确定就选官方推荐的 VirtualBox；不要把来自其他来源的说明混着用；WSL2 不等于 WSL1，TOP 只支持 WSL2。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="99" y="46" text-anchor="middle"><tspan x="99">VirtualBox</tspan><tspan x="99" dy="18">虚拟 机</tspan></text>
+  <text class="s" x="99" y="60" text-anchor="middle"><tspan x="99">官方推荐给初学者：像</tspan><tspan x="99" dy="15">普通程序一样装，不喜</tspan><tspan x="99" dy="15">欢可移除</tspan></text>
+  <rect class="box" x="224" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="297" y="55" text-anchor="middle"><tspan x="297">双系统</tspan></text>
+  <text class="s" x="297" y="60" text-anchor="middle"><tspan x="297">全部硬件资源、快得多；</tspan><tspan x="297" dy="15">改动分区有风险，仔细</tspan><tspan x="297" dy="15">按说明做</tspan></text>
+  <path class="edge" d="M172,57 L217,57" marker-end="url(#arr)"/>
+  <rect class="box" x="422" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="495" y="55" text-anchor="middle"><tspan x="495">ChromeOS / Flex</tspan></text>
+  <text class="s" x="495" y="68" text-anchor="middle"><tspan x="495">Chromebook</tspan><tspan x="495" dy="15">或旧硬件 用户</tspan></text>
+  <path class="edge" d="M370,57 L415,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="620" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="693" y="55" text-anchor="middle"><tspan x="693">WSL2（高级）</tspan></text>
+  <text class="s" x="693" y="60" text-anchor="middle"><tspan x="693">Windows 内直接跑</tspan><tspan x="693" dy="15">Linux；两系统缺视觉</tspan><tspan x="693" dy="15">分隔，不推荐初学者</tspan></text>
+  <path class="edge" d="M568,57 L613,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="740" height="52" rx="6"/>
+  <text class="s" x="396" y="116" text-anchor="middle"><tspan x="396">读完这一切还是不确定选哪个？官方推荐 VirtualBox，有非常清晰的分步说明。不要试着把来自其他来源的说明混着用。WSL2</tspan><tspan x="396" dy="18">不等于 WSL1，TOP 只支持 WSL2。</tspan></text>
+</svg>

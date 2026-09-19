@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="298" viewBox="0 0 740 298" role="img" aria-labelledby="t-two-question-principles d-two-question-principles">
+  <title id="t-two-question-principles">提问的两条原则</title>
+  <desc id="d-two-question-principles">双栏对比图。左栏是原则一「永远提供你的代码和上下文」：给出代码、错误消息、终端命令、服务器输出等相关细节；把问题收敛到具体的点，比如某个具体函数或行号；不带上下文的代价是大量不必要的来回对话，且信息不完整时给出的任何答案都解决不了问题；例外是概念性问题，应在问题里说明清楚。右栏是原则二「问手头的问题，不要问解法本身」：别直接问作业某一步该怎么做——想出解法思路是学习旅程必不可少的部分；更好的问法是描述目标、报错行号并附上代码；这样别人知道你试过什么，能针对你当前这版代码调试，而不是让你从头重来。底部注释：两条原则同一个内核——把你的尝试和卡点亮出来。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="206" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">原则一 · 永远提供代码和上下文</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">给出代码、错误消息、终端命令、服务器输出等相</tspan><tspan x="52" dy="18">关细节</tspan></text>
+  <circle cx="42" cy="130" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="134" text-anchor="start"><tspan x="52">把问题收敛到具体的点：某个函数、某个行号</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">不带上下文的代价：大量不必要的来回，答案仍解决</tspan><tspan x="52" dy="18">不了问题</tspan></text>
+  <circle cx="42" cy="208" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="212" text-anchor="start"><tspan x="52">例外：概念性问题就在问题里说明清楚</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="206" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">原则二 · 问手头的问题，不问解法</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">别问「作业 Step 5 该怎么做」——想出解法思路是</tspan><tspan x="413" dy="18">学习旅程必不可少的一部分</tspan></text>
+  <circle cx="403" cy="130" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="134" text-anchor="start"><tspan x="413">更好的问法：「我在试着返回胜者字符串，但第 12</tspan><tspan x="413" dy="18">行报语法错误，怎么修？这是我的代码」</tspan></text>
+  <circle cx="403" cy="178" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="182" text-anchor="start"><tspan x="413">好处：别人知道你试过什么，能针对你当前这版代码</tspan><tspan x="413" dy="18">调试，而不是让你从头重来</tspan></text>
+  <rect class="note" x="22" y="242" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="264" text-anchor="middle"><tspan x="370">两条原则同一个内核：把你的尝试和卡点亮出来，别人才帮得到「当前版本的你」。</tspan></text>
+</svg>

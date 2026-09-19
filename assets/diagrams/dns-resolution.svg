@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="400" viewBox="0 0 760 400" role="img" aria-labelledby="t-dns-resolution d-dns-resolution">
+  <title id="t-dns-resolution">一次 DNS 查询如何把域名变成 IP 地址</title>
+  <desc id="d-dns-resolution">时序图。三条竖直生命线分别代表你的浏览器、DNS 解析器（类比通讯录，通常由 ISP 提供）和权威服务器（类比总登记处）。浏览器先问解析器：www.example.com 的 IP 是多少（浏览器与系统缓存都没查到才来问）；解析器没有现成答案时，按根域名服务器、顶级域服务器、权威服务器的顺序层层查询；权威服务器回答该域名对应的 IP；解析器把 IP 返回给浏览器并沿途缓存。底部注释：浏览器拿到 IP 之后才发出真正的页面请求。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="head" x="83" y="24" width="120" height="40" rx="6"/>
+  <text class="hb" x="143" y="49" text-anchor="middle"><tspan x="143">你的浏览器</tspan></text>
+  <rect class="head" x="294" y="24" width="173" height="40" rx="6"/>
+  <text class="hb" x="380" y="49" text-anchor="middle"><tspan x="380">DNS 解析器（通讯录）</tspan></text>
+  <rect class="head" x="525" y="24" width="184" height="40" rx="6"/>
+  <text class="hb" x="617" y="49" text-anchor="middle"><tspan x="617">权威服务器（总登记处）</tspan></text>
+  <text class="b" x="261" y="103" text-anchor="middle"><tspan x="261">① www.example.com 的 IP 是多少？（浏览器与系统缓存都没查到才来问）</tspan></text>
+  <path class="edge" d="M147,110 L372,110" marker-end="url(#arr)"/>
+  <text class="b" x="499" y="161" text-anchor="middle"><tspan x="499">② 没有现成答案时层层查询：根域名服务器 → 顶级域服务器 → 权威服务器</tspan></text>
+  <path class="edge" d="M384,168 L609,168" marker-end="url(#arr)"/>
+  <text class="b" x="499" y="219" text-anchor="middle"><tspan x="499">③ 该域名对应的 IP 是 93.184.216.34</tspan></text>
+  <path class="dash" d="M613,226 L388,226" marker-end="url(#arrm)"/>
+  <text class="b" x="261" y="277" text-anchor="middle"><tspan x="261">④ 把 IP 返回给浏览器，并沿途缓存，下次不必重查</tspan></text>
+  <path class="dash" d="M376,284 L151,284" marker-end="url(#arrm)"/>
+  <path class="life" d="M143,64 L143,310"/>
+  <path class="life" d="M380,64 L380,310"/>
+  <path class="life" d="M617,64 L617,310"/>
+  <rect class="note" x="24" y="324" width="712" height="52" rx="6"/>
+  <text class="s" x="380" y="346" text-anchor="middle"><tspan x="380">⑤ 浏览器拿到 IP 之后，才向服务器发出真正的页面请求（完整链路见上一章的时序图）。DNS 就是互联网的通讯录：你记</tspan><tspan x="380" dy="18">住的是名字，网络定位设备要靠查出来的 IP 号码。</tspan></text>
+</svg>

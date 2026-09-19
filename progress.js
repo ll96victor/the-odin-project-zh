@@ -230,6 +230,14 @@
     { id: 'lessons-10', zh: '完成 10 课', desc: '累计完成 10 课', category: 'lesson', goal: { kind: 'completed', value: 10 } },
     { id: 'lessons-15', zh: '完成 15 课', desc: '累计完成 15 课', category: 'lesson', goal: { kind: 'completed', value: 15 } },
     { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（Recipes 之前 19 课）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
+    /* C2. 大课体量（v4.11.3 交接 C3）：既有 61 个成就全部按数量维度（完成数 /
+     * 时长 / 连续天数），没有任何一个考察「单课体量」——最重的课
+     * （links-and-images，22 章 5151 字）与最轻的课（866 字 5 章）在完成
+     * 反馈上毫无区别。补两个只看「体量较大的课」的成就；XP 与等级曲线
+     * 零改动（用户已明确选择不改数值），成就不带 XP，补发不会补发经验值。
+     * 体量判定见 isHeavyLesson（由真实数据算出，不硬编码课 id）。 */
+    { id: 'heavy-first', zh: '啃下一门大课', desc: '完成一门内容体量明显更大的课程（章节或官方自查题数量显著高于其余课程）', category: 'lesson', goal: { kind: 'completedHeavy', value: 1 } },
+    { id: 'heavy-all', zh: '大课全数拿下', desc: '把本站体量最大的几门课（当前 4 门）全部完成', category: 'lesson', goal: { kind: 'completedHeavy' } },
 
     /* D. 官方任务 */
     { id: 'official-first', zh: '首次完成官方任务', desc: '第一次把任意一课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 1 } },
@@ -432,6 +440,12 @@
       companionNicknames: {},
       /* v4.5（交接 C2）：学习伙伴显示模式 auto / always / minimal，默认 auto */
       companionDisplay: DEFAULT_COMPANION_DISPLAY,
+      /* v4.11.5（交接 3.A2）：课页「官方任务」节 Assignment / Knowledge Check
+       * 列表是否默认收起。默认 false = 展开。**刻意不进 SETTING_BOOLEAN_KEYS**：
+       * 那份白名单的语义是「每键默认必须 true、只有显式 false 才关」
+       * （tests/settings.test.cjs 钉住），本字段方向相反（默认 false、只有显式
+       * true 才折叠），读写走专用 API setOfficialTasksCollapsed。 */
+      collapseOfficialTasks: false,
       showCompanion: true,
       showAchievementNotes: true,
       showReadingPosition: true,
@@ -866,6 +880,32 @@
     return Object.values(state.lessons || {}).filter(entry => entry && entry.needsReview === true).length;
   }
 
+  /* ---------- v4.11.3 C1：课程体量判定（「大课」） ----------
+   * 判定由真实数据算出（读 lessons.js 现成的 sections 与 official.knowledgeCheck
+   * 字段，不硬编码课 id，不改 lessons.js）：
+   *   章节数 >= 14 或 官方自查题数 >= 10。
+   * 阈值稳健性：规划阶段用三种独立阈值（章≥14 或 KC≥10 / 章+KC≥20 / 章+KC×1.5≥25）
+   * 对 19 课实测，判定集合完全相同——{ links-and-images(22章/9题),
+   * git-basics(16/11), command-line-basics(14/11), how-does-the-web-work(8/15) }，
+   * 且与第 5 名（html-boilerplate 12 章/4 题）之间有明确间隔，因此该集合
+   * 不依赖阈值的精确取值；调整阈值 ±2 不会改变集合。
+   * 语义边界：这只描述「体量」（内容多、值得多花时间），不评价难度——
+   * 展示文案不得写成「这课很难」之类的负面暗示。 */
+  const HEAVY_LESSON_MIN_SECTIONS = 14;
+  const HEAVY_LESSON_MIN_KC = 10;
+
+  function isHeavyLesson(lesson) {
+    if (!lesson) return false;
+    const sections = Array.isArray(lesson.sections) ? lesson.sections.length : 0;
+    const kc = lesson.official && Array.isArray(lesson.official.knowledgeCheck)
+      ? lesson.official.knowledgeCheck.length : 0;
+    return sections >= HEAVY_LESSON_MIN_SECTIONS || kc >= HEAVY_LESSON_MIN_KC;
+  }
+
+  function heavyLessonList(lessons) {
+    return (Array.isArray(lessons) ? lessons : []).filter(isHeavyLesson);
+  }
+
   /* 表驱动的成就判定：goal 描述条件，这里只算“当前值 / 目标值”。
    * UI 的进度条与学习助手的“距下一个成就还差多少”复用同一个函数，
    * 因此不会出现说明文字与实际判定条件不一致的情况。 */
@@ -880,6 +920,16 @@
         return { current: countBy(lessons, state, 'completed'), target: goal.value, unit: 'lessons' };
       case 'completedAll':
         return { current: countBy(lessons, state, 'completed'), target: total, unit: 'lessons' };
+      /* v4.11.3 C3：大课体量成就——lessons 数组已传入判定函数，直接读
+       * sections / knowledgeCheck 算体量（isHeavyLesson），保持表驱动风格。
+       * goal.value 给出时目标为该值（如「第一门大课」= 1）；缺省时目标为
+       * 当前大课总数（与 completedAll 同一「总数由数据算出」模式，课程
+       * 收录变化时目标自动跟随）。 */
+      case 'completedHeavy': {
+        const heavy = heavyLessonList(lessons);
+        const done = heavy.filter(lesson => (state.lessons[lesson.id] || emptyLessonEntry()).completed === true).length;
+        return { current: done, target: goal.value || heavy.length, unit: 'lessons' };
+      }
       case 'official':
         return { current: countBy(lessons, state, 'officialCompleted'), target: goal.value, unit: 'lessons' };
       case 'officialAll':
@@ -1700,6 +1750,11 @@
       state.settings.companionNicknames[state.cosmetics.companionId] = state.settings.companionName;
     }
     state.settings.companionDisplay = normalizeCompanionDisplay(rawSettings.companionDisplay);
+    /* v4.11.5（交接 3.A2）：官方任务节折叠偏好——只有显式 true 才算折叠，
+     * 其余（缺省 / 字符串 / 数字等非法值）一律按展开处理。方向与
+     * SETTING_BOOLEAN_KEYS 的「只有显式 false 才关」相反：本字段默认展开，
+     * 档案损坏或手工乱改时的安全兜底是「内容全部可见」。 */
+    state.settings.collapseOfficialTasks = rawSettings.collapseOfficialTasks === true;
 
     /* v4.2 学习历史：逐条走 history.sanitizeEvent 白名单，坏条目丢弃
      * （历史是尽力而为的流水数据，单条损坏不应让整份档案被拒）；
@@ -1865,6 +1920,7 @@
     levelOf, nextLevelXp, xpForLevel, settleLevelCelebration, computeTick, awardMinuteXp, addActiveSeconds, streakOf,
     markVisited, setLessonFlag, evaluateAchievements, continueLessonId, recentLesson,
     countBy, needsReviewCount, goalProgress, isGoalDone, nextVisibleGoals, nextFrames,
+    HEAVY_LESSON_MIN_SECTIONS, HEAVY_LESSON_MIN_KC, isHeavyLesson, heavyLessonList,
     ASSISTANT_TIP_KINDS, remainingText, briefLesson, latestAchievement, assistantTip, assistantBrief,
     normalizeNickname, normalizeAvatarId, normalizeAvatarData, checkAvatarFile,
     isFrameUnlocked, normalizeFrameId, unlockedFrames, profileOf, setProfileField,
@@ -2718,6 +2774,20 @@
       state.settings.companionDisplay = normalized;
       afterChange();
       return { ok: true, companionDisplay: normalized };
+    },
+    /* ---------- v4.11.5（交接 3.A2）：官方任务节折叠偏好 ----------
+     * 专用 API，不走 setSetting：SETTING_BOOLEAN_KEYS 白名单要求「每键默认
+     * true、只有显式 false 才关」（tests/settings.test.cjs 钉住），本字段
+     * 默认 false（展开）、只有显式 true 才折叠，语义相反不能混用。
+     * 任何非 true 的入参都按 false（展开）落库——与读档校验同一口径。
+     * file:// 非持久化时返回 FILE_MODE_ERROR，课页折叠按钮的当页交互不受
+     * 影响（DOM 状态独立于档案），与既有 FILE_MODE_NOTE 口径一致。 */
+    setOfficialTasksCollapsed: collapsed => {
+      const normalized = collapsed === true;
+      if (!persistent) return { ok: false, error: FILE_MODE_ERROR, collapseOfficialTasks: normalized };
+      state.settings.collapseOfficialTasks = normalized;
+      afterChange();
+      return { ok: true, collapseOfficialTasks: normalized };
     },
     /* 便捷读取：学习伙伴的昵称与显示模式（UI 多处用，集中一处口径）。
      * progress 缺失或 settings 为空时回落默认值，永不返回 undefined。 */

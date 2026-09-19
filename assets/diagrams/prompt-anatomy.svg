@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="299" viewBox="0 0 760 299" role="img" aria-labelledby="t-prompt-anatomy d-prompt-anatomy">
+  <title id="t-prompt-anatomy">提示符是什么</title>
+  <desc id="d-prompt-anatomy">解剖图。顶部三个小盒：打开终端后窗口大部分是空白的，只有一行文字，具体内容随操作系统不同。主体横条把这一行文字从左到右拆成三段：alex@ubuntu:~/Documents——谁@哪台机器:当前目录，告诉你「我在哪」；$ 提示符——表示终端在等你输入命令，Linux 和较旧的 Mac 以 $ 结尾，较新的 Mac 以 % 结尾，两者是一回事；whoami——你输入的命令，按 Enter 执行后返回你的用户名。阅读约定：教程写 $ whoami 时，$ 只是标记，不要输入它。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="184" y="24" width="104" height="38" rx="6"/>
+  <text class="b" x="236" y="48" text-anchor="middle"><tspan x="236">打开终端</tspan></text>
+  <rect class="chip" x="328" y="24" width="104" height="38" rx="6"/>
+  <text class="b" x="380" y="48" text-anchor="middle"><tspan x="380">大部分空白</tspan></text>
+  <path class="edge" d="M292,43 L321,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="472" y="24" width="104" height="38" rx="6"/>
+  <text class="b" x="524" y="48" text-anchor="middle"><tspan x="524">只有一行文字</tspan></text>
+  <path class="edge" d="M436,43 L465,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">终端里那一行文字的解剖</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="305" height="54" rx="6"/>
+  <text class="hb" x="177" y="168" text-anchor="middle"><tspan x="177">alex@ubuntu:~/Documents</tspan></text>
+  <rect class="box" x="329" y="136" width="134" height="54"/>
+  <text class="hb" x="396" y="168" text-anchor="middle"><tspan x="396">$（提示符）</tspan></text>
+  <path class="divider" d="M329,136 L329,190"/>
+  <rect class="box" x="463" y="136" width="273" height="54"/>
+  <text class="hb" x="600" y="168" text-anchor="middle"><tspan x="600">whoami（你输入的命令）</tspan></text>
+  <path class="divider" d="M463,136 L463,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M177,196 L177,206 L136,218"/>
+  <text class="s" x="136" y="239" text-anchor="middle"><tspan x="136">谁@哪台机器:当前目录——告诉你「我</tspan><tspan x="136" dy="17">在哪」</tspan></text>
+  <path class="spoke" d="M396,196 L396,206 L380,218"/>
+  <text class="s" x="380" y="239" text-anchor="middle"><tspan x="380">提示符表示终端在等你输入命令。</tspan><tspan x="380" dy="17">Linux 与旧 Mac 是 $，较新 Mac 是</tspan><tspan x="380" dy="17">%，一回事</tspan></text>
+  <path class="spoke" d="M600,196 L600,206 L624,218"/>
+  <text class="s" x="624" y="239" text-anchor="middle"><tspan x="624">输入命令按 Enter 执行；whoami 返</tspan><tspan x="624" dy="17">回你的用户名</tspan></text>
+</svg>

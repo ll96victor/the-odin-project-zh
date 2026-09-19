@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="299" viewBox="0 0 760 299" role="img" aria-labelledby="t-question-context-anatomy d-question-context-anatomy">
+  <title id="t-question-context-anatomy">一个合格的提问：五项上下文</title>
+  <desc id="d-question-context-anatomy">解剖图。顶部三个小盒：别问「能不能问」（don’t ask to ask）、直接把问题问出来、这样更快得到答案也让别人更自在愿意帮你。主体横条从左到右把一个提问拆成五段：你认为问题是什么、你究竟希望发生什么、实际发生的是什么、你是怎么走到这一步的、到目前为止你试过什么；每段下方引出线接对应的英文原句（What do you think the problem is? 等五问）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="157" y="24" width="122" height="38" rx="6"/>
+  <text class="b" x="218" y="48" text-anchor="middle"><tspan x="218">别问「能不能问」</tspan></text>
+  <rect class="chip" x="319" y="24" width="122" height="38" rx="6"/>
+  <text class="b" x="380" y="48" text-anchor="middle"><tspan x="380">直接把问题问出来</tspan></text>
+  <path class="edge" d="M283,43 L312,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="481" y="24" width="122" height="38" rx="6"/>
+  <text class="b" x="542" y="48" text-anchor="middle"><tspan x="542">更快得到答案</tspan></text>
+  <path class="edge" d="M445,43 L474,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">一个合格提问的五项上下文（don’t ask to ask）</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="132" height="54" rx="6"/>
+  <text class="hb" x="90" y="168" text-anchor="middle"><tspan x="90">问题是什么</tspan></text>
+  <rect class="box" x="156" y="136" width="158" height="54"/>
+  <text class="hb" x="235" y="168" text-anchor="middle"><tspan x="235">期望发生什么</tspan></text>
+  <path class="divider" d="M156,136 L156,190"/>
+  <rect class="box" x="314" y="136" width="158" height="54"/>
+  <text class="hb" x="393" y="168" text-anchor="middle"><tspan x="393">实际发生什么</tspan></text>
+  <path class="divider" d="M314,136 L314,190"/>
+  <rect class="box" x="472" y="136" width="158" height="54"/>
+  <text class="hb" x="551" y="168" text-anchor="middle"><tspan x="551">怎么走到这步</tspan></text>
+  <path class="divider" d="M472,136 L472,190"/>
+  <rect class="box" x="630" y="136" width="106" height="54"/>
+  <text class="hb" x="683" y="168" text-anchor="middle"><tspan x="683">试过什么</tspan></text>
+  <path class="divider" d="M630,136 L630,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M90,196 L90,206 L91,218"/>
+  <text class="s" x="91" y="239" text-anchor="middle"><tspan x="91">What do you think</tspan><tspan x="91" dy="17">the problem is?</tspan></text>
+  <path class="spoke" d="M235,196 L235,206 L236,218"/>
+  <text class="s" x="236" y="239" text-anchor="middle"><tspan x="236">What exactly do</tspan><tspan x="236" dy="17">you want to</tspan><tspan x="236" dy="17">happen?</tspan></text>
+  <path class="spoke" d="M393,196 L393,206 L380,218"/>
+  <text class="s" x="380" y="239" text-anchor="middle"><tspan x="380">What is actually</tspan><tspan x="380" dy="17">happening?</tspan></text>
+  <path class="spoke" d="M551,196 L551,206 L524,218"/>
+  <text class="s" x="524" y="239" text-anchor="middle"><tspan x="524">How did you get</tspan><tspan x="524" dy="17">there?</tspan></text>
+  <path class="spoke" d="M683,196 L683,206 L669,218"/>
+  <text class="s" x="669" y="239" text-anchor="middle"><tspan x="669">What have you</tspan><tspan x="669" dy="17">tried so far?</tspan></text>
+</svg>

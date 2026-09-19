@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="299" viewBox="0 0 760 299" role="img" aria-labelledby="t-commit-subject-body d-commit-subject-body">
+  <title id="t-commit-subject-body">一条有效提交的两个部分：subject 与 body</title>
+  <desc id="d-commit-subject-body">解剖图。顶部三个小盒：有效的提交由两个独立部分组成；subject 是一句话的简要总结；body 讲清问题与做法。主体横条从左到右两段：subject（主题）——对你给项目所做改动的一个简要总结，官方示意文字是 This is the change I made to the codebase；GitHub 有一个 72 字符的限制，所以官方推荐把提交的主题控制在这个数量以内。body（正文）——对你做了什么的一个简洁但清楚的描述：描述你的提交解决了什么问题，以及怎样解决的（Describe the problem your commit solves and how）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="100" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="180" y="39" text-anchor="middle"><tspan x="180">有效的提交 =</tspan><tspan x="180" dy="17">两个独立部 分</tspan></text>
+  <rect class="chip" x="300" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="380" y="48" text-anchor="middle"><tspan x="380">subject：一句话总结</tspan></text>
+  <path class="edge" d="M264,43 L293,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="500" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="580" y="48" text-anchor="middle"><tspan x="580">body：讲清问题与做法</tspan></text>
+  <path class="edge" d="M464,43 L493,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">一条有效提交的解剖</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="398" height="54" rx="6"/>
+  <text class="hb" x="223" y="168" text-anchor="middle"><tspan x="223">subject（主题）</tspan></text>
+  <rect class="box" x="422" y="136" width="314" height="54"/>
+  <text class="hb" x="579" y="168" text-anchor="middle"><tspan x="579">body（正文）</tspan></text>
+  <path class="divider" d="M422,136 L422,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M223,196 L223,206 L136,218"/>
+  <text class="s" x="136" y="239" text-anchor="middle"><tspan x="136">对所做改动的简要总结；GitHub 有</tspan><tspan x="136" dy="17">72 字符的限制，官方推荐把主题控制</tspan><tspan x="136" dy="17">在这个数量以内</tspan></text>
+  <path class="spoke" d="M579,196 L579,206 L624,218"/>
+  <text class="s" x="624" y="239" text-anchor="middle"><tspan x="624">简洁但清楚的描述：你的提交解决了</tspan><tspan x="624" dy="17">什么问题、以及怎样解决的</tspan></text>
+</svg>

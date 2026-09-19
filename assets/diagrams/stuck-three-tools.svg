@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="816" height="154" viewBox="0 0 816 154" role="img" aria-labelledby="t-stuck-three-tools d-stuck-three-tools">
+  <title id="t-stuck-three-tools">卡住了怎么办：三件工具</title>
+  <desc id="d-stuck-three-tools">四盒流程图，从左到右：卡住了——可能是某个概念理解不了，或项目里有什么东西不正常；第一件工具「去研究」——一定有人在你之前遇到过同样的问题，用搜索引擎快速搜一下常常就能找到解法；第二件工具「休息一下」——让发散学习状态去处理这个问题；第三件工具「到 TOP Discord 服务器求助」——带着你做过的研究去问。底部注释：当别人看到你已经自己下过功夫，会更愿意帮你。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="55" text-anchor="middle"><tspan x="102">卡住了</tspan></text>
+  <text class="s" x="102" y="68" text-anchor="middle"><tspan x="102">概念理解不了 /</tspan><tspan x="102" dy="15">项目不 正常</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="55" text-anchor="middle"><tspan x="306">① 去研究</tspan></text>
+  <text class="s" x="306" y="68" text-anchor="middle"><tspan x="306">一定有人在你之前遇</tspan><tspan x="306" dy="15">到过</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="55" text-anchor="middle"><tspan x="510">② 休息一下</tspan></text>
+  <text class="s" x="510" y="75" text-anchor="middle"><tspan x="510">让发散模式去处理</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="638" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="714" y="46" text-anchor="middle"><tspan x="714">③ 到 Discord</tspan><tspan x="714" dy="18">求 助</tspan></text>
+  <text class="s" x="714" y="75" text-anchor="middle"><tspan x="714">带着你做过的研究去问</tspan></text>
+  <path class="edge" d="M586,57 L631,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="764" height="34" rx="6"/>
+  <text class="s" x="408" y="116" text-anchor="middle"><tspan x="408">官方说你一定会在某个点卡住。求助时带着自己做过的研究——当别人看到你已经自己下过功夫，会更愿意帮你。</tspan></text>
+</svg>

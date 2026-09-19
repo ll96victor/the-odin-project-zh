@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="350" viewBox="0 0 760 350" role="img" aria-labelledby="t-href-attribute-anatomy d-href-attribute-anatomy">
+  <title id="t-href-attribute-anatomy">属性是什么，href 干什么</title>
+  <desc id="d-href-attribute-anatomy">解剖图。顶部三个小盒给出属性的定义：一个 HTML 属性给元素提供额外信息；总是放在元素的开始标签里；属性通常由一个名字和一个值组成，不过并非所有属性都需要值。主体横条把一个 anchor 元素从左到右拆成四段：&lt;a 开始标签；href="目的地地址"——href 是 hypertext reference（超文本引用），值就是想让链接去的目的地，可以指向互联网上任何类型的资源，不只是 HTML 文档，还有视频、pdf、图片等；链接文字——默认情况下有 href 时浏览器给文字加蓝色和下划线表明它是链接，被 anchor 包住但没有 href 的文字看起来像普通文本；&lt;/a&gt; 结束标签。改完记得刷新浏览器让新改动生效。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="138" y="24" width="135" height="38" rx="6"/>
+  <text class="b" x="205" y="48" text-anchor="middle"><tspan x="205">属性 = 名字 + 值</tspan></text>
+  <rect class="chip" x="313" y="24" width="135" height="38" rx="6"/>
+  <text class="b" x="380" y="48" text-anchor="middle"><tspan x="380">给元素提供额外信息</tspan></text>
+  <path class="edge" d="M277,43 L306,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="488" y="24" width="135" height="38" rx="6"/>
+  <text class="b" x="555" y="48" text-anchor="middle"><tspan x="555">总是放在开始标签里</tspan></text>
+  <path class="edge" d="M452,43 L481,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">一个链接的解剖：&lt;a href="目的地地址"&gt;链接文字&lt;/a&gt;</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="51" height="54" rx="6"/>
+  <text class="hb" x="50" y="168" text-anchor="middle"><tspan x="50">&lt;a</tspan></text>
+  <rect class="box" x="75" y="136" width="389" height="54"/>
+  <text class="hb" x="270" y="168" text-anchor="middle"><tspan x="270">href="目的地地址"</tspan></text>
+  <path class="divider" d="M75,136 L75,190"/>
+  <rect class="box" x="464" y="136" width="176" height="54"/>
+  <text class="hb" x="552" y="168" text-anchor="middle"><tspan x="552">链接文字</tspan></text>
+  <path class="divider" d="M464,136 L464,190"/>
+  <rect class="box" x="640" y="136" width="96" height="54"/>
+  <text class="hb" x="688" y="168" text-anchor="middle"><tspan x="688">&lt;/a&gt;</tspan></text>
+  <path class="divider" d="M640,136 L640,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M50,196 L50,206 L108,218"/>
+  <text class="s" x="108" y="239" text-anchor="middle"><tspan x="108">anchor 开始标签；并非所</tspan><tspan x="108" dy="17">有属性都需要值</tspan></text>
+  <path class="spoke" d="M270,196 L270,206 L289,218"/>
+  <text class="s" x="289" y="239" text-anchor="middle"><tspan x="289">href = hypertext</tspan><tspan x="289" dy="17">reference，值是链接去的</tspan><tspan x="289" dy="17">目的地；可指向 HTML 文档、</tspan><tspan x="289" dy="17">视频、pdf、图片（如</tspan><tspan x="289" dy="17">theodinproject.com 的</tspan><tspan x="289" dy="17">About 页）</tspan></text>
+  <path class="spoke" d="M552,196 L552,206 L471,218"/>
+  <text class="s" x="471" y="239" text-anchor="middle"><tspan x="471">有 href 时浏览器给文字加</tspan><tspan x="471" dy="17">蓝色和下划线；没有 href</tspan><tspan x="471" dy="17">看起来就是普通文本</tspan></text>
+  <path class="spoke" d="M688,196 L688,206 L652,218"/>
+  <text class="s" x="652" y="239" text-anchor="middle"><tspan x="652">结束标签；改完记得刷新浏</tspan><tspan x="652" dy="17">览器让改动生效</tspan></text>
+</svg>

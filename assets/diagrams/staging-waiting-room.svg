@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="288" viewBox="0 0 700 288" role="img" aria-labelledby="t-staging-waiting-room d-staging-waiting-room">
+  <title id="t-staging-waiting-room">两步提交：暂存区是「等候室」</title>
+  <desc id="d-staging-waiting-room">分层堆叠图，自上而下三层：最上层是 git commit 快照——commit 时把等候室里的全部改动打包成一个快照，进入本地仓库的历史；中间层是暂存区——官方让你把它想象成改动的「等候室」，git add 文件名把挑出来的改动请进等候室，git add . 则把当前目录及其全部子目录的改动都请进来；最下层是工作区的改动——你编辑的文件里还没有被请进等候室的改动。底部注释：两步提交的好处是改了很多文件时可以挑选其中一部分一起提交、其余留到下次；后面要讲的「原子提交」最佳实践正是建立在这个两步机制上。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="accentbox" x="26" y="26" width="648" height="48" rx="6"/>
+  <text class="hb" x="146" y="55" text-anchor="middle"><tspan x="146">git commit 快照</tspan></text>
+  <text class="s" x="475" y="55" text-anchor="middle"><tspan x="475">把等候室里的全部改动打包成一个快照，进入本地仓库历史</tspan></text>
+  <rect class="box" x="26" y="84" width="648" height="54" rx="6"/>
+  <text class="hb" x="146" y="116" text-anchor="middle"><tspan x="146">暂存区（等候室）</tspan></text>
+  <text class="s" x="475" y="107" text-anchor="middle"><tspan x="475">git add 文件名 把挑出的改动请进来；git add . 请进当前目录及全部子目</tspan><tspan x="475" dy="17">录的改动</tspan></text>
+  <rect class="box" x="26" y="148" width="648" height="48" rx="6"/>
+  <text class="hb" x="146" y="177" text-anchor="middle"><tspan x="146">工作区的改动</tspan></text>
+  <text class="s" x="475" y="177" text-anchor="middle"><tspan x="475">你编辑的文件，改动还没有被请进等候室</tspan></text>
+  <rect class="note" x="26" y="210" width="648" height="52" rx="6"/>
+  <text class="s" x="350" y="232" text-anchor="middle"><tspan x="350">两步提交的好处：改了很多文件时，可以挑一部分一起提交，其余留到下次——「原子提交」最佳实践正是建立在</tspan><tspan x="350" dy="18">这个机制上。</tspan></text>
+</svg>

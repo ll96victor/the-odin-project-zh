@@ -1,11 +1,14 @@
 /* diagrams.js 与 assets/diagrams/ 下 SVG 概念图的独立测试（交接 §9）。
  *
- * 这些图是手工编写的 SVG 源码，没有经过任何构建或压缩，因此最容易出的问题是：
+ * 这些图是本站原创 SVG 源码（v4.11.4 及以前全部手工编写；v4.11.5 起新增图由
+ * tools/build-diagrams.mjs 生成，运行时形态不变），最容易出的问题是：
  * 标签没闭合（浏览器直接渲染成空白）、不小心引入远程字体或图片（违反“不依赖网络、
  * 不引入第三方图片版权”）、体积失控、以及绑定到不存在或尚未开放的课程。
- * 这里逐项钉住，另外把 §9 优先要求的那 8 个概念写死成期望绑定，
+ * 这里逐项钉住；绑定关系自 v4.11.5 起数据驱动——手工世代 8 条写死在 LEGACY_BINDINGS，
+ * 生成世代的绑定读自生成器 GEOMETRY_SPECS，两者并集必须与清单完全一致，
  * 这样日后有人删图或改绑定时测试会直接失败，而不是静默少一张图。
- */
+ * 生成图另有三道钉：生成器幂等、入库 SVG 与生成器产出逐字节一致（防「改了数据
+ * 忘了重新生成」）、sectionIndex 范围合法（按章归位试点）。 */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -24,9 +27,13 @@ const guide = loadData('lessons.js', 'ODIN_GUIDE');
 
 const TRADITIONAL_CHARS = '個們來時說後過發對還進種會學將無現點實樣經麼頭開問間馬鳥魚車東長書電話腦見觀視聽寫讀記憶體軟網頁連線圖檔資訊號設計劃輸處變據庫係統應執碼鍵數單雙復複選擇載陣類參屬監觸獲擊佈顏';
 
-/* §9 优先要求的 8 张图：概念 → 绑定的课程 id。
- * 写死绑定关系，是为了让“官方课程顺序变化”或“有人改绑定”时测试直接报警。 */
-const EXPECTED_BINDINGS = [
+/* §9 首轮手工编写的 8 张图：概念 → 绑定的课程 id。
+ * 写死绑定关系，是为了让「官方课程顺序变化」或「有人改绑定」时测试直接报警。
+ * v4.11.5（交接 3.G）起绑定关系改为**数据驱动**：生成图（tools/build-diagrams.mjs
+ * 的 GEOMETRY_SPECS）的绑定从生成器读取，本清单只继续钉住手工世代的 8 条——
+ * 两者并集必须与 diagrams.js 清单完全一致（防静默少图的保护不变：少任何一条、
+ * 改任何一条绑定，这里都会红）。 */
+const LEGACY_BINDINGS = [
   ['roles-html-css-js', 'introduction-to-html-and-css'],
   ['how-the-web-works', 'how-does-the-web-work'],
   ['command-line-tree', 'command-line-basics'],
@@ -37,7 +44,9 @@ const EXPECTED_BINDINGS = [
   ['url-and-paths', 'links-and-images']
 ];
 const MAX_EACH_BYTES = 20 * 1024;
-const MAX_TOTAL_BYTES = 200 * 1024;
+/* v4.11.5（交接 3.G）：图可规模化生产后总量上限 200 KB → 600 KB；
+ * 单张 20 KB 上限不变（手机流量与加载体验的红线没变）。 */
+const MAX_TOTAL_BYTES = 600 * 1024;
 /* SVG 里允许出现的系统字体（§9：使用系统字体，不打包字体） */
 const ALLOWED_FONTS = [
   'PingFang SC', 'Microsoft YaHei', 'system-ui', 'sans-serif', 'serif',
@@ -89,9 +98,9 @@ assert.ok(diagrams.directory.endsWith('/'), 'directory 应以斜杠结尾，便�
 assert.ok(/原创/.test(diagrams.license), '许可说明应写明本站原创（§9：不引入第三方图片版权）');
 assert.ok(/CC BY-NC-SA 4\.0/.test(diagrams.license), '许可说明应与全站内容一致采用 CC BY-NC-SA 4.0');
 assert.ok(Array.isArray(diagrams.diagrams), 'diagrams 必须是数组');
-/* §9 要求 6-10 张，本轮做满优先清单里的 8 张 */
-assert.ok(diagrams.diagrams.length >= 6 && diagrams.diagrams.length <= 10, `§9 要求 6-10 张图，实际 ${diagrams.diagrams.length}`);
-assert.equal(diagrams.diagrams.length, EXPECTED_BINDINGS.length, '本轮做满 §9 优先要求的 8 张');
+/* §9 下限保持（图是补充不是主体，至少 6 张才构成一套概念骨架）；
+ * 精确数量由文件尾的「绑定并集」断言钉住（手工 8 条 + 生成器 specs）。 */
+assert.ok(diagrams.diagrams.length >= 6, `§9 要求至少 6 张图，实际 ${diagrams.diagrams.length}`);
 
 /* ---------- 2. 逐条校验 ---------- */
 const ids = new Set();
@@ -99,11 +108,17 @@ const files = new Set();
 let totalBytes = 0;
 for (const item of diagrams.diagrams) {
   const label = item.id || '(缺 id)';
-  assert.deepEqual(
-    Object.keys(item).sort(),
-    ['alt', 'caption', 'file', 'id', 'lessonId', 'points', 'zhTitle'].sort(),
-    `${label}: 字段集合应恰好是这 7 个`
-  );
+  /* v4.11.5（交接 3.E）：字段集合 = 原 7 个必需 + 可选 sectionIndex
+   * （带该字段的图插入「中文讲解」对应章节之后；不带的保持旧位置）。 */
+  const keys = Object.keys(item).sort();
+  const hasSectionIndex = keys.includes('sectionIndex');
+  const expectedKeys = ['alt', 'caption', 'file', 'id', 'lessonId', 'points', 'zhTitle']
+    .concat(hasSectionIndex ? ['sectionIndex'] : []).sort();
+  assert.deepEqual(keys, expectedKeys, `${label}: 字段集合应恰好是 7 个必需${hasSectionIndex ? ' + sectionIndex' : ''}`);
+  if (hasSectionIndex) {
+    assert.ok(Number.isInteger(item.sectionIndex) && item.sectionIndex >= 0,
+      `${label}: sectionIndex 必须是非负整数（章节下标）`);
+  }
   for (const key of ['id', 'file', 'lessonId', 'zhTitle', 'alt', 'caption']) {
     assert.equal(typeof item[key], 'string', `${label}: ${key} 必须是字符串`);
     assert.ok(item[key].trim(), `${label}: ${key} 不得为空`);
@@ -189,6 +204,12 @@ for (const item of diagrams.diagrams) {
   const lesson = guide.lessons.find(entry => entry.id === item.lessonId);
   assert.ok(lesson, `${label}: 绑定到不存在的课程 ${item.lessonId}`);
   assert.ok(Array.isArray(lesson.sections), `${label}: 绑定的课程 ${item.lessonId} 不是 v2 自足讲解格式，渲染路径里没有插图位置`);
+  /* v4.11.5（交接 3.E）：sectionIndex 范围校验——0..sections.length-1。
+   * 渲染层对越界值有回落（不崩），但数据层越界必须在这里红：坏数据不进仓库。 */
+  if (hasSectionIndex) {
+    assert.ok(item.sectionIndex < lesson.sections.length,
+      `${label}: sectionIndex ${item.sectionIndex} 越界（本课共 ${lesson.sections.length} 章，合法范围 0..${lesson.sections.length - 1}）`);
+  }
 
   /* ---------- 6. 简体中文保险 ---------- */
   const chinese = item.zhTitle + item.alt + item.caption + item.points.join('');
@@ -196,18 +217,28 @@ for (const item of diagrams.diagrams) {
     assert.ok(!chinese.includes(char), `${label}: 出现繁体字「${char}」`);
   }
 }
-assert.ok(totalBytes < MAX_TOTAL_BYTES, `8 张图合计 ${totalBytes} B 超过 §9 的 200 KB 上限`);
+assert.ok(totalBytes < MAX_TOTAL_BYTES, `全部图合计 ${totalBytes} B 超过 600 KB 上限（v4.11.5 起图可规模化生产，交接 3.G）`);
 
-/* ---------- 7. 绑定关系与分布 ---------- */
-assert.deepEqual(
-  diagrams.diagrams.map(item => [item.id, item.lessonId]).sort(),
-  [...EXPECTED_BINDINGS].sort(),
-  '§9 优先要求的 8 个概念与绑定课程必须完全一致'
-);
+/* ---------- 7. 绑定关系与分布（v4.11.5 数据驱动） ---------- */
+/* 绑定并集断言（手工 8 条 + 生成器 GEOMETRY_SPECS）在文件尾第 9 节执行——
+ * 生成器是 ESM，只能异步 import；防静默少图的保护在那里：清单与
+ * 「手工清单 + 生成器几何数据」的并集必须完全一致。 */
 const perLesson = new Map();
 diagrams.diagrams.forEach(item => perLesson.set(item.lessonId, (perLesson.get(item.lessonId) || 0) + 1));
 for (const [lessonId, count] of perLesson) {
-  assert.ok(count <= 2, `${lessonId}: 一课挂了 ${count} 张图，图是补充不是主体（§9 不替代正文）`);
+  if (count <= 2) continue;
+  /* 按章归位试点纪律（v4.11.5 交接 3.E）：超过 2 张图的课，每张图都必须带
+   * 互不相同的 sectionIndex（一章一图）。「图堆在整节末尾」是旧做法，
+   * 试点课作为例外放开数量，但放开的方式是逐章归位而不是无限制堆图。 */
+  const items = diagrams.diagrams.filter(entry => entry.lessonId === lessonId);
+  const lesson = guide.lessons.find(entry => entry.id === lessonId);
+  const indexes = items.map(entry => entry.sectionIndex);
+  assert.ok(indexes.every(value => Number.isInteger(value)),
+    `${lessonId}: 一课 ${count} 张图必须全部带 sectionIndex（按章归位纪律）`);
+  assert.equal(new Set(indexes).size, indexes.length,
+    `${lessonId}: sectionIndex 必须互不相同（一章一图）`);
+  assert.ok(indexes.every(value => value >= 0 && value < lesson.sections.length),
+    `${lessonId}: sectionIndex 越出章节范围`);
 }
 assert.ok(perLesson.size >= 6, `图应分布在多节课上，实际只覆盖 ${perLesson.size} 节`);
 
@@ -225,4 +256,52 @@ for (const file of ['index.html', 'lesson.html']) {
 const onDisk = fs.readdirSync(path.join(root, diagrams.directory)).filter(name => name.endsWith('.svg')).sort();
 assert.deepEqual(onDisk, [...files].sort(), 'assets/diagrams/ 下的文件应与清单完全对应，不多不少');
 
-console.log(`通过：${diagrams.diagrams.length} 张本站原创 SVG 概念图（合计 ${(totalBytes / 1024).toFixed(1)} KB，单张最大 ${(Math.max(...diagrams.diagrams.map(d => fs.statSync(path.join(root, diagrams.directory, d.file)).size)) / 1024).toFixed(1)} KB）、覆盖 ${perLesson.size} 节课、§9 优先 8 个概念绑定一致、XML 良构、含 title/desc 与 role=img、只用系统字体、无远程引用与脚本、单张 < 20 KB 且合计 < 200 KB、简体中文保险、两个 HTML 的加载顺序。`);
+/* ---------- 9. 生成器一致性（v4.11.5 交接 3.D / 3.G） ----------
+ * 生成器是 ESM 且是开发期工具，这里动态 import 它的纯函数做四件事：
+ *   9a 绑定并集：diagrams.js 清单 = 手工 8 条 + GEOMETRY_SPECS，逐条 lessonId /
+ *      sectionIndex / file 交叉一致——少一条、改一条绑定、清单与生成器任一边
+ *      漂移都会红（防静默少图的保护，取代 v4.11.4 之前写死 8 条的写法）；
+ *   9b 幂等：同一 spec 连续两次 buildSvg 产出逐字节一致；
+ *   9c 入库一致：assets/diagrams/ 下的生成图必须与 buildSvg 产出逐字节一致
+ *      （CRLF 归一后比——autocrlf 检出可能带 \r\n），防止「改了数据忘了重新生成」；
+ *   9d 清单文字同步：生成 SVG 的 <title>/<desc> 内容必须等于清单 zhTitle/alt
+ *      （buildSvg 直接读清单，这里反向钉住清单与磁盘的对应关系）。 */
+(async () => {
+  const { pathToFileURL } = require('node:url');
+  const tool = await import(pathToFileURL(path.join(root, 'tools', 'build-diagrams.mjs')).href);
+  const specs = tool.GEOMETRY_SPECS;
+  assert.ok(Array.isArray(specs) && specs.length >= 1, '9a: 生成器必须有几何数据 specs');
+  const specIds = new Set(specs.map(spec => spec.id));
+  assert.equal(specIds.size, specs.length, '9a: specs 的 id 不得重复');
+  /* 9a 绑定并集 */
+  const expectedBindings = [...LEGACY_BINDINGS, ...specs.map(spec => [spec.id, spec.lessonId])];
+  assert.deepEqual(
+    diagrams.diagrams.map(item => [item.id, item.lessonId]).sort(),
+    expectedBindings.slice().sort(),
+    '9a: diagrams.js 清单必须恰好等于「手工 8 条 + 生成器 specs」的绑定并集'
+  );
+  for (const spec of specs) {
+    const manifestEntry = diagrams.diagrams.find(item => item.id === spec.id);
+    assert.ok(manifestEntry, `9a: 清单缺少生成图条目 ${spec.id}（静默少图保护）`);
+    assert.equal(manifestEntry.file, spec.file, `9a: ${spec.id} 清单 file 与生成器不一致`);
+    assert.equal(manifestEntry.lessonId, spec.lessonId, `9a: ${spec.id} 绑定课程被改动`);
+    assert.equal(manifestEntry.sectionIndex, spec.sectionIndex, `9a: ${spec.id} sectionIndex 清单与生成器不一致`);
+    /* 9b 幂等 */
+    const first = tool.buildSvg(manifestEntry, spec);
+    const second = tool.buildSvg(manifestEntry, spec);
+    assert.equal(first, second, `9b: ${spec.id} 生成器不幂等（同样输入两次产出不同）`);
+    /* 9c 入库一致（autocrlf 检出可能带 \r\n，归一后比） */
+    const filePath = path.join(root, diagrams.directory, spec.file);
+    const onDiskText = fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
+    assert.equal(onDiskText, first,
+      `9c: ${spec.file} 入库内容与生成器产出不一致——数据改过但忘了跑 node tools/build-diagrams.mjs`);
+    /* 9d title/desc 与清单文字同源 */
+    assert.ok(onDiskText.includes(`<title id="t-${spec.id}">`), `9d: ${spec.id} SVG title id 规范`);
+    assert.ok(onDiskText.includes(`<desc id="d-${spec.id}">`), `9d: ${spec.id} SVG desc id 规范`);
+    assert.ok(onDiskText.includes(manifestEntry.zhTitle), `9d: ${spec.id} SVG title 应等于清单 zhTitle`);
+  }
+  console.log(`通过：${diagrams.diagrams.length} 张本站原创 SVG 概念图（合计 ${(totalBytes / 1024).toFixed(1)} KB，单张最大 ${(Math.max(...diagrams.diagrams.map(d => fs.statSync(path.join(root, diagrams.directory, d.file)).size)) / 1024).toFixed(1)} KB）、覆盖 ${perLesson.size} 节课；手工 8 条绑定 + 生成器 ${specs.length} 条 specs 数据驱动并集一致、XML 良构、含 title/desc 与 role=img、只用系统字体、无远程引用与脚本、单张 < 20 KB 且合计 < 600 KB、简体中文保险、sectionIndex 范围合法（按章归位试点）、两个 HTML 的加载顺序、生成器幂等且入库 SVG 与产出逐字节一致。`);
+})().catch(error => {
+  console.error(error && error.message ? error.message : error);
+  process.exitCode = 1;
+});

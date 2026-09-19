@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="268" viewBox="0 0 740 268" role="img" aria-labelledby="t-focus-diffuse-modes d-focus-diffuse-modes">
+  <title id="t-focus-diffuse-modes">专注模式与发散模式</title>
+  <desc id="d-focus-diffuse-modes">双栏对比图。左栏是专注模式（focus mode）：你有意识地在学习——阅读、看视频、做项目，注意力直接对着学习材料。右栏是发散模式（diffuse mode）：潜意识在工作，发生在你没有主动学习的时候，比如洗碗、运动、睡觉；大脑把正在学的东西和已经知道的其他东西连接起来，突破往往就发生在这里。底部注释：官方学习观浓缩成三步——理解它、练习它、最后把它讲给别人听；学习时大脑在两种模式之间不断切换。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">专注模式（focus mode）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">你有意识地在学习</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">阅读、看视频、做项目</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">注意力直接对着学习材料</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">发散模式（diffuse mode）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">潜意识在工作：你没有主动学习的时候</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">发生在洗碗、运动、睡觉时</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">把正在学的和已经知道的东西连接起来——突破往往在</tspan><tspan x="413" dy="18">这里发生</tspan></text>
+  <rect class="note" x="22" y="194" width="696" height="52" rx="6"/>
+  <text class="s" x="370" y="216" text-anchor="middle"><tspan x="370">官方学习观三步：理解它、练习它、最后把它讲给别人听（understand it, practice it, teach it）。学习时大脑</tspan><tspan x="370" dy="18">在两种模式之间不断切换。</tspan></text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="268" viewBox="0 0 740 268" role="img" aria-labelledby="t-frontend-backend-fullstack d-frontend-backend-fullstack">
+  <title id="t-frontend-backend-fullstack">前端、后端与全栈</title>
+  <desc id="d-frontend-backend-fullstack">双栏对比图。左栏是前端（front end）：你在浏览器里看到的网站内容，包括呈现方式与界面元素如导航栏；使用 HTML、CSS、JavaScript 及相关框架；职责是内容有效呈现、用户获得优秀体验。右栏是后端（back end）：应用的「内脏」，住在服务器上；存储并提供程序数据，确保前端拿到它需要的东西；使用 Java、Python、Ruby、JavaScript 这类语言，用户量达数百万时非常复杂。底部注释：全栈是对两端都能上手——官方明确说 TOP 教的是全栈开发。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">前端（front end）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">你在浏览器里看到的网站内容：呈现方式与界面元素</tspan><tspan x="52" dy="18">（如导航栏）</tspan></text>
+  <circle cx="42" cy="130" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="134" text-anchor="start"><tspan x="52">工具：HTML、CSS、JavaScript 及相关框架</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">职责：内容有效呈现、用户获得优秀的使用体验</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">后端（back end）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">应用的「内脏」，住在服务器上</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">存储并提供程序数据，确保前端拿到它需要的东西</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">工具：Java、Python、Ruby、JavaScript 等语言；</tspan><tspan x="413" dy="18">用户量大时非常复杂</tspan></text>
+  <rect class="note" x="22" y="194" width="696" height="52" rx="6"/>
+  <text class="s" x="370" y="216" text-anchor="middle"><tspan x="370">全栈（full stack）= 前端和后端都能上手。官方在这里给了明确答案：TOP</tspan><tspan x="370" dy="18">教的是全栈开发，覆盖网页开发的各个方 面。</tspan></text>
+</svg>

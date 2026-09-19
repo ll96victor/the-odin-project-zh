@@ -389,9 +389,11 @@ const local = value => [...value];
     'first-steps',
     /* v4.2 新增三项：完成 19 课共 790 XP（Lv.8）解锁 level-5；
      * daily 被替换为 600 秒之前，今日一度累计过 1800 秒，day-30m 在那次求值时合法解锁 */
-    'level-5', 'day-30m'
+    'level-5', 'day-30m',
+    /* v4.11.3 C3：完成 19 课 = 包含全部 4 门大课，两个大课成就合法解锁 */
+    'heavy-first', 'heavy-all'
   ];
-  assert.deepEqual(local(unlockedIds).sort(), [...EXPECTED_UNLOCKED].sort(), check('已解锁成就恰好是这 20 个，没有凭空多解锁'));
+  assert.deepEqual(local(unlockedIds).sort(), [...EXPECTED_UNLOCKED].sort(), check('已解锁成就恰好是这 22 个，没有凭空多解锁'));
   assert.equal(unlockedIds.length, EXPECTED_UNLOCKED.length, check('已解锁成就数与预期集合一致'));
   /* 未达标的一律不许解锁：时长只到 30 分钟、streak 只到 7 天、官方任务与自测都没勾过、
    * 复习从没标记过。逐个点名，避免“集合断言通过但原因不对”。 */
@@ -404,7 +406,7 @@ const local = value => [...value];
   }
   /* 成就总数按 v4.2 配置断言（交接 §7 要求约 55–65 个；Batch 4 交付 52 + Batch 5 的 3 个每日目标类） */
   assert.ok(Logic.ACHIEVEMENTS.length >= 55 && Logic.ACHIEVEMENTS.length <= 65, check('成就总数落在 §7 要求的 55–65 个之间'));
-  assert.equal(Logic.ACHIEVEMENTS.length, 61, check('成就总数与本轮配置一致（61，v4.3 新增 first-steps / boss-first / boss-precheck-high + Batch 10 隐藏 precheck-master / mastered-3）'));
+  assert.equal(Logic.ACHIEVEMENTS.length, 63, check('成就总数与本轮配置一致（63 = v4.3 的 61 + v4.11.3 的 heavy-first / heavy-all）'));
   /* v3 已有的 12 个 achievement id 必须全部原样保留（交接 §4：避免现有档案失效） */
   const V3_IDS = ['first-start', 'first-lesson', 'active-30m', 'active-2h', 'active-10h',
     'streak-3', 'streak-7', 'unit-0', 'unit-1', 'unit-2', 'unit-3', 'all-lessons'];

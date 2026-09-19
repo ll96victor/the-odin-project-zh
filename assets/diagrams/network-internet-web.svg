@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="352" viewBox="0 0 720 352" role="img" aria-labelledby="t-network-internet-web d-network-internet-web">
+  <title id="t-network-internet-web">网络、互联网与 Web：三层包含关系</title>
+  <desc id="d-network-internet-web">三层嵌套方框示意图。最外层是网络（network）：把多台设备互联起来，让它们能互相通信，你家的手机、电脑、路由器就是一个小网络；中间层是互联网（internet）：把全世界无数小网络连接成一个超大网络，跨城市、跨国通信，本义就是「网络之间」；最内层是 Web（万维网）：建立在互联网之上的一种服务，网页通过它提供。中间层内、最内层外还画有电子邮件与文件传输两个小方框，表示它们同样跑在互联网上，但不属于 Web。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="20" y="20" width="680" height="264" rx="6"/>
+  <text class="hb" x="36" y="44" text-anchor="start"><tspan x="36">网络（network）</tspan></text>
+  <text class="s" x="36" y="64" text-anchor="start"><tspan x="36">把多台设备互联起来，让它们能互相通信——你家的手机、电脑、路由器就是一个小网络</tspan></text>
+  <rect class="accentbox" x="42" y="76" width="636" height="190" rx="6"/>
+  <text class="hb" x="58" y="100" text-anchor="start"><tspan x="58">互联网（internet）</tspan></text>
+  <text class="s" x="58" y="120" text-anchor="start"><tspan x="58">把全世界无数小网络连接成一个超大网络，跨城市、跨国通信；本义就是「网络之间」</tspan></text>
+  <rect class="box" x="64" y="132" width="347" height="91" rx="6"/>
+  <text class="hb" x="80" y="156" text-anchor="start"><tspan x="80">Web（万维网）</tspan></text>
+  <text class="s" x="80" y="176" text-anchor="start"><tspan x="80">建立在互联网之上的一种服务：网页通过它提供</tspan></text>
+  <text class="s" x="429" y="148" text-anchor="start"><tspan x="429">同样跑在互联网上：</tspan></text>
+  <rect class="chip" x="429" y="164" width="96" height="32" rx="6"/>
+  <text class="b" x="477" y="185" text-anchor="middle"><tspan x="477">电子邮件</tspan></text>
+  <rect class="chip" x="429" y="206" width="96" height="32" rx="6"/>
+  <text class="b" x="477" y="227" text-anchor="middle"><tspan x="477">文件传输</tspan></text>
+  <rect class="note" x="20" y="298" width="680" height="34" rx="6"/>
+  <text class="s" x="360" y="320" text-anchor="middle"><tspan x="360">Web 不等于互联网：它只是互联网上的一种服务。分清三层包含关系，是建立正确心智模型的第一步。</tspan></text>
+</svg>

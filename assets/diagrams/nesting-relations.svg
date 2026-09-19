@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="207" viewBox="0 0 640 207" role="img" aria-labelledby="t-nesting-relations d-nesting-relations">
+  <title id="t-nesting-relations">嵌套与缩进：父、子、兄弟</title>
+  <desc id="d-nesting-relations">层级树示意图。根节点是 body 元素——它是父元素（parent）；下面挂着两个 p 段落元素，它们是被嵌套在 body 里的子元素（children），两个 p 处在同一嵌套层级、互为兄弟（siblings）。官方在所有示例里把位于其他元素内部的元素做了缩进（每层嵌套缩进两个空格）——缩进让嵌套层级对自己和将来处理这份 HTML 的其他开发者清晰可读。这些关系在后面用 CSS 加样式、用 JavaScript 添加行为时会变得重要得多；现在需要的是知道元素之间怎样关联，以及描述这些关系的术语。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M320,67 L320,95 L221,95 L221,117" marker-end="url(#arr)"/>
+  <path class="spoke" d="M320,67 L320,95 L380,95 L380,117" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="261" y="26" width="118" height="41" rx="6"/>
+  <text class="hb" x="320" y="51" text-anchor="middle"><tspan x="320">body（父元素）</tspan></text>
+  <rect class="box" x="173" y="123" width="96" height="41" rx="6"/>
+  <text class="b" x="221" y="148" text-anchor="middle"><tspan x="221">p（子元素）</tspan></text>
+  <rect class="box" x="293" y="123" width="174" height="58" rx="6"/>
+  <text class="b" x="380" y="148" text-anchor="middle"><tspan x="380">p（另一个子元素，与前者</tspan><tspan x="380" dy="18">是兄弟）</tspan></text>
+</svg>

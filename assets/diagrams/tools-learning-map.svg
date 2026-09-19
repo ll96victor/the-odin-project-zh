@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="816" height="154" viewBox="0 0 816 154" role="img" aria-labelledby="t-tools-learning-map d-tools-learning-map">
+  <title id="t-tools-learning-map">工具清单就是后面的学习地图</title>
+  <desc id="d-tools-learning-map">四步流程图，从左到右：文本编辑器——第 8 课上手上；命令行——第 9 课学；Git 与 GitHub——第 10 到 12 课学；搜索引擎与 Stack Overflow——遇到具体问题时反复用。底部注释说明：这一课只需要先认个脸，知道这些工具存在、各自解决什么问题；真正的熟练来自后面一课一课地用，不必因为不认识它们而先去自学一遍。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="55" text-anchor="middle"><tspan x="102">文本编辑器</tspan></text>
+  <text class="s" x="102" y="75" text-anchor="middle"><tspan x="102">第 8 课上手上</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="55" text-anchor="middle"><tspan x="306">命令行</tspan></text>
+  <text class="s" x="306" y="75" text-anchor="middle"><tspan x="306">第 9 课学</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="55" text-anchor="middle"><tspan x="510">Git 与 GitHub</tspan></text>
+  <text class="s" x="510" y="75" text-anchor="middle"><tspan x="510">第 10–12 课学</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="638" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="714" y="46" text-anchor="middle"><tspan x="714">搜索 / Stack</tspan><tspan x="714" dy="18">Overflow</tspan></text>
+  <text class="s" x="714" y="75" text-anchor="middle"><tspan x="714">遇到问题反复用</tspan></text>
+  <path class="edge" d="M586,57 L631,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="764" height="34" rx="6"/>
+  <text class="s" x="408" y="116" text-anchor="middle"><tspan x="408">现在只需先认个脸：知道这些工具存在、各自解决什么问题。真正的熟练来自后面一课一课地用，不必先去自学一遍。</tspan></text>
+</svg>

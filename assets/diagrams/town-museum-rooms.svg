@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-town-museum-rooms d-town-museum-rooms">
+  <title id="t-town-museum-rooms">城镇、博物馆和房间：官方的链接比喻</title>
+  <desc id="d-town-museum-rooms">概念关系图。中心是域名 town.com——把它想成一座城镇。周围五个卫星：/museum 目录——你的网站所在的目录，是城镇里的一座博物馆；movie_room.html——网站上的每个页面是博物馆里的一个房间，这间是电影放映室；shops/coffee_shop.html——子目录里的页面，是博物馆里的商店房间；相对链接 ./shops/coffee_shop.html——从当前房间（电影放映室）到另一个房间（商店）的路线指引；绝对链接——完整的路线指引，包含协议（https）、域名（town.com），以及从那个域名开始的路径（/museum/shops/coffee_shop.html）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,205 L366,105"/>
+  <path class="spoke" d="M456,219 L473,215"/>
+  <path class="spoke" d="M401,278 L466,345"/>
+  <path class="spoke" d="M331,278 L258,354"/>
+  <path class="spoke" d="M276,219 L259,215"/>
+  <rect class="accentbox" x="276" y="205" width="180" height="73" rx="10"/>
+  <text class="hb" x="366" y="239" text-anchor="middle"><tspan x="366">域名 town.com</tspan></text>
+  <text class="s" x="366" y="255" text-anchor="middle"><tspan x="366">一座城镇</tspan></text>
+  <rect class="box" x="252" y="29" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="51" text-anchor="middle"><tspan x="366">/museum 目录</tspan></text>
+  <text class="s" x="366" y="67" text-anchor="middle"><tspan x="366">你的网站所在的目录 = 城镇里的一</tspan><tspan x="366" dy="17">座博物馆</tspan></text>
+  <rect class="box" x="473" y="149" width="228" height="76" rx="6"/>
+  <text class="hb" x="587" y="172" text-anchor="middle"><tspan x="587">movie_room.html</tspan></text>
+  <text class="s" x="587" y="188" text-anchor="middle"><tspan x="587">网站上的每个页面 = 博物馆里的一</tspan><tspan x="587" dy="17">个房间（这间是电影放映室）</tspan></text>
+  <rect class="box" x="388" y="345" width="228" height="76" rx="6"/>
+  <text class="hb" x="502" y="368" text-anchor="middle"><tspan x="502">shops/coffee_shop.html</tspan></text>
+  <text class="s" x="502" y="384" text-anchor="middle"><tspan x="502">子目录里的页面 =</tspan><tspan x="502" dy="17">博物馆里的商店 房间</tspan></text>
+  <rect class="box" x="116" y="354" width="228" height="59" rx="6"/>
+  <text class="hb" x="230" y="376" text-anchor="middle"><tspan x="230">相对链接 ./shops/coffee_shop.html</tspan></text>
+  <text class="s" x="230" y="392" text-anchor="middle"><tspan x="230">从当前房间到另一个房间的路线指引</tspan></text>
+  <rect class="box" x="31" y="141" width="228" height="93" rx="6"/>
+  <text class="hb" x="145" y="164" text-anchor="middle"><tspan x="145">绝对链接</tspan></text>
+  <text class="s" x="145" y="179" text-anchor="middle"><tspan x="145">完整路线：协议（https）+ 域名（</tspan><tspan x="145" dy="17">town.com）+ 从域名开始的路径（</tspan><tspan x="145" dy="17">/museum/shops/coffee_shop.html）</tspan></text>
+</svg>

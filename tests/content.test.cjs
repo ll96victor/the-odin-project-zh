@@ -246,20 +246,18 @@ const textOf = el => (!el ? '' : el._text ? el._text : (el.childNodes || []).map
 const mountLesson = id => newPage({ storage: makeStorage(), page: 'lesson', search: `?id=${id}`, href: `http://127.0.0.1:8765/lesson.html?id=${id}` });
 const noticeTexts = page => collectByClass(page.dom.body, 'notice').map(textOf).filter(t => t.includes('自动核验受限'));
 
-/* A1：本课有受限条目 → 恰有一条提示，措辞与本课一致，不再出现全局「以上 5 条」 */
-{
-  const page = mountLesson('join-the-odin-community');
-  const notices = noticeTexts(page);
-  assert.equal(notices.length, 1, 'join-the-odin-community 恰有一条自动核验受限提示');
-  assert.ok(notices[0].includes('本课 3 条'), '提示措辞点名本课 3 条');
-  assert.ok(!notices[0].includes('以上 5 条'), '提示不再使用全局措辞「以上 5 条」');
-  const page2 = mountLesson('html-boilerplate');
-  assert.equal(noticeTexts(page2).length, 1, 'html-boilerplate 恰有一条提示');
-  assert.ok(noticeTexts(page2)[0].includes('本课 1 条'), 'html-boilerplate 提示点名本课 1 条');
+/* A1（v4.11.4 反向钉子）：块级「自动核验受限」提示已从课页移除
+ * （CONTENT-STYLE-GUIDE.md 第 1 节「读者页面零审计信息」）；受限条目由
+ * 单卡「核验说明」（resource.note）承担——19 课全部不得出现块级提示，
+ * 含此前确有受限条目的 join-the-odin-community / html-boilerplate / links-and-images。 */
+for (const lesson of data.lessons) {
+  assert.equal(noticeTexts(mountLesson(lesson.id)).length, 0, `${lesson.id} 课页零块级「自动核验受限」提示`);
 }
-/* A1：本课无受限条目 → 无提示（这是本轮修复的直接证明——修复前 19 课全部显示） */
-for (const id of ['how-this-course-will-work', 'working-with-text', 'commit-messages']) {
-  assert.equal(noticeTexts(mountLesson(id)).length, 0, `${id} 无受限条目则无提示`);
+{
+  /* 受限条目的诚实记录仍在单卡核验说明里（唯一例外，不是全局审计块） */
+  const page = mountLesson('join-the-odin-community');
+  const notes = collectByClass(page.dom.body, 'resource-note').map(textOf);
+  assert.ok(notes.some(t => t.includes('核验说明')), 'join-the-odin-community 单卡核验说明仍在（诚实记录保留）');
 }
 /* B 档：速览渲染为导读 dl 的第一行；C 档：译文块静态展开且署名可见 */
 {
@@ -286,4 +284,4 @@ for (const id of ['how-this-course-will-work', 'working-with-text', 'commit-mess
 assert.equal(collectByClass(mountLesson('working-with-text').dom.body, 'resource-translation').length, 0, '课16 无译文块');
 
 const quizTotal = data.lessons.reduce((n, l) => n + l.quiz.length, 0);
-console.log(`通过：19 课顺序与来源、每课六类内容、${quizTotal} 道自测、${V2_LESSONS.length} 课 v2 自足讲解格式与繁体保险、重点任务及范围边界、本地资源和无构建依赖、${RES.length} 条外部资料（其中 ${resourceData.stats.withZh} 条有已核验中文版、${resourceData.stats.guideOnly} 条为本站中文导读 + 英文原文；${RES.length} 条全部带中文速览、${TRANSLATED.length} 条 CC 来源带本站中文精译；A1 受限提示按课渲染已验证）。`);
+console.log(`通过：19 课顺序与来源、每课六类内容、${quizTotal} 道自测、${V2_LESSONS.length} 课 v2 自足讲解格式与繁体保险、重点任务及范围边界、本地资源和无构建依赖、${RES.length} 条外部资料（其中 ${resourceData.stats.withZh} 条有已核验中文版、${resourceData.stats.guideOnly} 条为本站中文导读 + 英文原文；${RES.length} 条全部带中文速览、${TRANSLATED.length} 条 CC 来源带本站中文精译；v4.11.4 课页零块级受限提示、单卡核验说明保留）。`);

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="287" viewBox="0 0 640 287" role="img" aria-labelledby="t-heading-levels d-heading-levels">
+  <title id="t-heading-levels">标题：六个级别，级别代表层级</title>
+  <desc id="d-heading-levels">层级树示意图。根节点是 h1——最大、最重要的标题，应当总是用于整个页面的标题；h1 下挂两个 h2 子节点（页面中较大部分内容的标题，互为兄弟）；第一个 h2 下再挂两个 h3 子节点（更小部分内容的标题，同样互为兄弟）。标题一共有 6 个不同级别，从 &lt;h1&gt; 到 &lt;h6&gt;：标签里的数字代表级别，h1 最大，h6 是最低级别里最小的标题；创建方式与段落类似，把标题文字包进对应标签。使用正确级别很重要，因为级别为内容提供了层级结构（hierarchy）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M320,67 L320,95 L218,95 L218,117" marker-end="url(#arr)"/>
+  <path class="spoke" d="M320,67 L320,95 L507,95 L507,117" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="249" y="26" width="142" height="41" rx="6"/>
+  <text class="hb" x="320" y="51" text-anchor="middle"><tspan x="320">h1：整个页面的标题</tspan></text>
+  <path class="spoke" d="M218,164 L218,192 L114,192 L114,214" marker-end="url(#arr)"/>
+  <path class="spoke" d="M218,164 L218,192 L301,192 L301,214" marker-end="url(#arr)"/>
+  <rect class="box" x="140" y="123" width="155" height="41" rx="6"/>
+  <text class="b" x="218" y="148" text-anchor="middle"><tspan x="218">h2：大部分内容的标题</tspan></text>
+  <rect class="box" x="43" y="220" width="142" height="41" rx="6"/>
+  <text class="b" x="114" y="245" text-anchor="middle"><tspan x="114">h3：较大部分的标题</tspan></text>
+  <rect class="box" x="209" y="220" width="184" height="41" rx="6"/>
+  <text class="b" x="301" y="245" text-anchor="middle"><tspan x="301">h3：另一个较大部分（兄弟）</tspan></text>
+  <rect class="box" x="417" y="123" width="181" height="41" rx="6"/>
+  <text class="b" x="507" y="148" text-anchor="middle"><tspan x="507">h2：另一个大部分（兄弟）</tspan></text>
+</svg>

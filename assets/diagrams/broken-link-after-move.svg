@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="816" height="154" viewBox="0 0 816 154" role="img" aria-labelledby="t-broken-link-after-move d-broken-link-after-move">
+  <title id="t-broken-link-after-move">移动文件之后链接为什么断了</title>
+  <desc id="d-broken-link-after-move">四盒流程图，从左到右：起初 index.html 与 about.html 在同一个目录里，href 直接写 about.html 就能正常跳转——因为可以用文件名作为链接的 href 值；接着为了把网站目录组织得更好，创建 pages 目录并把 about.html 移进去；刷新 index 页面再点链接——它断了，因为 about 页面文件的位置变了而 href 还指向旧位置；修法很简单——把 pages/ 目录包含进 href 值，写成 pages/about.html，那是 about 文件相对于 index 文件的新位置，刷新后链接恢复正常。底部注释：相对链接不包含域名，路径相对于创建链接的那个页面计算——文件位置变了，路径要跟着变。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="46" text-anchor="middle"><tspan x="102">index 链接</tspan><tspan x="102" dy="18">about.html</tspan></text>
+  <text class="s" x="102" y="68" text-anchor="middle"><tspan x="102">同目录：href 直接写</tspan><tspan x="102" dy="15">文件名，正常</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="46" text-anchor="middle"><tspan x="306">把 about.html 移</tspan><tspan x="306" dy="18">进 pages/</tspan></text>
+  <text class="s" x="306" y="75" text-anchor="middle"><tspan x="306">组织更好的网站目录</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="55" text-anchor="middle"><tspan x="510">链接断了</tspan></text>
+  <text class="s" x="510" y="68" text-anchor="middle"><tspan x="510">文件位置变了，href</tspan><tspan x="510" dy="15">还指向旧位置</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="638" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="714" y="55" text-anchor="middle"><tspan x="714">href="pages/about.html"</tspan></text>
+  <text class="s" x="714" y="68" text-anchor="middle"><tspan x="714">按相对新位置更新，恢</tspan><tspan x="714" dy="15">复正常</tspan></text>
+  <path class="edge" d="M586,57 L631,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="764" height="34" rx="6"/>
+  <text class="s" x="408" y="116" text-anchor="middle"><tspan x="408">相对链接不包含域名，路径相对于「创建链接的那个页面」计算——文件位置变了，路径要跟着变。</tspan></text>
+</svg>

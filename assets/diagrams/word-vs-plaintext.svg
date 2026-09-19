@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="280" viewBox="0 0 740 280" role="img" aria-labelledby="t-word-vs-plaintext d-word-vs-plaintext">
+  <title id="t-word-vs-plaintext">为什么不能用 Microsoft Word 写代码</title>
+  <desc id="d-word-vs-plaintext">双栏对比图。左栏是富文本编辑器（Microsoft Word、LibreOffice Writer）：很适合写一篇文章、制作漂亮格式化文档；但文件里嵌入的不只是文字，还有「怎样在屏幕上显示这些文字」的信息与「怎样显示文档中嵌入图形」的数据，这些额外信息让其他程序无法把文件当代码读取。右栏是纯文本编辑器（VSCode、Sublime）：不保存任何额外信息、只保存文字；只保存文字，才能让其他程序——比如 Ruby 的解释器——把文件当作代码来读取并执行。底部注释：恰恰是那些让富文本编辑器擅长漂亮文档的功能，使它们不适合写代码。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="188" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">富文本编辑器（Word / Writer）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">很适合写一篇文章、制作漂亮格式化文档</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">文件里嵌入的不只是文字：还有「怎样在屏幕上显示</tspan><tspan x="52" dy="18">这些文字」的信息</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">还包含「怎样显示文档中嵌入图形」的数据</tspan></text>
+  <circle cx="42" cy="190" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="194" text-anchor="start"><tspan x="52">这些额外信息让解释器无法把文件当代码读取</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="188" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">纯文本编辑器（VSCode / Sublime）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">不保存任何额外信息，只保存文字</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">其他程序——比如 Ruby 的解释器——能把文件当作代</tspan><tspan x="413" dy="18">码读取并执行</tspan></text>
+  <circle cx="403" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="164" text-anchor="start"><tspan x="413">写代码必须用它</tspan></text>
+  <rect class="note" x="22" y="224" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="246" text-anchor="middle"><tspan x="370">恰恰是那些让富文本编辑器擅长漂亮文档的功能，使它们不适合写代码。</tspan></text>
+</svg>

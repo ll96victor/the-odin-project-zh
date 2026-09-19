@@ -90,6 +90,43 @@ function newPage(storage) {
   assert.equal(Logic.containsSensitiveKey(exported), false, check('设置导出无敏感键'));
 }
 
+/* ============ 1b. 官方任务节折叠偏好 collapseOfficialTasks（v4.11.5 交接 3.A2） ============
+ * 刻意不注册进 SETTING_BOOLEAN_KEYS：该白名单语义是「每键默认 true、只有显式
+ * false 才关」（上方第 1 节钉住），本字段方向相反——默认 false（展开）、
+ * 只有显式 true 才折叠。读写走专用 API setOfficialTasksCollapsed，
+ * 导出/导入走既有 settings 序列化路径（Object.assign(emptySettings(), state.settings)）。 */
+{
+  const sandbox = { window: {} };
+  sandbox.window = sandbox;
+  for (const file of Object.keys(sources)) vm.runInNewContext(sources[file], sandbox);
+  const Logic = sandbox.window.ODIN_PROGRESS.Logic;
+
+  assert.equal(Logic.emptySettings().collapseOfficialTasks, false, check('折叠偏好默认 false（展开）'));
+  assert.ok(!Logic.SETTING_BOOLEAN_KEYS.includes('collapseOfficialTasks'), check('折叠偏好不注册进布尔白名单（默认值方向相反）'));
+
+  const base = {
+    schemaVersion: 3, lessons: {}, daily: {}, totalActiveSeconds: 0, xp: 0,
+    minuteXpAwarded: 0, rewardFlags: {}, achievements: {}, lastLessonId: null,
+    coins: 0, coinMinuteAwarded: 0, coinFlags: {},
+    cosmetics: { purchases: {}, companionId: 'sprout', themeId: 'garden' }
+  };
+  const lessonIds = [];
+  const mk = settingsOverrides => Logic.parseImport(JSON.stringify(Object.assign({}, base, { settings: settingsOverrides })), lessonIds);
+  /* 读档校验：只有显式 true 才算折叠，其余（缺省 / 字符串 / 数字）一律按展开 */
+  assert.equal(mk({ collapseOfficialTasks: true }).state.settings.collapseOfficialTasks, true, check('显式 true 才折叠'));
+  assert.equal(mk({ collapseOfficialTasks: 'yes' }).state.settings.collapseOfficialTasks, false, check('非布尔值不算折叠（字符串）'));
+  assert.equal(mk({ collapseOfficialTasks: 1 }).state.settings.collapseOfficialTasks, false, check('非布尔值不算折叠（数字 1）'));
+  assert.equal(mk({}).state.settings.collapseOfficialTasks, false, check('旧档案缺省按展开'));
+
+  /* 导出往返：折叠偏好随档案走（既有序列化路径自动覆盖新字段） */
+  const state = Logic.emptyState();
+  state.settings.collapseOfficialTasks = true;
+  const exported = Logic.exportJson(state, AT);
+  assert.equal(JSON.parse(exported).settings.collapseOfficialTasks, true, check('导出含折叠偏好'));
+  assert.equal(Logic.parseImport(exported, lessonIds).state.settings.collapseOfficialTasks, true, check('折叠偏好往返保值'));
+  assert.equal(Logic.containsSensitiveKey(exported), false, check('折叠偏好导出无敏感键'));
+}
+
 /* ===================== 2. setSetting 浏览器层 ===================== */
 {
   const page = newPage(makeStorage());
@@ -98,6 +135,21 @@ function newPage(storage) {
   assert.equal(page.setSetting('not-a-key', false).ok, false, check('setSetting 拒绝未知键'));
   assert.equal(page.setSetting('showCompanion', true).ok, true, check('重新开启'));
   assert.equal(page.settings().showCompanion, true, check('重新开启后生效'));
+  /* v4.11.5（交接 3.A2）：折叠偏好走专用 API；setSetting 依旧拒绝它
+   * （白名单外键返回「未知的设置项」，防止两条写入口径并存） */
+  assert.equal(page.setSetting('collapseOfficialTasks', true).ok, false, check('setSetting 拒绝折叠偏好（必须走专用 API）'));
+  assert.equal(page.settings().collapseOfficialTasks, false, check('setSetting 拒绝后未写入'));
+  assert.equal(page.setOfficialTasksCollapsed(true).ok, true, check('专用 API 接受折叠'));
+  assert.equal(page.settings().collapseOfficialTasks, true, check('折叠后立即生效'));
+  assert.equal(page.setOfficialTasksCollapsed(false).ok, true, check('专用 API 接受展开（恢复出口）'));
+  assert.equal(page.settings().collapseOfficialTasks, false, check('展开后立即生效'));
+  assert.equal(page.setOfficialTasksCollapsed('yes').collapseOfficialTasks, false, check('非 true 入参一律按展开落库'));
+  /* 持久化：afterChange 同步 save() 落 localStorage，同一存储重新载入的页面读回偏好 */
+  const sharedStorage = makeStorage();
+  const pageA = newPage(sharedStorage);
+  assert.equal(pageA.setOfficialTasksCollapsed(true).ok, true, check('持久化模式下写入折叠偏好'));
+  const pageB = newPage(sharedStorage);
+  assert.equal(pageB.settings().collapseOfficialTasks, true, check('同一存储重新载入：折叠偏好已持久化'));
 }
 
 /* ===================== 3. 备份：创建 / 上限 / 恢复 ===================== */

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-five-web-concepts d-five-web-concepts">
+  <title id="t-five-web-concepts">五个最容易混淆的 Web 概念</title>
+  <desc id="d-five-web-concepts">概念关系图。中心是「五个最容易混淆的概念」，向四周辐射连线到五个方框：网页（web page）是可以在浏览器里显示的一个文档；网站（website）是许多网页的集合，通常挂在同一个域名下；Web 服务器（web server）是存储网页、收到请求就把它们发出去的软件与机器；浏览器（web browser）是发出请求、接收页面文件并渲染成可见页面的软件，如 Chrome、Firefox；搜索引擎（search engine）是帮你查找网页的服务，如 Google Search。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,205 L366,105"/>
+  <path class="spoke" d="M461,218 L473,215"/>
+  <path class="spoke" d="M401,278 L466,345"/>
+  <path class="spoke" d="M331,278 L274,337"/>
+  <path class="spoke" d="M271,218 L259,215"/>
+  <rect class="accentbox" x="271" y="205" width="190" height="73" rx="10"/>
+  <text class="hb" x="366" y="239" text-anchor="middle"><tspan x="366">五个最容易混淆的概念</tspan></text>
+  <text class="s" x="366" y="255" text-anchor="middle"><tspan x="366">官方指定文章逐个区分</tspan></text>
+  <rect class="box" x="252" y="29" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="51" text-anchor="middle"><tspan x="366">网页（web page）</tspan></text>
+  <text class="s" x="366" y="67" text-anchor="middle"><tspan x="366">一个可以在浏览器里显示的文档；你</tspan><tspan x="366" dy="17">现在读的每一页都是</tspan></text>
+  <rect class="box" x="473" y="149" width="228" height="76" rx="6"/>
+  <text class="hb" x="587" y="172" text-anchor="middle"><tspan x="587">网站（website）</tspan></text>
+  <text class="s" x="587" y="188" text-anchor="middle"><tspan x="587">许多网页的集合，通常挂在同一个</tspan><tspan x="587" dy="17">域名下</tspan></text>
+  <rect class="box" x="388" y="345" width="228" height="76" rx="6"/>
+  <text class="hb" x="502" y="368" text-anchor="middle"><tspan x="502">Web 服务器（web server）</tspan></text>
+  <text class="s" x="502" y="384" text-anchor="middle"><tspan x="502">存储网页、收到请求就把它们发出去</tspan><tspan x="502" dy="17">的软件与机器</tspan></text>
+  <rect class="box" x="116" y="337" width="228" height="93" rx="6"/>
+  <text class="hb" x="230" y="359" text-anchor="middle"><tspan x="230">浏览器（web browser）</tspan></text>
+  <text class="s" x="230" y="375" text-anchor="middle"><tspan x="230">发出请求、接收页面文件并渲染成可</tspan><tspan x="230" dy="17">见页面的软件，如 Chrome、</tspan><tspan x="230" dy="17">Firefox</tspan></text>
+  <rect class="box" x="31" y="149" width="228" height="76" rx="6"/>
+  <text class="hb" x="145" y="172" text-anchor="middle"><tspan x="145">搜索引擎（search engine）</tspan></text>
+  <text class="s" x="145" y="188" text-anchor="middle"><tspan x="145">帮你查找网页的服务，如 Google</tspan><tspan x="145" dy="17">Search</tspan></text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="304" viewBox="0 0 640 304" role="img" aria-labelledby="t-parent-directory-tree d-parent-directory-tree">
+  <title id="t-parent-directory-tree">父目录：用 ../ 往上走一级</title>
+  <desc id="d-parent-directory-tree">层级树示意图。根节点是 odin-links-and-images 项目目录，下面两个子目录：pages 目录里放着 about.html——你当前正在这个文件里；images 目录里放着 dog.jpg 图片。要在 about 页面里用那张狗的图片，img 的 src 写 ../images/dog.jpg，这条路径拆成三步：首先用两个点从 pages 目录往上走一级、走到它的父目录 odin-links-and-images；然后从父目录出发进入 images 目录；最后访问 dog.jpg 文件。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M320,84 L320,112 L260,112 L260,134" marker-end="url(#arr)"/>
+  <path class="spoke" d="M320,84 L320,112 L419,112 L419,134" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="233" y="26" width="174" height="58" rx="6"/>
+  <text class="hb" x="320" y="51" text-anchor="middle"><tspan x="320">odin-links-and-images</tspan><tspan x="320" dy="18">（项目目录）</tspan></text>
+  <path class="spoke" d="M260,181 L260,209 L260,209 L260,231" marker-end="url(#arr)"/>
+  <rect class="box" x="212" y="140" width="96" height="41" rx="6"/>
+  <text class="b" x="260" y="165" text-anchor="middle"><tspan x="260">pages/</tspan></text>
+  <rect class="box" x="173" y="237" width="174" height="41" rx="6"/>
+  <text class="b" x="260" y="262" text-anchor="middle"><tspan x="260">about.html（你在这里）</tspan></text>
+  <path class="spoke" d="M419,181 L419,209 L419,209 L419,231" marker-end="url(#arr)"/>
+  <rect class="box" x="371" y="140" width="96" height="41" rx="6"/>
+  <text class="b" x="419" y="165" text-anchor="middle"><tspan x="419">images/</tspan></text>
+  <rect class="box" x="371" y="237" width="96" height="41" rx="6"/>
+  <text class="b" x="419" y="262" text-anchor="middle"><tspan x="419">dog.jpg</tspan></text>
+</svg>

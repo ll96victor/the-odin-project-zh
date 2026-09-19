@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="232" viewBox="0 0 740 232" role="img" aria-labelledby="t-bad-vs-good-commit d-bad-vs-good-commit">
+  <title id="t-bad-vs-good-commit">坏提交和好提交的差别</title>
+  <desc id="d-bad-vs-good-commit">双栏对比图。左栏是坏提交说明：官方给的例子是「fix a bug」——尽管它描述了你做了什么，这条消息太含糊，会让团队里的其他开发者困惑：修了什么 bug、为什么修，全都看不出来。右栏是好提交说明：解释你改动背后的为什么（why）；换句话说，一条提交说明描述的是你的改动解决了什么问题，以及它是怎样解决的。底部注释：「有没有解释为什么」是官方给的好坏提交说明的分水岭。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">坏提交说明</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">官方例子：「fix a bug」</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">描述了你做了什么，但太含糊</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">让团队里的其他开发者困惑：修了什么？为什么修？</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">好提交说明</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">解释改动背后的为什么（why）</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">说清改动解决了什么问题</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">说清它是怎样解决的</tspan></text>
+  <rect class="note" x="22" y="176" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="198" text-anchor="middle"><tspan x="370">「有没有解释为什么」是好坏提交说明的分水岭——这是官方给的标准。</tspan></text>
+</svg>

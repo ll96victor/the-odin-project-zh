@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="268" viewBox="0 0 740 268" role="img" aria-labelledby="t-git-vs-github d-git-vs-github">
+  <title id="t-git-vs-github">Git 和 GitHub 不是一回事</title>
+  <desc id="d-git-vs-github">双栏对比图。左栏 Git：一个非常流行的版本控制系统（version control system），是装在你自己电脑上的软件；整套 TOP 里你会对这款软件变得非常熟悉，后面有很多专门讲 Git 的课，现在不必太担心理解它。右栏 GitHub：一个服务，让你能用 Git 上传、托管和管理你的代码，并提供一个好用的网页界面。底部注释：官方特别强调——虽然 GitHub 和 Git 听起来很像，它们并不是同一个东西，甚至不是由同一家公司创建的。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="176" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">Git</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">一个非常流行的版本控制系统（version control</tspan><tspan x="52" dy="18">system）</tspan></text>
+  <circle cx="42" cy="130" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="134" text-anchor="start"><tspan x="52">是软件，装在你自己的电脑上</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">整套 TOP 里你会对它变得非常熟悉——后面有很多专</tspan><tspan x="52" dy="18">门讲 Git 的课</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="176" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">GitHub</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">一个服务（网站）</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">让你能用 Git 上传、托管和管理你的代码</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">提供一个好用的网页界面</tspan></text>
+  <rect class="note" x="22" y="212" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="234" text-anchor="middle"><tspan x="370">官方特别强调：虽然 GitHub 和 Git 听起来很像，它们并不是同一个东西，甚至不是由同一家公司创建的。</tspan></text>
+</svg>

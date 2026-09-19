@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="573" height="172" viewBox="0 0 573 172" role="img" aria-labelledby="t-tab-completion d-tab-completion">
+  <title id="t-tab-completion">Tab 补全遇到多个匹配时会怎样</title>
+  <desc id="d-tab-completion">三步流程图，从左到右：输入 cd D 然后按 Tab——主目录里通常同时有 Documents 和 Downloads 两个文件夹；终端通过显示所有匹配你已输入内容的选项（列出 Documents/ 和 Downloads/），告诉你它不确定你要哪一个；只要你再多输入一点，它就会替你补全名字。底部注释：官方例子——一条完整的文件路径最少可以只敲 cd Doc[tab]O[tab]f[tab]j[tab]cal[tab] 就打出来，具体取决于你电脑上还存在哪些别的文件夹；试一下熟悉它，你会爱上它的。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="139" height="62" rx="6"/>
+  <text class="hb" x="96" y="55" text-anchor="middle"><tspan x="96">输入 cd D 按 Tab</tspan></text>
+  <text class="s" x="96" y="60" text-anchor="middle"><tspan x="96">主目录常有</tspan><tspan x="96" dy="15">Documents 和</tspan><tspan x="96" dy="15">Downloads</tspan></text>
+  <rect class="box" x="217" y="26" width="139" height="62" rx="6"/>
+  <text class="hb" x="287" y="55" text-anchor="middle"><tspan x="287">列出所有匹配</tspan></text>
+  <text class="s" x="287" y="68" text-anchor="middle"><tspan x="287">终端告诉你它不确定</tspan><tspan x="287" dy="15">你要哪一个</tspan></text>
+  <path class="edge" d="M165,57 L210,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="408" y="26" width="139" height="62" rx="6"/>
+  <text class="hb" x="478" y="55" text-anchor="middle"><tspan x="478">再输一点按 Tab</tspan></text>
+  <text class="s" x="478" y="68" text-anchor="middle"><tspan x="478">匹配唯一 → 替你补</tspan><tspan x="478" dy="15">全名字</tspan></text>
+  <path class="edge" d="M356,57 L401,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="521" height="52" rx="6"/>
+  <text class="s" x="287" y="116" text-anchor="middle"><tspan x="287">官方例子：一条完整路径最少可以只敲 cd Doc[tab]O[tab]f[tab]j[tab]cal[tab]（</tspan><tspan x="287" dy="18">取决于你电脑上还存在哪些别的文件夹）。试一下，你会爱上它的。</tspan></text>
+</svg>

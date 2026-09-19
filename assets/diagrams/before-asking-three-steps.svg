@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="172" viewBox="0 0 612 172" role="img" aria-labelledby="t-before-asking-three-steps d-before-asking-three-steps">
+  <title id="t-before-asking-three-steps">求助之前先做三件事</title>
+  <desc id="d-before-asking-three-steps">三步流程图，从左到右：第一步「停下来喘口气」——把问题拆成小块，判断到底是什么在真正阻碍你，官方称这个技巧为 rubber duck debugging（橡皮鸭调试法）；第二步「用搜索引擎找相关信息」——也可以回头翻之前的课程，找能用在当前任务上的工具；第三步「仍无解法就去 Odin 社区求助」——到 Discord 提问。底部注释：有时问题出在你的思路（approach）上而不是代码上，对自己要往哪里去有大致想法在提问时特别重要。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="55" text-anchor="middle"><tspan x="102">停下来喘口气</tspan></text>
+  <text class="s" x="102" y="68" text-anchor="middle"><tspan x="102">拆成小块，找到真正阻</tspan><tspan x="102" dy="15">碍（橡皮鸭调试法）</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="55" text-anchor="middle"><tspan x="306">用搜索引擎找信息</tspan></text>
+  <text class="s" x="306" y="68" text-anchor="middle"><tspan x="306">也回头翻之前的课程</tspan><tspan x="306" dy="15">找工具</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="46" text-anchor="middle"><tspan x="510">仍无解法 →</tspan><tspan x="510" dy="18">社区求 助</tspan></text>
+  <text class="s" x="510" y="75" text-anchor="middle"><tspan x="510">去 Odin Discord</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="560" height="52" rx="6"/>
+  <text class="s" x="306" y="116" text-anchor="middle"><tspan x="306">有时问题出在你的思路（approach）上，而不是代码上——对自己要往哪里去有大致想法，在提问</tspan><tspan x="306" dy="18">时特别重要。</tspan></text>
+</svg>
