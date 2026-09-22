@@ -6,7 +6,9 @@
  * 在 TEST-REPORT「v4.11 批次 C 验收」验证；本文件钉住的是「纪律不漂移」：
  *   1. body 规则背景逐字回归钉（html 无背景 → body 背景传播为 canvas 底色不变）；
  *   2. body::before 存在性与引用面（fixed / z-1 / pointer-events:none；只引用
- *      wash/accent/grow 三个既有变量 + 固定暖白 rgba，alpha 上限 40·7·6·35 锁死）；
+ *      wash/accent/ambient 三个既有变量 + 固定暖白 rgba，alpha 上限 40·7·6·35
+ *      锁死；v4.11.14 左下角晕色源由固定成长绿 grow 改 --color-ambient 逐主题
+ *      派生，alpha 6% 上限不动，语义层 grow 不受影响）；
  *   3. 中心中性——每个渐变层最后一个色标为 transparent（阅读区中心零染，
  *      dune/bamboo 薄冰点配对安全的前提）；
  *   4. 深色退月光 html[data-dark] opacity .38（hero 窗光同档先例）；
@@ -79,10 +81,14 @@ let beforeBg = '';
   const layers = splitTopLevel(beforeBg);
   assert.equal(layers.length, 4, check(`氛围层恰为四层（实际 ${layers.length}）`));
 
-  /* 引用面：只允许 wash/accent/grow 三个既有变量的 color-mix + 固定暖白 rgba */
+  /* 引用面：只允许 wash/accent/ambient 三个既有变量的 color-mix + 固定暖白 rgba
+   * （v4.11.14：左下环境角晕色源 grow → --color-ambient，仍是「零 per-theme 值」
+   * ——ambient 本身是 tokens.css :root 的派生变量，逐主题自动解析） */
   const vars = [...new Set([...beforeBg.matchAll(/var\((--[\w-]+)\)/g)].map(m => m[1]))].sort();
-  assert.deepEqual(vars, ['--color-accent', '--color-grow', '--color-wash'],
-    check('background 仅引用 wash/accent/grow 三个既有变量（零新 token、零 per-theme 值）'));
+  assert.deepEqual(vars, ['--color-accent', '--color-ambient', '--color-wash'],
+    check('background 仅引用 wash/accent/ambient 三个既有变量（零新 token 定义、零 per-theme 值）'));
+  assert.ok(!beforeBg.includes('--color-grow'),
+    check('氛围层零 grow 引用（v4.11.14 环境层不消费语义色；语义层清单见 hero-scene 第 11.3 组）'));
   const rgbas = [...beforeBg.matchAll(/rgba?\([^)]*\)/g)].map(m => m[0]);
   assert.deepEqual(rgbas, ['rgba(255, 252, 244, .35)'],
     check('唯一固定色值 = 暖白光斑 rgba(255, 252, 244, .35)（L1358 物理光纪律，不随主题色相漂移）'));
@@ -91,7 +97,7 @@ let beforeBg = '';
   /* alpha 上限 40·7·6·35 锁死（加强必须重新规划） */
   assert.ok(beforeBg.includes('var(--color-wash) 40%'), check('顶边雾带 wash alpha = 40%（上限锁死）'));
   assert.ok(beforeBg.includes('var(--color-accent) 7%'), check('右上 accent 角晕 alpha = 7%（上限锁死）'));
-  assert.ok(beforeBg.includes('var(--color-grow) 6%'), check('左下 grow 绿角晕 alpha = 6%（上限锁死）'));
+  assert.ok(beforeBg.includes('var(--color-ambient) 6%'), check('左下环境角晕 alpha = 6%（上限锁死；v4.11.14 仅色源 grow → ambient，alpha 不漂移）'));
 }
 
 /* ===================== 3. 中心中性：每层最后一个色标为 transparent ===================== */
@@ -149,4 +155,4 @@ let beforeBg = '';
   assert.ok(!/@keyframes/.test(batchC), check('批次 C 段内零 @keyframes'));
 }
 
-console.log(`通过：v4.11 批次 C 氛围背景层专项 ${checks} 项断言（body 背景逐字回归钉、body::before 存在性与引用面、中心中性 transparent 收尾、data-dark .38、print content:none、cover ≥3 层且原层逐字 + print #fff 覆盖在、新段零新 token 零 animation）。真实浏览器计算样式与 30 套主题主观观感见 TEST-REPORT「v4.11 批次 C 验收」。`);
+console.log(`通过：v4.11 批次 C 氛围背景层专项 ${checks} 项断言（body 背景逐字回归钉、body::before 存在性与引用面（v4.11.14 起为 wash/accent/ambient，左下角晕色源随主题、alpha 6% 上限不动）、中心中性 transparent 收尾、data-dark .38、print content:none、cover ≥3 层且原层逐字 + print #fff 覆盖在、新段零新 token 零 animation）。真实浏览器计算样式与 30 套主题主观观感见 TEST-REPORT「v4.11 批次 C 验收」。`);

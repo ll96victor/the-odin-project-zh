@@ -40,7 +40,18 @@ function makeDom(pageOptions = {}) {
       this.tagName = String(tagName).toUpperCase();
       this.childNodes = [];
       this.parentNode = null;
-      this.style = {};
+      /* v4.11.13：app.js 的 mask 渲染路径（maskIcon）用自定义属性传 mask URL，
+       * 这里补齐 CSSStyleDeclaration 的最小接口；既有直接读写 style.display /
+       * style.left 的用法不受影响（自定义属性与常规属性共存于同一对象）。 */
+      this.style = {
+        setProperty(name, value) { this[name] = String(value); },
+        getPropertyValue(name) { return this[name] === undefined ? '' : String(this[name]); },
+        removeProperty(name) {
+          const old = this[name] === undefined ? '' : String(this[name]);
+          delete this[name];
+          return old;
+        }
+      };
       this.dataset = {};
       this.attributes = {};
       this.listeners = {};

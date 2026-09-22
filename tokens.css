@@ -10,6 +10,13 @@
   --color-paper: #f9f8f4;
   --color-ink: #29243a;
   --color-muted: #625c70;
+  /* v4.11.13：装饰图标统一色（mask 渲染路径的 background-color）。由 muted 与
+   * accent 派生（70/30），逐主题解析——不再需要「每套主题人工核图标色」。
+   * 全 30 套实测（tests/themes-contrast.test.cjs 第 8 节）：对 entry 芯片底 /
+   * wash / paper 三类背景最差 3.79:1（linen 芯片底），深色档最差 4.26:1，远高于
+   * 装饰形状 2.2:1 下限；低饱和派生色也保证读不成操作色（靛紫只属于主 CTA）。
+   * 各主题块**不要**覆盖它：覆盖即退回「固定色人工核」的老债。 */
+  --color-icon: color-mix(in srgb, var(--color-muted) 70%, var(--color-accent) 30%);
   --color-accent: #51408f;
   --color-wash: #f0eff5;
   --color-rule: #d9d5e4;
@@ -45,11 +52,26 @@
   /* v4.5.2 Final Concept Match：容器分级 token。
    * 一级容器（Hero / 档案封面 / 伙伴展示区）用 large 圆角 + primary 阴影；
    * 二级容器继续用 radius-small/medium + 细描边 + 无阴影。
-   * grow 双值是固定语义色（成长 / 完成），与地图节点既有用色同源，不随主题变。 */
+   * grow 双值是固定语义色（成长 / 完成），与地图节点既有用色同源，不随主题变；
+   * v4.11.14 起 grow 双值**只**被语义层消费（技能路线 / 地图节点 / 等级进度条 /
+   * 预览条状态文字 / 地图 tab），环境氛围层全部改走下面的 --color-ambient。 */
   --radius-large: 1.25rem;
   --color-grow: #3f7b58;
   --color-grow-soft: #6f9c85;
   --shadow-primary: 0 14px 32px rgba(81, 64, 143, .1);
+  /* v4.11.14：环境氛围色（**只供环境装饰层**：Hero 容器右下角晕 / 地面带 /
+   * 伙伴柔光巢 / 接地影外缘、个人中心伙伴区光晕、全站 body::before 左下角晕）。
+   * 由 accent 与 wash 派生（45/55），逐主题解析——30 套主题的环境色自动与各自
+   * 主色同族（v4.11.13 --color-icon 同一机制），绿系主题（moss / forest / bamboo /
+   * mint / linen / terminal）主色本身是绿，环境色自然保绿；garden 按主色走靛紫，
+   * 不因「园地」之名破例（用户 2026-09-22 确认）。**语义层（成长 / 完成）继续用
+   * grow / grow-soft，两者不得互串**——语义色随主题漂移会让「已完成」的反馈变色。
+   * 45% 比例由 tests/hero-scene.test.cjs 第 11 组按全 30 套环境叠层复算钉住
+   * （Hero 道具可见性逐套不劣于旧绿环境）；改比例必须重跑该组。
+   * 各主题块**不要**覆盖它：覆盖即退回「每套主题人工核环境色」的老债。
+   * 低饱和派生（再经环境层 6%–26% alpha 稀释）读不成操作色，守住
+   * 「靛紫在首页只属于主 CTA」的纪律（VISUAL-DESIGN-PLAYBOOK §3/§7）。 */
+  --color-ambient: color-mix(in srgb, var(--color-accent) 45%, var(--color-wash));
 }
 
 /* ===================== v4.2 页面主题（交接 §13） =====================

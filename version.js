@@ -19,7 +19,7 @@
     /* 产品名：面向用户的品牌（发布准备轮定名「Odin 中文学习站」，
      * 英文定位 The Odin Project Chinese Learning Companion） */
     product: 'Odin 中文学习站',
-    /* 产品版本：footer 显示为「Odin 中文学习站 v4.11.7」 */
-    version: '4.11.7'
+    /* 产品版本：footer 显示为「Odin 中文学习站 v4.11.14」 */
+    version: '4.11.14'
   };
 })();

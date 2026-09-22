@@ -108,6 +108,21 @@
     return image;
   };
 
+  /* v4.11.13：mask 渲染路径（mask 源族图标的唯一出口）。SVG 只提供 alpha 通道
+   * （CSS mask-image），可见颜色交给 background-color: var(--color-icon)，随主题变化——
+   * 把 v4.11.12 实测到的「固定色 <img> 图标在深色主题下看不见」（深墨 1.02–1.24:1、
+   * 旧绿 1.56–2.00:1）从根上解除：颜色不再写死在 markup 里。data URL 是内联资源，
+   * file:// 双击打开同样可用（真实浏览器验证过，见 TEST-REPORT / answers 记录）。
+   * opacity 属性（如 progress 的 .85 填充条）经 alpha 通道自动保留层次，无需特殊处理。
+   * 只接受 mask 源族（icons.js 头注释列名）；固定色族（tierBadges 金属 / assistant
+   * 角色）继续走 svgImage——单色 alpha 会把角色的不透明身体与眼点合并成无脸剪影。 */
+  const maskIcon = (markup, className) => {
+    const el = node('span', undefined, className ? `mask-icon ${className}` : 'mask-icon');
+    el.setAttribute('aria-hidden', 'true');
+    el.style.setProperty('--icon-mask', `url("${SVG_PREFIX + encodeURIComponent(markup)}")`);
+    return el;
+  };
+
   /* v4.6：公共门面返回 file portrait 时统一走这一条安全创建路径。
    * 正式位图异步解码并关闭原生拖放；只使用安全 DOM API。
    * v4.10：加载策略不再一律 lazy——由 companion-view 的 SLOTS 给出 lazy 标志
@@ -1333,7 +1348,7 @@
     const concealed = Boolean(achievement.hidden) && !unlocked;
     const cell = node('li', undefined, `achievement-cell ${unlocked ? 'is-unlocked' : 'is-locked'}`);
     const iconMarkup = achievementIcon(achievement, unlockedAt);
-    if (iconMarkup) cell.append(svgImage(iconMarkup, '', 'achievement-icon'));
+    if (iconMarkup) cell.append(maskIcon(iconMarkup, 'achievement-icon'));
     if (concealed) {
       cell.append(node('p', '隐藏成就', 'achievement-name'));
       cell.append(node('p', '达成之后才会公开名称与条件。', 'achievement-desc'));
@@ -1365,7 +1380,7 @@
         if (!definition) return;
         const row = node('li');
         const icon = achievementIcon(definition, entry[1]);
-        if (icon) row.append(svgImage(icon, '', 'achievement-icon-sm'));
+        if (icon) row.append(maskIcon(icon, 'achievement-icon-sm'));
         row.append(node('span', `${definition.zh} · ${String(entry[1]).slice(0, 10)}`));
         recentList.append(row);
       });
@@ -3574,10 +3589,16 @@
     briefs.forEach(item => {
       const entry = node('li', undefined, `tier-card${item.tier >= 1 ? ' ' + TIER_CSS[item.tier - 1] : ''}`);
       const head = node('div', undefined, 'tier-head');
-      const badgeMarkup = item.tier >= 1
-        ? (icons && icons.tierBadges ? icons.tierBadges[TIER_BADGE_KEYS[item.tier - 1]] : null)
-        : (icons && icons.tierFamilies ? icons.tierFamilies[item.id] : null);
-      if (badgeMarkup) head.append(svgImage(badgeMarkup, '', `tier-badge-img${item.tier >= 1 ? '' : ' is-none'}`));
+      /* v4.11.13：金属阶级徽章是固定色族（颜色即语义），继续走 <img>；
+       * 族图标是 mask 源族，走 maskIcon 接主题 token。两条路径的类名保持原样
+       * （tier-badge-img / is-none），CSS 与既有断言不受影响。 */
+      if (item.tier >= 1) {
+        const badgeMarkup = icons && icons.tierBadges ? icons.tierBadges[TIER_BADGE_KEYS[item.tier - 1]] : null;
+        if (badgeMarkup) head.append(svgImage(badgeMarkup, '', 'tier-badge-img'));
+      } else {
+        const familyMarkup = icons && icons.tierFamilies ? icons.tierFamilies[item.id] : null;
+        if (familyMarkup) head.append(maskIcon(familyMarkup, 'tier-badge-img is-none'));
+      }
       head.append(node('span', item.zh, 'tier-name'));
       head.append(node('span', item.maxed ? '金阶 · 已满阶' : item.tierZh ? `${item.tierZh}阶` : '未晋升', 'tier-current'));
       const steps = node('span', undefined, 'tier-steps');
@@ -5185,15 +5206,21 @@
    *   - HERO_DECOR_SVG：地面弧线 + 左右植物剪影 + 光斑（角色脚下的场景，
    *     取代旧版同心光环；stage 圆盘底座已在 style.css 同步退役）；
    *   - HERO_SCENE_SVG：Hero 左下角大植物剪影（renderHome 挂载）；
-   *   - 窗光柔光带 / 紫晕 / 底部绿丘是 style.css 的渐变环境层。
-   * 全部原创几何线稿（不引位图、不用动画库）；调色板延续成长绿
-   * #6f9c85 / #3f7b58、金 #d4af37、陶 #c9714f，新增浅紫 #a78bda——都是
-   * 中间调，浅色 / 深色主题下都成立。学习伙伴形象资产仍来自 companion-view
-   * 单一事实源，本区块只是装饰层，不碰 companion 生成逻辑。 */
-  const HERO_DECOR_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260"><ellipse cx="220" cy="240" rx="188" ry="14" fill="#6f9c85" opacity=".13"/><path d="M40 238Q220 208 400 238" fill="none" stroke="#6f9c85" stroke-width="2" stroke-linecap="round" opacity=".4"/><path d="M92 236C88 206 78 184 60 168" fill="none" stroke="#3f7b58" stroke-width="2.4" stroke-linecap="round" opacity=".5"/><path d="M60 168C46 156 42 138 50 122 64 132 70 152 60 168Z" fill="#6f9c85" opacity=".5"/><path d="M84 208C70 200 62 186 64 170 78 176 86 192 84 208Z" fill="#3f7b58" opacity=".38"/><path d="M92 236C94 214 104 198 120 190 120 206 108 224 92 236Z" fill="#6f9c85" opacity=".42"/><path d="M56 238C50 222 40 212 26 206" fill="none" stroke="#6f9c85" stroke-width="2" stroke-linecap="round" opacity=".38"/><path d="M352 236C356 202 368 180 388 164" fill="none" stroke="#3f7b58" stroke-width="2.4" stroke-linecap="round" opacity=".5"/><path d="M388 164C402 150 404 130 394 114 380 126 376 148 388 164Z" fill="#6f9c85" opacity=".5"/><path d="M360 204C374 196 382 182 380 166 366 172 358 188 360 204Z" fill="#3f7b58" opacity=".38"/><path d="M352 236C350 216 340 202 324 194 324 210 336 226 352 236Z" fill="#6f9c85" opacity=".42"/><path d="M392 238C398 224 408 214 420 208" fill="none" stroke="#6f9c85" stroke-width="2" stroke-linecap="round" opacity=".38"/><circle cx="118" cy="72" r="3.4" fill="#d4af37" opacity=".55"/><circle cx="330" cy="58" r="2.8" fill="#a78bda" opacity=".5"/><circle cx="64" cy="106" r="2.2" fill="#c9714f" opacity=".45"/><circle cx="384" cy="96" r="2.2" fill="#d4af37" opacity=".45"/><circle cx="206" cy="40" r="2" fill="#6f9c85" opacity=".5"/><circle cx="264" cy="30" r="2.6" fill="#a78bda" opacity=".4"/></svg>';
+   *   - 窗光柔光带 / 紫晕 / 底部环境丘是 style.css 的渐变环境层（v4.11.14
+   *     起环境丘颜色走 --color-ambient 逐主题派生，不再固定绿）。
+   * 全部原创几何线稿（不引位图、不用动画库）。v4.11.14 植物去绿：调色板原
+   * 延续成长绿双色，但环境色跟随主题后，固定绿只在绿系主题成立（用户实测
+   * 「偏绿主题搭、其他主题全部不搭」），故植物主线改用 Hero 道具同款紫灰
+   * 体系——浅 #b7a9c8 / 深 #81769a（固定色不接 token，与 HERO_STUDY_SVG
+   * 同类处置；五色层次、全部几何 / viewBox / opacity 逐字保留）；光斑点缀
+   * 金 #d4af37、紫 #a78bda、陶 #c9714f 保留——与 .home-hero::after 地面带
+   * 三枚光斑同族同语言。都是中间调，浅色 / 深色主题下都成立。学习伙伴形象
+   * 资产仍来自 companion-view 单一事实源，本区块只是装饰层，不碰 companion
+   * 生成逻辑。 */
+  const HERO_DECOR_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260"><ellipse cx="220" cy="240" rx="188" ry="14" fill="#b7a9c8" opacity=".13"/><path d="M40 238Q220 208 400 238" fill="none" stroke="#b7a9c8" stroke-width="2" stroke-linecap="round" opacity=".4"/><path d="M92 236C88 206 78 184 60 168" fill="none" stroke="#81769a" stroke-width="2.4" stroke-linecap="round" opacity=".5"/><path d="M60 168C46 156 42 138 50 122 64 132 70 152 60 168Z" fill="#b7a9c8" opacity=".5"/><path d="M84 208C70 200 62 186 64 170 78 176 86 192 84 208Z" fill="#81769a" opacity=".38"/><path d="M92 236C94 214 104 198 120 190 120 206 108 224 92 236Z" fill="#b7a9c8" opacity=".42"/><path d="M56 238C50 222 40 212 26 206" fill="none" stroke="#b7a9c8" stroke-width="2" stroke-linecap="round" opacity=".38"/><path d="M352 236C356 202 368 180 388 164" fill="none" stroke="#81769a" stroke-width="2.4" stroke-linecap="round" opacity=".5"/><path d="M388 164C402 150 404 130 394 114 380 126 376 148 388 164Z" fill="#b7a9c8" opacity=".5"/><path d="M360 204C374 196 382 182 380 166 366 172 358 188 360 204Z" fill="#81769a" opacity=".38"/><path d="M352 236C350 216 340 202 324 194 324 210 336 226 352 236Z" fill="#b7a9c8" opacity=".42"/><path d="M392 238C398 224 408 214 420 208" fill="none" stroke="#b7a9c8" stroke-width="2" stroke-linecap="round" opacity=".38"/><circle cx="118" cy="72" r="3.4" fill="#d4af37" opacity=".55"/><circle cx="330" cy="58" r="2.8" fill="#a78bda" opacity=".5"/><circle cx="64" cy="106" r="2.2" fill="#c9714f" opacity=".45"/><circle cx="384" cy="96" r="2.2" fill="#d4af37" opacity=".45"/><circle cx="206" cy="40" r="2" fill="#b7a9c8" opacity=".5"/><circle cx="264" cy="30" r="2.6" fill="#a78bda" opacity=".4"/></svg>';
   /* Hero 左下角植物剪影：挂在 .home-hero 上（.hero-scene-decor），纯装饰
    * z-index:-1 + pointer-events:none，绝不拦截交互；窄屏（≤30rem）与打印隐藏。 */
-  const HERO_SCENE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240"><path d="M8 240C4 196 16 158 44 128 52 152 44 196 26 240Z" fill="#3f7b58" opacity=".2"/><path d="M34 240C40 186 62 146 100 118 100 150 78 196 52 240Z" fill="#6f9c85" opacity=".24"/><path d="M66 240C84 198 112 170 150 154 140 182 112 214 86 240Z" fill="#3f7b58" opacity=".16"/><path d="M104 240C126 214 152 198 184 192 168 212 140 230 120 240Z" fill="#6f9c85" opacity=".18"/><circle cx="128" cy="92" r="3" fill="#d4af37" opacity=".3"/><circle cx="196" cy="136" r="2.4" fill="#a78bda" opacity=".3"/><circle cx="56" cy="82" r="2.2" fill="#c9714f" opacity=".26"/></svg>';
+  const HERO_SCENE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240"><path d="M8 240C4 196 16 158 44 128 52 152 44 196 26 240Z" fill="#81769a" opacity=".2"/><path d="M34 240C40 186 62 146 100 118 100 150 78 196 52 240Z" fill="#b7a9c8" opacity=".24"/><path d="M66 240C84 198 112 170 150 154 140 182 112 214 86 240Z" fill="#81769a" opacity=".16"/><path d="M104 240C126 214 152 198 184 192 168 212 140 230 120 240Z" fill="#b7a9c8" opacity=".18"/><circle cx="128" cy="92" r="3" fill="#d4af37" opacity=".3"/><circle cx="196" cy="136" r="2.4" fill="#a78bda" opacity=".3"/><circle cx="56" cy="82" r="2.2" fill="#c9714f" opacity=".26"/></svg>';
   /* Hero 右下角学习场景道具层（v4.11 批次 E）：书桌轮廓 + 台灯 + 一小摞书，
    * 挂在 .home-hero 上（.hero-study-decor）。v4.7 起 Hero 已有窗光 / 紫晕 /
    * 植物 / 地面弧线，但角色周围缺少「正在学习」的具体语义——本层补的就是
@@ -5217,7 +5244,7 @@
    *     不再承担「必须被认出来」的职责。
    * 逐元素 alpha 上限 .84（不到实色），元素种类、坐标、viewBox 与五色调色板
    * 一律未动；对比度下限由 tests/hero-scene.test.cjs 第 10 组按 WCAG 公式钉住。 */
-  const HERO_STUDY_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="130" viewBox="0 0 420 130"><ellipse cx="62" cy="56" rx="42" ry="16" fill="#d4af37" opacity=".2"/><rect x="14" y="60" width="392" height="8" rx="4" fill="#6f9c85" opacity=".42"/><path d="M14 60H406" fill="none" stroke="#3f7b58" stroke-width="3.2" stroke-linecap="round" opacity=".84"/><path d="M48 68V126" fill="none" stroke="#3f7b58" stroke-width="4.6" stroke-linecap="round" opacity=".74"/><path d="M372 68V126" fill="none" stroke="#3f7b58" stroke-width="4.6" stroke-linecap="round" opacity=".74"/><path d="M62 18L104 50H20L62 18Z" fill="#d4af37" fill-opacity=".5" stroke="#3f7b58" stroke-opacity=".84" stroke-width="2.2" stroke-linejoin="round"/><path d="M28 50H96" fill="none" stroke="#d4af37" stroke-width="2.4" stroke-linecap="round" opacity=".7"/><path d="M62 50V60" fill="none" stroke="#c9714f" stroke-width="3.4" stroke-linecap="round" opacity=".78"/><ellipse cx="62" cy="60" rx="16" ry="3.5" fill="#c9714f" fill-opacity=".55" stroke="#3f7b58" stroke-opacity=".7" stroke-width="1.6"/><rect x="256" y="48" width="104" height="12" rx="3" fill="#3f7b58" fill-opacity=".5" stroke="#3f7b58" stroke-opacity=".84" stroke-width="1.8"/><rect x="264" y="36" width="88" height="12" rx="3" fill="#a78bda" fill-opacity=".55" stroke="#3f7b58" stroke-opacity=".84" stroke-width="1.8"/><rect x="274" y="23" width="70" height="13" rx="3" fill="#c9714f" fill-opacity=".55" stroke="#3f7b58" stroke-opacity=".84" stroke-width="1.8"/><path d="M306 23V17" fill="none" stroke="#d4af37" stroke-width="2.8" stroke-linecap="round" opacity=".78"/><circle cx="196" cy="32" r="2.8" fill="#d4af37" opacity=".55"/></svg>';
+  const HERO_STUDY_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="130" viewBox="0 0 420 130"><ellipse cx="62" cy="56" rx="42" ry="16" fill="#b7a9c8" opacity=".2"/><rect x="14" y="60" width="392" height="8" rx="4" fill="#b7a9c8" opacity=".42"/><path d="M14 60H406" fill="none" stroke="#81769a" stroke-width="3.2" stroke-linecap="round" opacity=".84"/><path d="M48 68V126" fill="none" stroke="#81769a" stroke-width="4.6" stroke-linecap="round" opacity=".74"/><path d="M372 68V126" fill="none" stroke="#81769a" stroke-width="4.6" stroke-linecap="round" opacity=".74"/><path d="M62 18L104 50H20L62 18Z" fill="#c7bdd6" fill-opacity=".5" stroke="#81769a" stroke-opacity=".84" stroke-width="2.2" stroke-linejoin="round"/><path d="M28 50H96" fill="none" stroke="#81769a" stroke-width="2.4" stroke-linecap="round" opacity=".7"/><path d="M62 50V60" fill="none" stroke="#8b7b8f" stroke-width="3.4" stroke-linecap="round" opacity=".78"/><ellipse cx="62" cy="60" rx="16" ry="3.5" fill="#8b7b8f" fill-opacity=".55" stroke="#81769a" stroke-opacity=".7" stroke-width="1.6"/><rect x="256" y="48" width="104" height="12" rx="3" fill="#81769a" fill-opacity=".5" stroke="#81769a" stroke-opacity=".84" stroke-width="1.8"/><rect x="264" y="36" width="88" height="12" rx="3" fill="#b9afd0" fill-opacity=".55" stroke="#81769a" stroke-opacity=".84" stroke-width="1.8"/><rect x="274" y="23" width="70" height="13" rx="3" fill="#8b7b8f" fill-opacity=".55" stroke="#81769a" stroke-opacity=".84" stroke-width="1.8"/><path d="M306 23V17" fill="none" stroke="#81769a" stroke-width="2.8" stroke-linecap="round" opacity=".78"/><circle cx="196" cy="32" r="2.8" fill="#81769a" opacity=".55"/></svg>';;
 
   function heroCompanionFigure() {
     if (!progress) return null;
@@ -5266,7 +5293,11 @@
       const eyebrow = located
         ? `${String(located.entry.order).padStart(2, '0')} / ${total || data.lessons.length} · ${learningStatus}`
         : learningStatus;
-      children.push(node('p', '继续学习', 'continue-label'));
+      /* v4.11.11 首页信息层级收口：区块标签由「继续学习」改为「当前继续学习」——
+       * 原文案与下方主 CTA「继续学习 →」完全同词，区块标签和动作按钮互相抢读；
+       * 改名后标签只指认区块（回答「我现在学到哪里」），CTA 是唯一的动作表述。
+       * 只改这一处标签文字：CTA 文案、数据口径、DOM 结构与点击路径一字不动。 */
+      children.push(node('p', '当前继续学习', 'continue-label'));
       children.push(node('p', eyebrow, 'continue-eyebrow'));
       children.push(node('h2', next.zh, 'continue-title'));
       children.push(node('p', next.title, 'english continue-en'));
@@ -5357,7 +5388,7 @@
       card.type = 'button';
       card.setAttribute('aria-haspopup', 'dialog');
       const iconMarkup = icons && icons.entryIcons ? icons.entryIcons[item.icon] : null;
-      if (iconMarkup) card.append(svgImage(iconMarkup, '', 'entry-icon'));
+      if (iconMarkup) card.append(maskIcon(iconMarkup, 'entry-icon'));
       const text = node('span', undefined, 'entry-text');
       text.append(node('span', item.zh, 'entry-title'));
       text.append(node('span', item.desc, 'entry-desc'));
@@ -6740,9 +6771,191 @@
     if (index === data.lessons.length - 1) main.append(node('p', '本版导读到此结束。接下来的 Recipes 项目请回 TOP 自己完成；本站不提供项目答案。', 'end-note'));
   }
 
+  /* v4.11.8 最小长课样板：章节达到阈值时提供文档流内定位，不参与进度或档案。 */
+  const LESSON_CHAPTER_NAV_MIN = 12;
+  function chapterAnchorId(title, index, used) {
+    const base = String(title).normalize('NFKD').toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || `chapter-${index + 1}`;
+    const safeBase = base === `chapter-${index + 1}` ? base : base.replace(/^chapter-/, '');
+    let id = `lesson-chapter-${safeBase}`;
+    let suffix = 2;
+    while (used.has(id)) id = `lesson-chapter-${base}-${suffix++}`;
+    used.add(id);
+    return id;
+  }
+
+  function buildChapterNav(lesson, chapterIds) {
+    if (!Array.isArray(lesson.sections) || lesson.sections.length < LESSON_CHAPTER_NAV_MIN) return null;
+    const navigation = node('nav', undefined, 'lesson-chapter-nav');
+    navigation.setAttribute('aria-label', '本课章节');
+    navigation.append(node('p', '本课章节', 'lesson-chapter-nav-title'));
+    const list = node('ol', undefined, 'lesson-chapter-nav-list');
+    lesson.sections.forEach((part, index) => {
+      const item = node('li');
+      /* v4.11.8 样板验收修正（2026-09-21）：链接文字只放章节真实标题——
+       * 序号由外层 <ol> 原生提供。此前「章节 N：标题」与 <ol> 数字叠加出两套序号。 */
+      item.append(link(part.h, `#${chapterIds[index]}`, 'lesson-chapter-link'));
+      list.append(item);
+    });
+    navigation.append(list);
+    return navigation;
+  }
+
+  /* ---------- v4.11.9 长课可复用视觉模块样板（开发期） ----------
+   * 目的：验证「流程复习」与「命令 / 概念速查」两种轻量模块是否真的比连续段落
+   * 更适合长课回看与查阅。只挂两门长课样板 + 一门短课对照。
+   *
+   * **数据落点纪律**：本表是开发期样板，**不是课程内容的第二事实源**。全部条目
+   * 提炼自 lessons.js 对应章节的既有正文与列表，每条注明出处章节，不新增课程事实、
+   * 不引入正文没有的命令（核对记录见 answers 实施回答文件）。验证通过后应按正式
+   * 流程迁入 lessons.js 的 sections 字段并删除本表；验证失败则整段删除即可回滚，
+   * 不触碰课程数据文件。
+   *
+   * **渲染纪律**（与 LESSON-PAGE-GUIDE 第 5 节活断言逐条对齐）：
+   *  - 标题用 <p> 而不是 h3——h3 会进入 renderLessonV2 的 explainHeads，破坏概念图
+   *    sectionIndex 归位与「h3 数量 === 章数」的锚点断言；更不产生 h2（browser-smoke
+   *    钉 main 的 h2 序列）。
+   *  - 零 details / summary（browser-smoke 钉课页 details 数 === quiz 数）。
+   *  - 只渲染在 section-explain 内，不进 section-official：该节「文档序第一个 <ol>
+   *    必须是 Assignment 列表」的断言作用域是 official 节内（collectTagDeep(official)），
+   *    explain 里的 <ol> 不影响它——章节导航已是先例。
+   *  - 零 <a>、零事件绑定、零 storage、零可交互状态：模块是内容，不是打卡 / 进度 /
+   *    成就系统，因此不新增 storage key、schema 字段、XP 或完成状态。
+   *  - 同章顺序固定：本章正文 → 概念图（如有）→ 流程复习 → 命令 / 概念速查 → 下一章 h3。
+   *  - sectionIndex 越界（坏数据）时**不渲染**，不回落也不崩；合法性由
+   *    tests/lesson-visual-modules.test.cjs 钉住，坏数据进不了仓库。 */
+  const LESSON_MODULE_SAMPLES = {
+    'git-basics': {
+      /* 落点第 10 章「你已走完一个完整闭环」：该章正文原本是一行箭头串
+       * （GitHub 建仓 → clone → 改文件 → add → commit → push → 网页核对），
+       * 挤在一句里无法快速扫描；这里把同一条闭环展开成每步一行。 */
+      process: {
+        sectionIndex: 10,
+        title: '流程复习',
+        steps: [
+          { title: '在 GitHub 上创建仓库', detail: '网页上建好远端仓库，复制 SSH 地址——复制成 HTTPS 地址最后推送会失败。' },
+          { title: '克隆到本地', detail: 'git clone 加上那行 SSH 地址，本地就有一份完整副本。' },
+          { title: '修改或创建文件', detail: '在本地仓库目录里改动内容。' },
+          { title: '暂存变化', detail: 'git add 把改动请进暂存区，官方把它比喻成「等候室」。' },
+          { title: '创建提交', detail: 'git commit -m 加上说明，把等候室里的改动打包成一次快照。' },
+          { title: '推送到远端', detail: 'git push 把本地提交上传到 GitHub。' },
+          { title: '在网页上核对', detail: '刷新仓库页面，确认文件与内容已经在线。' }
+        ]
+      },
+      /* 落点第 12 章「Cheatsheet：命令速查表与三段式语法」：该章正文把命令按
+       * 「远端相关 / 工作流相关 / 状态与历史检查」挤在 3 条长句里；这里改成一行一条
+       * 的命令对照，并把本课其它章节出现过的命令一并汇总，便于查阅。 */
+      reference: {
+        sectionIndex: 12,
+        title: '命令速查',
+        items: [
+          { term: 'git --version', description: '检查 Git 版本；本课要求至少 2.28，才配合 main 作为默认分支。' },
+          { term: 'git config --global init.defaultBranch main', description: '把本地新建仓库的默认分支设为 main。' },
+          { term: 'git clone git@github.com:用户名/仓库名.git', description: '把远端仓库完整复制到本地。' },
+          { term: 'git remote -v', description: '查看本地副本连接的远端地址，两行分别以 (fetch) 和 (push) 结尾。' },
+          { term: 'git status', description: '查看工作区与暂存区状态；官方要求每做完一步就跑一次。' },
+          { term: 'git add 文件名', description: '把指定文件放进暂存区。' },
+          { term: 'git add .', description: '把当前目录及全部子目录的改动都放进暂存区。' },
+          { term: 'git commit -m "说明"', description: '把暂存区的改动打包成一次提交；只敲 git commit 会打开提交信息编辑器。' },
+          { term: 'git log', description: '查看提交历史；停在显示 (END) 的界面时按 q 退出。' },
+          { term: 'git push', description: '把本地提交上传到远端。' },
+          { term: 'git push origin main', description: '完整写法：origin 指明推到哪个远端、main 指明推哪个分支；本课只和一个远端的 main 打交道，与 git push 等效。' },
+          { term: 'git config --global core.editor "code --wait"', description: '把 VS Code 设为提交信息编辑器；执行后终端没有任何输出是正常的。' }
+        ]
+      }
+    },
+    'command-line-basics': {
+      /* 落点第 13 章「官方的收尾：让它变成第二天性」：收尾章讲的就是「这些命令会变成
+       * 第二天性」，在这里回看整课的操作顺序最贴合语境。五步全部来自正文既有命令
+       * （whoami 第 2 章、cd 与 Tab 补全第 5/6 章、ls 与 mkdir 第 8 章、touch 第 11/12 章、
+       * code 第 5/7 章）；正文没有出现 pwd / rm，因此不写进模块。 */
+      process: {
+        sectionIndex: 13,
+        title: '流程复习',
+        steps: [
+          { title: '确认自己在哪', detail: 'whoami 返回你的用户名；cd ~ 回到主目录。' },
+          { title: '移动到目标目录', detail: 'cd 加目录名；只敲开头几个字母再按 Tab 会自动补全。' },
+          { title: '看看目录里有什么', detail: 'ls 列出当前目录的内容，常用来确认上一条命令是否生效。' },
+          { title: '创建目录或文件', detail: 'mkdir 建目录，touch 建空文件。' },
+          { title: '用编辑器打开', detail: 'code . 打开整个项目文件夹（带那个句点），code 加文件名打开单个文件。' }
+        ]
+      },
+      /* 同样落第 13 章，顺序在流程复习之后：把散在各章的命令汇总成一处对照表。
+       * 最后一条是第 2 章讲过的提示符阅读约定，属于「概念」而非命令。 */
+      reference: {
+        sectionIndex: 13,
+        title: '命令速查',
+        items: [
+          { term: 'whoami', description: '返回你的用户名。' },
+          { term: 'cd ~', description: '回到主目录；~ 就代表主目录。' },
+          { term: 'cd 目录名', description: '进入指定目录；输入开头几个字母再按 Tab 会自动补全。' },
+          { term: 'ls', description: '列出当前目录里的内容，用来确认命令是否生效。' },
+          { term: 'mkdir 目录名', description: '创建一个新目录。' },
+          { term: 'touch 文件名', description: '创建一个空文件。' },
+          { term: 'code .', description: '启动 VS Code 并在侧边栏打开当前整个项目文件夹（注意那个句点）。' },
+          { term: 'code 文件名', description: '用 VS Code 打开指定的文件或文件夹。' },
+          { term: '$ 或 %', description: '提示符，表示终端在等你输入命令；教程里写在命令前的 $ 不要跟着输入。' }
+        ]
+      }
+    }
+  };
+
+  /* 流程复习：纵向 <ol>，每步独占一行，序号是原生数字（视觉锚点）。
+   * 不用 flex——章节导航踩过横向 wrap 让两项挤进同一行的坑。 */
+  function buildProcessModule(spec) {
+    const box = node('div', undefined, 'lesson-process');
+    box.append(node('p', spec.title, 'lesson-process-title'));
+    const steps = node('ol', undefined, 'lesson-process-list');
+    spec.steps.forEach(item => {
+      const step = node('li');
+      step.append(node('span', item.title, 'lesson-process-step'));
+      if (item.detail) step.append(node('span', item.detail, 'lesson-process-detail'));
+      steps.append(step);
+    });
+    box.append(steps);
+    return box;
+  }
+
+  /* 命令 / 概念速查：语义化 dl，一条 = 一个 dt（命令 / 概念）+ 一个 dd（说明）。
+   * 结构与既有「重要英文术语」的 .term 同族，因此复用同一套已验证的窄屏换行形态。 */
+  function buildReferenceModule(spec) {
+    const box = node('div', undefined, 'lesson-reference');
+    box.append(node('p', spec.title, 'lesson-reference-title'));
+    const definitions = node('dl', undefined, 'lesson-reference-list');
+    spec.items.forEach(item => {
+      const row = node('div', undefined, 'lesson-reference-item');
+      row.append(node('dt', item.term), node('dd', item.description));
+      definitions.append(row);
+    });
+    box.append(definitions);
+    return box;
+  }
+
+  /* 把两个模块插进「中文讲解」：本章正文与概念图之后、下一章 h3 之前。
+   * 必须在概念图归位之后调用——复用同一份 explainHeads，顺序才是
+   * 正文 → 概念图 → 流程复习 → 速查。坏数据（sectionIndex 越界）不渲染。 */
+  function appendLessonModules(explain, explainHeads, lessonId) {
+    const sample = LESSON_MODULE_SAMPLES[lessonId];
+    if (!sample) return;
+    [['process', buildProcessModule], ['reference', buildReferenceModule]].forEach(([kind, build]) => {
+      const spec = sample[kind];
+      if (!spec) return;
+      const at = spec.sectionIndex;
+      if (!Number.isInteger(at) || at < 0 || at >= explainHeads.length) return;
+      const module = build(spec);
+      const nextHead = explainHeads[at + 1];
+      if (nextHead) explain.insertBefore(module, nextHead);
+      else explain.append(module);
+    });
+  }
+
   /* v2 中文自足讲解布局：当前 19 课均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
   function renderLessonV2(lesson) {
     main.classList.add('lesson-v2');
+    const chapterIds = [];
+    const usedChapterIds = new Set();
+    lesson.sections.forEach((part, index) => chapterIds.push(chapterAnchorId(part.h, index, usedChapterIds)));
+    const chapterNav = buildChapterNav(lesson, chapterIds);
     const why = section('这一课为什么重要', 'section-why');
     why.append(node('p', lesson.why));
     /* v4.11.2 D1：读者点任何外链离开本页之前，第 1 节就明确告知本站的中文辅助
@@ -6759,9 +6972,12 @@
     main.append(why);
 
     const explain = section('中文讲解', 'section-explain');
+    if (chapterNav) explain.append(chapterNav);
     explain.append(node('p', '以下讲解由本站依据官方原课自行编写，覆盖正文要点；官方内容若有更新，以原课为准。', 'muted'));
-    lesson.sections.forEach(part => {
-      explain.append(node('h3', part.h));
+    lesson.sections.forEach((part, index) => {
+      const heading = node('h3', part.h);
+      heading.id = chapterIds[index];
+      explain.append(heading);
       part.p.forEach(paragraph => explain.append(node('p', paragraph)));
       if (Array.isArray(part.list) && part.list.length) explain.append(list(part.list));
     });
@@ -6785,6 +7001,12 @@
       }
     });
     floatingDiagrams.forEach(figure => main.append(figure));
+
+    /* v4.11.9：流程复习 / 命令速查样板插在概念图归位**之后**——复用同一份
+     * explainHeads，顺序才是「本章正文 → 概念图（如有）→ 流程复习 → 速查 → 下一章 h3」。
+     * 只有样板表里有数据的课才渲染；短课与未覆盖的长课完全不受影响。
+     * explainHeads 里只有 H3（模块标题是 <p>），因此模块不会污染概念图归位与锚点数量。 */
+    appendLessonModules(explain, explainHeads, lesson.id);
 
     const terms = section('重要英文术语', 'section-terms');
     const definitions = node('dl', undefined, 'terms');

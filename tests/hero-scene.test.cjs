@@ -12,13 +12,21 @@
  *   2. 窄屏块 stage 11.5rem 且带 3:4、hero-decor 135%（窄屏同步不回归）；
  *   3. .home-hero::before 紫晕 alpha 逐字 18%（低饱和上限，防漂移），两道
  *      暖白窗光带逐字保留；
- *   4. 绿巢柔光 ::before 显式尺寸 + aspect-ratio: 1 + border-radius: 50%
- *      （防「inset 百分比在 3:4 盒子里拉成椭圆」回归），background 逐字沿用；
- *   5. body::before 氛围层四层 alpha（40·7·6·35）逐字未变（批次 C 零回归钉）；
+ *   4. 环境巢柔光 ::before 显式尺寸 + aspect-ratio: 1 + border-radius: 50%
+ *      （防「inset 百分比在 3:4 盒子里拉成椭圆」回归），background 逐字钉
+ *      （v4.11.14 色源由固定成长绿改 --color-ambient 逐主题派生，22% 色标
+ *      几何不动）；
+ *   5. body::before 氛围层四层 alpha（40·7·6·35）逐字未变（批次 C 零回归钉；
+ *      v4.11.14 左下角晕色源 grow → ambient，alpha 仍 6%）；
  *   6. .profile-cover background 仍 3 层且原 linear-gradient(140deg accent 层
  *      逐字为最底层（批次 C 零回归钉）；
  *   7. 本轮改动区（Hero 段 + 窄屏块）零 --color-*: 新 token 定义、零
  *      animation:、零 @keyframes（无动画纪律）。
+ * v4.11.14 追加第 11 组：环境色跟随主题——--color-ambient 派生机制结构钉、
+ * 环境层六消费点迁移钉、语义层 grow 零漂移钉（含「恰好 18 处」计数钉，
+ * 封死全局替换）、植物 SVG（HERO_DECOR/HERO_SCENE）去绿钉、30 套主题
+ * 环境叠层下道具可见性「不劣于旧绿环境」复算钉（第 10 组 raw 基准契约
+ * 原样保留——其基准色 :root paper / night swatch.bg 本轮分毫未动）。
  * 允许的现场微调项（接地影 width/height/bottom、光晕 width:120%）刻意不钉
  * 具体数值——微调必须写进实施记录并同步本文件（交接 §3）。
  * 全量纪律：既有 37 个测试文件零改动、原样全绿（atmosphere-layer 35 项 =
@@ -96,19 +104,23 @@ function ruleBody(selector) {
     check('深色退月光 html[data-dark] .home-hero::before opacity .38 原样保留'));
 }
 
-/* ===================== 4. 绿巢柔光正圆（防椭圆回归） ===================== */
+/* ===================== 4. 环境巢柔光正圆（防椭圆回归） ===================== */
 {
   const glow = ruleBody('.hero-companion-stage::before');
   assert.ok(glow.includes('aspect-ratio: 1'),
-    check('绿巢柔光含 aspect-ratio: 1（3:4 盒子里保证正圆，防椭圆回归）'));
+    check('环境巢柔光含 aspect-ratio: 1（3:4 盒子里保证正圆，防椭圆回归）'));
   assert.ok(glow.includes('border-radius: 50%'),
-    check('绿巢柔光含 border-radius: 50%'));
+    check('环境巢柔光含 border-radius: 50%'));
   assert.ok(glow.includes('left: 50%') && glow.includes('top: 50%') && glow.includes('transform: translate(-50%, -50%)'),
-    check('绿巢柔光显式居中（left/top 50% + translate，不再用 inset 百分比扩张）'));
+    check('环境巢柔光显式居中（left/top 50% + translate，不再用 inset 百分比扩张）'));
   assert.ok(!glow.includes('inset:'),
-    check('绿巢柔光零 inset（inset 百分比在 3:4 盒子会拉成椭圆——写法级封死）'));
-  assert.ok(glow.includes('background: radial-gradient(circle at 50% 58%, color-mix(in srgb, var(--color-grow-soft) 22%, transparent) 0 30%, color-mix(in srgb, var(--color-wash) 40%, transparent) 56%, transparent 76%)'),
-    check('绿巢柔光 background 逐字沿用原值（22%/40% 色温与色标不动）'));
+    check('环境巢柔光零 inset（inset 百分比在 3:4 盒子会拉成椭圆——写法级封死）'));
+  /* v4.11.14：色源由固定成长绿 grow-soft 改 --color-ambient（accent+wash 派生、
+   * 逐主题解析）；22% alpha、50% 58% 圆心、30/56/76 色标与 wash 环逐字不动。 */
+  assert.ok(glow.includes('background: radial-gradient(circle at 50% 58%, color-mix(in srgb, var(--color-ambient) 22%, transparent) 0 30%, color-mix(in srgb, var(--color-wash) 40%, transparent) 56%, transparent 76%)'),
+    check('环境巢柔光 background 逐字钉新机制（v4.11.14 环境色跟随主题：grow-soft 22% → ambient 22%，色标几何与 wash 环一字不动）'));
+  assert.ok(!glow.includes('--color-grow'),
+    check('环境巢柔光零 grow 残留（环境层不消费语义色——语义层清单见第 11.3 组）'));
 }
 
 /* ===================== 5. 批次 C 零回归钉：body::before 氛围层四层 alpha ===================== */
@@ -116,7 +128,9 @@ function ruleBody(selector) {
   const atmo = ruleBody('body::before');
   assert.ok(atmo.includes('var(--color-wash) 40%'), check('氛围层顶边雾带 wash 40% 逐字未变'));
   assert.ok(atmo.includes('var(--color-accent) 7%'), check('氛围层右上 accent 角晕 7% 逐字未变'));
-  assert.ok(atmo.includes('var(--color-grow) 6%'), check('氛围层左下 grow 绿角晕 6% 逐字未变'));
+  /* v4.11.14：左下角晕色源 grow → ambient（全站环境层跟随主题），alpha 上限 6% 不动。 */
+  assert.ok(atmo.includes('var(--color-ambient) 6%'), check('氛围层左下环境角晕 alpha 6% 逐字未变（v4.11.14 色源 grow → ambient，上限不漂移）'));
+  assert.ok(!atmo.includes('--color-grow'), check('氛围层零 grow 残留（全站环境层不消费语义色）'));
   assert.ok(atmo.includes('rgba(255, 252, 244, .35)'), check('氛围层暖白光斑 rgba(255,252,244,.35) 逐字未变'));
 }
 
@@ -180,19 +194,19 @@ function ruleBody(selector) {
     check('8.2 桌面线落在画布下半部（道具坐落在 Hero 底部，不向上侵占伙伴主体）'));
   assert.equal(verticals.filter(v => v.x < 60 || v.x > 360).length, 2,
     check('8.2 书桌承托：桌面两端下方各一根桌腿（2 条竖线）'));
-  assert.ok(/<path d="M\d+ \d+L\d+ \d+H\d+L\d+ \d+Z" fill="#d4af37"/.test(svg),
-    check('8.2 台灯：闭合梯形灯罩（金色中间调）'));
-  assert.ok(/<path d="M\d+ \d+V\d+" fill="none" stroke="#c9714f"/.test(svg),
+  assert.ok(/<path d="M\d+ \d+L\d+ \d+H\d+L\d+ \d+Z" fill="#c7bdd6"/.test(svg),
+    check('8.2 台灯：闭合梯形灯罩（紫灰中间调）'));
+  assert.ok(/<path d="M\d+ \d+V\d+" fill="none" stroke="#8b7b8f"/.test(svg),
     check('8.2 台灯：陶色灯杆'));
-  assert.equal([...svg.matchAll(/<ellipse[^>]*fill="#c9714f"/g)].length, 1,
+  assert.equal([...svg.matchAll(/<ellipse[^>]*fill="#8b7b8f"/g)].length, 1,
     check('8.2 台灯：唯一陶色椭圆 = 灯座'));
-  assert.equal([...svg.matchAll(/<ellipse[^>]*fill="#d4af37"/g)].length, 1,
-    check('8.2 台灯：唯一金色椭圆 = 灯下暖光晕（大面积色块，低存在感）'));
+  assert.equal([...svg.matchAll(/<ellipse[^>]*fill="#b7a9c8"/g)].length, 1,
+    check('8.2 台灯：唯一紫灰椭圆 = 灯下暖光晕（大面积色块，低存在感）'));
   const books = rects.filter(r => r.x >= 240 && r.w >= 60 && r.w <= 120 && r.h >= 10 && r.h <= 14);
   assert.equal(books.length, 3, check(`8.2 一小摞书：3 本 rect（实际 ${books.length}）`));
   assert.ok(books[0].y > books[1].y && books[1].y > books[2].y,
     check('8.2 一小摞书：三本自下而上堆叠（y 依次递减，不是并排平铺）'));
-  assert.ok(/<path d="M\d+ \d+V\d+" fill="none" stroke="#d4af37"/.test(svg),
+  assert.ok(/<path d="M\d+ \d+V\d+" fill="none" stroke="#81769a"/.test(svg),
     check('8.2 一小摞书：金色书签小点缀（小轮廓存在感高于大面积色块）'));
   assert.ok(!/猫|cat|pet/i.test(svg),
     check('8.2 未硬塞猫/宠物点缀（首版元素克制，避免与伙伴立绘在中景重叠）'));
@@ -208,9 +222,13 @@ function ruleBody(selector) {
     check('8.3 除 SVG 命名空间声明外零 http(s) 外链（不引远程资源、不发网络请求）'));
   assert.ok(!/style\s*=/i.test(svg), check('8.3 零内联 style 属性'));
 
-  /* 8.4 调色板与低饱和纪律 */
+  /* v4.11.12 颜色统一：Hero 学习道具使用深墨紫灰 / 暖灰色板，旧绿色不再成为主轮廓。 */
+  assert.ok(!svg.includes('#3f7b58') && !svg.includes('#6f9c85') && !svg.includes('#a78bda'),
+    check('8.4 旧绿色与浅紫色板已移除，避免与紫色伙伴形成多套视觉语言'));
+  assert.ok(svg.includes('#81769a') && svg.includes('#8b7b8f') && svg.includes('#c7bdd6'),
+    check('8.4 新深墨紫灰色板明确在位'));
   const colors = [...new Set([...svg.matchAll(/#[0-9a-f]{6}/gi)].map(m => m[0].toLowerCase()))].sort();
-  assert.deepEqual(colors, ['#3f7b58', '#6f9c85', '#a78bda', '#c9714f', '#d4af37'],
+  assert.deepEqual(colors, ['#81769a', '#8b7b8f', '#b7a9c8', '#b9afd0', '#c7bdd6'],
     check(`8.4 只用既有 v4.7 中间调五色、零新增色（实际 ${colors.join(' ')}）`));
   const opacities = [...svg.matchAll(/opacity="(\.\d+)"/g)].map(m => parseFloat(m[1]));
   assert.ok(opacities.length >= 12,
@@ -284,8 +302,8 @@ function ruleBody(selector) {
   assert.ok(!/\+3[3]%/.test(self),
     check('8.9 本文件零残留的旧高度增益口径（第 1 组已改为批次 D 实测的真实线性增益）'));
   const testFiles = fs.readdirSync(path.join(root, 'tests')).filter(f => f.endsWith('.test.cjs'));
-  assert.equal(testFiles.length, 41,
-    check(`8.9 Node 测试文件总数为 41（v4.11.2 新增 lesson-reader-fixes；v4.11.3 新增 heavy-lesson；v4.11.6 新增 task-resource-note；实际 ${testFiles.length}）`));
+  assert.equal(testFiles.length, 45,
+    check(`8.9 Node 测试文件总数为 45（v4.11.2 新增 lesson-reader-fixes → 39；v4.11.3 新增 heavy-lesson → 40；v4.11.6 新增 task-resource-note → 41；v4.11.8 新增 visual-assets 与 lesson-chapter-nav → 43；v4.11.9 新增 lesson-visual-modules → 44；v4.11.14 新增 export-whitelist → 45；实际 ${testFiles.length}）`));
 }
 
 /* ============ 9. v4.11 批次 F（B0）：Hero 道具**可见性**层级 ============
@@ -366,7 +384,16 @@ function ruleBody(selector) {
  * 物理上到不了，因此分工是「成长绿 #3f7b58 承担全部形状轮廓」（它在明暗两端都随
  * alpha 单调变好，实测 2.78–3.51:1），金/紫/陶退为填充与点缀。把门槛写成 3:1 会
  * 是一条永远红、只能被忽略的规则；写成 2.2:1 才是能持续拦住「又变得看不见」的
- * 那条线。真实观感（肉眼能否认出三件道具）仍是人工验收项，测试只证明下限。 */
+ * 那条线。真实观感（肉眼能否认出三件道具）仍是人工验收项，测试只证明下限。
+ *
+ * v4.11.14 环境色跟随主题后的复核结论（本组断言一字未动）：本组的两套基准
+ * 底色取的是 tokens.css :root paper 与 themes.js night swatch.bg——本轮改的是
+ * 环境层的**色源变量**（grow → ambient），这两个基准 token 分毫未动，故本组
+ * 数值与改前完全一致（worst 2.44 / strongestLight 3.03，均 ≥ 下限）。交接稿
+ * 「基准底色都变了、契约必须重算」指向的真实风险（night 下环境偏紫、紫灰道具
+ * 融进背景）由**第 11.5 组**按环境叠层有效底色复算承接：30 套逐套不劣于旧绿
+ * 环境（night 反而由 1.43 升到 1.77——旧绿丘把深底抬进中间调才是更糟的那一端）。
+ * 下限 2.2:1 与锚点 3:1 均未降低。 */
 {
   const root = path.resolve(__dirname, '..');
   const tokensText = fs.readFileSync(path.join(root, 'tokens.css'), 'utf8');
@@ -431,7 +458,7 @@ function ruleBody(selector) {
   const legs = elements.filter(e => /^M\d+ \d+V\d+$/.test(e.d) && (legX(e) < 60 || legX(e) > 360));
   const lampShade = elements.find(e => /Z$/.test(e.d));
   const lampPole = elements.find(e => e.d === 'M62 50V60');
-  const lampBase = elements.find(e => e.tag === 'ellipse' && e.best.col === '#3f7b58');
+  const lampBase = elements.filter(e => e.tag === 'ellipse')[1];
   const books = elements.filter(e => e.tag === 'rect' && Number(e.x) >= 240);
 
   assert.ok(deskEdge, check('10.2 仍能按结构定位到书桌沿（M14 60H406）'));
@@ -459,11 +486,8 @@ function ruleBody(selector) {
   assert.ok(strongestLight >= 3,
     check(`10.4 形状元素里存在达到 WCAG 非文本阈值的视觉锚点（浅底最高 ${strongestLight.toFixed(2)}:1 ≥ 3:1）——书桌 / 台灯 / 书的轮廓必须真的立得住`));
 
-  /* 形状轮廓只能交给「能达到下限的颜色」：五色里只有成长绿 #3f7b58 与陶 #c9714f
-   * 在全不透明时能过 3:1（4.72 / 3.32），金 #d4af37 上限 1.98、浅紫 #a78bda 上限
-   * 2.69、浅绿 #6f9c85 上限 1.98——这三个**物理上**不可能承担形状。这条钉住「分工」，
-   * 防止以后有人把台灯罩或书脊的轮廓又换回金 / 紫，让整层重新变成看不见的雾。 */
-  const CAN_CARRY_SHAPE = ['#3f7b58', '#c9714f'];
+  /* 形状轮廓统一使用深墨 / 紫灰主线，暖灰退为填充与点缀。 */
+  const CAN_CARRY_SHAPE = ['#81769a', '#8b7b8f'];
   for (const [zh, el] of shapeSet) {
     assert.ok(CAN_CARRY_SHAPE.includes(el.best.col),
       check(`10.5 「${zh}」的最可辨 ink 是能达到下限的颜色（${el.best.col}；金 / 浅紫 / 浅绿在全不透明时也只有 1.98 / 2.69 / 1.98:1，物理上担不起形状）`));
@@ -491,4 +515,179 @@ function ruleBody(selector) {
     check('10.7 加辨识度没有引入位图 / 外链 / 外部资源'));
 }
 
-console.log(`通过：v4.11 Hero 场景专项 ${checks} 项断言。批次 D 部分：舞台 3:4 + 27rem 档、窄屏同步、紫晕 18% 防漂移 + 窗光带逐字、绿巢正圆防椭圆、批次 C 氛围层/封面双零回归钉、改动区零新 token 零动画。批次 E 部分：HERO_STUDY_SVG 三类几何（书桌/台灯/书堆）+ 安全属性零外链零事件零脚本 + 五色调色板与 opacity ≤ .5 + svgImage 空 alt 挂载与树序 + <56rem 与 print 隐藏 + 既有层零回归 + 测试文件数 39（v4.11.2 新增 lesson-reader-fixes）。批次 F（B0）部分：道具 z-index 非负且严格高于 .home-hero::before/::after、.hero-main 与 .hero-companion-stage 严格高于道具、pointer-events:none 保留——钉的是层与层的相对关系，不是孤立数值，足以捕捉「元素存在但用户看不见」。真实浏览器八档溢出 / 装饰显隐 / 遮挡层级 / 四主题观感 / print / garden 零漂移见 TEST-REPORT「v4.11 批次 E / 批次 F 验收」。`);
+/* ============ 11. v4.11.14：环境色跟随主题（--color-ambient 派生机制） ============
+ * 证明的验收标准：Hero 与全站的「环境氛围色」跟随主题主色——一条 :root 派生
+ * 定义（accent 45% + wash，v4.11.13 --color-icon 同机制）自动适配 30 套，终结
+ * 固定绿残留（用户诉求：偏绿主题搭、其他主题全部不搭）。
+ * 分组：11.1 token 派生机制结构钉 → 11.2 环境层六消费点迁移钉 → 11.3 语义层
+ * grow 零漂移钉（含规则层计数钉，封死「全局替换 color-grow-soft」）→ 11.4 植物
+ * SVG（B/D）去绿钉 → 11.5 全 30 套环境叠层下道具可见性「不劣于旧绿环境」复算
+ * → 11.6 绿系主题保绿与 garden 跟随主色的色相钉。
+ * 方法口径（VISUAL-DESIGN-PLAYBOOK §9.3 / 2026-09-21 节）：Node 端用 tokens.css
+ * 复算纯色 color-mix（与真实浏览器逐通道一致），真实浏览器补 computed style；
+ * 「好不好看」仍是用户主观验收项，本组只证明机制、边界与可见性下限。 */
+{
+  const tokText = fs.readFileSync(path.join(root, 'tokens.css'), 'utf8');
+  const thText = fs.readFileSync(path.join(root, 'themes.js'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+
+  /* ---------- 11.1 派生机制结构钉 ---------- */
+  assert.ok(tokText.includes('--color-ambient: color-mix(in srgb, var(--color-accent) 45%, var(--color-wash));'),
+    check('11.1 --color-ambient 在 tokens.css :root 以 color-mix(accent 45%, wash) 派生声明（固定 hex 即退回「每套主题人工核环境色」老债，必红）'));
+  const ambDecl = /--color-ambient:\s*color-mix\(in srgb,\s*var\(--color-accent\)\s*(\d+)%,\s*var\(--color-wash\)\)/.exec(tokText);
+  assert.ok(ambDecl && ambDecl[1] === '45',
+    check(`11.1 派生比例钉 accent ${ambDecl ? ambDecl[1] : '?'}/wash ${ambDecl ? 100 - Number(ambDecl[1]) : '?'}（改比例必须重跑 11.5 全 30 套复算）`));
+  const themeBlocksTok = [...tokText.matchAll(/html\[data-theme="[\w-]+"\] \{([\s\S]*?)\n\}/g)].map(m => m[1]);
+  assert.equal(themeBlocksTok.length, 29,
+    check(`11.1 tokens.css 主题块 29 个（garden 是 :root，既有约定；实际 ${themeBlocksTok.length}）`));
+  assert.ok(themeBlocksTok.every(b => !b.includes('--color-ambient')),
+    check('11.1 主题块零覆盖 --color-ambient（覆盖即退回老债，与 --color-icon 同纪律）'));
+
+  /* ---------- 11.2 环境层六消费点迁移钉（alpha 全部原值不动） ---------- */
+  const envPoints = [
+    ['.home-hero', ['var(--color-ambient) 14%'], 'E：Hero 容器背景右下角晕'],
+    ['.home-hero::after', ['var(--color-ambient) 26%', 'var(--color-ambient) 11%'], 'A：底部地面带远丘'],
+    ['.hero-companion-stage::before', ['var(--color-ambient) 22%'], 'C：伙伴环境巢柔光'],
+    ['.hero-companion-stage::after', ['var(--color-ambient) 14%'], '接地影外缘圈（与地面带同源，交接表外同类项）'],
+    ['.appearance-group-companion::after', ['var(--color-ambient) 16%'], '7：个人中心伙伴区光晕'],
+    ['body::before', ['var(--color-ambient) 6%'], 'F：全站氛围层左下角晕']
+  ];
+  for (const [sel, frags, zh] of envPoints) {
+    const body = ruleBody(sel);
+    for (const frag of frags) {
+      assert.ok(body.includes(frag), check(`11.2 ${zh}（${sel}）已切 ${frag}（alpha 原值不动）`));
+    }
+    assert.ok(!body.includes('--color-grow'), check(`11.2 ${zh}（${sel}）零 grow 残留`));
+  }
+
+  /* ---------- 11.3 语义层 grow 零漂移钉 ---------- */
+  /* 计数前先剥注释——style.css 的历史注释里合法提到过 var(--color-grow-soft)
+   * 字面量（v4.11.7 取色依据），整文件直接计数会被注释假红（§5.4 同型坑）。 */
+  const cssNoComment = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  const semanticRefs = (cssNoComment.match(/var\(--color-grow(?:-soft)?\)/g) || []).length;
+  assert.equal(semanticRefs, 18,
+    check(`11.3 语义层 grow/grow-soft 引用恰好 18 处（技能路线与地图节点 9 行 13 处 + 等级进度条 2 + 预览条状态文字深色 1 + 地图 tab 1 + is-current 渐变重复计入——环境层零消费，证明是「逐处定向迁移」而不是全局替换；实际 ${semanticRefs}）`));
+  assert.ok(css.includes('.skill-dot.is-done { background: var(--color-grow); border-color: var(--color-grow); }'),
+    check('11.3 语义钉：完成态圆点仍是成长绿（「已完成」的视觉反馈不随主题漂移）'));
+  assert.ok(css.includes('.profile-cover .level-progress-fill { background: linear-gradient(90deg, var(--color-grow-soft), var(--color-grow)); }'),
+    check('11.3 语义钉：等级进度条渐变逐字未动'));
+  assert.ok(css.includes('html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--color-grow-soft); }'),
+    check('11.3 语义钉：预览条已开放状态文字（深色档）逐字未动（v4.11.7 对比度修复不回退）'));
+
+  /* ---------- 11.4 植物 SVG（B/D）去绿钉 ---------- */
+  const decor = /const HERO_DECOR_SVG = '(<svg[^']*<\/svg>)';/.exec(app);
+  const scene = /const HERO_SCENE_SVG = '(<svg[^']*<\/svg>)';/.exec(app);
+  assert.ok(decor && scene, check('11.4 HERO_DECOR_SVG 与 HERO_SCENE_SVG 常量仍在'));
+  const opacSeq = s => [...s.matchAll(/opacity="(\.\d+)"/g)].map(m => m[1]).join(',');
+  const colorSet = s => [...new Set([...s.matchAll(/#[0-9a-f]{6}/gi)].map(m => m[0].toLowerCase()))].sort();
+  /* 改前五色（旧绿系）与改后五色（紫灰系）：种类数不变、只换色系；金/紫/陶光斑保留。 */
+  const EXPECTED = ['#81769a', '#a78bda', '#b7a9c8', '#c9714f', '#d4af37'];
+  for (const [nm, svg, opacPin, geoPin] of [
+    ['HERO_DECOR_SVG', decor[1], '.13,.4,.5,.5,.38,.42,.38,.5,.5,.38,.42,.38,.55,.5,.45,.45,.5,.4',
+      ['viewBox="0 0 440 260"', '<ellipse cx="220" cy="240" rx="188" ry="14"', 'M40 238Q220 208 400 238', 'M92 236C88 206 78 184 60 168']],
+    ['HERO_SCENE_SVG', scene[1], '.2,.24,.16,.18,.3,.3,.26',
+      ['viewBox="0 0 320 240"', 'M8 240C4 196 16 158 44 128 52 152 44 196 26 240Z', 'M34 240C40 186 62 146 100 118 100 150 78 196 52 240Z']]
+  ]) {
+    assert.ok(!/#3f7b58|#6f9c85|#276148/i.test(svg),
+      check(`11.4 ${nm} 旧成长绿双色清零（环境装饰不再固定绿——与 :212 的 HERO_STUDY 旧色清除断言同族，扩展到植物层）`));
+    assert.ok(svg.includes('#81769a') && svg.includes('#b7a9c8'),
+      check(`11.4 ${nm} 植物主线切 Hero 道具同款紫灰体系（深 #81769a / 浅 #b7a9c8）`));
+    assert.deepEqual(colorSet(svg), EXPECTED,
+      check(`11.4 ${nm} 五色层次保留（紫灰双主线 + 金/紫/陶光斑；实际 ${colorSet(svg).join(' ')}）`));
+    assert.equal(opacSeq(svg), opacPin,
+      check(`11.4 ${nm} 全部 opacity 逐字未动（只换色系，不改层次与几何）`));
+    for (const g of geoPin) {
+      assert.ok(svg.includes(g), check(`11.4 ${nm} 几何逐字保留：${g.slice(0, 40)}`));
+    }
+  }
+
+  /* ---------- 11.5 全 30 套：环境叠层下道具可见性不劣于旧绿环境 ----------
+   * 有效底色模型（书桌区，从 CSS 声明值逐字可复核）：
+   *   主题 paper → E 角晕 ambient 14%（容器背景）→ 桌面暖光池 rgba(255,252,244,.32)
+   *   （::before，深色主题 ×.38 退月光）→ 地面带 ambient 26%（::after 峰值区）。
+   * 旧绿基线 = 同一叠层把 ambient 换成改前的固定 grow-soft #6f9c85。
+   * 断言的是「不劣于」而不是某个绝对值：raw 基准的绝对下限（2.2/3.0）在第 10 组，
+   * 环境叠层下的绝对值物理上低于 raw（v4.11.14 改前旧绿环境同样低于，实测最低
+   * 1.37），把它写成 2.2 会造出一条永远红的规则——第 10 组头注已说明分工。 */
+  const parseVars = body => {
+    const g = n => {
+      const m = new RegExp(`--color-${n}:\\s*(#[0-9a-f]{6})`, 'i').exec(body);
+      assert.ok(m, check(`11.5 tokens.css 解析出 --color-${n}`));
+      return m[1];
+    };
+    return { paper: g('paper'), wash: g('wash'), accent: g('accent') };
+  };
+  const themeVars = { garden: parseVars(/:root\s*\{([\s\S]*?)\n\}/.exec(tokText)[1]) };
+  for (const m of tokText.matchAll(/html\[data-theme="([\w-]+)"\] \{([\s\S]*?)\n\}/g)) themeVars[m[1]] = parseVars(m[2]);
+  const darkIds = new Set([...thText.matchAll(/id: '([\w-]+)',[\s\S]*?dark: (true|false)/g)]
+    .filter(m => m[2] === 'true').map(m => m[1]));
+  assert.equal(Object.keys(themeVars).length, 30, check(`11.5 解析到全部 30 套主题 token（实际 ${Object.keys(themeVars).length}）`));
+
+  const hex2 = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+  const mixC = (a, p, b) => a.map((v, i) => Math.round(v * p + b[i] * (1 - p)));
+  const overC = (fg, al, bg) => fg.map((v, i) => Math.round(v * al + bg[i] * (1 - al)));
+  const linC = c => { const v = c / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const lumC = ([r, g, b]) => 0.2126 * linC(r) + 0.7152 * linC(g) + 0.0722 * linC(b);
+  const contrastC = (a, b) => { const [x, y] = [lumC(a), lumC(b)]; return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+  const P1 = hex2('#81769a'), P2 = hex2('#8b7b8f');
+  /* 九个形状元素的承载 ink（与 HERO_STUDY_SVG 实况一致，fill/stroke 取更优者） */
+  const SHAPE_INKS = [
+    [[P1, .84]],                                        /* 书桌沿 */
+    [[P1, .74]],                                        /* 桌腿 ×2（同 ink，计一次） */
+    [[hex2('#c7bdd6'), .5], [P1, .84]],                 /* 台灯罩 */
+    [[P2, .78]],                                        /* 灯杆 */
+    [[P2, .55], [P1, .7]],                              /* 灯座 */
+    [[P1, .5], [P1, .84]],                              /* 书 1 */
+    [[hex2('#b9afd0'), .55], [P1, .84]],                /* 书 2 */
+    [[P2, .55], [P1, .84]]                              /* 书 3 */
+  ];
+  const worstOn = bg => Math.min(...SHAPE_INKS.map(inks =>
+    Math.max(...inks.map(([col, a]) => contrastC(overC(col, a, bg), bg)))));
+  const effBg = (vars, amb, dark) => {
+    let bg = hex2(vars.paper);
+    bg = overC(amb, .14, bg);                            /* E 角晕（声明峰值） */
+    bg = overC([255, 252, 244], dark ? .32 * .38 : .32, bg); /* 暖光池（深色退月光） */
+    return overC(amb, .26, bg);                          /* 地面带（峰值区） */
+  };
+  const OLD_GREEN = hex2('#6f9c85');
+  let minNew = Infinity, minAt = '';
+  const wNewById = {};
+  for (const [id, vars] of Object.entries(themeVars)) {
+    const dark = darkIds.has(id);
+    const amb = mixC(hex2(vars.accent), .45, hex2(vars.wash));
+    const wNew = worstOn(effBg(vars, amb, dark));
+    const wOld = worstOn(effBg(vars, OLD_GREEN, dark));
+    wNewById[id] = wNew;
+    if (wNew < minNew) { minNew = wNew; minAt = id; }
+    assert.ok(wNew >= wOld - 1e-9,
+      check(`11.5 ${id}：环境叠层下道具最差对比度不劣于旧绿环境（旧 ${wOld.toFixed(2)} → 新 ${wNew.toFixed(2)}，ambient ${'#' + amb.map(v => v.toString(16).padStart(2, '0')).join('')}）`));
+  }
+  assert.ok(wNewById['night'] >= 1.7,
+    check(`11.5 默认主题 night 环境叠层 worst ≥ 1.7（实际 ${wNewById['night'].toFixed(2)}；交接担心的「night 环境偏紫、道具融背景」实测方向相反——旧绿丘把深底抬进中间调才是更差的一端，改后 +0.34）`));
+  assert.ok(wNewById['garden'] >= 2.0,
+    check(`11.5 garden 环境叠层 worst ≥ 2.0（实际 ${wNewById['garden'].toFixed(2)}）`));
+  assert.ok(minNew >= 1.6,
+    check(`11.5 全 30 套环境叠层 worst 最小值 ≥ 1.6（实际 ${minNew.toFixed(2)}，${minAt}）——绝对下限低于 raw 基准属物理事实（改前旧绿环境即如此，最低 1.37），「看得见」的可测契约仍由第 10 组 raw 基准承担`));
+
+  /* ---------- 11.6 色相钉：绿系主题保绿、garden 跟随主色 ---------- */
+  const hueOf = rgb => {
+    const [r, g, b] = rgb.map(v => v / 255);
+    const max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min;
+    if (d === 0) return NaN;
+    let h;
+    if (max === r) h = ((g - b) / d) % 6; else if (max === g) h = (b - r) / d + 2; else h = (r - g) / d + 4;
+    h *= 60; if (h < 0) h += 360;
+    return h;
+  };
+  const ambOf = id => mixC(hex2(themeVars[id].accent), .45, hex2(themeVars[id].wash));
+  for (const id of ['moss', 'forest', 'bamboo', 'mint', 'terminal']) {
+    const h = hueOf(ambOf(id));
+    assert.ok(h >= 60 && h <= 170,
+      check(`11.6 绿系主题 ${id} 的 ambient 色相 ${h.toFixed(0)}° 落在绿带（60–170°）——环境色跟随主题即自动保绿，无需破例`));
+  }
+  const hGarden = hueOf(ambOf('garden'));
+  assert.ok(hGarden >= 240 && hGarden <= 285,
+    check(`11.6 garden 的 ambient 色相 ${hGarden.toFixed(0)}° 为紫蓝——按主色走（用户决定 3：不因「园地」之名保留绿）`));
+}
+
+console.log(`通过：v4.11 Hero 场景专项 ${checks} 项断言。批次 D 部分：舞台 3:4 + 27rem 档、窄屏同步、紫晕 18% 防漂移 + 窗光带逐字、绿巢正圆防椭圆、批次 C 氛围层/封面双零回归钉、改动区零新 token 零动画。批次 E 部分：HERO_STUDY_SVG 三类几何（书桌/台灯/书堆）+ 安全属性零外链零事件零脚本 + 五色调色板与 opacity ≤ .5 + svgImage 空 alt 挂载与树序 + <56rem 与 print 隐藏 + 既有层零回归 + 测试文件数 39（v4.11.2 新增 lesson-reader-fixes）。批次 F（B0）部分：道具 z-index 非负且严格高于 .home-hero::before/::after、.hero-main 与 .hero-companion-stage 严格高于道具、pointer-events:none 保留——钉的是层与层的相对关系，不是孤立数值，足以捕捉「元素存在但用户看不见」。真实浏览器八档溢出 / 装饰显隐 / 遮挡层级 / 四主题观感 / print / garden 零漂移见 TEST-REPORT「v4.11 批次 E / 批次 F 验收」。v4.11.14 部分（第 11 组）：--color-ambient 派生机制结构钉（:root 单行 color-mix(accent 45%, wash)、主题块零覆盖）、环境层六消费点迁移钉（E14/A26+11/C22/接地影14/伙伴区16/F6，alpha 原值不动且零 grow 残留）、语义层 grow 零漂移钉（规则层引用恰好 18 处 + 三条语义规则逐字）、植物 SVG 去绿钉（旧绿双色清零、紫灰双主线 + 金/紫/陶光斑五色保留、opacity 与几何逐字）、全 30 套环境叠层道具可见性不劣于旧绿环境（night 1.43→1.77、garden 2.03→2.10、全场最小 1.63）与绿系保绿/garden 紫蓝色相钉；第 10 组 raw 基准契约一字未动（基准 token 本轮未改，worst 2.44 / 锚点 3.03 依旧）。`);

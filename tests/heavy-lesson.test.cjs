@@ -83,10 +83,28 @@ const check = label => { checks += 1; return label; };
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   assert.ok(css.includes('body[data-page="lesson"] .lesson-guide'),
     check('A: style.css 含课页作用域的 .lesson-guide 规则（带左色条提示块）'));
-  /* 不泄漏：style.css 里每个 .lesson-guide 选择器都必须带课页前缀 */
-  const total = css.split('.lesson-guide').length - 1;
-  const scoped = css.split('body[data-page="lesson"] .lesson-guide').length - 1;
-  assert.equal(total, scoped, check('A: .lesson-guide 规则全部带 body[data-page="lesson"] 前缀，不泄漏到其它页面'));
+  /* 不泄漏：style.css 里每个 .lesson-guide **规则选择器**都必须带课页前缀。
+   * v4.11.9 修正实现方式：原来是数全文字面量出现次数（css.split('.lesson-guide')），
+   * 于是**注释里提到这个类名就会造假红**——断言声明的语义是「选择器带前缀」，
+   * 实现却在数「字面量出现」，两者不是一回事。VISUAL-DESIGN-PLAYBOOK §5.4 第 2 条
+   * 记过同一坑型（.entry-icon 那次）。现在先剥离 CSS 注释，再提取真实规则选择器，
+   * 逐个检查前缀；末尾附负向自检，证明它仍然抓得住未带前缀的泄漏规则。 */
+  const stripCssComments = source => source.replace(/\/\*[\s\S]*?\*\//g, '');
+  const guideRuleSelectors = source => [...stripCssComments(source).matchAll(/([^{}]+)\{/g)]
+    .map(match => match[1])
+    .filter(selector => selector.includes('.lesson-guide'));
+  const guideSelectors = guideRuleSelectors(css);
+  assert.ok(guideSelectors.length >= 1,
+    check('A: style.css 至少存在一条 .lesson-guide 规则（选择器口径，注释里的字面量不计）'));
+  guideSelectors.forEach(selector => assert.ok(selector.includes('body[data-page="lesson"]'),
+    check(`A: .lesson-guide 规则选择器带 body[data-page="lesson"] 前缀，不泄漏到其它页面（…${selector.trim().slice(-46)}）`)));
+  /* 负向自检：未带前缀的规则必须被判为泄漏，否则上面的断言是空转的 */
+  const leakedSample = '/* 注释里出现 .lesson-guide 不该被计入 */\n.lesson-guide { color: red; }';
+  const leakedSelectors = guideRuleSelectors(leakedSample);
+  assert.equal(leakedSelectors.length, 1,
+    check('A 负向自检: 注释里的 .lesson-guide 字面量不计入，只数到那条真实规则'));
+  assert.ok(!leakedSelectors[0].includes('body[data-page="lesson"]'),
+    check('A 负向自检: 未带课页前缀的 .lesson-guide 规则确实会被判为泄漏'));
 
   /* 三处引导（今天实际要做什么 / section-why / section-official）全部换用 lesson-guide，
    * 不再是 muted。前两处在当前 19 课都会渲染，第一处（D3 兼容分支）只留在源码里。 */

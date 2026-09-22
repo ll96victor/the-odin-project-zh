@@ -1195,7 +1195,7 @@ function openSheetOf(page) {
   assert.ok(/box-shadow:\s*var\(--shadow-primary\), 0 24px 48px -26px/.test(heroBody),
     check('一体化：Hero 在 --shadow-primary 之上再叠一层向下柔光承托——Hero 与下方信息带被连进同一平面，而不是两块硬边面板'));
   assert.ok(/radial-gradient\(50rem 34rem at 92% 82%/.test(heroBody),
-    check('一体化：Hero 右下（伙伴与书桌一侧）有一块成长绿环境色面——左 wash 与右绿合成一个空间'));
+    check('一体化：Hero 右下（伙伴与书桌一侧）有一块主题环境色面（v4.11.14 起 --color-ambient 逐主题派生）——左 wash 与环境色合成一个空间'));
   assert.ok(heroBody.includes('linear-gradient(150deg, var(--color-wash) 0%, color-mix(in srgb, var(--color-wash) 42%, var(--color-paper)) 48%, var(--color-paper) 78%)'),
     check('一体化：原 150deg 环境底逐字保留为最底层（新增层是叠上去的，不是替换）'));
   const heroAfter = ruleBody('.home-hero::after');
@@ -1234,7 +1234,7 @@ function openSheetOf(page) {
       check(`一体化：${selector} 仍 pointer-events:none——装饰层绝不拦截 CTA 指针`));
   }
   assert.equal(zIndexOf('.hero-companion-stage::before'), -1,
-    check('一体化：伙伴绿巢柔光仍在舞台负层（装饰不盖立绘）'));
+    check('一体化：伙伴环境巢柔光仍在舞台负层（装饰不盖立绘）'));
 
   /* ---------- 5. 新规则不引入图片、外链、动画或新 token ---------- */
   const heroStart = css.indexOf('/* ---------- P0-1 / P0-2：首页 Hero + 次级信息带 ----------');
@@ -1294,4 +1294,268 @@ function openSheetOf(page) {
     check('一体化：首页路线预览条四项色相未漂移'));
 }
 
-console.log(`通过：首页信息架构 ${checks} 项断言（首页默认 DOM 极简、v4.5 主入口 6→3=学习进度/今日计划/学习地图、学习地图三 Tab 技能路线/世界地图/Foundations 探索、sheet 真实打开、焦点归还、目录 dialog 19+27 红线、header 玩家区/主题快捷、badge 随数据刷新、成就收藏与统计归个人中心、小奥面板 2.0 默认极简/四入口/双角色/设置同源、路线预览条四项轻量场景化只加色晕不动结构/状态/点击、学习地图 8 张 World 卡按真实 curriculum 顺序加纯展示色相钩子与低饱和场景层（数量/顺序/button/状态/文案/进度/aria-label/点击路径零改动，tone 不进 curriculum 不进存档，未开放卡严格弱于 Foundations）、v4.11 World 图片原型定向撤回（v5 Foundations 单卡场景图经真实页面比较后不采用：资产 / 挂载代码 / 样式段 / 旧断言组一并移除，产品源码与 assets 零残留 PNG，G2a 色相钩子、8 张 World 卡、地图状态色补丁原样保留）、首页信息带两轮收口（第一轮结构语言：today-strip / 三入口 / 路线预览条统一 --space-sm 左轨 + 两道细分隔线 + 虚线框退场 + hover 降重；第二轮呼吸与圆角：Hero→带间距抬到 --space-2xl、容器 16px 四周留白、两道分隔线上 16/下 8、三入口列间距 8→24px、容器圆角 14px 与带内可点元素 --radius-medium 形成层级、并删掉第一轮那条把图标圆角从项目原本 12px 压到 4px 的误解覆盖；两轮都保持三段结构/数量/状态/文案/aria/点击路径零改动，收口段零新 token/零位图/零外链/零动效/零新增 transition，窄屏与打印规则逐字未变，真实观感仍属用户主观验收）、v4.11 Hero 场景一体化（统一光场 / 地面承托 / 信息带过渡：Hero 右侧成长绿环境色面 + 窗光层追加桌面暖光池 + 底部地面带 52%→60% 横向铺到 140% 并把下缘化入页面纸色 + Hero 向下一层柔光承托；DOM 仍是 4 个子节点、图片仍是既有 4 张、可聚焦元素仍是 2 个、continue-primary 仍是唯一主 CTA，层级恒为 背景伪元素(-1) < 道具(0) < 伙伴 < 主文案，窄屏与 print 规则逐字未变；是否更接近参考效果图仍属用户主观美感验收））。`);
+  /* ============ v4.11.10 首页主界面视觉层级样板 ============
+   * 只验证本轮新增的表现层契约：不改 Hero IA / button / nav / World 四项，
+   * 不泄漏到课页，不引入持久化字段、位图、动画或新 token。主观「更好看」不在此冒充。 */
+{
+  const css = fs.readFileSync(path.join(path.resolve(__dirname, '..'), 'style.css'), 'utf8');
+  const page = newPage({ storage: makeStorage() });
+  const { dom } = page;
+  const hero = querySelect(dom.body, '.home-hero');
+  const secondary = querySelect(dom.body, '.home-secondary');
+  const strip = querySelect(dom.body, '.today-strip');
+  const nav = querySelect(dom.body, '.entry-grid-wrap');
+  const preview = querySelect(dom.body, '.world-preview');
+  assert.ok(hero && secondary && strip && nav && preview, check('层级样板：首页四层主结构全部存在'));
+  assert.equal(strip.tagName, 'BUTTON', check('层级样板：今日状态带仍是一个 button'));
+  assert.equal(nav.tagName, 'NAV', check('层级样板：三个入口仍在 nav 中'));
+  assert.equal(collectByClass(nav, 'entry-card').length, 3, check('层级样板：入口数量仍为 3'));
+  assert.deepEqual(collectByClass(nav, 'entry-title').map(item => item.textContent), ['学习进度', '今日计划', '学习地图'], check('层级样板：入口顺序未变'));
+  assert.equal(preview.tagName, 'BUTTON', check('层级样板：路线预览仍是一个 button'));
+  assert.equal(collectByClass(preview, 'world-preview-item').length, 4, check('层级样板：路线预览仍有四项'));
+  assert.deepEqual(collectByClass(preview, 'world-preview-item').map(item => item.dataset.worldTone), ['foundations', 'html-css', 'javascript', 'nodejs'], check('层级样板：World tone 未变'));
+  assert.ok(/body\[data-page="home"\] \.home-hero h1 \{/.test(css), check('层级样板：Hero 主标题有首页限定规则'));
+  assert.ok(/body\[data-page="home"\] \.home-secondary \.today-strip \{/.test(css), check('层级样板：今日状态带有首页限定规则'));
+  assert.ok(/body\[data-page="home"\] \.home-secondary \.entry-grid \{/.test(css), check('层级样板：入口组有首页限定规则'));
+  assert.ok(/body\[data-page="home"\] \.home-secondary \.world-preview \{/.test(css), check('层级样板：路线预览有首页限定规则'));
+  assert.ok(!/body\[data-page="lesson"\] \.(?:home-hero|home-secondary|entry-card|world-preview)/.test(css), check('层级样板：首页视觉规则未泄漏到课页选择器'));
+  assert.ok(!/assets\/.*\.(?:png|jpe?g|webp)/i.test(css), check('层级样板：本轮 CSS 未新增位图引用'));
+  assert.ok(!/body\[data-page="home"\][^{]*\{[^}]*animation\s*:/.test(css), check('层级样板：首页新增规则未引入动画'));
+  assert.equal(collectByClass(dom.body, 'lesson-process').length, 0, check('层级样板：首页没有课页 lesson-process 模块'));
+  assert.equal(collectByClass(dom.body, 'lesson-reference').length, 0, check('层级样板：首页没有课页 lesson-reference 模块'));
+}
+
+/* ============ v4.11.11 首页信息层级收口（2026-09-21） ============
+ * 证明的验收标准（执行提示词 §八 清单）：结构契约（Hero 主结构 / 伙伴 / 道具数 /
+ * 唯一主 CTA / 今日条单一 button / 三入口数量顺序 nav / World 预览单一 button 四项
+ * tone）在本组全部重钉一遍，不依赖前组的通过；再钉本轮四个收口事实：
+ *   ① 区块标签改名「当前继续学习」——与主 CTA 不再同词互抢；
+ *   ② 位置 meta 行（06 / 46 · 已开始）降权到 muted/600，靛紫只留给主 CTA；
+ *   ③ 未开放 World 名称 muted/500，与 is-open 格（600/墨色）拉开两档；
+ *   ④ ≤30rem 今日时长项独占一行 + 允许内部折行（320px 文本叠印修复）。
+ * 纪律断言：本段选择器全部带 body[data-page="home"] 前缀；零位图 / 零外链 /
+ * 零动效 / 零新增 transition / 零新 token；零新增 storage key；print 规则零回归；
+ * Hero 层级合同（背景 < 道具 < 伙伴/主文案）零回归；首页零课页模块类名。
+ * 所有断言先显式断言目标存在，再断言数量 / 顺序 / 内容——零静默跳过。 */
+{
+  const root = path.resolve(__dirname, '..');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const page = newPage({ storage: makeStorage() });
+  const { dom } = page;
+
+  const storageKeys = () => {
+    const list = [];
+    for (let i = 0; i < page.sandbox.localStorage.length; i += 1) list.push(page.sandbox.localStorage.key(i));
+    return list.sort();
+  };
+  const keysAtStart = storageKeys();
+
+  /* ---------- 1. Hero 主结构 / 伙伴 / 道具 / CTA 零回归 ---------- */
+  const hero = querySelect(dom.body, '.home-hero');
+  assert.ok(hero, check('收口：首页有 .home-hero'));
+  assert.deepEqual(hero.children.map(c => c.className),
+    ['hero-scene-decor', 'hero-study-decor', 'hero-main', 'hero-companion'],
+    check('收口：Hero 仍是 4 个子节点（装饰 ×2 + 主文案列 + 伙伴），零新增 DOM'));
+  const heroImgs = [];
+  (function walk(el) {
+    for (const child of el.children) {
+      if (child.tagName === 'IMG') heroImgs.push(child.className.split(' ')[0]);
+      walk(child);
+    }
+  })(hero);
+  assert.deepEqual(heroImgs.slice().sort(),
+    ['hero-companion-img', 'hero-decor', 'hero-scene-decor', 'hero-study-decor'].sort(),
+    check(`收口：Hero 内仍是既有 4 张图（实际 ${heroImgs.length}）——零新增图片 / SVG / 道具`));
+  assert.ok(querySelect(hero, '.hero-companion-img'), check('收口：伙伴立绘仍存在（未删除、未更换）'));
+  const heroFocusables = [];
+  (function walkF(el) {
+    for (const child of el.children) {
+      if (['BUTTON', 'A', 'INPUT', 'SELECT', 'TEXTAREA'].includes(child.tagName)) heroFocusables.push(child);
+      walkF(child);
+    }
+  })(hero);
+  assert.equal(heroFocusables.length, 2, check('收口：Hero 可聚焦元素仍是 2 个（主 CTA + 查看全部 World）'));
+  assert.equal(collectByClass(hero, 'continue-primary').length, 1, check('收口：continue-primary 恰好 1 个（唯一主行动）'));
+  const primaryCta = querySelect(hero, '.continue-primary');
+  assert.ok(primaryCta && String(primaryCta.href || '').includes('lesson.html?id='),
+    check('收口：主 CTA 仍是指向课程页的链接（点击路径不变）'));
+  assert.equal(collectByClass(hero, 'button-secondary').length, 1,
+    check('收口：次级动作仍只有一个「查看全部 World」（没有新增第二个主 CTA）'));
+
+  /* ---------- 2. ① 区块标签改名：与 CTA 不再同词 ---------- */
+  const label = querySelect(hero, '.continue-label');
+  assert.ok(label, check('收口：continue-label 存在'));
+  assert.equal(label.textContent, '当前继续学习', check('①：区块标签已改名「当前继续学习」'));
+  assert.ok(!primaryCta.textContent.includes(label.textContent) && !label.textContent.includes('→'),
+    check('①：标签与主 CTA 文案不再同词（标签指认区块，CTA 是唯一动作表述）'));
+  /* 主文案事实一字未动 */
+  assert.equal(querySelect(hero, 'h1').textContent, 'Full Stack JavaScript 路线', check('收口：Hero 主标题事实未动'));
+  assert.equal(querySelect(hero, '.home-lead').textContent, '沿 The Odin Project 路线学习 Web 开发。', check('收口：副标题事实未动'));
+  const eyebrowEl = querySelect(hero, '.continue-eyebrow');
+  assert.ok(eyebrowEl, check('收口：位置 meta 行（continue-eyebrow）存在'));
+  assert.match(eyebrowEl.textContent, /^\d{2} \/ 46 · /, check('收口：位置 meta 行仍是「NN / 46 · 状态」口径（数据未动）'));
+
+  /* ---------- 3. ②③④ 本轮 CSS 事实（只在本轮收口段里找规则） ---------- */
+  const segStart = css.indexOf('v4.11.11 首页信息层级收口');
+  assert.ok(segStart > 0, check('收口：style.css 里有 v4.11.11 收口段'));
+  const seg = css.slice(segStart);
+  const ruleBody = selector => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = new RegExp('(?:^|\\n)\\s*' + escaped + ' \\{([^}]*)\\}').exec(seg);
+    assert.ok(m, check(`收口：规则存在 ${selector}`));
+    return m[1];
+  };
+  const eyebrowBody = ruleBody('body[data-page="home"] .home-hero .continue-eyebrow');
+  assert.ok(/color:\s*var\(--color-muted\)/.test(eyebrowBody) && /font-weight:\s*600/.test(eyebrowBody),
+    check('②：位置 meta 行降权为 muted/600（accent/700 退场，靛紫只留给主 CTA）'));
+  assert.ok(!/var\(--color-accent\)/.test(eyebrowBody), check('②：meta 行不再引用 accent（操作色语义收干净）'));
+  const closedBody = ruleBody('body[data-page="home"] .home-secondary .world-preview-item:not(.is-open) .world-preview-name');
+  assert.ok(/color:\s*var\(--color-muted\)/.test(closedBody) && /font-weight:\s*500/.test(closedBody),
+    check('③：未开放 World 名称收口到 muted/500'));
+  assert.ok(/\.world-preview-name \{ font-weight: 600; \}/.test(css),
+    check('③：is-open 格名称仍是基础规则的 600/墨色——与未开放格拉开两档权重差'));
+  assert.ok(/\.world-preview-item\.is-open \.world-preview-state \{ color: #336847/.test(css),
+    check('③：Foundations 状态绿（v4.11.7 对比度修正值）一字未动'));
+  const narrow30 = [...css.matchAll(/@media \(max-width: 30rem\) \{([\s\S]*?)\n\}/g)].map(m => m[1]);
+  const wrapFix = narrow30.find(b => b.includes('body[data-page="home"] .home-secondary .today-item:first-child'));
+  assert.ok(wrapFix, check('④：≤30rem 有今日时长项的收口规则（320px 叠印修复）'));
+  assert.ok(/grid-column:\s*1 \/ -1/.test(wrapFix) && /flex-wrap:\s*wrap/.test(wrapFix) && /white-space:\s*normal/.test(wrapFix),
+    check('④：≤30rem 时长项独占一行 + 允许内部折行（nowrap 溢盒叠印的来源被移除）'));
+
+  /* ---------- 4. 今日条 / 三入口 / World 预览：结构与语义零回归 ---------- */
+  const strip = querySelect(dom.body, '.today-strip');
+  assert.ok(strip, check('收口：今日条存在'));
+  assert.equal(strip.tagName, 'BUTTON', check('收口：今日条仍是单一 button'));
+  assert.equal(strip.type, 'button', check('收口：今日条 type=button 原样'));
+  assert.deepEqual(strip.children.map(c => c.className.split(' ')[0]),
+    ['today-item', 'today-mini-progress', 'today-item', 'today-item', 'today-more'],
+    check('收口：今日条五段内容与顺序未变（时长 / 迷你进度 / 连续 / 复习 / 详情）'));
+  const nav = querySelect(dom.body, '.entry-grid-wrap');
+  assert.ok(nav, check('收口：入口容器存在'));
+  assert.equal(nav.tagName, 'NAV', check('收口：三个入口仍在 nav 中'));
+  const cards = collectByClass(nav, 'entry-card');
+  assert.equal(cards.length, 3, check('收口：入口数量仍为 3'));
+  assert.deepEqual(cards.map(c => querySelect(c, '.entry-title').textContent),
+    ['学习进度', '今日计划', '学习地图'], check('收口：入口顺序不变'));
+  assert.ok(cards.every(c => c.tagName === 'BUTTON' && c.type === 'button'), check('收口：三个入口仍是 button'));
+  const bar = querySelect(dom.body, '.world-preview');
+  assert.ok(bar, check('收口：路线预览存在'));
+  assert.equal(bar.tagName, 'BUTTON', check('收口：路线预览仍是单一 button'));
+  const items = collectByClass(bar, 'world-preview-item');
+  assert.equal(items.length, 4, check('收口：预览仍为 4 项'));
+  assert.deepEqual(items.map(i => querySelect(i, '.world-preview-name').textContent),
+    ['Foundations', 'HTML & CSS', 'JavaScript', 'Node.js'], check('收口：四项名称与顺序不变'));
+  assert.deepEqual(items.map(i => i.dataset.worldTone),
+    ['foundations', 'html-css', 'javascript', 'nodejs'], check('收口：data-world-tone 不变'));
+  assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true, false, false, false],
+    check('收口：开放标记不变（只有 Foundations 是 is-open）'));
+
+  /* ---------- 5. 点击路径与零持久化 ---------- */
+  dispatch(strip, 'click', {});
+  assert.ok(openSheetOf(page), check('收口：今日条点击仍打开今日计划 sheet'));
+  dispatch(querySelect(openSheetOf(page), '.dialog-close'), 'click', {});
+  dispatch(cards[2], 'click', {});
+  assert.ok(openSheetOf(page) && collectByClass(openSheetOf(page), 'map-tab').length === 3,
+    check('收口：「学习地图」入口点击仍打开地图 sheet（3 个 Tab）'));
+  dispatch(querySelect(openSheetOf(page), '.dialog-close'), 'click', {});
+  dispatch(bar, 'click', {});
+  const mapSheet = openSheetOf(page);
+  assert.ok(mapSheet && collectByClass(mapSheet, 'world-card').length === 8,
+    check('收口：路线预览点击仍进学习地图（8 张 World 卡）'));
+  dispatch(querySelect(mapSheet, '.dialog-close'), 'click', {});
+  assert.deepEqual(storageKeys(), keysAtStart, check('收口：整条链路零新增 localStorage key（不进存档、不进 schema）'));
+
+  /* ---------- 6. 作用域与纪律：零泄漏 / 零动效 / 零位图 / 零新 token ---------- */
+  const segSelectors = [...seg.matchAll(/(?:^|\n)([^\n{}]+)\{/g)]
+    .map(m => m[1].trim())
+    .filter(s => !s.startsWith('*') && !s.startsWith('/*') && !s.startsWith('@'));
+  assert.ok(segSelectors.length >= 3, check(`收口：本段解析出 ${segSelectors.length} 条规则选择器`));
+  assert.ok(segSelectors.every(s => s.startsWith('body[data-page="home"]')),
+    check('收口：本段每条规则都带 body[data-page="home"] 前缀（课页 / 个人中心零污染）'));
+  assert.ok(!/body\[data-page="lesson"\]/.test(seg), check('收口：本段零课页作用域选择器'));
+  assert.ok(!/url\s*\(/.test(seg), check('收口：本段零位图 / 零 url()'));
+  assert.ok(!/https?:/.test(seg), check('收口：本段零外链'));
+  assert.ok(!/animation\s*:/.test(seg) && !/@keyframes/.test(seg), check('收口：本段零动效'));
+  assert.ok(!/transition\s*:/.test(seg), check('收口：本段零新增 transition'));
+  assert.equal(seg.match(/--color-[a-z-]+\s*:/g), null, check('收口：本段零新 token 定义'));
+
+  /* ---------- 7. 首页零课页模块 / Hero 层级合同 / print 零回归 ---------- */
+  for (const cls of ['lesson-process', 'lesson-reference', 'lesson-chapter-nav', 'section-explain', 'section-official']) {
+    assert.equal(collectByClass(dom.body, cls).length, 0, check(`收口：首页没有课页模块类名 .${cls}`));
+  }
+  const fullRuleBody = selector => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = new RegExp('(?:^|\\n)\\s*' + escaped + ' \\{([^}]*)\\}').exec(css);
+    assert.ok(m, check(`收口：全文件规则存在 ${selector}`));
+    return m[1];
+  };
+  const zFull = selector => Number(/z-index:\s*(-?\d+)/.exec(fullRuleBody(selector))[1]);
+  assert.ok(zFull('.home-hero::before') === -1 && zFull('.home-hero::after') === -1,
+    check('收口：Hero 背景伪元素仍在负层（层级合同第 1 层）'));
+  assert.equal(zFull('.hero-study-decor'), 0, check('收口：道具层仍是 z-index 0（背景 < 道具）'));
+  assert.equal(zFull('.hero-main'), 1, check('收口：主文案列仍是 z-index 1（道具 < 主文案）'));
+  assert.ok(/pointer-events:\s*none/.test(fullRuleBody('.hero-study-decor')), check('收口：道具层仍 pointer-events:none'));
+  assert.ok(css.includes('.hero-companion, .home-secondary, .hero-scene-decor, .hero-study-decor { display: none; }'),
+    check('收口：print 隐藏伙伴 / 信息带 / 装饰的规则逐字未变'));
+  assert.ok(/@media print \{[\s\S]*?\.world-preview-item::before \{ display: none; \}/.test(css),
+    check('收口：print 预览条色晕兜底规则未变'));
+  assert.ok(css.includes('.today-strip, .entry-grid-wrap, .theme-quick, .sheet, .site-usage { display: none; }'),
+    check('收口：print 首页块隐藏规则逐字未变'));
+}
+
+  /* ---------- v4.11.12 首页资产颜色统一：三个入口图标 ---------- */
+  {
+    const root = path.resolve(__dirname, '..');
+    const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+    const page = newPage({ storage: makeStorage() });
+    const { dom } = page;
+    const icons = page.sandbox.window.ODIN_ICONS.entryIcons;
+    const keys = ['progress', 'tasks', 'world'];
+    assert.ok(icons, check('颜色统一：entryIcons 事实源存在'));
+    for (const key of keys) {
+      assert.ok(icons[key], check(`颜色统一：entryIcons.${key} 存在`));
+      assert.match(icons[key], /^<svg[\s\S]*<\/svg>$/, check(`颜色统一：${key} 是完整 SVG`));
+      assert.ok(!/<script|href=|url\s*\(|on[a-z]+\s*=|https?:/.test(icons[key].replace('xmlns="http://www.w3.org/2000/svg"', '')), check(`颜色统一：${key} 无脚本 / 外链 / 事件属性`));
+      assert.ok(!icons[key].includes('#276148') && !icons[key].includes('#a4553f'), check(`颜色统一：${key} 不再使用旧绿 / 旧红棕`));
+    }
+    assert.ok(new Set(keys.map(key => icons[key].match(/stroke-width="([\d.]+)"/)[1])).size <= 2, check('颜色统一：三个入口图标 stroke-width 处于同一线条语言'));
+    const entryCards = collectByClass(dom.body, 'entry-card');
+    assert.equal(entryCards.length, 3, check('颜色统一：首页仍只渲染 3 个入口'));
+
+    /* ---------- v4.11.13 新机制断言：mask 渲染路径（旧色断言之上追加，不替换） ---------- */
+    const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+    for (const key of keys) {
+      const hexes = [...new Set(icons[key].match(/#[0-9a-fA-F]{3,8}/g) || [])];
+      assert.deepEqual(hexes, ['#000'], check(`新机制：${key} 是中性 mask 源（颜色仅 #000，只贡献 alpha）`));
+    }
+    assert.ok(/^<svg[^']*opacity="\.85"/.test(icons.progress), check('新机制：progress 的 opacity .85 填充条保留（alpha 保层次）'));
+    const entryIconEls = entryCards.map(card => querySelect(card, '.entry-icon')).filter(Boolean);
+    assert.equal(entryIconEls.length, 3, check('新机制：三个入口卡里都能取到 .entry-icon'));
+    for (const el of entryIconEls) {
+      assert.equal(el.tagName, 'SPAN', check('新机制：入口图标是 span（mask 载体），不再是 <img>'));
+      assert.ok(el.className.includes('mask-icon'), check('新机制：入口图标带 mask-icon 类'));
+      assert.equal(el.getAttribute('aria-hidden'), 'true', check('新机制：入口图标 aria-hidden 装饰语义'));
+      assert.ok(String(el.style.getPropertyValue('--icon-mask')).startsWith('url("data:image/svg+xml'), check('新机制：--icon-mask 是内联 data URL（file:// 可用）'));
+    }
+    assert.ok(/const maskIcon = \(markup, className\)/.test(app) && app.includes("maskIcon(iconMarkup, 'entry-icon')"), check('新机制：app.js 定义 maskIcon 且入口消费点已切换'));
+    assert.ok(!app.includes("svgImage(iconMarkup, '', 'entry-icon')"), check('新机制：入口图标不再走 svgImage(<img>)'));
+    assert.ok(/\.mask-icon \{[^}]*-webkit-mask-image: var\(--icon-mask\);/.test(css) && /\.entry-icon\.mask-icon::before \{[^}]*background-color: var\(--color-icon\);/.test(css), check('新机制：style.css mask 双前缀与 ::before 字形规则在位'));
+    assert.ok(/\.entry-icon \{ width: 40px; height: 40px; padding: 7px; background: color-mix\(in srgb, var\(--color-accent\) 10%, var\(--color-wash\)\)/.test(css), check('新机制：芯片底既有规则一字不动（底 / 边框 / 圆角仍留在元素上）'));
+  }
+
+  /* ---------- v4.11.12 首页资产颜色统一：Hero 学习道具 ---------- */
+  {
+    const root = path.resolve(__dirname, '..');
+    const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+    const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+    const match = /const HERO_STUDY_SVG = '(<svg[^']*<\/svg>)'/.exec(app);
+    assert.ok(match, check('颜色统一：HERO_STUDY_SVG 仍存在'));
+    const svg = match[1];
+    assert.ok(svg.includes('viewBox="0 0 420 130"') && svg.includes('M14 60H406'), check('颜色统一：Hero 道具既有几何保留'));
+    assert.ok(app.includes("svgImage(HERO_STUDY_SVG, '', 'hero-study-decor')"), check('颜色统一：Hero 道具既有挂载类名保留'));
+    assert.ok(!svg.includes('#3f7b58') && !svg.includes('#6f9c85') && !svg.includes('#a78bda'), check('颜色统一：Hero 道具不再使用旧绿色 / 旧绿色系轮廓'));
+    assert.ok(svg.includes('#81769a') && svg.includes('#8b7b8f') && svg.includes('#c7bdd6'), check('颜色统一：Hero 道具新深墨紫灰色板明确在位'));
+    assert.ok(!/<script|href=|url\s*\(|on[a-z]+\s*=|https?:/i.test(svg.replace('xmlns="http://www.w3.org/2000/svg"', '')), check('颜色统一：Hero 道具无脚本 / 外链 / 事件属性'));
+    assert.ok([...svg.matchAll(/opacity="(\.\d+)"/g)].every(m => Number(m[1]) <= .85), check('颜色统一：Hero 道具 opacity 上限仍为 .85'));
+    assert.ok(css.includes('z-index: 0') && css.includes('pointer-events: none'), check('颜色统一：Hero 道具层级与指针纪律仍在'));
+  }

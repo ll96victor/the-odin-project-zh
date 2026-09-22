@@ -247,4 +247,198 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
     check('预览条状态文字不得直接取 --color-grow（对比度两档都不达标）')));
 }
 
-console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退）。`);
+/* ============ 8. v4.11.9：wash 底上的文本对比度（课页长课模块与章节导航） ============
+ * 课页有一批 wash 底容器（章节导航、流程复习、命令速查、引导块、常见错误卡、自测答案），
+ * 里面的文字坐在 --color-wash 上。而第 3 节那六组对比查的前景都是对 --color-paper，
+ * 因此「wash 底上的文本」此前**没有任何全量核验**——v4.11.8 的章节导航标题就因此
+ * 带着 accent/wash 不达标进了仓库。本轮实测全部 30 套主题：
+ *   ink/wash    最差 9.89:1（linen）→ **全部达标**
+ *   muted/wash  最差 4.20:1（linen）→ 4 套 <4.5：linen 4.20 / moss 4.27 / milktea 4.44 / ocean 4.47
+ *   accent/wash 最差 4.03:1（dune）  → 7 套 <4.5：dune 4.03 / bamboo 4.08 / clay 4.16 / mint 4.30 /
+ *                                       autumn 4.38 / softpink 4.44 / linen 4.45
+ * 结论：**wash 底上的正文与标题只能取 --color-ink**；层次靠字重（700 / 600）与字号
+ * （--text-small）建立，不靠降低对比度。据此修正了章节导航标题（style.css 有注释记录）。
+ *
+ * **本节刻意不给 muted/wash 与 accent/wash 加全局达标断言**：扫描 style.css 发现这两组
+ * 组合在既有规则里有 20+ 处（hover 态、锁定 / 已结算态、常态次级文本），全局断言一加即红，
+ * 修复范围远超本轮。该未核验面已如实记入 MAINTENANCE.md 并交回规划，**不得当作已核验**。
+ * 本节只钉新模块依赖的那条事实：ink/wash 在全部 30 套主题达标。
+ * 具体规则的取色钉子（哪些选择器必须用 ink、不得改回 accent / muted）在
+ * tests/lesson-visual-modules.test.cjs 第 7、8 组——两份不重复：这边管全量数值，那边管规则本身。 */
+{
+  let worst = { ratio: Infinity, id: '' };
+  for (const t of THEMES.themes) {
+    const vars = t.id === 'garden' ? rootVars : cssThemes[t.id].vars;
+    const ratio = contrast(vars['--color-ink'], vars['--color-wash']);
+    if (ratio < worst.ratio) worst = { ratio, id: t.id };
+    assert.ok(ratio >= 4.5,
+      check(`${t.id}（${t.zh}）wash 底上的正文 ink/wash 对比度 ${ratio.toFixed(2)} ≥ 4.5`));
+  }
+  /* 钉住余量：最差档必须仍有明显富余，避免日后微调 wash 深浅时静默跌破 4.5 */
+  assert.ok(worst.ratio >= 9,
+    check(`ink/wash 全部 ${THEMES.themes.length} 套的最差档 ${worst.ratio.toFixed(2)}（${worst.id}）≥ 9，余量充足`));
+  /* 反向钉子：wash 底上的文本不得改取 muted / accent（实测分别有 4 套 / 7 套主题不达标）。
+   * 这里钉的是「事实源里这两组确实不达标」，防止后人以为它们等价可用。 */
+  for (const [fg, label, knownWorst] of [['--color-muted', 'muted', 4.2], ['--color-accent', 'accent', 4.03]]) {
+    let min = Infinity;
+    for (const t of THEMES.themes) {
+      const vars = t.id === 'garden' ? rootVars : cssThemes[t.id].vars;
+      min = Math.min(min, contrast(vars[fg], vars['--color-wash']));
+    }
+    assert.ok(min < 4.5,
+      check(`${label}/wash 确实存在不达标主题（最差 ${min.toFixed(2)}），故 wash 底文本不得取 ${label}`));
+    assert.ok(min >= knownWorst - 0.01,
+      check(`${label}/wash 最差档 ${min.toFixed(2)} 未比本轮实测基线 ${knownWorst} 更差`));
+  }
+}
+
+/* ===================== 8. v4.11.13 装饰图标接入主题：mask 结构 × 全 30 套 ===================== */
+/* v4.11.12 用真实浏览器全 30 套实测证明「固定色 <img> 图标在深色主题下看不见」
+ * （深墨 #3b3547 只有 1.02–1.24:1、旧绿 #276148 只有 1.56–2.00:1）。v4.11.13 结构改造：
+ * mask 源族图标（achievementCategories / achievementMilestones / tierFamilies /
+ * entryIcons / hidden）markup 颜色中性为 #000、只贡献 **alpha 通道**；可见颜色交给
+ * `background-color: var(--color-icon)`（tokens.css :root，color-mix(muted 70%, accent 30%)
+ * 逐主题派生），经 CSS mask-image 渲染——颜色不再写死在 markup 里，
+ * 「每套主题人工核图标色」的老债到此终结。opacity 属性（progress .85 / stats .8 与 .55）
+ * 经 alpha 自动保留层次，单色不丢层级。
+ *
+ * 为什么这一节可以在 Node 端算准（与第 7 节「不做 token 计算」并不冲突）：
+ * 涉及的三个背景面都是**纯色**逐通道线性混合（entry 芯片底 = color-mix(accent 10%, wash)；
+ * wash / paper 是主题原值），没有渐变、位图或透明度叠加，所以拿 tokens.css 的真实变量值
+ * 复算与真实浏览器 getComputedStyle 逐通道一致（2026-09-21 实测对照，验证端口
+ * 127.0.0.1:8899：garden 224.10/221.50/234.80、terminal 43.00/62.40/51.70、
+ * night 46.00/53.70/78.10、pixel 214.40/212.60/221.40——8.1 把四组钉成断言）。
+ * 第 7 节拒绝 token 计算是因为那里的前景坐在**渐变合成背景**上；本节不存在该前提。
+ *
+ * 下限沿用 Hero 道具装饰性形状的 **2.2:1**；余量钉 3.5（本轮实测最差 3.79）。
+ * **默认主题是深色的 night**（themes.js `defaultThemeId`），所以深色档不是边缘情况。 */
+{
+  const iconsSrc = fs.readFileSync(path.join(root, 'icons.js'), 'utf8');
+  const appSrc = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const styleSrc = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const mixRgb = (fg, bg, alpha) => fg.map((v, i) => v * alpha + bg[i] * (1 - alpha));
+  const lumRgb = rgb => {
+    const [r, g, b] = rgb.map(v => {
+      const s = v / 255;
+      return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const contrastRgb = (a, b) => {
+    const la = lumRgb(a);
+    const lb = lumRgb(b);
+    const [hi, lo] = la > lb ? [la, lb] : [lb, la];
+    return (hi + 0.05) / (lo + 0.05);
+  };
+  const chipOf = id => {
+    const vars = id === 'garden' ? rootVars : cssThemes[id].vars;
+    return mixRgb(hexToRgb(vars['--color-accent']), hexToRgb(vars['--color-wash']), 0.10);
+  };
+
+  /* 8.1 芯片底复算与真实浏览器逐通道一致（四套对照，容差 0.06/255 只是浮点余量） */
+  const MEASURED_CHIPS = {
+    garden: [224.1, 221.5, 234.8],
+    terminal: [43, 62.4, 51.7],
+    night: [46, 53.7, 78.1],
+    pixel: [214.4, 212.6, 221.4]
+  };
+  for (const [id, want] of Object.entries(MEASURED_CHIPS)) {
+    const got = chipOf(id);
+    assert.ok(got.every((v, i) => Math.abs(v - want[i]) < 0.06),
+      check(`.entry-icon 底色复算 ${id} = ${got.map(v => v.toFixed(2)).join('/')} 与真实浏览器实测一致`));
+  }
+
+  /* 8.2 mask 结构钉：token 派生比例 / CSS 双前缀 mask 规则 / app.js 调用点 / 中性源 */
+  const tokenDecl = /--color-icon:\s*color-mix\(in srgb,\s*var\(--color-muted\)\s*(\d+)%,\s*var\(--color-accent\)\s*(\d+)%\)/.exec(css);
+  assert.ok(tokenDecl,
+    check('--color-icon 在 tokens.css 以 color-mix(muted, accent) 派生声明（固定 hex 即退回人工核色老债，必红）'));
+  assert.equal(Number(tokenDecl[1]) + Number(tokenDecl[2]), 100,
+    check(`--color-icon 派生比例两段合计 100%（实际 ${tokenDecl[1]}+${tokenDecl[2]}）`));
+  assert.equal(Number(tokenDecl[1]), 70,
+    check(`--color-icon 派生比例钉 muted ${tokenDecl[1]} / accent ${tokenDecl[2]}（改比例必须重跑本节全 30 套）`));
+  assert.ok(/\.mask-icon \{[^}]*-webkit-mask-image: var\(--icon-mask\);[^}]*mask-image: var\(--icon-mask\);[^}]*mask-size: 100% 100%;/.test(styleSrc),
+    check('style.css .mask-icon 标准 + -webkit- 双前缀 mask 属性在位（旧内核兜底）'));
+  assert.ok(/\.entry-icon\.mask-icon \{[^}]*mask-image: none;/.test(styleSrc),
+    check('entry 图标取消元素级 mask（否则芯片底会被裁成图标形）'));
+  assert.ok(/\.entry-icon\.mask-icon::before \{[^}]*background-color: var\(--color-icon\);/.test(styleSrc),
+    check('entry 图标字形画在 ::before 并取 --color-icon（芯片底留在元素上，既有规则一字不动）'));
+  assert.ok(/const maskIcon = \(markup, className\)/.test(appSrc)
+    && appSrc.includes("el.setAttribute('aria-hidden', 'true')")
+    && appSrc.includes("el.style.setProperty('--icon-mask'"),
+    check('app.js maskIcon()：aria-hidden 装饰语义 + --icon-mask 内联自定义属性'));
+  for (const call of [
+    "maskIcon(iconMarkup, 'achievement-icon')",
+    "maskIcon(icon, 'achievement-icon-sm')",
+    "maskIcon(familyMarkup, 'tier-badge-img is-none')",
+    "maskIcon(iconMarkup, 'entry-icon')"
+  ]) {
+    assert.ok(appSrc.includes(call), check(`消费点走 mask 路径：${call}`));
+  }
+  assert.ok(!appSrc.includes("svgImage(iconMarkup, '', 'entry-icon')")
+    && !appSrc.includes("svgImage(iconMarkup, '', 'achievement-icon')"),
+    check('mask 源族不再走 svgImage(<img>)——中性 #000 在 <img> 里会渲染成纯黑'));
+  const familyBlock = name => {
+    const i = iconsSrc.indexOf(name + ': {');
+    let depth = 0;
+    for (let j = i; j < iconsSrc.length; j++) {
+      if (iconsSrc[j] === '{') depth += 1;
+      else if (iconsSrc[j] === '}') {
+        depth -= 1;
+        if (depth === 0) return iconsSrc.slice(i, j + 1);
+      }
+    }
+    throw new Error('block unclosed: ' + name);
+  };
+  for (const name of ['achievementCategories', 'achievementMilestones', 'tierFamilies', 'entryIcons']) {
+    const hexes = [...new Set(familyBlock(name).match(/#[0-9a-fA-F]{3,8}/g) || [])];
+    assert.deepEqual(hexes, ['#000'],
+      check(`mask 源族 ${name} 的 markup 颜色仅中性 #000（可见色全交给 --color-icon）`));
+  }
+  /* 旧色清零只扫 markup：注释里允许引用历史色值做记录（G2a 教训：整段扫字面量会扫到注释假红） */
+  const iconsMarkup = iconsSrc.replace(/\/\*[\s\S]*?\*\//g, '');
+  assert.ok(!iconsMarkup.includes('#276148') && !iconsMarkup.includes('#a4553f'),
+    check('icons.js markup 全站旧绿 #276148 / 赭红 #a4553f 清零（含不渲染的 skill / collection / stats）'));
+  const entryBlock = familyBlock('entryIcons');
+  assert.ok(/progress: '<svg[^']*opacity="\.85"/.test(entryBlock),
+    check('progress 的 opacity .85 填充条保留（alpha 是单色图标唯一的层次来源）'));
+  assert.ok(/stats: '<svg[^']*opacity="\.8"[^']*opacity="\.55"/.test(entryBlock),
+    check('stats 的 opacity .8 / .55 两档保留'));
+
+  /* 8.3 派生色 × 三类背景面 × 全 30 套 ≥ 2.2，余量 ≥ 3.5 */
+  const mutedShare = Number(tokenDecl[1]) / 100;
+  let worst = { ratio: Infinity, where: '' };
+  for (const t of THEMES.themes) {
+    const vars = t.id === 'garden' ? rootVars : cssThemes[t.id].vars;
+    const icon = mixRgb(hexToRgb(vars['--color-muted']), hexToRgb(vars['--color-accent']), mutedShare);
+    const surfaces = {
+      芯片底: chipOf(t.id),
+      wash: hexToRgb(vars['--color-wash']),
+      paper: hexToRgb(vars['--color-paper'])
+    };
+    for (const [sk, sv] of Object.entries(surfaces)) {
+      const r = contrastRgb(icon, sv);
+      if (r < worst.ratio) worst = { ratio: r, where: `${t.id}（${t.zh}）/${sk}` };
+      assert.ok(r >= 2.2,
+        check(`${t.id}（${t.zh}）图标色在${sk} ${r.toFixed(2)}:1 ≥ 2.2 装饰形状下限`));
+    }
+  }
+  assert.ok(worst.ratio >= 3.5,
+    check(`30 套 × 三背景面最差档 ${worst.ratio.toFixed(2)}:1（${worst.where}）≥ 3.5 余量钉（本轮实测 3.79）`));
+
+  /* 8.4 反向钉子（v4.11.12 纪律保留）：改回固定深墨 / 旧绿必红 */
+  for (const [bad, label, darkBase, lightBase] of [
+    ['#3b3547', 'v4.11.12 中间稿的深墨紫灰主线', 1.02, 8.06],
+    ['#4a4354', 'Hero 道具试过的深墨紫灰', 1.2, 6.48],
+    ['#276148', 'v4.11.11 之前的旧成长绿', 1.56, 4.98]
+  ]) {
+    const dark = THEMES.themes.filter(t => t.dark).map(t => contrastRgb(hexToRgb(bad), chipOf(t.id)));
+    const light = THEMES.themes.filter(t => !t.dark).map(t => contrastRgb(hexToRgb(bad), chipOf(t.id)));
+    const minDark = Math.min(...dark);
+    const minLight = Math.min(...light);
+    assert.ok(minDark < 2.2,
+      check(`${label} ${bad} 在 ${dark.length} 套深色主题芯片底上最差仅 ${minDark.toFixed(2)}:1 < 2.2——把图标改回该固定色必红`));
+    assert.ok(Math.abs(minDark - darkBase) < 0.02 && Math.abs(minLight - lightBase) < 0.02,
+      check(`${bad} 的最差档（深 ${minDark.toFixed(2)} / 浅 ${minLight.toFixed(2)}）与 2026-09-21 实测基线（深 ${darkBase} / 浅 ${lightBase}）一致，数值没被悄悄美化`));
+  }
+}
+console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退、v4.11.9 wash 底文本 ink/wash 全 ${THEMES.themes.length} 套达标 + muted/accent 在 wash 上确实不达标的反向钉子、v4.11.13 mask 结构钉 + token 派生色全 ${THEMES.themes.length} 套 × 三背景面 ≥ 2.2 + 深墨/旧绿固定色必红的反向钉子）。`);
