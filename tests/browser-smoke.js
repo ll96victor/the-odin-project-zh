@@ -20,13 +20,13 @@ async page => {
     await page.locator('.continue-card .button').first().click();
     assert(page.url().includes('lesson.html?id='), 'hero CTA 未进入课程页');
     await page.goto(base + 'index.html');
-    // 目录住在 dialog：打开后恰好 19 条已开放 + 27 课灰化（20-46 无链接红线不变）
+    // 目录住在 dialog：打开后恰好 20 条已开放 + 26 课灰化（21-46 无链接红线不变）
     await page.locator('.catalog-trigger').click();
-    assert(await page.locator('.catalog-dialog .lesson-link').count() === 19, '目录 dialog 应显示 19 课');
-    assert(await page.locator('.catalog-dialog .lesson-locked').count() === 27, '目录 dialog 应灰化 27 课');
+    assert(await page.locator('.catalog-dialog .lesson-link').count() === 20, '目录 dialog 应显示 20 课');
+    assert(await page.locator('.catalog-dialog .lesson-locked').count() === 26, '目录 dialog 应灰化 26 课');
     assert(await page.locator('.catalog-dialog .catalog-official-link').count() === 1, '目录 dialog 应含官方目录外链');
     await page.locator('.catalog-dialog .dialog-close').click();
-    const lessons = await page.evaluate(() => window.ODIN_GUIDE.lessons.map(l => ({id:l.id,zh:l.zh,title:l.title,url:l.url,quiz:l.quiz.length,hasSections:Array.isArray(l.sections),hasExamples:Array.isArray(l.sections)&&Array.isArray(l.examples)&&l.examples.length>0})));
+    const lessons = await page.evaluate(() => window.ODIN_GUIDE.lessons.map(l => ({id:l.id,zh:l.zh,title:l.title,url:l.url,quiz:l.quiz.length,hasSections:Array.isArray(l.sections),hasExamples:Array.isArray(l.sections)&&Array.isArray(l.examples)&&l.examples.length>0,hasKc:Boolean(l.official&&Array.isArray(l.official.knowledgeCheck)&&l.official.knowledgeCheck.length)})));
     // v2 试点课使用自足中文讲解布局（h2 序列不同）；其余 15 课保持旧布局。
     // v4.11.4：「回到官方原课」末节移除（官方入口只剩页顶 .official-start，
     // 署名与非官方声明由 lesson.html 页脚承担——见 CONTENT-STYLE-GUIDE.md 第 6 节）。
@@ -36,7 +36,8 @@ async page => {
     const V2_H2_WITH_CODE = ['这一课为什么重要', '中文讲解', '重要英文术语', '代码示例', '常见错误', '官方任务', '简单自测'];
     const V2_H2_NO_CODE = ['这一课为什么重要', '中文讲解', '重要英文术语', '常见错误', '官方任务', '简单自测'];
     // v4.11.7：资料条数与题目数对应关系说明的每课数量名单（每课至多 1 条，
-    // 两类情形同时命中时合成一句；恰 7 课命中，其余 12 课 0）。
+    // 两类情形同时命中时合成一句；恰 7 课命中，其余 13 课 0——含 v4.11.16
+    // 新增的 recipes：Project 课无官方 KC 且任务映射显式为空，不触发任何模板）。
     // 文案与数字跟数据的一致性由 tests/task-resource-note.test.cjs 钉住，
     // 这里只钉真实浏览器里的存在性与落点。
     const NOTE_COUNTS = {
@@ -66,7 +67,10 @@ async page => {
       // 上方 details === quiz 断言即「零新增」的钉子）；默认展开；点击收起/再点恢复；
       // 跳转入口在 Assignment 标题内指向资源区锚点，目标始终可见（资源区不折叠）。
       const collapseToggles = page.locator('.section-official .collapse-toggle');
-      assert(await collapseToggles.count() === 2, `官方任务节应恰有 2 个折叠头：${lesson.id}`);
+      /* v4.11.16 按课型分支：Project 课（recipes）无官方 KC，KC 区块条件渲染，
+       * 折叠头只有 Assignment 1 个；知识课仍是 2 个。 */
+      const expectedToggles = lesson.hasKc ? 2 : 1;
+      assert(await collapseToggles.count() === expectedToggles, `官方任务节应恰有 ${expectedToggles} 个折叠头${lesson.hasKc ? '（Assignment + Knowledge Check）' : '（Project 课无官方 KC）'}：${lesson.id}`);
       assert(await page.locator('.section-official .collapse-body[hidden]').count() === 0, `默认应展开：${lesson.id}`);
       assert(await collapseToggles.first().getAttribute('aria-expanded') === 'true', `折叠头默认 aria-expanded=true：${lesson.id}`);
       assert(await page.locator('.section-official > a').count() === 0, `官方任务节不得有节级直接子链接：${lesson.id}`);
@@ -151,7 +155,7 @@ async page => {
     await page.goto(base + 'index.html');
     assert(pageErrors.length === 0, '运行异常：' + pageErrors.join(';'));
     assert(errors.length === 0, '控制台错误：' + errors.join(';'));
-    return {passed:true,lessons:19,quizQuestions:65,viewports:widths,checks:'v4.5.1 首页 IA（3 主入口 + 唯一 hero CTA + 本站目录 dialog 19+27 与官方次级外链）、列表、标题、结构、默认隐藏、鼠标/键盘展开关闭、v4.11.5 官方任务节折叠头（button[aria-expanded] 恰 2 个、默认展开、点击收起/恢复、零新增 details、节级零直接子链接）与页内跳转（#lesson-resources 目标可见）、v4.11.6 任务与资料对应关系标注（KC 6 课 / Assignment 3 课 / 其余 13 课零出现，落点在 h3 与折叠容器之间且零链接）、翻页边界、120 个页面尺寸组合、未知编号、200% 文字放大、零控制台错误'};
+    return {passed:true,lessons:20,quizQuestions:70,viewports:widths,checks:'v4.5.1 首页 IA（3 主入口 + 唯一 hero CTA + 本站目录 dialog 20+26 与官方次级外链）、列表、标题、结构、默认隐藏、鼠标/键盘展开关闭、v4.11.5 官方任务节折叠头（button[aria-expanded] 知识课 2 个 / Project 课 1 个、默认展开、点击收起/恢复、零新增 details、节级零直接子链接）与页内跳转（#lesson-resources 目标可见）、v4.11.7 任务与资料对应关系标注（KC 5 课 / Assignment 3 课、command-line-basics 两类合成共 7 课，其余 13 课零出现；落点紧跟 #lesson-resources 且零链接）、翻页边界、120 个页面尺寸组合、未知编号、200% 文字放大、零控制台错误'};
   } finally {
     page.off('pageerror', onError);
     page.off('console', onConsole);

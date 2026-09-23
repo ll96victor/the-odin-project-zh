@@ -31,9 +31,10 @@
  *   · 官方 KC 的页内锚点题（指向原课自身章节，不是外部资源）；
  *   · 无法从官方原文确认题号对应关系的 KC。
  *
- * 覆盖率（本轮核对结论）：Assignment 108 条中 46 条接链（共 55 个链接）；
+ * 覆盖率（v4.11.16 复核）：Assignment 116 条中 46 条接链（共 55 个链接）；
  * Knowledge Check 96 题中 31 题接链；其余为本地动作 / 纯练习 / 正文区资源。
- * lists 一课为 0：两条资源都是正文小节（MDN ul/ol），任务本身是动手建列表。 */
+ * lists 与 recipes 两课为 0：lists 的两条资源都是正文小节（MDN ul/ol），任务本身是
+ * 动手建列表；recipes 是 Project 课，任务全部是本地动手操作且无官方 KC（v4.11.16）。 */
 window.ODIN_TASK_LINKS = {
   version: 1,
   links: {
@@ -225,6 +226,17 @@ window.ODIN_TASK_LINKS = {
         1: ['https://cbea.ms/git-commit/#intro'],    /* 官方 KC 原文锚点 */
         2: ['https://cbea.ms/git-commit/#limit-50']  /* 官方 KC 原文锚点 */
       }
+    },
+    recipes: {
+      /* v4.11.16（第 20 课 Project: Recipes）：显式空映射，不是遗漏。
+       * 本课 8 条任务全部是本地动手操作（建仓 / 建目录 / 写页面 / 提交），按头注释
+       * 纪律「本地动作条目不接」；唯一出现在 Assignment 语境里的外部地址 Allrecipes
+       * 是「需要灵感时」的可选备选项（requirement=optional），接进任务条目会把可选
+       * 资料抬成必做入口，且会触发 taskResourceNote 的 Assignment 模板——该模板
+       * 「其中 X 条需要外部文章」的措辞对可选灵感站不准确。资源卡里已有直达入口。
+       * 官方无 Knowledge Check（2026-09-23 核对官方 project_recipes.md），k 为空。 */
+      a: {},
+      k: {}
     }
   }
 };

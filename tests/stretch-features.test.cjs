@@ -2,9 +2,9 @@
  *
  * 钉住六件事：
  *   I6/I7/I8 目录搜索 + 「已开放中文」「需要复习」过滤——默认视图仍是
- *            完整 46 课（19 链接 + 27 锁定红线不动），过滤只影响可见行，
+ *            完整 46 课（20 链接 + 26 锁定红线不动），过滤只影响可见行，
  *            计数行客观事实不漂移；
- *   I9 命令面板 Ctrl/Cmd+K——全量 33 条命令无静默截断、输入过滤、
+ *   I9 命令面板 Ctrl/Cmd+K——全量 34 条命令无静默截断、输入过滤、
  *      ↑↓ 循环高亮（aria-activedescendant）、Enter 执行、关闭焦点归还；
  *   I1 最近使用主题（内存级）——「使用」成功才记录，重开 picker 可见、
  *      点击即预览、不新增持久化 key；
@@ -58,8 +58,8 @@ function clickChip(dialog, label) {
   const page = lessonPage();
   const dialog = openCatalog(page);
   /* 默认视图 = 完整目录（红线不动） */
-  assert.equal(collectByClass(dialog, 'lesson-link').length, 19, check('默认 19 个可点链接'));
-  assert.equal(collectByClass(dialog, 'lesson-locked').length, 27, check('默认 27 个未开放锁定行'));
+  assert.equal(collectByClass(dialog, 'lesson-link').length, 20, check('默认 20 个可点链接'));
+  assert.equal(collectByClass(dialog, 'lesson-locked').length, 26, check('默认 26 个未开放锁定行'));
   const count0 = querySelect(dialog, '.catalog-count');
   assert.equal(count0.textContent, '', check('无过滤时计数行不出现（不打扰）'));
 
@@ -77,13 +77,13 @@ function clickChip(dialog, label) {
   assert.equal(collectByClass(dialog, 'lesson-link').length, 0, check('无匹配时列表为空'));
   assert.ok(querySelect(dialog, '.empty-state'), check('无匹配显示统一空状态（H5 语法）'));
   setSearch(dialog, '');
-  assert.equal(collectByClass(dialog, 'lesson-link').length, 19, check('清空搜索恢复完整目录'));
+  assert.equal(collectByClass(dialog, 'lesson-link').length, 20, check('清空搜索恢复完整目录'));
 
   /* 过滤：已开放中文 */
   clickChip(dialog, '已开放中文');
-  assert.equal(collectByClass(dialog, 'lesson-link').length, 19, check('「已开放中文」= 19 课'));
+  assert.equal(collectByClass(dialog, 'lesson-link').length, 20, check('「已开放中文」= 20 课'));
   assert.equal(collectByClass(dialog, 'lesson-locked').length, 0, check('「已开放中文」不含锁定行'));
-  assert.match(querySelect(dialog, '.catalog-count').textContent, /^显示 19 \/ 46 课$/, check('计数行 19/46'));
+  assert.match(querySelect(dialog, '.catalog-count').textContent, /^显示 20 \/ 46 课$/, check('计数行 20/46'));
   /* 分组计数不被过滤漂移 */
   const unitState = collectByClass(dialog, 'unit-state')[0];
   assert.match(unitState.textContent, /本站已开放 \d+ \/ \d+ 课/, check('分组计数仍是客观全量（不随过滤漂移）'));
@@ -102,7 +102,7 @@ function clickChip(dialog, label) {
     check('过滤出的正是标记的课'));
   /* 复习过滤尊重 progress 缺失降级：只依赖 lessonState，不炸 */
   clickChip(dialog, '全部');
-  assert.equal(collectByClass(dialog, 'lesson-link').length, 19, check('回到全部恢复 19 链接'));
+  assert.equal(collectByClass(dialog, 'lesson-link').length, 20, check('回到全部恢复 20 链接'));
 }
 
 /* ===================== 2. I9 命令面板 ===================== */
@@ -115,7 +115,7 @@ function clickChip(dialog, label) {
   assert.ok(dialog, check('Ctrl+K 打开命令面板'));
   assert.equal(page.dom.activeElement && page.dom.activeElement.className.includes('command-input'), true, check('打开即聚焦搜索框'));
   const items = collectByClass(dialog, 'command-item');
-  assert.equal(items.length, 33, check('全量 33 条命令（14 动作 + 19 课），无静默截断'));
+  assert.equal(items.length, 34, check('全量 34 条命令（14 动作 + 20 课），无静默截断'));
   assert.equal(querySelect(dialog, '.command-input').getAttribute('role'), 'combobox', check('input 有 combobox 角色'));
   const list = querySelect(dialog, '.command-list');
   assert.equal(list.getAttribute('role'), 'listbox', check('结果列表 role=listbox'));
@@ -138,7 +138,7 @@ function clickChip(dialog, label) {
   input.value = 'git';
   dispatch(input, 'input', {});
   const filtered = collectByClass(dialog, 'command-item');
-  assert.ok(filtered.length >= 1 && filtered.length < 33, check('输入 git 过滤生效'));
+  assert.ok(filtered.length >= 1 && filtered.length < 34, check('输入 git 过滤生效'));
   filtered.forEach(item => {
     assert.match(item.textContent.toLowerCase(), /git/, check('命令面板过滤结果都含关键词'));
   });
@@ -392,4 +392,4 @@ function clickChip(dialog, label) {
   picker.close();
 }
 
-console.log(`通过：Batch 10 Stretch 功能 ${checks} 项断言（目录搜索/已开放/需要复习过滤、命令面板 Ctrl+K 全量 33 条无截断/键盘导航/执行跳转、最近使用主题内存级零新 key、小奥当日成就庆祝、世界地图完成度进度条、microcopy 去后台腔、主题选择器展示优先顺序 夜空→石墨→冰川 且只动顺序不动数据）。`);
+console.log(`通过：Batch 10 Stretch 功能 ${checks} 项断言（目录搜索/已开放/需要复习过滤、命令面板 Ctrl+K 全量 34 条无截断/键盘导航/执行跳转、最近使用主题内存级零新 key、小奥当日成就庆祝、世界地图完成度进度条、microcopy 去后台腔、主题选择器展示优先顺序 夜空→石墨→冰川 且只动顺序不动数据）。`);

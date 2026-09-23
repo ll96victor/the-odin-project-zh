@@ -1,4 +1,4 @@
-"""仅访问公开的 TOP 目录与 19 个 lesson，检查状态、标题、锚点和课程顺序。"""
+"""仅访问公开的 TOP 目录与 20 个 lesson，检查状态、标题、锚点和课程顺序。"""
 import concurrent.futures
 import json
 import re
@@ -45,21 +45,28 @@ def check(lesson):
     parser.feed(get(lesson['url']))
     title = ' '.join(''.join(parser.h1).split())
     assert title == lesson['title'], f"标题变化: {lesson['url']} => {title}"
-    assert {'assignment', 'knowledge-check'} <= parser.ids, f"章节锚点变化: {lesson['url']}"
+    # v4.11.16 按课型分支：Project 课（recipes）官方页只有 Assignment、没有
+    # Knowledge Check（2026-09-23 实抓核对），锚点要求以 sources.json 的
+    # hasKnowledgeCheck 为准——官方若给 Project 课新增 KC，此处会先红再复核。
+    required = {'assignment'}
+    if lesson['hasKnowledgeCheck']:
+        required.add('knowledge-check')
+    assert required <= parser.ids, f"章节锚点变化: {lesson['url']}"
     assert 'additional-resources' not in parser.ids, f"新增补充资料，需复核: {lesson['url']}"
     return f"OK {lesson['order']:02} {title}"
 
 def main():
     course = get(SOURCES['courseUrl'])
     slugs = list(dict.fromkeys(re.findall(r'href="(?:https://www.theodinproject.com)?(/lessons/[^"?#]+)"', course)))
-    boundary = '/lessons/foundations-recipes'
-    assert boundary in slugs, '官方目录未找到 Recipes 边界'
+    boundary = '/lessons/foundations-intro-to-css'
+    assert boundary in slugs, '官方目录未找到 Intro to CSS 边界（第 20 课已开放，边界随 excludedBoundary 推进）'
     before = slugs[:slugs.index(boundary)]
     assert before == ['/lessons/foundations-' + item['id'] for item in SOURCES['lessons']], '官方课序变化，需复核'
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         for result in pool.map(check, SOURCES['lessons']):
             print(result)
-    print('通过：官方目录顺序、19 个原课页面、38 个 Assignment / Knowledge Check 锚点；没有新增补充栏目。')
+    anchors = sum(1 + item['hasKnowledgeCheck'] for item in SOURCES['lessons'])
+    print(f"通过：官方目录顺序、{len(SOURCES['lessons'])} 个原课页面、{anchors} 个 Assignment / Knowledge Check 锚点；没有新增补充栏目。")
 
 if __name__ == '__main__':
     try:

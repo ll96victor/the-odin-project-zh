@@ -417,13 +417,15 @@ const dailyFor = days => {
   const frameIds = Logic.FRAMES.map(f => f.id);
   for (const id of frameIds) assert.ok(!ids.includes(id), check(`头像框 ${id} 没有被当成成就`));
 
-  /* §4.1 F：unit-3 的文案必须准确，不能声称完成了完整的 HTML Foundations 单元 */
+  /* §4.1 F：unit-3 的文案必须准确——v4.11.16 起 Project: Recipes 计入单元完成
+   * （用户 2026-09-23 拍板），本站开放范围与官方 HTML Foundations 单元重合（8 课），
+   * 文案改为「已开放的 8 课（含 Project: Recipes）」。 */
   const unit3 = list.find(a => a.id === 'unit-3');
   assert.ok(unit3.desc.includes('已开放'), check('unit-3 说明写明是“已开放课程”'));
-  assert.ok(unit3.desc.includes('Recipes'), check('unit-3 说明点明不含 Project: Recipes'));
+  assert.ok(unit3.desc.includes('Recipes'), check('unit-3 说明点明含 Project: Recipes'));
   assert.ok(!/完成 HTML Foundations 单元全部课程/.test(unit3.desc), check('unit-3 不再声称完成整个 HTML Foundations 单元'));
   const group3 = lessons.filter(l => l.group === 3);
-  assert.equal(group3.length, 7, check('本站开放的 HTML Foundations 为 7 课（官方该单元共 8 课，缺 Recipes）'));
+  assert.equal(group3.length, 8, check('本站开放的 HTML Foundations 为 8 课（与官方该单元重合，含 Project: Recipes）'));
   /* 其余三个单元在本站是完整覆盖的，文案可以照旧 */
   for (const [group, count] of [[0, 5], [1, 5], [2, 2]]) {
     assert.equal(lessons.filter(l => l.group === group).length, count, check(`unit-${group} 覆盖 ${count} 课，与官方一致`));
@@ -456,7 +458,7 @@ const dailyFor = days => {
     check('当日差 1 秒不满 10 分钟，不计入连续天数'));
 
   /* C. 课程完成数 */
-  const LESSON_TIERS = [['lessons-3', 3], ['lessons-5', 5], ['lessons-10', 10], ['lessons-15', 15], ['all-lessons', 19]];
+  const LESSON_TIERS = [['lessons-3', 3], ['lessons-5', 5], ['lessons-10', 10], ['lessons-15', 15], ['all-lessons', 20]];
   for (const [id, n] of LESSON_TIERS) {
     assert.ok(unlocksWith(s => completeFirst(s, n)).has(id), check(`${id} 完成 ${n} 课即解锁`));
     assert.ok(!unlocksWith(s => completeFirst(s, n - 1)).has(id), check(`${id} 完成 ${n - 1} 课不解锁`));
@@ -466,7 +468,7 @@ const dailyFor = days => {
     check('只完成第二课不解锁 first-lesson'));
 
   /* D. 官方任务 */
-  const OFFICIAL_TIERS = [['official-first', 1], ['official-3', 3], ['official-5', 5], ['official-10', 10], ['official-all', 19]];
+  const OFFICIAL_TIERS = [['official-first', 1], ['official-3', 3], ['official-5', 5], ['official-10', 10], ['official-all', 20]];
   for (const [id, n] of OFFICIAL_TIERS) {
     assert.ok(unlocksWith(s => completeFirst(s, n, 'officialCompleted')).has(id), check(`${id} 标记 ${n} 课即解锁`));
     assert.ok(!unlocksWith(s => completeFirst(s, n - 1, 'officialCompleted')).has(id), check(`${id} 标记 ${n - 1} 课不解锁`));
@@ -489,23 +491,23 @@ const dailyFor = days => {
     assert.ok(unlocksWith(s => { for (let i = 0; i < n; i += 1) s.cosmetics.purchases[`avatar:p${i}`] = true; }).has(id), check(`${id} 兑换 ${n} 件即解锁`));
     assert.ok(!unlocksWith(s => { for (let i = 0; i < n - 1; i += 1) s.cosmetics.purchases[`avatar:p${i}`] = true; }).has(id), check(`${id} 少一件不解锁`));
   }
-  assert.ok(unlocksWith(s => { lessons.forEach(l => Logic.markVisited(s, l.id, AT, DAY)); }).has('started-all'), check('started-all 打开全部 19 课解锁'));
+  assert.ok(unlocksWith(s => { lessons.forEach(l => Logic.markVisited(s, l.id, AT, DAY)); }).has('started-all'), check('started-all 打开全部 20 课解锁'));
   assert.ok(!unlocksWith(s => { for (let i = 0; i < 9; i += 1) Logic.markVisited(s, lessonIds[i], AT, DAY); }).has('started-10'), check('started-10 只开 9 课不解锁'));
 
-  const QUIZ_TIERS = [['quiz-first', 1], ['quiz-3', 3], ['quiz-5', 5], ['quiz-10', 10], ['quiz-all', 19]];
+  const QUIZ_TIERS = [['quiz-first', 1], ['quiz-3', 3], ['quiz-5', 5], ['quiz-10', 10], ['quiz-all', 20]];
   for (const [id, n] of QUIZ_TIERS) {
     assert.ok(unlocksWith(s => completeFirst(s, n, 'quizCompleted')).has(id), check(`${id} 标记 ${n} 课即解锁`));
     assert.ok(!unlocksWith(s => completeFirst(s, n - 1, 'quizCompleted')).has(id), check(`${id} 标记 ${n - 1} 课不解锁`));
   }
 
   /* 三类计数互不串台：只标记官方任务不应解锁自测或完成类成就 */
-  const officialOnly = unlocksWith(s => completeFirst(s, 19, 'officialCompleted'));
-  assert.ok(officialOnly.has('official-all'), check('19 课官方任务全标记解锁 official-all'));
+  const officialOnly = unlocksWith(s => completeFirst(s, 20, 'officialCompleted'));
+  assert.ok(officialOnly.has('official-all'), check('20 课官方任务全标记解锁 official-all'));
   assert.ok(!officialOnly.has('quiz-all'), check('官方任务不会顶替自测成就'));
   assert.ok(!officialOnly.has('all-lessons'), check('官方任务不会顶替课程完成成就'));
   assert.ok(!officialOnly.has('unit-0'), check('官方任务不会顶替单元成就'));
 
-  /* F. 单元：unit-3 只需本站开放的 7 课，不含 Recipes */
+  /* F. 单元：unit-3 = HTML Foundations 已开放的 8 课（v4.11.16 起含 Project: Recipes） */
   const groupIds = group => lessons.filter(l => l.group === group).map(l => l.id);
   for (const group of [0, 1, 2, 3]) {
     const ids = groupIds(group);
@@ -514,7 +516,7 @@ const dailyFor = days => {
     assert.ok(!unlocksWith(s => { ids.slice(0, -1).forEach(id => { Logic.lessonEntry(s, id).completed = true; }); }).has(`unit-${group}`),
       check(`unit-${group} 少完成一课不解锁`));
   }
-  assert.equal(groupIds(3).length, 7, check('HTML Foundations 在本站开放 7 课'));
+  assert.equal(groupIds(3).length, 8, check('HTML Foundations 在本站开放 8 课（含 Project: Recipes）'));
 
   /* G. 复习与使用 */
   assert.ok(unlocksWith(s => Logic.markVisited(s, lessonIds[0], AT, DAY)).has('first-start'), check('打开任意一课解锁 first-start'));
@@ -570,7 +572,7 @@ const dailyFor = days => {
     /* 每日目标连续成就：把 100 天每天提到 20 分钟以上（目标默认 20 分钟） */
     Object.keys(state.daily).forEach(key => { state.daily[key] = 1300; });
     state.daily[DAY] = 8000;                         /* 单日 2 小时+，3 档单日全解锁 */
-    lessons.forEach(lesson => Logic.markVisited(state, lesson.id, AT, DAY));  /* 19 课全看过 */
+    lessons.forEach(lesson => Logic.markVisited(state, lesson.id, AT, DAY));  /* 20 课全看过 */
     for (let i = 0; i < 10; i += 1) state.cosmetics.purchases[`avatar:fixture-${i}`] = true;  /* 10 件兑换 */
     /* v4.3：Boss 成就（boss-first / 未战先知）需要真实的 Boss 纪录；
      * Batch 10（Stretch N5）：隐藏成就「未战先达」需要 2 个单元预检 ≥70% */
@@ -578,9 +580,9 @@ const dailyFor = days => {
       introduction: { attempts: 1, passCount: 1, highCount: 1, lastPassDay: DAY, lastHighDay: DAY, bestPct: 100, firstPct: 100, lastPct: 100, firstWasPrecheck: true, precheckBestPct: 100 },
       prerequisites: { attempts: 1, passCount: 1, highCount: 1, lastPassDay: DAY, lastHighDay: DAY, bestPct: 90, firstPct: 90, lastPct: 90, firstWasPrecheck: true, precheckBestPct: 85 }
     };
-    completeFirst(state, 19);
-    completeFirst(state, 19, 'officialCompleted');
-    completeFirst(state, 19, 'quizCompleted');
+    completeFirst(state, 20);
+    completeFirst(state, 20, 'officialCompleted');
+    completeFirst(state, 20, 'quizCompleted');
     /* Batch 10（Stretch N5）：隐藏成就「精通的滋味」需要 3 课走过
      * “标记过又清空”的复习周期（mastered = 三项齐全 + everMarked + 无待复习） */
     [5, 6, 7].forEach(index => {
@@ -596,7 +598,7 @@ const dailyFor = days => {
   /* 反向确认：只改完成状态、不走 markVisited 时，first-start 不应被解锁 */
   {
     const state = fresh();
-    completeFirst(state, 19);
+    completeFirst(state, 20);
     Logic.evaluateAchievements(state, lessons, AT, DAY);
     assert.ok(!state.achievements['first-start'], check('没有 started 记录时不解锁 first-start'));
     assert.ok(!state.achievements['review-first'], check('没有复习闩锁时不解锁 review-first'));
@@ -771,7 +773,7 @@ const dailyFor = days => {
   assert.equal(s.startedCount, 1, check('summary 已开始课程数'));
   assert.equal(s.needsReviewCount, 1, check('summary 需复习课程数'));
   assert.equal(s.reviewEverMarked, false, check('summary 暴露复习闩锁（直接改 entry 不算标记过）'));
-  assert.equal(s.totalLessons, 19, check('summary 课程总数仍为当前开放的 19'));
+  assert.equal(s.totalLessons, 20, check('summary 课程总数仍为当前开放的 20'));
   assert.equal(s.level, 4, check('summary 等级（v4.5 曲线：250 XP = Lv.4）'));
   assert.equal(s.achievementTotal, 63, check('summary 成就总数为 63（v4.11.3 起含两个大课成就）'));
 

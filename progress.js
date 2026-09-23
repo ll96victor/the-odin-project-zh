@@ -229,7 +229,7 @@
     { id: 'lessons-5', zh: '完成 5 课', desc: '累计完成 5 课', category: 'lesson', goal: { kind: 'completed', value: 5 } },
     { id: 'lessons-10', zh: '完成 10 课', desc: '累计完成 10 课', category: 'lesson', goal: { kind: 'completed', value: 10 } },
     { id: 'lessons-15', zh: '完成 15 课', desc: '累计完成 15 课', category: 'lesson', goal: { kind: 'completed', value: 15 } },
-    { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（Recipes 之前 19 课）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
+    { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（当前开放 20 课，含 Project: Recipes）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
     /* C2. 大课体量（v4.11.3 交接 C3）：既有 61 个成就全部按数量维度（完成数 /
      * 时长 / 连续天数），没有任何一个考察「单课体量」——最重的课
      * （links-and-images，22 章 5151 字）与最轻的课（866 字 5 章）在完成
@@ -244,22 +244,24 @@
     { id: 'official-3', zh: '完成 3 课官方任务', desc: '累计 3 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 3 } },
     { id: 'official-5', zh: '完成 5 课官方任务', desc: '累计 5 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 5 } },
     { id: 'official-10', zh: '完成 10 课官方任务', desc: '累计 10 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 10 } },
-    { id: 'official-all', zh: '完成当前开放课程的官方任务', desc: '当前收录的 19 课全部标记为官方任务已完成', category: 'official', goal: { kind: 'officialAll' }, milestone: true },
+    { id: 'official-all', zh: '完成当前开放课程的官方任务', desc: '当前收录的 20 课全部标记为官方任务已完成', category: 'official', goal: { kind: 'officialAll' }, milestone: true },
 
     /* E. 本站自测 */
     { id: 'quiz-first', zh: '首次完成本站自测', desc: '第一次把任意一课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 1 } },
     { id: 'quiz-3', zh: '完成 3 课本站自测', desc: '累计 3 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 3 } },
     { id: 'quiz-5', zh: '完成 5 课本站自测', desc: '累计 5 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 5 } },
     { id: 'quiz-10', zh: '完成 10 课本站自测', desc: '累计 10 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 10 } },
-    { id: 'quiz-all', zh: '完成当前开放课程的本站自测', desc: '当前收录的 19 课全部标记为本站自测已完成', category: 'quiz', goal: { kind: 'quizAll' } },
+    { id: 'quiz-all', zh: '完成当前开放课程的本站自测', desc: '当前收录的 20 课全部标记为本站自测已完成', category: 'quiz', goal: { kind: 'quizAll' } },
 
-    /* F. 单元。unit-3 的文案按交接 §4.1 F 修正：本站只覆盖 Recipes 之前的
-     * HTML Foundations（官方该单元共 8 课，本站开放 7 课，缺 Project: Recipes），
-     * 因此不能写成“完成 HTML Foundations 单元”。id 保持兼容，已解锁状态不受影响。 */
+    /* F. 单元。unit-3 的分母取自 lessons.js 里该分组的课程数，2026-09-23 开放
+     * Project: Recipes 后自动从 7 变 8——用户拍板 Project 课**计入**单元完成成就，
+     * 语义是「做出了自己的菜谱页并勾选完成」；本站只提供要求与验收清单，不提供答案。
+     * 至此 HTML Foundations 官方 8 课与本站开放范围重合，文案随之改为「已开放的 8 课」。
+     * id 保持兼容；解锁记录单向追加，分母变大不会回收任何已解锁成就。 */
     { id: 'unit-0', zh: '完成 Introduction 单元', desc: '完成 Introduction 单元全部课程', category: 'unit', goal: { kind: 'unit', value: 0 } },
     { id: 'unit-1', zh: '完成 Prerequisites 单元', desc: '完成 Prerequisites 单元全部课程', category: 'unit', goal: { kind: 'unit', value: 1 } },
     { id: 'unit-2', zh: '完成 Git Basics 单元', desc: '完成 Git Basics 单元全部课程', category: 'unit', goal: { kind: 'unit', value: 2 } },
-    { id: 'unit-3', zh: '完成 HTML Foundations 已开放课程', desc: '完成当前 HTML Foundations 已开放的 7 课（不含 Project: Recipes）', category: 'unit', goal: { kind: 'unit', value: 3 } },
+    { id: 'unit-3', zh: '完成 HTML Foundations 已开放课程', desc: '完成当前 HTML Foundations 已开放的 8 课（含 Project: Recipes）', category: 'unit', goal: { kind: 'unit', value: 3 } },
 
     /* G. 复习与使用 */
     { id: 'first-start', zh: '迈出第一步', desc: '第一次开始学习任意一课', category: 'usage', goal: { kind: 'started' } },
@@ -290,7 +292,7 @@
 
     /* K. 学习广度（v4.2 新增） */
     { id: 'started-10', zh: '读过 10 课', desc: '打开过 10 节课程页面', category: 'exploration', goal: { kind: 'startedCount', value: 10 } },
-    { id: 'started-all', zh: '全部课程都看过', desc: '打开过当前收录的全部 19 课', category: 'exploration', goal: { kind: 'startedCount', value: 19 } },
+    { id: 'started-all', zh: '全部课程都看过', desc: '打开过当前收录的全部 20 课', category: 'exploration', goal: { kind: 'startedCount', value: 20 } },
 
     /* L. 章节挑战（v4.3 新增，交接 E3）。高分只代表“已有相关背景知识 /
      * 当前题目掌握良好”，成就文案不宣称“无需学习整章”。 */
@@ -350,7 +352,7 @@
     { id: 'frame-time', zh: '时间框', desc: '累计有效学习 10 小时', unlock: { kind: 'achievement', value: 'active-10h' }, css: 'frame-time' },
     { id: 'frame-quiz', zh: '自测框', desc: '完成当前开放全部课程的本站自测', unlock: { kind: 'achievement', value: 'quiz-all' }, css: 'frame-quiz' },
     { id: 'frame-task', zh: '任务框', desc: '完成当前开放全部课程的官方任务', unlock: { kind: 'achievement', value: 'official-all' }, css: 'frame-task' },
-    { id: 'frame-graduate', zh: '当前阶段毕业框', desc: '完成当前开放的全部 19 课', unlock: { kind: 'achievement', value: 'all-lessons' }, css: 'frame-graduate' },
+    { id: 'frame-graduate', zh: '当前阶段毕业框', desc: '完成当前开放的全部 20 课', unlock: { kind: 'achievement', value: 'all-lessons' }, css: 'frame-graduate' },
     /* v4.3 Batch 6（交接 H/E3）：Boss 挑战的纪念框——首破任意单元 Boss 即解锁 */
     { id: 'frame-boss', zh: '破甲框', desc: '第一次通过任意单元的 Boss 挑战', unlock: { kind: 'achievement', value: 'boss-first' }, css: 'frame-boss' },
     /* v4.2 叶片解锁框（交接 §4、§5）：解锁方式是花叶片解锁后永久拥有。

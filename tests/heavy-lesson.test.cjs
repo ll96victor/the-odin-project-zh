@@ -139,7 +139,7 @@ const check = label => { checks += 1; return label; };
     return '本站未找到可靠的官方中文版本，因此只提供上面这份本站原创中文导读，加上英文原文链接。';
   };
   const affected = resourceData.resources.filter(r => !r.zhUrl && !r.zhTranslation);
-  assert.equal(affected.length, 46, check('B1: 前提——受 fallback 影响的无中文版条目共 46 条'));
+  assert.equal(affected.length, 49, check('B1: 前提——受 fallback 影响的无中文版条目共 49 条（v4.11.16 起含 recipes 的 3 条导读条目）'));
 
   /* 数据层：每张视频卡的「中文字幕」声明恰好 1 次，且在许可字段（B2） */
   const videos = resourceData.resources.filter(r => r.type === '视频');
@@ -194,8 +194,8 @@ const check = label => { checks += 1; return label; };
   }
   assert.equal(videoCards, 15, check('B1: 15 张视频卡全部渲染视频措辞'));
   assert.equal(translationCards, 14, check('B1: 14 张精译卡的说明句全部改指精译（v4.11.2 遗留的矛盾句修正）'));
-  assert.equal(toolCards, 8, check('B1: 8 张工具 / 操作入口卡全部渲染工具措辞'));
-  assert.equal(articleCards, 15, check('B1: 15 张文章 / 文档类卡片保持原措辞'));
+  assert.equal(toolCards, 9, check('B1: 9 张工具 / 操作入口 / 网站卡全部渲染工具措辞（v4.11.16 起含 Allrecipes）'));
+  assert.equal(articleCards, 16, check('B1: 16 张文章 / 文档类卡片保持原措辞（v4.11.16 起含 Learning Code）'));
   assert.equal(archiveCards, 1, check('B1: 「文章（存档）」这条未覆盖类型走了兜底'));
 }
 
@@ -249,10 +249,10 @@ if (hasExternalDoc) {
   assert.equal(counts.双按钮中文版, 24, check('B4: 24 张官方中文版卡维持双按钮（文字不变）'));
   assert.equal(counts.观看视频, 15, check('B4: 15 张视频卡按钮为「观看视频 ↗」'));
   assert.equal(counts.前往操作, 3, check('B4: 3 张操作入口卡按钮为「前往操作 ↗」'));
-  assert.equal(counts.打开工具, 5, check('B4: 5 张工具 / 网站卡按钮为「打开工具 ↗」'));
+  assert.equal(counts.打开工具, 6, check('B4: 6 张工具 / 网站卡按钮为「打开工具 ↗」（v4.11.16 起含 Allrecipes）'));
   assert.equal(counts.下载文件, 1, check('B4: 1 张数据文件卡按钮为「下载文件 ↗」'));
   assert.equal(counts.查看素材, 1, check('B4: 1 张素材卡按钮为「查看素材 ↗」'));
-  assert.equal(counts.打开英文原文, 35, check('B4: 35 张文本类 / 精译卡按钮保持「打开英文原文 ↗」（兜底）'));
+  assert.equal(counts.打开英文原文, 37, check('B4: 37 张文本类 / 精译卡按钮保持「打开英文原文 ↗」（兜底；v4.11.16 起含 Learning Code 与 Discord 求助频道）'));
   /* CONTENT-STYLE-GUIDE.md 第 4 节标签表与实现同源（三处同源的第三处）。
    * 公开仓内该文档不存在 → 只跳过这一小段文档同步检查，上方按钮计数断言照跑。 */
   if (hasStyleGuide) {
@@ -334,10 +334,26 @@ if (hasExternalDoc) {
       check('C3: 新增恰为 heavy-first / heavy-all 两个，既有 id 零改动'));
 
     /* 61 个既有成就的定义逐字段不变（goal / 文案 / 分类 / milestone / hidden）。
-     * 两份定义来自不同 vm 上下文（原型不同），用 JSON 序列化对比内容。 */
+     * 两份定义来自不同 vm 上下文（原型不同），用 JSON 序列化对比内容。
+     * v4.11.16 例外名单：开放第 20 课（Project: Recipes）轮**有意**迁移了 5 个
+     * 成就的 desc（「19 课」→「20 课」、unit-3「7 课（不含 Recipes）」→「8 课
+     * （含 Project: Recipes）」），以及 started-all 的 goal.value（19 → 20——
+     * startedCount 是数值硬编码、不随 lessons.js 自动跟随）。依据规划文档
+     * 20260923-1320 §6.2 第 42–47 项；除 desc（及 started-all 的 goal）外
+     * 仍逐字段对比，其余 56 个成就保持零改动。 */
+    const DESC_MIGRATED_V41116 = new Set(['all-lessons', 'official-all', 'quiz-all', 'unit-3', 'started-all']);
+    const stripMigrated = a => JSON.stringify(Object.assign({}, a, { desc: null },
+      a.id === 'started-all' ? { goal: null } : {}));
     const oldById = new Map(OLD_PROGRESS.Logic.ACHIEVEMENTS.map(a => [a.id, a]));
     for (const a of PROGRESS.Logic.ACHIEVEMENTS) {
       if (!oldById.has(a.id)) continue;
+      if (DESC_MIGRATED_V41116.has(a.id)) {
+        assert.equal(stripMigrated(a), stripMigrated(oldById.get(a.id)),
+          check(`C3: 迁移成就 ${a.id} 除 desc${a.id === 'started-all' ? ' / goal' : ''} 外零字段改动`));
+        assert.ok(/20 课|8 课/.test(a.desc), check(`C3: ${a.id} 的新 desc 写明当前开放数（20 课 / unit-3 为 8 课）`));
+        if (a.id === 'started-all') assert.equal(a.goal.value, 20, check('C3: started-all 阈值迁移为 20（数值硬编码，漏改会提前解锁）'));
+        continue;
+      }
       assert.equal(JSON.stringify(a), JSON.stringify(oldById.get(a.id)), check(`C3: 既有成就 ${a.id} 定义逐字段不变`));
     }
 

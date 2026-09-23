@@ -1,30 +1,34 @@
 /* 官方 The Odin Project Foundations 的完整 46 课目录（纯数据文件，零依赖）。
  *
- * 为什么要与 lessons.js 分开：lessons.js 装的是本站已经写好中文自足讲解的 19 课，
- * 每课带正文、术语、任务、自测等大量内容；本文件只装“官方 Foundations 一共有哪些课、
- * 顺序是什么、本站开放到哪一课”，用来渲染完整目录与真实总进度。
- * 交接 §6.1 明确要求不要把 20-46 课的课程正文塞进 lessons.js —— 那 27 课本站还没有
- * 中文正文，塞进去只会得到一堆空壳，也会让人误以为已经写完。
+ * 为什么要与 lessons.js 分开：lessons.js 装的是本站已经写好中文自足讲解的 20 课
+ * （逐课开放，到 Project: Recipes 为止），每课带正文、术语、任务、自测等大量内容；
+ * 本文件只装“官方 Foundations 一共有哪些课、顺序是什么、本站开放到哪一课”，
+ * 用来渲染完整目录与真实总进度。
+ * 红线（AGENTS.md 第 3 条）：未开放课程（21-46，共 26 课）的正文绝不允许塞进
+ * lessons.js ——那些课本站还没有中文正文，塞进去只会得到一堆空壳，也会让人误以为
+ * 已经写完；开放新课必须逐课完成官方原文指纹核对与中文自足讲解撰写。
  *
  * 字段说明：
  *   order     官方目录里的序号，1-46，连续且不重复
- *   slug      官方课程页 URL 末段，与 lessons.js 的 id 对已开放的 19 课逐字相同
+ *   slug      官方课程页 URL 末段，与 lessons.js 的 id 对已开放的 20 课逐字相同
  *   title     官方英文标题，作为次级文字原样保留
- *   zh        简体中文标题。01-19 沿用 lessons.js 已定稿的译名（tests/catalog.test.cjs
- *             会断言两边逐字一致）；20-46 由本站自行编写，尚未有正文。
+ *   zh        简体中文标题。01-20 沿用 lessons.js 已定稿的译名（tests/catalog.test.cjs
+ *             会断言两边逐字一致）；21-46 由本站自行编写，尚未有正文。
  *   group     所属官方分组的 id，对应下面的 groups
  *   type      'lesson' 或 'project'；project 在界面上明确标记“项目”
- *   available 本站是否已经开放中文正文。true 的 19 课可以点进去；false 的 27 课
+ *   available 本站是否已经开放中文正文。true 的 20 课可以点进去；false 的 26 课
  *             一律灰化显示“暂未开放”，并且不生成任何可进入正文的链接。
+ *             available 必须与 lessons.js 双向一致（catalog.test.cjs 钉住）。
  *
  * 注意：本文件的分组是官方 8 个分组，而 lessons.js 的 groups 只列已开放课程涉及的
  * 前 4 个分组，progress.js 的 unit-* 成就按 lessons.js 的分组下标判定。两者刻意不合并：
- * 成就语义是“完成本站已开放的这个单元”，不是“完成官方这个单元”。
+ * 成就语义是“完成本站已开放的这个单元”，不是“完成官方这个单元”——HTML Foundations
+ * 单元自 2026-09-23（第 20 课开放）起两者恰好重合：官方 8 课本站已全部开放。
  */
 window.ODIN_CATALOG = {
   version: 1,
   /* 官方目录的核对日期。官方若调整顺序或增删课程，需要重新核对并更新本文件。 */
-  verifiedAt: '2026-09-09',
+  verifiedAt: '2026-09-23',
   courseUrl: 'https://www.theodinproject.com/paths/foundations/courses/foundations',
   /* 官方 Foundations 全部课程数，UI 的总进度分母直接取 lessons.length，
    * 不另写一个常量，避免两处数字打架。 */
@@ -58,7 +62,7 @@ window.ODIN_CATALOG = {
     { order: 17, slug: 'lists', title: 'Lists', zh: '列表', group: 'html-foundations', type: 'lesson', available: true },
     { order: 18, slug: 'links-and-images', title: 'Links and Images', zh: '链接与图片', group: 'html-foundations', type: 'lesson', available: true },
     { order: 19, slug: 'commit-messages', title: 'Commit Messages', zh: '写清楚提交说明', group: 'html-foundations', type: 'lesson', available: true },
-    { order: 20, slug: 'recipes', title: 'Project: Recipes', zh: '项目：菜谱网页', group: 'html-foundations', type: 'project', available: false },
+    { order: 20, slug: 'recipes', title: 'Project: Recipes', zh: '项目：菜谱网页', group: 'html-foundations', type: 'project', available: true },
     { order: 21, slug: 'intro-to-css', title: 'Intro to CSS', zh: '认识 CSS', group: 'css-foundations', type: 'lesson', available: false },
     { order: 22, slug: 'the-cascade', title: 'The Cascade', zh: 'CSS 层叠规则', group: 'css-foundations', type: 'lesson', available: false },
     { order: 23, slug: 'inspecting-html-and-css', title: 'Inspecting HTML and CSS', zh: '检查 HTML 与 CSS', group: 'css-foundations', type: 'lesson', available: false },

@@ -10,7 +10,7 @@
  *         住在 section-explain 对应章之后（零 main 级漂浮）、git-areas 仍归
  *         git-basics 且 introduction-to-git 只有自己的对比图（数据层绑定由
  *         diagrams.test.cjs 钉住，这里钉渲染结果）；
- *   C  —— 映射文件完整性（19 课、条目号合法、地址零悬空）+ 渲染层（有映射的条目
+ *   C  —— 映射文件完整性（20 课、条目号合法、地址零悬空）+ 渲染层（有映射的条目
  *         渲染出链接且 href 属于该课资源、外链纪律、本地动作条目**不渲染**链接、
  *         条目文本一字不改）；
  *   D  —— 修订版立场（D0 本站自足）：section-why 与 section-official 均出现
@@ -74,12 +74,12 @@ const collectTagDeep = (root, tagName) => {
 };
 
 const LESSON_IDS = guide.lessons.map(l => l.id);
-assert.equal(LESSON_IDS.length, 19, '前提：19 课');
+assert.equal(LESSON_IDS.length, 20, '前提：20 课');
 
 /* ===== C-数据层：映射文件完整性（防悬空引用） ===== */
 assert.equal(taskLinks.version, 1, 'C: 映射文件带版本号');
 assert.deepEqual(Object.keys(taskLinks.links).sort(), [...LESSON_IDS].sort(),
-  'C: 映射文件恰好覆盖 19 课，无未知 lessonId（防悬空课程引用）');
+  'C: 映射文件恰好覆盖 20 课，无未知 lessonId（防悬空课程引用）');
 const sourceOf = fs.readFileSync(path.join(root, 'lesson-task-links.js'), 'utf8');
 assert.ok(!/\bfetch\(|XMLHttpRequest|innerHTML|document\.cookie/.test(sourceOf),
   'C: 映射文件不联网、不注入标记、不读写 cookie（与其他数据文件同纪律）');
@@ -248,8 +248,10 @@ for (const lesson of guide.lessons) {
 
 /* ===== B-渲染：概念图归位（v4.11.6 扩为全站） =====
  * v4.11.2 钉 git-areas 归属修正、v4.11.5 钉第 6 课按章归位试点；v4.11.6
- * （交接 §3.4/§3.5）全站按章铺开：47 张（14 存量 + 33 新增），19 课全部图
- * 都带 sectionIndex 并插入 section-explain 对应章之后。通用断言逐课钉：
+ * （交接 §3.4/§3.5）全站按章铺开：47 张（14 存量 + 33 新增），19 个知识课全部图
+ * 都带 sectionIndex 并插入 section-explain 对应章之后（v4.11.16：第 20 课 recipes
+ * 是 Project 课，按 LESSON-PAGE-GUIDE 第 4 节配图判据第一条不配图，渲染数 = 清单数 = 0）。
+ * 通用断言逐课钉：
  * 渲染图数 = 清单数、全部住在 section-explain（零 main 级漂浮）、文档序
  * 章节序列 = 清单 sectionIndex 的稳定排序（同章按清单顺序）。
  * 渲染层「无 sectionIndex 的图保持旧位置（main 直接子级）」的兼容分支
@@ -303,18 +305,32 @@ for (const lesson of guide.lessons) {
   const mainText = textOf(mainOf(page));
   const why = textOf(collectByClass(mainOf(page), 'section-why')[0]);
   const officialFirstP = textOf((officialOf(page).childNodes || []).find(n => n.tagName === 'P'));
-  /* D1：section-why 出现中文辅助引导 + 「不必先啃英文原文」 */
+  /* D1：section-why 出现中文辅助引导 + 「不必先啃英文原文」
+   * v4.11.16 按课型分支：Project 课（recipes）没有官方 Knowledge Check，
+   * 第 1 节引导改说「本站自测题的答案也全部渲染在本页」（app.js 同源分支），
+   * 不得声称官方自查题在本页。 */
   assert.ok(why.includes('中文辅助'), `D1: ${lesson.id} section-why 含「中文辅助」引导`);
   assert.ok(why.includes('不必先去啃英文原文'), `D1: ${lesson.id} section-why 明确不必先看英文`);
-  assert.ok(why.includes('官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页'),
-    `D1: ${lesson.id} section-why 告知自查题中文答案在本页`);
+  if (lesson.official.knowledgeCheck.length) {
+    assert.ok(why.includes('官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页'),
+      `D1: ${lesson.id} section-why 告知自查题中文答案在本页`);
+  } else {
+    assert.ok(why.includes('本站自测题的答案也全部渲染在本页'),
+      `D1: ${lesson.id} section-why 告知本站自测答案在本页（Project 课无官方 KC）`);
+    assert.ok(!why.includes('官方自查题（Knowledge Check）的题目与中文答案'),
+      `D1: ${lesson.id} 无官方 KC 的课不得声称官方自查题渲染在本页`);
+  }
   /* D2：官方任务开头引导（v4.11.5 更新：仍是两句——第一句在 v4.11.4 版基础上
    * 增补「列表可以用标题旁的按钮收起或展开」，第二句不变；改口依据
    * CONTENT-STYLE-GUIDE.md 第 3、9 节，交接 3.B。正文跳转按钮已删、节级无直接子
-   * 链接的 v4.11.4 口径保持——页内跳转入口挂在 Assignment 标题内，见 E 组） */
-  assert.equal(officialFirstP,
-    '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化版本，Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。',
-    `D2: ${lesson.id} 官方任务开头引导为 v4.11.5 版全文`);
+   * 链接的 v4.11.4 口径保持——页内跳转入口挂在 Assignment 标题内，见 E 组。
+   * v4.11.16 按课型分支：Project 课（recipes）无 Exercise / KC，引导语只说
+   * Assignment——不得描述页面上不存在的区块（app.js 同源分支）。 */
+  const expectedOfficialGuide = lesson.official.knowledgeCheck.length
+    ? '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化版本，Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'
+    : '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。';
+  assert.equal(officialFirstP, expectedOfficialGuide,
+    `D2: ${lesson.id} 官方任务开头引导为当前课型的逐字全文`);
   const officialChildren = officialOf(page).childNodes || [];
   assert.ok(officialChildren.filter(n => n.tagName === 'A').length === 0,
     `D2: ${lesson.id} 官方任务节不得有节级跳转按钮（官方入口只在页顶）`);
@@ -354,7 +370,7 @@ for (const lesson of guide.lessons) {
   assert.equal((mainText.match(/可以在这里学完并自查/g) || []).length, 0,
     `D7: ${lesson.id} 「可以在这里学完并自查」不得出现（v4.11.4 删末节）`);
 }
-/* D5：页尾非官方声明与 19 课边界（静态 HTML 与首页 FAQ） */
+/* D5：页尾非官方声明与 20 课边界（静态 HTML 与首页 FAQ） */
 {
   const lessonHtml = fs.readFileSync(path.join(root, 'lesson.html'), 'utf8');
   const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
@@ -366,8 +382,9 @@ for (const lesson of guide.lessons) {
   const usage = textOf(querySelect(home.dom.body, '.site-usage'));
   assert.ok(usage.includes('可以在本站学完并自查'), 'D5/D0: 首页 FAQ「本站怎么用」与自足口径一致');
   assert.ok(!usage.includes('正式完成动作仍在 TOP 原课进行'), 'D5/D0: 首页 FAQ 旧口径已移除');
-  assert.ok(usage.includes('其余课程请回官方原课学习'), 'D5: 19 课覆盖边界声明保留（事实边界）');
-  assert.ok(usage.includes('Project、Discord 社区与其后课程在 TOP 官方进行'), 'D5/D6: Project 与社区仍明确在官方（事实边界，非过度承诺）');
+  assert.ok(usage.includes('其余课程请回官方原课学习'), 'D5: 20 课覆盖边界声明保留（事实边界）');
+  assert.ok(usage.includes('项目提交、Discord 社区与其后课程在 TOP 官方进行'), 'D5/D6: 项目提交与社区仍明确在官方（事实边界，非过度承诺）');
+  assert.ok(usage.includes('不提供成品答案'), 'D5: FAQ 明确 Project 课不提供成品答案（红线第 4 条的首页口径）');
 }
 
 /* ===== E：官方任务节折叠头与页内跳转（v4.11.5 交接 3.A / 3.B） =====
@@ -387,9 +404,11 @@ for (const lesson of guide.lessons) {
   const page = mountLesson(lesson.id);
   const main = mainOf(page);
   const official = officialOf(page);
-  /* E1：两个折叠头（Assignment + KC），button + aria 契约 */
+  /* E1：折叠头（知识课 2 个：Assignment + KC；Project 课 1 个：仅 Assignment——
+   * v4.11.16 起 recipes 无官方 KC，KC 区块按数据条件渲染），button + aria 契约 */
+  const expectedToggles = lesson.official.knowledgeCheck.length ? 2 : 1;
   const buttons = collectByClass(official, 'collapse-toggle');
-  assert.equal(buttons.length, 2, `E1: ${lesson.id} 恰有 2 个折叠头（Assignment + Knowledge Check）`);
+  assert.equal(buttons.length, expectedToggles, `E1: ${lesson.id} 恰有 ${expectedToggles} 个折叠头（Assignment${lesson.official.knowledgeCheck.length ? ' + Knowledge Check' : '；Project 课无官方 KC'}）`);
   buttons.forEach(button => {
     assert.equal(button.tagName, 'BUTTON', `E1: ${lesson.id} 折叠头是 button 元素`);
     assert.equal(button.getAttribute('aria-expanded'), 'true', `E1: ${lesson.id} 默认展开（aria-expanded=true）`);
@@ -409,8 +428,12 @@ for (const lesson of guide.lessons) {
   /* E2：Assignment OL 与 kc-list 各自住在受控容器里；资源区不在任何受控容器里 */
   const assignmentBody = querySelect(official, '#official-assignment-body');
   assert.ok(assignmentBody && collectTagDeep(assignmentBody, 'OL').length === 1, `E2: ${lesson.id} Assignment OL 住在受控容器内`);
-  const kcBody = querySelect(official, '#official-kc-body');
-  assert.equal(collectByClass(kcBody, 'kc-list').length, 1, `E2: ${lesson.id} kc-list 住在受控容器内`);
+  if (lesson.official.knowledgeCheck.length) {
+    const kcBody = querySelect(official, '#official-kc-body');
+    assert.equal(collectByClass(kcBody, 'kc-list').length, 1, `E2: ${lesson.id} kc-list 住在受控容器内`);
+  } else {
+    assert.ok(!querySelect(official, '#official-kc-body'), `E2: ${lesson.id} 无官方 KC 时不渲染 KC 折叠容器`);
+  }
   const resourceList = collectByClass(official, 'resource-list')[0];
   assert.ok(resourceList, `E2: ${lesson.id} 资源列表在位`);
   let cursor = resourceList.parentNode;
@@ -460,4 +483,4 @@ for (const lesson of guide.lessons) {
   assert.equal(querySelect(officialOf(badPage), '#official-assignment-body').hidden, false, 'E4: 非法值按展开处理');
 }
 
-console.log(`通过：课页读者向断言（v4.11.6 口径）——A1 资源区零审计信息（19 课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（19 课）、B 概念图全站归位（47 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图）、C 映射完整性（19 课 / Assignment 46 条 54 链接 / KC 31 题，地址零悬空）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位、D2 官方任务开头为 v4.11.5 版全文且节内零直接子链接、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导固定 5 处不堆砌）、E 折叠与跳转（折叠头 button[aria-expanded] 恰 2 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记、折叠偏好随档案生效且非法值按展开）。`);
+console.log(`通过：课页读者向断言（v4.11.16 口径）——A1 资源区零审计信息（20 课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（20 课）、B 概念图全站归位（47 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（20 课 / Assignment 46 条 54 链接 / KC 31 题，地址零悬空；recipes 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且 Project 课不声称官方自查题在本页、D2 官方任务开头按课型逐字钉住且节内零直接子链接、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导固定 5 处不堆砌）、E 折叠与跳转（折叠头 button[aria-expanded] 知识课 2 个 / Project 课 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记、折叠偏好随档案生效且非法值按展开）。`);

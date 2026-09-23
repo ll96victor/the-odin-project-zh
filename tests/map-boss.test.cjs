@@ -86,18 +86,18 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
 
   const brief = mapModule.mapBrief(state, catalog, lessons, Logic.continueLessonId(state, lessons));
   assert.equal(brief.totalNodes, 46, check('总地图 46 个节点（官方全目录）'));
-  assert.equal(brief.openNodes, 19, check('当前开放 19 个节点'));
-  assert.equal(brief.counts.locked, 27, check('未开放 27 个节点仍可见（灰点）'));
+  assert.equal(brief.openNodes, 20, check('当前开放 20 个节点'));
+  assert.equal(brief.counts.locked, 26, check('未开放 26 个节点仍可见（灰点）'));
   assert.equal(brief.counts.defeated, 1, check('第一课已击破'));
   assert.equal(brief.counts.broken, 1, check('第二课已破甲'));
   assert.equal(brief.counts.scouted, 1, check('第三课已侦察'));
-  assert.equal(brief.counts.unexplored, 16, check('其余开放课未探索'));
+  assert.equal(brief.counts.unexplored, 17, check('其余开放课未探索'));
   assert.equal(brief.units.length, 8, check('8 个单元'));
 
   /* 每单元：开放数、Boss 入口 */
   const byId = Object.fromEntries(brief.units.map(unit => [unit.group.id, unit]));
   assert.equal(byId['introduction'].openCount, 5, check('Introduction 开放 5 节点'));
-  assert.equal(byId['html-foundations'].openCount, 7, check('HTML Foundations 本站开放 7 节点（官方 8 课缺 Recipes）'));
+  assert.equal(byId['html-foundations'].openCount, 8, check('HTML Foundations 本站开放 8 节点（与官方 8 课重合，含 Project: Recipes）'));
   assert.equal(byId['html-foundations'].totalCount, 8, check('HTML Foundations 官方 8 节点全部可见'));
   assert.equal(byId['css-foundations'].openCount, 0, check('CSS Foundations 未开放'));
   for (const unitId of ['introduction', 'prerequisites', 'git-basics', 'html-foundations']) {
@@ -109,12 +109,17 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
 
   /* 未开放节点结构上不可点击；Project 节点有标记 */
   const lockedNodes = brief.units.flatMap(unit => unit.nodes).filter(node => node.status === 'locked');
-  assert.equal(lockedNodes.length, 27, check('27 个 locked 节点'));
+  assert.equal(lockedNodes.length, 26, check('26 个 locked 节点'));
   assert.ok(lockedNodes.every(node => node.linkable === false), check('locked 节点不可点（linkable=false，UI 不生成链接）'));
   const allNodes = brief.units.flatMap(unit => unit.nodes);
   const projectNodes = allNodes.filter(node => node.type === 'project');
   assert.equal(projectNodes.length, 5, check('5 个 Project 节点（形状不同）'));
-  assert.ok(projectNodes.every(node => node.status === 'locked'), check('5 个 Project 全部未开放（Recipes 起）'));
+  /* v4.11.16：recipes 开放后不再是 locked——首个开放的 Project 节点。 */
+  const recipesNode = projectNodes.find(node => node.slug === 'recipes');
+  assert.ok(recipesNode && recipesNode.status !== 'locked' && recipesNode.linkable === true,
+    check('recipes 是首个开放的 Project 节点（可点、非灰点）'));
+  assert.equal(projectNodes.filter(node => node.status === 'locked').length, 4,
+    check('其余 4 个 Project 未开放（Landing Page 起）'));
 
   /* 当前节点标记唯一且落在第一个未完成课 */
   const currentNodes = allNodes.filter(node => node.isCurrent);

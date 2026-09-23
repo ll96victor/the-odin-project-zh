@@ -1,15 +1,15 @@
 # 来源与任务核对
 
-核对日期：2026-09-09。事实优先级：当前官方线上课程目录及 lesson 正文。再读取 lesson 的 Edit on GitHub 所指向的官方 Markdown 交叉核对；没有采用非官方中文教程替换课程。
+核对日期：第 01–19 课为 2026-09-09；第 20 课（Project: Recipes）为 2026-09-23。事实优先级：当前官方线上课程目录及 lesson 正文。再读取 lesson 的 Edit on GitHub 所指向的官方 Markdown 交叉核对；没有采用非官方中文教程替换课程。
 
 - [Foundations 官方目录](https://www.theodinproject.com/paths/foundations/courses/foundations)
 - [官方课程源仓库](https://github.com/TheOdinProject/curriculum)
-- 边界是 [Project: Recipes](https://www.theodinproject.com/lessons/foundations-recipes) **之前**，不包含该项目。
+- 边界是 [Intro to CSS](https://www.theodinproject.com/lessons/foundations-intro-to-css) **之前**，不包含该课。第 20 课 [Project: Recipes](https://www.theodinproject.com/lessons/foundations-recipes) 已于 2026-09-23 按「逐课开放」规则收录（v4.11.16）。
 - 每课原文 URL、英文标题、官方 Markdown URL 和此次读取的 SHA-256 记录在 `sources.json`。
 
 ## 逐课覆盖
 
-下表记录复核重点，不替代每课完整 Assignment。所有 19 课都有 Assignment 与 Knowledge Check，均提供直达入口。
+下表记录复核重点，不替代每课完整 Assignment。前 19 课都有 Assignment 与 Knowledge Check；第 20 课（Project）有 Assignment、无官方 Knowledge Check；均提供直达入口。
 
 | 顺序 | 官方课名与链接 | 导读保留的任务及关键边界 |
 | --- | --- | --- |
@@ -32,12 +32,13 @@
 | 17 | [Lists](https://www.theodinproject.com/lessons/foundations-lists) | 四份指定列表：食物、今日待办、想去的地方、五个最喜欢的游戏或电影 |
 | 18 | [Links and Images](https://www.theodinproject.com/lessons/foundations-links-and-images) | 正文准备及路径练习、dog.jpg、alt/width/height、三个视频、跟做外部文章和四种格式 |
 | 19 | [Commit Messages](https://www.theodinproject.com/lessons/foundations-commit-messages) | 指定文章七条规则；正文的多行说明与提交时机；不增设作业或 Recipes 答案 |
+| 20 | [Project: Recipes](https://www.theodinproject.com/lessons/foundations-recipes) | 仓库准备四步与两个官方警告；四轮迭代要求完整中文化；提交节奏；GitHub Pages 发布按官方列为可选；社区提交三提醒与 Learning Code 文章；**不提供成品代码**（examples 为空数组，课页不渲染「代码示例」节） |
 
 同时读取并核对了用户适用的 macOS 分支：[Chrome 安装](https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/installation_guides/chrome/macos.md)、[VS Code 安装](https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/installation_guides/text_editors/macos.md)、[Git / Homebrew 设置](https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/installation_guides/git/macos.md)。具体安装步骤仍回原指南执行。
 
 ## 可选项与编辑处理
 
-1. 本次 19 课的线上正文与 Markdown 都未单列 Additional Resources。首页及每课说明它是补充栏目，不凭空增加补充阅读。
+1. 本次 20 课的线上正文与 Markdown 都未单列 Additional Resources。首页及每课说明它是补充栏目，不凭空增加补充阅读。
 2. 明确保留 Optional：Discord 资料关联 GitHub、GitHub 2FA。DNS 视频属于替代阅读，不是额外必做。Introduction to Git 允许跳过指定文章的 Where do I start?。
 3. 第 3 课的 Discord 阅读遵照原文“加入后”条件执行，在第 5 课提示回补；课程顺序没有重排。
 4. 安装与 Git 命令放在官方原课，不复制一套可能过期或覆盖用户现有设置的安装脚本；中文列出全部重要步骤、系统分支与注意事项。
@@ -48,13 +49,13 @@
 
 ## 复核方式与限制
 
-`tests/check_links.py` 实际读取官方目录和全部 19 课，检查顺序、标题、成功响应、Assignment/Knowledge Check 锚点以及是否新增补充栏目。`tests/content.test.cjs` 保护课序、来源、每课结构及容易遗漏的指定实践。逐项对照上述原文检查每条任务的含义。
+`tests/check_links.py` 实际读取官方目录和全部 20 课，检查顺序、标题、成功响应、锚点（按课型：知识课要求 Assignment 与 Knowledge Check 两个锚点，Project 课只要求 Assignment——以 `sources.json` 的 `hasKnowledgeCheck` 为准）以及是否新增补充栏目。`tests/content.test.cjs` 保护课序、来源、每课结构及容易遗漏的指定实践。逐项对照上述原文检查每条任务的含义。
 
 测试不保证官方未来不变，也没有逐一验证第三方视频播放、Discord 加入、账户登录或学习者电脑的安装结果。页面中的“核对日期”是明确的内容快照日期，不能理解为自动实时更新。
 
-## 自研内容与逐课核验记录（2026-09-09）
+## 自研内容与逐课核验记录（2026-09-09；第 20 课 2026-09-23）
 
-Recipes 之前的全部 19 课中文讲解，均由本站对照 TOP 官方课程 Markdown 从零编写简体中文（路线 A：纯自研），未借用、未改编、未翻译 odin-notes-tw 或任何其他第三方中文课程内容。当前版本已无第一版薄导读课。
+前 19 课（Recipes 之前）与第 20 课 Project: Recipes 的中文讲解，均由本站对照 TOP 官方课程 Markdown 从零编写简体中文（路线 A：纯自研），未借用、未改编、未翻译 odin-notes-tw 或任何其他第三方中文课程内容。当前版本已无第一版薄导读课。
 
 核验方法：拉取官方 raw Markdown → 重算 SHA-256 与 `sources.json` 记录指纹比对 → 逐段对照官方原文核对技术表述、代码/命令示例，以及 Assignment / Exercise / Knowledge Check / Optional 条目。
 
@@ -79,10 +80,12 @@ Recipes 之前的全部 19 课中文讲解，均由本站对照 TOP 官方课程
 | 17 | `foundations/html_css/html_foundations/lists.md` | 指纹未变（46b6fddd…0fcaec） | 2026-09-09 |
 | 18 | `foundations/html_css/html_foundations/links_and_images.md` | 指纹未变（1d439ea2…27b012） | 2026-09-09 |
 | 19 | `git/foundations_git/commit_messages.md` | 指纹未变（0df78378…637d1a） | 2026-09-09 |
+| 20 | `foundations/html_css/html_foundations/project_recipes.md` | 新登记（3df1c88a…947840，11529 字节） | 2026-09-23 |
 
 ### 本轮核验结论
 
 - 19 课官方指纹全部与 `sources.json` 一致（变化数 = 0），因此 `sources.json` 无需更新指纹；全局 `verifiedAt`（2026-09-09）在 `sources.json` 与 `lessons.js` 中保持相等。
+- **第 20 课（Project: Recipes，2026-09-23 核验，v4.11.16）**：官方文件为 `foundations/html_css/html_foundations/project_recipes.md`——注意文件名不是 `recipes.md`（以官方课页 Edit on GitHub 链接实查确认）；SHA-256 = `3df1c88a…947840`。有 Assignment（四轮迭代）、**无 Knowledge Check**、无 Additional Resources、无独立 Exercise 节（`tests/content.test.cjs` 与 `tests/check_links.py` 已按课型分支）。课页 URL `https://www.theodinproject.com/lessons/foundations-recipes` 实测 HTTP 200、零重定向、首个 h1 为 “Project: Recipes”。中文正文只提供要求中文化、拆解与验收清单，**不提供成品代码**：`examples` 为空数组，课页走无「代码示例」节的 h2 序列（V2_H2_NO_CODE）。全局 `verifiedAt` 仍为 2026-09-09（前 19 课指纹本轮未重新全量复核，只复核了课 01 用于验证指纹方法学），第 20 课的逐课日期记录在 `lessons.js` 该课 `sources.verifiedAt`。
 - 每课课内 `sources` 字段记录 `basedOn`（含“未改编自任何第三方中文课程”声明）、`sha256` 与逐课核验日期，且 `sha256` 由测试断言与 `sources.json` 逐课一致。
 - Knowledge Check 逐课计数与官方 Markdown 完全一致（19 课共 96 道官方 KC）：01=2、02=3、03=3、04=2、05=3、06=15、07=2、08=2、09=11、10=3、11=6、12=11、13=4、14=3、15=4、16=8、17=3、18=9、19=2。
 - 19 课官方正文均无独立 Exercise 节，本站 `official.exercise` 全为空数组，与官方一致；`hasAdditionalResources` 全为 false，与本站说明一致。

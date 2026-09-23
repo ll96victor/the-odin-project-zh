@@ -1,5 +1,6 @@
-/* 本课外部资料清单（v3；v4.11.1 扩展中文内容与 handling 语义）。
- * 数据来源：重新拉取 19 课官方 curriculum Markdown（指纹与 sources.json 全部一致），
+/* 本课外部资料清单（v3；v4.11.1 扩展中文内容与 handling 语义；v4.11.16 收录第 20 课）。
+ * 数据来源：重新拉取 20 课官方 curriculum Markdown（第 01–19 课指纹与 sources.json 全部一致，
+ * 2026-09-10 核验；第 20 课 Project: Recipes 于 2026-09-23 抓取，官方文件名为 project_recipes.md），
  * 程序化提取正文与 Assignment 中明确要求学习的外部资源，再逐条联网核验。
  * 分类依据 v3 交接 §3.2：
  *   A 类 = 有已核验的官方中文版本，同时给出中文版与英文原文入口；
@@ -9,13 +10,16 @@
  *   zh-translation = 许可明确为 CC 系列且无官方中文版的文本条目（14 条），本站提供中文精译，
  *     译文采用与原作相同的 CC 许可并带署名、来源与译者说明。第 15 条 CC 条目
  *     shell-lesson-data.zip 为二进制数据文件，无文本可译，保持 link-only。
- * zhGuide.overview（中文速览，84 条每条一段）与 zhTranslation（精译）为 v4.11.1 增量字段，
+ * zhGuide.overview（中文速览，87 条每条一段）与 zhTranslation（精译）为 v4.11.1 增量字段，
  * 既有 why / points / terms / focus / takeaway 全部保留。
  * zhGuide 内容只依据官方 Markdown 对该资源的说明与本站已核验事实编写，不臆测第三方页面的具体论点。
- * 精译全部依据 2026-09-18 真实抓取的原文编写（各条 translatorNote 记录了抓取日期与依据）。 */
+ * 精译全部依据 2026-09-18 真实抓取的原文编写（各条 translatorNote 记录了抓取日期与依据）。
+ * v4.11.16（2026-09-23）：第 20 课 Project: Recipes 新增 3 条（Allrecipes / TOP Discord 求助
+ * 频道 / dev.to Learning Code 文章），全部 C 类 link-only；官方原文中的 discord.gg 邀请链接
+ * 与课 05 既有条目规范化后同址，跨课合并登记在课 05，不重复收录。 */
 window.ODIN_RESOURCES = {
-  verifiedAt: '2026-09-10',
-  method: '重新拉取官方 curriculum raw Markdown 并按 SHA-256 比对指纹（19 课全部未变）→ 程序化提取正文 / Assignment / Knowledge Check 中的外部链接 → 按重定向后的规范化地址去重 → 逐条 curl 核验状态码与重定向目标 → 对中文候选做内容级语言核验（统计正文汉字数，不只看 HTTP 200）→ 视频另用 YouTube oEmbed 公开接口核验可用性与真实标题。',
+  verifiedAt: '2026-09-23',
+  method: '重新拉取官方 curriculum raw Markdown 并按 SHA-256 比对指纹（首批 19 课于 2026-09-10 核验全部未变；第 20 课于 2026-09-23 抓取登记）→ 程序化提取正文 / Assignment / Knowledge Check 中的外部链接 → 按重定向后的规范化地址去重（含跨课合并）→ 逐条 curl 核验状态码与重定向目标 → 对中文候选做内容级语言核验（统计正文汉字数，不只看 HTTP 200）→ 视频另用 YouTube oEmbed 公开接口核验可用性与真实标题。各条资料的核验日期以条目 verifiedAt 为准。',
   policy: {
     handling: 'link-only 或 zh-translation（v4.11.1 起两个合法值）',
     noTranslation: '许可未明确标注的第三方内容一律不翻译、不复制，只提供链接与本站原创中文导读/速览；许可明确为 CC 系列且无官方中文版的文本来源，本站提供中文精译——译文采用与原作相同的 CC 许可，并带署名、来源标注与译者修改说明。',
@@ -23,14 +27,14 @@ window.ODIN_RESOURCES = {
     subtitleClaim: '没有可靠证据证明存在中文字幕的视频，一律不声称有中文字幕。',
     fallback: '无法确认版权许可时，默认只做中文摘要 / 导读加原始链接。'
   },
-  stats: { total: 84, withZh: 24, guideOnly: 60, verifyLimited: 5, withTranslation: 14 },
+  stats: { total: 87, withZh: 24, guideOnly: 63, verifyLimited: 5, withTranslation: 14 },
   audit: {
     perLesson: {
       'how-this-course-will-work': 2, 'introduction-to-web-development': 5, 'motivation-and-mindset': 6,
       'asking-for-help': 3, 'join-the-odin-community': 7, 'how-does-the-web-work': 9, installations: 6,
       'text-editors': 2, 'command-line-basics': 8, 'setting-up-git': 6, 'introduction-to-git': 5,
       'git-basics': 3, 'introduction-to-html-and-css': 2, 'elements-and-tags': 2, 'html-boilerplate': 2,
-      'working-with-text': 3, lists: 2, 'links-and-images': 9, 'commit-messages': 2
+      'working-with-text': 3, lists: 2, 'links-and-images': 9, 'commit-messages': 2, recipes: 3
     },
     /* 完整性复查记录：初次程序化提取共得到 118 条链接。第一阶段剔除 20 条非第三方学习资料
      * （5 条 TOP 自有课程页、13 条 TOP 官方安装指引、2 条课程演示素材，即 CodePen 演示笔与
@@ -43,7 +47,7 @@ window.ODIN_RESOURCES = {
      * 已补入并完成同样的核验，成为 83 条。课 09 的 The Unix Shell 课程主页与其 Download files
      * 小节在规范化去重后本会合并为一条，但官方 Assignment 把 Download files 列为独立一项并给了
      * 独立指示（只需照该节说明做、不必安装软件），因此按官方任务结构保留为两条。合计 84 条。 */
-    completenessRecheck: '已对 19 份官方 Markdown 全量重扫链接并与本清单逐条比对；除 Vim 条目（已补入）外无其他遗漏。',
+    completenessRecheck: '已对 19 份官方 Markdown 全量重扫链接并与本清单逐条比对；除 Vim 条目（已补入）外无其他遗漏。2026-09-23 开放第 20 课时对官方 project_recipes.md 做同样的全量扫描：去重后共提取 9 个地址，其中 4 个 TOP 自有课程页（Introduction to Git / Git Basics / Setting up Git 的 SSH 小节 / Commit Messages）与 1 个课程配图（statically CDN）按阶段一剔除；discord.gg/fbFCkYabZB 邀请链接与课 05 既有条目规范化后同址，跨课合并登记在课 05；其余 3 条（Allrecipes、TOP Discord 求助频道、dev.to Learning Code 文章）已收录并完成同样的三级核验。',
     deliberateSplit: ['command-line-basics: The Unix Shell 主页与 Download files 小节按官方 Assignment 的分项结构保留为两条'],
     verifyLimitedUrls: [
       'https://github.com/join（403，GitHub 反爬拦截，重定向到 github.com/signup）',
@@ -3016,6 +3020,93 @@ window.ODIN_RESOURCES = {
     license: '第三方 VS Code 扩展，版权归其发布者；本站只链接扩展市场页面，不代为安装、不分发扩展。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
+    note: ''
+  },
+  /* ===== 20 Project: Recipes（v4.11.16，2026-09-23 开放并逐条核验） ===== */
+  {
+    lessonId: 'recipes',
+    title: 'Allrecipes',
+    titleZh: 'Allrecipes（菜谱灵感网站）',
+    type: '网站',
+    requirement: 'optional',
+    zone: 'Assignment Iteration 2（官方：需要灵感时可以在这里找一个菜谱来用）',
+    originalUrl: 'https://www.allrecipes.com/',
+    sourceDomain: 'allrecipes.com',
+    originalUrlStatus: '200（零重定向；内容级核验：页面标题 Allrecipes | Recipes, How-Tos, Videos and More，无官方中文版）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 在给菜谱页命名时给了两个选项：用你最喜欢的菜的名字，或者需要灵感时去 Allrecipes 找一个菜谱来用。页面标题自述这是一个提供菜谱、操作指南与视频的网站；站点为英文，内容级核验无官方中文版。对这个项目而言选哪个菜谱不重要，重点是挑一个配料与步骤都清楚的，方便你组织成「Ingredients（无序列表）」与「Steps（有序列表）」两个区块。本站只链接它的首页，不搬运其菜谱内容。',
+      why: '官方 Iteration 2 说：菜谱页可以用你最喜欢的菜命名；需要灵感时，可以去 Allrecipes 找一个菜谱来用。',
+      points: [
+        '官方把它定位为「需要灵感时」的备选项：先考虑自己最喜欢的菜，想不出来再去挑一个。',
+        '页面标题显示它是一个提供菜谱、操作指南与视频的网站；站点为英文，无官方中文版。',
+        '对项目而言选哪个菜谱不重要；挑一个配料与步骤清楚的，方便组织成 Ingredients 与 Steps 两个列表。'
+      ],
+      terms: ['recipe（菜谱）', 'ingredients（配料）'],
+      focus: '挑一个配料和步骤都清楚的菜谱即可，不必细读站点内容。',
+      takeaway: '定下自己菜谱页要做的菜，并知道去哪里找「配料 / 步骤」的原文参考。'
+    },
+    license: '第三方菜谱网站，内容与界面版权归 Allrecipes；本站只链接其首页，不搬运、不镜像其菜谱内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-23',
+    note: ''
+  },
+  {
+    lessonId: 'recipes',
+    title: 'TOP Discord server (ask for help)',
+    titleZh: 'TOP Discord 服务器（求助入口）',
+    type: '社区板块',
+    requirement: 'reference',
+    zone: '正文「别偷看成品代码」段落（官方：卡住时来 Discord 求助）',
+    originalUrl: 'https://discord.com/channels/505093832157691914/516751477306294273',
+    sourceDomain: 'discord.com',
+    originalUrlStatus: '200（Discord 网页应用外壳页；频道内容需加入服务器并登录后才可见）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方在 Assignment 前的「别偷看成品代码」段落里说：卡住或不知道从哪儿开始时，不要去看别人的成品，来 TOP 的 Discord 服务器求助。这个链接指向 TOP 官方 Discord 服务器内的求助频道；官方注明需要先加入服务器才能看到该频道（加入方式第 5 课讲过，邀请链接登记在那一课的资料里）。查看需要 Discord 账号与登录，本站不代为登录，也未核验频道内的具体内容。',
+      why: '官方在「别偷看成品代码」段落里写：不要这样做；来我们的 Discord 服务器求助吧。',
+      points: [
+        '官方给这个链接的语境是「卡住时来求助」——它是求助入口，不是看现成答案的地方。',
+        '官方注明：需要先加入 Discord 服务器才能看到这个频道；加入入口登记在第 5 课的资料里。',
+        '需要 Discord 账号与登录才能查看，本站不代为登录，也未核验频道内的具体内容。'
+      ],
+      terms: ['Discord server（Discord 服务器）', 'channel（频道）'],
+      focus: '卡住时按第 4 课的求助方法，把项目卡在哪一步描述清楚再提问。',
+      takeaway: '有一个官方推荐的求助去处，并知道看频道的前提是先加入服务器。'
+    },
+    license: 'Discord 社区内容，各条消息版权归原作者；本站只链接频道入口，不复制频道内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-23',
+    note: '需要加入 Discord 服务器并登录才能查看，本站不代为登录。官方原文同一处的 discord.gg/fbFCkYabZB 邀请链接与课 05 既有条目为规范化后同一地址，按跨课合并纪律登记在课 05，此处不重复收录。'
+  },
+  {
+    lessonId: 'recipes',
+    title: 'Learning Code',
+    titleZh: 'Learning Code（TOP 官方账号文章）',
+    type: '文章',
+    requirement: 'reference',
+    zone: '正文 Community submissions 一节（官方：想了解更多信息读这篇）',
+    originalUrl: 'https://dev.to/theodinproject/learning-code-f56',
+    sourceDomain: 'dev.to',
+    originalUrlStatus: '200（零重定向；内容级核验：页面 h1 为 Learning Code，正文无汉字、无官方中文版）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方在 Community submissions 一节提醒：看社区提交时要专注于满足项目要求本身，而不是和别人比较——学习者常回头翻新旧项目、有人带着编程经验入学、项目要求也会随时间变化。官方在节末推荐读 TOP 官方账号发布的 Learning Code 一文来进一步了解这个心态。文章真实标题经内容级核验为 Learning Code；本站未复制文章内容，具体论点请打开英文原文阅读。',
+      why: '官方在 Community submissions 一节末尾写：想了解更多信息，读「Becoming a TOP Success Story」系列里的 Learning Code。',
+      points: [
+        '官方推荐这篇的语境是「看社区提交时别和别人比较」：学习者常回头翻新旧项目、有人带着编程经验入学、项目要求随时间变化——这三条提醒都写在官方正文里。',
+        '这是 TOP 官方账号发布在 dev.to 上的文章，真实标题经核验为 Learning Code；本站未翻译或复制其内容，具体论点请打开英文原文阅读。'
+      ],
+      terms: ['community submissions（社区提交）', 'success story（成功案例）'],
+      focus: '读时对照官方那三条提醒，抓住「专注于要求本身，不比较进度」的心态。',
+      takeaway: '完成项目后能以平稳心态查看他人做法，不把社区提交当成标准答案。'
+    },
+    license: 'dev.to 上的 TOP 官方账号文章，许可未明确标注；本站只做链接与原创导读。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-23',
     note: ''
   },
   /* === END === */

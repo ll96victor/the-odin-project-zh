@@ -2388,7 +2388,7 @@
     fields.push(buildToggleRow('showCompanion', '显示学习伙伴', '关闭后右下角按钮隐藏'));
     fields.push(buildToggleRow('showAchievementNotes', '成就解锁提示', '解锁时页面底部的小条提示'));
     fields.push(buildToggleRow('showReadingPosition', '显示本页阅读位置', '课程页顶部的滚动进度条'));
-    fields.push(buildToggleRow('showUnavailableLessons', '显示未开放课程', '目录里第 20–46 课的灰化行'));
+    fields.push(buildToggleRow('showUnavailableLessons', '显示未开放课程', '目录里第 21–46 课的灰化行'));
     fields.push(buildToggleRow('showEnglishTitles', '显示英文标题', '课程与目录中的英文原题'));
     fields.push(buildToggleRow('shortcutsEnabled', '键盘快捷键', 'J / K / G H / G C / G P / ? 等，见课程页按 ? 的说明'));
     /* v4.11.5（交接 3.A2 第 6 条，CONTENT-STYLE-GUIDE.md 第 9 节）：官方任务节
@@ -2737,7 +2737,7 @@
   /* ---------- v4：官方 Foundations 完整 46 课目录（§6） ---------- */
 
   /* 目录总课数。catalog.js 没载入时返回 null，界面据此降级为只显示已开放口径，
-   * 绝不把 19 / 19 说成 46 / 46（§6.4）。 */
+   * 绝不把 20 / 20 说成 46 / 46（§6.4）。 */
   function catalogTotal() {
     return catalog && Array.isArray(catalog.lessons) && catalog.lessons.length ? catalog.lessons.length : null;
   }
@@ -2762,9 +2762,9 @@
   }
 
   /* §6.4 的三个进度数字。首页 Dashboard 与个人资料面板共用这一个函数，因此两处永远
-   * 给出同样的口径，不会出现“面板说 19 / 46、首页说 19 / 19”的分叉。
+   * 给出同样的口径，不会出现“面板说 20 / 46、首页说 20 / 20”的分叉。
    * 层级刻意是：主目标 46 → 本站开放到第几课 → 你完成了多少。
-   * 完成数只可能来自已开放课程，所以 X 最大就是 19，不会虚构后续完成状态。 */
+   * 完成数只可能来自已开放课程，所以 X 最大就是 20，不会虚构后续完成状态。 */
   function progressCells(summary) {
     const total = catalogTotal();
     if (!total) {
@@ -5002,7 +5002,7 @@
    * 定位是桌面加速器而非新信息源：面板里能到的每一课、每一个功能，
    * 首页入口卡 / 目录 dialog（已有搜索与过滤）都有移动端路径——
    * 键盘快捷键只做增强（红线：Hover/键盘只能增强）。
-   * 命令 = 静态动作（面板/页面入口）+ 19 课已开放课程（可跳转的才列出，
+   * 命令 = 静态动作（面板/页面入口）+ 20 课已开放课程（可跳转的才列出，
    * 未开放课程进目录看结构，不在这里给假入口）。 */
   let commandDialog = null;
   let commandInput = null;
@@ -5059,7 +5059,7 @@
 
   function renderCommandResults() {
     const query = commandInput.value.trim();
-    /* 上限 60：当前全量 = 13 个动作 + 19 课 = 32 条，必须全部可见——
+    /* 上限 60：当前全量 = 14 个动作 + 20 课 = 34 条，必须全部可见——
      * 静默截断会让「所有课都能搜到」变成假话；60 也给未来课程留余量 */
     commandItems = commandEntries().filter(item => commandMatches(item, query)).slice(0, 60);
     commandActiveIndex = 0;
@@ -5308,7 +5308,13 @@
     } else {
       children.push(node('p', 'Foundations · 本站已开放课程全部完成', 'continue-eyebrow'));
       children.push(node('h2', `已开放的 ${summary.totalLessons} 课全部学完了`, 'continue-title'));
-      children.push(node('p', '下一站是 Project: Recipes——回官方原课自己动手完成，本站不提供项目答案。之后的课程可以在完整目录与世界地图里查看路线位置。', 'continue-status'));
+      /* v4.11.16：第 20 课（Project: Recipes）开放后，旧文案「下一站是 Project:
+       * Recipes——回官方原课自己动手完成」失实；改为从 catalog.js 动态取下一个
+       * 未开放课程，后续扩课不再需要改这段。 */
+      const nextLocked = catalog && Array.isArray(catalog.lessons) ? catalog.lessons.find(entry => !entry.available) : null;
+      children.push(node('p', nextLocked
+        ? `下一课《${nextLocked.zh}》尚未开放中文正文——可以回 TOP 官方原课继续学习，或在完整目录与世界地图里查看路线位置。`
+        : '之后的课程可以在完整目录与世界地图里查看路线位置。', 'continue-status'));
     }
     actions.append(worldsButton);
     children.push(actions);
@@ -5519,7 +5525,7 @@
    *   明确「尚未开放中文内容」。
    * 红线（F3）：占位课不生成任何 lesson.html 链接、不伪装已完成、
    * 不计入「本站已完成中文课程」统计（progress 的完成口径只认 lessons.js
-   * 的 19 课，curriculum 数据根本不进 progress）。 */
+   * 的 20 课，curriculum 数据根本不进 progress）。 */
   let worldView = null; /* null = World 列表；course id = 该 World 内部 */
   /* v4.5（交接 B）：学习地图统一入口的内部 Tab 状态——首页 6 卡收口成 3 卡后，
    * 技能路线 / 世界地图 / Foundations 探索（节点 + Boss）住进同一个 sheet。 */
@@ -6174,7 +6180,7 @@
   /* ---------- v4.2：技能路线视图（交接 §11） ----------
    * 按官方 8 个单元呈现一条纵向路线，不取代完整目录（目录仍在下方）。
    * 状态：已完成 / 当前进行 / 已开放未完成 / 未开放；Project 单独标识。
-   * 第 20–46 课只显示为灰点，不生成任何进入正文的链接（与目录同一红线）。
+   * 第 21–46 课只显示为灰点，不生成任何进入正文的链接（与目录同一红线）。
    * 纯 CSS 实现（节点 + 连接线 + 课点方格），不引图形库。 */
 
   const UNIT_STATUS_LABEL = {
@@ -6320,7 +6326,7 @@
     { dotClass: 'skill-dot is-done', zh: '已完成', hint: '这个单元里本站已开放的课全部勾选完成' },
     { dotClass: 'skill-dot is-current', zh: '当前进行', hint: '建议继续的那一课所在单元' },
     { dotClass: 'skill-dot', zh: '已开放', hint: '本站有中文正文，还没学完' },
-    { dotClass: 'skill-dot is-locked', zh: '未开放', hint: '本站尚未开放中文正文（第 20–46 课），请回官方原课学习' },
+    { dotClass: 'skill-dot is-locked', zh: '未开放', hint: '本站尚未开放中文正文（第 21–46 课），请回官方原课学习' },
     { dotClass: 'skill-dot is-project', zh: '项目', hint: '官方 Project 节点（五角星），由你动手完成，本站不提供成品答案' }
   ];
 
@@ -6665,15 +6671,15 @@
     usage.append(node('summary', '关于本站'));
     const usageBody = node('div', undefined, 'site-usage-body');
     const faqItems = [
-      ['本站怎么用？', '前 19 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 与 Knowledge Check 的中文化版本和中文答案——可以在本站学完并自查。Project、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
-      ['中文内容覆盖到哪里？', 'Foundations 的前 19 课（Recipes 之前）已有完整中文学习内容；本站同时展示 8 个 World、197 课的完整路线结构，其余课程请回官方原课学习。'],
+      ['本站怎么用？', '前 20 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 与 Knowledge Check 的中文化版本和中文答案——可以在本站学完并自查。Project: Recipes 的代码要你自己写：本站提供要求中文版、拆解与验收清单，不提供成品答案；项目提交、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
+      ['中文内容覆盖到哪里？', 'Foundations 的前 20 课（到 Project: Recipes 为止）已有完整中文学习内容；本站同时展示 8 个 World、197 课的完整路线结构，其余课程请回官方原课学习。'],
       ['哪些内容需要联网？', '中文课程与学习记录可在本地使用；TOP 原课、视频及外部资料需要联网。官方课程如有更新，以 TOP 为准。'],
       /* v4.11.2 A2：外部资料核验方法论从课页资源区移到这里。方法论（状态码、
        * 重定向、内容级语言核验、oEmbed）是审计信息，读者主动打开「关于本站」时
        * 才需要看到；课页资源区只保留一句「核验方法见首页『关于本站』」。
        * 文案直接引用数据文件的 method 字段，不在这里另抄一份方法论。 */
       ['外部资料链接是怎么核验的？', resourceData
-        ? `${resourceData.method}全部地址于 ${resourceData.verifiedAt} 逐条核验；自动核验受限的条目已在对应课程页的资源卡内如实标注，未声称为“已验证可访问”。`
+        ? `${resourceData.method}全部地址都已逐条核验，最近一批于 ${resourceData.verifiedAt}；自动核验受限的条目已在对应课程页的资源卡内如实标注，未声称为“已验证可访问”。`
         : '外部资料地址均逐条核验过可达性与语言；细节见各课资源卡内的核验说明。']
     ];
     faqItems.forEach(([question, answer]) => {
@@ -6690,17 +6696,18 @@
     const index = data.lessons.findIndex(lesson => lesson.id === id);
     if (index < 0) {
       document.title = '未找到课程 · Odin 中文学习站';
-      main.append(node('h1', '未找到这节课'), node('p', '链接缺少课程编号，或该课程不在本版 19 课范围内。'));
+      main.append(node('h1', '未找到这节课'), node('p', `链接缺少课程编号，或该课程不在本版已开放的 ${data.lessons.length} 课范围内。`));
       main.append(link('返回课程列表', 'index.html', 'button'));
       return;
     }
     const lesson = data.lessons[index];
     activeLessonId = lesson.id;
     document.title = `${lesson.zh} · ${lesson.title} · Odin 中文学习站`;
-    /* 第三轮：课页顶部轻量返回入口——当前 19 课均属 World 1，直接显示
+    /* 第三轮：课页顶部轻量返回入口——当前 20 课均属 World 1，直接显示
      * 「← Foundations」；左上品牌 Logo 回首页的既有链路不变。不做显眼大按钮。 */
     main.append(link('← Foundations', 'index.html', 'lesson-back'));
-    main.append(node('p', `第 ${String(index + 1).padStart(2, '0')} / 19 课 · ${data.groups[lesson.group].zh}`, 'meta'));
+    /* v4.11.16：分母改为 data.lessons.length 推导，扩课不再需要改这一行。 */
+    main.append(node('p', `第 ${String(index + 1).padStart(2, '0')} / ${data.lessons.length} 课 · ${data.groups[lesson.group].zh}`, 'meta'));
     main.append(node('h1', lesson.zh), node('p', lesson.title, 'english'), node('p', lesson.summary, 'lead'));
     /* v4.11.3 C2（事前）：大课的体量提示——判定由数据算出（progress.Logic.isHeavyLesson，
      * 读 sections / knowledgeCheck，不硬编码课 id）。用中性事实（章节数 / 自查题数）
@@ -6768,7 +6775,16 @@
     navigation.append(link('课程列表', 'index.html'));
     if (index < data.lessons.length - 1) navigation.append(link('下一课导读 →', lessonHref(data.lessons[index + 1])));
     main.append(navigation);
-    if (index === data.lessons.length - 1) main.append(node('p', '本版导读到此结束。接下来的 Recipes 项目请回 TOP 自己完成；本站不提供项目答案。', 'end-note'));
+    /* v4.11.16：旧文案「接下来的 Recipes 项目请回 TOP 自己完成」在第 20 课开放后
+     * 失实（最后一页就是 Recipes 本身）；改为从 catalog.js 动态取下一个未开放课程。
+     * 「本站不提供项目答案」的边界声明由 recipes 课自己的 note 字段承担，不在此重复
+     * （CONTENT-STYLE-GUIDE 第 2 节：同一事实整页只说一次）。 */
+    if (index === data.lessons.length - 1) {
+      const nextLocked = catalog && Array.isArray(catalog.lessons) ? catalog.lessons.find(entry => !entry.available) : null;
+      main.append(node('p', nextLocked
+        ? `本版中文内容到此结束。下一课《${nextLocked.zh}》尚未开放，请回 TOP 官方原课继续学习。`
+        : '本版中文内容到此结束。', 'end-note'));
+    }
   }
 
   /* v4.11.8 最小长课样板：章节达到阈值时提供文档流内定位，不参与进度或档案。 */
@@ -6949,7 +6965,7 @@
     });
   }
 
-  /* v2 中文自足讲解布局：当前 19 课均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
+  /* v2 中文自足讲解布局：当前 20 课均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
   function renderLessonV2(lesson) {
     main.classList.add('lesson-v2');
     const chapterIds = [];
@@ -6967,8 +6983,14 @@
       && resourceData.resources.some(resource => resource.lessonId === lesson.id));
     /* v4.11.3 A：class 由 muted 提升为 lesson-guide（带左色条的提示块）。
      * v4.11.5（交接 3.B）：补一个分句告知 Assignment 标题旁有直达「本课外部
-     * 资料」的页内链接（该事实全页只在这里说一次，官方任务节引导语不复述）。 */
-    why.append(node('p', `${whyHasResources ? '本课要求的外部文章与视频，本站都备好了中文辅助——官方中文版入口、本站中文精译或中文速览，都在「官方任务」一节末尾的「本课外部资料」里，任务标题旁的链接可直达；' : ''}官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页。你可以直接在本页学完这一课并自查，不必先去啃英文原文。`, 'lesson-guide'));
+     * 资料」的页内链接（该事实全页只在这里说一次，官方任务节引导语不复述）。
+     * v4.11.16：Project 课（recipes）没有官方 Knowledge Check，不得声称「官方
+     * 自查题的题目与中文答案也全部渲染在本页」——按数据分支换成本站自测的说法；
+     * D1 三要素（中文辅助 / 自查答案在本页 / 不必先啃英文）保持齐全。 */
+    const selfCheckSentence = lesson.official.knowledgeCheck.length
+      ? '官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页。'
+      : '本站自测题的答案也全部渲染在本页。';
+    why.append(node('p', `${whyHasResources ? '本课要求的外部文章与视频，本站都备好了中文辅助——官方中文版入口、本站中文精译或中文速览，都在「官方任务」一节末尾的「本课外部资料」里，任务标题旁的链接可直达；' : ''}${selfCheckSentence}你可以直接在本页学完这一课并自查，不必先去啃英文原文。`, 'lesson-guide'));
     main.append(why);
 
     const explain = section('中文讲解', 'section-explain');
@@ -7042,8 +7064,12 @@
     /* v4.11.5（交接 3.A / 3.B，CONTENT-STYLE-GUIDE.md 第 3、9 节）：仍是两句——
      * 第一句说本页有什么 + 两个列表可以用标题旁的按钮收起展开，第二句说外部资料
      * 去哪里找。v4.11.4 口径不变：官方入口全页只剩页顶 .official-start 一个，
-     * 节级直接子 <a> 保持为 0（跳转入口挂在 Assignment 标题内，见下）。 */
-    official.append(node('p', '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化版本，Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。', 'lesson-guide'));
+     * 节级直接子 <a> 保持为 0（跳转入口挂在 Assignment 标题内，见下）。
+     * v4.11.16：Project 课（recipes）没有 Exercise 与 Knowledge Check，引导语
+     * 按数据分支只说 Assignment——不得描述页面上不存在的区块；两句结构不变。 */
+    official.append(node('p', lesson.official.knowledgeCheck.length
+      ? '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化版本，Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'
+      : '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。', 'lesson-guide'));
     /* v4.11.5（交接 3.B）：页内跳转入口——<a> 挂在 Assignment 标题（h3）内，
      * 不是节级直接子 <a>；文字与资源区标题逐字一致（风格指南第 9 节），是页内
      * 锚点不是外链，不加 ↗。目标资源区永不折叠，原生锚点直达、无需先展开。

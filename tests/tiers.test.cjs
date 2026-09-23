@@ -65,9 +65,9 @@ const check = label => { checks += 1; return label; };
   assert.equal(bossFamily.tiers[0].metric.kind, 'bossPass', check('Boss 铜阶数“通过次数”'));
   assert.equal(bossFamily.tiers[1].metric.kind, 'bossHigh', check('Boss 银阶数“高评价次数”'));
   assert.equal(bossFamily.tiers[2].metric.kind, 'bossHigh', check('Boss 金阶数“高评价次数”'));
-  /* 按课去重的族：上限是 19 课（防刷要求按课去重，交接值 20/50 不可达，收敛为 12/19） */
-  assert.deepEqual(valuesOf(tiers.TIER_FAMILIES.find(f => f.id === 'quiz-lessons')), [5, 12, 19], check('自测达人阈值 5/12/19（按课去重，金阶 = 全部开放课程）'));
-  assert.deepEqual(valuesOf(tiers.TIER_FAMILIES.find(f => f.id === 'explore')), [5, 12, 19], check('探索地图阈值 5/12/19（按课去重）'));
+  /* 按课去重的族：上限是 20 课（防刷要求按课去重，交接值 20/50 不可达，收敛为 12/20） */
+  assert.deepEqual(valuesOf(tiers.TIER_FAMILIES.find(f => f.id === 'quiz-lessons')), [5, 12, 20], check('自测达人阈值 5/12/20（按课去重，金阶 = 全部开放课程）'));
+  assert.deepEqual(valuesOf(tiers.TIER_FAMILIES.find(f => f.id === 'explore')), [5, 12, 20], check('探索地图阈值 5/12/20（按课去重）'));
 
   /* 常量一致性：达标学习日门槛与 progress.js 的 streak 门槛一致（防漂移） */
   assert.equal(tiers.STUDY_DAY_MIN_SECONDS, Logic.STREAK_MIN_DAY_SECONDS, check('达标学习日门槛与 STREAK_MIN_DAY_SECONDS 一致'));

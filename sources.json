@@ -1,8 +1,8 @@
 {
   "verifiedAt": "2026-09-09",
   "courseUrl": "https://www.theodinproject.com/paths/foundations/courses/foundations",
-  "excludedBoundary": "https://www.theodinproject.com/lessons/foundations-recipes",
-  "method": "读取官方线上目录和全部 19 课正文，再核对官方 curriculum Markdown；sha256 为本次读取 Markdown 的摘要。",
+  "excludedBoundary": "https://www.theodinproject.com/lessons/foundations-intro-to-css",
+  "method": "读取官方线上目录和全部 20 课正文，再核对官方 curriculum Markdown；sha256 为本次读取 Markdown 的摘要。第 01–19 课指纹最近一次全量复核为 2026-09-09（全局 verifiedAt）；第 20 课 Project: Recipes 于 2026-09-23 抓取核对（逐课日期见 lessons.js 各课 sources.verifiedAt）。",
   "lessons": [
     {
       "order": 1,
@@ -211,6 +211,17 @@
       "sha256": "0df78378e6c5c60d84781c08d49f6e1ab21cc0fd02b25578659a37d5d5637d1a",
       "hasAssignment": true,
       "hasKnowledgeCheck": true,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 20,
+      "title": "Project: Recipes",
+      "id": "recipes",
+      "url": "https://www.theodinproject.com/lessons/foundations-recipes",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/project_recipes.md",
+      "sha256": "3df1c88af6a029312451edd9c3688df4e864929091bd56e25133d69b50947840",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     }
   ]

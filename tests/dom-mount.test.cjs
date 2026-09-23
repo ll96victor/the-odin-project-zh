@@ -236,7 +236,7 @@ const {
   const statCells = collectByClass(home.dom.body, 'stat');
   const doneCell = statCells.find(cell => cell.children[0] && cell.children[0].textContent === '已完成开放课程');
   assert.ok(doneCell, check('A3：学习进度 sheet 有「已完成开放课程」统计格'));
-  assert.equal(doneCell.children[1].textContent, '1 / 19', check('A3：sheet DOM 显示 1 / 19'));
+  assert.equal(doneCell.children[1].textContent, '1 / 20', check('A3：sheet DOM 显示 1 / 20'));
   const totalCell = statCells.find(cell => cell.children[0] && cell.children[0].textContent === 'Foundations 总进度');
   assert.equal(totalCell.children[1].textContent, '1 / 46', check('A3：三层进度同步刷新（1 / 46）'));
 }

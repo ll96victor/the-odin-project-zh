@@ -229,10 +229,12 @@ const local = value => [...value];
   /* 迁移后再次导出，应当是明确的 v2 */
   assert.equal(JSON.parse(Logic.exportJson(migrated.state, '2026-09-11T00:00:00.000Z')).schemaVersion, 4, check('迁移后的档案再导出为 v4'));
 
+  /* v4.11.16：反例课 id 从 recipes 换成 intro-to-css——recipes 自第 20 课开放起
+   * 是合法 id，不再能被用来验证「范围外课程编号被拒绝」。 */
   const badLesson = JSON.parse(exported);
-  badLesson.lessons['recipes'] = Logic.emptyLessonEntry();
+  badLesson.lessons['intro-to-css'] = Logic.emptyLessonEntry();
   const rejected = Logic.parseImport(JSON.stringify(badLesson), lessonIds);
-  assert.equal(rejected.ok, false, check('范围外课程编号 recipes 被拒绝'));
+  assert.equal(rejected.ok, false, check('范围外课程编号 intro-to-css 被拒绝'));
   assert.match(rejected.error, /未知的课程编号/, check('非法课程编号给出明确原因'));
 
   const badDay = JSON.parse(exported);
@@ -426,8 +428,8 @@ const local = value => [...value];
   // 首页面板数据
   const summary = Logic.summary(partial, lessons, '2026-09-10');
   assert.equal(summary.completedCount, 2, check('面板完成课程数'));
-  assert.equal(summary.totalLessons, 19, check('面板课程总数'));
-  assert.equal(summary.percent, Math.round((2 / 19) * 100), check('面板完成百分比'));
+  assert.equal(summary.totalLessons, 20, check('面板课程总数'));
+  assert.equal(summary.percent, Math.round((2 / 20) * 100), check('面板完成百分比'));
   assert.equal(summary.level, Logic.levelOf(partial.xp), check('面板 Level'));
   assert.equal(summary.xpToNext, Logic.nextLevelXp(partial.xp) - partial.xp, check('面板下一等级所需 XP'));
   assert.equal(summary.achievementTotal, Logic.ACHIEVEMENTS.length, check('面板成就总数'));

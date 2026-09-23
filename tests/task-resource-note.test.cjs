@@ -2,7 +2,9 @@
  *
  * 标注证明的验收标准：
  *   N1 —— 出现范围：恰在 7 课（KC 类 5 课、Assignment 类 3 课，command-line-basics
- *         两类都命中合成两句），其余 12 课零出现；名单与计数是数据核对结论，
+ *         两类都命中合成两句），其余 13 课零出现（含 v4.11.16 新增的 recipes——
+ *         Project 课无官方 KC 且任务映射显式为空，两类模板都不触发）；
+ *         名单与计数是数据核对结论，
  *         写死钉住——数据变化让标注增减时必须是有意改名单，而不是规则悄悄漂移。
  *   N2 —— 文案与数据一致：数字全部从 lessons.js + external-resources.js +
  *         lesson-task-links.js 现算比对（本文件独立复算，不抄 app.js 实现）；
@@ -198,4 +200,4 @@ const cloneLinks = () => JSON.parse(JSON.stringify(taskLinks));
     'N4: 差距拉到 5 即触发标注（阈值边界两侧都有钉子）');
 }
 
-console.log('通过：资料条数与题目数对应关系说明（v4.11.7）——N1 出现范围名单钉死（7 课命中 / 其余 12 课零出现 / command-line-basics 两类合成两句）、N2 三类模板文案与数据独立复算一致且代表课逐字钉住、N3 落点纪律（p.meta.task-resource-note 紧跟 #lesson-resources 之后、反向钉住不得回到 v4.11.6 旧落点、非 <a>、禁语零出现）、N4 负向验证（篡改映射后数字跟随、A→B 类翻转、清空消失、>=5 阈值边界两侧有钉子）。');
+console.log('通过：资料条数与题目数对应关系说明（v4.11.7）——N1 出现范围名单钉死（7 课命中 / 其余 13 课零出现，含无官方 KC 的 recipes / command-line-basics 两类合成两句）、N2 三类模板文案与数据独立复算一致且代表课逐字钉住、N3 落点纪律（p.meta.task-resource-note 紧跟 #lesson-resources 之后、反向钉住不得回到 v4.11.6 旧落点、非 <a>、禁语零出现）、N4 负向验证（篡改映射后数字跟随、A→B 类翻转、清空消失、>=5 阈值边界两侧有钉子）。');
