@@ -388,14 +388,14 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
   assert.ok(brokenRules.length >= 2,
     check(`已破甲在文件里有两处声明（base 与 Sprout Signal，count=${brokenRules.length}），取最后一条生效`));
   const broken = brokenRules[brokenRules.length - 1][1];
-  assert.ok(broken.includes('background: #3f7b58'), check('已破甲：绿实心 #3f7b58'));
-  assert.ok(broken.includes('border-color: #3f7b58'), check('已破甲：描边同为绿（纯绿一档，没有金色）'));
+  assert.ok(broken.includes('background: var(--color-semantic)'), check('已破甲：主题语义色实心（v4.11.15 起由固定绿改派生）'));
+  assert.ok(broken.includes('border-color: var(--color-semantic)'), check('已破甲：描边同色（纯色一档，没有金色）'));
   assert.ok(!broken.includes('#d4af37'), check('已破甲不含金色——金色专属「已击破」及以上'));
 
   /* ---------- 3. 已击破 = 绿实心 + 金环（底色与描边不动，只换 gap 环） ---------- */
   const defeated = /\.map-node\.is-defeated:not\(\.is-current\) \{([^}]*)\}/.exec(patch)[1];
-  assert.ok(defeated.includes('background: #3f7b58'), check('已击破：底色仍是绿实心（不换底色，只在绿上加金）'));
-  assert.ok(defeated.includes('border-color: #3f7b58'), check('已击破：描边仍是绿——绿色本体不变，区分靠外圈金环'));
+  assert.ok(defeated.includes('background: var(--color-semantic)'), check('已击破：底色与已破甲同色（不换底色，只在其上加金环）'));
+  assert.ok(defeated.includes('border-color: var(--color-semantic)'), check('已击破：描边同色——填充本体不变，区分靠外圈金环'));
   assert.ok(/box-shadow:\s*0 0 0 3px #d4af37/.test(defeated), check('已击破：gap 环换成金色 #d4af37（金环）'));
   assert.ok(!defeated.includes('var(--color-paper)'),
     check('已击破的 gap 环不再用纸色——纸色环在浅底上等于隐形，那正是它被击破与击破混同的原因之一'));
@@ -405,9 +405,9 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
     .map(item => item.trim()).join(' | ');
   assert.notEqual(colorDecls(broken), colorDecls(defeated),
     check('两个状态的颜色声明集合不同（不再是同一套值）'));
-  assert.ok(/border-color:\s*#3f7b58/.test(colorDecls(broken))
+  assert.ok(/border-color:\s*var\(--color-semantic\)/.test(colorDecls(broken))
     && /box-shadow:\s*0 0 0 3px #d4af37/.test(colorDecls(defeated)),
-    check('差异落在外圈：破甲无金环、击破有金环（填充同为绿，靠金环区分）'));
+    check('差异落在外圈：破甲无金环、击破有金环（填充同色，靠金环区分）'));
 
   /* ---------- 5. 只改颜色：规则里不许出现其它几何属性 ---------- */
   const geometry = /(?:^|;)\s*(width|height|min-width|min-height|padding|margin|inset|top|right|bottom|left|position|transform|border-width|border-style|border-radius|font-size|gap|flex)\s*:/;
@@ -445,12 +445,47 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
     const [x, y] = [lum(hexToRgb(a)), lum(hexToRgb(b))];
     return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
   };
-  const goldGreen = contrast('#d4af37', '#3f7b58');
-  assert.ok(goldGreen >= 2.2,
-    check(`金环对绿底的对比度 ${goldGreen.toFixed(2)}:1 ≥ 2.2:1（与本项目「非文本图形下限」同一口径）`));
-  const dimGoldGreen = contrast('#a8791c', '#3f7b58');
-  assert.ok(dimGoldGreen < 2.2,
-    check(`偏暗的 --color-gold 对绿底只有 ${dimGoldGreen.toFixed(2)}:1，确实不可辨——所以补丁用的是亮金 #d4af37`));
+  /* v4.11.15：语义色改主题派生后，判据从「对那一支固定绿」改为**环与相邻底色的
+   * 关系在全部 30 套主题下都成立**。环夹在节点填充（--color-semantic）与卡底
+   * （--color-paper）之间，与其中一侧拉开反差就能从那一侧被看见：
+   *   · 浅色主题——语义色深，金环对填充有反差（内缘清晰）；
+   *   · 深色主题——语义色亮，金环对卡底有反差（外缘清晰）。
+   * 而「已破甲」那条环是 var(--color-paper)，两侧都等于卡底色、整圈不可见——
+   * 「纸色环 vs 金环」的区分因此在两种模式下都成立。 */
+  const mixSrgb = (a, p, b, q) => {
+    const A = hexToRgb(a), B = hexToRgb(b);
+    const to = v => Math.round(v).toString(16).padStart(2, '0');
+    return '#' + [0, 1, 2].map(i => to((A[i] * p + B[i] * q) / (p + q))).join('');
+  };
+  const tokensCss = fs.readFileSync(path.join(root, 'tokens.css'), 'utf8');
+  const parseVars = block => {
+    const v = {};
+    for (const m of block.matchAll(/(--color-[a-z-]+)\s*:\s*(#[0-9a-fA-F]{6})/g)) v[m[1]] = m[2];
+    return v;
+  };
+  const rootVars = parseVars(/:root\s*{([^}]*)}/.exec(tokensCss)[1]);
+  const themeVars = [['garden', rootVars]];
+  for (const m of tokensCss.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{([^}]*)}/g)) {
+    themeVars.push([m[1], Object.assign({}, rootVars, parseVars(m[2]))]);
+  }
+  assert.equal(themeVars.length, 30, check('复算覆盖全部 30 套主题（garden + 29 套 data-theme）'));
+  const semOf = vars => mixSrgb(vars['--color-accent'], 58, vars['--color-ink'], 42);
+  let worstRing = { ratio: Infinity, id: '' };
+  for (const [id, vars] of themeVars) {
+    const sem = semOf(vars);
+    const best = Math.max(contrast('#d4af37', sem), contrast('#d4af37', vars['--color-paper']));
+    if (best < worstRing.ratio) worstRing = { ratio: best, id };
+  }
+  assert.ok(worstRing.ratio >= 2.2,
+    check(`金环全 30 套最差 ${worstRing.ratio.toFixed(2)}:1（${worstRing.id}）≥ 2.2:1（与本项目「非文本图形下限」同一口径）`));
+  assert.ok(worstRing.ratio >= 2.5,
+    check(`金环最差档仍留有余量（${worstRing.ratio.toFixed(2)}:1 ≥ 2.5，最差 ${worstRing.id}）——改 --color-semantic 的派生比例必须重跑本组`));
+  /* 反向钉子：环不得退回卡底色。已破甲的环是 var(--color-paper)，两侧都等于卡底、
+   * 整圈不可见；把已击破的环也写成纸色，等于把两个状态重新画成同一副样子。 */
+  assert.ok(!/box-shadow:\s*0 0 0 3px var\(--color-paper\)/.test(defeated),
+    check('已击破的 gap 环不得用纸色——纸色环与卡底同色、整圈不可见，那正是两个状态混同的成因'));
+  assert.ok(/box-shadow:\s*0 0 0 3px #d4af37/.test(defeated),
+    check('环色仍是亮金 #d4af37（与「已精通」渐变同族；本轮「填充改派生、环机制不变」只换了填充色源）'));
 
   /* ---------- 9. 纪律：零动画 / 零外链 / 零新 token ---------- */
   for (const [name, body] of [['已破甲规则', broken], ['已击破补丁规则', defeated]]) {

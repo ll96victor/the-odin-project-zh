@@ -228,12 +228,16 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 /* v4.3（交接 B2）：3 个零门槛默认框，先给足选择；视觉与既有框同一套语言（描边/虚线/双层） */
 .frame-slim { box-shadow: 0 0 0 1.5px var(--color-accent); }
 .frame-dotted { outline: 2px dotted var(--color-muted); outline-offset: 2px; }
-.frame-moss { box-shadow: 0 0 0 2px #6f9c85, 0 0 0 4px var(--color-paper), 0 0 0 5px #9db8a5; }
+/* v4.11.15：苔痕 / 新芽 / 叶脉三款零门槛与低等级的「绿意」框改主题语义色派生——
+ * 原来的 #6f9c85（旧 --color-grow-soft 字面值）、#9db8a5、#7fd3a5、#cfe8d8
+ * 是固定绿系统最后一批消费者。骨架（环宽 / 纸隔 / 圆角）与三款之间的强度
+ * 性格一字不动：苔痕=内强外中、新芽=双淡、叶脉=双强同色。 */
+.frame-moss { box-shadow: 0 0 0 2px var(--color-semantic), 0 0 0 4px var(--color-paper), 0 0 0 5px color-mix(in srgb, var(--color-semantic) 58%, var(--color-paper)); }
 /* v4.5（交接 Core E2）：Lv.2 新芽框（嫩绿双层）与 Lv.4 陶土框（陶红双层）——前 5 级每级都有可见头像框奖励 */
-.frame-sprout { box-shadow: 0 0 0 2px #7fd3a5, 0 0 0 5px var(--color-paper), 0 0 0 6px #cfe8d8; }
+.frame-sprout { box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-semantic) 52%, var(--color-wash)), 0 0 0 5px var(--color-paper), 0 0 0 6px color-mix(in srgb, var(--color-semantic) 26%, var(--color-paper)); }
 .frame-ring { box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 5px var(--color-paper), 0 0 0 6px var(--color-accent); }
 .frame-terra { box-shadow: 0 0 0 2px #c9714f, 0 0 0 5px var(--color-paper), 0 0 0 6px #a4553f; }
-.frame-leaf { border-radius: 1rem; box-shadow: 0 0 0 2px #6f9c85, 0 0 0 5px var(--color-paper), 0 0 0 6px #6f9c85; }
+.frame-leaf { border-radius: 1rem; box-shadow: 0 0 0 2px var(--color-semantic), 0 0 0 5px var(--color-paper), 0 0 0 6px var(--color-semantic); }
 .frame-leaf .avatar-img { border-radius: 1rem; }
 .frame-wave { outline: 3px dashed var(--color-accent); outline-offset: 3px; }
 .frame-gold { box-shadow: 0 0 0 3px var(--color-gold), 0 0 0 6px var(--color-paper), 0 0 0 7px var(--color-gold), 0 2px 10px rgba(168, 121, 28, .35); }
@@ -623,13 +627,13 @@ body[data-page="lesson"] .lesson-guide {
 .frame-starlight { outline: 3px dotted #7f96e8; outline-offset: 3px; box-shadow: 0 0 0 1px #7f96e8; }
 .frame-aurora { box-shadow: 0 0 0 2px #58c98b, 0 0 0 5px var(--color-paper), 0 0 0 6px #7f96e8, 0 0 0 7px #d98b9c; }
 /* v4.3（交接 C1/J）：启程框（进入第一课即解锁的早期奖励）与藤蔓框（低档位叶片款） */
-.frame-firststep { box-shadow: 0 0 0 2px #a4553f, 0 4px 0 0 #6f9c85; }
-.frame-vine { box-shadow: 0 0 0 2px #6f9c85, 0 0 0 5px var(--color-paper), 0 0 0 6px #4a6b2f; }
+.frame-firststep { box-shadow: 0 0 0 2px #a4553f, 0 4px 0 0 var(--color-semantic); }
+.frame-vine { box-shadow: 0 0 0 2px var(--color-semantic), 0 0 0 5px var(--color-paper), 0 0 0 6px color-mix(in srgb, var(--color-semantic) 74%, var(--color-ink)); }
 /* v4.3 Batch 6（交接 H/J）：可可框（25 叶片低档位）、晨光框（Lv.15）、
  * 破甲框（首破 Boss）——三个新档位各有一种可辨识的视觉性格 */
 .frame-cocoa { box-shadow: 0 0 0 2px #8a6a4f, 0 0 0 5px var(--color-paper), 0 0 0 6px #c9a06a; }
 .frame-dawn { box-shadow: 0 0 0 2px #e8b45f, 0 0 0 5px var(--color-paper), 0 -5px 10px -3px rgba(232, 180, 95, .6); }
-.frame-boss { outline: 3px solid #276148; outline-offset: 2px; box-shadow: 4px 4px 0 0 rgba(164, 85, 63, .45); }
+.frame-boss { outline: 3px solid var(--color-semantic); outline-offset: 2px; box-shadow: 4px 4px 0 0 rgba(164, 85, 63, .45); }
 
 /* ===================== v4.3：循环成就铜/银/金（交接 D1） =====================
  * 阶段视觉明显不同但同一骨架：徽章 SVG（icons.js tierBadges）+ 卡片描边色 +
@@ -696,7 +700,7 @@ a.map-node:hover, button.map-node:hover { transform: scale(1.12); }
 .map-node.is-locked { background: var(--color-wash); color: var(--color-muted); opacity: .55; border-style: dashed; }
 .map-node.is-unexplored { border-color: var(--color-accent); background: var(--color-paper); color: var(--color-accent); }
 .map-node.is-scouted { border-color: var(--color-accent); background: var(--color-wash); color: var(--color-accent); }
-.map-node.is-broken { border-color: var(--color-accent); background: var(--color-accent); color: var(--color-button-ink); }
+.map-node.is-broken { border-color: var(--color-semantic); background: var(--color-semantic); color: var(--color-button-ink); }
 .map-node.is-defeated { border-color: var(--color-gold); background: var(--color-accent); color: var(--color-button-ink); box-shadow: 0 0 0 2px var(--color-gold); }
 .map-node.is-mastered { border-color: var(--color-gold); background: linear-gradient(145deg, #d4af37, #a8791c); color: #fffdf5; box-shadow: 0 1px 6px rgba(168, 121, 28, .4); }
 .map-node.is-project { border-radius: .4rem; }
@@ -757,10 +761,16 @@ a.map-node:hover, button.map-node:hover { transform: scale(1.12); }
 .heatmap-weekdays span { line-height: .95rem; }
 .heatmap-grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, .95rem); grid-auto-columns: .95rem; gap: 3px; }
 .heatmap-cell { width: .95rem; height: .95rem; border-radius: 2px; background: var(--color-wash); border: 1px solid transparent; }
-.heatmap-cell.is-level-1 { background: #c6e5d2; }
-.heatmap-cell.is-level-2 { background: #8fcaaa; }
-.heatmap-cell.is-level-3 { background: #4f9a72; }
-.heatmap-cell.is-level-4 { background: #276148; }
+/* v4.11.15：热力图四档改「主题语义色 × 底色」的明度阶，档位边界与阈值不变
+ * （0 / <15 / 15–30 / 30–60 / ≥60 分钟仍由 stats.js 判定，本轮只换色源）。
+ * 明暗自动翻转：浅色主题 semantic 比 wash 深 → L4 最深（越学越深）；深色主题
+ * semantic 比 wash 亮 → L4 最亮（越学越亮，GitHub dark 同思路）。旧的三条
+ * html[data-dark] 翻转覆盖因此**删除**——派生本身已经翻转，不再需要分支。
+ * 四档彼此、以及与空白格 --color-wash 的区分度已按全 30 套复算。 */
+.heatmap-cell.is-level-1 { background: color-mix(in srgb, var(--color-semantic) 26%, var(--color-wash)); }
+.heatmap-cell.is-level-2 { background: color-mix(in srgb, var(--color-semantic) 48%, var(--color-wash)); }
+.heatmap-cell.is-level-3 { background: color-mix(in srgb, var(--color-semantic) 72%, var(--color-wash)); }
+.heatmap-cell.is-level-4 { background: var(--color-semantic); }
 .heatmap-cell.is-today { border-color: var(--color-warn); }
 .heatmap-cell.is-future { background: transparent; border: 1px dashed var(--color-rule); }
 .heatmap-cell.is-static { display: inline-block; }
@@ -948,7 +958,7 @@ html.hide-unavailable .lesson-list li:has(> .lesson-locked) { display: none; }
 /* M3 Boss 评级徽章（地图路线末尾，可见而非只在 title 里） */
 .map-boss-rating { display: inline-flex; align-items: center; padding: .1rem .5rem; border-radius: 999px; font-size: .7rem; font-weight: 700; border: 1px solid var(--color-rule); color: var(--color-muted); background: var(--color-wash); white-space: nowrap; }
 .map-boss-rating.is-dominant { border-color: #a8791c; color: #a8791c; }
-.map-boss-rating.is-advantage { border-color: #276148; color: #276148; }
+.map-boss-rating.is-advantage { border-color: var(--color-semantic); color: var(--color-semantic); }
 .map-boss-rating.is-broken { border-color: #b08d57; color: #8a6a3b; }
 .map-boss-rating.is-none { opacity: .75; }
 /* M17 章节完成小结 */
@@ -1345,20 +1355,16 @@ main section.section { scroll-margin-top: 3rem; }
 }
 
 /* ---------- v4.4 H14：dark 主题视觉修正（html[data-dark] 由 applyTheme 按清单 dark 布尔设置） ----------
- * 两类固定 hex 在浅底设计、暗底会失真，这里只做亮度重映射，档位/语义/阈值不变：
- * 1. 热力图四档——浅底是「越学越深」，暗底翻转为「越学越亮」（GitHub dark 同思路），
- *    色板仍复用原四档绿，不引入新颜色；
- * 2. 铜/银/金金属色——金属本体（边框/进度条/台阶）中高明度，暗底可直接读，不动；
- *    只提亮以小字出现的 .tier-current 与 Boss 评分文字（原深铜/深绿在暗底对比不足）。 */
-html[data-dark] .heatmap-cell.is-level-1 { background: rgba(79, 154, 114, .45); }
-html[data-dark] .heatmap-cell.is-level-2 { background: #4f9a72; }
-html[data-dark] .heatmap-cell.is-level-3 { background: #8fcaaa; }
-html[data-dark] .heatmap-cell.is-level-4 { background: #c6e5d2; }
+ * 固定 hex 在浅底设计、暗底会失真，这里只做亮度重映射，档位/语义/阈值不变：
+ * 铜/银/金金属色——金属本体（边框/进度条/台阶）中高明度，暗底可直接读，不动；
+ * 只提亮以小字出现的 .tier-current 与 Boss 评分文字（原深铜/深金在暗底对比不足）。
+ * 注：原「热力图四档翻转」与「.map-boss-rating.is-advantage 提亮」两条随 v4.11.15
+ * 语义色改主题派生一并**删除**——它们提亮的正是固定绿档位色，而派生色在深色主题
+ * 本来就朝亮端走，分支已无必要（四档翻转与 .is-advantage 现在都是一条规则通吃）。 */
 html[data-dark] .tier-card.is-bronze .tier-current { color: #cfa46d; }
 html[data-dark] .tier-card.is-silver .tier-current { color: #bcc3ce; }
 html[data-dark] .tier-card.is-gold .tier-current { color: #e3c766; }
 html[data-dark] .map-boss-rating.is-dominant { border-color: #e3c766; color: #e3c766; }
-html[data-dark] .map-boss-rating.is-advantage { border-color: #8fcaaa; color: #8fcaaa; }
 html[data-dark] .map-boss-rating.is-broken { border-color: #cfa46d; color: #cfa46d; }
 
 /* ---------- v4.4 Batch 10：目录搜索过滤 + 命令面板（交接 Stretch I6-I9） ---------- */
@@ -1394,7 +1400,7 @@ html[data-dark] .map-boss-rating.is-broken { border-color: #cfa46d; color: #cfa4
 /* ---------- v4.5 Batch 11（Stretch K）：等级进度条 / 奖励预览 / 庆祝动画 / 试穿 / 版本提示 ---------- */
 /* K4 等级进度条：个人资料「我的身份」卡内，本机总跨度为分母（非线性曲线下每级不同宽） */
 .level-progress { height: 10px; margin-top: var(--space-sm); background: var(--color-wash); border: 1px solid var(--color-rule); border-radius: 999px; overflow: hidden; }
-.level-progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-accent), #7fd3a5); border-radius: 999px; transition: width .4s ease; }
+.level-progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-semantic-soft), var(--color-semantic)); border-radius: 999px; transition: width .4s ease; }
 .level-progress-label { margin: var(--space-xs) 0 0; font-size: var(--text-small); }
 @media (prefers-reduced-motion: reduce) {
   .level-progress-fill { transition: none; }
@@ -1457,17 +1463,21 @@ body[data-page="home"] .home-hero h1 { font-family: var(--font-heading-ui); font
 .entry-card:hover { box-shadow: 0 5px 14px rgba(81, 64, 143, .16); }
 .map-unit { background: var(--color-wash); border-color: var(--color-rule); }
 .map-node.is-current { outline-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-accent); }
-.map-node.is-broken { background: #3f7b58; border-color: #3f7b58; }
+/* v4.11.15：本行的固定绿 #3f7b58（v4.5.2 起）改 --color-semantic（语义层主题派生）。
+ * 刻意**不用**裸 var(--color-accent)：accent 已经被「当前课」的强调环占用，而
+ * 已破甲与当前课会同时出现在一条路线上，同色会让两个状态互相冒充；semantic 是
+ * accent 系派生但掺了 ink、整体更沉，与当前课的 accent 环天然拉开一档。 */
+.map-node.is-broken { background: var(--color-semantic); border-color: var(--color-semantic); }
 /* 已击破（is-defeated）原本与本行合并成同一条规则，两个状态因此完全同色（真实浏览器实测
  * background / border-color / box-shadow / color 逐项相同）。现已拆分，它的金色 gap 环写在
- * 文件末尾的「地图节点状态色补丁」段；本行只负责已破甲的纯绿实心。 */
+ * 文件末尾的「地图节点状态色补丁」段；本行只负责已破甲的纯色实心。 */
 .map-node.is-mastered { background: linear-gradient(145deg, #d4af37, #a8791c); }
 .map-node.is-current.is-broken, .map-node.is-current.is-defeated { outline-color: var(--color-accent); }
 .appearance-group { background: var(--color-paper); }
 .appearance-group-companion, .wardrobe-stage { background: linear-gradient(145deg, var(--color-wash), var(--color-paper)); }
 .assistant-trigger { border-color: var(--color-accent); color: var(--color-accent); box-shadow: 0 3px 12px rgba(81, 64, 143, .2); }
 .assistant-cheer, .wardrobe-trial-hint { border-left-color: var(--color-warn); }
-.level-progress-fill { background: linear-gradient(90deg, var(--color-accent), #6f9c85); }
+.level-progress-fill { background: linear-gradient(90deg, var(--color-semantic-soft), var(--color-semantic)); }
 @media (prefers-reduced-motion: reduce) {
   .continue-primary, .entry-card { transition: none; }
 }
@@ -1666,25 +1676,27 @@ body[data-page="home"] .home-secondary .entry-card:hover { background: var(--col
 .entry-icon { width: 40px; height: 40px; padding: 7px; background: color-mix(in srgb, var(--color-accent) 10%, var(--color-wash)); border: 1px solid color-mix(in srgb, var(--color-accent) 18%, var(--color-rule)); border-radius: .75rem; }
 
 /* ---------- P0-4：学习旅程脊线（技能路线 / Foundations 地图共用语言） ----------
- * 取代 v4.4 S 型蛇形：左侧一条竖直脊线，线段按阶段状态着色（已完成=成长绿、
- * 当前=靛紫、未达=灰），阶段圆点 + 单元卡右列。状态类全部沿用既有 is-*。 */
+ * 取代 v4.4 S 型蛇形：左侧一条竖直脊线，线段按阶段状态着色（已完成=主题语义色、
+ * 当前=靛紫、未达=灰），阶段圆点 + 单元卡右列。状态类全部沿用既有 is-*。
+ * v4.11.15：本段的「已完成」色由固定成长绿改 --color-semantic 派生——语义色
+ * 跟随主题（用户 2026-09-23 解除「语义层一个字不许动」的旧边界）。 */
 .skill-list > li { position: relative; }
 .skill-list::before { display: none; }
 .skill-list > li::before { content: ''; position: absolute; left: .82rem; top: 0; bottom: 0; width: 2px; background: var(--color-rule); }
 .skill-list > li:first-child::before { top: 1.15rem; }
 .skill-list > li:last-child::before { bottom: auto; height: 1.15rem; }
-.skill-list > li.is-done::before { background: var(--color-grow); }
-.skill-list > li.is-current::before { background: linear-gradient(var(--color-grow), var(--color-accent)); }
+.skill-list > li.is-done::before { background: var(--color-semantic); }
+.skill-list > li.is-current::before { background: linear-gradient(var(--color-semantic), var(--color-accent)); }
 /* 阶段标记行：脊线上的大圆点 + 阶段名 + 状态 chip */
 li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.9rem; }
 .journey-dot { position: absolute; left: .18rem; top: calc(var(--space-md) + .05rem); z-index: 1; width: 1.35rem; height: 1.35rem; border-radius: 50%; border: 3px solid var(--color-rule); background: var(--color-paper); }
-.journey-phase.is-done .journey-dot { background: var(--color-grow); border-color: var(--color-grow); }
+.journey-phase.is-done .journey-dot { background: var(--color-semantic); border-color: var(--color-semantic); }
 .journey-phase.is-current .journey-dot { border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-accent); }
 .journey-phase.is-locked .journey-dot { opacity: .6; }
 .journey-phase-text { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem var(--space-sm); }
 .journey-phase-name { font-family: var(--font-heading-ui); font-weight: 700; }
 .journey-phase-state { padding: .05rem .55rem; border: 1px solid var(--color-rule); border-radius: 999px; font-size: var(--text-small); color: var(--color-muted); }
-.journey-phase.is-done .journey-phase-state { border-color: var(--color-grow); color: var(--color-grow); }
+.journey-phase.is-done .journey-phase-state { border-color: var(--color-semantic); color: var(--color-semantic); }
 .journey-phase.is-current .journey-phase-state { border-color: var(--color-accent); color: var(--color-accent); font-weight: 600; }
 /* 单元节点行：卡住右列，状态圆点挂脊线 */
 .skill-node { display: block; padding: 0 0 var(--space-md) 2.9rem; }
@@ -1693,16 +1705,16 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 .skill-node:nth-child(odd) .skill-card, .skill-node:nth-child(even) .skill-card { margin: 0; transform: none; }
 .skill-connector { display: none; }
 .skill-node .skill-marker { position: absolute; left: .38rem; top: var(--space-md); width: 1.05rem; height: 1.05rem; font-size: .6rem; }
-.skill-node.is-done .skill-marker { background: var(--color-grow); border-color: var(--color-grow); }
+.skill-node.is-done .skill-marker { background: var(--color-semantic); border-color: var(--color-semantic); }
 .skill-node.is-current .skill-marker { border-color: var(--color-accent); color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-accent); }
 /* 当前单元整行强调 + 当前课全宽行 */
 .skill-node.is-current .skill-card { background: color-mix(in srgb, var(--color-wash) 62%, var(--color-paper)); border-color: color-mix(in srgb, var(--color-accent) 46%, var(--color-rule)); box-shadow: var(--shadow-soft); }
 .skill-current-row, .map-current-row { display: block; margin-top: var(--space-sm); padding: .45rem var(--space-md); background: color-mix(in srgb, var(--color-accent) 12%, var(--color-paper)); border: 1px solid color-mix(in srgb, var(--color-accent) 38%, var(--color-rule)); border-radius: var(--radius-small); font-size: var(--text-small); font-weight: 600; color: var(--color-accent); text-decoration: none; }
 .skill-current-row:hover, .map-current-row:hover { text-decoration: underline; }
-/* 完成 / 当前语义色统一到成长绿与靛紫 */
-.skill-dot.is-done { background: var(--color-grow); border-color: var(--color-grow); }
+/* 完成 / 当前语义色统一到主题语义色与靛紫 */
+.skill-dot.is-done { background: var(--color-semantic); border-color: var(--color-semantic); }
 .skill-dot.is-current { background: var(--color-accent); border-color: var(--color-accent); }
-.skill-state-done { border-color: var(--color-grow); color: var(--color-grow); }
+.skill-state-done { border-color: var(--color-semantic); color: var(--color-semantic); }
 .skill-state-current { border-color: var(--color-accent); color: var(--color-accent); }
 /* Foundations 地图：阶段包裹块 + 同款脊线 */
 .map-journey { margin-top: var(--space-md); }
@@ -1711,8 +1723,8 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 .foundation-map .journey-phase::before { content: ''; position: absolute; left: .82rem; top: 0; bottom: 0; width: 2px; background: var(--color-rule); }
 .foundation-map .journey-phase:first-child::before { top: 1.15rem; }
 .foundation-map .journey-phase:last-child::before { bottom: auto; height: 1.15rem; }
-.foundation-map .journey-phase.is-done::before { background: var(--color-grow); }
-.foundation-map .journey-phase.is-current::before { background: linear-gradient(var(--color-grow), var(--color-accent)); }
+.foundation-map .journey-phase.is-done::before { background: var(--color-semantic); }
+.foundation-map .journey-phase.is-current::before { background: linear-gradient(var(--color-semantic), var(--color-accent)); }
 .foundation-map .journey-phase .journey-dot { top: .3rem; }
 .foundation-map .journey-phase-head { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem var(--space-sm); padding-bottom: var(--space-sm); }
 /* 单元卡降为二级容器；v4.5.2 的单元虚线连接让位给脊线 */
@@ -1737,7 +1749,12 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 .cover-name { font-family: var(--font-heading-ui); font-size: clamp(1.3rem, 3.4vw, 1.7rem); font-weight: 800; line-height: 1.3; overflow-wrap: anywhere; }
 .identity-panel .profile-cover .identity-level { font-size: 1.05rem; font-weight: 700; opacity: .96; }
 .profile-cover .level-progress { margin-top: .35rem; background: color-mix(in srgb, var(--color-button-ink) 24%, transparent); border-color: transparent; }
-.profile-cover .level-progress-fill { background: linear-gradient(90deg, var(--color-grow-soft), var(--color-grow)); }
+/* 封面进度条不走 --color-semantic：封面底本身就是 accent 系渐变（90% → 58%），
+ * 语义色与它同源、叠上去对比不足。这里改用封面自己的前景色（--color-button-ink，
+ * 也就是封面标题与正文用的那一支），左端半透明做渐变层次——两种明暗模式下
+ * 「前景在封面底上」的关系与封面文字同源，天然可读，也不需要 data-dark 分支。
+ * v4.11.15：原固定「浅绿 → 深绿」双值随语义层迁移一并退役。 */
+.profile-cover .level-progress-fill { background: linear-gradient(90deg, color-mix(in srgb, var(--color-button-ink) 58%, transparent), var(--color-button-ink)); }
 .profile-cover .level-progress-label, .profile-cover .cover-facts { color: inherit; opacity: .82; }
 .cover-facts { font-variant-numeric: tabular-nums; }
 .cover-companion { display: flex; align-items: center; gap: .5rem; width: fit-content; max-width: 100%; margin-top: .45rem; padding: .3rem .75rem; background: color-mix(in srgb, var(--color-button-ink) 15%, transparent); border-radius: 999px; font-size: var(--text-small); }
@@ -1804,20 +1821,17 @@ li.journey-phase { display: block; padding: var(--space-md) 0 var(--space-sm) 2.
 .world-preview-item { display: inline-flex; align-items: baseline; gap: .35rem; min-width: 0; white-space: nowrap; }
 .world-preview-name { font-weight: 600; }
 .world-preview-state { color: var(--color-muted); }
-.world-preview-item.is-open .world-preview-state { color: #336847; font-weight: 700; font-variant-numeric: tabular-nums; }
-/* v4.11.7：路线预览条「已开放」状态文字的对比度修正（真实浏览器像素实测选值）。
- * 原色 --color-grow #3f7b58 实测：深色主题 2.88–3.33:1、浅色主题 4.19–4.21:1，
- * **两档都低于正文 4.5:1**。历史记录（v4.11 批次 F）只记了深色档的 3.2/3.26，
- * 浅色档同样偏低是 v4.11.7 实测才发现的。
- *   · 浅色 → #336847（同色相加深；**全部 22 套浅色主题**实测 4.95–5.46）
- *   · 深色 → var(--color-grow-soft) #6f9c85（既有 token；**全部 8 套深色主题** 4.62–5.44）
- * **浅色值 4.95 是全部 22 套浅色主题的最差档**（pixel，底色 #dee1da 为最深的浅色纸）；
- * 中间稿曾取 #38704f，当时只抽了 3 套浅色主题（最差 4.85）就落值，全量复核才发现
- * pixel 只有 4.42——**改这一处必须跑满 30 套，不能抽样**。
- * 只覆盖状态文字，**不动 --color-grow 本身**——它是地图节点 / 氛围层共用的固定
- * 语义色（tokens.css 明写「不随主题变」），改它会牵连全站配色与对比度断言。
- * 取色依据与逐候选实测值见 answers/ 本轮实施记录。 */
-html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--color-grow-soft); }
+.world-preview-item.is-open .world-preview-state { color: var(--color-semantic); font-weight: 700; font-variant-numeric: tabular-nums; }
+/* 对比度契约（v4.11.7 立项、v4.11.15 随语义层迁移重测）：这条文字坐在
+ * .world-preview-item::before 的径向 + 线性渐变叠在容器底上，**不是** paper /
+ * wash 中的任何一个，按 token 算会误判（terminal 主题按公式只得 2.92，真实浏览器
+ * 量到 4.66）。因此这里只钉「取色规则本身」，真实数值以浏览器像素为准。
+ * 沿革：v4.11.7 取 #336847（浅色）/ var(--color-grow-soft)（深色）两条分支；
+ * v4.11.15 语义色改主题派生后合并为**一条规则**——--color-semantic 在浅色主题
+ * 自然偏深、深色主题自然偏亮，dark 分支不再需要（判据与逐套实测值见
+ * tests/themes-contrast.test.cjs 第 7 节与 answers/ 本轮实施记录）。
+ * **改这一处必须跑满 30 套，不能抽样**——v4.11.7 的中间稿只抽 3 套浅色就落值，
+ * 全量复核才发现 pixel 只有 4.42。 */
 .world-preview-more { margin-left: auto; color: var(--color-accent); white-space: nowrap; }
 @media (max-width: 30rem) {
   .world-preview { gap: var(--space-xs) var(--space-md); }
@@ -1831,12 +1845,17 @@ html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--
  * PREVIEW_STAGES 的 `tone`（写进 data-world-tone，纯展示钩子，不是课程数据）。
  *
  * 为什么用 data 属性而不是 :nth-of-type：条子里除了这四格还有「路线预览」标签与
- * 「进学习地图 →」两个 span，nth-of-type 会随这两个节点的增删静默错位——色相是
- * 语义映射（绿=成长 / 蓝=结构 / 橙=节点 / 青=连接），错位是无声的视觉 Bug。
+ * 「进学习地图 →」两个 span，nth-of-type 会随这两个节点的增删静默错位——tone 是
+ * 稳定的展示映射（键就是 World），错位是无声的视觉 Bug。
+ *
+ * v4.11.15：四格的色相由固定五种（绿 / 冷蓝 / 暖橙 / 青绿）改**主题主色派生**——
+ * 每格只是「主题色 + 各自 alpha」的低饱和色晕，格子之间靠**几何轮廓**区分
+ * （山谷弧 / 结构竖线 / 节点 / 连接线），不再靠色相。同一套派生同时用于学习地图
+ * 的 8 张 World 卡，「同一个 World 在两处颜色一致」的既有约定继续成立。
  *
  * 画法纪律：只用 CSS 渐变 + ::before 一个伪元素——零位图、零外链、零动画、
- * 零新 token（引用的都是固定 rgba，与 HERO_STUDY_SVG / 批次 C 暖白光斑同先例）、
- * 零课程数据改动。层级上 ::before 的 z-index:-1 配本格 isolation:isolate，
+ * 零新 token（色源只有既有的 --color-accent，与 HERO_STUDY_SVG / 批次 C 暖白光斑
+ * 同先例）、零课程数据改动。层级上 ::before 的 z-index:-1 配本格 isolation:isolate，
  * 只压在本格自己的背景之下、名称与状态之上——文字永远画在色晕上面；
  * 伪元素一律 pointer-events:none，不拦截指针、不参与命中，整条仍是同一个
  * 可聚焦 button，键盘与点击语义一字不变。色晕用负 inset 微微外扩，横向共
@@ -1845,36 +1864,37 @@ html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--
  *
  * 强度纪律：所有色标 alpha ≤ .16（低饱和、不抢标题），未开放三格再统一降到
  * 55% 不透明度——视觉权重严格低于已开放的 Foundations，不给学生「已经开放」
- * 的错觉。窄屏（<40rem）整套色晕收起，四格的名称与状态照旧完整保留。 */
+ * 的错觉。窄屏（<40rem）整套色晕收起，四格的名称与状态照旧完整保留。
+ * 换色只动色源，**alpha 与几何逐字未动**。 */
 .world-preview-item { position: relative; isolation: isolate; }
 .world-preview-item::before { content: ''; position: absolute; z-index: -1; inset: -.12rem -.5rem; border-radius: var(--radius-small); pointer-events: none; opacity: .55; }
 .world-preview-item.is-open::before { opacity: 1; }
-/* Foundations：成长绿 + 自底部升起的山谷弧（已开放，唯一满强度的一格） */
+/* Foundations：山谷弧 + 自底部升起（已开放，唯一满强度的一格） */
 .world-preview-item[data-world-tone="foundations"]::before {
   background:
-    radial-gradient(120% 92% at 50% 128%, rgba(63, 123, 88, .16) 0 40%, rgba(63, 123, 88, .05) 60%, transparent 78%),
-    linear-gradient(0deg, rgba(63, 123, 88, .07), rgba(63, 123, 88, .07));
+    radial-gradient(120% 92% at 50% 128%, color-mix(in srgb, var(--color-accent) 16%, transparent) 0 40%, color-mix(in srgb, var(--color-accent) 5%, transparent) 60%, transparent 78%),
+    linear-gradient(0deg, color-mix(in srgb, var(--color-accent) 7%, transparent), color-mix(in srgb, var(--color-accent) 7%, transparent));
 }
-/* HTML & CSS：冷蓝 + 等距结构竖线，底缘一层淡弧收口 */
+/* HTML & CSS：等距结构竖线，底缘一层淡弧收口 */
 .world-preview-item[data-world-tone="html-css"]::before {
   background:
-    repeating-linear-gradient(90deg, rgba(72, 106, 148, .14) 0 1px, transparent 1px 6px),
-    radial-gradient(130% 100% at 50% 132%, rgba(72, 106, 148, .10) 0 42%, transparent 72%);
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 14%, transparent) 0 1px, transparent 1px 6px),
+    radial-gradient(130% 100% at 50% 132%, color-mix(in srgb, var(--color-accent) 10%, transparent) 0 42%, transparent 72%);
 }
-/* JavaScript：低饱和暖橙 + 两枚小节点 */
+/* JavaScript：两枚小节点 + 底部淡带 */
 .world-preview-item[data-world-tone="javascript"]::before {
   background:
-    radial-gradient(.22rem .22rem at 15% 26%, rgba(176, 130, 62, .16) 40%, transparent 70%),
-    radial-gradient(.28rem .28rem at 76% 80%, rgba(176, 130, 62, .16) 40%, transparent 70%),
-    linear-gradient(0deg, rgba(176, 130, 62, .07), rgba(176, 130, 62, .07));
+    radial-gradient(.22rem .22rem at 15% 26%, color-mix(in srgb, var(--color-accent) 16%, transparent) 40%, transparent 70%),
+    radial-gradient(.28rem .28rem at 76% 80%, color-mix(in srgb, var(--color-accent) 16%, transparent) 40%, transparent 70%),
+    linear-gradient(0deg, color-mix(in srgb, var(--color-accent) 7%, transparent), color-mix(in srgb, var(--color-accent) 7%, transparent));
 }
-/* Node.js：青绿 + 左右两个节点由一条细连接线贯通 */
+/* Node.js：左右两个节点由一条细连接线贯通 */
 .world-preview-item[data-world-tone="nodejs"]::before {
   background:
-    linear-gradient(90deg, transparent 18%, rgba(60, 120, 112, .13) 18% 82%, transparent 82%) 50% 50% / 100% 1px no-repeat,
-    radial-gradient(.24rem .24rem at 12% 50%, rgba(60, 120, 112, .16) 40%, transparent 70%),
-    radial-gradient(.24rem .24rem at 88% 50%, rgba(60, 120, 112, .16) 40%, transparent 70%),
-    linear-gradient(0deg, rgba(60, 120, 112, .07), rgba(60, 120, 112, .07));
+    linear-gradient(90deg, transparent 18%, color-mix(in srgb, var(--color-accent) 13%, transparent) 18% 82%, transparent 82%) 50% 50% / 100% 1px no-repeat,
+    radial-gradient(.24rem .24rem at 12% 50%, color-mix(in srgb, var(--color-accent) 16%, transparent) 40%, transparent 70%),
+    radial-gradient(.24rem .24rem at 88% 50%, color-mix(in srgb, var(--color-accent) 16%, transparent) 40%, transparent 70%),
+    linear-gradient(0deg, color-mix(in srgb, var(--color-accent) 7%, transparent), color-mix(in srgb, var(--color-accent) 7%, transparent));
 }
 /* 窄屏：色晕收起，四项名称与状态一字不动 */
 @media (max-width: 40rem) {
@@ -1883,7 +1903,7 @@ html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--
 
 /* ---------- P1-2：学习地图 sheet 的环境与卡片质感（与首页 Hero 环境层同族） ---------- */
 dialog.sheet[aria-labelledby="sheet-title-map"] .sheet-body { background: linear-gradient(180deg, color-mix(in srgb, var(--color-wash) 55%, transparent) 0, transparent 14rem); }
-dialog.sheet[aria-labelledby="sheet-title-map"] .map-tab.is-active { background: linear-gradient(140deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 82%, var(--color-grow))); box-shadow: 0 3px 10px color-mix(in srgb, var(--color-accent) 26%, transparent); }
+dialog.sheet[aria-labelledby="sheet-title-map"] .map-tab.is-active { background: linear-gradient(140deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 82%, var(--color-semantic))); box-shadow: 0 3px 10px color-mix(in srgb, var(--color-accent) 26%, transparent); }
 dialog.sheet[aria-labelledby="sheet-title-map"] .world-card.is-open { background: linear-gradient(135deg, color-mix(in srgb, var(--color-wash) 62%, var(--color-paper)), var(--color-paper)); box-shadow: var(--shadow-soft); }
 
 /* ---------- P1-2：个人中心的环境点缀（档案封面之下的一层薄 wash + 伙伴区环境光晕；
@@ -1937,17 +1957,23 @@ html[data-dark] body::before { opacity: .38; }
 
 /* ===================== v4.11 G2a：学习地图 8 张 World 卡的轻量场景层 =====================
  * 对象：学习地图 sheet →「世界地图」Tab 里的 8 张 `.world-card`（app.js
- * worldListChildren）。首页路线预览条 `.world-preview` 的场景化是批次 F（B3）的
- * 成果，本轮**一字不动**；Hero / 个人中心 / 课页 / 批次 C 氛围层同样不碰。
+ * worldListChildren）。Hero / 个人中心 / 课页 / 批次 C 氛围层不碰。
  *
- * 色相来自 app.js 的 WORLD_CARD_TONES（写进 data-world-tone），键是稳定的
+ * tone 来自 app.js 的 WORLD_CARD_TONES（写进 data-world-tone），键是稳定的
  * course.order——不是课程数据，不进 curriculum、不进档案、不参与开放判定。
  * **映射按 curriculum.js 的真实顺序绑定**：1 foundations / 2 html-css /
  * 3 javascript / 4 html-css-deep / 5·6·8 world-generic / 7 nodejs。G2a 规划
  * 交接的语义表把 Node.js 写在 World 4，与本地数据不符（真实 World 4 是
  * advanced-html-and-css「高级 HTML 与 CSS」，NodeJS 在 World 7），已由用户
- * 2026-09-18 确认按真实数据修正；前四个 tone 与批次 F 的 PREVIEW_STAGES 共用
- * 同一套色相词汇，同一个 World 在首页预览条与地图卡上是同一个颜色。
+ * 2026-09-18 确认按真实数据修正。
+ *
+ * v4.11.15：8 张卡的色相由固定五色（成长绿 / 冷蓝 / 暖橙 / 青绿 / 中性灰）改
+ * **主题主色（--color-accent）派生**——每张卡只是「主题色 + 各自 alpha」的
+ * 低饱和环境暗示，卡与卡之间靠**几何轮廓**区分（山谷弧 / 竖线与基线 /
+ * 双向密网格 / 斜向连线与圆点 / 水平连接线与两端节点 / 三个不同锚点的弱晕）。
+ * 首页路线预览条同轮一起改（同一套 `--color-accent` 派生），
+ * 「同一个 World 在首页预览条与地图卡上是同一个颜色」的既有约定继续成立。
+ * 换色只动色源：**所有 alpha、几何、层序、opacity 纪律逐字未动**。
  *
  * 绘制层级（交接 §六 的强度顺位）：文字 / 状态 / 进度  >  ::after 环境轮廓  >
  * ::before 背景色晕。两层伪元素都是 z-index:-1，配本卡 isolation:isolate，
@@ -1975,69 +2001,69 @@ html[data-dark] body::before { opacity: .38; }
 .world-card.is-open::before,
 .world-card.is-open::after { opacity: 1; }
 
-/* Foundations（World 1）——成长绿 + 自右下升起的两层山谷弧 */
+/* Foundations（World 1）——自右下升起的两层山谷弧 */
 .world-card[data-world-tone="foundations"]::before {
   background:
-    radial-gradient(58% 152% at 100% 112%, rgba(63, 123, 88, .16) 0 36%, rgba(63, 123, 88, .06) 60%, transparent 79%),
-    linear-gradient(90deg, transparent 46%, rgba(63, 123, 88, .07) 86%, rgba(63, 123, 88, .10));
+    radial-gradient(58% 152% at 100% 112%, color-mix(in srgb, var(--color-accent) 16%, transparent) 0 36%, color-mix(in srgb, var(--color-accent) 6%, transparent) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 46%, color-mix(in srgb, var(--color-accent) 7%, transparent) 86%, color-mix(in srgb, var(--color-accent) 10%, transparent));
 }
 .world-card[data-world-tone="foundations"]::after {
   background:
-    radial-gradient(52% 118% at 104% 148%, transparent 0 70%, rgba(63, 123, 88, .22) 70% calc(70% + 1.4px), transparent calc(70% + 1.4px)),
-    radial-gradient(38% 88% at 106% 150%, transparent 0 70%, rgba(63, 123, 88, .16) 70% calc(70% + 1.4px), transparent calc(70% + 1.4px));
+    radial-gradient(52% 118% at 104% 148%, transparent 0 70%, color-mix(in srgb, var(--color-accent) 22%, transparent) 70% calc(70% + 1.4px), transparent calc(70% + 1.4px)),
+    radial-gradient(38% 88% at 106% 150%, transparent 0 70%, color-mix(in srgb, var(--color-accent) 16%, transparent) 70% calc(70% + 1.4px), transparent calc(70% + 1.4px));
 }
-/* 中级 HTML 与 CSS（World 2）——冷蓝 + 单向结构竖线，底部一条基线 */
+/* 中级 HTML 与 CSS（World 2）——单向结构竖线，底部一条基线 */
 .world-card[data-world-tone="html-css"]::before {
   background:
-    radial-gradient(58% 152% at 100% 112%, rgba(72, 106, 148, .14) 0 36%, rgba(72, 106, 148, .05) 60%, transparent 79%),
-    linear-gradient(90deg, transparent 50%, rgba(72, 106, 148, .08));
+    radial-gradient(58% 152% at 100% 112%, color-mix(in srgb, var(--color-accent) 14%, transparent) 0 36%, color-mix(in srgb, var(--color-accent) 5%, transparent) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 50%, color-mix(in srgb, var(--color-accent) 8%, transparent));
 }
 .world-card[data-world-tone="html-css"]::after {
   background:
-    repeating-linear-gradient(90deg, transparent 0 .66rem, rgba(72, 106, 148, .14) .66rem calc(.66rem + 1px)),
-    linear-gradient(0deg, transparent 64%, rgba(72, 106, 148, .11) 64% calc(64% + 1px), transparent calc(64% + 1px));
+    repeating-linear-gradient(90deg, transparent 0 .66rem, color-mix(in srgb, var(--color-accent) 14%, transparent) .66rem calc(.66rem + 1px)),
+    linear-gradient(0deg, transparent 64%, color-mix(in srgb, var(--color-accent) 11%, transparent) 64% calc(64% + 1px), transparent calc(64% + 1px));
 }
-/* 高级 HTML 与 CSS（World 4）——冷蓝深化 + **双向更密**结构网格（与 World 2 同族不重样） */
+/* 高级 HTML 与 CSS（World 4）——**双向更密**结构网格（与 World 2 同族、靠网格密度不重样） */
 .world-card[data-world-tone="html-css-deep"]::before {
   background:
-    radial-gradient(58% 152% at 100% 112%, rgba(52, 84, 132, .16) 0 36%, rgba(52, 84, 132, .06) 60%, transparent 79%),
-    linear-gradient(90deg, transparent 44%, rgba(52, 84, 132, .10));
+    radial-gradient(58% 152% at 100% 112%, color-mix(in srgb, var(--color-accent) 16%, transparent) 0 36%, color-mix(in srgb, var(--color-accent) 6%, transparent) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 44%, color-mix(in srgb, var(--color-accent) 10%, transparent));
 }
 .world-card[data-world-tone="html-css-deep"]::after {
   background:
-    repeating-linear-gradient(90deg, transparent 0 .34rem, rgba(52, 84, 132, .13) .34rem calc(.34rem + 1px)),
-    repeating-linear-gradient(0deg, transparent 0 .34rem, rgba(52, 84, 132, .09) .34rem calc(.34rem + 1px));
+    repeating-linear-gradient(90deg, transparent 0 .34rem, color-mix(in srgb, var(--color-accent) 13%, transparent) .34rem calc(.34rem + 1px)),
+    repeating-linear-gradient(0deg, transparent 0 .34rem, color-mix(in srgb, var(--color-accent) 9%, transparent) .34rem calc(.34rem + 1px));
 }
-/* JavaScript（World 3）——暖橙 + 两枚节点与一条斜向连接线 */
+/* JavaScript（World 3）——两枚节点与一条斜向连接线 */
 .world-card[data-world-tone="javascript"]::before {
   background:
-    radial-gradient(58% 152% at 100% 112%, rgba(176, 130, 62, .14) 0 36%, rgba(176, 130, 62, .05) 60%, transparent 79%),
-    linear-gradient(90deg, transparent 50%, rgba(176, 130, 62, .08));
+    radial-gradient(58% 152% at 100% 112%, color-mix(in srgb, var(--color-accent) 14%, transparent) 0 36%, color-mix(in srgb, var(--color-accent) 5%, transparent) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 50%, color-mix(in srgb, var(--color-accent) 8%, transparent));
 }
 .world-card[data-world-tone="javascript"]::after {
   background:
-    linear-gradient(112deg, transparent 0 47%, rgba(176, 130, 62, .17) 47% calc(47% + 1px), transparent calc(47% + 1px)),
-    radial-gradient(.30rem .30rem at 88% 68%, rgba(176, 130, 62, .22) 38%, rgba(176, 130, 62, .07) 70%, transparent 78%),
-    radial-gradient(.24rem .24rem at 68% 46%, rgba(176, 130, 62, .20) 38%, rgba(176, 130, 62, .06) 70%, transparent 78%);
+    linear-gradient(112deg, transparent 0 47%, color-mix(in srgb, var(--color-accent) 17%, transparent) 47% calc(47% + 1px), transparent calc(47% + 1px)),
+    radial-gradient(.30rem .30rem at 88% 68%, color-mix(in srgb, var(--color-accent) 22%, transparent) 38%, color-mix(in srgb, var(--color-accent) 7%, transparent) 70%, transparent 78%),
+    radial-gradient(.24rem .24rem at 68% 46%, color-mix(in srgb, var(--color-accent) 20%, transparent) 38%, color-mix(in srgb, var(--color-accent) 6%, transparent) 70%, transparent 78%);
 }
-/* NodeJS（World 7，**未开放**，所以停在弱化档）——青绿 + 两端节点由一条连接线贯通 */
+/* NodeJS（World 7，**未开放**，所以停在弱化档）——两端节点由一条连接线贯通 */
 .world-card[data-world-tone="nodejs"]::before {
   background:
-    radial-gradient(58% 152% at 100% 112%, rgba(60, 120, 112, .14) 0 36%, rgba(60, 120, 112, .05) 60%, transparent 79%),
-    linear-gradient(90deg, transparent 50%, rgba(60, 120, 112, .08));
+    radial-gradient(58% 152% at 100% 112%, color-mix(in srgb, var(--color-accent) 14%, transparent) 0 36%, color-mix(in srgb, var(--color-accent) 5%, transparent) 60%, transparent 79%),
+    linear-gradient(90deg, transparent 50%, color-mix(in srgb, var(--color-accent) 8%, transparent));
 }
 .world-card[data-world-tone="nodejs"]::after {
   background:
-    linear-gradient(90deg, transparent 56%, rgba(60, 120, 112, .16) 56% 94%, transparent 94%) 50% 64% / 100% 1px no-repeat,
-    radial-gradient(.30rem .30rem at 62% 64%, rgba(60, 120, 112, .22) 38%, rgba(60, 120, 112, .06) 70%, transparent 78%),
-    radial-gradient(.30rem .30rem at 90% 64%, rgba(60, 120, 112, .22) 38%, rgba(60, 120, 112, .06) 70%, transparent 78%);
+    linear-gradient(90deg, transparent 56%, color-mix(in srgb, var(--color-accent) 16%, transparent) 56% 94%, transparent 94%) 50% 64% / 100% 1px no-repeat,
+    radial-gradient(.30rem .30rem at 62% 64%, color-mix(in srgb, var(--color-accent) 22%, transparent) 38%, color-mix(in srgb, var(--color-accent) 6%, transparent) 70%, transparent 78%),
+    radial-gradient(.30rem .30rem at 90% 64%, color-mix(in srgb, var(--color-accent) 22%, transparent) 38%, color-mix(in srgb, var(--color-accent) 6%, transparent) 70%, transparent 78%);
 }
-/* 后续世界（World 5 / 6 / 8）——统一的低对比中性环境层：只有一层极弱色晕，
- * 没有轮廓层。三张各换一个锚点，避免整条路线看起来是同一张图盖了三次章，
- * 但都明确停在「这里还没开放」的强度上。 */
-.world-card[data-world-tone="world-generic-a"]::before { background: linear-gradient(0deg, rgba(118, 114, 104, .09) 0, transparent 58%); }
-.world-card[data-world-tone="world-generic-b"]::before { background: radial-gradient(56% 152% at 100% 112%, rgba(118, 114, 104, .09) 0 34%, transparent 76%); }
-.world-card[data-world-tone="world-generic-c"]::before { background: linear-gradient(180deg, rgba(118, 114, 104, .08) 0, transparent 46%); }
+/* 后续世界（World 5 / 6 / 8）——统一的低对比环境层：只有一层极弱色晕（≤ .09），
+ * 没有轮廓层。三张各换一个锚点（底缘 / 右下角 / 顶缘），避免整条路线看起来是
+ * 同一张图盖了三次章，但都明确停在「这里还没开放」的强度上。 */
+.world-card[data-world-tone="world-generic-a"]::before { background: linear-gradient(0deg, color-mix(in srgb, var(--color-accent) 9%, transparent) 0, transparent 58%); }
+.world-card[data-world-tone="world-generic-b"]::before { background: radial-gradient(56% 152% at 100% 112%, color-mix(in srgb, var(--color-accent) 9%, transparent) 0 34%, transparent 76%); }
+.world-card[data-world-tone="world-generic-c"]::before { background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent) 8%, transparent) 0, transparent 46%); }
 
 /* 窄屏（<40rem）：整套装饰收起，8 张卡的编号 / 名称 / 统计 / 状态一字不动 */
 @media (max-width: 40rem) {
@@ -2056,8 +2082,8 @@ html[data-dark] body::before { opacity: .38; }
  * 与「完成 + 官方任务 + 本站自测三项齐全」；图例的两个色点也同色（图例与节点共用同一批 class，
  * 所以这一处修好，图例跟着一起修好）。
  *
- * 修法：已破甲保持纯绿实心；已击破**底色与描边都不变**，只把它原来那条纸色 gap 环换成金色。
- * 于是四阶递进成立——未探索 / 已侦察（只描边）→ 已破甲（纯绿实心）→ 已击破（绿实心 + 金环）
+ * 修法：已破甲保持纯色实心；已击破**底色与描边都不变**，只把它原来那条纸色 gap 环换成金色。
+ * 于是四阶递进成立——未探索 / 已侦察（只描边）→ 已破甲（纯色实心）→ 已击破（同色实心 + 金环）
  * → 已精通（整颗金色渐变），向右递进，相邻两档不会撞车。
  *
  * 为什么只换 gap 环、不把金环画到更外面：节点在窄屏 32px、宽屏 36.8px，而相邻节点的中心距
@@ -2068,13 +2094,19 @@ html[data-dark] body::before { opacity: .38; }
  * 一条规则覆盖节点与图例两处，不需要再写上下文特例。
  *
  * 金色取 #d4af37（「已精通」渐变已经在用的那一支点亮金，同族）。刻意不用偏暗的 --color-gold：
- * 它对绿底的对比度只有 1.29:1，涂上去跟没涂一样；#d4af37 对绿底 2.39:1，对纸底 1.98:1，
- * 前者高于本项目既有的「非文本图形下限 2.2:1」口径（见 Hero 道具辨识度那条）。
+ * 它涂在语义色底上跟没涂一样。v4.11.15 语义色改主题派生后，这个环的可见性**两侧都要看**
+ * （环夹在节点填充与卡底之间）：
+ *   · 深色主题——语义色是亮色，金环与填充接近，但金环对暗卡底是 7.5:1 上下，
+ *     环作为「节点向外扩出的一圈亮暖色」清晰可辨；
+ *   · 浅色主题——语义色是深色，金环对填充 2.9:1 以上（高于本项目既有的「非文本图形下限
+ *     2.2:1」口径，见 Hero 道具辨识度那条），另侧对亮纸 1.9:1左右。
+ * 两种模式下「纸色环（与卡底融为一体）vs 金环（明显跳出来）」的差别都成立。
+ * 逐套实测值见 tests/map-boss.test.cjs 第 8 组与 answers/ 本轮实施记录。
  *
  * 纪律：零新 token、零动画、零外链、零位图、零几何改动（尺寸 / 间距 / 环宽 / 层级 / 交互全未动）。
  * `:not(.is-current)` 是守卫——当前课节点自带强调环，不该被这条补丁改写（实际上已击破必然
  * 已完成、不可能是「继续学习」那一课，这条守卫是防御性的）。 */
-.map-node.is-defeated:not(.is-current) { background: #3f7b58; border-color: #3f7b58; box-shadow: 0 0 0 3px #d4af37; }
+.map-node.is-defeated:not(.is-current) { background: var(--color-semantic); border-color: var(--color-semantic); box-shadow: 0 0 0 3px #d4af37; }
 
 /* ---------- v4.11.13 图标接入主题：mask 渲染路径 ----------
  * 背景：v4.11.12 实测证明「固定色 <img> 图标」在深色主题下看不见（图标色写死在
@@ -2346,8 +2378,9 @@ body[data-page="home"] .home-secondary .world-preview-label {
  * ② 未开放 World 弱化：路线预览条四格里，未开放三格的名称文字此前与
  *    Foundations 同权重（600 / 墨色），「未开放明显弱于当前开放」只靠状态文字
  *    与色晕透明度支撑。现在未开放格名称收口到 muted / 500，与 is-open 格名称
- *    （600 / 墨色）拉开两档权重差；Foundations 的状态绿（#336847，v4.11.7
- *    对比度修正值）与批次 F B3 的色晕纪律一字不动。
+ *    （600 / 墨色）拉开两档权重差；Foundations 的状态文字色（v4.11.7 定下的
+ *    对比度口径，v4.11.15 起由固定绿改 --color-semantic 主题派生）与批次 F B3
+ *    的色晕**强度**纪律一字不动（色晕色源同轮改主题派生，alpha 与几何未动）。
  * ③ Hero 区块标签改名（「继续学习」→「当前继续学习」）落在 app.js 的
  *    continueCardChildren：原标签与主 CTA 完全同词、互相抢读，改名后标签只
  *    指认区块。CSS 端沿用既有 continue-label 眉标样式，零新增规则。

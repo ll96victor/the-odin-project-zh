@@ -517,10 +517,10 @@ function openSheetOf(page) {
   /* 场景化的钩子：色相写在 data-world-tone 上，是纯展示层，不是课程数据 */
   assert.deepEqual(items.map(i => i.dataset.worldTone),
     ['foundations', 'html-css', 'javascript', 'nodejs'],
-    check('F/B3：四格各带一个 data-world-tone 色相钩子（绿/冷蓝/暖橙/青绿）'));
+    check('F/B3：四格各带一个 data-world-tone tone 钩子（v4.11.15 起为主题派生色晕，四格靠几何区分）'));
   const curriculum = page.sandbox.window.ODIN_CURRICULUM;
   const tones = new Set(items.map(i => i.dataset.worldTone));
-  assert.equal(tones.size, 4, check('F/B3：四个色相两两不同（四格视觉可区分）'));
+  assert.equal(tones.size, 4, check('F/B3：四个 tone 两两不同（四格各画各的几何）'));
   assert.ok(!/world-tone[^"']*"\s*:\s*(true|false|\d)/.test(JSON.stringify(curriculum)),
     check('F/B3：tone 没有写进课程数据（curriculum.js 一字未动）'));
 
@@ -562,7 +562,17 @@ function openSheetOf(page) {
   const toneRules = ['foundations', 'html-css', 'javascript', 'nodejs']
     .map(tone => ruleBody(`.world-preview-item[data-world-tone="${tone}"]::before`));
   assert.equal(toneRules.filter(body => /background:/.test(body)).length, 4,
-    check('F/B3：四个色相各有自己的 background（不是四格同一套）'));
+    check('F/B3：四个 tone 各有自己的 background（不是四格同一套）'));
+  /* v4.11.15：色源只能是 --color-accent 的 color-mix 派生。这条不写在别处——
+   * 「零固定色」的断言原先只覆盖地图卡，负向验证（把 foundations 色晕改回旧绿
+   * rgba）正是从预览条这一侧漏过去的，所以这里单独补一条同名纪律。 */
+  ['foundations', 'html-css', 'javascript', 'nodejs'].forEach((tone, i) => {
+    assert.ok(!/#[0-9a-fA-F]{3,8}\b|rgba?\(/.test(toneRules[i]),
+      check(`F/B3：${tone} 的色晕零固定色（旧五色已清零，色值只经 color-mix 派生）`));
+    const stripped = toneRules[i].replace(/var\(--color-accent\)\s+[\d.]+%,\s*transparent\)/g, '');
+    assert.ok(!/var\(--color-accent\)/.test(stripped),
+      check(`F/B3：${tone} 不裸用 --color-accent，一律经 color-mix 低饱和派生`));
+  });
 
   /* 低饱和与无动画：整段色晕里每个色标的 alpha ≤ .16 */
   const alphas = [];
@@ -570,6 +580,12 @@ function openSheetOf(page) {
     for (const m of body.matchAll(/rgba?\(([^)]+)\)/g)) {
       const parts = m[1].split(',').map(s => s.trim());
       alphas.push(parts.length === 4 ? Number(parts[3]) : 1);
+    }
+    /* v4.11.15：色源由固定 rgba 改「主题主色 + 百分比」的 color-mix 派生。alpha
+     * 语义等价——color-mix 在预乘 alpha 空间插值，16% 就是 rgba 的 .16。纪律与上限
+     * 一字未动，只是换了写法，所以两种写法都收（上限断言因此对两代值同等生效）。 */
+    for (const m of body.matchAll(/color-mix\(in srgb, var\(--color-accent\) ([\d.]+)%, transparent\)/g)) {
+      alphas.push(Number(m[1]) / 100);
     }
     assert.ok(!/animation\s*:/.test(body) && !/@keyframes/.test(body),
       check('F/B3：色晕规则零 animation / @keyframes'));
@@ -766,10 +782,16 @@ function openSheetOf(page) {
     check('G2a：三个后续世界只有一层色晕、没有轮廓层（层级上就更弱）'));
 
   /* 强度与低饱和 */
-  const alphaOf = body => [...body.matchAll(/rgba?\(([^)]+)\)/g)].map(m => {
-    const parts = m[1].split(',').map(s => s.trim());
-    return parts.length === 4 ? Number(parts[3]) : 1;
-  });
+  /* v4.11.15：色源由固定 rgba 改「主题主色 + 百分比」的 color-mix 派生；alpha
+   * 语义等价（预乘 alpha 空间插值，16% == rgba 的 .16），上限纪律一字未动。 */
+  const alphaOf = body => [
+    ...[...body.matchAll(/rgba?\(([^)]+)\)/g)].map(m => {
+      const parts = m[1].split(',').map(s => s.trim());
+      return parts.length === 4 ? Number(parts[3]) : 1;
+    }),
+    ...[...body.matchAll(/color-mix\(in srgb, var\(--color-accent\) ([\d.]+)%, transparent\)/g)]
+      .map(m => Number(m[1]) / 100)
+  ];
   const allBodies = [...Object.values(toneVeils), ...Object.values(toneOutlines), pseudoBody];
   const allAlphas = allBodies.reduce((acc, b) => acc.concat(alphaOf(b)), []);
   assert.ok(allAlphas.length >= 30, check('G2a：逐层显式控制透明度（' + allAlphas.length + ' 个色标）'));
@@ -783,19 +805,39 @@ function openSheetOf(page) {
   assert.ok(genAlphas.every(a => a <= .09),
     check('G2a：三个后续世界色标全部 ≤ .09（实际上限 ' + Math.max.apply(null, genAlphas) + '）——比任何主场景都弱'));
   assert.notEqual(toneVeils['html-css-deep'], toneVeils['html-css'],
-    check('G2a：World 4 的 html-css-deep 与 World 2 的 html-css 同族但不重样（色相更深）'));
+    check('G2a：World 4 的 html-css-deep 与 World 2 的 html-css 同源但不重样（v4.11.15 起靠几何：双向密网格 vs 单向竖线）'));
   assert.ok(toneOutlines['html-css-deep'].indexOf('.34rem') !== -1 && toneOutlines['html-css'].indexOf('.66rem') !== -1,
     check('G2a：World 4 的结构线比 World 2 更密（.34rem vs .66rem），两张卡不会看成同一张'));
 
-  /* 与批次 F 首页预览条共用同一套色相词汇 */
-  for (const pair of [
-    ['rgba(63, 123, 88', 'Foundations 成长绿'],
-    ['rgba(72, 106, 148', 'HTML & CSS 冷蓝'],
-    ['rgba(176, 130, 62', 'JavaScript 暖橙'],
-    ['rgba(60, 120, 112', 'NodeJS 青绿']
-  ]) {
-    assert.ok(g2a.indexOf(pair[0]) !== -1,
-      check('G2a：' + pair[1] + ' 复用批次 F 预览条同一色值（' + pair[0] + '…）'));
+  /* ---------- v4.11.15：色源统一到主题主色派生（取代原来的固定五色） ---------- */
+  {
+    /* tone 规则里零固定色：不能有 hex 也不能有 rgba 字面量，色源只能是
+     * --color-accent 的 color-mix 派生（裸引用 accent 会把装饰读成操作色）。 */
+    const toneBodies = [...Object.values(toneVeils), ...Object.values(toneOutlines)];
+    for (const [tone, body] of Object.entries(Object.assign({}, toneVeils, toneOutlines))) {
+      assert.ok(!/#[0-9a-fA-F]{3,8}\b|rgba?\(/.test(body),
+        check('G2a：' + tone + ' 的装饰层零固定色（旧五色已清零，色值只经 color-mix 派生）'));
+    }
+    for (const [tone, body] of Object.entries(Object.assign({}, toneVeils, toneOutlines))) {
+      const colors = body.match(/(?:background|linear-gradient|radial-gradient|repeating-linear-gradient)[^;]*/g) || [];
+      colors.forEach(decl => {
+        const refs = decl.match(/(?:var\(--[a-z-]+\)|#[0-9a-fA-F]{3,8}|rgba?\([^)]*\)|transparent)/g) || [];
+        refs.filter(r => r.startsWith('var(')).forEach(ref => assert.equal(ref, 'var(--color-accent)',
+          check('G2a：' + tone + ' 的色源只允许 --color-accent（实际出现 ' + ref + '）')));
+      });
+      const stripped = body.replace(/var\(--color-accent\)\s+[\d.]+%,\s*transparent\)/g, '');
+      assert.ok(!/var\(--color-accent\)/.test(stripped),
+        check('G2a：' + tone + ' 不裸用 --color-accent，一律经 color-mix 低饱和派生'));
+    }
+    /* 同一个 World 在两处颜色一致：首页预览条与地图卡用的是同一套色源 */
+    const b3Section = css.slice(css.indexOf('v4.11 批次 F（B3）'), css.indexOf('v4.11 G2a'));
+    assert.ok(b3Section.length > 0, check('G2a：能切出批次 F（B3）预览条段做同源比对'));
+    for (const tone of ['foundations', 'html-css', 'javascript', 'nodejs']) {
+      const sel = '.world-preview-item\\[data-world-tone="' + tone + '"\\]';
+      const m = new RegExp(sel + '::before \\{([^}]*)\\}').exec(b3Section);
+      assert.ok(m && /color-mix\(in srgb, var\(--color-accent\)/.test(m[1]),
+        check('G2a：预览条 ' + tone + ' 与地图卡同源（--color-accent 派生）'));
+    }
   }
 
   /* 零动画 / 零外链 / 零新 token */
@@ -1284,10 +1326,10 @@ function openSheetOf(page) {
     check('一体化：G2a 段仍在 style.css 里'));
   assert.ok(/\.world-card\[data-world-tone="foundations"\]::before \{/.test(css),
     check('一体化：G2a 的 Foundations 色晕规则原样在位'));
-  assert.ok(/\.map-node\.is-broken \{ background: #3f7b58; border-color: #3f7b58; \}/.test(css),
-    check('一体化：地图「已破甲」仍是纯绿实心（本轮未碰地图状态色）'));
-  assert.ok(/\.map-node\.is-defeated:not\(\.is-current\) \{[^}]*box-shadow: 0 0 0 3px #d4af37/.test(css),
-    check('一体化：地图「已击破」仍是绿实心 + 金色 gap 环（未回归到与已破甲同色）'));
+  assert.ok(/\.map-node\.is-broken \{ background: var\(--color-semantic\); border-color: var\(--color-semantic\); \}/.test(css),
+    check('一体化：地图「已破甲」是主题语义色实心（v4.11.15 起固定绿改派生，两处声明都要跟着走）'));
+  assert.ok(/\.map-node\.is-defeated:not\(\.is-current\) \{[^}]*background: var\(--color-semantic\)[^}]*box-shadow: 0 0 0 3px #d4af37/.test(css),
+    check('一体化：地图「已击破」仍是同色实心 + 金色 gap 环（与已破甲靠金环区分，未回归到同色）'));
   const previewBar = querySelect(dom.body, '.world-preview');
   assert.deepEqual(collectByClass(previewBar, 'world-preview-item').map(i => i.dataset.worldTone),
     ['foundations', 'html-css', 'javascript', 'nodejs'],
@@ -1414,8 +1456,8 @@ function openSheetOf(page) {
     check('③：未开放 World 名称收口到 muted/500'));
   assert.ok(/\.world-preview-name \{ font-weight: 600; \}/.test(css),
     check('③：is-open 格名称仍是基础规则的 600/墨色——与未开放格拉开两档权重差'));
-  assert.ok(/\.world-preview-item\.is-open \.world-preview-state \{ color: #336847/.test(css),
-    check('③：Foundations 状态绿（v4.11.7 对比度修正值）一字未动'));
+  assert.ok(/\.world-preview-item\.is-open \.world-preview-state \{ color: var\(--color-semantic\)/.test(css),
+    check('③：Foundations 状态文字取主题语义色（v4.11.15 起派生；对比度仍须全 30 套达标，见 themes-contrast 第 7 节）'));
   const narrow30 = [...css.matchAll(/@media \(max-width: 30rem\) \{([\s\S]*?)\n\}/g)].map(m => m[1]);
   const wrapFix = narrow30.find(b => b.includes('body[data-page="home"] .home-secondary .today-item:first-child'));
   assert.ok(wrapFix, check('④：≤30rem 有今日时长项的收口规则（320px 叠印修复）'));
@@ -1554,6 +1596,23 @@ function openSheetOf(page) {
     assert.ok(svg.includes('viewBox="0 0 420 130"') && svg.includes('M14 60H406'), check('颜色统一：Hero 道具既有几何保留'));
     assert.ok(app.includes("svgImage(HERO_STUDY_SVG, '', 'hero-study-decor')"), check('颜色统一：Hero 道具既有挂载类名保留'));
     assert.ok(!svg.includes('#3f7b58') && !svg.includes('#6f9c85') && !svg.includes('#a78bda'), check('颜色统一：Hero 道具不再使用旧绿色 / 旧绿色系轮廓'));
+
+    /* v4.11.15：几何头像去绿钉。头像走 data:image/svg+xml 进 <img>（封闭文档，
+     * 读不到 CSS 变量），因此**不跟随主题**，按纪律换成中性墨灰 / 暖灰。旧绿系统的
+     * 七个字面量必须清零——它们是「旧绿色系统全面清零」这条目标在头像层的唯一凭据；
+     * 陶土 #a4553f 是多色结构的点缀、不属于旧绿系统，必须保留。 */
+    {
+      const avatarsSrc = fs.readFileSync(path.join(root, 'avatars.js'), 'utf8');
+      for (const old of ['#276148', '#6f9c85', '#7fd3a5', '#edf3ee', '#c8d3cb', '#3f7b58', '#336847']) {
+        assert.ok(!avatarsSrc.includes(old), check(`颜色统一：几何头像不再使用旧绿 ${old}`));
+      }
+      for (const oldInk of ['#25312c', '#22302a']) {
+        assert.ok(!avatarsSrc.includes(oldInk), check(`颜色统一：头像的绿调墨色 ${oldInk} 已改中性墨`));
+      }
+      assert.ok(avatarsSrc.includes('#a4553f'), check('颜色统一：几何头像保留陶土点缀 #a4553f（不属旧绿色系统）'));
+      assert.equal((avatarsSrc.match(/\n\s+id: '/g) || []).length, 37,
+        check('颜色统一：几何头像仍是 37 项（本轮只改色值，不增删资产）'));
+    }
     assert.ok(svg.includes('#81769a') && svg.includes('#8b7b8f') && svg.includes('#c7bdd6'), check('颜色统一：Hero 道具新深墨紫灰色板明确在位'));
     assert.ok(!/<script|href=|url\s*\(|on[a-z]+\s*=|https?:/i.test(svg.replace('xmlns="http://www.w3.org/2000/svg"', '')), check('颜色统一：Hero 道具无脚本 / 外链 / 事件属性'));
     assert.ok([...svg.matchAll(/opacity="(\.\d+)"/g)].every(m => Number(m[1]) <= .85), check('颜色统一：Hero 道具 opacity 上限仍为 .85'));

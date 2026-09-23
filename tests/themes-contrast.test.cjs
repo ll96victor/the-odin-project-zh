@@ -219,32 +219,63 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
     check('打印媒体下概念图反相与透明底还原（filter: none + 原底色）'));
 }
 
-/* ============ 7. v4.11.7：预览条「已开放」状态文字配色钉子 ============
+/* ============ 7. 预览条「已开放」状态文字的配色钉子（v4.11.7 立项）/ 语义色派生 ============
  * **本项刻意不假算对比度**。该文字的底色是 .world-preview-item::before 的
  * 径向 + 线性渐变叠在容器底上，不是 --color-paper / --color-wash 中的任何一个：
  * 实测 terminal 主题真实合成底是 #212c27（对 paper 按公式算只得 2.92），
  * 而真实浏览器量到 4.66——差 1.6 倍。按 token 算会**误判为不达标**，
  * 那样的断言是假的，不如不写。
  *
- * 因此这里只钉「取色规则本身」：两条规则必须在位、颜色精确、不得改回低对比的原色。
- * 换色必须重新用真实浏览器逐主题量（方法与本轮实测值见 answers 实施记录）。
- * 实测基线（2026-09-19，chromium 像素采样，**全部 30 套主题**）：
- *   深色 8 套 var(--color-grow-soft) → 4.62（terminal，最低）～5.44（cyber）
- *   浅色 22 套 #336847               → 4.95（pixel，最低）～5.46（porcelain）
- *   修复前同口径：#3f7b58 深色 2.88–3.33 / 浅色 4.19–4.21（两档都 < 4.5）。
- * **抽样会漏**：中间稿取 #38704f 时只量了 3 套浅色主题（最差 4.85）就落值，
- * 全量复核发现 pixel（底色 #dee1da，最深的浅色纸）只有 4.42——**换色必须跑满 30 套**。 */
+ * 因此这里只钉「取色规则本身」：规则必须在位、取色必须精确、不得改回低对比的
+ * 固定色。换色必须重新用真实浏览器逐主题量（方法与本轮实测值见 answers 实施记录）。
+ * 沿革：
+ *   · v4.11.7–v4.11.14：两条分支（浅色 #336847 / 深色 var(--color-grow-soft)）；
+ *     实测 深色 4.62（terminal，最低）～5.44（cyber）、浅色 4.95（pixel，最低）～5.46（porcelain）。
+ *   · v4.11.15：语义层改主题派生后合并为**一条** --color-semantic 规则——该派生色
+ *     在浅色主题自然偏深、深色主题自然偏亮，data-dark 分支不再需要。
+ * **抽样会漏**：v4.11.7 中间稿只量了 3 套浅色主题（最差 4.85）就落值，全量复核
+ * 发现 pixel（底色 #dee1da，最深的浅色纸）只有 4.42——**换色必须跑满 30 套**。 */
 {
   const styleCss = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
-  assert.ok(styleCss.includes('.world-preview-item.is-open .world-preview-state { color: #336847;'),
-    check('浅色：预览条已开放状态文字取 #336847（全部 22 套浅色主题实测 4.95–5.46 ≥ 4.5）'));
-  assert.ok(styleCss.includes('html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--color-grow-soft); }'),
-    check('深色：预览条已开放状态文字取 --color-grow-soft（全部 8 套深色主题实测 4.62–5.44 ≥ 4.5）'));
-  /* 反向钉子：不得改回原色 --color-grow（深色 2.88–3.33 / 浅色 4.19–4.21，两档都不达标） */
+  const tokensCss = fs.readFileSync(path.join(root, 'tokens.css'), 'utf8');
+  assert.ok(styleCss.includes('.world-preview-item.is-open .world-preview-state { color: var(--color-semantic);'),
+    check('预览条已开放状态文字取 --color-semantic（浅深一套规则通吃；对比度仍须全 30 套 ≥ 4.5）'));
   const previewStateRules = styleCss.match(/[^{}\n]*\.world-preview-item\.is-open \.world-preview-state\s*\{[^}]*\}/g) || [];
-  assert.ok(previewStateRules.length >= 2, check('预览条状态文字的两条配色规则都在位'));
-  previewStateRules.forEach(rule => assert.ok(!/color:\s*var\(--color-grow\)\s*;/.test(rule),
-    check('预览条状态文字不得直接取 --color-grow（对比度两档都不达标）')));
+  assert.equal(previewStateRules.length, 1,
+    check('预览条状态文字只有一条配色规则（v4.11.15 起合并，不再需要 data-dark 分支）'));
+  assert.ok(!/\.world-preview-item\.is-open \.world-preview-state[^{]*\{[^}]*color:\s*(#|rgba?\()/.test(styleCss),
+    check('预览条状态文字不得写死 hex / rgba（必须走主题派生）'));
+
+  /* ---------- v4.11.15：语义色（完成 / 成长）派生机制钉子 ---------- */
+  assert.ok(tokensCss.includes('--color-semantic: color-mix(in srgb, var(--color-accent) 58%, var(--color-ink));'),
+    check('语义色派生在位（accent 58% + ink 42%；:root 单行、逐主题解析。58% 由全 30 套真实浏览器实测选值，见下方注释）'));
+  assert.ok(tokensCss.includes('--color-semantic-soft: color-mix(in srgb, var(--color-semantic) 52%, var(--color-wash));'),
+    check('语义色 soft 派生在位（由 semantic 与 wash 混合，供进度条浅端；不直取 accent 以免色相漂移）'));
+  assert.ok(!/--color-grow(-soft)?\s*:/.test(tokensCss),
+    check('旧固定 grow / grow-soft 双值已退役（v4.11.15 起零消费者，不得复活）'));
+  for (const t of THEMES.themes) {
+    if (t.id === 'garden') continue;
+    assert.ok(!/--color-semantic(-soft)?\s*:/.test(cssThemes[t.id].block),
+      check(`${t.id}: 主题块不得覆盖语义色派生变量（覆盖即退回「每套主题人工核语义色」的老债）`));
+  }
+  /* 派生的明暗自动适配：浅色主题 semantic 比 wash 深、深色主题比 wash 亮——
+   * 这是「热力图四档自动翻转、预览条状态文字免 data-dark 分支」成立的根据。 */
+  const mixSrgb = (a, p, b, q) => {
+    const A = hexToRgb(a), B = hexToRgb(b);
+    const to = v => Math.round(v).toString(16).padStart(2, '0');
+    return '#' + [0, 1, 2].map(i => to((A[i] * p + B[i] * q) / (p + q))).join('');
+  };
+  for (const t of THEMES.themes) {
+    const vars = t.id === 'garden' ? rootVars : cssThemes[t.id].vars;
+    const sem = mixSrgb(vars['--color-accent'], 58, vars['--color-ink'], 42);
+    if (t.dark === true) {
+      assert.ok(luminance(sem) > luminance(vars['--color-wash']),
+        check(`${t.id}（深色）: 语义色比 wash 亮——热力图 L4 因此自动成为最亮档，data-dark 翻转分支已无必要`));
+    } else {
+      assert.ok(luminance(sem) < luminance(vars['--color-wash']),
+        check(`${t.id}（浅色）: 语义色比 wash 深——热力图 L4 因此自动成为最深档`));
+    }
+  }
 }
 
 /* ============ 8. v4.11.9：wash 底上的文本对比度（课页长课模块与章节导航） ============

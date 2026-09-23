@@ -560,19 +560,40 @@ function ruleBody(selector) {
     assert.ok(!body.includes('--color-grow'), check(`11.2 ${zh}（${sel}）零 grow 残留`));
   }
 
-  /* ---------- 11.3 语义层 grow 零漂移钉 ---------- */
-  /* 计数前先剥注释——style.css 的历史注释里合法提到过 var(--color-grow-soft)
-   * 字面量（v4.11.7 取色依据），整文件直接计数会被注释假红（§5.4 同型坑）。 */
+  /* ---------- 11.3 语义层迁移钉（v4.11.15 改写） ----------
+   * v4.11.14 这里钉的是「固定 grow 双值引用恰好 18 处、逐处零漂移」；v4.11.15 用户
+   * 解除了「语义层一个字不许动」的旧边界、要求语义色也跟随主题，语义层因此整体改
+   * --color-semantic 派生，固定 grow / grow-soft 双值退役。本组职责随之从「计数零
+   * 漂移」变成**迁移完整性**：
+   *   ① 固定 grow 双值在规则层零残留——漏改一处不会报错，只会让那条声明失效
+   *      （背景变透明），是最典型的静默损坏，必须由计数钉死；
+   *   ② 语义层的六个消费面确实指向派生色，且规则文本完整（不是被删空）；
+   *   ③ 环境层仍然零消费语义色（11.2 已逐点钉住，本组不复述）。
+   * 计数前先剥注释——历史注释里合法保留了 var(--color-grow-soft) 字面量作为沿革
+   * 记录，整文件直接计数会被注释假红（§5.4 同型坑）。 */
   const cssNoComment = css.replace(/\/\*[\s\S]*?\*\//g, '');
-  const semanticRefs = (cssNoComment.match(/var\(--color-grow(?:-soft)?\)/g) || []).length;
-  assert.equal(semanticRefs, 18,
-    check(`11.3 语义层 grow/grow-soft 引用恰好 18 处（技能路线与地图节点 9 行 13 处 + 等级进度条 2 + 预览条状态文字深色 1 + 地图 tab 1 + is-current 渐变重复计入——环境层零消费，证明是「逐处定向迁移」而不是全局替换；实际 ${semanticRefs}）`));
-  assert.ok(css.includes('.skill-dot.is-done { background: var(--color-grow); border-color: var(--color-grow); }'),
-    check('11.3 语义钉：完成态圆点仍是成长绿（「已完成」的视觉反馈不随主题漂移）'));
-  assert.ok(css.includes('.profile-cover .level-progress-fill { background: linear-gradient(90deg, var(--color-grow-soft), var(--color-grow)); }'),
-    check('11.3 语义钉：等级进度条渐变逐字未动'));
-  assert.ok(css.includes('html[data-dark] .world-preview-item.is-open .world-preview-state { color: var(--color-grow-soft); }'),
-    check('11.3 语义钉：预览条已开放状态文字（深色档）逐字未动（v4.11.7 对比度修复不回退）'));
+  const growRefs = (cssNoComment.match(/var\(--color-grow(?:-soft)?\)/g) || []).length;
+  assert.equal(growRefs, 0,
+    check(`11.3 语义层固定 grow / grow-soft 规则层零残留（v4.11.15 全量迁到 --color-semantic；实际 ${growRefs}）`));
+  const semRefs = (cssNoComment.match(/var\(--color-semantic(?:-soft)?\)/g) || []).length;
+  assert.ok(semRefs >= 20,
+    check(`11.3 语义层已迁到主题派生色（${semRefs} 处 var(--color-semantic*)，覆盖技能路线 / 地图节点 / 进度条 / 预览条 / 热力图 / 地图 tab / 头像框）`));
+  for (const [rule, zh] of [
+    ['.skill-dot.is-done { background: var(--color-semantic); border-color: var(--color-semantic); }', '完成态圆点'],
+    ['.map-node.is-broken { background: var(--color-semantic); border-color: var(--color-semantic); }', '地图「已破甲」'],
+    ['.map-node.is-defeated:not(.is-current) { background: var(--color-semantic); border-color: var(--color-semantic); box-shadow: 0 0 0 3px #d4af37; }', '地图「已击破」'],
+    ['.level-progress-fill { background: linear-gradient(90deg, var(--color-semantic-soft), var(--color-semantic)); }', '等级进度条'],
+    ['.world-preview-item.is-open .world-preview-state { color: var(--color-semantic); font-weight: 700; font-variant-numeric: tabular-nums; }', '预览条已开放状态文字']
+  ]) {
+    assert.ok(css.includes(rule), check(`11.3 语义钉：「${zh}」走主题派生且规则完整`));
+  }
+  /* 未装修饰的语义色收敛：主题块不得覆盖派生变量（与 --color-icon / --color-ambient 同纪律） */
+  const tokensNoComment = require('node:fs').readFileSync(require('node:path').resolve(__dirname, '..', 'tokens.css'), 'utf8')
+    .replace(/\/\*[\s\S]*?\*\//g, '');
+  for (const m of tokensNoComment.matchAll(/html\[data-theme="[a-z-]+"\]\s*{([^}]*)}/g)) {
+    assert.ok(!/--color-semantic(-soft)?\s*:/.test(m[1]),
+      check('11.3 主题块零覆盖语义色派生变量（覆盖即红）'));
+  }
 
   /* ---------- 11.4 植物 SVG（B/D）去绿钉 ---------- */
   const decor = /const HERO_DECOR_SVG = '(<svg[^']*<\/svg>)';/.exec(app);
