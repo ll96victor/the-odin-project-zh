@@ -2388,14 +2388,14 @@
     fields.push(buildToggleRow('showCompanion', '显示学习伙伴', '关闭后右下角按钮隐藏'));
     fields.push(buildToggleRow('showAchievementNotes', '成就解锁提示', '解锁时页面底部的小条提示'));
     fields.push(buildToggleRow('showReadingPosition', '显示本页阅读位置', '课程页顶部的滚动进度条'));
-    fields.push(buildToggleRow('showUnavailableLessons', '显示未开放课程', '目录里第 21–46 课的灰化行'));
+    fields.push(buildToggleRow('showUnavailableLessons', '显示未开放课程', '目录里未开放课程的灰化行（Foundations 46 课已全部开放，当前无灰化行——为未来扩展保留开关）'));
     fields.push(buildToggleRow('showEnglishTitles', '显示英文标题', '课程与目录中的英文原题'));
     fields.push(buildToggleRow('shortcutsEnabled', '键盘快捷键', 'J / K / G H / G C / G P / ? 等，见课程页按 ? 的说明'));
     /* v4.11.5（交接 3.A2 第 6 条，CONTENT-STYLE-GUIDE.md 第 9 节）：官方任务节
      * 折叠偏好的说明文字。刻意不做成第 7 个开关——设置面板恰好 6 个
      * setting-toggle 被测试钉住，且该偏好的真实控制入口是课页折叠头本身
      * （展开态就是恢复出口）。不带 setting-toggle class，纯说明。 */
-    fields.push(node('p', '课页「官方任务」节的 Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起；收起一次后，所有课页都会默认收起。这个偏好随学习档案保存，点任意标题旁的「展开」即恢复。', 'meta'));
+    fields.push(node('p', '课页「官方任务」节的 Assignment 列表可以用标题旁的按钮收起；收起一次后，所有课页都会默认收起。这个偏好随学习档案保存，点任意标题旁的「展开」即恢复。', 'meta'));
     return fields;
   }
 
@@ -4328,7 +4328,7 @@
 
   /* ---------- v4.3：章节 Boss 挑战（交接 E3） ----------
    * Boss 的本质是单元综合自测/预检，不是小游戏：题目全部来自本站已讲知识
-   * （bosses.js 从既有自测题与官方 Knowledge Check 改写），单选评分，
+   * （bosses.js 从既有自测题改写），单选评分，
    * 提交后逐题给解析与来源课程。两种进入方式同一套题、不同记录口径：
    * 学习前预检（检测背景知识，高分有「未战先知」成就）与学完复测（总结，
    * firstPct 与 lastPct 的差值就是真实进步）。评分四档：尚未破甲 <50 /
@@ -4380,7 +4380,7 @@
     if (!brief) return [node('p', 'Boss 题库未载入。', 'notice')];
     const children = [];
     children.push(node('p', brief.desc, 'boss-desc'));
-    children.push(node('p', `共 ${brief.questionCount} 道单选题，全部改写自本单元课程里已有的自测题与官方 Knowledge Check；评分四档：尚未破甲（<50%）/ 已破甲（50–69%）/ 优势明显（70–84%）/ 压倒性优势（≥85%）。不联网、不是 AI 出题、不提供任何项目成品答案。`, 'meta'));
+    children.push(node('p', `共 ${brief.questionCount} 道单选题，全部改写自本单元课程已讲解并考核过的知识点；评分四档：尚未破甲（<50%）/ 已破甲（50–69%）/ 优势明显（70–84%）/ 压倒性优势（≥85%）。不联网、不是 AI 出题、不提供任何项目成品答案。`, 'meta'));
 
     if (brief.record && brief.record.attempts > 0) {
       const record = brief.record;
@@ -5774,7 +5774,7 @@
     if (storageWarning) fieldset.append(node('p', storageWarning, 'notice'));
     const toggles = [
       { field: 'completed', label: '本课已完成（计入课程完成数与总进度）', xp: `首次勾选 +${progress.Logic.XP_FIRST_LESSON_COMPLETE} XP` },
-      { field: 'officialCompleted', label: '官方任务已完成（Assignment 与 Knowledge Check，不计入完成数）', xp: `首次勾选 +${progress.Logic.XP_FIRST_OFFICIAL_COMPLETE} XP` },
+      { field: 'officialCompleted', label: '官方任务已完成（Assignment，不计入完成数）', xp: `首次勾选 +${progress.Logic.XP_FIRST_OFFICIAL_COMPLETE} XP` },
       { field: 'quizCompleted', label: '本站自测已完成（不计入完成数）', xp: `首次勾选 +${progress.Logic.XP_FIRST_QUIZ_COMPLETE} XP` },
       { field: 'needsReview', label: '需要复习（不计入完成数）', xp: '稍后回来再看这一课' }
     ];
@@ -5842,7 +5842,7 @@
          * 不弹窗、不新增 details、不轰炸；普通课路径零变化。取消勾选不发。 */
         if (toggle.field === 'completed' && box.checked && persistent
             && progress.Logic.isHeavyLesson(lesson)) {
-          showRewardNote(`大课拿下 · 《${lesson.zh}》全 ${lesson.sections.length} 章讲解与 ${lesson.official.knowledgeCheck.length} 道官方自查题都走完了，这一门的分量实打实。`);
+          showRewardNote(`大课拿下 · 《${lesson.zh}》全 ${lesson.sections.length} 章讲解都走完了，这一门的分量实打实。`);
           startCelebration();
         }
       });
@@ -6011,7 +6011,7 @@
      * 那里没有数字可对照，反而与资源区的条数并列成两个打架的数字。 */
     const relationshipNote = taskResourceNote(lesson, items.length);
     if (relationshipNote) block.push(node('p', relationshipNote, 'meta task-resource-note'));
-    block.push(node('p', '以下是官方原课在正文、Assignment 与 Knowledge Check 中明确要求学习的外部资料。本站提供中文辅助入口与本站原创导读；对许可明确为 CC 系列且没有官方中文版的来源，本站另提供采用与原作相同许可的中文精译（卡内附署名与来源标注）；其余第三方内容不搬运、不翻译，只做原创导读与原文链接。链接一律在新标签页打开，打开后会离开本站。', 'muted'));
+    block.push(node('p', '以下是官方原课在正文与 Assignment 中明确要求学习的外部资料。本站提供中文辅助入口与本站原创导读；对许可明确为 CC 系列且没有官方中文版的来源，本站另提供采用与原作相同许可的中文精译（卡内附署名与来源标注）；其余第三方内容不搬运、不翻译，只做原创导读与原文链接。链接一律在新标签页打开，打开后会离开本站。', 'muted'));
     /* v4.11.4 文案瘦身（规则出处 CONTENT-STYLE-GUIDE.md 第 1 节「读者页面零审计信息」）：
      * v4.11.2 的三分类计数句（「其中 X 条有已核验的官方中文版……」）、全局核验日期句
      * 与 v4.11.1 的块级「自动核验受限」提示已从课页移除——条数统计与核验信息属审计
@@ -6033,7 +6033,7 @@
    *   · 地址比对去掉锚点与尾部斜杠：部分长页面沿用官方 KC 的原锚点
    *     （softcover 各命令小节、cbea.ms #intro/#limit-50 等）；
    *   · 全部是外链：新标签页 + noopener noreferrer，与资源卡同一纪律；
-   *   · 条目文本本身一字不改，链接追加在文本之后（li / kc-q 的内联尾部）。 */
+   *   · 条目文本本身一字不改，链接追加在文本之后（li 的内联尾部）。 */
   function taskLinkBase(url) {
     return String(url).split('#')[0].replace(/\/+$/, '');
   }
@@ -6046,10 +6046,12 @@
         || (resource.zhUrl && taskLinkBase(resource.zhUrl) === wanted))) || null;
   }
 
-  function taskLinkMap(lessonId, kind) {
+  /* v4.11.17：官方移除课末自查题节后，映射文件只剩 Assignment 一类，
+   * kind 参数随之去掉（原 'k' 分支已无数据可用）。 */
+  function taskLinkMap(lessonId) {
     if (!taskLinkData || !taskLinkData.links) return null;
     const entry = taskLinkData.links[lessonId];
-    return entry ? entry[kind] || null : null;
+    return entry ? entry.a || null : null;
   }
 
   function appendTaskLinks(container, lessonId, urls) {
@@ -6075,8 +6077,8 @@
   }
 
   /* ---------- v4.11.7：资料条数与题目数的对应关系说明 ----------
-   * 读者最容易困惑的时刻是**在资源区看到条数**：官方明明有 15 道自查题、
-   * 22 条任务，这里为什么只有 9 条？v4.11.6 曾把说明挂在自查题 / 任务列表下方，
+   * 读者最容易困惑的时刻是**在资源区看到条数**：官方明明有 22 条任务，
+   * 这里为什么只有 9 条？v4.11.6 曾把说明挂在任务列表下方，
    * 但那里既不是数字出现的位置，又让页面上同时出现两个互相打架的数字
    * （实测 how-does-the-web-work：资源区「9 条」2 处 vs 标注「7 份」1 处，
    * 读者比不理解时更困惑）。v4.11.7 改为**只在资源区说一次**——数字出现的地方。
@@ -6086,10 +6088,7 @@
    * 纯函数：数字全部由课数据 + lesson-task-links.js 映射现算，无线索返回 null、
    * 调用方不渲染（tests/task-resource-note.test.cjs 钉住「数据变了文案没变」必红）。
    *
-   * 三种情形各自成立才拼接，最多两句：
-   *   · 自查题题题带链、且题数 > 资料条数 → 说明「多题共用同一份」；
-   *   · 自查题只有部分带链 → 说明其余题指向原课自身章节（映射纪律
-   *     「宁可少接不可接错」，页内锚点一律不接——见 lesson-task-links.js）；
+   * v4.11.17：官方 2026-09-23 移除课末自查题节后，只剩一种情形——
    *   · 任务未接链条目 ≥ 5 → 说明多数任务是终端 / 界面上的动手操作。
    *
    * 渲染纪律：<p class="meta">，不得用 <a>（节级直接子链接为 0 是既有断言）；
@@ -6099,17 +6098,7 @@
   function taskResourceNote(lesson, resourceCount) {
     const official = lesson.official || {};
     const parts = [];
-    const kcLinks = taskLinkMap(lesson.id, 'k');
-    if (kcLinks && Array.isArray(official.knowledgeCheck)) {
-      const kcLinked = Object.keys(kcLinks).filter(num => Array.isArray(kcLinks[num]) && kcLinks[num].length);
-      const kcTotal = official.knowledgeCheck.length;
-      if (kcLinked.length && kcLinked.length === kcTotal && kcTotal > resourceCount) {
-        parts.push(`官方 ${kcTotal} 道自查题都从这些资料中取用——多道题共用同一份，所以题目数比资料条数多。`);
-      } else if (kcLinked.length && kcLinked.length < kcTotal) {
-        parts.push(`官方 ${kcTotal} 道自查题中有 ${kcLinked.length} 道需要外部资料，其余各题指向原课自身的章节。`);
-      }
-    }
-    const aLinks = taskLinkMap(lesson.id, 'a');
+    const aLinks = taskLinkMap(lesson.id);
     if (aLinks && Array.isArray(official.assignment)) {
       const aLinked = Object.keys(aLinks).filter(num => Array.isArray(aLinks[num]) && aLinks[num].length);
       const aTotal = official.assignment.length;
@@ -6131,8 +6120,7 @@
    * file:// 非持久化时记忆不生效，按钮当页交互照常（FILE_MODE_NOTE 既有口径）。
    * 按钮文字 = 读者的动作（CONTENT-STYLE-GUIDE.md 第 9 节）。 */
   const OFFICIAL_COLLAPSE_LABELS = {
-    assignment: { collapse: '收起任务列表', expand: '展开任务列表' },
-    kc: { collapse: '收起自查题列表', expand: '展开自查题列表' }
+    assignment: { collapse: '收起任务列表', expand: '展开任务列表' }
   };
 
   /* 读档案里的折叠偏好：只有显式 true 才算折叠（progress 读档已校验，这里再兜一层）。 */
@@ -6162,7 +6150,7 @@
     return button;
   }
 
-  /* 折叠受控容器：包裹 <ol> / .kc-list，绝不包资源区（buildResourceBlock 的返回
+  /* 折叠受控容器：包裹 Assignment 的 <ol>，绝不包资源区（buildResourceBlock 的返回
    * 节点必须保持是 section 的直接子级——资源区前言 = 直接子 p 被测试钉住）。 */
   function buildCollapseBody(bodyId, collapsed) {
     const body = node('div', undefined, 'collapse-body');
@@ -6180,7 +6168,7 @@
   /* ---------- v4.2：技能路线视图（交接 §11） ----------
    * 按官方 8 个单元呈现一条纵向路线，不取代完整目录（目录仍在下方）。
    * 状态：已完成 / 当前进行 / 已开放未完成 / 未开放；Project 单独标识。
-   * 第 21–46 课只显示为灰点，不生成任何进入正文的链接（与目录同一红线）。
+   * 未开放课程（Foundations 之后的新课）只显示为灰点，不生成任何进入正文的链接（与目录同一红线）。
    * 纯 CSS 实现（节点 + 连接线 + 课点方格），不引图形库。 */
 
   const UNIT_STATUS_LABEL = {
@@ -6326,7 +6314,7 @@
     { dotClass: 'skill-dot is-done', zh: '已完成', hint: '这个单元里本站已开放的课全部勾选完成' },
     { dotClass: 'skill-dot is-current', zh: '当前进行', hint: '建议继续的那一课所在单元' },
     { dotClass: 'skill-dot', zh: '已开放', hint: '本站有中文正文，还没学完' },
-    { dotClass: 'skill-dot is-locked', zh: '未开放', hint: '本站尚未开放中文正文（第 21–46 课），请回官方原课学习' },
+    { dotClass: 'skill-dot is-locked', zh: '未开放', hint: '本站的中文正文尚未覆盖这一课，请回官方原课学习（Foundations 46 课已全部开放）' },
     { dotClass: 'skill-dot is-project', zh: '项目', hint: '官方 Project 节点（五角星），由你动手完成，本站不提供成品答案' }
   ];
 
@@ -6671,8 +6659,8 @@
     usage.append(node('summary', '关于本站'));
     const usageBody = node('div', undefined, 'site-usage-body');
     const faqItems = [
-      ['本站怎么用？', '前 20 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 与 Knowledge Check 的中文化版本和中文答案——可以在本站学完并自查。Project: Recipes 的代码要你自己写：本站提供要求中文版、拆解与验收清单，不提供成品答案；项目提交、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
-      ['中文内容覆盖到哪里？', 'Foundations 的前 20 课（到 Project: Recipes 为止）已有完整中文学习内容；本站同时展示 8 个 World、197 课的完整路线结构，其余课程请回官方原课学习。'],
+      ['本站怎么用？', 'Foundations 全部 46 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 的中文化版本——可以在本站学完并自查。Project 课的代码要你自己写：本站提供要求中文版、拆解与验收清单，不提供成品答案；项目提交、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
+      ['中文内容覆盖到哪里？', 'Foundations 的全部 46 课已有完整中文学习内容（八个分组全部开放，含 46 课 Choose Your Path Forward）；本站同时展示 8 个 World、197 课的完整路线结构，Foundations 之后的路径课程请回官方原课学习。'],
       ['哪些内容需要联网？', '中文课程与学习记录可在本地使用；TOP 原课、视频及外部资料需要联网。官方课程如有更新，以 TOP 为准。'],
       /* v4.11.2 A2：外部资料核验方法论从课页资源区移到这里。方法论（状态码、
        * 重定向、内容级语言核验、oEmbed）是审计信息，读者主动打开「关于本站」时
@@ -6703,18 +6691,19 @@
     const lesson = data.lessons[index];
     activeLessonId = lesson.id;
     document.title = `${lesson.zh} · ${lesson.title} · Odin 中文学习站`;
-    /* 第三轮：课页顶部轻量返回入口——当前 20 课均属 World 1，直接显示
+    /* 第三轮：课页顶部轻量返回入口——当前 46 课均属 World 1，直接显示
      * 「← Foundations」；左上品牌 Logo 回首页的既有链路不变。不做显眼大按钮。 */
     main.append(link('← Foundations', 'index.html', 'lesson-back'));
     /* v4.11.16：分母改为 data.lessons.length 推导，扩课不再需要改这一行。 */
     main.append(node('p', `第 ${String(index + 1).padStart(2, '0')} / ${data.lessons.length} 课 · ${data.groups[lesson.group].zh}`, 'meta'));
     main.append(node('h1', lesson.zh), node('p', lesson.title, 'english'), node('p', lesson.summary, 'lead'));
     /* v4.11.3 C2（事前）：大课的体量提示——判定由数据算出（progress.Logic.isHeavyLesson，
-     * 读 sections / knowledgeCheck，不硬编码课 id）。用中性事实（章节数 / 自查题数）
-     * 帮读者建立预期，把「重」表达为「值得多安排时间」；措辞纪律：不写
-     * 「这课很难」「容易放弃」等负面暗示。普通课不渲染，避免提示通胀。 */
+     * 读 sections，不硬编码课 id）。用中性事实（章节数）帮读者建立预期，
+     * 把「重」表达为「值得多安排时间」；措辞纪律：不写
+     * 「这课很难」「容易放弃」等负面暗示。普通课不渲染，避免提示通胀。
+     * v4.11.17：官方移除自查题节后，isHeavyLesson 实际只看章节数。 */
     if (progress && progress.Logic.isHeavyLesson(lesson)) {
-      main.append(node('p', `本课体量较大：讲解共 ${lesson.sections.length} 章，官方自查题 ${lesson.official.knowledgeCheck.length} 道，值得多安排一些学习时间。`, 'notice'));
+      main.append(node('p', `本课体量较大：讲解共 ${lesson.sections.length} 章，值得多安排一些学习时间。`, 'notice'));
     }
     const start = node('div', undefined, 'official-start');
     start.append(officialButton(lesson));
@@ -6965,7 +6954,7 @@
     });
   }
 
-  /* v2 中文自足讲解布局：当前 20 课均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
+  /* v2 中文自足讲解布局：当前 46 课均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
   function renderLessonV2(lesson) {
     main.classList.add('lesson-v2');
     const chapterIds = [];
@@ -6984,13 +6973,17 @@
     /* v4.11.3 A：class 由 muted 提升为 lesson-guide（带左色条的提示块）。
      * v4.11.5（交接 3.B）：补一个分句告知 Assignment 标题旁有直达「本课外部
      * 资料」的页内链接（该事实全页只在这里说一次，官方任务节引导语不复述）。
-     * v4.11.16：Project 课（recipes）没有官方 Knowledge Check，不得声称「官方
-     * 自查题的题目与中文答案也全部渲染在本页」——按数据分支换成本站自测的说法；
-     * D1 三要素（中文辅助 / 自查答案在本页 / 不必先啃英文）保持齐全。 */
-    const selfCheckSentence = lesson.official.knowledgeCheck.length
-      ? '官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页。'
-      : '本站自测题的答案也全部渲染在本页。';
-    why.append(node('p', `${whyHasResources ? '本课要求的外部文章与视频，本站都备好了中文辅助——官方中文版入口、本站中文精译或中文速览，都在「官方任务」一节末尾的「本课外部资料」里，任务标题旁的链接可直达；' : ''}${selfCheckSentence}你可以直接在本页学完这一课并自查，不必先去啃英文原文。`, 'lesson-guide'));
+     * v4.11.16 起按课型分支的说法（Project 课无官方自查题）在 v4.11.17 统一：
+     * 官方 2026-09-23 移除课末自查题节后，全站课页的自查答案都只有本站自测一类，
+     * 因此该分句固定为本站自测的说法，不再分支；D1 三要素
+     * （中文辅助 / 自查答案在本页 / 不必先啃英文）保持齐全。
+     * v4.11.19：零外部资料课（首个为课 26 Introduction to Flexbox，官方该课
+     * 无任何学习资料外链）补第三分支——不承诺不存在的「本课外部资料」（与下方
+     * 跳转链接守卫同一口径），但「中文辅助」三要素仍齐：此语境下本站的中文
+     * 辅助就是本页中文讲解与自测本身。 */
+    why.append(node('p', `${whyHasResources
+      ? '本课要求的外部文章与视频，本站都备好了中文辅助——官方中文版入口、本站中文精译或中文速览，都在「官方任务」一节末尾的「本课外部资料」里，任务标题旁的链接可直达；'
+      : '这一课官方没有布置外部文章与视频，本站的中文辅助就是本页的中文讲解与自测。'}本站自测题的答案也全部渲染在本页。你可以直接在本页学完这一课并自查，不必先去啃英文原文。`, 'lesson-guide'));
     main.append(why);
 
     const explain = section('中文讲解', 'section-explain');
@@ -7062,60 +7055,66 @@
 
     const official = section('官方任务', 'section-official');
     /* v4.11.5（交接 3.A / 3.B，CONTENT-STYLE-GUIDE.md 第 3、9 节）：仍是两句——
-     * 第一句说本页有什么 + 两个列表可以用标题旁的按钮收起展开，第二句说外部资料
+     * 第一句说本页有什么 + 列表可以用标题旁的按钮收起展开，第二句说外部资料
      * 去哪里找。v4.11.4 口径不变：官方入口全页只剩页顶 .official-start 一个，
      * 节级直接子 <a> 保持为 0（跳转入口挂在 Assignment 标题内，见下）。
-     * v4.11.16：Project 课（recipes）没有 Exercise 与 Knowledge Check，引导语
-     * 按数据分支只说 Assignment——不得描述页面上不存在的区块；两句结构不变。 */
-    official.append(node('p', lesson.official.knowledgeCheck.length
-      ? '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化版本，Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'
-      : '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。', 'lesson-guide'));
+     * v4.11.17：官方 2026-09-23 移除课末自查题节后，本节固定只有 Assignment
+     * 一个列表（部分课另有 Exercise），引导语按数据分支只说实际存在的区块——
+     * 不得描述页面上不存在的列表；两句结构不变。
+     * v4.11.19：零外部资料课（首个为课 26）再补一分支——第二句不说「就在
+     * 本节末尾的『本课外部资料』」，那是不存在的落点；改为如实说明本课
+     * 没有外部资料。与第 1 节引导、下方跳转链接守卫同一口径。 */
+    const officialResourceCount = (resourceData && Array.isArray(resourceData.resources))
+      ? resourceData.resources.filter(resource => resource.lessonId === lesson.id).length : 0;
+    /* v4.11.20 第九批：第 46 课（结语课）是官方唯一的无 Assignment 课——前言如实说明，
+     * 不描述页面上不存在的 Assignment 列表（与零资料课分支同一口径）。 */
+    const noOfficialAssignment = lesson.official.assignment.length === 0;
+    official.append(node('p', noOfficialAssignment
+      ? '这一课官方没有布置 Assignment（结语课，官方文件顶部声明因独特的课结构豁免常规布局）。本站只收录官方正文的中文化梳理与本站自拟的回顾任务；正文推荐的外部文章在下方「本课外部资料」有中文辅助入口。'
+      : (officialResourceCount === 0
+      ? '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这一课官方没有布置外部资料，跟着本页讲解与任务说明往下走即可。'
+      : (lesson.official.exercise.length
+        ? '以下是官方原课的 Assignment 与 Exercise 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'
+        : '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。')), 'lesson-guide'));
     /* v4.11.5（交接 3.B）：页内跳转入口——<a> 挂在 Assignment 标题（h3）内，
      * 不是节级直接子 <a>；文字与资源区标题逐字一致（风格指南第 9 节），是页内
      * 锚点不是外链，不加 ↗。目标资源区永不折叠，原生锚点直达、无需先展开。
      * 本课没有外部资料时不渲染——不承诺不存在的落点（与第 1 节引导同一口径）。 */
-    const officialResourceCount = (resourceData && Array.isArray(resourceData.resources))
-      ? resourceData.resources.filter(resource => resource.lessonId === lesson.id).length : 0;
     const collapseNow = officialTasksCollapsed();
-    const assignmentHead = node('h3', 'Assignment（必做）');
-    if (officialResourceCount) {
-      assignmentHead.append(link(`本课外部资料（本站中文辅助 · ${officialResourceCount} 条）`, '#lesson-resources', 'resource-jump'));
+    /* v4.11.20 第九批：官方无 Assignment 的课（当前仅第 46 课结语课）不渲染
+     * 「Assignment（必做）」标题与空列表——渲染空的「必做」列表是对官方结构的失实。 */
+    if (!noOfficialAssignment) {
+      const assignmentHead = node('h3', 'Assignment（必做）');
+      if (officialResourceCount) {
+        assignmentHead.append(link(`本课外部资料（本站中文辅助 · ${officialResourceCount} 条）`, '#lesson-resources', 'resource-jump'));
+      }
+      assignmentHead.append(buildCollapseToggle('official-assignment-body', OFFICIAL_COLLAPSE_LABELS.assignment, collapseNow));
+      const assignmentBody = buildCollapseBody('official-assignment-body', collapseNow);
+      assignmentBody.append(taskList(lesson.official.assignment, lesson.id, taskLinkMap(lesson.id), true));
+      official.append(assignmentHead);
+      official.append(assignmentBody);
     }
-    assignmentHead.append(buildCollapseToggle('official-assignment-body', OFFICIAL_COLLAPSE_LABELS.assignment, collapseNow));
-    const assignmentBody = buildCollapseBody('official-assignment-body', collapseNow);
-    assignmentBody.append(taskList(lesson.official.assignment, lesson.id, taskLinkMap(lesson.id, 'a'), true));
-    official.append(assignmentHead);
-    official.append(assignmentBody);
     if (lesson.official.exercise.length) official.append(node('h3', 'Exercise（动手练习）'), list(lesson.official.exercise, true));
-    if (lesson.official.knowledgeCheck.length) {
-      const kcHead = node('h3', 'Knowledge Check（官方自查）');
-      kcHead.append(buildCollapseToggle('official-kc-body', OFFICIAL_COLLAPSE_LABELS.kc, collapseNow));
-      const kcBody = buildCollapseBody('official-kc-body', collapseNow);
-      const kcList = node('div', undefined, 'kc-list');
-      /* v4.11.2 C：官方 KC 题目若被官方原文链接到某份外部资料，题号后追加
-       * 内联链接（映射与依据见 lesson-task-links.js）；页内锚点题不接。 */
-      const kcLinks = taskLinkMap(lesson.id, 'k');
-      lesson.official.knowledgeCheck.forEach((item, kcIndex) => {
-        const kcItem = node('div', undefined, 'kc-item');
-        const kcQuestion = node('p', item.q, 'kc-q');
-        const kcUrls = kcLinks ? kcLinks[kcIndex + 1] : null;
-        if (Array.isArray(kcUrls) && kcUrls.length) appendTaskLinks(kcQuestion, lesson.id, kcUrls);
-        kcItem.append(kcQuestion, node('p', item.a, 'kc-a'));
-        kcList.append(kcItem);
-      });
-      kcBody.append(kcList);
-      official.append(kcHead);
-      official.append(kcBody);
-    }
+    /* v4.11.17：官方 2026-09-23 移除课末自查题节，本站同步下线——这一段的
+     * 自查题渲染区块（标题 + 折叠按钮 + 受控容器 + 题目列表）整块删除，
+     * 不留永远不走的 if 分支与死样式。数据侧的自查题字段保留为空数组
+     * （语义＝本站收录的官方自查题数），由 content.test.cjs 反向钉住：
+     * 官方若恢复该节、有人往任意一课塞回一道题，测试先红。 */
     const optionalItems = lesson.official.optional.concat(lesson.optional);
     if (optionalItems.length) official.append(node('h3', '官方可选项 / 替代方式'), list(optionalItems));
     if (lesson.note) official.append(node('p', lesson.note, 'notice'));
-    official.append(node('p', '官方原课未单列 Additional Resources 栏目。下方「本课外部资料」是官方正文与 Assignment 中明确要求学习的外部资料，属于任务的一部分而不是可选补充；不要把 Assignment 误当成可选。', 'meta'));
+    /* v4.11.19：零外部资料课不渲染这句说明——它描述的是下方资源区的内容来源，
+     * 资源区整块不渲染时这句话就成了对不存在区块的悬空引用。 */
+    if (officialResourceCount > 0) {
+      official.append(node('p', noOfficialAssignment
+        ? '官方原课未单列 Additional Resources 栏目。下方「本课外部资料」是官方正文中明确推荐阅读的外部资料（本课无 Assignment）；官方语气为推荐而非必做，资料卡内已如实标注。'
+        : '官方原课未单列 Additional Resources 栏目。下方「本课外部资料」是官方正文与 Assignment 中明确要求学习的外部资料，属于任务的一部分而不是可选补充；不要把 Assignment 误当成可选。', 'meta'));
+    }
     buildResourceBlock(lesson).forEach(part => official.append(part));
     main.append(official);
 
     const quiz = section('简单自测', 'section-quiz');
-    quiz.append(node('p', '先用自己的话回答，再展开参考答案。这是本站编写的小检查，不是官方试题；官方自查题见上方“官方任务”里的 Knowledge Check。', 'muted'));
+    quiz.append(node('p', '先用自己的话回答，再展开参考答案。这是本站编写的小检查，不是官方试题，答案在下面的折叠区里。', 'muted'));
     const questions = node('ol', undefined, 'quiz-list');
     lesson.quiz.forEach((item, questionIndex) => {
       const question = node('li', undefined, 'quiz-item');

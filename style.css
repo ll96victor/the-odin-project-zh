@@ -97,7 +97,6 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 .pitfall { margin-top: var(--space-lg); padding: var(--space-md) var(--space-lg); background: var(--color-wash); border-left: 4px solid var(--color-warn); border-radius: 0 var(--radius-small) var(--radius-small) 0; }
 .pitfall h3 { margin-block: 0 var(--space-sm); }
 .pitfall p { margin-top: 0; }
-.kc-list { margin-top: var(--space-md); }
 .kc-item { padding: var(--space-md) 0; border-bottom: 1px solid var(--color-rule); }
 .kc-item:last-child { border-bottom: none; }
 .kc-q { font-weight: 600; }

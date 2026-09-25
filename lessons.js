@@ -1,6 +1,6 @@
 /* 中文导读改写自 The Odin Project；来源及 CC BY-NC-SA 4.0 说明见 SOURCES.md。 */
 window.ODIN_GUIDE = {
-  "verifiedAt": "2026-09-09",
+  "verifiedAt": "2026-09-25",
   "courseUrl": "https://www.theodinproject.com/paths/foundations/courses/foundations",
   "groups": [
     {
@@ -18,6 +18,22 @@ window.ODIN_GUIDE = {
     {
       "en": "HTML Foundations",
       "zh": "HTML 基础"
+    },
+    {
+      "en": "CSS Foundations",
+      "zh": "CSS 基础"
+    },
+    {
+      "en": "Flexbox",
+      "zh": "Flexbox 布局"
+    },
+    {
+      "en": "JavaScript Basics",
+      "zh": "JavaScript 基础"
+    },
+    {
+      "en": "Conclusion",
+      "zh": "结语与下一步"
     }
   ],
   "lessons": [
@@ -49,10 +65,6 @@ window.ODIN_GUIDE = {
           "zh": "用于动手练习的小任务"
         },
         {
-          "en": "Knowledge Check",
-          "zh": "学完后的自我检查"
-        },
-        {
           "en": "Additional Resources",
           "zh": "补充资料，通常可选"
         }
@@ -60,8 +72,7 @@ window.ODIN_GUIDE = {
       "tasks": [
         "阅读官方正文，了解课程、查资料和学习英语的说明。",
         "完成 Assignment：阅读 TOP 的 About 页面。",
-        "继续阅读官方 FAQ（常见问题）。",
-        "回答官方 Knowledge Check；不清楚的地方返回正文。"
+        "继续阅读官方 FAQ（常见问题）。"
       ],
       "quiz": [
         {
@@ -93,8 +104,8 @@ window.ODIN_GUIDE = {
           "h": "每一课是怎么组织的",
           "p": [
             "TOP 的课程靠“聚合”工作：每一课先介绍主题、给出有用的背景，然后把你指向别人制作的外部资源——文章、视频、文档。所以你会经常从课程页跳到 MDN、YouTube 或其他网站，这不是附带内容，那就是正课本身。",
-            "大多数课都带有你应该在继续前进之前能回答的问题，也就是 Knowledge Check（自我检查）；有些课包含供你完成的 Exercise（练习）；此外整个课程中穿插着多个 Project（项目），让你通过真正动手构建东西来加深理解。",
-            "换句话说，一课的完整闭环是：读本课正文和它指定的外部资料 → 动手做练习（如果有）→ 回答 Knowledge Check 确认自己理解了 → 再进入下一课。本站每课的“官方任务”栏目就是把这条闭环按官方原文列出来。"
+            "大多数课都带有你应该在继续前进之前能回答的问题；有些课包含供你完成的 Exercise（练习）；此外整个课程中穿插着多个 Project（项目），让你通过真正动手构建东西来加深理解。",
+            "换句话说，一课的完整闭环是：读本课正文和它指定的外部资料 → 动手做练习（如果有）→ 确认自己理解了再进入下一课。本站每课的“官方任务”栏目就是把这条闭环按官方原文列出来。"
           ]
         },
         {
@@ -152,22 +163,13 @@ window.ODIN_GUIDE = {
           "浏览 TOP 的 FAQ（常见问题，https://www.theodinproject.com/faq）。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is The Odin Project?（The Odin Project 是什么？）",
-            "a": "一个开源社区，致力于聚合互联网上最好的信息源，把学习者从零带到全栈开发者。"
-          },
-          {
-            "q": "Should you skip anything in The Odin Project or complete it non-linearly?（应该跳过某些内容或非线性地学吗？）",
-            "a": "不应该。课程的一切都是有意编排的，每部分都建立在之前内容之上；除非明确标注，只有 Additional Resources 可选。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 how_this_course_will_work.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "67d649b15ce14d2f11a34ebe8d4f46930bc56e468803337da1593599721ec73e",
-        "verifiedAt": "2026-09-09"
+        "sha256": "ebb184d719e42783432008dcadeeb288bf6b2ccfb28a2ec91d0a067ea0cb6845",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -205,8 +207,7 @@ window.ODIN_GUIDE = {
       "tasks": [
         "阅读正文中的开发分工、工作类型和工具介绍。",
         "完成 Assignment：阅读 Why Learning to Code is So Damn Hard。",
-        "阅读 Udacity 的 front-end、back-end、full stack 对比文章。",
-        "回答官方 Knowledge Check。"
+        "阅读 Udacity 的 front-end、back-end、full stack 对比文章。"
       ],
       "quiz": [
         {
@@ -316,26 +317,13 @@ window.ODIN_GUIDE = {
           "阅读 Udacity 的博客文章，比较 front-end、back-end 与 full stack 三种开发者的区别。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What kind of web developer will The Odin Project teach you to be?（TOP 要把你培养成哪种网页开发者？）",
-            "a": "全栈开发者（full-stack）——前端和后端都能上手，覆盖网页开发的各个方面。"
-          },
-          {
-            "q": "What are the different types of careers you could have?（可能有哪些职业形态？）",
-            "a": "大型科技公司、初创公司、自由职业、网页咨询公司顾问、大型老牌公司，共五类。"
-          },
-          {
-            "q": "What are some of the tools you'll be using regularly?（你会经常用到哪些工具？）",
-            "a": "电脑、搜索引擎、文本编辑器、命令行界面（CLI）、Stack Overflow、Git、GitHub。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 introduction_to_web_development.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "15516fb43ea8b4e9ca80495be45e80ae694c5fbdd8fc45d67cde6a40abc030e5",
-        "verifiedAt": "2026-09-09"
+        "sha256": "a3564f8880aaea1b05d2b4e951bf97a486fd8f0d6418b782984b2a1e4dc51db5",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -373,8 +361,7 @@ window.ODIN_GUIDE = {
       "tasks": [
         "阅读正文，包括 A note on AI code generation 和需要避免的学习习惯。",
         "完成 Assignment：阅读 how to become a TOP Success Story。",
-        "按官方说明，在加入 TOP Discord 后阅读 Success Stories 论坛；尚未加入时，到第 5 课完成加入后回来读。",
-        "回答官方 Knowledge Check。"
+        "按官方说明，在加入 TOP Discord 后阅读 Success Stories 论坛；尚未加入时，到第 5 课完成加入后回来读。"
       ],
       "quiz": [
         {
@@ -527,26 +514,13 @@ window.ODIN_GUIDE = {
           "加入 TOP Discord 服务器之后，去服务器的 Success Stories 论坛读读别人的成功经历，给自己的动力加点油。注意官方写的是“一旦你加入 Discord 之后”，所以如果你还没加入，可以等到第 5 课带你加入之后再回来补做这一项。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What are the two modes your mind switches between during the learning process, and how do they differ?（学习过程中大脑在两种模式之间切换，它们是什么、有何不同？）",
-            "a": "专注模式是有意识地学习——阅读、看视频、做项目；发散模式是在你没有主动学习时（洗碗、运动、睡觉）潜意识把新学的东西与已有知识连接起来，突破常发生在这里。"
-          },
-          {
-            "q": "When you're stuck on a programming problem, what three main strategies does the curriculum recommend trying?（卡在编程问题上时，课程推荐哪三种主要策略？）",
-            "a": "去研究（搜索别人是否遇到过同样问题）、休息一下（让发散模式工作）、到 TOP Discord 带着你的研究去求助。"
-          },
-          {
-            "q": "Why does the curriculum recommend against setting strict deadlines for completing The Odin Project?（为什么课程不建议为完成 TOP 设定严格的截止日期？）",
-            "a": "截止日期带来不必要的压力，会让你匆忙冲过本不该赶的概念；这门课高度依赖研究，没人能保证你按时找到对的资料；压力和焦虑也无助于学习。TOP 免费开放、没有截止日期，你可以花足够时间把它做对。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 motivation_and_mindset.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "b823d2d5ae49e2c0304a6e70097d877aa66e10468f9cad4033b622d9f1d137b8",
-        "verifiedAt": "2026-09-09"
+        "sha256": "4430feaa678caf96dbe52d4278a429e532c7ee40cf72c5da88f143ec6586df33",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -588,8 +562,7 @@ window.ODIN_GUIDE = {
         "阅读官方正文中的提问方式。",
         "完成 Assignment：阅读 Don’t ask to ask, just ask。",
         "阅读 XY Problem。",
-        "阅读并收藏 TOP 的 How to Ask Technical Questions 社区指南。",
-        "回答官方 Knowledge Check。"
+        "阅读并收藏 TOP 的 How to Ask Technical Questions 社区指南。"
       ],
       "quiz": [
         {
@@ -682,22 +655,13 @@ window.ODIN_GUIDE = {
           "阅读并收藏 TOP 社区指南 How to Ask Technical Questions（怎样提技术问题）。官方说这是你需要求助时随时可查的好参考，而且在思考文中列出的那些要点时，你可能会自己就把问题解决了。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is the “XY Problem”?（什么是 “XY Problem”？）",
-            "a": "一种提问陷阱：你真正要解决的是 X，却把自己猜测的解决路径 Y 当成问题去问，于是别人在帮你处理 Y，而 X 始终没有被说清楚。官方这道题指向 xyproblem.info，具体说明以该页面为准。"
-          },
-          {
-            "q": "What 5 things should your questions include?（你的提问应该包含哪 5 样东西？）",
-            "a": "官方这道题指向社区指南 How to Ask Technical Questions，5 项要点以该指南列出的内容为准（官方要求你阅读并收藏它）。本站不复制指南全文，请打开官方链接对照；本课正文已经给出总的原则：提供代码与上下文、聚焦具体问题、说明自己的尝试。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 asking_for_help.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "b9363e0d58bc5c1217439ff470b1f32b2ed414881ede19a6a15b433b5cca7b95",
-        "verifiedAt": "2026-09-09"
+        "sha256": "7bdf2fb7f8388619491d0983625be182df47846632527652898a40cd808ea77a",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -741,7 +705,7 @@ window.ODIN_GUIDE = {
         "完成 Assignment：创建免费的 GitHub 账号；已有账号就使用已有账号。",
         "通过原课入口加入 TOP Discord，在 introductions 房间打招呼并认识各频道。",
         "阅读 Discord 中 TOP META 下的 rules 和 faq，按原课社区规范参与。",
-        "补做第 3 课的 Success Stories 阅读，再回答本课官方 Knowledge Check。"
+        "补做第 3 课的 Success Stories 阅读。"
       ],
       "quiz": [
         {
@@ -806,7 +770,7 @@ window.ODIN_GUIDE = {
         {
           "h": "这五项和第 4 课的关系",
           "p": [
-            "第 4 课的官方 Knowledge Check 让你去社区指南 How to Ask Technical Questions 查“提问应该包含哪 5 样东西”；本课官方正文列出的正是提问时应包含的五项上下文。两处可以对照着记，具体表述仍以官方指南页面为准。",
+            "第 4 课的官方任务里就有社区指南 How to Ask Technical Questions，它列出的提问要素与本课正文说的五项上下文是同一件事。两处可以对照着记，具体表述仍以官方指南页面为准。",
             "这五项的共同点是：它们让帮你的人不必猜。缺了任何一项，对方都得先追问一轮，而这一轮往往就是你多卡住的那半天。"
           ]
         },
@@ -913,26 +877,13 @@ window.ODIN_GUIDE = {
           "守则要点：记住用户名后面是有感情的人，要友善，没什么好话就什么都别说；不会当面说出口的话就不要打字；有目的地 @ 人（只在必要时 @，把问题或评论一起写进消息，等对方回复后再 @）；不要“轰炸”聊天室（把整段话打完再发送）；不要排除任何人（这是公共聊天室，有人加入对话就带上他；例外是有人在帮某个学习者时，那需要一对一进行，以免让学习者困惑）；问完代码问题不要马上消失（确认你有时间留下来讨论）；先花点时间观察服务器再参与（帮你理解这个社区怎样互动和沟通）。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "How do you join The Odin Project's Discord server?（怎样加入 TOP 的 Discord 服务器？）",
-            "a": "用官方 Assignment 里给出的 Discord 邀请链接登录服务器，到 introductions 聊天室打招呼并探索各主题聊天室；参与前先在左侧边栏 TOP META 下读 rules 与 faq。"
-          },
-          {
-            "q": "What makes a good question that's easier for others to help with?（什么样的问题更容易让别人帮上忙？）",
-            "a": "先自己搜索、拆解问题（橡皮鸭调试法），然后直接问而不是先问能不能问，并给出五项上下文：你认为问题是什么、你希望发生什么、实际发生了什么、你怎么走到这一步、你试过什么；配截图时同时提供能重现问题的代码（GitHub 或在线 REPL）。"
-          },
-          {
-            "q": "How can you more effectively help others with their coding problems?（怎样更有效地帮别人解决编程问题？）",
-            "a": "按官方 16 条准则：引导对方自己找到答案而不是直接给、只在自己确定且有时间且没有别人在帮时才出手、把期待调整到对方水平、不回答可以搜到的和课程已覆盖的问题、先解决原问题再指出别的、鼓励用调试器、留意需要退一步或力所不及的学生、保持耐心、感到挫败就礼貌退出。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 join_the_odin_community.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "21ec5016df0142f01d1c84068e41242d0c6ee5726eef20e735e7c1ec7d2f3170",
-        "verifiedAt": "2026-09-09"
+        "sha256": "fa8578d6c1821cf7bad61c98bc800dfa577898e5be2ab53f1f13830dda4fcb8f",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -988,8 +939,7 @@ window.ODIN_GUIDE = {
         "看 How the Internet Works in 5 Minutes。",
         "阅读 web page、web server、search engine 的区别。",
         "看 Google 的浏览器短片，再用指定网站查看你当前的浏览器名称和版本。",
-        "阅读不同网页组成部分如何协作的资料；阅读 MDN 的 DNS 请求说明，或观看官方给出的替代视频。",
-        "逐项回答官方 Knowledge Check，包括 router、ISP 和搜索 google.com 的过程。"
+        "阅读不同网页组成部分如何协作的资料；阅读 MDN 的 DNS 请求说明，或观看官方给出的替代视频。"
       ],
       "quiz": [
         {
@@ -1018,8 +968,8 @@ window.ODIN_GUIDE = {
         {
           "h": "本课的特殊之处：正文在外链里",
           "p": [
-            "这一课和别的课不一样：官方页面正文只有短短的介绍和学习目标，没有展开讲任何知识点。真正的学习内容全在 Assignment 指定的六组资料里——BBC 和 Google 的短片、YouTube 上的科普视频、Mozilla（MDN）的四篇文章。官方给这一课配了 15 道 Knowledge Check，全部指向这些资料，是 20 课里检查题最多的一课。",
-            "所以这一课的正确打开方式是：先把 Assignment 六组资料逐一看完读完，再回到官方页面逐题回答 Knowledge Check；不是读完官方页面就算学完。官方在介绍里说明了目的：在学会编程 Web 之前，你需要对 Web 本身有比现在更严格的理解；这些概念让你对整个生态系统有完整的认识，也让你能和其他开发者有质量地谈论你的工作。下面几节先帮你把概念框架搭好，再去看资料就容易吸收了。"
+            "这一课和别的课不一样：官方页面正文只有短短的介绍和学习目标，没有展开讲任何知识点。真正的学习内容全在 Assignment 指定的六组资料里——BBC 和 Google 的短片、YouTube 上的科普视频、Mozilla（MDN）的四篇文章。",
+            "所以这一课的正确打开方式是：把 Assignment 六组资料逐一看完读完；不是读完官方页面就算学完。官方在介绍里说明了目的：在学会编程 Web 之前，你需要对 Web 本身有比现在更严格的理解；这些概念让你对整个生态系统有完整的认识，也让你能和其他开发者有质量地谈论你的工作。下面几节先帮你把概念框架搭好，再去看资料就容易吸收了。"
           ]
         },
         {
@@ -1064,7 +1014,7 @@ window.ODIN_GUIDE = {
         {
           "h": "五个最容易混淆的概念",
           "p": [
-            "官方专门指定了一篇 MDN 文章来区分它们，Knowledge Check 也分别提问，值得逐个记牢：",
+            "官方专门指定了一篇 MDN 文章来区分它们，值得逐个记牢：",
             "网页（web page）：一个可以在浏览器里显示的文档，你现在读的每一个页面都是一张网页。网站（website）：许多网页的集合，通常挂在同一个域名下。Web 服务器（web server）：存储网页并在收到请求时把它们发出去的软件，以及运行它的机器。浏览器（web browser）：发出请求、接收页面文件并把它渲染成可见页面的软件，比如 Chrome、Firefox、Safari。搜索引擎（search engine）：帮你查找网页的服务，比如 Google Search。"
           ],
           "list": [
@@ -1085,15 +1035,15 @@ window.ODIN_GUIDE = {
       "pitfalls": [
         {
           "title": "把浏览器、搜索引擎、Web 服务器混为一谈",
-          "text": "Chrome 是浏览器（打开页面的软件），Google Search 是搜索引擎（帮你找网页的服务），Web 服务器是存储并发送页面的软件和机器。官方专门指定 MDN 文章区分它们，Knowledge Check 也分开提问；这三个概念一旦混淆，后面所有术语都会跟着乱。"
+          "text": "Chrome 是浏览器（打开页面的软件），Google Search 是搜索引擎（帮你找网页的服务），Web 服务器是存储并发送页面的软件和机器。官方专门指定 MDN 文章区分它们，值得逐个记牢；这三个概念一旦混淆，后面所有术语都会跟着乱。"
         },
         {
           "title": "试图一次背下所有协议细节",
-          "text": "这一课的目标是整体心智模型：谁发请求、谁响应、数据怎么传、域名怎么变成地址。数据包的内部格式、DNS 各级服务器的缓存机制等细节，官方明确说不期待你记忆或掌握（KC 开头原话如此），后续课程会反复强化。把力气花在“能用自己的话讲一遍流程”上。"
+          "text": "这一课的目标是整体心智模型：谁发请求、谁响应、数据怎么传、域名怎么变成地址。数据包的内部格式、DNS 各级服务器的缓存机制等细节，官方明确说不期待你记忆或掌握，后续课程会反复强化。把力气花在“能用自己的话讲一遍流程”上。"
         },
         {
-          "title": "只看视频，不回官方页面答 Knowledge Check",
-          "text": "本课的 15 道 KC 就是官方划定的掌握范围，还包括两道动手题：用 whatsmybrowser.org 查出自己正在用的浏览器和版本、用自己的话描述在 google.com 发起搜索的全过程。看完每组资料后回到官方页面逐题作答，才知道自己漏了什么。"
+          "title": "只看视频，不读官方指定的文章",
+          "text": "六组资料里既有视频也有文章：视频讲得直观，文章给出准确的定义与术语。只看视频不读文章，容易记住画面却说不准概念。看完视频后把对应的 MDN 文章读一遍，才知道自己漏了什么。"
         }
       ],
       "official": {
@@ -1102,78 +1052,17 @@ window.ODIN_GUIDE = {
           "阅读 Mozilla（MDN）文章 How does the internet work?（互联网是如何工作的）。",
           "观看视频 How the Internet Works in 5 Minutes（五分钟了解互联网）。",
           "阅读 MDN 文章，弄清 web page（网页）、web server（Web 服务器）与 search engine（搜索引擎）的区别。",
-          "观看 Google 解释“什么是浏览器”的短片；然后打开 whatsmybrowser.org，查出你当前使用的浏览器名称和版本号——官方 Knowledge Check 会问这一题。",
+          "观看 Google 解释“什么是浏览器”的短片；然后打开 whatsmybrowser.org，查出你当前使用的浏览器名称和版本号。",
           "阅读 MDN 关于 Web 各组成部分如何协作的资料（clients and servers 部分），再阅读 MDN 讲解一次 DNS 请求如何发生的文章；DNS 这部分官方另给了一个替代视频，文章或视频二选一即可，不需要都做。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is a web server?（Web 服务器是什么？）",
-            "a": "存储网页并在收到请求时把它们发送出去的软件，以及运行它的机器。"
-          },
-          {
-            "q": "What is a network?（网络是什么？）",
-            "a": "把多台设备互联起来、让它们能互相通信的系统。"
-          },
-          {
-            "q": "What is the internet?（互联网是什么？）",
-            "a": "把全世界许多网络连接起来的超大网络。"
-          },
-          {
-            "q": "What is an IP address?（IP 地址是什么？）",
-            "a": "网络上每台设备的定位地址，数据靠它才能送到正确的设备。"
-          },
-          {
-            "q": "What is a router?（路由器是什么？）",
-            "a": "转发网络数据的设备，决定数据包下一跳往哪个方向走。"
-          },
-          {
-            "q": "What is an ISP?（ISP 是什么？）",
-            "a": "Internet Service Provider，互联网服务提供商，为你提供接入互联网的连接。"
-          },
-          {
-            "q": "What are packets and how are they used to transfer data?（数据包是什么，如何用它们传输数据？）",
-            "a": "数据被切成的小份，每份带寻址信息独立传输，可以走不同路线，到达后重组成完整数据。"
-          },
-          {
-            "q": "What is a client?（客户端是什么？）",
-            "a": "发出请求的一方，比如浏览器。"
-          },
-          {
-            "q": "What is a server?（服务器是什么？）",
-            "a": "提供内容或服务、响应请求的一方。"
-          },
-          {
-            "q": "What is a web page?（网页是什么？）",
-            "a": "一个可以在浏览器中显示的文档。"
-          },
-          {
-            "q": "What is a web browser?（浏览器是什么？）",
-            "a": "发出请求、接收并渲染页面的软件，例如 Chrome。"
-          },
-          {
-            "q": "What is a search engine?（搜索引擎是什么？）",
-            "a": "帮助查找网页的服务，例如 Google Search；它不是浏览器。"
-          },
-          {
-            "q": "What is a DNS request?（DNS 请求是什么？）",
-            "a": "把域名翻译成 IP 地址的查询过程：从浏览器和操作系统的缓存开始，再经解析器逐级查询域名服务器。"
-          },
-          {
-            "q": "Which browser are you currently using?（你现在用的是哪个浏览器？）",
-            "a": "动手题：打开 whatsmybrowser.org 查看，记住自己的浏览器名称和版本号。"
-          },
-          {
-            "q": "In your own words, describe the process that takes place when you initiate a search on google.com.（用自己的话描述在 google.com 发起搜索时发生的过程。）",
-            "a": "按“DNS 解析 → 发出请求 → 服务器响应 → 浏览器渲染”讲一遍：浏览器先请 DNS 把 www.google.com 翻译成 IP 地址，向该地址发出请求，请求拆成数据包经路由器转发到 Google 的服务器，服务器返回结果页面，浏览器收包组装并渲染给你看。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 how_does_the_web_work.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "a2b61415e0f99792dd8f2151ca819714beb2a6cf1b075212a61a75cf2fa36e6d",
-        "verifiedAt": "2026-09-09"
+        "sha256": "b95192604e2d697207b5723a318a7b53604886ebab72fb2489e73ebd317a99f5",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -1216,7 +1105,7 @@ window.ODIN_GUIDE = {
         "核对官方 Supported operating systems 与你当前的系统。",
         "如果不在受支持环境，按 Assignment 选择一种指南：虚拟机、双系统、ChromeOS 或 WSL2；只做适合自己的一种。",
         "在受支持环境中，按官方对应分支安装 Google Chrome。Mac 用户直接使用 macOS 指南。",
-        "已满足系统和 Chrome 条件时，按官方允许的跳过规则继续下一课；其余情况完成安装后回答 Knowledge Check。"
+        "已满足系统和 Chrome 条件时，按官方允许的跳过规则继续下一课；其余情况完成安装。"
       ],
       "quiz": [
         {
@@ -1350,26 +1239,16 @@ window.ODIN_GUIDE = {
           "第 1 步的官方警告：这门课程只支持笔记本电脑、台式机或受支持的 Chromebook，无法帮你在 RaspberryPi 或任何其他设备上搭建开发环境；只有当你不是在用 macOS、Ubuntu 或 Ubuntu 官方风味版时才需要跟这组说明，已经在用受支持的软硬件可以直接跳到第 2 步。",
           "第 2 步：为你的操作系统安装 Google Chrome。官方给了三份分支指南：Linux（给 VM 或双系统用户，**不是**给 WSL2 用户）、macOS、WSL2。请打开与你实际路线对应的那一份。",
           "第 2 步附带说明：官方重申课程使用 Google Chrome、Chrome 与 Chromium 被开发者和用户压倒性地使用，因此这些推荐是非常有意的，并让你查看浏览器使用份额统计表，看看其他人最常用什么。",
-          "官方提示（tip 框）：Google Chrome 是你在整套课程中会使用的最重要工具之一，官方给了一份常用快捷键参考（包含标签页与窗口快捷键），可以收藏备用。",
-          "逐项回答官方 Knowledge Check 的 2 个问题。"
+          "官方提示（tip 框）：Google Chrome 是你在整套课程中会使用的最重要工具之一，官方给了一份常用快捷键参考（包含标签页与窗口快捷键），可以收藏备用。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What operating systems does The Odin Project support?（TOP 支持哪些操作系统？）",
-            "a": "macOS，以及 Ubuntu 和 Ubuntu 的官方风味版。不在这些系统上时，官方支持通过 VirtualBox 虚拟机（推荐）、双系统、ChromeOS/ChromeOS Flex 或 WSL2（标为高级）来运行 Linux。原生 Windows 不受支持，其他 Linux 发行版（包括 Mint、Pop!_OS 等“基于 Ubuntu 或 Debian”的）也不受支持；硬件只支持笔记本、台式机或受支持的 Chromebook。"
-          },
-          {
-            "q": "What browser does The Odin Project support?（TOP 支持哪个浏览器？）",
-            "a": "只支持 Google Chrome。课程的说明和截图都假设你在用 Chrome，它自带的开发者工具会在整套课程中用于检查、调试和测试；其他浏览器的问题与差异官方不提供支持。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 installations.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "498a87c8a66f40ad9bb8a06834104a3ced53979b7229500aa492d3da85e7355e",
-        "verifiedAt": "2026-09-09"
+        "sha256": "972b5892df337f48cc77757481f7e730ccdab35440b26e38a18e97817ee9cb3f",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -1413,7 +1292,7 @@ window.ODIN_GUIDE = {
         "完成 Assignment：按 Linux、macOS 或 WSL2 对应指南安装 VS Code。",
         "了解 VS Code docs 和快捷键的查找入口。",
         "观看 VSCode Tutorial for Beginners，重点看编辑器如何使用，不必跟写。",
-        "在设置中搜索 Disable AI Features 并勾选；回答官方 Knowledge Check。"
+        "在设置中搜索 Disable AI Features 并勾选。"
       ],
       "quiz": [
         {
@@ -1518,26 +1397,16 @@ window.ODIN_GUIDE = {
           "往后如果 VSCode 有任何问题，或者想了解某些功能，查 VSCode 官方文档（VSCode docs）。里面还有很多键盘快捷键可用，其中一些可能和你的操作系统相关，需要时自行查阅。",
           "观看官方指定的 VSCode Tutorial for Beginners 视频，了解 VSCode 提供的各种功能，熟悉它能帮你节省时间、提高效率。官方明确说不必跟着写代码，只看 VSCode 在视频中是怎样被使用的。",
           "关闭 Visual Studio Code 中默认开启的 Copilot AI 代码补全功能：在 VSCode 里打开设置（File > Preferences > Settings），搜索 “Disable AI Features”，勾选同名标题下的复选框。",
-          "想理解为什么 TOP 认为你应该关闭这个功能，回看第 3 课 Motivation and Mindset 的 A note on AI code generation 小节。",
-          "逐项回答官方 Knowledge Check 的 2 个问题。"
+          "想理解为什么 TOP 认为你应该关闭这个功能，回看第 3 课 Motivation and Mindset 的 A note on AI code generation 小节。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is a code editor?（什么是代码编辑器？）",
-            "a": "专门的网页开发工具，高度可定制，提供插件、语法高亮、自动闭合括号和大括号、linting 等功能，帮你写出更好的代码、避免像漏掉一个右括号这类耗时错误。它保存纯文本，所以其他程序能把文件当作代码读取并执行。"
-          },
-          {
-            "q": "Which code editor does The Odin Project support?（TOP 支持哪一款代码编辑器？）",
-            "a": "Visual Studio Code（VSCode）。它免费、易用、在各操作系统上行为几乎一致，也是 Odin 学生和版主中最流行的编辑器；课程假设你在用它，用其他文本编辑器将无法获得帮助。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 text_editors.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "f310ff092d98fd3a8a1b3b9b6adf236518ab22dcfa13f10666aa642e05b18fd0",
-        "verifiedAt": "2026-09-09"
+        "sha256": "4fbd90bfc03829e485889cd4458544b8ad6727e174a4c4a923baa799e5dfbbb6",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -1586,8 +1455,7 @@ window.ODIN_GUIDE = {
         "按 Assignment 准备：仅缺少 Desktop 文件夹时创建；WSL2 用户遵循专用下载、解压和主目录说明。",
         "完成 Software Carpentry 的 Download files 部分，以及 Introducing the Shell、Navigating Files and Directories、Working With Files and Directories 三课；按 TOP 说明不做其余安装部分。",
         "完成第一组练习：用 mkdir、touch、cd 创建文件夹及网页常见文件，例如 index.html、style.css 和图片目录。这里只练文件操作，不学 CSS。",
-        "完成第二组练习：在主目录创建 test，进入后建 test.txt，用 VS Code 修改并保存，退出该目录后删除本次测试目录。",
-        "回答官方 Knowledge Check，核对导航、创建、改名与删除。"
+        "完成第二组练习：在主目录创建 test，进入后建 test.txt，用 VS Code 修改并保存，退出该目录后删除本次测试目录。"
       ],
       "quiz": [
         {
@@ -1757,7 +1625,7 @@ window.ODIN_GUIDE = {
         {
           "lang": "bash",
           "code": "mkdir test\ncd test\ntouch test.txt\n# 第 4 步：在 VS Code 里打开 test.txt，做修改，保存，关闭\ncd ..\n# 第 6 步：删除 test 目录\n# 删除命令请按官方指定的外部资料执行，本站不在此复制删除命令",
-          "note": "官方练习三的六步。前五步都是安全的创建与移动操作；第 6 步“删除 test 目录”的具体命令由官方指定的 SWC 课程与 unix_commands 资料给出（官方 Knowledge Check 也直接链接到那里）。命令行的删除不进废纸篓、通常无法撤销，所以本站不复制删除命令：执行前务必确认自己在哪个目录、要删的是什么，并且只删本次练习自己创建的 test。"
+          "note": "官方练习三的六步。前五步都是安全的创建与移动操作；第 6 步“删除 test 目录”的具体命令由官方指定的 SWC 课程《The Unix Shell》的 Working With Files and Directories 一节给出。命令行的删除不进废纸篓、通常无法撤销，所以本站不复制删除命令：执行前务必确认自己在哪个目录、要删的是什么，并且只删本次练习自己创建的 test。"
         },
         {
           "lang": "bash",
@@ -1803,62 +1671,16 @@ window.ODIN_GUIDE = {
           "第 1 项附带的 WSL2 说明：用 wget 命令配合 Download files 一节给出的链接，把 zip 文件下载到你的 WSL2 安装里（wget https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip）；用 sudo apt install unzip 安装 unzip，再用 unzip shell-lesson-data.zip 解压。课程中你的终端输出可能与展示的略有不同；每当课程要你去 Desktop 时，你实际要去的是主目录，用 cd ~ 到达。",
           "第 2 项：用刚发现的 CLI 能力，练习用上一步介绍的 mkdir、touch 和 cd 命令创建一个文件夹和几个文件。官方给的例子：一个基本网站可能有主 index.html 文件、一个叫 style.css 的 CSS 样式表文件，以及一个放图片的 images 文件夹——想想怎么用这些命令创建它们，然后付诸实践。",
           "第 3 项：练习创建文件和目录、再删除它们，命令都要在终端输入（记不起怎么打开终端就往上翻）。六个子步骤：在主目录创建名为 test 的新目录 → 进入 test 目录 → 创建叫 test.txt 的新文件（提示：用 touch 命令）→ 在 VSCode 里打开它、做一些修改、保存、关闭 → 从 test 目录里退出来 → 删除 test 目录。",
-          "官方收尾：如果你承诺从此以后大部分任务都从命令行做，这些命令会变成第二天性；移动和复制文件用命令行做高效得多，即使此刻感觉更麻烦。",
-          "逐项回答官方 Knowledge Check 的 11 个问题。其中 cd、cd ..、pwd、ls、创建目录、删除、改名等具体命令，官方 KC 直接链接到 unix_commands 与 SWC 课程资料，请以那些页面为准。"
+          "官方收尾：如果你承诺从此以后大部分任务都从命令行做，这些命令会变成第二天性；移动和复制文件用命令行做高效得多，即使此刻感觉更麻烦。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is the command line?（什么是命令行？）",
-            "a": "命令行界面（CLI）：那个带着提示符和闪烁光标的空白窗口，你在其中输入命令、电脑替你运行。官方把它比作开发者的“行动基地”，可以从这里启动其他程序并与它们交互。"
-          },
-          {
-            "q": "How do you open the command line on your computer?（怎样在你电脑上打开命令行？）",
-            "a": "Linux：打开程序菜单搜索 “Terminal”，或按 Ctrl + Alt + T。macOS：打开 Applications > Utilities 找到 “Terminal”，或按 Cmd + Space 打开 Spotlight 搜索 “Terminal” 后按 Enter。"
-          },
-          {
-            "q": "How can you navigate to a particular directory?（怎样进入某个特定目录？）",
-            "a": "用 cd 加目标目录路径，比如官方练习里的 cd ~（回主目录）、cd test（进入 test 目录）。这道题官方链接到 unix_commands 资料的 cd 小节，权威说明以该页为准。"
-          },
-          {
-            "q": "Where will cd on its own navigate you to?（单独输入 cd 会把你带到哪里？）",
-            "a": "带到你的主目录（home directory）——与官方在本课反复使用的 cd ~ 效果一致。这道题官方链接到 unix_commands 资料，具体说明以该页为准。"
-          },
-          {
-            "q": "Where will cd .. navigate you to?（cd .. 会把你带到哪里？）",
-            "a": "上一级目录（父目录），也就是官方练习第五步“从 test 目录里退出来”要用的命令。这道题官方链接到 unix_commands 资料。"
-          },
-          {
-            "q": "How do you display the name of the directory you are currently in?（怎样显示你当前所在目录的名字？）",
-            "a": "用 pwd（print working directory）。这道题官方链接到 unix_commands 资料的 pwd 小节。"
-          },
-          {
-            "q": "How do you display the contents of the directory you are currently in?（怎样显示当前目录的内容？）",
-            "a": "用 ls。官方在本课就用过它：创建 Desktop 文件夹后输入 ls，确认它出现在你的其他目录中间。"
-          },
-          {
-            "q": "How do you create a new directory?（怎样创建一个新目录？）",
-            "a": "用 mkdir 加目录名。官方练习里就是 mkdir Desktop，以及创建名为 test 的新目录。"
-          },
-          {
-            "q": "How do you create a new file?（怎样创建一个新文件？）",
-            "a": "用 touch 加文件名创建文件——官方在练习第三步给的提示就是“用 touch 命令”创建 test.txt。这道题官方链接到 SWC 课程 Working With Files and Directories 的 create-a-text-file 小节。"
-          },
-          {
-            "q": "How do you destroy a directory or file?（怎样销毁一个目录或文件？）",
-            "a": "这道题官方链接到 unix_commands 资料，请按该页执行。删除不进废纸篓、通常无法撤销，所以本站不给出可直接复制的删除命令；操作前确认当前目录与删除对象，本课练习只应删除你自己创建的 test。"
-          },
-          {
-            "q": "How do you rename a directory or file?（怎样给目录或文件改名？）",
-            "a": "这道题官方链接到 unix_commands 资料，请按该页说明操作。改名会直接影响已有文件，建议先在本课的练习目录里试，确认无误再用于真实文件。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 command_line_basics.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "b55c2407f0f1df9793f96823644ad22a78e53c6bbe319d2180c6cfc02914431a",
-        "verifiedAt": "2026-09-09"
+        "sha256": "9d052b4ab01ca1571bbea9259c8112d4dc7ba597f4ad8fb34803453021dad40a",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -1906,8 +1728,7 @@ window.ODIN_GUIDE = {
         "创建或登录已有 GitHub 账号；按原课处理邮箱隐私选项，在需要时记下自己的 GitHub 私密邮箱。",
         "按原课配置提交姓名、邮箱和默认分支 main，再读取配置核对；Mac 还要完成忽略 .DS_Store 的步骤。",
         "先检查是否已有 Ed25519 公钥；按原课需要再创建密钥，将 .pub 公钥添加到 GitHub。",
-        "按链接测试 SSH 连接，先核对 GitHub 官方指纹，再确认认证成功提示。",
-        "回答官方 Knowledge Check。"
+        "按链接测试 SSH 连接，先核对 GitHub 官方指纹，再确认认证成功提示。"
       ],
       "quiz": [
         {
@@ -2103,30 +1924,16 @@ window.ODIN_GUIDE = {
           "第 4 项：把公钥添加到 GitHub。登录 GitHub → 点右上角头像 → Settings → 左侧 SSH and GPG keys → 右上角绿色按钮 New SSH Key → 起一个能让你记住设备的名字（例如 linux-ubuntu），并在做后续步骤时保持该窗口开着。",
           "第 4 项：在终端用 cat ~/.ssh/id_ed25519.pub 读取公钥（.pub 扩展名很重要），高亮并复制全部输出（通常以 ssh-ed25519 开头、以 username@hostname 结尾），回到 GitHub 粘贴到密钥输入框，密钥类型保持 Authentication Key，然后点 Add SSH key。",
           "第 5 项：按 GitHub 的“测试你的 SSH 连接”说明测试你的密钥，并确保终端输出的指纹与 GitHub 公布的四个公钥指纹之一相匹配。",
-          "第 5 项的预期输出：Hi username! You've successfully authenticated, but GitHub does not provide shell access. 看到它就说明密钥添加成功，官方说别为“不提供 shell 访问”困扰；输出不匹配时把这些步骤再走一遍，或到 Discord 服务器求助。",
-          "逐项回答官方 Knowledge Check 的 3 个问题。"
+          "第 5 项的预期输出：Hi username! You've successfully authenticated, but GitHub does not provide shell access. 看到它就说明密钥添加成功，官方说别为“不提供 shell 访问”困扰；输出不匹配时把这些步骤再走一遍，或到 Discord 服务器求助。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is Git?（Git 是什么？）",
-            "a": "一个非常流行的版本控制系统（version control system）。官方说你会在整套 TOP 里对它变得非常熟悉，现在不必太担心理解它，课程后面有很多专门讲 Git 的课。"
-          },
-          {
-            "q": "What is GitHub?（GitHub 是什么？）",
-            "a": "一个服务，让你能用 Git 上传、托管和管理你的代码，并提供一个好用的网页界面。它与 Git 不是同一个东西，也不是由同一家公司创建的。"
-          },
-          {
-            "q": "What authentication method are we setting up with Git: SSH or HTTPS?（我们在为 Git 设置哪种认证方式：SSH 还是 HTTPS？）",
-            "a": "SSH。本课创建 Ed25519 SSH 密钥，并把公钥注册到 GitHub，这样上传和推送代码时不必每次输入用户名和密码。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 setting_up_git.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "d58a50f5062246d8f21442d2a33491d86a1750e732fdb514f430dd13a164cb56",
-        "verifiedAt": "2026-09-09"
+        "sha256": "0b3fa0be6ec54703f2ea3ffcb201478e24fa3565a5dff33d3b23f7155cbed3fc",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -2170,8 +1977,7 @@ window.ODIN_GUIDE = {
         "完成 Assignment：阅读 Pro Git 的 Getting Started 1.1–1.4。",
         "观看 What is Git? 两分钟视频。",
         "阅读 About GitHub and Git，末尾 Where do I start? 可按官方说明跳过。",
-        "未安装 Git 时返回上一课；然后浏览 TOP 课程 GitHub 仓库及 contributors 页面。",
-        "回答官方 Knowledge Check。"
+        "未安装 Git 时返回上一课；然后浏览 TOP 课程 GitHub 仓库及 contributors 页面。"
       ],
       "quiz": [
         {
@@ -2236,7 +2042,7 @@ window.ODIN_GUIDE = {
           "h": "本课的学习目标",
           "p": [
             "官方列了三条：解释 Git 和 GitHub 是什么，以及两者之间的区别；描述 Git 与文本编辑器在“保存什么”和“怎样记录”上的差别；描述为什么 Git 对个人开发者和对一个开发者团队都有用。",
-            "这三条也正是官方 Knowledge Check 六道题覆盖的范围。"
+            "这三条也正是本课最需要记住的范围。"
           ]
         }
       ],
@@ -2256,7 +2062,7 @@ window.ODIN_GUIDE = {
         },
         {
           "title": "以为这一课必须记住 Git 的历史和全部细节",
-          "text": "官方对这一课的定位是“简要探索”，Knowledge Check 开头也写明不期待你记忆或掌握这些知识；上一课同样说“现在不必太担心理解它，后面有很多专门讲 Git 的课”。这一课的目的是建立概念，真正的操作在下一课 Git Basics。"
+          "text": "官方对这一课的定位是“简要探索”，并写明不期待你记忆或掌握这些知识；上一课同样说“现在不必太担心理解它，后面有很多专门讲 Git 的课”。这一课的目的是建立概念，真正的操作在下一课 Git Basics。"
         },
         {
           "title": "把 GitHub 作品集当成学完再做的事",
@@ -2269,42 +2075,16 @@ window.ODIN_GUIDE = {
           "观看官方指定的视频 “What is Git?” explained in 2 minutes——一个讲 Git 是什么、以及它怎样改善个人开发者和开发者团队工作流的短视频。",
           "阅读 GitHub 官方文档 About GitHub and Git，简要了解 GitHub 是什么，以及 Git 和 GitHub 怎样协同工作。官方明确说：你可以跳过末尾的 “Where do I start?” 小节。",
           "如果你还没有安装 Git，去访问 Setting Up Git 那一课。",
-          "看一看 The Odin Project 的 GitHub 仓库——所有课程就存放在那里。官方还说：在那儿的时候，看看我们所有的 contributors（贡献者），体会一下 Git 怎样记录所有协作努力，以及 GitHub 怎样把它可视化地呈现出来。",
-          "逐项回答官方 Knowledge Check 的 6 个问题。"
+          "看一看 The Odin Project 的 GitHub 仓库——所有课程就存放在那里。官方还说：在那儿的时候，看看我们所有的 contributors（贡献者），体会一下 Git 怎样记录所有协作努力，以及 GitHub 怎样把它可视化地呈现出来。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What kind of program is Git?（Git 是哪一类程序？）",
-            "a": "一个版本控制系统（version control system）。官方把它比作给文件和目录用的“史诗级保存按钮”。"
-          },
-          {
-            "q": "What are the differences between Git and a text editor in terms of what they save and their record keeping?（就保存什么和怎样记录而言，Git 与文本编辑器有何不同？）",
-            "a": "文本编辑器的一次保存把全部文字记录成单个文件，只留下一个记录，副本要你自己造且难以追踪；Git 的一次保存记录文件与文件夹的差异，并保留每一次保存的历史记录。"
-          },
-          {
-            "q": "Does Git work at a local or remote level?（Git 在本地还是远端层面工作？）",
-            "a": "本地（local）：Git 在你的本地机器上工作。"
-          },
-          {
-            "q": "Does GitHub work at a local or remote level?（GitHub 在本地还是远端层面工作？）",
-            "a": "远端（remote）：GitHub 是网络上的远端存储设施，用于你所有的编码项目。"
-          },
-          {
-            "q": "Why is Git useful for developers?（为什么 Git 对开发者有用？）",
-            "a": "官方这道题链接到那个两分钟视频。本课给出的要点是：作为个人开发者，Git 让你回顾项目怎样成长、轻松查看或恢复过去的文件状态；连上网络后还能把项目推送到 GitHub 等平台，用于分享与协作。"
-          },
-          {
-            "q": "Why are Git and GitHub useful for a team of developers?（为什么 Git 和 GitHub 对开发者团队有用？）",
-            "a": "官方这道题链接到 GitHub 文档 About GitHub and Git，权威说明以该页为准。结合本课与上一课的官方内容：Git 保留每次保存的历史并记录差异，上一课还说明配置身份是为了让团队能看到谁提交了什么、每行代码是谁提交的；GitHub 则把项目放到远端供团队协作，并把协作可视化呈现（官方让你去看 TOP 仓库的 contributors 正是这个用意）。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 introduction_to_git.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "c8294bd368708276a0306b9a49b9971d0a3d913fec9d65f2a14ba9694c6fc847",
-        "verifiedAt": "2026-09-09"
+        "sha256": "b074a7d658b8cc5b04fc2527ace67e11ddc549537a8971c86a27c182dea77a7d",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -2355,8 +2135,7 @@ window.ODIN_GUIDE = {
         "按 Use the Git workflow 创建 hello_world.txt，检查状态、暂存、提交，再查看历史。",
         "按 Modify a file or two 修改 README.md 和 hello_world.txt，保存、暂存、再次提交，检查状态和历史。",
         "按 Push your work to GitHub 推送，刷新 GitHub 确认两个文件已更新。",
-        "继续阅读 Cheatsheet 和 Git best practices；按 Changing the Git commit message editor 设置 VS Code 为提交编辑器，理解保存并关闭消息页才会完成提交。",
-        "回答官方 Knowledge Check。"
+        "继续阅读 Cheatsheet 和 Git best practices；按 Changing the Git commit message editor 设置 VS Code 为提交编辑器，理解保存并关闭消息页才会完成提交。"
       ],
       "quiz": [
         {
@@ -2595,62 +2374,16 @@ window.ODIN_GUIDE = {
           "最后 git status 应显示“Your branch is up to date with 'origin/main'. nothing to commit, working tree clean”；刷新 GitHub 仓库页，确认 README.md 和 hello_world.txt 都已更新。",
           "正文跟进：通读 Cheatsheet（官方建议加入书签），用 program | action | destination 三段式理解每条命令。",
           "正文跟进：阅读 Git best practices，理解原子提交——一次提交只包含与一个功能或任务相关的改动。",
-          "正文跟进：按 Changing the Git commit message editor 运行 git config --global core.editor \"code --wait\"，把 VS Code 设为提交编辑器（执行后无输出属正常）；随后体验一次不带 -m 的 git commit：在 VS Code 新标签页写消息，保存并关闭标签页后提交才完成。",
-          "逐项回答官方 Knowledge Check 的全部 11 个问题。"
+          "正文跟进：按 Changing the Git commit message editor 运行 git config --global core.editor \"code --wait\"，把 VS Code 设为提交编辑器（执行后无输出属正常）；随后体验一次不带 -m 的 git commit：在 VS Code 新标签页写消息，保存并关闭标签页后提交才完成。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "How do you create a new repository on GitHub?（怎样在 GitHub 上创建新仓库？）",
-            "a": "GitHub 首页点右上角“+”→“New repository”，填仓库名、按需打开 Add README 等选项，点“Create repository”。"
-          },
-          {
-            "q": "How do you copy a repository onto your local machine from GitHub?（怎样把 GitHub 仓库复制到本地？）",
-            "a": "在仓库页点 Code 按钮复制 SSH 地址，运行 git clone git@github.com:USER-NAME/REPOSITORY-NAME.git。"
-          },
-          {
-            "q": "What is the default name of your remote connection?（远端连接的默认名字是什么？）",
-            "a": "origin。"
-          },
-          {
-            "q": "Explain what origin is in git push origin main.（git push origin main 里的 origin 是什么？）",
-            "a": "远端仓库的名字，指明这次推送的目标远端；origin 是默认名也是命名惯例。"
-          },
-          {
-            "q": "Explain what main is in git push origin main.（git push origin main 里的 main 是什么？）",
-            "a": "分支名，指明推送哪个分支上的提交。"
-          },
-          {
-            "q": "Explain the two-stage system that Git uses to save files.（解释 Git 保存文件的两步系统。）",
-            "a": "先用 git add 把选中的改动放进暂存区（“等候室”），再用 git commit 把暂存区里的改动打包成一个快照。"
-          },
-          {
-            "q": "How do you check the status of your current repository?（怎样查看当前仓库的状态？）",
-            "a": "git status。"
-          },
-          {
-            "q": "How do you add files to the staging area in Git?（怎样把文件加入暂存区？）",
-            "a": "git add 文件名；git add . 则把当前目录及其子目录的全部改动放入暂存区。"
-          },
-          {
-            "q": "How do you commit the files in the staging area and add a descriptive message?（怎样提交暂存区文件并附上描述性消息？）",
-            "a": "git commit -m \"描述这次改动内容的消息\"。"
-          },
-          {
-            "q": "How do you push your changes to your repository on GitHub?（怎样把改动推送到 GitHub 仓库？）",
-            "a": "git push 或 git push origin main。"
-          },
-          {
-            "q": "How do you look at the history of your previous commits?（怎样查看之前的提交历史？）",
-            "a": "git log；界面停在 (END) 时按 q 退出。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 git_basics.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "f0799bae4620e07c958070a6ae73479d5577ec1f00631e8c572c62f69eaf8712",
-        "verifiedAt": "2026-09-09"
+        "sha256": "11d54ee61c8a8ed0b7fefedcd782f5d197a6deb28c0a2e85b8fa94afef8c815c",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -2683,7 +2416,7 @@ window.ODIN_GUIDE = {
       "tasks": [
         "阅读官方 HTML and CSS 正文。",
         "完成 Assignment：观看 HTML, CSS, JavaScript Explained（四分钟入门视频）。",
-        "回答官方 Knowledge Check，分清文字内容、按钮外观和行为。"
+        "用下面的「简单自测」检查你对 HTML 与 CSS 分工的理解。"
       ],
       "quiz": [
         {
@@ -2740,7 +2473,7 @@ window.ODIN_GUIDE = {
         {
           "h": "这个判断方法就是官方自查题的考法",
           "p": [
-            "官方 Knowledge Check 正是用这个方式提问的：在网页上放段落文字用 HTML 还是 CSS；改一个按钮的字体和背景色用 HTML 还是 CSS。",
+            "判断标准只有一条：这段内容管的是结构与文字，还是外观？在网页上放段落文字用 HTML；改一个按钮的字体和背景色用 CSS。下面还会反复用这个方式自问。",
             "所以这一课不需要记很多东西，需要的是把“内容 / 样子 / 行为”这三件事分开。分开了，后面 HTML 各课你会很清楚自己在改哪一层；等到 CSS 和 JavaScript 阶段，也不会退回去用错工具。"
           ]
         }
@@ -2762,34 +2495,16 @@ window.ODIN_GUIDE = {
       ],
       "official": {
         "assignment": [
-          "观看官方指定的视频 HTML, CSS, JavaScript Explained（in 4 minutes for beginners）。官方说它会在你深入每一项技术之前，快速概览这三种技术怎样协同工作。",
-          "逐项回答官方 Knowledge Check 的 4 个问题。"
+          "观看官方指定的视频 HTML, CSS, JavaScript Explained（in 4 minutes for beginners）。官方说它会在你深入每一项技术之前，快速概览这三种技术怎样协同工作。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What do HTML and CSS stand for?（HTML 和 CSS 分别是什么的缩写？）",
-            "a": "HTML 是 HyperText Markup Language（超文本标记语言）；CSS 是 Cascading Style Sheets（层叠样式表）。官方这道题链接到一篇外部文章，权威说明以该页为准。"
-          },
-          {
-            "q": "Between HTML and CSS, which would you use for putting paragraphs of text on a webpage?（在网页上放段落文字，用 HTML 还是 CSS？）",
-            "a": "HTML。官方正文说所有文字都是在 HTML 里创建的，HTML 负责把信息放到网页上。"
-          },
-          {
-            "q": "Between HTML and CSS, which would you use for changing the font and background color of a button?（改一个按钮的字体和背景色，用 HTML 还是 CSS？）",
-            "a": "CSS。官方正文说 CSS 给朴素元素加样式，负责摆放信息、给颜色、改字体、让它看起来很棒。"
-          },
-          {
-            "q": "What is the difference between HTML, CSS and JavaScript?（HTML、CSS 和 JavaScript 的区别是什么？）",
-            "a": "按本课官方正文：HTML 是网页由之构建的原始数据，文字、链接、卡片、列表、按钮都在 HTML 里创建；CSS 给这些朴素元素加样式（摆放、颜色、字体）；JavaScript 是编程语言，用来让网页做事情、编写逻辑。官方还说明 HTML 与 CSS 严格来说不算编程语言，因为它们只关心信息呈现。这道题官方也链接了一篇外部文章。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 intro_to_html_css.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "5b4fed2b946e308e8b2af30003504623922a6a911a0e39f9d10341559591a0be",
-        "verifiedAt": "2026-09-09"
+        "sha256": "c78bcb23601937da8496e9b9f9533be8badff5a2f34165234ee4094b2db195f8",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -2830,7 +2545,7 @@ window.ODIN_GUIDE = {
       "tasks": [
         "阅读官方 Elements and tags、Void Elements 正文。",
         "完成 Assignment：观看 Kevin Powell 的 HTML & CSS for Absolute Beginners: What is HTML?。",
-        "回答官方 Knowledge Check。"
+        "用下面的「简单自测」检查你对标签与元素的理解。"
       ],
       "quiz": [
         {
@@ -2854,7 +2569,7 @@ window.ODIN_GUIDE = {
           "h": "HTML 是什么，管什么",
           "p": [
             "HTML 全称 HyperText Markup Language（超文本标记语言），职责是定义网页的结构和内容。一个典型网页里的段落、标题、列表、图片、链接，全部是用 HTML 元素创建的。这一课聚焦一件事：HTML 元素是怎么工作的。",
-            "官方的学习目标就两条：能说清 HTML 标签（tag）是什么；能说清 HTML 元素（element）是什么。“标签”和“元素”这两个词在日常口语里经常混着用，但官方 Knowledge Check 是分开提问的——这一课特意把它们区分清楚，后面几课你写代码时才不会含糊。",
+            "官方的学习目标就两条：能说清 HTML 标签（tag）是什么；能说清 HTML 元素（element）是什么。“标签”和“元素”这两个词在日常口语里经常混着用，这一课特意把它们区分清楚，后面几课你写代码时才不会含糊。",
             "名字本身就说明了它是什么：HyperText（超文本）指能够通过链接跳转到其他内容的文本——网页之间点来点去的链接就靠它；Markup（标记）指工作方式——不是写内容长什么样，而是给内容打上标记，告诉浏览器“它是什么”。合起来：HTML 是用标记把内容组织成可互相链接的结构语言。",
             "这一课也是 HTML Foundations 单元里第一节真正接触 HTML 写法的课——上一课 Introduction to HTML and CSS 只是帮你认清 HTML、CSS、JavaScript 的分工，从这一课开始你要动手写了。而之后你写的每一行 HTML 代码，无论页面骨架、一篇文章、一份列表还是一个链接，全都是由元素和标签组合出来的。把最小积木弄扎实，后面都是加法。"
           ]
@@ -2884,7 +2599,7 @@ window.ODIN_GUIDE = {
           "p": [
             "官方给了一个理解角度：可以把元素看成内容的容器。开始和结束标签告诉浏览器这个元素装着什么内容，浏览器再根据这个信息决定怎样解释和格式化它——看到 <p> 就知道“这是一段段落”，于是按段落的方式排版。",
             "这就是 HTML 名字里“标记（Markup）”的含义：你不是在写内容长什么样，而是在给内容贴“它是什么”的标记；具体怎么显示，交给浏览器和后面要学的 CSS 决定。",
-            "给自己一个记忆锚点：标签是“两侧的界标”，内容是“中间的主体”，元素是从开始标签到结束标签的完整整体。官方 Knowledge Check 问“HTML 元素的三个部分是哪三个”，答案就是上一节拆解的三条：开始标签、内容、结束标签——注意别漏掉“内容”，只答出两个标签。",
+            "给自己一个记忆锚点：标签是“两侧的界标”，内容是“中间的主体”，元素是从开始标签到结束标签的完整整体。要能脱口答出“HTML 元素的三个部分是哪三个”，答案就是上一节拆解的三条：开始标签、内容、结束标签——注意别漏掉“内容”，只答出两个标签。",
             "那份庞大的标签清单现在也不需要背。把 MDN 的元素参考页当字典用：遇到不认识的标签去查；之后每课学几个，你对“内容 → 标签”的对应表就会一项项多起来。这套课程正是这么安排的：列表一课、链接和图片一课，工具箱一件件补齐。"
           ]
         },
@@ -2911,7 +2626,7 @@ window.ODIN_GUIDE = {
             "你可能会看到空元素被写成结尾带一个正斜杠的样子：<br /> 或 <img />。官方称之为自闭合标签（self-closing tags）——本质上就是空元素的另一种写法。",
             "为什么会有这种写法？历史原因。旧代码和不少老教程里会频繁出现自闭合写法，浏览器也都能正常渲染它们。但是：最新版 HTML 规范不鼓励这种写法，并视其为无效（invalid）。所以结论是——看到 <br /> 要认识它、知道它和 <br> 是一回事；自己写的时候按规范写 <br>、<img>，不要加那个斜杠。",
             "实用建议分两头：读别人的代码或旧教程时，见到 <br /> 不必纠正它，理解它和 <br> 同义即可；自己动手时从第一天就按规范写。这也是学编程的常态——规范是规范，存量代码的习惯是存量代码的习惯；先按规范写，再理解历史。",
-            "学完这一课，你应该能不看资料地回答三件事：标签是什么（尖括号包住的标记，宣告元素的开始与结束）；元素的三个部分是什么（开始标签、内容、结束标签）；空元素为什么没有结束标签（它不包裹内容）。这三问正好就是官方 Knowledge Check 的全部题目——先合上这一页自己回答一遍，再打开官方页面核对，是最好的检验方式。"
+            "学完这一课，你应该能不看资料地回答三件事：标签是什么（尖括号包住的标记，宣告元素的开始与结束）；元素的三个部分是什么（开始标签、内容、结束标签）；空元素为什么没有结束标签（它不包裹内容）。先合上这一页自己回答一遍，再对照上面的正文核对，是最好的检验方式。"
           ]
         }
       ],
@@ -2935,7 +2650,7 @@ window.ODIN_GUIDE = {
       "pitfalls": [
         {
           "title": "把标签和元素混为一谈",
-          "text": "标签只是标记本身：<p> 是一个标签，</p> 是另一个标签；元素是开始标签 + 内容 + 结束标签构成的整体。官方 Knowledge Check 问“HTML 元素的三个部分”，概念混了就答不对。"
+          "text": "标签只是标记本身：<p> 是一个标签，</p> 是另一个标签；元素是开始标签 + 内容 + 结束标签构成的整体。这三个部分分不清，后面几课写代码时就容易含糊。"
         },
         {
           "title": "给空元素补结束标签",
@@ -2955,26 +2670,13 @@ window.ODIN_GUIDE = {
           "观看 Kevin Powell 的视频 HTML & CSS for Absolute Beginners: What is HTML?（本课官方指定的唯一 Assignment）。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is an HTML tag?（HTML 标签是什么？）",
-            "a": "包在尖括号里的标记，告诉浏览器元素从哪里开始、到哪里结束；标签是定义网页结构和内容的基本构建块。"
-          },
-          {
-            "q": "What are the three parts of an HTML element?（HTML 元素的三个部分是什么？）",
-            "a": "开始标签、内容、结束标签。（空元素例外：只有一个标签，没有内容和结束标签。）"
-          },
-          {
-            "q": "What are void elements, and how are they different from regular HTML elements?（空元素是什么，和普通元素有何不同？）",
-            "a": "空元素是不含内容、没有结束标签的元素，只有一个单独标签，例如 <br> 和 <img>；普通元素由开始、结束标签成对包裹内容。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 elements_and_tags.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "043a63a046152cbcaaf2976386f8b43c0ef5687c8033ef223dea03a0a1762190",
-        "verifiedAt": "2026-09-09"
+        "sha256": "9071c789729a6eec0dbc3084b916eea5af721da52ff2b8328d09132604829a2e",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -3022,8 +2724,7 @@ window.ODIN_GUIDE = {
         "跟做正文：创建 html-boilerplate 文件夹和 index.html，逐步写入原课解释的骨架。",
         "用 Chrome 打开文件，按正文加入标题内容，保存后刷新观察；阅读 ! 快捷方式说明。",
         "完成 Assignment：观看并跟做 Kevin Powell 的 Building Your First Web Page。",
-        "将自己的骨架通过原课链接送到 W3 HTML validator 检查，阅读并修正提示。",
-        "回答官方 Knowledge Check。"
+        "将自己的骨架通过原课链接送到 W3 HTML validator 检查，阅读并修正提示。"
       ],
       "quiz": [
         {
@@ -3214,34 +2915,16 @@ window.ODIN_GUIDE = {
       "official": {
         "assignment": [
           "观看并跟做 Kevin Powell 的 Building Your First Web Page 视频（官方形容它很出色）。注意这一项官方用的是 watch and follow along，也就是要跟着一起做，不只是看完。",
-          "把你的骨架跑一遍 W3 HTML validator（官方给的是 validate_by_input 入口）。官方解释了验证器的价值：验证器确保你的标记是正确的，而且是极好的学习工具，因为它们会就你可能经常犯、却没意识到的语法错误给出反馈，比如缺失的结束标签、HTML 里多余的空格。",
-          "逐项回答官方 Knowledge Check 的 4 个问题。"
+          "把你的骨架跑一遍 W3 HTML validator（官方给的是 validate_by_input 入口）。官方解释了验证器的价值：验证器确保你的标记是正确的，而且是极好的学习工具，因为它们会就你可能经常犯、却没意识到的语法错误给出反馈，比如缺失的结束标签、HTML 里多余的空格。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What is the purpose of the doctype declaration?（doctype 声明的目的是什么？）",
-            "a": "告诉浏览器应该用哪个版本的 HTML 来渲染这个文档。HTML 的最新版本是 HTML5，它的 doctype 是 <!DOCTYPE html>；官方说我们大概永远不会用较旧版本，所以总是用这一行。"
-          },
-          {
-            "q": "What is the HTML element?（html 元素是什么？）",
-            "a": "文档的根元素（root element）：文档里所有其他元素都是它的后代。官方说每个 HTML 文档都应当包含它，这一点在后面学习用 JavaScript 操作 HTML 时会变得更重要。"
-          },
-          {
-            "q": "What is the purpose of the head element?（head 元素的目的是什么？）",
-            "a": "放关于网页的重要元信息，以及网页在浏览器中正确渲染所需的东西；里面不应该使用任何会在网页上显示内容的元素。当前阶段必须掌握的是 <meta charset=\"UTF-8\"> 与 <title>，它应当总是开始 <html> 标签下面的第一个元素。"
-          },
-          {
-            "q": "What is the purpose of the body element?（body 元素的目的是什么？）",
-            "a": "放所有将显示给用户的内容——文字、图片、列表、链接等等。它是完成 HTML 骨架所需的最后一个元素，也在 <html> 里面、总是位于 <head> 下面。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 html_boilerplate.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "aca920f0cda981bff27b772847413476d139192833b983df25b082197c01dd23",
-        "verifiedAt": "2026-09-09"
+        "sha256": "9294e346b7ec0d49abe5b37a4a91bb9f4912cc5028ffe590c7af5070ea658ca3",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -3288,8 +2971,7 @@ window.ODIN_GUIDE = {
         "阅读正文，并查看段落、标题、强调、嵌套和注释示例。",
         "完成 Assignment：观看 Kevin Powell 的 HTML Paragraph and Headings。",
         "观看 HTML Bold and Italic Text。",
-        "自己创建朴素博客文章页：使用不同级别标题、段落，以及段落中的粗体和斜体文字；原课允许用 Lorem Ipsum 占位文字。",
-        "回答官方 Knowledge Check。"
+        "自己创建朴素博客文章页：使用不同级别标题、段落，以及段落中的粗体和斜体文字；原课允许用 Lorem Ipsum 占位文字。"
       ],
       "quiz": [
         {
@@ -3466,50 +3148,16 @@ window.ODIN_GUIDE = {
           "观看 Kevin Powell 的 HTML Bold and Italic Text 视频。",
           "为了练习在 HTML 里处理文字，创建一个朴素的博客文章页（plain blog article page），要求：使用不同的标题、使用段落，并且让段落里有一些文字是粗体、有一些是斜体。",
           "官方给的填充文字办法：可以用 Lorem Ipsum 生成占位假文字来代替真实文字；VS Code 内置快捷方式——在想放假文字的那一行输入 lorem，然后按 Enter 键即可生成。",
-          "注意：博客文章页这一项需要你自己动手完成，本站不提供成品页面代码；所需零件本课都已讲过（标题分级、p 段落、strong 粗体、em 斜体、嵌套与缩进）。",
-          "逐项回答官方 Knowledge Check 的 8 个问题。"
+          "注意：博客文章页这一项需要你自己动手完成，本站不提供成品页面代码；所需零件本课都已讲过（标题分级、p 段落、strong 粗体、em 斜体、嵌套与缩进）。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "How do you create a paragraph in HTML?（怎样在 HTML 里创建段落？）",
-            "a": "用一个 <p> 标签把文字内容包起来。段落元素会在每个段落之后添加一个新行；只靠源代码里的换行不行，浏览器会把换行压缩成一个空格。"
-          },
-          {
-            "q": "How do you create a heading in HTML?（怎样在 HTML 里创建标题？）",
-            "a": "把标题文字包在标题标签里，比如创建一个 h1 标题就用 <h1>。标题会显示得比其他文字更大、更粗，以表明它是标题。"
-          },
-          {
-            "q": "How many different levels of headings are there and what is the difference between them?（标题有几个不同级别，它们之间的区别是什么？）",
-            "a": "6 个级别，从 <h1> 到 <h6>；标签里的数字代表级别，h1 最大最重要，h6 是最低级别里最小的。级别为内容提供层级：h1 应当总是用于整个页面的标题，较低级别用于页面中较小部分的内容。"
-          },
-          {
-            "q": "What element should you use to semantically mark text as important?（要在语义上把文字标记为重要，该用哪个元素？）",
-            "a": "<strong>。它让文字变粗体，并在语义上标记为重要；屏幕阅读器等辅助技术会据此改变语气来传达重要性。"
-          },
-          {
-            "q": "What element should you use to semantically emphasize text?（要在语义上强调文字，该用哪个元素？）",
-            "a": "<em>。它让文字变斜体，并在语义上给文字加上强调，同样可能影响屏幕阅读器这类工具。"
-          },
-          {
-            "q": "What relationship does an element have with any nested elements within it?（一个元素与它内部嵌套的元素是什么关系？）",
-            "a": "父与子的关系：被嵌套的元素是子元素（children），它们被嵌套在其中的那个元素是父元素（parent）。就像人类关系一样，一个 HTML 父元素可以有很多子元素。"
-          },
-          {
-            "q": "What relationship do two elements have if they are at the same level of nesting?（处在同一嵌套层级的两个元素是什么关系？）",
-            "a": "它们是兄弟（siblings）。官方举例：body 里的两个段落互为兄弟，因为它们都是 body 元素的子元素，而且彼此处在同一嵌套层级。"
-          },
-          {
-            "q": "How do you create HTML comments?（怎样创建 HTML 注释？）",
-            "a": "用 <!-- 和 --> 把注释包起来。注释对浏览器不可见，用途是让其他开发者或将来的自己读到，获得代码里可能不清楚之处的上下文。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 working_with_text.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "0fc721eab0f2faef475222363596fc69290ab1566c78b64890f89a612b0440ae",
-        "verifiedAt": "2026-09-09"
+        "sha256": "5f5ca5ee43c74bc462eaa9d9e2e7c9283828393025c88658e7a037a7bfc9867a",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -3544,8 +3192,7 @@ window.ODIN_GUIDE = {
         "完成 Assignment：新建 HTML 文档，制作喜爱食物的无序购物清单。",
         "制作今天待办事项的有序列表。",
         "制作以后想去的地方的无序列表。",
-        "制作最喜欢的五个电子游戏或电影的有序列表。",
-        "回答官方 Knowledge Check。"
+        "制作最喜欢的五个电子游戏或电影的有序列表。"
       ],
       "quiz": [
         {
@@ -3601,7 +3248,6 @@ window.ODIN_GUIDE = {
         {
           "h": "真正要选的只是外层容器",
           "p": [
-            "两种情况下列表项都用 <li>，所以你要做的决定只是外层容器用 ul 还是 ol。官方 Knowledge Check 的三道题也正是这个结构：无序列表用哪个元素、有序列表用哪个元素、两种列表里的列表项用哪个元素。",
             "项目符号和数字都是浏览器根据容器类型自动加的显示结果，不需要你自己写。想改它们的样子是后面 CSS 的事。"
           ]
         },
@@ -3644,7 +3290,7 @@ window.ODIN_GUIDE = {
         },
         {
           "title": "忘记把每一项包在 li 里",
-          "text": "官方明确说，无序列表和有序列表里的每一项都用列表项元素 <li> 创建。直接把文字堆在 ul 或 ol 里，浏览器可能仍然显示出点什么，但结构是错的；官方 Knowledge Check 也专门问了列表项用哪个元素。"
+          "text": "官方明确说，无序列表和有序列表里的每一项都用列表项元素 <li> 创建。直接把文字堆在 ul 或 ol 里，浏览器可能仍然显示出点什么，但结构是错的。"
         },
         {
           "title": "用一堆段落加破折号当列表",
@@ -3658,30 +3304,16 @@ window.ODIN_GUIDE = {
       "official": {
         "assignment": [
           "为了练习使用列表，创建一个新的 HTML 文档，并创建官方指定的四份列表：一份无序的购物清单（你最喜欢的食物）；一份有序列表（你今天需要完成的待办事项）；一份无序列表（你某天想去的地方）；一份有序列表（你有史以来最喜欢的前五个电子游戏或电影）。",
-          "这四份需要你自己动手完成，本站不提供成品代码。判断用 ul 还是 ol 时，先问“这份清单的顺序重要吗”。",
-          "逐项回答官方 Knowledge Check 的 3 个问题。"
+          "这四份需要你自己动手完成，本站不提供成品代码。判断用 ul 还是 ol 时，先问“这份清单的顺序重要吗”。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What HTML element is used to create an unordered list?（创建无序列表用哪个 HTML 元素？）",
-            "a": "<ul> 元素。官方说顺序不重要的清单（例如购物清单）用它，其中每个列表项都以项目符号开头。"
-          },
-          {
-            "q": "What HTML element is used to create an ordered list?（创建有序列表用哪个 HTML 元素？）",
-            "a": "<ol> 元素。官方说顺序确实重要的清单（例如菜谱的分步说明、你最喜欢的十大电视节目）用它，其中每个列表项都以一个数字开头。"
-          },
-          {
-            "q": "What HTML element is used to create list items within both unordered and ordered lists?（在无序和有序列表里创建列表项用哪个 HTML 元素？）",
-            "a": "<li>（列表项元素）。官方说两种列表里的每一项都用它创建。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 lists.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "46b6fdddaddcd9d940edf06527f8101e9a53e52c36ab5df25c78a81a2d0fcaec",
-        "verifiedAt": "2026-09-09"
+        "sha256": "8790be220a6f6723af9814c60a85b32acdb2150292537a5cae43decf7a37f1de",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -3731,8 +3363,7 @@ window.ODIN_GUIDE = {
         "将 about.html 移入 pages，观察链接失效，再按原课修改相对路径。",
         "创建 images，下载原课练习图片并命名 dog.jpg；WSL2 用户按专用分支复制。练习在首页和 pages/about.html 引用图片，添加 alt 和实际 width、height。",
         "完成 Assignment：观看 Kevin Powell 的 HTML Links、HTML Images、File Structure 三个视频。",
-        "阅读并跟做 Interneting is Hard 的 Links and Images，特别关注四种图片格式；即使外部文章偏向 CSS 尺寸，TOP 仍要求添加 width、height 属性。",
-        "回答官方 Knowledge Check。"
+        "阅读并跟做 Interneting is Hard 的 Links and Images，特别关注四种图片格式；即使外部文章偏向 CSS 尺寸，TOP 仍要求添加 width、height 属性。"
       ],
       "quiz": [
         {
@@ -4045,54 +3676,16 @@ window.ODIN_GUIDE = {
         "assignment": [
           "观看 Kevin Powell 的三个视频：HTML Links、HTML Images、File Structure。",
           "阅读并跟做 Interneting is Hard 的 Links and Images 文章（官方用的是 read and code along with，即要边读边跟着写）。官方特别提醒两点：要特别留意讲四种主要图片格式的那一节；这篇文章建议用 CSS 设置图片尺寸更好，但官方说他们仍然推荐按本课前面讲的，在所有图片上设置 width 和 height 属性——两处口径冲突时以 TOP 为准。",
-          "本课正文内的动手项（官方在正文里逐步要求，属于本课内容而非额外作业）：按 Preparation 四步搭好 odin-links-and-images 项目；创建 about.html 并把它移进 pages 目录、修好相对链接；把 dog.jpg 放进 images 目录并在 index 页面用相对路径显示；给 dog.jpg 加 alt 属性；给 dog.jpg 加 width 和 height 属性。",
-          "逐项回答官方 Knowledge Check 的 9 个问题。"
+          "本课正文内的动手项（官方在正文里逐步要求，属于本课内容而非额外作业）：按 Preparation 四步搭好 odin-links-and-images 项目；创建 about.html 并把它移进 pages 目录、修好相对链接；把 dog.jpg 放进 images 目录并在 index 页面用相对路径显示；给 dog.jpg 加 alt 属性；给 dog.jpg 加 width 和 height 属性。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What element is used to create a link?（创建链接用哪个元素？）",
-            "a": "anchor（锚）元素：用 <a> 标签把想成为链接的文字或另一个 HTML 元素包起来。注意单独一个 <a> 不知道要链接到哪里，必须配合 href 属性。"
-          },
-          {
-            "q": "What is an attribute?（什么是属性？）",
-            "a": "HTML 属性给元素提供额外信息，总是放在元素的开始标签里；通常由一个名字和一个值两部分组成，不过并非所有属性都需要值。"
-          },
-          {
-            "q": "What attribute tells links where to go to?（哪个属性告诉链接要去哪里？）",
-            "a": "href（hypertext reference，超文本引用）属性，它的值就是链接要去的目的地。没有 href 时点击链接不会有反应，文字也不会显示成链接样式。"
-          },
-          {
-            "q": "What security considerations must be taken if you wish to use the target attribute to open links in a new tab/window?（想用 target 在新标签页或窗口打开链接时，必须考虑哪些安全问题？）",
-            "a": "官方点名两个 rel 值：noopener 阻止新标签页访问原来的页面，否则会带来 tabnabbing 这类钓鱼攻击的可能；noreferrer 与 noopener 相同，还额外阻止关于原页面的某些细节传给新页面。现代浏览器对任何带 target=\"_blank\" 的链接都会自动设置 noopener，但为历史浏览器兼容性仍常看到手动写。"
-          },
-          {
-            "q": "What is the difference between an absolute and relative link?（绝对链接与相对链接的区别是什么？）",
-            "a": "绝对链接指向互联网上其他网站的页面，总是包含目的地的 scheme 和 domain（形如 scheme://domain/path）；相对链接指向自己网站内的其他页面，不包含域名（假定与本站相同），只给出相对于当前页面的文件路径。"
-          },
-          {
-            "q": "Which element is used to display an image?（显示图片用哪个元素？）",
-            "a": "<img> 元素。它是空元素，不需要结束标签，因为天生是空的、不包含内容；它用 src 属性告诉浏览器图片文件在哪里，绝对路径和相对路径都可以。"
-          },
-          {
-            "q": "What two attributes do images always need to have?（图片总是需要哪两个属性？）",
-            "a": "src 和 alt。官方说除了 src，每个图片元素都应当有 alt：图片无法加载时它代替图片显示，屏幕阅读器也靠它向有视觉障碍的用户描述图片。（另外官方建议始终指定 width 与 height 以防内容跳动，但那是本课的建议，不是这道题问的两项。）"
-          },
-          {
-            "q": "How do you access a parent directory in a filepath?（怎样在文件路径里访问父目录？）",
-            "a": "在相对文件路径里用两个点 ../。官方例子是在 pages 目录里的 about.html 用 ../images/dog.jpg 访问上一级的 images 目录；比喻是“从当前所在的房间走到主走廊，才能去另一个房间”。"
-          },
-          {
-            "q": "What are the four main image formats that you can use for images on the web?（网页图片可用的四种主要图片格式是什么？）",
-            "a": "官方这道题链接到 Interneting is Hard 文章的 image formats 小节，四种格式以该页为准；官方在 Assignment 里特别要求留意那一节。本站不复制该第三方文章的内容，请打开官方链接查看。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 links_and_images.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "1d439ea2a20e55f449814ca86c7bbfe3d228dc4fa06d2075a4140b9a4027b012",
-        "verifiedAt": "2026-09-09"
+        "sha256": "681afbb8332ca6de288a8e06b4f5411a5fbef04621f4fdc1fefa95b3e00d7df0",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -4135,7 +3728,7 @@ window.ODIN_GUIDE = {
         "阅读正文中的好坏说明对比、Subject / Body 格式和何时提交。",
         "阅读正文的多行提交方式：使用已配置的 VS Code 编辑器，保存并关闭消息页后完成提交。",
         "完成 Assignment：阅读 How to Write a Git Commit Message，重点理解 The seven rules of a great commit message。",
-        "阅读 Tips and things to remember，回答官方 Knowledge Check。",
+        "阅读 Tips and things to remember。",
         "下一课 Project: Recipes 在本站提供要求中文版、拆解与验收清单，但成品代码要你自己写。"
       ],
       "quiz": [
@@ -4328,26 +3921,16 @@ window.ODIN_GUIDE = {
         "assignment": [
           "阅读官方指定的文章 How to Write a Git Commit Message。官方说它涵盖了怎样写好提交说明的所有主要基础；整篇文章都很好、信息充分，但文章的核心（the meat of the article）是 “The seven rules of a great commit message”（一条伟大提交说明的七条规则）那一节。",
           "官方附带的 Tips 与要记住的事：用 VSCode 作为文本编辑器（你应该在 Git Basics 部分已经设置好），它能让你轻松写多行提交说明、轻松看到每行字符长度，并能用 VSCode 拼写检查扩展确保拼写正确；使用主动语态（示例 “Fix card generator”）；避免含糊的提交说明，比如 “saved” 或 “updated”；尽早提交、经常提交（Commit early and often!）。",
-          "本课没有要求另做一个编码项目；本站也不提供 Recipes 或任何后续 Project 的成品代码。接下来就是 Project: Recipes，由你自己学习和编码。",
-          "逐项回答官方 Knowledge Check 的 2 个问题。"
+          "本课没有要求另做一个编码项目；本站也不提供 Recipes 或任何后续 Project 的成品代码。接下来就是 Project: Recipes，由你自己学习和编码。"
         ],
         "exercise": [],
-        "knowledgeCheck": [
-          {
-            "q": "What are two benefits of having well-written commit messages and a good commit history?（拥有写得好的提交说明和好的提交历史，有哪两个好处？）",
-            "a": "官方这道题链接到指定文章的 intro 部分。本课正文给了三条理由，任答其中两条即可：申请工作时雇主会翻你的提交历史，好的提交能帮新手脱颖而出；好的历史让你和其他开发者快速看到做了哪些改动、为什么，在发现需要修的 bug 时很有用；离开项目一段时间后回来，你很可能不记得当初的思考过程和改动，好的历史能帮你找回。"
-          },
-          {
-            "q": "How many characters should the subject line of your commit message be?（提交说明的 subject 行应该是多少字符？）",
-            "a": "官方这道题链接到指定文章的 limit-50 小节，也就是那篇文章建议把 subject 限制在 50 字符左右。注意本课官方 tip 框给的是另一个口径：GitHub 有 72 字符的限制，推荐把提交主题控制在这个数量以内。两个数字都保留——50 是文章的写作建议，72 是 GitHub 的显示限制，都不是 Git 命令自身的硬限制。"
-          }
-        ],
+        "knowledgeCheck": [],
         "optional": []
       },
       "sources": {
         "basedOn": "TOP 官方 commit_messages.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
-        "sha256": "0df78378e6c5c60d84781c08d49f6e1ab21cc0fd02b25578659a37d5d5637d1a",
-        "verifiedAt": "2026-09-09"
+        "sha256": "1a7c2cec596b4204e2467d6a6231d982f52fb819087c07869518b28a646a9fa0",
+        "verifiedAt": "2026-09-24"
       }
     },
     {
@@ -4359,7 +3942,7 @@ window.ODIN_GUIDE = {
       "summary": "第一个官方项目：只用学过的 HTML，做出一个首页与三个菜谱页互相链接的小网站。",
       "guide": "这一页提供项目要求的完整中文版、四轮迭代的拆解与验收清单；成品代码本站不提供，官方也不提供——每一步用到的语法都在第 13–19 课里，卡住先回对应课复习。",
       "understand": [
-        "这是项目课：没有新语法、没有官方 Knowledge Check，交付物是一个能打开的多页网站。",
+        "这是项目课：没有新语法，交付物是一个能打开的多页网站。",
         "交付物结构：仓库根目录一个 index.html 首页，recipes 子目录三个菜谱页；首页链向三个菜谱页，每个菜谱页链回首页。",
         "每个菜谱页的固定内容块：菜名 h1、成品菜图片、Description（一到两段）、Ingredients（无序列表）、Steps（有序列表）。",
         "提交纪律与第 19 课一致：尽早提交、经常提交，让提交历史呈现你的过程。",
@@ -4392,7 +3975,7 @@ window.ODIN_GUIDE = {
         "动手完成：建 odin-recipes 仓库 → index.html → recipes 目录与三个菜谱页 → 双向链接 → 边做边小步提交。",
         "对照验收清单逐项自查；本站建议再用第 15 课的 W3C 校验器过一遍全部页面。",
         "（可选）按官方说明用 GitHub Pages 发布；完成后回官方原课核对要求原文，再决定是否查看社区提交。",
-        "本课没有官方 Knowledge Check；用下面的「简单自测」检查你对项目要求的理解。"
+        "用下面的「简单自测」检查你对项目要求的理解。"
       ],
       "quiz": [
         {
@@ -4425,7 +4008,7 @@ window.ODIN_GUIDE = {
           "p": [
             "官方说：是时候把你学到的全部 HTML 知识练起来了。在这个项目里，你要建一个基础的菜谱网站。",
             "网站由一个 index 首页和几个菜谱页组成。官方先把预期讲清楚：做完时它不会很漂亮——这个项目的目的是练 HTML 结构；之后学 CSS 时官方会让你回到这个项目给它加样式。",
-            "项目课和知识课的结构不一样：官方页面没有 Knowledge Check，也不教新语法。要做的全部事情都在 Assignment 里，分四轮迭代（Iteration）递进；本站把要求做成了中文版、拆解和验收清单，代码要你自己写。"
+            "项目课和知识课的结构不一样：官方页面不教新语法。要做的全部事情都在 Assignment 里，分四轮迭代（Iteration）递进；本站把要求做成了中文版、拆解和验收清单，代码要你自己写。"
           ]
         },
         {
@@ -4557,7 +4140,4921 @@ window.ODIN_GUIDE = {
       "sources": {
         "basedOn": "TOP 官方 project_recipes.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
         "sha256": "3df1c88af6a029312451edd9c3688df4e864929091bd56e25133d69b50947840",
-        "verifiedAt": "2026-09-23"
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "intro-to-css",
+      "title": "Intro to CSS",
+      "zh": "认识 CSS",
+      "group": 4,
+      "url": "https://www.theodinproject.com/lessons/foundations-intro-to-css",
+      "summary": "CSS 起步：三种把样式加进 HTML 的方式、一条规则由什么组成，以及最常用的几类选择器和起步属性。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "CSS 负责「样子」，HTML 负责「结构与内容」；两者是分开的两套语言。",
+        "把 CSS 加进 HTML 有三种方式（外部 / 内部 / 内联），区别只在规则写在哪里。",
+        "一条 CSS 规则 = 选择器 + 一对花括号里的若干「属性: 值」声明。",
+        "选择器决定「改谁」：类型选择器写元素名，类选择器加点，ID 选择器加井号。",
+        "分组选择器用逗号把几个选择器并列；链式选择器紧挨着写表示「同时满足」；后代组合器用空格表示「在里面」。"
+      ],
+      "terms": [
+        {
+          "en": "CSS",
+          "zh": "Cascading Style Sheets，层叠样式表：给网页加样式的那套规则语言"
+        },
+        {
+          "en": "Selector",
+          "zh": "选择器：一条 CSS 规则里说明「作用在谁身上」的那部分"
+        },
+        {
+          "en": "Declaration",
+          "zh": "声明：花括号里的一条「属性: 值」，以分号结尾"
+        },
+        {
+          "en": "Class",
+          "zh": "class 属性：可以加在任意多个元素上、用点号选中的标记"
+        },
+        {
+          "en": "Combinator",
+          "zh": "组合器：描述两个选择器之间关系的符号，本课只讲后代组合器（空格）"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，弄清三种加 CSS 的方式分别把规则写在哪里。",
+        "动手建一对文件：带骨架的 index.html 加同目录的 styles.css，用 <link> 链起来。",
+        "把「基本语法」「选择器」「起步属性」三节里的例子亲手敲进这两个文件，改改值看效果。",
+        "完成官方 Assignment：先读 CSS exercises 仓库的 README，再按顺序做 01–05 五个练习。",
+        "用下面的「简单自测」检查你对选择器写法的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "把外部样式表链进 HTML 用的是哪个元素和哪两个属性？",
+          "answer": "用 <link> 空元素，写在 <head> 里；rel=\"stylesheet\" 声明「这是一份样式表」，href 指向 CSS 文件的位置（可以是相对路径，也可以是别处的 URL）。"
+        },
+        {
+          "question": "类选择器和 ID 选择器的写法分别以什么开头？两者最大的区别是什么？",
+          "answer": "类选择器以点号开头（.alert-text），ID 选择器以井号开头（#title），后面都紧跟大小写敏感的名称。最大的区别：一个元素只能有一个 ID，同一个 ID 也不能在一页里重复；类则可以用在任意多个元素上。"
+        },
+        {
+          "question": ".subsection.header 与 .subsection .header 意思一样吗？",
+          "answer": "不一样。没有空格的是链式选择器，要求同一个元素同时带这两个类；有空格的是后代组合器，要求带 header 类的元素位于某个带 subsection 类的祖先元素内部。"
+        },
+        {
+          "question": "为什么官方建议 font-family 写成「想要的字体在前、通用族名兜底」的一串值？",
+          "answer": "浏览器找不到或不支持列表里的第一个字体时会自动往后找下一个。把最想要的写在最前、最后放一个 serif 之类的通用族名，就能在字体缺失时仍有合理的回落，不至于变成不可控的默认字体。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "上一课你已经能用 HTML 把内容和结构写出来了，但纯 HTML 的页面只有浏览器给的默认外观。CSS 是把这份结构变成「可读、好看、能表达重点」的页面的工具，也是整个前端里回看次数最多的一门基础语言——后面 Flexbox、盒模型、响应式全都建立在它上面。这一课不追求讲全 CSS，而是把最常用的入口讲清楚：样式写在哪里、一条规则长什么样、怎样选中要改的元素。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "上一课学的是用 HTML 写出网页的结构与内容。结构有了，接下来要让它看起来像样——这件事由 CSS（Cascading Style Sheets，层叠样式表）负责。",
+            "CSS 不是 HTML 的一部分，它是一套单独的规则语言：你在 HTML 元素上「选中」一批目标，再给它们一串「属性: 值」的声明。这一课先解决三件事——样式写在哪里、一条 CSS 规则长什么样、怎样选中你要改的元素。"
+          ]
+        },
+        {
+          "h": "三种把 CSS 加进 HTML 的方式",
+          "p": [
+            "CSS 要生效，必须先和 HTML 建立联系。官方给了三种方式，它们用的是同一套规则语言，区别只在「规则放在哪里」。",
+            "本课先讲用得最多的外部方式，另外两种留到本节末尾。"
+          ],
+          "list": [
+            "外部 CSS：规则写在单独的 .css 文件里，HTML 用 <link> 把它链进来。",
+            "内部 CSS：规则写在 HTML 文件自己的 <style> 标签里。",
+            "内联 CSS：规则直接写在某个元素的 style 属性上。"
+          ]
+        },
+        {
+          "h": "外部 CSS：把样式表链进来",
+          "p": [
+            "外部方式分两步。第一步，在 HTML 的 <head> 里放一个 <link> 元素，指向样式表文件：<link rel=\"stylesheet\" href=\"styles.css\">。",
+            "<link> 是空元素（第 14 课讲过：它不包裹内容、没有结束标签）。href 是样式表文件的位置，这里写成相对当前 HTML 文件的路径（相对路径的规则见第 18 课）；rel 说明这份文件和当前文档是什么关系，链样式表时必须写 rel=\"stylesheet\"。",
+            "第二步，在 index.html 旁边新建一个 styles.css 文件。上面的 href 假设两个文件在同一个目录里。官方让你先把这一对文件建好，后面每个例子都能立刻动手试。"
+          ]
+        },
+        {
+          "h": "外部方式的两个好处与文件命名",
+          "p": [
+            "官方说外部方式的好处有两条：一是 HTML 与 CSS 分开写，HTML 文件更小、结构更干净；二是样式只在一个地方维护，多页共用同一套样式的站点改一处就全站生效。",
+            "文件名有讲究吗？没有。官方明确说 styles.css 只是习惯叫法，只要扩展名是 .css，叫什么都可以——「style」或「styles」是最常见的两种。"
+          ]
+        },
+        {
+          "h": "CSS 规则的基本语法",
+          "p": [
+            "一条 CSS 规则由两部分组成：前面是选择器（selector），说明这条规则作用在谁身上；后面一对花括号里是一串声明。",
+            "每条声明是一个「属性: 值」对，以分号结尾。属性是要改的东西（例如 color），值是要改成什么（例如 purple）。整条规则读起来就是一句指令——选中某类元素，把它的某个属性设成某个值。"
+          ]
+        },
+        {
+          "h": "选择器总览与通配选择器",
+          "p": [
+            "选择器就是「选中谁」的那部分。官方挑出的这几类是最常用、也最该先用熟的。",
+            "通配选择器写成星号 *，它会选中页面上的所有元素。* { color: purple; } 会让页面上每个元素的文字都变成紫色。它不带任何特异性（下一课讲层叠时会说清这意味着什么），所以通常只用来做全局重置。"
+          ]
+        },
+        {
+          "h": "类型选择器",
+          "p": [
+            "类型选择器（也叫元素选择器）直接写元素名，选中页面上所有该类型的元素。",
+            "div { color: white; } 会把页面里所有 <div> 的文字变白，而 <p> 完全不受影响——选择器只按元素名匹配，与元素在页面里的位置无关。"
+          ]
+        },
+        {
+          "h": "类选择器",
+          "p": [
+            "类选择器写成「一个点 + 类名」，选中所有带这个 class 的元素。class 是加在 HTML 元素上的属性：<div class=\"alert-text\">，对应 <div class=\"alert-text\"> 的规则写成 .alert-text { color: red; }。",
+            "语法要点：点号紧跟类名、中间不能有空格；类名区分大小写；类不专属某个元素，同一个类可以用在任意多个元素上。",
+            "一个元素可以同时挂多个类，用空格分隔，例如 class=\"alert-text severe-alert\"。正因为空格被用来分隔类名，多词的类名里不能再用空格，要用连字符——alert-text 而不是 alert text。"
+          ]
+        },
+        {
+          "h": "ID 选择器",
+          "p": [
+            "ID 选择器写成「一个井号 + ID 名」，选中 id 属性等于该值的那个元素：<div id=\"title\">，对应 #title { background-color: red; }。",
+            "类与 ID 最大的区别：一个元素只能有一个 ID，同一个 ID 也不能在一个页面上重复；ID 里不允许出现空白字符。",
+            "官方特意提醒：新手很容易在并不需要时滥用 ID。能用类解决的就用类。ID 真正合适的场合很少，比如利用层叠的特异性（下一课），或者做「从别处跳到本页某一段」的页内锚点（第 18 课用过）。"
+          ]
+        },
+        {
+          "h": "分组选择器",
+          "p": [
+            "如果两组元素共享一部分声明，可以把选择器用逗号并列写在一起，共用同一个花括号块。",
+            ".read, .unread { color: white; background-color: black; } 与「分成两条各写一遍」效果完全相同，但公共声明只写了一次——要改颜色时只改一处。",
+            "各自独有的声明仍然分开写：分组只处理重叠的那部分。"
+          ]
+        },
+        {
+          "h": "链式选择器",
+          "p": [
+            "链式选择器把多个选择器紧挨着写、中间不留任何空隙，含义是「同时满足全部条件」。",
+            ".subsection.header 选中同时带 subsection 和 header 两个类的元素。注意两个点号之间没有空格——一旦加了空格，意思就完全变了（见下一节）。",
+            "链式也可以把类和 ID 串起来，例如 .subsection#preview。但类型选择器不能连着写两个：一个元素不可能既是 <div> 又是 <p>，divp 会去找一个根本不存在的 <divp> 元素。"
+          ]
+        },
+        {
+          "h": "后代组合器",
+          "p": [
+            "组合器（combinator）描述两个选择器之间的关系。官方在这一课只讲一种：后代组合器，写成两个选择器中间的一个空格。",
+            ".ancestor .contents 会选中「位于某个带 ancestor 类的祖先元素内部」的 contents 元素——不管嵌套多深，只要中间隔着任意层都算。",
+            "官方给的例子值得自己算一遍：页面里有三个 contents 元素，前两个嵌在 .ancestor 里面所以被选中，最后一个在 .ancestor 外面所以不被选中。",
+            "组合器可以连着写很多层（.one .two .three .four 是合法的），但官方提醒嵌套越深越难读，后面还会牵扯到特异性，尽量别写太长。"
+          ]
+        },
+        {
+          "h": "起步属性：color 与 background-color",
+          "p": [
+            "color 设置元素内文字的颜色，background-color 设置元素的背景色。",
+            "两者的值可以是颜色关键字（red、transparent 这类名字），也可以是 HEX、RGB、HSL 数值——用过修图软件或改过资料配色的人对后几种应该不陌生。加一个 alpha 分量还能调不透明度，官方给了一篇参考页可以自己看。"
+          ]
+        },
+        {
+          "h": "起步属性：字体与文字对齐",
+          "p": [
+            "font-family 决定用什么字体。它的值可以是一个字体名，也可以是用逗号分隔的一串候选：浏览器找不到第一个就用第二个，一直往后找。所以惯例是「最想要的写在最前、最后放一个通用族名兜底」，例如 font-family: \"Times New Roman\", serif;。",
+            "字体名的写法有区别：像 \"Times New Roman\" 这种具体字体名，名字里带空格要用引号包起来；serif 这类通用族名不加引号。",
+            "font-size 设置字号，写法上数值与单位之间不留空格（font-size: 22px）。font-weight 控制粗细，可以用关键字 bold，也可以用 1–1000 的数字（700 等同于 bold，常用档位取百位）。",
+            "text-align 控制元素内文字的水平对齐，值就是文档编辑器里那些词：left、center、right 等。"
+          ]
+        },
+        {
+          "h": "起步属性：图片尺寸",
+          "p": [
+            "<img> 默认按图片文件本身的尺寸显示。想改大小又不想变形，就把宽高其中一个设成具体数值、另一个设成 auto：img { height: auto; width: 500px; }。",
+            "官方举了个例子：原图高 500px、宽 1000px，套上这条规则后高度会按比例算成 250px。",
+            "更重要的是一条纪律：即使不打算改尺寸，也要在 HTML 上把 height 与 width 属性写上。图片比页面其他内容加载得慢时，浏览器一开始不知道要给它留多少位置，图加载完成的那一刻整页内容会突然大幅位移；先把宽高写出来，位置就提前占住了。"
+          ]
+        },
+        {
+          "h": "另外两种方式：内部 CSS 与内联 CSS",
+          "p": [
+            "内部 CSS 把规则写进 HTML 文件自己的 <style> 标签里，<style> 放在 <head> 内。样式就在文档里，所以这种方式不再需要 <link>。",
+            "它的语法与外部方式完全一样（选择器、花括号、声明）。内部方式适合只给某一个页面用的独特样式；但 HTML 与 CSS 混在一起，规则一多文件就会迅速变大。",
+            "内联 CSS 把声明直接写在元素的 style 属性上：<div style=\"color: white; background-color: black;\">。这种方式没有选择器——样式直接挂在那一个元素身上。",
+            "官方说内联方式不推荐：一是样式一多，HTML 会变得又乱又臃肿；二是多个元素要用同一样式时只能逐个复制粘贴；三是内联样式的优先级高于另外两种（下一课讲层叠时会把这一点讲清楚），容易出现「明明写了别的规则却不起作用」的意外。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "html",
+          "code": "<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>",
+          "note": "外部 CSS：在 <head> 里用空元素 <link> 链入样式表。rel 必须写 \"stylesheet\"，href 是样式表的位置。"
+        },
+        {
+          "lang": "css",
+          "code": "/* 一条规则 = 选择器 + 花括号里的若干声明 */\ndiv {\n  color: white;\n  background-color: black;\n}\n\n.alert-text {\n  color: red;\n}\n\n#title {\n  background-color: red;\n}",
+          "note": "三个最常用的选择器：类型选择器写元素名，类选择器加点，ID 选择器加井号。每条声明以分号结尾。"
+        },
+        {
+          "lang": "css",
+          "code": ".read,\n.unread {\n  color: white;\n  background-color: black;\n}\n\n.subsection.header {\n  color: red;\n}\n\n.ancestor .contents {\n  /* some declarations */\n}",
+          "note": "分组（逗号并列）、链式（紧挨着写，要求同时满足）、后代组合器（空格，要求在里面）——三种写法外观相近，含义完全不同。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "类名或 ID 以数字开头",
+          "text": "官方明确说过：类名以数字开头时，.4lert-text 这样的选择器不会生效；ID 同理，#7itle 不是合法的 CSS 选择器。名字以字母开头就不会踩这个坑。"
+        },
+        {
+          "title": "把链式写成后代组合器",
+          "text": ".subsection.header 与 .subsection .header 只差一个空格，含义却完全不同：前者要求同一个元素同时带两个类，后者要求「在里面」。写完多看一眼有没有多余的空格。"
+        },
+        {
+          "title": "忘记写 rel=\"stylesheet\" 或把 <link> 放到 <body> 里",
+          "text": "外部方式靠 <link> 建立联系，rel 说明关系、href 指位置，两个属性都要写；<link> 属于元数据，要放在 <head> 里。少写 rel 或位置放错，页面不会有任何样式生效——而且浏览器通常不会报错，只会安静地什么都不做。"
+        },
+        {
+          "title": "给图片只写 CSS 尺寸、不写 HTML 的 height 与 width 属性",
+          "text": "官方特别强调：即使不打算改尺寸，也要在 <img> 上写 height 与 width 属性。它们的价值不是「设定大小」，而是让浏览器提前把位置留出来；缺了它们，图片加载完的那一刻整页内容会突然位移。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "前往 CSS exercises 仓库（The OdinProject/css-exercises），先读仓库根目录的 README，弄清这套练习怎么用。",
+          "接着进入该仓库的 foundations/intro-to-css 目录。按顺序完成下面五个练习，每个练习动手前先读它自己的 README：01-css-methods、02-class-id-selectors、03-grouping-selectors、04-chaining-selectors、05-descendant-combinator。官方提示：每个练习的 solution 文件夹里有参考答案，先自己做再看。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 intro_to_css.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "33ec47f17592845314c92f1dc3ffa681c1c28a0d2efb80cfe08237f31afc6020",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "the-cascade",
+      "title": "The Cascade",
+      "zh": "CSS 层叠规则",
+      "group": 4,
+      "url": "https://www.theodinproject.com/lessons/foundations-the-cascade",
+      "summary": "冲突的 CSS 规则由谁生效：层叠的三个判定因素——特异性、继承、规则顺序。",
+      "guide": "以下是官方原课的中文化梳理，把层叠的判定顺序拆成可逐个验证的步骤。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "浏览器自带默认样式，很多「我没写它却长这样」都来自它。",
+        "层叠决定相互冲突的规则里哪一条真正生效，靠的是特异性、继承与规则顺序。",
+        "特异性按选择器类型比较：ID 选择器 > 类选择器 > 类型选择器；同类之间比数量。",
+        "通配选择器与组合器符号本身不贡献特异性。",
+        "直接被某个规则命中的元素，永远赢过从祖先继承来的样式；其余情况最后定义的那条赢。"
+      ],
+      "terms": [
+        {
+          "en": "Cascade",
+          "zh": "层叠：决定相互冲突的 CSS 规则里哪一条生效的机制"
+        },
+        {
+          "en": "Specificity",
+          "zh": "特异性：选择器「具体到什么程度」，用来在冲突时定胜负"
+        },
+        {
+          "en": "Inheritance",
+          "zh": "继承：父元素的某些属性自动传给后代，不需要另写规则"
+        },
+        {
+          "en": "Rule order",
+          "zh": "规则顺序：其他因素都分不出胜负时，后定义的规则赢"
+        },
+        {
+          "en": "Universal selector",
+          "zh": "通配选择器 *：选中所有元素，且不贡献特异性"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，弄清层叠依次比较哪三个因素。",
+        "把「看三个例子」「不计入特异性的符号」两节的代码片段亲手敲进编辑器，先自己判断哪条规则生效再看讲解。",
+        "对照 MDN 的属性文档，用 Formal Definition 一节确认某个属性会不会被继承。",
+        "完成官方 Assignment：读那篇交互式的层叠讲解，再做 01-cascade-fix 练习。",
+        "用下面的「简单自测」检查你对特异性比较的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "#subsection 与 .main .list 同时作用于一个元素时，哪一条生效？为什么？",
+          "answer": "#subsection 生效。两条规则都只命中同一个元素，比较特异性时先看选择器类型：ID 选择器永远胜过任意数量的类选择器，所以 color: blue 那条赢。"
+        },
+        {
+          "question": ".class.second-class 与 .class .second-class 的特异性一样吗？",
+          "answer": "一样。前者是链式选择器（无空格），后者是后代组合器（空格），但两者都只用了两个类选择器，而组合器符号本身不贡献任何特异性。"
+        },
+        {
+          "question": "父元素写了 #parent { color: red; }，子元素写了 .child { color: blue; }，子元素的文字是什么颜色？",
+          "answer": "蓝色。父元素的 ID 选择器特异性更高，但它的 color 只是被继承给子元素；而 .child 的规则直接命中了子元素本身——直接命中永远赢过继承。"
+        },
+        {
+          "question": "两条规则特异性完全相同、都命中同一个元素，最终听谁的？",
+          "answer": "听最后定义的那一条。规则顺序是层叠的最后一层判定，前面所有因素都分不出胜负时才轮到它。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "写完一页 CSS 之后最常见的一句话是「我明明写了，为什么没生效」。答案往往不是浏览器出错，而是另一条规则在层叠里赢了这一条。层叠是 CSS 三个字母里的那个 C，也是后面每一课写样式时都要用到的判断依据：知道谁赢，才知道该改哪一条规则，而不是靠加 !important 一个个试过去。这一课只有几个概念，但值得反复回看。",
+      "sections": [
+        {
+          "h": "样式为什么会「不听话」",
+          "p": [
+            "有时候我们写的规则互相冲突，最后得到的结果和预期不一样。官方提醒先把一个前提建立起来：CSS 不会违背你的意思自作主张，它只做你让它做的事——只有一种例外，就是浏览器自带的默认样式。",
+            "所以遇到「不是我想要的结果」时，原因无非三种：浏览器默认样式在起作用、对某个属性本身的理解不对、或者不理解层叠。这一课解决第三种。"
+          ]
+        },
+        {
+          "h": "浏览器的默认样式",
+          "p": [
+            "浏览器会给页面元素一套默认样式，而且各家浏览器的默认值并不完全相同。为什么两个段落之间会有一大段空白？为什么按钮自带那样的外观？我们并没有写任何规则——这些都是默认样式在起作用。",
+            "默认样式不是错误，它让没有样式的页面仍然可读。但当你发现某个「没写过的效果」时，第一反应应该是「这多半是默认样式」，而不是怀疑自己的规则写错了。"
+          ]
+        },
+        {
+          "h": "层叠在决定什么",
+          "p": [
+            "层叠（cascade）决定的是：当有多条规则同时命中同一个元素、并且对同一个属性给出不同值时，最终哪一条生效。",
+            "官方挑出三个判定因素来讲：特异性、继承、规则顺序。弄懂这三条，绝大多数「样式不听话」都能自己解释清楚。"
+          ]
+        },
+        {
+          "h": "特异性：谁的声明更具体",
+          "p": [
+            "特异性（specificity）说的是选择器「具体到什么程度」。更具体的声明会压过更不具体的声明。",
+            "官方按本课已学过的选择器类型排了序，从最具体到最不具体：ID 选择器 > 类选择器 > 类型选择器。",
+            "另外还有内联样式——它写在元素的 style 属性上，比任何选择器都更具体（上一课末尾提过它会压过另外两种加 CSS 的方式，原因就在这里）。"
+          ]
+        },
+        {
+          "h": "特异性的比较方式",
+          "p": [
+            "比较分两步走。第一步比类型：ID 选择器永远胜过任意数量的类选择器，类选择器永远胜过任意数量的类型选择器，类型选择器永远胜过更不具体的选择器。",
+            "第二步，如果类型上分不出高低（比如两条规则都只用类选择器），就比同类选择器的数量——数量多的赢。",
+            "注意「数量多」不能跨类型兑现：再多的类选择器也压不过一个 ID 选择器。"
+          ]
+        },
+        {
+          "h": "看三个例子",
+          "p": [
+            "第一个例子：.subsection 与 .main .list 都只用了类选择器，但后者用了两个类，所以 color: red 生效。",
+            "第二个例子：把 HTML 改成用 id=\"subsection\"，CSS 第一条换成 #subsection。这时尽管第二条用了更多类选择器，ID 压过类，color: blue 生效。",
+            "第三个例子更微妙：第一条用 #subsection 设了背景色与文字色，第二条用 .main #subsection 设了文字色。两条都含一个 ID，类型上打平；再比数量，第二条多带一个类选择器，所以文字色听第二条。而背景色只有第一条声明过，没有冲突，照常生效。"
+          ]
+        },
+        {
+          "h": "不计入特异性的符号",
+          "p": [
+            "有几个符号看着像「更具体了」，其实一点特异性都不加：通配选择器 *，以及组合器符号（空格、>、+、~）。官方的建议是：这几个符号本身不携带额外权重，别指望用它们提高优先级。",
+            "官方给了三组对照。第一组：.class.second-class（链式）与 .class .second-class（后代组合器）——都用了两个类，特异性相同，空格不算数。第二组把后者换成子代组合器 > ——同样相同。第三组：* 与 h1 对比，h1 是类型选择器、权重最低，但 * 权重为零，所以 h1 胜出。"
+          ]
+        },
+        {
+          "h": "继承：会自动传给后代的属性",
+          "p": [
+            "继承（inheritance）指的是某些属性一旦设置在某个元素上，它的后代元素也会跟着拥有该样式——即使我们没有为后代单独写规则。",
+            "官方说排版类属性通常是可继承的，例如 color、font-size、font-family；大多数其他属性不可继承。想确认某个属性是否会继承，去 MDN 该属性的文档页看「Formal Definition」一节：会写明 Inherited 是 yes 还是 no。官方举了两个对照——color 的 Formal Definition 标为可继承，display 标为不可继承。"
+          ]
+        },
+        {
+          "h": "直接命中永远赢过继承",
+          "p": [
+            "继承有一个明确的例外：如果某个元素被一条规则直接选中，那么这条规则永远压过从祖先继承来的值——哪怕祖先那条规则的特异性高得多。",
+            "官方给的例子：父元素上写 #parent { color: red; }，子元素上写 .child { color: blue; }。ID 的特异性显然更高，但那条规则只作用在父元素上、子元素只是被动继承；而 .child 直接命中了子元素本身，所以子元素显示蓝色。"
+          ]
+        },
+        {
+          "h": "规则顺序：最后定义的赢",
+          "p": [
+            "层叠的最后一层判定是规则顺序。当特异性和继承都分不出胜负、确实还有多条冲突的规则时，写在后面的那条生效。",
+            "官方给的例子：.alert { color: red; } 与 .warning { color: yellow; }。一个元素同时带 alert 与 warning 两个类时，两条规则的特异性完全相同，而 .warning 写在后面，所以它的黄色生效。",
+            "这也解释了一条实践建议：把「更通用、更兜底」的规则写在前面，把「更具体、更想让它生效」的规则写在后面，可以在不提高选择器复杂度的前提下控制结果。"
+          ]
+        },
+        {
+          "h": "完整的判定顺序",
+          "p": [
+            "把三个因素串起来，每次遇到冲突时可以按这个顺序问下来：先看有没有直接命中——直接命中的规则压过一切继承来的值；命中的规则之间比特异性——先比选择器类型，再比同类数量；特异性还分不出胜负时，比规则顺序——后定义的赢。",
+            "再叠加上一节的前提：如果冲突的另一方来自浏览器默认样式，那它同样要参与比较，只是默认样式的权重通常很低——这也是「我们写的规则一般能盖住默认样式」的原因。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* rule 1 */\n.subsection {\n  color: blue;\n}\n\n/* rule 2 */\n.main .list {\n  color: red;\n}",
+          "note": "两条都只用类选择器，但 rule 2 用了两个类，所以 color: red 生效。"
+        },
+        {
+          "lang": "css",
+          "code": "/* rule 1 */\n#subsection {\n  background-color: yellow;\n  color: blue;\n}\n\n/* rule 2 */\n.main #subsection {\n  color: red;\n}",
+          "note": "两条都含一个 ID，类型上打平；rule 2 多一个类选择器，所以文字色听 rule 2。背景色没有冲突，仍然生效。"
+        },
+        {
+          "lang": "css",
+          "code": "/* 这两条特异性相同：组合器符号不贡献权重 */\n.class.second-class {\n  font-size: 12px;\n}\n\n.class .second-class {\n  font-size: 24px;\n}",
+          "note": "链式与后代组合器都只用了两个类选择器，中间那个空格不带来任何额外特异性。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "以为组合器符号能提高优先级",
+          "text": "空格、>、+、~ 这些符号只描述选择器之间的关系，本身不加特异性；通配选择器 * 的权重是零。想让规则更强势，靠的是选择器类型与数量，而不是把关系写得更复杂。"
+        },
+        {
+          "title": "用 ID 选择器当「保险」来压过别的规则",
+          "text": "ID 的特异性最高，确实能赢——但代价是后面想再覆盖它就得继续加码，最后只能动用内联样式。上一课官方就提醒过 ID 要少用，这一课给出了原因。"
+        },
+        {
+          "title": "把「继承」当成「作用于该元素」",
+          "text": "父元素设置的 color 会被子元素继承，但那是继承，不是命中。只要子元素被任何一条规则直接选中，即使那条规则的特异性更低，它也会赢过继承来的值。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "阅读那篇交互式的层叠讲解（The CSS Cascade）。官方说它比本课多讲了一些影响「最终哪条规则生效」的其他因素，边读边动手改数值会更有收获。",
+          "完成 CSS exercises 仓库 foundations/cascade 目录里的练习 01-cascade-fix（具体步骤在它自己的 README 里）。官方提示：每个练习的 solution 文件夹里有参考答案，先自己做再看。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 the_cascade.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "8f5e2076fd6404e2323e2065ea1bc4af84d87dceccaf50bcf73c40bb836d333a",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "inspecting-html-and-css",
+      "title": "Inspecting HTML and CSS",
+      "zh": "检查 HTML 与 CSS",
+      "group": 4,
+      "url": "https://www.theodinproject.com/lessons/foundations-inspecting-html-and-css",
+      "summary": "用 Chrome DevTools 的 Elements 与 Styles 面板查看页面的 HTML 结构与实际生效的样式，并临时改样式看效果。",
+      "guide": "以下是官方原课的中文化梳理，按「打开检查器 → 选中元素 → 读样式 → 试着改」的顺序展开。本课要求的外部资料入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "检查器用来查看网页真实的 HTML 结构，以及元素上实际生效的样式。",
+        "Elements 面板显示页面结构，可以点选元素，也可以用左上角的选择图标去点页面。",
+        "Styles 面板显示当前作用在该元素上的样式，被覆盖的样式会用删除线标出。",
+        "Styles 面板里可以直接改属性值，页面实时变化，但改的只是浏览器里的副本——源文件一个字都不会变。"
+      ],
+      "terms": [
+        {
+          "en": "DevTools",
+          "zh": "开发者工具：浏览器内置的调试面板，本课用 Chrome 的"
+        },
+        {
+          "en": "Inspector",
+          "zh": "检查器：查看与临时修改页面 HTML / CSS 的那部分工具"
+        },
+        {
+          "en": "Elements panel",
+          "zh": "元素面板：显示页面完整 HTML 结构，可点选元素"
+        },
+        {
+          "en": "Styles panel",
+          "zh": "样式面板：显示当前作用在所选元素上的样式规则"
+        },
+        {
+          "en": "Strikethrough",
+          "zh": "删除线：样式面板里表示该声明被别的规则覆盖、并没有生效"
+        }
+      ],
+      "tasks": [
+        "在本页或其他任意网页上右键选择「检查」，或直接按 F12，把检查器打开。",
+        "在 Elements 面板里点选几个元素，观察 Styles 面板跟着切换，并找到被删除线划掉的样式。",
+        "用左上角的选择图标去点页面上的元素，把它作为另一种选中方式练一遍。",
+        "在 Styles 面板里改一个属性值，看页面实时变化；刷新页面，确认改动已消失、源文件未受影响。",
+        "完成官方 Assignment：按顺序读完 DevTools 文档指定的四节。"
+      ],
+      "quiz": [
+        {
+          "question": "打开检查器的两种方式是什么？",
+          "answer": "在页面上任意元素上右键并选择「检查」（Inspect），或者直接按 F12。"
+        },
+        {
+          "question": "Elements 面板和 Styles 面板各自负责什么？",
+          "answer": "Elements 面板显示页面完整的 HTML 结构，可以在里面点选元素，也可以用左上角的选择图标去点页面上的元素；Styles 面板显示当前作用在所选元素上的样式，包括被覆盖的那些。"
+        },
+        {
+          "question": "Styles 面板里的删除线表示什么？",
+          "answer": "表示那条声明虽然写了，但被另一条更占优势的样式覆盖掉了，并没有真正作用在这个元素上。这正是排查「我明明写了却没生效」最直接的入口。"
+        },
+        {
+          "question": "在检查器里改样式和直接改源文件有什么区别？",
+          "answer": "检查器里的改动只存在于浏览器当前的这份副本里，页面会实时响应，但源文件一个字都不会变；刷新页面，改动就没了。它适合快速试各种取值，定下满意的结果后再回编辑器写进源文件。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "前面几课你写的是 HTML 与 CSS，但从这一课开始要学一件更长期的事：页面和你想的不一样时，怎么找出原因。检查器是前端开发里用得最频繁的工具——元素的结构长什么样、哪条样式的哪条声明被谁盖掉了、改一个数值会有什么效果，全都能当场看到。它不改变你写的代码，只是把浏览器内部的理解摊开给你看。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "官方开篇给了这一课的定位：能检查并调试自己的 HTML 与 CSS，是前端开发的基本功。这一课带你走一遍 Chrome 的开发者工具（DevTools），它可以显示元素与 CSS 规则的详细信息，也能帮你定位并修掉代码里的问题。",
+            "这一课是动手课：下面每一步都可以立刻在任意网页上做一遍，不必等到写完自己的页面。"
+          ]
+        },
+        {
+          "h": "打开检查器",
+          "p": [
+            "在网页的任意元素上右键，选择「检查」（Inspect）；或者直接按 F12。官方建议你现在就打开，看看这一页用到的 HTML 与 CSS。"
+          ]
+        },
+        {
+          "h": "先只看两个面板",
+          "p": [
+            "打开之后你会看到很多面板，官方提醒不要被吓到：这一课只需要关注两个——Elements（元素）与 Styles（样式）。其余面板后面各自的课程里会陆续碰到。"
+          ]
+        },
+        {
+          "h": "在 Elements 面板里选中元素",
+          "p": [
+            "Elements 面板里显示的是这一页完整的 HTML 结构。你可以直接单击其中某个元素把它选中。",
+            "另一种更直观的方式：点面板左上角的「选择元素」图标（官方配了图），然后把鼠标移到页面上的任意元素上——鼠标经过的地方会被高亮，点下去就选中它。想知道某个看着奇怪的地方对应哪段 HTML 时，这种方式比在结构树里翻找快得多。"
+          ]
+        },
+        {
+          "h": "Styles 面板里能看到什么",
+          "p": [
+            "选中一个元素后，Styles 面板会列出所有当前作用在它身上的样式——包括你自己写的规则，也包括浏览器的默认样式。",
+            "官方给了个可以立刻照做的例子：用检查器点开 TOP 官网首页那句大标题里的某个词，右侧就会看到所有正在影响这个元素的样式。官方还特意说明：图中出现的 var() 写法与本节要讲的事无关，先不用管它。"
+          ]
+        },
+        {
+          "h": "被划掉的样式",
+          "p": [
+            "Styles 面板里会出现带删除线的声明——它表示这条声明虽然写了，但被别的样式覆盖，并没有真正生效。",
+            "这正是排查样式问题的入口：看到「我写了但没生效」，就来这里确认是不是被划掉了，以及是被哪一条规则划掉的。划掉它的往往就是上一课讲的层叠判定里胜出的那一条。"
+          ]
+        },
+        {
+          "h": "在检查器里直接改样式",
+          "p": [
+            "Styles 面板允许你直接编辑样式：在某个选择器里单击可以新增一条规则，单击已有的属性或值可以改它。改动会立刻反映到页面上。",
+            "官方说这种方式「对快速试验各种属性和值极其有用」——调一个数值、换一个颜色，看一眼效果，不用反复回到编辑器改文件、再刷新页面。"
+          ]
+        },
+        {
+          "h": "改的是副本，不是源文件",
+          "p": [
+            "必须记住的一点：检查器里的改动不会影响你文本编辑器里的源代码。它只改了浏览器当前显示的这一份。",
+            "所以正确用法是：在检查器里试到满意的结果，然后回到编辑器把最终写法敲进源文件。反过来做——只在检查器里改完就以为改好了——刷新页面就会全部消失。"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "在检查器里改完就以为源文件改好了",
+          "text": "检查器改的是浏览器内存里的副本，刷新即失效。它的正确用途是「快速试验」，定下来之后必须回编辑器写进源文件，否则下次打开页面又会变回原样。"
+        },
+        {
+          "title": "把被划掉的声明当成没写对",
+          "text": "删除线表示这条声明被别的规则覆盖了，不是写错了。看到删除线应该顺着去找「谁赢了」，而不是反复改这条已经被覆盖的声明。"
+        },
+        {
+          "title": "一上来就翻遍所有面板",
+          "text": "官方专门提醒不要被面板数量吓到——这一课只需要 Elements 与 Styles 两个。其余工具在后续课程里会用到，现在不必去理解它们。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "按顺序读完官方指定的 Chrome DevTools 文档这几节：Devtools overview（只了解有哪些工具可用，不要顺着页面上的其他链接跳走）；Open Chrome DevTools（与本课上面讲的打开方式类似，另外多了一些有用的补充）；Get Started With Viewing And Changing The DOM（跳过任何用到 JavaScript 控制台的部分）；View and change CSS（这一节要跟着页面上的交互说明一起做）。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 inspecting_html_and_css.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "3d18c31863fbeb7b9f8c1c2b3ded19c6ac0072eac177e9bca66da9e0881ab9a5",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "the-box-model",
+      "title": "The Box Model",
+      "zh": "盒模型",
+      "group": 4,
+      "url": "https://www.theodinproject.com/lessons/foundations-the-box-model",
+      "summary": "盒模型：页面上每个元素都是矩形盒，content、padding、border、margin 四层叠加决定它占多大地方。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "页面上每一样东西都是矩形盒；盒子可以套盒子，也可以并排。",
+        "每个盒子四层从内到外：content（内容）、padding（内边距）、border（边框）、margin（外边距）。",
+        "默认（content-box）情况下，CSS 的 width 只指内容那一层的宽，实际占位还要加上 padding、border（margin 另算）。",
+        "box-sizing: border-box 把 width 变成「含 padding 与 border 的总宽」，尺寸好算得多。",
+        "margin 有两个进阶话题：auto 居中，以及上下外边距会「坍缩」合并。"
+      ],
+      "terms": [
+        {
+          "en": "box model",
+          "zh": "盒模型：把元素看成四层矩形叠加的心智模型，CSS 布局的地基"
+        },
+        {
+          "en": "content",
+          "zh": "内容：盒子里装文字与图片的那一层，width / height 默认只量它"
+        },
+        {
+          "en": "padding",
+          "zh": "内边距：边框与内容之间的空间，把内容往里撑"
+        },
+        {
+          "en": "border",
+          "zh": "边框：包住 padding 与内容的框线，本身占宽度（哪怕只有一两个像素）"
+        },
+        {
+          "en": "margin",
+          "zh": "外边距：盒子的边框与相邻盒子边框之间的空间"
+        },
+        {
+          "en": "box-sizing",
+          "zh": "盒模型计算方式：content-box（默认）或 border-box（把 padding 与 border 算进 width）"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，记住四层结构由内到外的顺序与各自的职责。",
+        "亲手做「一切皆矩形盒」的实验：给任意页面加上 * { outline: 2px solid red; }，看盒子的真实形状。",
+        "在 DevTools 里找到盒模型示意图（Computed 面板），对照本页讲的四层看一个真实元素。",
+        "完成官方 Assignment：按顺序看两个视频、读 MDN 盒模型文章与 CSS-Tricks 的 margin 页。",
+        "用下面的「简单自测」检查你对占位计算与 box-sizing 的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "盒模型四层从内到外的顺序是什么？",
+          "answer": "content（内容）→ padding（内边距）→ border（边框）→ margin（外边距）。记忆方式：padding 在边框与内容之间，border 在 margin 与 padding 之间，margin 在盒子的边框与相邻盒子的边框之间。"
+        },
+        {
+          "question": "默认盒模型下，一个元素 width: 300px、padding: 20px、border: 5px，它内容到边框外缘实际有多宽？加上 margin: 10px 后在页面水平方向总共占多宽？",
+          "answer": "内容到边框外缘：300 + 20×2 + 5×2 = 350px。再加左右 margin 各 10px，页面水平方向总共占 370px。默认（content-box）的 width 只量内容层，padding 与 border 每层左右各算一次，margin 在边框之外另算。"
+        },
+        {
+          "question": "box-sizing: border-box 解决了什么问题？",
+          "answer": "它让 width 直接表示「内容 + padding + border」的总宽，padding 和 border 改多大，元素总尺寸都不变。content-box 下想精确控制占位就得做加法，改一个 padding 全都要重算；border-box 是官方推荐的实际做法，现代项目几乎都全局设置它。"
+        },
+        {
+          "question": "两个上下相邻的块级元素，上面的写 margin-bottom: 30px，下面的写 margin-top: 20px，它们之间的间距是多少？",
+          "answer": "30px，不是 50px。上下方向的外边距会发生「坍缩」（collapsing）：相邻的两个 margin 合并成一个，取两者中较大的那个。左右方向不坍缩，会相加。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "CSS 里最重要的两件事是定位（positioning）与布局（layout）——能把元素放到你想要的位置上，比调字体颜色关键得多。而这两件事的地基就是盒模型：不理解每个元素「实际占了多大一块地方」，后面调任何尺寸都是猜。很多学习者急着冲去学 JavaScript，恰恰在这一课留下窟窿，之后写样式时处处碰壁。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "你已经会写 HTML 结构、会用选择器改颜色和字体了。接下来要动真格的：定位与布局——把元素放到页面上你想要的位置。官方说这是 CSS 里最重要的技能：改字体改颜色固然重要，但能不能把东西放到指定位置上更重要——毕竟几乎没有哪个网页是所有元素一个摞一个垂直堆出来的。",
+            "学习定位并不难，前提是先掌握几个关键概念。第一个就是本课的主角：盒模型（the box model）。它不复杂，但现在跳过它，后面会一直为此付利息。"
+          ]
+        },
+        {
+          "h": "一切皆矩形盒",
+          "p": [
+            "页面上每一样东西——一个段落、一张图、一行导航、整个页面本身——都是一个矩形盒（rectangular box）。盒子里面可以再套盒子，盒子之间也可以并排放。",
+            "官方给了一个眼见为实的办法：给页面上所有元素加一条红色 outline（外描线），整页的盒子形状立刻现形：* { outline: 2px solid red; }。",
+            "这条规则用第 21 课讲过的通配选择器 * 选中页面上所有元素。你可以在任何页面上做这个实验——包括本站这一页：打开 DevTools（第 23 课学的），在 Elements 面板右上角的 Styles 面板里点 + 号新建一条规则贴进去，盒子们就全现形了。官方配图里能看到整页被一条条红框切开的样子：标题是盒、段落是盒、盒子里还套着小盒。",
+            "官方配图里也有些圆形的元素（比如头像）。但就布局而言，它们仍然按矩形盒来拼放——圆形只是矩形盒的「外貌」，盒子与盒子之间永远是按矩形互相占位的。说到底，布局一个网页，就是在决定这些盒子怎样嵌套、怎样堆叠。"
+          ]
+        },
+        {
+          "h": "四层同心结构：content、padding、border、margin",
+          "p": [
+            "每个矩形盒从里到外有四层，这就是盒模型：",
+            "content（内容）：最里层，装着文字、图片等内容。",
+            "padding（内边距）：增加盒子的边框与内容之间的空间。",
+            "border（边框）：在 margin 与 padding 之间加上的一圈框，哪怕只有一两个像素，它也占地方。",
+            "margin（外边距）：增加这个盒子的边框与相邻盒子的边框之间的空间。"
+          ],
+          "list": [
+            "padding：边框与内容之间的空间——把内容往里撑。",
+            "border：包住 padding 与内容的那道框，自身占宽度。",
+            "margin：盒子与邻居之间的空间——把别的盒子推开。"
+          ]
+        },
+        {
+          "h": "三层空间的分工",
+          "p": [
+            "三句话区分三层空间：padding 撑的是「自己内部」——内容离边框远一点；margin 推的是「别人」——让相邻的盒子离自己远一点；border 则是两层之间实打实的一道线，画上去就占尺寸。",
+            "一个直观的比方：content 是照片本身，padding 是相框里的白色留边，border 是相框的边，margin 是这个相框与墙上其他相框之间的距离。",
+            "调整盒子大小与间距，用的就是这三个属性。它们都可以只改一个方向，例如 padding-left 只调左内边距、margin-top 只调上外边距——第 23 课在 DevTools 里已经见过这类写法。"
+          ]
+        },
+        {
+          "h": "默认算法：width 只量内容那一层",
+          "p": [
+            "盒模型唯一的「坑」在于：尺寸怎么算。默认的 box-sizing 是 content-box——CSS 里写的 width，只指 content 那一层的宽度。",
+            "于是元素真实占的宽度 = width + 左右 padding + 左右 border（margin 在边框之外，另算）。举例：width: 300px、padding: 20px、border: 5px 的元素，内容到边框外缘实际是 300 + 40 + 10 = 350px 宽；外面再加左右 margin 各 10px，它在页面水平方向一共占 370px。",
+            "这意味着：你以为设了 300px 宽的盒子，实际比 300px 大；每加一点 padding 或 border，盒子就往外再胀一圈。想精确控制占位，就得一路做加法，改一处全重算。"
+          ]
+        },
+        {
+          "h": "box-sizing: border-box：让尺寸好算",
+          "p": [
+            "解决上面那个坑的标准做法是 box-sizing: border-box：让 width 直接表示「content + padding + border」的总宽。padding、border 改成多大，都被「装进」width 里，元素总尺寸不变。",
+            "同样写 width: 300px、box-sizing: border-box、padding: 20px、border: 5px：内容区自动被压成 250px，但整个盒子（到边框外缘）就是 300px。想放四个各 25% 宽的并排盒子，border-box 下写起来才不会爆。",
+            "官方指定的第二个视频就是专门讲它的；现代项目几乎都会在样式表开头给所有元素统一设上 border-box。本站不展开为什么浏览器默认是 content-box——那是一段历史包袱，记住「实际写项目用 border-box」就够了。"
+          ]
+        },
+        {
+          "h": "margin 的两个进阶话题：auto 与坍缩",
+          "p": [
+            "官方指定的 CSS-Tricks margin 页里，有两小节的内容你迟早会撞上，值得先打个照面。",
+            "第一个是 margin: auto：左右外边距都写 auto 时，浏览器会把可用空间平均分给两边——这是让一个定宽块级元素水平居中的常用手法。",
+            "第二个是外边距坍缩（margin collapsing）：两个上下相邻的块级元素，上面的 margin-bottom 与下面的 margin-top 不会相加，而是合并成较大的那一个。上面的留 30px、下面的留 20px，间距是 30px 而不是 50px。这经常被当成 bug，其实是规范定义的行为；左右方向不发生坍缩。"
+          ]
+        },
+        {
+          "h": "内联元素的盒子长得不一样",
+          "p": [
+            "MDN 盒模型文章还会提到内联盒子（inline boxes）与「内部 / 外部显示类型」这些概念——padding 和 margin 在行内元素上的行为与块级元素不同（下一课展开）。",
+            "官方的建议很直接：这些细节现在不必完全理解、更不用背下来。认真看文章里的例子，在它提供的浏览器内编辑器里动手改一改、试一试，比抠名词重要。下一课会把 block 与 inline 正式讲清楚。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* 官方的「一切皆矩形盒」实验：给整页所有元素画上红描线 */\n* {\n  outline: 2px solid red;\n}",
+          "note": "贴进 DevTools 的 Styles 面板即可看到整页的盒子形状。用 outline 而不是 border——outline 不占布局空间，画上去不会把页面挤变形。"
+        },
+        {
+          "lang": "css",
+          "code": "/* 默认 content-box：width 只量内容层 */\n.box {\n  width: 300px;        /* 内容宽 300px */\n  padding: 20px;       /* 上下左右各 20px */\n  border: 5px solid black;\n  /* 实际到边框外缘 = 300 + 20*2 + 5*2 = 350px */\n}\n\n/* border-box：width 就是总宽，padding 与 border 装在里面 */\n.box2 {\n  box-sizing: border-box;\n  width: 300px;        /* 内容自动压到 250px，总宽仍 300px */\n  padding: 20px;\n  border: 5px solid black;\n}",
+          "note": "同样的 width、padding、border，两种盒模型算法下实际占位差 50px。实际写项目几乎都用 border-box。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "加了 padding 之后盒子「变大」了却不知道为什么",
+          "text": "默认 content-box 下，width 只管内容层；padding 与 border 会往外额外撑大盒子。看到「明明写了 300px 怎么实际 350px」，先想到盒模型算法，再把 box-sizing 改成 border-box。"
+        },
+        {
+          "title": "以为两个 margin 会相加",
+          "text": "上下相邻的块级元素，margin-bottom 与 margin-top 会坍缩成较大的那个（30px + 20px = 30px，不是 50px）。间距怎么调都不对时，先想到坍缩；左右方向不受影响。"
+        },
+        {
+          "title": "给行内元素加 padding / margin 想撑开间距",
+          "text": "行内元素的上下 padding 与 margin 行为与块级元素不同，往往达不到预期。官方的建议是：一般不要试图往行内元素上加额外的 padding 或 margin——下一课讲 block 与 inline 时会把原因说清。"
+        },
+        {
+          "title": "跳过盒模型直接去学 JavaScript",
+          "text": "官方原话警告：很多学习者一路狂奔去学 JavaScript，结果漏掉这些根基概念，之后被定位布局反复折磨（页面元素放不到想去的位置）。这一课的概念量不大，值得一次吃透。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "观看视频 Learn CSS Box Model In 8 Minutes：对盒模型、padding 与 margin 的直观概览，先看它，它统领后面所有内容。",
+          "观看视频 box-sizing: border-box (EASY!)：上一个视频的补充，把 box-sizing 讲得更透。",
+          "盒模型实在太根本了，官方要求再读深一层：MDN 的盒模型文章。它覆盖前两个视频同样的内容，并引入下一课要探索的行内盒子；文中解释元素渲染方式时提到的内部 / 外部显示类型，现在不必完全理解或背诵，把注意力放在例子上，并在文章提供的浏览器内编辑器里动手实验。",
+          "阅读 CSS-Tricks 的 margin 属性页：关于 margin 属性的更多细节，特别是 auto 与外边距坍缩（margin collapsing）两小节的内容，值得现在就知道。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 the_box_model.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "51f77e5aafec01f8e4ba8c9e52d4652167d835890a8fcefc2ef8be060dfec6a2",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "block-and-inline",
+      "title": "Block and Inline",
+      "zh": "块级与行内",
+      "group": 4,
+      "url": "https://www.theodinproject.com/lessons/foundations-block-and-inline",
+      "summary": "块级与行内：display 属性决定元素的盒子行为，div 与 span 是两种不带语义的通用容器。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "不写任何布局规则时，页面按「正常文档流（Normal flow）」自然排布。",
+        "块级元素默认独占一行、往下堆叠；行内元素不换行、排在文字流里。",
+        "display 属性决定元素按哪种盒子行为渲染（block / inline / inline-block 等）。",
+        "inline-block 是中间地带：像行内元素一样并排，又能用块级方式设 padding 与 margin。",
+        "div 是通用的块级容器、span 是通用的行内容器；两者都不带语义，只用在你需要「一个可以挂样式的钩子」时。"
+      ],
+      "terms": [
+        {
+          "en": "Normal flow",
+          "zh": "正常文档流：不写布局规则时元素自然排布的默认方式"
+        },
+        {
+          "en": "block element",
+          "zh": "块级元素：默认 display: block，独占一行、从上往下堆叠"
+        },
+        {
+          "en": "inline element",
+          "zh": "行内元素：默认 display: inline，不换行，排在文字流里"
+        },
+        {
+          "en": "inline-block",
+          "zh": "行内块：display: inline-block，像行内元素一样并排、又保留块级盒子的尺寸与间距行为"
+        },
+        {
+          "en": "div",
+          "zh": "通用的块级容器元素，不带任何语义，常用来分组与挂样式"
+        },
+        {
+          "en": "span",
+          "zh": "通用的行内容器元素，不带任何语义，常用来给一段文字里的一小截挂样式"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，分清 block / inline / inline-block 三种显示类型各自的行为。",
+        "完成官方练习：CSS exercises 仓库 foundations/block-and-inline 目录里的 01、02 两个 margin-and-padding 练习。",
+        "按官方要求给第 20 课的 Recipes 页面加上外部 CSS 样式——怎么写全开放，练的是写 CSS 的手感。",
+        "查一遍 W3Schools 的字体页，给你的 font-family 配上安全的字体与兜底的通用族名。",
+        "用下面的「简单自测」检查你对显示类型与 div / span 的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "块级元素与行内元素的默认排版行为有什么区别？",
+          "answer": "块级元素（display: block）默认独占一行，每个新元素都从新的一行开始，往下堆叠；行内元素（display: inline）不换行，排在它旁边元素的同一行文字流里。链接 <a> 是典型的行内元素。"
+        },
+        {
+          "question": "inline-block 与 inline、block 各像在哪里？",
+          "answer": "inline-block 像行内元素一样不独占一行、与邻居并排；又像块级元素一样可以用正常方式设 padding 与 margin。适合「想把几个盒子排成一行又想给它们设尺寸间距」的场合——不过官方提醒，实际项目里排一行盒子更多会直接用下一课的 flexbox。"
+        },
+        {
+          "question": "div 和 span 各用在哪？共同点是什么？",
+          "answer": "div 是通用的块级容器，用来分组大块内容（一组卡片、一个导航栏），默认占满父元素宽度、另起一行；span 是通用的行内容器，用在一行文字里给一小截内容挂样式（高亮一个词）。共同点：都不带任何语义——纯布局与挂样式的「钩子」，挂上 class 或 id 之后 CSS 才找得到它们。"
+        },
+        {
+          "question": "为什么一般不建议给行内元素加 padding 或 margin？",
+          "answer": "上一课讲过：padding 和 margin 在行内元素上的行为与块级元素不同（比如上下方向常常撑不开、也不参与行高计算），往往达不到预期效果。想要「并排但又能正常设尺寸间距」的效果，用 inline-block 或 flexbox 更可靠。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "上一课的盒模型讲了「每个元素是一个盒子」，这一课回答「盒子之间怎么相处」：为什么有的元素独占一行、有的挤在文字里？答案是 display 属性——它是 CSS 里理解元素行为的最重要开关之一。这课还要认识 div 与 span 这对最常用的通用容器，你以后写的几乎每个页面都会用到它们。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "上一课（盒模型）留下了一个尾巴：不同显示类型的盒子，盒模型的计算方式不一样；box-sizing 属性可以改这个计算。CSS 有两大类盒子——块级（block）与行内（inline）盒子，它们决定元素的行为与互动。",
+            "控制这一切的是 display 属性：它决定 HTML 元素在网页上怎样显示。这一课就把 display 的这几档常用值讲清楚，并认识两个「不带语义、只为挂样式而生」的容器：div 与 span。"
+          ]
+        },
+        {
+          "h": "先认识 Normal flow：默认的排法",
+          "p": [
+            "在你一条布局规则都不写的时候，页面并不是乱堆的：元素按一套默认规则自然排布，这套规则叫正常文档流（Normal flow）。官方 Assignment 指定的 MDN 文章会专门讲它——盒模型资料里其实处处隐含 Normal flow，只是没有明说。",
+            "Normal flow 的要点：块级盒子从上往下依次堆叠；行内盒子在文字流里从左往右排（排满换行）。元素「默认长什么样」全由它解释，后面学 flexbox 等布局方式，本质上都是在把某些元素从 Normal flow 里拿出来重新安排。"
+          ]
+        },
+        {
+          "h": "块级元素：独占一行往下堆",
+          "p": [
+            "你目前为止学到的大多数元素都是块级元素——默认样式就是 display: block。",
+            "块级元素的行为：出现在页面上时独占一行，每个新元素都从新的一行开始，自上而下堆叠。段落 <p>、各级标题、<div> 都是典型代表。"
+          ]
+        },
+        {
+          "h": "行内元素：挤在文字流里",
+          "p": [
+            "行内元素（inline）不换行，它出现在哪儿，就跟旁边的元素排在同一行里。最典型的例子是链接 <a>：把它插进一段文字中间，链接就表现得像这段话的一部分，不会把句子断成两行。",
+            "官方在正文这个位置故意安排了一个彩蛋：放了一条链接，链接文字就是「链接会表现得像段落的一部分」——点开是一段大家都熟悉的音乐视频。彩蛋本身就是演示：这条链接嵌在段落文字里，行为就是段落的一部分。想亲眼看官方原句的效果，到本页顶部的官方入口走一趟。顺便呼应上一课：一般不要试图给行内元素加额外的 padding 或 margin——行内盒子的这一层行为与块级盒子不同，常常达不到你想要的效果。"
+          ]
+        },
+        {
+          "h": "inline-block：中间地带",
+          "p": [
+            "行内块（inline-block）元素的行为像行内元素——不独占一行、与邻居并排；但它的 padding 与 margin 又按块级元素的方式工作，能正常撑开、正常推开别人。",
+            "display: inline-block 是个值得认识的工具：想并排摆几个能设尺寸间距的盒子时它能干。不过官方也说了，实际项目里遇到「排一排盒子」的需求，更多时候你会直接用下一课的 flexbox。现在先把它放进工具箱，知道有这么一档就行。"
+          ]
+        },
+        {
+          "h": "div：通用的块级容器",
+          "p": [
+            "搭页面时，并不是每块内容都有合适的语义标签（nav、header 这些毕竟有限）。有时候你只是需要一个能挂样式、能定位的容器——这就是 div 的位置。",
+            "div 是通用的块级容器：行为上就是一个矩形区块，默认横向占满父元素宽度、自己另起一行。典型用法是把页面组件里的相关元素分组——一组卡片、一个区块、一条侧栏、一个导航栏，都可以用一个 div 包起来。",
+            "包上之后给这个 div 挂一个 class 或 id，就有了一个方便的「钩子」——CSS 的选择器从此找得到这一组内容，整组一起布局、整组一起上样式。"
+          ]
+        },
+        {
+          "h": "span：通用的行内容器",
+          "p": [
+            "span 是 div 的行内版：一个通用行内容器，坐在一行文字里，只占内容本身那么宽，不换行。",
+            "span 用在你想给一行文字里的一小截挂样式的时候：高亮一个词、给某个短语挂工具提示——把这截文字包进 span，加上 class 或 id，CSS 就能找到并改造它。",
+            "官方在正文里嵌了两个 CodePen 演示（一个 div 的例子、一个 span 的例子），演示这两个元素在真实页面里的行为，可以到官方原课页面上直接交互着看。"
+          ]
+        },
+        {
+          "h": "div 与 span 怎么选",
+          "p": [
+            "两者都不给内容增加任何语义——它们存在的意义就是给你灵活的「积木」。真正的区别在布局行为：div 以块级身份参与文档流，span 以行内身份参与。",
+            "想清楚这一点，选择就简单了：分组、定位大块内容用 div；给一行文字里的一小块挂样式或脚本用 span。官方还有一条实用建议：能用语义标签（header、nav、p……）的地方就用语义标签，div 与 span 是「实在没有合适语义标签」时的兜底。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* display 的三档常用值 */\nav {\n  display: block;        /* 行内链接变成块级：独占一行 */\n}\n\np {\n  display: inline;       /* 段落变成行内：不再换行 */\n}\n\n.nav-item {\n  display: inline-block; /* 并排摆放，又可正常设尺寸间距 */\n  padding: 8px 16px;\n  margin: 4px;\n}",
+          "note": "display 决定元素按哪种盒子行为渲染。改动它是最直接的「换行为」实验：拿任意元素改成另外两档，看排版怎么变。"
+        },
+        {
+          "lang": "html",
+          "code": "<!-- div：把一组卡片分组，挂上 class 当 CSS 的钩子 -->\n<div class=\"card-group\">\n  <div class=\"card\">第一张卡片</div>\n  <div class=\"card\">第二张卡片</div>\n</div>\n\n<!-- span：给一行文字里的一小截挂样式 -->\n<p>今天学会了<span class=\"highlight\">盒模型</span>和显示类型。</p>",
+          "note": "div 分组大块内容、span 定位文字片段。两者都不带语义，价值在于「包起来 + 挂 class，CSS 找得到」。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "见 div 就包一层",
+          "text": "div 与 span 不带语义，是「实在没有合适语义标签」时的兜底。能用 header、nav、p、ul 这些语义标签表达的，优先用语义标签——页面结构对浏览器、读屏软件与你自己回读时都更清楚。"
+        },
+        {
+          "title": "想让行内元素换行 / 设宽度",
+          "text": "行内元素不响应上下 margin、也未必响应宽高。想给「排在文字里的东西」设尺寸间距，改用 display: inline-block（或等下一课的 flexbox），别在 inline 上硬撑。"
+        },
+        {
+          "title": "把 inline-block 当成排一排盒子的最终答案",
+          "text": "inline-block 能用，但并排盒子之间的空白节点、基线对齐这些细节常带来意外；官方明说实际项目里更多会直接用下一课的 flexbox。现在会用它即可，别急着用它搭复杂布局。"
+        },
+        {
+          "title": "div 和 span 分不清",
+          "text": "一句话判别：分组和定位大块内容 → div（块级，另起一行）；给一行文字里的一小截挂样式 → span（行内，不换行）。剩下的区别都是这一条推出来的。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "阅读 MDN 的 Normal Flow（正常文档流）一文：盒模型资料里处处隐含、但没讲透的「元素默认怎么排」，这篇把它明说，确保你理解元素默认情况下怎样自行布局。",
+          "阅读 W3Schools 的 HTML Block and Inline Elements：带说明与全部默认块级 / 行内元素的清单。",
+          "阅读 DigitalOcean 教程 Inline vs Inline-block Display in CSS：几个很好的例子，帮你分清 inline 与 inline-block 的差别。",
+          "完成官方 CSS exercises 仓库 foundations/block-and-inline 目录里的练习，按顺序做 01-margin-and-padding-1 与 02-margin-and-padding-2（说明在 README 里；每个练习的 solution 文件夹里有参考答案）。",
+          "还记得 HTML Foundations 阶段你做的那个 Recipes 页面吗？它看起来相当朴素——现在给它加上 CSS。怎么写样式完全开放，但要用外部 CSS 的方式（本次练习与今后都如此），并试着用上一课讲过的那些属性（颜色、背景色、字体属性等）。多花点时间把各种属性都玩一玩，找找手感——现在完全不用担心好不好看，这只是练手感，不是做作品集。font-family 的自定义字体还没讲到，先看 W3Schools 的 CSS Fonts（通用字体族清单）与 CSS Web Safe Fonts（Web 安全字体清单）挑字体，记得最后还是要带一个通用字体族兜底。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 block_and_inline.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "fd601f862b2a77c3d3e9eb0fc78366d4981026dc2ce2b02db6e666adde3b1b81",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "introduction-to-flexbox",
+      "title": "Introduction to Flexbox",
+      "zh": "认识 Flexbox",
+      "group": 5,
+      "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-flexbox",
+      "summary": "认识 Flexbox：用 display: flex 把元素排成会伸缩的行或列，分清 flex 容器与 flex 项目两个角色。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。这一课官方没有布置外部资料与作业，跟着讲解往下走、把示例亲手玩一遍就是最好的完成方式。",
+      "understand": [
+        "Flexbox 是把元素排成行或列的布局方式，元素会按你定义的规则伸缩（flex）。",
+        "带 display: flex 的元素是 flex 容器（flex container）；直接住在它里面的子元素是 flex 项目（flex item）。",
+        "Flexbox 不是单个 CSS 属性，而是一整套属性：一部分写给容器，一部分写给项目，写错对象就不生效。",
+        "任何元素都可以既是 flex 项目又是 flex 容器——嵌套多层容器是搭建复杂布局的主要方式。",
+        "布局不符合预期时第一反应是打开 DevTools 检查；学每个示例都要亲手玩。"
+      ],
+      "terms": [
+        {
+          "en": "flexbox",
+          "zh": "弹性盒子布局：把元素排成行或列、让它们按规则伸缩的一整套 CSS 布局工具"
+        },
+        {
+          "en": "flex container",
+          "zh": "弹性容器：带有 display: flex 的元素，flexbox 的容器侧属性写在它身上"
+        },
+        {
+          "en": "flex item",
+          "zh": "弹性项目：直接住在 flex 容器里的子元素，flexbox 的项目侧属性写在它身上"
+        },
+        {
+          "en": "display: flex",
+          "zh": "把一个元素变成 flex 容器的声明——开启 flexbox 的那行字"
+        },
+        {
+          "en": "flex（动词）",
+          "zh": "伸缩：容器可用空间变化时，项目按规则放大或缩小的行为"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，分清 flex 容器与 flex 项目两个角色。",
+        "到官方原课把嵌入的 CodePen 玩一遍：取消注释两行 flex 声明、用 1x / .5x / .25x 按钮缩放结果区、往容器里再加一个 div，观察盒子们怎样自动伸缩。",
+        "对照官方原课的三张示意图，确认自己能对每一张说出「谁是容器、谁是项目」。",
+        "在 DevTools 里随便挑一个有子元素的节点，给它加上 display: flex，看子元素立刻换一种排法；再删掉，看它变回去。",
+        "用下面的「简单自测」检查你对两个角色的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "flex 容器与 flex 项目分别怎么认定？",
+          "answer": "带有 display: flex 的元素就是 flex 容器；直接住在容器里面的子元素就是 flex 项目。判定只看这一条声明和一层父子关系，与标签类型无关。"
+        },
+        {
+          "question": "display: flex 写在谁身上？写了之后谁的行为变了？",
+          "answer": "写在父元素（未来的容器）身上。变化的是它直接子元素（flex 项目）的排法：默认从垂直堆叠变成横向一行（或按后续属性排成列），并会随容器空间伸缩。给子元素写 display: flex 不会让它加入队伍，只会让它自己变成另一个容器。"
+        },
+        {
+          "question": "一个元素能同时是 flex 容器和 flex 项目吗？",
+          "answer": "能，而且这是常态：一个元素住在某个容器里（它是项目），自己又带 display: flex（它是容器），它的子元素按它自己的规则排。官方的三张示意图里第二张画的就是这种情况。"
+        },
+        {
+          "question": "官方给这一阶段学习提了哪两条建议？",
+          "answer": "一是所有代码示例都要亲手玩——这些课的概念要到单元末的项目（Landing Page）才能拼成整体，现在玩过、知道去哪找，比死记细节重要；二是做到作业时几乎一定会回来查这几课，这是预期内的正常回查，不代表没学好。另外：布局不符合预期时，第一反应永远是先用 DevTools 检查。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "这是布局真正的第一课。盒模型回答「每个盒子占多大地方」，显示类型回答「盒子之间默认怎么相处」；Flexbox 回答的是更有力量的问题：怎样把一组盒子按行或列摆好、让它们自动分配空间。它已成为当今开发者摆放元素的默认方式，很多教程把它压在课程最后，官方反而把它提前——因为它是你工具箱里最常用的布局工具，越早形成两个角色（容器 / 项目）的心智模型，后面几课越顺。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "盒模型与块级 / 行内都学完了，现在动真格的：布局——把元素放到页面上你想要的位置。移动元素的方法这些年出过很多种，新的出现、旧的过气，而 Flexbox 一登场就是一场革命。",
+            "它如今已是许多开发者摆放元素的默认方式。官方特意把它放在 HTML / CSS 阶段的前段而不是像很多资料那样压到最后：既然它是你以后用得最多的工具之一，为什么不先学？这一课先建立最重要的心智模型——flex 容器与 flex 项目两个角色。"
+          ]
+        },
+        {
+          "h": "Flexbox 是什么",
+          "p": [
+            "Flexbox 是一种把元素排列成行或列的布局方式。这些元素会 flex——也就是按你定义的规则放大或缩小。",
+            "它不是单个 CSS 属性，而是一整个工具箱：有些属性属于 flex 容器，有些属于 flex 项目。这一课先把两个角色认清楚，具体属性后面几课逐个展开。"
+          ]
+        },
+        {
+          "h": "第一个实验：让三个盒子排成一行",
+          "p": [
+            "官方在原课里嵌了一个可以交互的 CodePen 演示：三个 div 本来垂直堆叠，CSS 里有两条 flex 相关声明被注释包着。把 /* 和 */ 删掉（取消注释），三个 div 立刻横排成一行。",
+            "顺带认识注释：注释让浏览器跳过某段代码不解释。CSS 的注释用 /* 开头、*/ 结尾（HTML 和 JavaScript 各有自己的写法）；被注释包住的代码没有生效，删掉注释标签就等于「重新启用」那一行。",
+            "接着用结果区上方的 1x / .5x / .25x 按钮缩放宽度：盒子会伸缩，始终填满可用空间，而且各自等宽。再往 .flex-container 里多加一个 div，它会自动插进队伍，大家一起重新分配空间——不用改任何 CSS。",
+            "这些可交互示例嵌不进本页正文；每课的 CodePen 都建议点「Edit on CodePen」放大了玩。入口在本页顶部的官方课程按钮。"
+          ]
+        },
+        {
+          "h": "flex 容器与 flex 项目",
+          "p": [
+            "两条定义：任何带 display: flex 的元素都是 flex 容器（flex container）；任何直接住在 flex 容器里的元素都是 flex 项目（flex item）。",
+            "这是整个 Flexbox 最重要的概念：工具箱里的属性分成两组——一部分要写在容器上，一部分要写在项目上。以后每学一个新属性，先问一句「这是写给谁的」，写错对象就是写了不生效。",
+            "有点绕但很关键的一点：任何元素都可以既是 flex 容器又是 flex 项目。换句话说，你可以给一个 flex 项目再加上 display: flex，然后用 flexbox 去排列它自己的子元素。"
+          ]
+        },
+        {
+          "h": "嵌套：搭复杂布局的主要方式",
+          "p": [
+            "把上面两点合起来：创建并嵌套多个 flex 容器与项目，就是本站后续搭建复杂布局的主要方式。",
+            "官方原课里有一张只用 flexbox 完成的页面截图——各种元素的排列、尺寸、摆放全部是嵌套容器与项目做出来的，没有借助其他布局技术。Flexbox 是个非常强大的工具，值得在接下来几课里把它一个属性一个属性地吃透。",
+            "官方原课在这个位置配了三张示意图（容器与项目的关系图、项目本身又是容器的嵌套图、整页 flexbox 布局的成品图），本站不搬运，建议到原课页面上对照看一遍——配图是官方内容的一部分。"
+          ]
+        },
+        {
+          "h": "学 Flexbox 的正确姿势",
+          "p": [
+            "两个前置提醒，官方原话强调过：第一，Flexbox 布局确实比前面的概念多了几个活动部件，出问题时 DevTools 检查永远是第一步——上一课刚练过的技能在这里就是日常工具。",
+            "第二，这一组课要到最后（单元末的项目）才能把所有东西拼起来。现在感觉「学了用不上」是正常的；关键是把每个代码示例都亲手玩一遍。做到作业时你几乎一定会回来翻这几课或官方给的资料——预先知道去哪里找，比现在背下来更实际。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* 最小可用的 flexbox：两行字让三个盒子排成会伸缩的一行 */\n.flex-container {\n  display: flex;   /* 这一行让容器生效 */\n}\n\n.flex-container > div {\n  flex: 1;         /* 项目平分容器空间（下一课拆解它） */\n}",
+          "note": "display: flex 写在父元素上；子元素的排法立刻改变并随容器宽度伸缩。flex: 1 是什么、为什么等分，正是下一课的内容。"
+        },
+        {
+          "lang": "html",
+          "code": "<!-- 嵌套：一个项目自己又是容器 -->\n<div class=\"flex-container\">\n  <div class=\"flex-item\">我只是项目</div>\n  <div class=\"flex-item flex-container\">\n    <div>对外，我的父级是容器、我是项目；</div>\n    <div>对内，我自己带 display: flex、我是容器</div>\n  </div>\n</div>",
+          "note": "同一个元素：对外（父级）是 flex 项目，对内（自己带 display: flex）是 flex 容器。嵌套容器是搭复杂布局的主要方式。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "display: flex 写到了子元素身上",
+          "text": "容器与项目搞反了。display: flex 永远写在「想让它的子元素重新排」的那个元素上——写谁，谁就是容器，行为改变的是它的直接子元素。发现属性不生效时第一件事：确认这条声明写在了正确的对象上。"
+        },
+        {
+          "title": "以为 Flexbox 是一个属性",
+          "text": "它是一整套属性组成的工具箱，分「写给容器」与「写给项目」两组。display: flex 只是开了个头——真正决定排法的是后面几课的一个个属性。每学一个先问「这是写给谁的」。"
+        },
+        {
+          "title": "只读文字、不玩示例",
+          "text": "官方在原课里反复强调：play with all of the code examples。Flexbox 的行为（伸缩、重排）必须亲眼看着空间变化才能内化；这一组课的概念要到单元末项目才能拼起来，现在玩过、知道去哪查，就是最好的学习状态。"
+        },
+        {
+          "title": "第一课就想搭复杂布局",
+          "text": "官方明说：在前几课学到的东西，要到最后才能整体用起来。现在最重要的是建立「容器 / 项目」与「属性分两组」的心智模型，别急着用半套工具去拼整页布局——那是第 30 课项目的事。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "惊喜：这一课没有作业！接下来几课你会学到更多，继续往下走就好。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 flexbox_intro.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "e3fef3a09816d4149df460d5b198f74722ac85fdb683f673ddc2efff3f1698b8",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "growing-and-shrinking",
+      "title": "Growing and Shrinking",
+      "zh": "放大与缩小",
+      "group": 5,
+      "url": "https://www.theodinproject.com/lessons/foundations-growing-and-shrinking",
+      "summary": "放大与缩小：flex 是 flex-grow、flex-shrink、flex-basis 三个属性的简写，flex: 1 就是 1 1 0。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "flex 是简写属性，一条声明同时设置 flex-grow、flex-shrink、flex-basis 三个值；flex: 1 等价于 1 1 0。",
+        "flex-grow 是放大因子：容器有富余空间时，项目按这个比例增长；flex: 1 与 flex: 2 的项目宽度比是 1 : 2。",
+        "flex-shrink 是缩小因子：所有项目总大小超过容器时按它收缩；默认 1（均匀收缩），0 表示绝不收缩。",
+        "flex-basis 是伸缩起点的初始尺寸：0% 从零开始按比例分，auto 则会参考项目的 width 声明。",
+        "两个「默认」不一样：flex-basis 属性本身的默认值是 auto，但简写 flex: 1 里省略的 basis 是 0。flex: auto = 1 1 auto。",
+        "指定了 grow 或 shrink 之后，项目不一定尊重你写的 width——这是规范定义的行为，不是 bug。"
+      ],
+      "terms": [
+        {
+          "en": "shorthand property",
+          "zh": "简写属性：一条声明同时设置多个其他 CSS 属性的写法，更简洁也更可读，如 flex、margin"
+        },
+        {
+          "en": "flex-grow",
+          "zh": "放大因子：容器有富余空间时，项目按这个数字的比例增长"
+        },
+        {
+          "en": "flex-shrink",
+          "zh": "缩小因子：容器装不下所有项目时，项目按这个数字的比例收缩；0 表示绝不收缩"
+        },
+        {
+          "en": "flex-basis",
+          "zh": "初始尺寸：项目伸缩的起点，0% 从零开始按比例分、auto 会参考 width 声明"
+        },
+        {
+          "en": "flex: auto",
+          "zh": "flex: 1 1 auto 的等价简写；名字带 auto，但它不是 flex 简写的默认值"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把 flex: 1 = flex-grow: 1 / flex-shrink: 1 / flex-basis: 0 这条换算记牢。",
+        "到官方原课玩两个 CodePen（grow 示例与 shrink 示例）：缩放浏览器窗口，观察谁在放大、谁在缩小、谁纹丝不动。",
+        "在 DevTools 里给一个带 flex: 1 的项目查看计算样式，找到 flex-grow / flex-shrink / flex-basis 三个分量。",
+        "完成官方 Assignment：读 W3C 规范的 7.1.1 Basic Values of 'flex'（常用 flex 值的规范定义）与 MDN 的 flex 文档（完整汇总，并补充前一篇没讲到的语法）。",
+        "用下面的「简单自测」检查你对三个分量的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "flex: 1 展开是哪三个值？各是什么意思？",
+          "answer": "flex-grow: 1（放大因子 1，有富余空间就按比例增长）、flex-shrink: 1（缩小因子 1，装不下时均匀收缩）、flex-basis: 0（初始尺寸为零，从零开始按比例分配空间）。三个分量里 basis 是 0 才让 flex: 1 实现真正的等分。"
+        },
+        {
+          "question": "三个项目分别写 flex: 1、flex: 1、flex: 2，宽度怎么分？",
+          "answer": "1 : 1 : 2。flex-grow 是增长比例：容器富余空间按这三个因子分配，因子为 2 的项目增长量是因子为 1 的两倍。上一课看到 flex: 1 的项目等大，就是因为它们的增长因子相同。"
+        },
+        {
+          "question": "想让某个项目在容器变窄时绝不缩小，怎么写？",
+          "answer": "flex-shrink: 0。默认值是 1（所有项目均匀收缩）；设成 0 就退出收缩，缩小的压力由其余项目承担。也可以设比 1 大的数让某个项目收缩得更快。"
+        },
+        {
+          "question": "flex-basis 在 flex: 1 里是 0%、在 flex: auto 里是 auto，差别体现在哪？",
+          "answer": "basis 为 0 时，项目无视 width 声明、从零开始按增长因子等分全部空间；basis 为 auto 时，项目先看自己的 width（没写就用内容尺寸），再在此基础上伸缩。所以想「按 width 起算」要用 auto——上一课 shrink 示例里 250px 的盒子永不小于 250px，靠的就是 auto + shrink 0。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "上一课给三个盒子各写一行 flex: 1，它们就自动等分了宽度——这一课解释这行字背后发生了什么。flex 是 CSS 简写属性的经典案例：一条声明里藏着放大、缩小、初始尺寸三件事。把它拆开看懂，项目在容器里为什么变宽变窄就不再是黑盒；这也是后面两课（主轴与交叉轴、对齐方式）的地基。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "上一课的最后，你给容器里的每个 div 写了 flex: 1，它们就等分了空间。这一课凑近看看：flex: 1 到底做了什么。",
+            "答案先摆出来：flex 是一个简写（shorthand），它同时设置三个属性。这一课把三个属性逐个拆开讲清楚。"
+          ]
+        },
+        {
+          "h": "先认识简写属性",
+          "p": [
+            "简写属性（shorthand property）是让你用一条声明同时设置多个其他 CSS 属性的写法。用简写可以写出更简洁（通常也更可读）的样式表，省时省力——这是 MDN 的定义。",
+            "你其实早就用过简写：margin: 10px 20px 一条顶四条。flex 是同一类东西：一条声明顶三条，而且这三条都只对 flex 项目生效，影响项目在容器里怎么确定自己的大小。"
+          ]
+        },
+        {
+          "h": "flex 简写的三个分量",
+          "p": [
+            "flex 是 flex-grow、flex-shrink、flex-basis 三个属性的简写。flex: 1 展开后就是：flex-grow: 1、flex-shrink: 1、flex-basis: 0。",
+            "三个分量的分工：grow 管「有富余空间时怎么分」、shrink 管「装不下时怎么缩」、basis 管「从多大的起点开始伸缩」。官方原课这里配了一张 DevTools 截图，展示了这条展开关系。",
+            "注意顺序：flex: 2 0 auto 按 grow、shrink、basis 的顺序对应 2、0、auto。单值形式（如 flex: 1）的展开规则有官方规范定义，Assignment 里的 W3C 文档会讲全。"
+          ]
+        },
+        {
+          "h": "flex-grow：放大因子",
+          "p": [
+            "flex-grow 接受一个数字，作为这个项目的「增长因子」。上一课给每个 div 都写 flex: 1，就是在告诉每个 div 增长同样的量——结果就是每个 div 最终一样大。",
+            "改成只给其中一个 div 写 flex: 2，它就会长成其他 div 的两倍大。官方的 grow 示例 CodePen 里，flex 简写的另外两个分量用的是默认值，可以到原课里改改数字感受比例变化。",
+            "记住这个画面：容器有富余空间时，grow 决定怎么分蛋糕。"
+          ]
+        },
+        {
+          "h": "flex-shrink：缩小因子",
+          "p": [
+            "flex-shrink 与 grow 相反，设置项目的「收缩因子」。它只在所有项目总大小超过父容器时才参与：比如三个 div 各写 width: 100px，而容器不足 300px，它们就必须收缩来装得下。",
+            "默认收缩因子是 1：所有项目均匀收缩。不想让某个项目缩小就写 flex-shrink: 0；也可以写更大的数让某些项目收缩得比别的快。",
+            "官方的 shrink 示例 CodePen 里（同时把 basis 改成了 auto，原因下一节讲），无论窗口多窄，.two 永远不会小于给定的 250px——尽管按 grow 的规则它本该和其他元素一样大。到原课里缩放窗口亲眼看看。",
+            "这里有一个重要的推论：当你指定了 flex-grow 或 flex-shrink，项目就不再必然尊重你给它的 width。示例里三个 div 都写了 250px 宽，容器够大时它们会撑满容器，容器太小时又会收缩——这不是 bug，但没料到时会让人很困惑。"
+          ]
+        },
+        {
+          "h": "flex-basis：初始尺寸",
+          "p": [
+            "flex-basis 设置项目的初始大小，所有放大与缩小都从这个基线开始。简写里省略 basis 时取 0%（零），这就是 flex: 1 能等分的原因：大家起点都是零，只按增长因子分。",
+            "上一节 shrink 示例必须把 basis 改成 auto 才有那个效果：basis 为 0 时项目会无视自己的 width、一切均匀收缩；而 auto 告诉项目「去看看有没有 width 声明」（示例里是 250px），以它为起点伸缩。",
+            "两个容易混的「默认」：flex-basis 属性本身的默认值是 auto；但你在简写里写 flex: 1 时，浏览器把它解释为 flex: 1 1 0——省略的 basis 是 0，不是 auto。只想调 grow 可以绕开简写直接写 flex-grow: 1；或者写全三个值的 flex: 1 1 auto，它还有一个更短的等价写法：flex: auto。"
+          ]
+        },
+        {
+          "h": "flex: auto 是什么",
+          "p": [
+            "上一节冒出来的 flex: auto 值得单独说清：auto 作为 flex 的关键字时等价于 flex: 1 1 auto（grow 1、shrink 1、basis auto）。",
+            "容易混淆的一点：虽然名字里带 auto，它并不是 flex 简写的默认值。具体用例会在 Assignment 的 MDN 文档里展开——先把这个「名不副实」记住，读文档时就不会被绊住。"
+          ]
+        },
+        {
+          "h": "实际项目里怎么用",
+          "p": [
+            "实践中你多半不会给三个分量写复杂的值。最常用的就两句：flex: 1 让一组盒子均匀分空间；flex-shrink: 0 保护某个盒子不被压扁。",
+            "搞特定比例的布局（比如侧栏与主区 1 : 3）当然也可以，知道能用其他值就行——但相对少见，不用现在就练熟。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* flex: 1 的展开与比例效果 */\n.item-a { flex: 1; }  /* = flex: 1 1 0，等分空间的标配 */\n.item-b { flex: 2; }  /* grow 是别人的两倍 → 宽度也是两倍 */\n\n/* 三份空间按 1 : 1 : 2 分配 */",
+          "note": "单值形式展开为 1 1 0：grow 1、shrink 1、basis 0。basis 为 0 是「完全按比例分」的关键。"
+        },
+        {
+          "lang": "css",
+          "code": "/* flex-shrink: 0：保护固定宽度元素不被压扁 */\n.sidebar {\n  width: 250px;\n  flex-shrink: 0;   /* 容器再窄也不缩，压力交给别的项目 */\n}\n.content {\n  flex: 1;          /* 自动吃掉剩余空间 */\n}",
+          "note": "最实用的两个搭配之一：定宽侧栏 + 弹性主区。shrink 默认是 1（均匀收缩），设 0 即退出收缩。"
+        },
+        {
+          "lang": "css",
+          "code": "/* basis 0% 与 auto 的差别 */\n.a { flex: 1; }       /* basis 0：无视 width，从零按比例分 */\n.b { flex: 1 1 auto; }\n/* = flex: auto：先看自己的 width（或内容），再伸缩 */\n.b { width: 200px; } /* auto 起点下这条 width 生效 */",
+          "note": "想按 width 起算就用 auto（flex: auto 或写全三值）。两个「默认」不同：属性默认 auto、简写省略时是 0。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "把 flex: 1 记成「各占一份」就不再深究",
+          "text": "「各占一份」只是表象：flex: 1 = 1 1 0，等分的真正原因是 basis 为 0（从零按 grow 比例分）。同样写 flex: 1，把 basis 换成 auto 行为就完全不同。记换算，别记表象。"
+        },
+        {
+          "title": "给项目设了 width 就以为尺寸锁死了",
+          "text": "有 grow / shrink 参与时，width 只是一个参考起点：容器富余时项目会长过它，装不下时又会缩小于它。这是规范定义的行为，不是 bug。想锁死尺寸用 flex-shrink: 0（配合 auto 起点）。"
+        },
+        {
+          "title": "分不清 flex-basis 的两个默认值",
+          "text": "属性本身的默认值是 auto（看 width / 内容）；但简写 flex: 1 里省略的 basis 是 0（从零等分）。记混了会解释不了「为什么写了 width 却像没写」。绕开办法：直接写 flex-grow: 1，或写全 flex: 1 1 auto。"
+        },
+        {
+          "title": "以为必须精通三分量的所有组合",
+          "text": "官方明说：实践中大概率用不到复杂值。日常就是 flex: 1（等分）与 flex-shrink: 0（防缩）两个句式；特定比例布局知道可做即可。把精力留给下一课的轴向概念。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "阅读 W3C 规范的 7.1.1 Basic Values of 'flex'：理解常见 flex 简写值的基本取值（规范定义了 flex: 1 这类常见写法分别展开成什么）。",
+          "阅读 MDN 的 flex 文档：完整汇总整个 flex 简写的取值，并介绍前面那篇文章没有覆盖的一些新语法。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 flexbox_growing_and_shrinking.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "71ca0a77d40a7efb12fc9b9e95660499daed4fa5858e6efe59d81e394584d39c",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "axes",
+      "title": "Axes",
+      "zh": "主轴与交叉轴",
+      "group": 5,
+      "url": "https://www.theodinproject.com/lessons/foundations-axes",
+      "summary": "主轴与交叉轴：flex 容器里两条看不见的坐标轴，flex-direction 决定它们的方向，row 横、column 纵。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "flex 容器有两根轴：主轴（main axis）与交叉轴（cross axis），所有对齐与伸缩都沿这两根轴发生。",
+        "flex-direction 决定轴的方向：默认 row 主轴水平（左到右）、交叉轴垂直；column 主轴垂直（上到下）、交叉轴水平。",
+        "flex-direction: column 下，flex-basis 参考的是 height 而不是 width——basis 永远沿主轴度量。",
+        "column 下写 flex: 1 项目会塌掉：basis 0 + 空 div 默认高度为零，三条修法（写全 1 1 auto / 给容器定高 / 直接写 flex-grow）。",
+        "row 往往更「省心」：块级元素默认占满父级宽度；而高度默认由内容决定，column 排布时没有内容就没有高度。"
+      ],
+      "terms": [
+        {
+          "en": "main axis",
+          "zh": "主轴：flex 项目沿其排布的那根轴，flex-direction 决定它是水平还是垂直"
+        },
+        {
+          "en": "cross axis",
+          "zh": "交叉轴：与主轴垂直的那根轴，项目在它上面的位置由 align-items 控制"
+        },
+        {
+          "en": "flex-direction",
+          "zh": "主轴方向属性：row（默认，水平）或 column（垂直）"
+        },
+        {
+          "en": "row / column",
+          "zh": "两个方向值：row 让项目横着排、column 让项目竖着排"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把「主轴 / 交叉轴随 flex-direction 旋转」这张图记在脑子里。",
+        "到官方原课玩 column 的 CodePen：取消注释 flex-direction: column 看盒子竖排；再按官方提示把 flex: 1 1 auto 改成 flex: 1，观察盒子塌掉，然后自己说出原因。",
+        "在 DevTools 里给任意 flex 容器切换 row / column，看子元素的排布怎样旋转。",
+        "阅读官方 Assignment 指定的 MDN flex-direction 文档与示例（有官方中文版）。",
+        "用下面的「简单自测」检查你对两轴方向的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "flex 容器的两根轴分别叫什么？谁决定它们的方向？",
+          "answer": "主轴（main axis）与交叉轴（cross axis）。flex-direction 决定方向：row（默认）主轴水平、从左到右，交叉轴垂直；column 主轴垂直、从上到下，交叉轴水平。两根轴永远互相垂直，换 direction 等于整组坐标旋转 90 度。"
+        },
+        {
+          "question": "flex-direction: column 下写 flex: 1，三个带 height 的空 div 为什么塌掉了？",
+          "answer": "flex: 1 展开的 flex-basis 是 0——所有 grow / shrink 计算都从零开始，而空 div 的高度本来就是零，于是没有可分的空间、height 被无视。修法任选其一：写全三值 flex: 1 1 auto（让 basis 回去看 height）、给容器定一个高度（有空间可分）、或直接写 flex-grow: 1 绕开简写。"
+        },
+        {
+          "question": "column 方向下，flex-basis 参考的是 width 还是 height？",
+          "answer": "height。flex-basis 永远沿主轴度量：row 下它对应 width，column 下对应 height。官方提醒这在语境里显而易见，但没意识到时是很多困惑的来源。"
+        },
+        {
+          "question": "为什么改纵向排布常常「多出一堆问题」，而 row 开箱即用？",
+          "answer": "块级元素默认占满父元素的宽度（row 方向天然有空间可分），但高度默认只由内容决定——column 方向上空 div 没有内容就没有高度，整列一起塌。所以纵向布局往往要显式给高度：给容器、给项目、或让它们从某个 auto 基准伸缩。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "Flexbox 最让人困惑的一点就是它既能横着用也能竖着用，而且有些规则会随方向变化。这一课给这个困惑一个坐标系的解法：把容器想成带两根轴的坐标系，flex-direction 一换、整组轴跟着旋转——后面所有对齐属性（justify-content 沿主轴、align-items 沿交叉轴）都要靠这两根轴来理解。轴的概念不吃透，下一课的对齐会全程踩坑。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "前两课的容器都是横向排的。这一课讲 flex-direction 属性——用它控制容器内项目的方向，把排布从横向改成纵向。",
+            "方向背后真正的概念是「轴」：理解了主轴与交叉轴，flexbox 一大半的困惑就消失了。"
+          ]
+        },
+        {
+          "h": "主轴与交叉轴：一对会旋转的坐标",
+          "p": [
+            "无论哪个方向，都要把 flex 容器想成有两条轴：主轴（main axis）与交叉轴（cross axis）。flex-direction 改变的正是这两条轴的方向。",
+            "大多数情况下：flex-direction: row（默认）把主轴放成水平（从左到右）；column 把主轴放成垂直（从上到下）。交叉轴永远与主轴垂直。",
+            "回看第一课的第一个示例：给 div 写 display: flex，子元素横向排开——那其实就是 flex-direction: row 默认值的效果。后面所有「沿主轴如何、沿交叉轴如何」的属性，都以这张坐标图为参照。"
+          ]
+        },
+        {
+          "h": "改成纵向：flex-direction: column",
+          "p": [
+            "把方向改成垂直只需要一行：.flex-container { flex-direction: column; }。官方在原课里放了一个几乎与第一课一样的 CodePen：取消注释那一行 flex-direction，三个 div 立刻从横排变竖排。到原课里亲手改一改。",
+            "官方在这里埋了一个必做的实验：把示例里的 flex: 1 1 auto 改成 flex: 1，盒子们会塌掉——明明写了 height 却像没有一样。下一节解释。"
+          ]
+        },
+        {
+          "h": "实验解释：flex: 1 在 column 下为什么失效",
+          "p": [
+            "上一课讲过：flex: 1 展开的 flex-basis 是 0，所有放大缩小都从零开始计算。而空的 div 默认高度就是零——项目要填满容器高度，本来就不需要任何起始高度。",
+            "示例用 flex: 1 1 auto 修好了这个问题：auto 让 basis 回去看项目自己的 height 声明。等价修法还有两个：给父级 .flex-container 定一个高度（有空间可分）；或不用简写、直接写 flex-grow: 1。",
+            "这一段是上一课「两个默认值」知识的实战：basis 为 0 会无视 height，auto 才参考 height——方向一换，它从坑变成了必考点。"
+          ]
+        },
+        {
+          "h": "basis 跟着轴走：column 下参考 height",
+          "p": [
+            "另一个要留意的细节：改成 column 之后，flex-basis 参考的是 height 而不是 width。放在语境里想很直观——basis 沿主轴度量，主轴现在是垂直的——但没意识到它时，它是很多「怎么改都不对」的来源。",
+            "记住这条通则：所有跟主轴挂钩的尺寸与对齐（basis、justify-content），在 row 下作用于水平方向，在 column 下作用于垂直方向。"
+          ]
+        },
+        {
+          "h": "为什么 row 更「省心」",
+          "p": [
+            "回到主线。默认的 row 之所以常常不用改别的 CSS 就能工作，是因为块级元素默认占满父元素的宽度——横向天然有空间可分。",
+            "改成 column 就多了一层复杂：块级元素的高度默认由内容决定，而空容器没有内容，高度为零——整列自然塌掉。所以纵向布局几乎总要显式处理高度（给容器定高、给项目定高、或从 auto 基准伸缩），这不是 bug，是块级元素的默认行为与方向属性的组合结果。"
+          ]
+        },
+        {
+          "h": "一个暂时不用管的方向问题",
+          "p": [
+            "在从右到左书写的语言（比如阿拉伯语）或竖排文字里，flex-direction 的行为会有变化。官方的立场很干脆：等到你要做阿拉伯语或满语网站的时候再操心——现在知道有这回事即可。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* 主轴方向：row（默认）与 column */\n.nav {\n  display: flex;\n  flex-direction: row;    /* 默认：主轴水平，子元素横排 */\n}\n\n.toolbar {\n  display: flex;\n  flex-direction: column; /* 主轴垂直，子元素竖排 */\n}",
+          "note": "flex-direction 决定主轴方向，交叉轴随之旋转。row 是默认值，column 一行切换纵向。"
+        },
+        {
+          "lang": "css",
+          "code": "/* column 下 flex: 1 塌掉的三种修法 */\n.item-a { flex: 1 1 auto; } /* 修法一：写全三值，basis 回去看 height */\n\n.container-b { height: 300px; } /* 修法二：给容器定高，有空间可分 */\n.item-b { flex: 1; }\n\n.item-c { flex-grow: 1; }      /* 修法三：绕开简写，只调 grow */",
+          "note": "根因：flex: 1 的 basis 是 0、空 div 高度也是 0。任选一种修法都能让 column 下的项目重新撑起来。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "column 下写 flex: 1 项目全部塌掉",
+          "text": "basis 0 + 空 div 零高度 = 没有可分配的空间，height 被无视。先想到上一课的「两个默认值」，再选修法：flex: 1 1 auto / 容器定高 / 直接 flex-grow: 1。"
+        },
+        {
+          "title": "以为 justify-content / align-items 的方向是固定的",
+          "text": "它们分别沿主轴、交叉轴工作——方向跟着 flex-direction 旋转。row 下 justify 管水平、align 管垂直；column 下正好反过来。这是新手最大的卡点，官方在下一课明说。"
+        },
+        {
+          "title": "column 排布忘了处理高度",
+          "text": "块级元素宽度默认占满父级、高度默认只有内容那么高——纵排时没有内容就没有高度。纵向布局几乎总要显式给高度，别指望它像 row 一样开箱即用。"
+        },
+        {
+          "title": "把「轴」当装饰概念跳过",
+          "text": "两根轴是后面所有对齐属性的坐标系。跳过它直接背 justify-content 的效果表，direction 一换就全乱；记住「主轴 / 交叉轴随 direction 旋转」一张图，所有属性都能现场推导。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "一如既往，MDN 文档是你的首选参考：阅读 MDN 的 flex-direction 文档与它的示例（有官方中文版）。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 flexbox_axes.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "8572579e61511713e492452b07cce80be496b7cffa3d6d1914ec0a6f7ec64f93",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "alignment",
+      "title": "Alignment",
+      "zh": "对齐方式",
+      "group": 5,
+      "url": "https://www.theodinproject.com/lessons/foundations-alignment",
+      "summary": "对齐方式：justify-content 沿主轴排、align-items 沿交叉轴排，再加 gap 控制项目间距——不用 flex: 1 也能精确摆放。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "flex: 1 不是唯一的用法——固定尺寸的项目同样常用 flexbox 来摆放与对齐。",
+        "justify-content 沿主轴对齐项目：space-between 把项目摊开、center 居中，还有更多值在阅读资料里学。",
+        "align-items 沿交叉轴对齐项目：center 让项目在容器交叉轴方向居中。",
+        "两个属性都基于主轴 / 交叉轴工作：flex-direction 一换（如 column），它们的方向跟着变——这是新手最大卡点。",
+        "gap 在项目之间加指定空隙，类似给每个项目加 margin 但只作用于项目之间；现代浏览器全部可靠支持，放心用。"
+      ],
+      "terms": [
+        {
+          "en": "justify-content",
+          "zh": "主轴对齐属性：决定项目沿主轴怎样分布（flex-start / center / space-between …）"
+        },
+        {
+          "en": "align-items",
+          "zh": "交叉轴对齐属性：决定项目沿交叉轴怎样对齐（stretch / center …）"
+        },
+        {
+          "en": "space-between",
+          "zh": "justify-content 的取值：首尾贴边、中间均分空隙"
+        },
+        {
+          "en": "gap",
+          "zh": "项目间距属性：只作用于相邻项目之间，不需要给每个项目写 margin"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把「justify 沿主轴、align 沿交叉轴、方向随 flex-direction 旋转」记牢。",
+        "到官方原课玩三个 CodePen：先预测 flex: 1 的效果；再去掉它加 justify-content: space-between；最后加 align-items: center，做出三面效果。",
+        "动手试 gap：给居中示例加 gap: 8px，看项目之间的空隙。",
+        "完成官方 Assignment 四项：读 joshwcomeau 的 Interactive Guide to Flexbox（慢慢读，部分内容是复习但地基重要）、读 CSS-Tricks 的 A Guide to Flexbox（复习第 1–3 与第 5 部分、媒体查询部分以后再说，并收藏它当速查表）、玩通 Flexbox Froggy 游戏、按顺序做 CSS exercises 仓库 foundations/flex 目录的 7 个练习。",
+        "用下面的「简单自测」检查你对两个对齐属性的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "justify-content 与 align-items 分别沿哪根轴工作？",
+          "answer": "justify-content 沿主轴分布项目，align-items 沿交叉轴对齐项目。默认（row）下主轴水平：justify 管左右、align 管上下；flex-direction: column 时整组旋转，justify 变成管垂直、align 变成管水平。"
+        },
+        {
+          "question": "想让三个固定宽度的盒子在容器里均匀摊开、首尾贴边，怎么写？",
+          "answer": "容器上写 justify-content: space-between（项目上不写 flex: 1）。flex: 1 会让项目自己长大填满空间，而 space-between 是保持项目尺寸、把空隙分配到它们之间。两个思路不要混用。"
+        },
+        {
+          "question": "项目尺寸不变、想在容器里水平垂直都居中，怎么写？",
+          "answer": "容器写 display: flex; justify-content: center; align-items: center;（默认 row 方向下）。这是居中一个元素在容器正中的经典写法——两根轴各居中一次。"
+        },
+        {
+          "question": "gap 和给每个项目写 margin 有什么区别？",
+          "answer": "gap 只作用于相邻项目之间：不会在容器边缘多出空隙、也不需要用「负 margin」或「最后一个子元素特判」去修边缘。它是较新的属性、一些老资料里没有，但在所有现代浏览器里可靠可用——官方明说放心用。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "到这里为止你见过的 flexbox 都是 flex: 1 平分空间，但很多布局要的是「保持项目自己的尺寸，把它们摆到正确的位置」——导航栏两端对齐、徽章居中、工具条均匀分布。这一课的 justify-content / align-items / gap 三件套就是干这个的，它们也是整个 flexbox 使用频率最高的属性组；配合上一课的两轴坐标，本组的官方练习（7 个 flex 练习）就是从这里开始真正上手。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "到目前为止，你碰过的 flexbox 全都靠 flex: 1 让项目平分可用空间。但很多时候这不是想要的效果——flex 同样非常适合摆放有固定尺寸的项目。",
+            "这一课讲对齐三件套：justify-content（主轴分布）、align-items（交叉轴对齐）、gap（项目间距）。"
+          ]
+        },
+        {
+          "h": "先做个实验：从 flex: 1 到 space-between",
+          "p": [
+            "官方在原课里放了一个 CodePen：容器里几个固定尺寸的 .item。第一问：如果给 .item 加 flex: 1，会发生什么？——按前两课的知识，你应该能预测：每个项目长大、填满全部可用空间。到原课里亲手试。",
+            "现在反过来：去掉 flex: 1，让项目保持自己的宽度，但换一种分布方式——在 .container 上加 justify-content: space-between。效果是首尾两个贴住容器两边，中间的空隙均分。",
+            "两个思路的分界就在这：flex: 1 改变项目的大小去填空间；justify-content 保持项目大小、改变空隙的分配。"
+          ]
+        },
+        {
+          "h": "justify-content：沿主轴分布",
+          "p": [
+            "justify-content 的取值不止 space-between。官方在这一课只让你再试一个 center（项目沿主轴居中），其余的取值留到 Assignment 的阅读材料里学——先把「它管主轴」这个定位钉死。",
+            "同样一行属性，row 下是左右分布，column 下变成上下分布——方向永远跟着上一课的两根轴走。"
+          ]
+        },
+        {
+          "h": "align-items：沿交叉轴对齐",
+          "p": [
+            "在刚才的示例里再加 align-items: center，项目就跑到容器交叉轴方向的正中——默认 row 方向下即垂直居中。官方配图里能看到居中前后的对比。",
+            "一个即将成为肌肉记忆的组合：justify-content: center + align-items: center = 项目在容器正中央。这是「把一个东西放正中间」的经典三行解法（display: flex 加两条 center）。",
+            "最大的新手卡点（官方原话强调）：这两个属性基于主轴与交叉轴工作，flex-direction 一换，它们的方向跟着变。column 时 justify-content 变成管垂直对齐、align-items 变成管水平对齐。看到「对齐属性不听话」先检查 direction。"
+          ]
+        },
+        {
+          "h": "gap：项目之间的空隙",
+          "p": [
+            "gap 是 flex 非常实用的一个属性：写在容器上，给相邻项目之间加指定的空隙，效果类似给每个项目加 margin。",
+            "它与 margin 的区别：gap 只作用于项目之间，容器边缘不会多出空隙——不需要「最后一个子元素去掉 margin」之类的特判。它是较新的属性，很多资料里还没收录，但所有现代浏览器都可靠支持，官方明说放心用。",
+            "在居中示例上加 gap: 8px，项目之间立刻出现整齐的空隙。排一排卡片、导航项时它是首选方案。"
+          ]
+        },
+        {
+          "h": "接下来怎么学",
+          "p": [
+            "官方在这节课末尾给了学习建议：Assignment 的阅读材料里会有一些已讲内容的复习，但更深入、还会提到几处没讲过的东西。现在不用强求记住每个细节——跟着示例动手敲，把「flexbox 能做什么」内化就够。",
+            "做到后面的练习时你几乎一定会回来查这些资料，这完全正常。用得越多记得越牢——而且你会一直在用它。官方最后一句是：玩得开心！"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "css",
+          "code": "/* 两端对齐的导航栏（项目保持自身宽度） */\n.nav {\n  display: flex;\n  justify-content: space-between; /* 首尾贴边、中间均分空隙 */\n}\n\n/* 正中央居中一个元素的经典三行 */\n.center-box {\n  display: flex;\n  justify-content: center; /* 主轴居中（row 下 = 水平） */\n  align-items: center;     /* 交叉轴居中（row 下 = 垂直） */\n}",
+          "note": "不加 flex: 1，项目保持自身尺寸；两个对齐属性各管一根轴。column 下这两个属性的方向整体旋转。"
+        },
+        {
+          "lang": "css",
+          "code": "/* gap：只作用于项目之间，边缘不留空隙 */\n.card-row {\n  display: flex;\n  gap: 8px;               /* 相邻卡片间 8px，容器边缘干干净净 */\n}\n\n/* 对比：用 margin 的老写法要特判最后一项 */\n.card-old { margin-right: 8px; }\n.card-old:last-child { margin-right: 0; }",
+          "note": "gap 是新属性但现代浏览器全部可靠支持；排一排项目时优先用它，省掉 last-child 特判。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "对齐属性「不听话」",
+          "text": "justify-content / align-items 的方向基于主轴与交叉轴，flex-direction 一换就整体旋转。column 下 justify 管垂直、align 管水平。对不上预期时第一件事：检查 direction。"
+        },
+        {
+          "title": "一边 flex: 1 一边想要 space-between 的效果",
+          "text": "两个思路互斥：flex: 1 让项目长大填满空间（没有空隙可分配），space-between 保持项目尺寸、分配空隙。想「固定尺寸 + 拉开分布」就去掉 flex: 1。"
+        },
+        {
+          "title": "给每个项目写 margin 拉间距",
+          "text": "能用，但边缘会多出空隙、还要 last-child 特判。同样效果容器上写一行 gap 就够了——只作用于项目之间、现代浏览器全部支持。"
+        },
+        {
+          "title": "想把每个取值都背下来",
+          "text": "官方明说：现在只需要 center 与 space-between 两三个值建立手感，其余取值在做练习时回查资料（CSS-Tricks 那篇就是官方让你收藏的速查表）。用出来的记忆比背下来的可靠。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "阅读 joshwcomeau 的 Interactive Guide to Flexbox：覆盖你需要知道的全部内容，用非常有趣又有创意的示例巩固本组课已讲的概念。在这里多花点时间——部分内容到此应是复习，但这里的地基很重要。",
+          "阅读 CSS-Tricks 的 A Guide to Flexbox：一篇经典，配图与示例超级有用。建议复习它的第 1–3 部分与第 5 部分（媒体查询部分先不管，课程后面会讲），然后把它收藏成今后的速查表（做练习时保持随手可查）。",
+          "玩通 Flexbox Froggy：一个练习用 flexbox 移动东西的小游戏，挺有意思。",
+          "按顺序完成官方 CSS exercises 仓库 foundations/flex 目录里的练习（说明在 README 里）：01-flex-center、02-flex-header、03-flex-header-2、04-flex-information、05-flex-modal、06-flex-layout、07-flex-layout-2。每个练习的 solution 文件夹里有参考答案。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 flexbox_alignment.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "de53d45f397a6adb43ee01df466ed9deac919544a9901898567d08b9829649bc",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "landing-page",
+      "title": "Project: Landing Page",
+      "zh": "项目：落地页",
+      "group": 5,
+      "url": "https://www.theodinproject.com/lessons/foundations-landing-page",
+      "summary": "Flexbox 单元收官项目：按官方给的设计图从零做出一整个页面——头图、信息区、引言、行动条与页脚。",
+      "guide": "这一页提供项目要求的完整中文版、区块拆解与验收清单；成品代码本站不提供，官方也不提供——用到的属性都在第 24–29 课里，卡住先回对应课复习。项目需要的免费图片来源在本页外部资料里。",
+      "understand": [
+        "这是项目课：不教新语法，交付物是按官方设计图做出来的一个完整页面。",
+        "页面结构：头部与主视觉（hero）、信息区、引言区、行动号召（CTA）条与页脚——共四个主区块加一个页脚。",
+        "官方给了字体与颜色的规格清单（Roboto 字体、#1F2937 深色底、#3882F6 按钮蓝等），也可以换成自己的内容与配色。",
+        "动手节奏：一次只做一个区块、先 HTML 后 CSS、一个样式表就够。",
+        "不必做响应式、不必像素级完美；有些小细节课程没讲过是官方刻意的——搜一下就能解决。"
+      ],
+      "terms": [
+        {
+          "en": "landing page",
+          "zh": "落地页：访客点进网站看到的第一个页面，常用于展示产品并引导行动"
+        },
+        {
+          "en": "hero section",
+          "zh": "主视觉区：页面顶部的大标题 + 副文案 + 主按钮区块"
+        },
+        {
+          "en": "CTA（call to action）",
+          "zh": "行动号召：引导访客做某个动作的区块或按钮（如「马上注册」）"
+        },
+        {
+          "en": "design mockup",
+          "zh": "设计图：官方提供的目标页面效果图，本项目的还原目标"
+        },
+        {
+          "en": "GitHub Pages",
+          "zh": "GitHub 提供的静态网站发布服务（发布步骤回看 Recipes 项目）"
+        }
+      ],
+      "tasks": [
+        "从本页顶部进入官方原课，下载完整设计图并仔细看一遍：认出四个主区块和页脚，说出每个区块用到了哪些已学属性。",
+        "按 Recipes 项目的做法建好 git 仓库再开工（不记得就回看第 20 课）。",
+        "按官方规格清单（或你自己的内容与配色）从上往下一次做一个区块：先把该区块的内容全部写进 HTML，再写 CSS。",
+        "全部区块完成后通读一遍设计图与自己页面的差距，允许「差不多对」，不拿尺子量像素。",
+        "把项目部署到 GitHub Pages 并把仓库地址留好——这是你 Flexbox 单元的作品。"
+      ],
+      "quiz": [
+        {
+          "question": "这个项目要做的页面由哪几块组成？",
+          "answer": "四个主区块加一个页脚：头部与主视觉区（深色底、大标题、副文案、主按钮）、信息区（标题 + 一排图片卡）、引言区（浅灰底大段引文）、行动号召条（蓝色底、文案 + 按钮），最后是页脚。一次做一块、从最上面开始做是官方推荐的开局。"
+        },
+        {
+          "question": "官方建议的动手顺序是什么？为什么先 HTML 后 CSS？",
+          "answer": "一次只做一个区块，先把该区块的全部内容写进 HTML，再给它写 CSS。来回切换 HTML 与 CSS 从头开始反而更慢、更容易烦——先把内容放稳再调样式，是官方给的真实开发节奏建议。另外一个样式表就够，不必拆多个 CSS 文件。"
+        },
+        {
+          "question": "这个项目需要做响应式（适配手机屏幕）吗？",
+          "answer": "不需要。官方明确说：不用为不同屏幕尺寸、缩放级别或移动设备调整设计，先专注让它在普通电脑屏幕上好看。响应式是后面课程的内容。"
+        },
+        {
+          "question": "页面里的图片可以随便从网上找吗？应该去哪里找、怎么给作者署名？",
+          "answer": "不可以——网上的图片你没有合法使用权。去官方给的三个免费图库找（Pexels / Pixabay / Unsplash，见本页外部资料），确认图片可自由使用；署名的简单做法是把作者的名字与联系方式写进仓库的 README 文件。"
+        }
+      ],
+      "optional": [],
+      "note": "本站提供这个项目的要求中文版、区块拆解与验收清单，不提供成品代码。这一步必须由你自己写出来。",
+      "why": "这是 Flexbox 单元的收官项目，也是 Foundations 前半程的综合考试：官方给一张完整页面的设计图，你从空白文档开始把它做出来。头部导航、图片卡、引文、行动条——每一块都在考刚学的 flexbox 与盒模型。它同时第一次引入「照设计稿还原」这个真实前端日常，官方刻意留了几个没教过的小细节让你体验「查一下就能解决」的职业常态。",
+      "sections": [
+        {
+          "h": "这是 Flexbox 单元的收官项目",
+          "p": [
+            "官方这次不讲了，直接给任务：按官方提供的设计图，从零做出一整个网页。一路跟下来的话，你需要的技能都已经学过了——但官方也提醒：不轻松。",
+            "官方提供的是一张完整网站的效果图，外加字体与颜色的规格细节（在 Assignment 清单里，本页下一节已中文化）。",
+            "项目课的规矩同 Recipes：要做的全部事情在 Assignment 里，本站提供要求中文版、拆解与验收清单，代码要你自己写。"
+          ]
+        },
+        {
+          "h": "开工前：把项目仓库建好",
+          "p": [
+            "和 Recipes 项目一样：动手之前先建好 git 仓库。官方说得很直白——Git 和 GitHub 从今往后就是你的作品集，所有东西都要留在里面。",
+            "不记得怎么建的话，回看第 20 课 Recipes 项目的开头（官方原课里也放了直达链接）。"
+          ]
+        },
+        {
+          "h": "设计图与官方规格清单",
+          "p": [
+            "官方给的规格（想用自己的一样欢迎）：字体 Roboto（需要先下载安装）；深色背景（头部、主视觉区、页脚）#1F2937；logo 文字 24px、#F9FAF8；主视觉主标题（This website is awesome）48px、#F9FAF8、字重 900；副文案与头部链接 18px、#E5E7EB；按钮与行动号召条背景 #3882F6；信息区标题 36px、#1F2937、字重 900；引文区背景 #E5E7EB、文字 36px、#F9FAF8 之外的 #1F2937、字重 300、斜体。",
+            "设计图里的内容是官方放的占位文字——官方欢迎你换成自己的内容：编一个自己的小生意、给它起名、填自己的文案，甚至调调颜色字体。学习效果一样，做出来的东西更像你自己的。",
+            "设计图的下载入口在本页顶部的官方课程里（Assignment 第 1 条）。"
+          ]
+        },
+        {
+          "h": "怎么动手：一次一个区块，先 HTML 后 CSS",
+          "p": [
+            "面对空白文档不知道从哪开始是常态。官方的建议：一次只做一个区块。这个页面有四个主区块加一个页脚——挑一个做到基本成型再动下一个，从最上面开始永远是稳妥的计划。",
+            "每个区块的顺序：先把内容全部放上页面（写 HTML），再开始写样式（CSS）。写样式时你多半要回头改 HTML，但从一开始就两头来回跳会更花时间、更容易烦躁。",
+            "一个样式表完全够用，这个项目不需要拆多个 CSS 文件。",
+            "页面里很多元素都和 flexbox 练习里见过的很像（第 29 课 Assignment 做的那 7 个）——忘了就回去翻，这正是官方让你把 CSS-Tricks 指南收藏成速查表的原因。"
+          ]
+        },
+        {
+          "h": "几条官方口径：不完美是允许的",
+          "p": [
+            "不必像素级完美。别拿尺子量区块之间的间距——这个项目的目的是从零做出一个东西、让各元素大致待在正确的位置上；设计图里 48px 的间距你写成 24px 没有任何人会在意。",
+            "不必做响应式。不用管不同屏幕尺寸、缩放级别、手机设备——先让它在普通电脑屏幕上好看，响应式后面教。",
+            "有几个小细节课程还没讲到，这是官方故意的（比如圆角怎么写）。这些细节都很小、搜一下就能解决——例如直接搜 css rounded corners。",
+            "最后：随时用 Google、随时回看前面的课，这不丢人。官方原话：现实中的职业开发者对自己做了多年的东西也在不停地查 Google。现在不要求你记住一切。"
+          ]
+        },
+        {
+          "h": "图片版权：不能随便用网图",
+          "p": [
+            "官方专门提醒：你没有权利使用从网上随便找到的任何图片。网上有大量免费图片，但要用之前确认它真的可以自由使用，并且在项目里给图片作者署名。",
+            "署名的简单做法：把作者的名字和联系方式写进仓库的 README 文件。",
+            "找免费图片的好去处：Pexels、Pixabay、Unsplash（本页外部资料里有直达入口）。"
+          ]
+        },
+        {
+          "h": "做完之后：部署到 GitHub Pages",
+          "p": [
+            "要把网站分享给别人看，就用 GitHub Pages 部署。完整步骤在 Recipes 项目那一课（官方原课里也有直达链接）。",
+            "老规矩别忘了：尽早提交、经常提交——提交信息怎么写参考第 19 课。做完 push 上 GitHub，这个仓库就是你 Flexbox 单元的作品集展品。"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "对着设计图从第一个像素做到完美才肯往下走",
+          "text": "官方口径：不追求像素级完美，量出设计图里每个间距是多少没有意义。目标是各元素大致在正确的位置——先整体成型，有多余精力再打磨细节。"
+        },
+        {
+          "title": "HTML 和 CSS 从头到尾来回跳着写",
+          "text": "官方明确说这样更慢也更容易烦。每个区块先把内容写稳（HTML），再集中写样式（CSS）；写样式时回头小改 HTML 是正常的，但别把两个动作搅在一起。"
+        },
+        {
+          "title": "被没学过的小细节卡住（比如圆角）",
+          "text": "这是官方刻意安排的：细节都很小、可搜索（例：搜 css rounded corners）。职业开发者天天这么干——把它当成项目的一部分而不是你不行。"
+        },
+        {
+          "title": "随手抓网上的图片用",
+          "text": "没有合法使用权。去 Pexels / Pixabay / Unsplash 找可自由使用的图片，并把作者署名写进仓库 README——这个习惯从第一个项目就要养好。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "别忘了尽早提交、经常提交！提交信息写法可参考第 19 课 Commit Messages。",
+          "下载完整设计图并看看你要做的是什么。部分字体、颜色与尺寸规格如下（欢迎用你自己的）：字体 Roboto（没有的话需要下载安装）；深色背景（头部、主视觉区、页脚）#1F2937；logo 文字 24px / #F9FAF8；主视觉主标题（This website is awesome）48px / #F9FAF8 / 字重 900；主视觉副文案与头部链接 18px / #E5E7EB；按钮与行动号召条背景 #3882F6；信息区标题 36px / #1F2937 / 字重 900；引文区背景 #E5E7EB / 文字 36px / #1F2937 / 字重 300 / 斜体。",
+          "这种项目有很多种做法，盯着空白 HTML 文档不知从哪开始很正常。官方建议：一次只做一个区块。这个网站有 4 个主区块（加一个页脚），挑一个做到基本成型再继续——从最上面开始永远是稳妥的计划。",
+          "对正在做的区块：先把全部内容放上页面，再开始写样式——先 HTML 后 CSS。写样式时多半要回头改 HTML，但从一开始就两头来回会花更多时间、也更容易烦躁。（另外：这个项目用一个 CSS 文件就够了，不需要多个样式表。）",
+          "这个页面里的很多元素都和 flexbox 练习里的非常像……需要复习就回去翻。",
+          "这个项目不需要做响应式：不用为不同屏幕尺寸、缩放级别或移动设备调整设计。现在先专注让它在普通电脑屏幕上好看，不同屏幕尺寸的处理后面会学。",
+          "完成之后，别忘了 push 到 GitHub！",
+          "在网上查看你的项目：要与别人分享网站，需要用 GitHub Pages 部署——完整步骤见 Recipes 项目那一课的「Viewing your project on the web」小节。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 project_landing_page.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "39b954c5897b785b5dcefec624f9a8aa7c7c84298b88b258064a0455d09e968d",
+        "verifiedAt": "2026-09-24"
+      }
+    },
+    {
+      "id": "variables-and-operators",
+      "title": "Variables and Operators",
+      "zh": "变量与运算符",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-variables-and-operators",
+      "summary": "变量与运算符：let 与 const 声明变量、重新赋值规则，以及 JavaScript 里的数字运算与运算顺序。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "Foundations 阶段的 JavaScript 一律在浏览器里跑：写进 HTML 的 <script> 标签或外部 .js 文件，输出用 console.log 打到开发者控制台看。",
+        "let 声明的变量可以重新赋值；重新赋值时不写 let，直接「变量名 = 新值」。",
+        "const 声明的变量不可重新赋值，强行赋值会抛错——报错是语言在告诉你哪里写错了，这是好事。",
+        "var 是 let 出现前的老声明方式，现在基本不用，但读旧代码时会遇到，认识即可。",
+        "JavaScript 的数字运算遵循标准数学运算顺序（先括号、再乘除、后加减）。",
+        "变量是程序的基本构件：给数据起个名字存起来，后面随时取用。"
+      ],
+      "terms": [
+        {
+          "en": "variable",
+          "zh": "变量：程序里存放数据的「容器」，给数据起名字，之后用名字取用"
+        },
+        {
+          "en": "let",
+          "zh": "声明可重新赋值变量的关键字：let age = 11 之后可以再写 age = 54"
+        },
+        {
+          "en": "const",
+          "zh": "声明不可重新赋值变量的关键字：赋值后再改会抛错，适合固定不变的值"
+        },
+        {
+          "en": "re-assignment",
+          "zh": "重新赋值：对已声明变量给新值，写法是「变量名 = 新值」，不再带 let"
+        },
+        {
+          "en": "console.log()",
+          "zh": "把内容打印到浏览器开发者控制台的命令，是 Foundations 阶段看代码输出的主要方式"
+        },
+        {
+          "en": "order of operations",
+          "zh": "运算顺序：数学里的先括号、再乘方、再乘除、后加减（PEMDAS / BODMAS），JavaScript 同样遵守"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，分清 let（可重新赋值）与 const（不可重新赋值）两个声明的分工。",
+        "新建一个 HTML 文件，用 ! + Tab 生成骨架并加上 script 标签，把本页每个代码片段都亲手跑一遍，在控制台里看输出。",
+        "完成官方 Assignment 的六组动手练习（从 console.log(23 + 97) 到 percentage 变量串），做完再多玩几分钟——这些逻辑后面 DOM 课时原样会用到。",
+        "按官方要求依次读四篇外部文章（MDN 的 JavaScript 概览与数学、JavaScript.info 的变量与运算符），最后一篇记得做页面底部的练习题。",
+        "用下面的「简单自测」检查你对声明、重新赋值与运算顺序的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "let 和 const 各在什么时候用？给 const 变量重新赋值会发生什么？",
+          "answer": "值以后要变的用 let（比如年龄、计数），固定不变的用 const（比如圆周率）。给 const 变量重新赋值会抛出错误，而且错误发生在赋值那一行，后面的代码（包括 console.log）都不会执行——报错信息会指明问题在哪，这正是错误的用处。"
+        },
+        {
+          "question": "下面的代码会输出什么？为什么第二行不写 let？\nlet age = 11;\nage = 54;\nconsole.log(age);",
+          "answer": "输出 54。第二行是重新赋值不是新声明——变量 age 在第一行已经声明过，再写 let age = 54 反而会报「重复声明」的错。重新赋值就是「变量名 = 新值」。"
+        },
+        {
+          "question": "console.log((4 + 6 + 9) / 77) 的结果大约是多少？运算顺序在这里起了什么作用？",
+          "answer": "大约 0.24675。JavaScript 遵循标准数学运算顺序：括号先算，4 + 6 + 9 得 19，再除以 77。同一个表达式里先乘除后加减，括号可以改变优先级，(3 + 2) - 76 * (1 + 1) 这类混合算式也会按你熟悉的数学规则求值。"
+        },
+        {
+          "question": "var 是什么？现在还要学它吗？",
+          "answer": "var 是 JavaScript 最早的变量声明方式，行为类似 let（可重新赋值），但有一些历史怪癖，在 let 和 const 引入后已被清理取代，现在基本不用。不用专门去学，但读旧代码、旧教程时会遇到，知道它是在声明变量就够了。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "前面你用 HTML 搭结构、用 CSS 做样式，页面已经能看，但还是「死」的。这一课开始学 JavaScript——让页面能对人做出反应的语言。第一步不是做什么酷炫效果，而是这门语言最底层的三件事：数据怎么存（变量）、两种声明怎么选（let 与 const）、数字怎么算（运算符）。后面每一课的每个例子，都建立在这三件事上。",
+      "sections": [
+        {
+          "h": "从 HTML/CSS 到 JavaScript",
+          "p": [
+            "前面的章节里你学会了用 HTML 给网页搭结构、用 CSS 做样式。下一步是让网页变得可交互（interactive）——这正是 JavaScript 的用途。",
+            "接下来这一整个单元讲 JavaScript 的基础知识：变量、数据类型、函数、报错、DOM……最终目标是让你能操作网页与用户之间的各种交互。这一课是起点中的起点。"
+          ]
+        },
+        {
+          "h": "在浏览器里运行 JavaScript",
+          "p": [
+            "Foundations 课程里写的 JavaScript 绝大多数通过浏览器运行：代码写在文件里，让浏览器替你执行。之后的课程与 NodeJS 路径会教你脱离浏览器环境跑 JavaScript，但现阶段默认一律用浏览器，除非明确说明，否则换环境可能遇到莫名其妙的错误。",
+            "最简单的起步方式：建一个 HTML 文件，把 JavaScript 写进去。在 VS Code 里输入 ! 再按 Tab 就能生成基础 HTML 骨架，然后在 body 里加上 script 标签（完整骨架见下方代码示例）。",
+            "保存文件、用浏览器打开，再打开开发者控制台：右键点网页空白处 →「检查 / Inspect」→ 切到「Console（控制台）」标签，就能看到 console.log 的输出。这套流程上一课 DevTools 里你已经用过，这里正式成为日常。"
+          ]
+        },
+        {
+          "h": "console.log：你的输出窗口",
+          "p": [
+            "console.log() 的作用是把括号里的内容打印到浏览器的开发者控制台。之后所有文章与练习的结果，都可以用它打到控制台看。",
+            "官方鼓励你在这一课和之后的每一课里跟着敲代码——看懂和写出来是两回事。改一改例子里的值、猜猜输出会变什么样、再跑一遍验证，这是最便宜的学习方式。",
+            "小贴士：VS Code 的 Live Preview 扩展可以在你保存文件时自动刷新浏览器，省掉手动刷新。官方原文给了链接，见本课外部资料。"
+          ]
+        },
+        {
+          "h": "外部脚本文件",
+          "p": [
+            "把 JavaScript 写进 HTML 的 script 标签只适合短代码。更复杂的脚本用外部文件：建一个 .js 文件（扩展名就像 CSS 的 .css），再用带 src 的 script 标签引入。",
+            "这和之前给网页外链 CSS 是同一套思路：HTML 管结构、文件各管各的。文件名随你取——javascript.js、my-script.js 都行，本站示例保持与官方一致用 javascript.js。"
+          ]
+        },
+        {
+          "h": "变量：程序的数据容器",
+          "p": [
+            "变量（variable）是任何程序的基本构件，可以想成存放数据的「储物箱」：给数据贴一个名字标签，之后用名字取用。",
+            "用 let 关键字声明变量：let firstName = \"John\" 给字符串 \"John\" 起名叫 firstName，之后 console.log(firstName) 打印的就是箱子里装的东西。官方原文配了一张「变量盒子」示意图，直观画的正是这个比喻。",
+            "变量名可以重新赋值：age = 54 会把 age 箱子里的 11 换成 54。注意重新赋值不写 let——变量已经声明过，这里只是换货。"
+          ]
+        },
+        {
+          "h": "const：不让它变",
+          "p": [
+            "有时我们恰恰不想让变量被改：比如圆周率 pi，永远不该是 3.14 以外的值。这种用 const 关键字声明。",
+            "给 const 变量重新赋值会怎样？直觉可能觉得「打印出 3.14，然后那行赋值被忽略」——实际是直接抛出错误，连后面的 console.log 都执行不到。",
+            "为什么语言要故意报错？因为错误是帮手：它会精确告诉你代码哪里写错了。没有报错的话，代码照样不按预期工作，你却得自己一行行排查——那才是真正的痛苦。学会读错误信息，是后面「读懂报错」一课的主题。"
+          ]
+        },
+        {
+          "h": "var：认识即可的老前辈",
+          "p": [
+            "声明变量还有第三种方式 var——JavaScript 最初的方式。它类似 let（可重新赋值），但带着一些老怪癖，在 let 和 const 出现后被清理掉了，现在基本不再使用。",
+            "不必学怎么用 var，但要在读旧代码、旧教程时认得出：哦，这是在声明变量。新代码一律 let 或 const。"
+          ]
+        },
+        {
+          "h": "数字与运算顺序",
+          "p": [
+            "数字是编程逻辑的基本构件——几乎任何有用的编程任务都绕不开一点基础数学。好消息是 JavaScript 里数字的行为和你熟悉的数学几乎一样。",
+            "运算顺序（PEMDAS / BODMAS）完全遵循标准数学：先括号、再乘方、再乘除、后加减，同级从左往右。(3 + 2) - 76 * (1 + 1) 就是合法的 JavaScript，放进 console.log 会按你预期的方式求值。",
+            "官方 Assignment 的前几组练习全是算术与变量操作：从 console.log(23 + 97) 到用 const 串出 max、actual、percentage 三个变量。动手做一遍，做的时候留意「重新赋值后旧的那次 log 还是旧值」这类细节。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "html",
+          "code": "<!-- 在浏览器里跑 JavaScript 的最小骨架（! + Tab 生成后加 script）-->\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Document</title>\n</head>\n<body>\n\n  <script>\n    // Your JavaScript goes here!\n    console.log(\"Hello, World!\")\n  </script>\n\n</body>\n</html>",
+          "note": "保存后用浏览器打开，右键 → 检查 → Console 标签看输出。VS Code 输 ! 按 Tab 即可生成骨架。"
+        },
+        {
+          "lang": "html",
+          "code": "<!-- 外部脚本：长代码拆出去，和外部 CSS 同一思路 -->\n<script src=\"javascript.js\"></script>",
+          "note": "扩展名 .js；文件名任意，官方示例用 javascript.js。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* let：声明 + 重新赋值 */\nlet firstName = \"John\";\nlet lastName = \"Doe\";\nconsole.log(firstName); // John\nconsole.log(lastName);  // Doe\n\nlet age = 11;\nconsole.log(age);       // 11\nage = 54;               // 重新赋值：不写 let\nconsole.log(age);       // 54",
+          "note": "重新赋值不带 let——变量已声明过，再写 let 反而报「重复声明」。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* const：不可重新赋值 */\nconst pi = 3.14;\npi = 10;                // ← 这一行直接抛错\n\nconsole.log(pi);        // 执行不到这里",
+          "note": "错误发生在赋值行，后面的代码不会跑。报错是语言在帮你定位问题，不是代码「坏了」。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 运算顺序：标准数学规则 */\nconsole.log(23 + 97);              // 120\nconsole.log((4 + 6 + 9) / 77);     // ≈ 0.24675\nconsole.log((3 + 2) - 76 * (1 + 1)); // 括号 → 乘法 → 减法\n\n/* 变量参与运算 */\nlet a = 10;\nlet b = 7 * a;      // b 由 a 算出\nconsole.log(b);     // 70",
+          "note": "PEMDAS：先括号、再乘方、再乘除、后加减，同级从左往右。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "打开页面没看到输出，以为代码没跑",
+          "text": "console.log 的输出不在网页上，在开发者控制台里：右键 → 检查 → Console。忘了开控制台（或开的是别的标签页）是新手最常见的「代码没反应」假象。"
+        },
+        {
+          "title": "重新赋值时又写了 let",
+          "text": "let age = 11 之后写 let age = 54 不是重新赋值，是对同名变量重复声明，会抛错。重新赋值就是「age = 54」，不带任何关键字。"
+        },
+        {
+          "title": "看到 const 报错就以为代码坏了",
+          "text": "TypeError: Assignment to constant variable 正是说「你在给 const 变量重新赋值」。这是语言按设计在工作：错误精确指出了问题行。修法要么删掉赋值、要么当初就该用 let。"
+        },
+        {
+          "title": "把 var 当新知识花时间学",
+          "text": "var 是历史遗留，官方明说它已基本不用。目标只是「读旧代码时认得出来」；新代码一律 let / const，不要在 var 的怪癖上花学习时间。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "把下列练习加进你 HTML 文件的 script 标签里逐一完成：① console.log(23 + 97)，运行应输出 120；② 换成把 6 个不同的数字加在一起；③ 打印 (4 + 6 + 9) / 77 的值，控制台应约为 0.24675；④ 声明 let a = 10 并打印，然后重新赋值成别的数字再打印一次（前一次的 log 仍显示旧值 10，因为它发生在重新赋值之前）；接着在脚本末尾加 let b = 7 * a 并打印 b；⑤ 声明 const max = 57、const actual = max - 13、const percentage = actual / max，打印 percentage 应得到约 0.7719 的值；⑥ 花几分钟继续在 script 标签里随意玩——之后学会让这些东西显示到网页上时，这些逻辑全都原样适用，继续前先确保自己已经顺手。",
+          "依次阅读以下文章加深理解：① MDN 的「什么是 JavaScript？」——理解 JavaScript 在网页里扮演的角色；② JavaScript.info 的变量教程；③ MDN 的 JavaScript 数学——换一个角度覆盖同样的内容，并教你一些基本数学运算（数字还有很多玩法，现阶段掌握这些就够了）；④ 通读（并跟着敲！）JavaScript.info 的运算符教程——别忘了做页面底部的练习题，它会让你对 JavaScript 里能用数字做什么有个不错的概念。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 variables_and_operators.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "5d937eddfdff44390cc7a72cb8727bf58b9ae98337ca0c785c52e4588b8b4e6b",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "installing-node-js",
+      "title": "Installing Node.js",
+      "zh": "安装 Node.js",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-installing-node-js",
+      "summary": "安装 Node.js：用 nvm 安装并管理 Node 与 npm，跑通 Node REPL。官方指南只覆盖 Linux 与 macOS，Windows 用户先定运行环境。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的命令与常见错误卡片。这一课官方没有布置外部文章与视频，跟着本页讲解与任务说明往下走即可。",
+      "understand": [
+        "Node.js 是让 JavaScript 脱离浏览器运行的运行环境，接下来几课的部分练习需要它。",
+        "nvm（Node Version Manager）用来安装和切换 Node 版本；npm 是之后装 JavaScript 库与工具用的包管理器——两个名字只差一个字母，职责完全不同。",
+        "安装用 nvm install --lts、启用用 nvm use --lts：必须用 LTS（长期支持）版本，避免之后装包出现不兼容。",
+        "官方本课只提供 Linux 与 macOS 的 nvm 安装指南，没有 Windows 指南；Windows 用户需先决定运行环境（回到第 07 课的三种选择），在 WSL2 里就照官方 Linux 指南做。",
+        "npm config set min-release-age=3 这条设置让 npm 不安装发布不满三天的依赖包，降低供应链攻击风险。",
+        "Node REPL 是终端里的交互式 JavaScript 控制台，跑 node 进入、.exit 退出，适合快速试小段代码。"
+      ],
+      "terms": [
+        {
+          "en": "Node.js",
+          "zh": "让 JavaScript 在浏览器之外运行的运行环境（runtime），接下来几课的部分练习会用到"
+        },
+        {
+          "en": "nvm (Node Version Manager)",
+          "zh": "Node 版本管理器：安装、切换、升级 Node 版本的工具，本课装 Node 的方式"
+        },
+        {
+          "en": "npm",
+          "zh": "Node 附带的包管理器：之后用来安装 JavaScript 环境里的各种库与工具，与 nvm 是两个东西"
+        },
+        {
+          "en": "LTS (long-term support)",
+          "zh": "长期支持版本：官方必须使用的 Node 版本线，避免后续课程安装的包出现不兼容"
+        },
+        {
+          "en": "REPL",
+          "zh": "交互式控制台：输入一行代码立刻看到结果，Node 里跑 node 命令进入，.exit 退出"
+        },
+        {
+          "en": "supply chain attack",
+          "zh": "供应链攻击：新发布的依赖包可能被篡改，min-release-age 设置通过延迟安装新包来降低这类风险"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把 nvm / Node / npm 三个名字的分工分清——这是本课最容易混的地方。",
+        "按官方 Assignment 安装：先用 nvm 安装 Node（nvm install --lts、nvm use --lts），再用 node -v 和 npm -v 验证两个版本号都能打印出来。",
+        "在终端跑 npm config set min-release-age=3，给 npm 加上「不装发布不满三天的新包」的安全设置。",
+        "跑 node 进入 REPL，随便敲几行上一课学的 JavaScript（变量、运算都行），再用 .exit 退出。",
+        "用下面的「简单自测」检查你对三个工具与安装流程的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "nvm 和 npm 各是干什么的？为什么容易搞混？",
+          "answer": "nvm（Node Version Manager）管理 Node 本身：安装、切换、升级 Node 版本。npm 是 Node 附带的包管理器：之后用来安装 JavaScript 的各种库和工具。两者名字只差一个字母、都以 n 开头，但一个管「装 Node」、一个管「用 Node 装别的东西」，读官方文档时要看清楚说的是哪一个。"
+        },
+        {
+          "question": "为什么必须用 nvm use --lts 启用 LTS 版本，而不是最新版？",
+          "answer": "后续课程要安装的包在 LTS（长期支持）版本上经过充分验证，用更新的非 LTS 版本可能出现不兼容。nvm use --lts 告诉 nvm 运行 node 命令时用已安装的最新 LTS 版本，node -v 打印出版本号即说明配置成功。"
+        },
+        {
+          "question": "npm config set min-release-age=3 这条设置防的是什么？",
+          "answer": "防止 npm 安装发布还不到三天的依赖包。新发布的包可能已被入侵者篡改（供应链攻击），等几天再装能避开「刚发布的恶意版本」这个风险窗口。这是 npm v11.10.0 引入的设置，官方课程特意要求配置。"
+        },
+        {
+          "question": "Node REPL 是什么？怎么进入、怎么退出？",
+          "answer": "REPL 是 Node 提供的交互式控制台：在终端单独运行 node 命令进入，输入一行 JavaScript 立刻看到结果，类似上一课用的浏览器控制台，适合不开浏览器就快速调试或试小段与浏览器无关的代码。输入 .exit 退出。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "浏览器能跑 JavaScript，但接下来的课程里有些练习要在终端里直接运行脚本——这需要一个能脱离浏览器运行 JavaScript 的环境。这一课把 Node 装好、把三个容易混淆的名字分清，后面的函数、报错、项目课才能顺畅地在你自己的机器上跑起来。安装本身不难，难的是别把 nvm 和 npm 记混。",
+      "sections": [
+        {
+          "h": "Node 是什么",
+          "p": [
+            "Node.js（简称 Node）是一个 JavaScript 运行环境：它让 JavaScript 可以在浏览器之外运行。接下来几课的部分练习会用到它。",
+            "装好它需要先备齐几个工具——这正是本课的主体。整个过程不复杂，跟着做就好。"
+          ]
+        },
+        {
+          "h": "三个名字：nvm、Node、npm",
+          "p": [
+            "我们用 nvm（Node Version Manager，Node 版本管理器）来安装 Node，因为它让切换和升级 Node 版本变得容易。",
+            "另外还有一个叫 npm 的工具，之后我们会用它安装 JavaScript 环境里会用到的各种库与工具。nvm 与 npm 只差一个字母，非常容易看混——官方特意提醒：读文档时务必看清楚说的是哪一个。",
+            "一句话记牢：nvm 装 Node，npm 装别的。"
+          ]
+        },
+        {
+          "h": "官方指南只有 Linux 与 macOS",
+          "p": [
+            "官方 Assignment 的安装指南只给了两份：Linux 的 nvm 安装指南与 macOS 的 nvm 安装指南（都是官方 curriculum 仓库里的文档，链接见官方原课）。",
+            "也就是说：官方这一课没有提供 Windows 的安装步骤。这不是排版遗漏，而是官方课程的既定口径——它假设你已经在 Linux、macOS，或一个类 Linux 环境里学习。"
+          ]
+        },
+        {
+          "h": "Windows 用户怎么办：回到第 07 课的选择",
+          "p": [
+            "如果你在 Windows 上学习，运行环境的选择本站在第 07 课（准备工具）已经讲过：虚拟机（VirtualBox 里跑 Linux）、双系统、或 WSL2（Windows 里嵌一个 Linux 环境）。当时也记录了官方的口径：WSL2 被官方标为「advanced（进阶）」、不推荐给初学者，三种方式各有取舍——不熟悉的回去翻那一课再决定。",
+            "本站补一句关键的实操事实：在 WSL2 里，你面对的就是一个完整的 Linux 环境，终端、包管理器、文件系统都是 Linux 的。因此装 Node 时直接照官方的 Linux 指南做即可，不需要找单独的「WSL2 版教程」。",
+            "本站不在此发明 Windows 原生安装步骤：原生路径与 nvm 的兼容性、后续课程工具链的适配都是另一回事，超出这门课的范围。选定环境后，一律以官方指南为准。"
+          ]
+        },
+        {
+          "h": "安装 Node：三条命令",
+          "p": [
+            "nvm 装好后，安装 Node 只需两步。第一步在终端运行 nvm install --lts——安装最新的 LTS（长期支持）版本，输出里会看到「Downloading and installing Node vXX.xx.x...」字样；没看到就关掉终端重开再跑一次。",
+            "第二步运行 nvm use --lts，告诉 nvm 之后运行 node 命令时用这个 LTS 版本。官方强调：必须用 LTS 版本，否则后续课程安装的包可能不兼容。",
+            "验证：node -v 应打印出 v 开头的版本号；npm 随 Node 一起装好，npm -v 同样应打印版本号。两个都有输出，就说明安装成功了。"
+          ]
+        },
+        {
+          "h": "npm 的一条安全设置",
+          "p": [
+            "最后一条命令：npm config set min-release-age=3。这是 npm v11.10.0 引入的设置，作用是延迟安装新发布的依赖——发布不满三天的包先不装。",
+            "为什么要等？因为刚发布的包可能已被攻击者篡改（供应链攻击）。等几天，问题包通常已被下架或曝光。一条设置换来一层保险，官方因此把它写进了课程。"
+          ]
+        },
+        {
+          "h": "Node REPL：终端里的练习场",
+          "p": [
+            "为了方便，Node 提供了 REPL——一个交互式控制台，让你直接在终端里运行和编辑 JavaScript，就像上一课在浏览器里用的控制台一样。它特别适合快速调试或试一小段与浏览器无关的代码，不用每次都开浏览器。",
+            "用法：在终端单独运行 node 进入 REPL；输入 .exit 退出。进去之后，上一课学的变量、运算、console.log 全都能用，随手试试。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "bash",
+          "code": "# 安装 Node 的两步（nvm 已装好的前提下）\nnvm install --lts   # 安装最新 LTS 版本，看到 Downloading and installing Node vXX.xx.x... 即成功\nnvm use --lts       # 让 node 命令使用 LTS 版本（必须 LTS，避免后续包不兼容）",
+          "note": "install 没看到安装字样：关掉终端重开，再跑一次 install。"
+        },
+        {
+          "lang": "bash",
+          "code": "# 验证安装\nnode -v   # 应打印 vXX.xx.x\nnpm -v    # 应打印 XX.xx.x（npm 随 Node 一起装好）",
+          "note": "两个命令都有版本号输出 = Node 与 npm 安装成功。"
+        },
+        {
+          "lang": "bash",
+          "code": "# npm 安全设置 + 进入 REPL\nnpm config set min-release-age=3   # 不安装发布不满 3 天的新包（防供应链攻击）\n\nnode       # 进入 Node REPL（交互式控制台）\n.exit      # 在 REPL 里输入，退出",
+          "note": "min-release-age 是 npm v11.10.0 引入的设置；REPL 里可以直接练上一课的变量与运算。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "把 nvm 和 npm 当成同一个工具",
+          "text": "nvm 管 Node 本身的安装与版本切换，npm 管「用 Node 装别的库」。名字只差一个字母，看文档时务必分清——报错信息里出现的是哪一个，直接决定你该查哪个工具的用法。"
+        },
+        {
+          "title": "Windows 上急着找「本课的 Windows 安装步骤」",
+          "text": "官方本课只有 Linux 与 macOS 指南，这是既定口径不是遗漏。Windows 用户的正路是先回到第 07 课定运行环境（VirtualBox / 双系统 / WSL2）；选定 WSL2 后直接照官方 Linux 指南做——WSL2 里就是 Linux 环境。别拿第三方「Windows 原生装 nvm」教程当官方口径。"
+        },
+        {
+          "title": "装了最新版 Node 而不是 LTS",
+          "text": "nvm use 不带 --lts 可能切到非 LTS 的尝鲜版，后续课程安装的包可能出现不兼容。统一用 nvm install --lts 与 nvm use --lts，node -v 看到版本号后再继续。"
+        },
+        {
+          "title": "nvm install 成功就以为完事了",
+          "text": "install 只是把版本下载下来，还要 nvm use --lts 让 node 命令真正指向它。两条都跑、node -v 有输出，才算装完；忘了 use 会遇到「command not found」或版本不对。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "安装 nvm：按你的操作系统跟随对应指南——Linux 指南或 macOS 指南（两份都是官方 curriculum 仓库里的文档，见官方原课链接）。",
+          "安装 Node：在终端运行 nvm install --lts，安装最近的长期支持（LTS）版本（若没看到安装输出，关掉终端重开再试一次）；再运行 nvm use --lts 指定 node 命令使用的版本——必须用 LTS 版本，避免后续课程安装的包不兼容。此时 node -v 与 npm -v 都应打印出类似 vXX.xx.x 的版本号，看到它们就说明 Node 和 npm 安装成功。",
+          "配置 npm 安全设置：在终端运行 npm config set min-release-age=3。这条 npm v11.10.0 引入的设置会阻止 npm 安装发布不满三天的依赖，帮助规避新发布包可能已被篡改的供应链攻击风险。",
+          "试一试 Node REPL：在终端单独运行 node 打开交互式控制台（与上一课浏览器的控制台类似，方便快速调试与浏览器无关的小段代码）；输入 .exit 退出。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 installing_nodejs.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "3a6e854cc18901404044806672f69495a38a2ba8fde7004b7f28c911280f656a",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "data-types-and-conditionals",
+      "title": "Data Types and Conditionals",
+      "zh": "数据类型与条件判断",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-data-types-and-conditionals",
+      "summary": "数据类型与条件判断：八种数据类型、字符串与三种引号、比较与逻辑运算符、if/else、switch，以及 truthy / falsy。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "JavaScript 有八种数据类型：number、bigint、string、boolean、null、undefined、symbol、object；前七种是原始类型。",
+        "字符串可以用单引号、双引号或反引号包裹；反引号是模板字面量，能把变量与表达式直接嵌进字符串。",
+        "方法（method）是语言或数据类型内置的一段功能，比如字符串的 toUpperCase()；不必背全，知道去 MDN 查即可。",
+        "比较运算符（>、<、>=、<=、==、===）得到布尔值；一律用严格相等的 ===，不用会做类型转换的 ==。",
+        "三个逻辑运算符：&&（与）、||（或）、!（非）。",
+        "if/else 让代码按条件做决定；多条件分支可以嵌套 if 或改用 switch；条件里不一定是布尔值——truthy / falsy 规则决定非布尔值如何被判断。"
+      ],
+      "terms": [
+        {
+          "en": "data type",
+          "zh": "数据类型：数据的种类。JavaScript 共八种，number / string / boolean 是现阶段最常用的三种"
+        },
+        {
+          "en": "template literal",
+          "zh": "模板字面量：用反引号包裹的字符串，${变量} 可以把值直接嵌进去"
+        },
+        {
+          "en": "method",
+          "zh": "方法：语言或具体数据类型内置的功能，如字符串的 toUpperCase()；用「值.方法名()」调用"
+        },
+        {
+          "en": "strict equality (===)",
+          "zh": "严格相等：比较两个值且不做类型转换；与会隐式转换类型的 ==（宽松相等）相对，日常一律用它"
+        },
+        {
+          "en": "logical operators",
+          "zh": "逻辑运算符：&&（与，两边都真才真）、||（或，一边真即真）、!（非，真假互换）三个"
+        },
+        {
+          "en": "conditional",
+          "zh": "条件语句：if / else if / else，让程序按条件真假选择执行哪段代码"
+        },
+        {
+          "en": "truthy / falsy",
+          "zh": "真值 / 假值：非布尔值放进条件位置时的判断倾向；假值只有 false、0、空字符串、null、undefined、NaN 等，其余都是真值"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，数得出八种数据类型、三个逻辑运算符，说得出 === 与 == 的区别。",
+        "按官方要求依次读完外部资料：先 JavaScript.info 的数据类型概览，再 MDN 字符串教程（跳过 Concatenation in context 小节）与 W3Schools 字符串方法，最后按顺序读比较、条件、if/else、逻辑运算符、switch 五篇并做页面练习题。",
+        "把 MDN 的 String 参考文档加入书签——不必通读或背方法名，知道以后到这里查。",
+        "跟着官方 Assignment 配置 javascript-exercises 练习仓库并按顺序完成 foundations/data_types_and_conditionals 下的五个练习（01 到 05），读所有报错、看终端输出。",
+        "用下面的「简单自测」检查你对类型、比较与条件分支的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "JavaScript 有哪八种数据类型？哪些现阶段最常用？",
+          "answer": "number（数字）、bigint（任意精度整数）、string（字符串）、boolean（布尔）、null（空值）、undefined（未定义）、symbol（符号）、object（对象）。现阶段最常用的是 number、string、boolean；null / undefined 会经常遇到；symbol 和 bigint 属于知道存在的层面，后面的课程才会用到。"
+        },
+        {
+          "question": "三种引号包字符串有什么区别？反引号的独门本领是什么？",
+          "answer": "单引号和双引号基本等价，选一种保持统一即可；反引号是模板字面量，独有「嵌入」能力：${变量或表达式} 的值会直接拼进字符串，比如 `我叫 ${firstName}`。多行文本也只有反引号能直接写。"
+        },
+        {
+          "question": "=== 和 == 有什么区别？日常该用哪个？",
+          "answer": "=== 是严格相等：类型不同直接判不相等（5 === \"5\" 为 false）。== 是宽松相等：比较前先做类型转换（5 == \"5\" 为 true），而转换规则复杂难记，容易埋 bug。日常代码一律用 ===（含对应的 !==），把 == 留给读旧代码时认识。"
+        },
+        {
+          "question": "&&、||、! 各做什么运算？truthy / falsy 又是什么？",
+          "answer": "&& 两边都为真才真；|| 一边为真即真；! 把真假互换。它们不只吃布尔值：条件位置上的非布尔值按 truthy / falsy 规则判断——假值只有 false、0、空字符串、null、undefined、NaN（还有 -0、0n），其余全是真值，比如非空字符串、任意非零数字、空数组。所以 if (\"hello\") 会执行、if (0) 不会。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "变量和运算符教会程序「算」，这一课教程序「判断」。数据类型回答「这个值是什么种类」，条件语句回答「什么情况下做什么」。两者合起来，你的代码第一次有了分支——这是从「计算器」走向「程序」的那一步，也是后面 DOM 交互、游戏逻辑的地基。",
+      "sections": [
+        {
+          "h": "八种数据类型总览",
+          "p": [
+            "你会反复遇到几种极其常见的 JavaScript 数据类型，这个单元会把它们逐一打牢。动手之前，官方要求先通读 JavaScript.info 的「数据类型」概览（链接在官方任务一节）——它用一页讲清八种类型各自是什么。",
+            "先给个鸟瞰：number（数字）、bigint（超长整数）、string（字符串）、boolean（真 / 假）、null（空值）、undefined（未定义）、symbol（独一无二的标识符）、object（对象，包括数组与函数）。现阶段的高频是 number、string、boolean 三种；null 与 undefined 会在报错与默认值里反复见面；symbol 与 bigint 知道存在即可。"
+          ]
+        },
+        {
+          "h": "字符串与三种引号",
+          "p": [
+            "很多工作里你打交道最多的不是数字而是文本。字符串（string）就是一段文本，是这门语言的基本构件之一。",
+            "包裹字符串有三种引号：单引号 '、双引号 \"、反引号 `。前两种效果基本一样，团队里选一种保持统一就好；反引号则是特殊的——它是模板字面量，能把变量和表达式用 ${} 直接嵌进字符串，不必再用 + 一段段拼接。",
+            "官方配套阅读是 MDN 的字符串教程（其中 Concatenation in context 小节讲的是后面 DOM 课的内容，官方明说跳过）与 W3Schools 的字符串方法一课，链接都在官方任务一节。"
+          ]
+        },
+        {
+          "h": "方法：内置的功能",
+          "p": [
+            "读上面资料时会大量见到「方法（method）」这个词：它是语言或某个数据类型内置的一段功能，用「值.方法名()」的句式调用，比如 \"hello\".toUpperCase() 得到 \"HELLO\"。",
+            "字符串的内置方法远不止教程里那几个，官方特意说明：不用通读更不用背——但要知道 MDN 的 String 参考文档在哪里，把它加入书签。之后想对字符串做什么，先去那里查有没有现成方法。"
+          ]
+        },
+        {
+          "h": "比较运算符",
+          "p": [
+            "到目前为止，你写过的程序用基础数学就能完成。编程的精髓在于教计算机做决定——条件语句（conditional）就是干这个的。而条件的原料是比较。",
+            "比较运算符包括 >、<、>=、<=、==、===（以及不等版本），结果是布尔值 true 或 false。其中最要紧的一对是 == 与 ===：宽松相等会先做类型转换再比较（\"5\" == 5 为 true），严格相等 === 不转换（\"5\" === 5 为 false）。转换规则复杂难记、容易埋错，日常一律用 === 与 !==。",
+            "官方的第一篇配套阅读正是 JavaScript.info 的「比较」教程，从它开始条件部分的学习。"
+          ]
+        },
+        {
+          "h": "if / else：让代码分岔",
+          "p": [
+            "if (条件) { ... } else { ... }：条件为真执行前者，为假执行后者，还能用 else if 接连多个分支。MDN 的条件语句文章是这一部分的主读材料，JavaScript.info 的 if/else 一篇当作复习——重点是它页面底部的练习题，官方要求做。",
+            "嵌套（nesting）是分支里再套分支：if 里面还有 if。能解决问题，但层级一深可读性就下降——这时 switch 更合适。"
+          ]
+        },
+        {
+          "h": "逻辑运算符与 switch",
+          "p": [
+            "三个逻辑运算符：&&（与）、||（或）、!（非）。它们把多个条件组合成一个：age >= 13 && age < 20 表示「13 到 19 岁之间」。JavaScript.info 的逻辑运算符一篇里，练习题会出现 alert(数字) 这类现在还解释不了的写法——官方打过招呼：有些答案现在看不懂没关系，它们是对的，学到后面自然明白，别在这里卡住。",
+            "switch 适合「一个值对多种情况」的分支：case 逐个匹配、break 结束、default 兜底。条件组合复杂时它比一串 else if 清爽得多。官方配套 JavaScript.info 的 switch 教程。"
+          ]
+        },
+        {
+          "h": "truthy 与 falsy",
+          "p": [
+            "条件位置上放的未必是布尔值：if (username) 里 username 是个字符串。JavaScript 用 truthy / falsy 规则裁决：假值（falsy）只有 false、0、空字符串 \"\"、null、undefined、NaN（加上 -0 与 0n），其余一切值都是真值（truthy）——非空字符串、非零数字、数组对象统统算真。",
+            "这套规则在两篇条件阅读里都会出现，也是本课练习题的常客。记住「假值清单很短，背它就够」。"
+          ]
+        },
+        {
+          "h": "官方练习仓库",
+          "p": [
+            "这一课的 Assignment 是一套带测试的练习：官方的 javascript-exercises 仓库，从 helloWorld 到 joinStrings 共五题，按顺序做。每题一个目录、一份 README、一套 Jest 测试——测试会告诉你代码是否达到要求，这正是官方想让你体验的工作方式。",
+            "README 里写着完整的环境配置步骤（fork、clone、安装 Jest）。练习里看到的 return 先简单理解成「函数跑完吐回这个值」，函数本身的细节后面几课会正式讲，现在不纠结。官方叮嘱的三件事：按顺序做、读全部说明、看终端里的全部报错。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "javascript",
+          "code": "/* 三种引号与模板字面量 */\nlet name = \"Odin\";\nlet greet1 = 'Hello';              // 单引号\nlet greet2 = \"Hello\";              // 双引号（与前一种等价，统一用一种即可）\nlet greet3 = `${greet1}, ${name}!`; // 反引号：${} 直接嵌变量\n\nconsole.log(greet3); // Hello, Odin!",
+          "note": "反引号是模板字面量：变量与表达式直接嵌进字符串，还能直接写多行。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 方法：内置功能，用「值.方法名()」调用 */\nconsole.log(\"hello\".toUpperCase());   // HELLO\nconsole.log(\"HELLO\".toLowerCase());   // hello\nconsole.log(\"  trim me  \".trim());    // trim me\n// 更多方法不必背：到 MDN 的 String 参考文档里查",
+          "note": "方法（method）是语言或数据类型内置的功能；MDN String 文档是工具箱总目录。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* === 与 ==：严格 vs 宽松 */\nconsole.log(5 === \"5\"); // false：类型不同，直接不等\nconsole.log(5 == \"5\");  // true：== 先做类型转换再比较（坑）\n\n/* 日常一律用 === / !== */",
+          "note": "== 的隐式转换规则复杂难记，容易埋 bug；严格相等不做转换，行为可预期。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* if / else if / else + 逻辑运算符 */\nlet age = 17;\n\nif (age >= 18) {\n  console.log(\"成年\");\n} else if (age >= 13 && age < 18) {\n  console.log(\"青少年\");   // ← 走这条（&& 两边都真才真）\n} else {\n  console.log(\"儿童\");\n}",
+          "note": "&&（与）、||（或）、!（非）把多个条件组合成一个；else if 串起多路分支。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* switch：一个值对多种情况 */\nlet fruit = \"apple\";\n\nswitch (fruit) {\n  case \"banana\":\n    console.log(\"黄色\");\n    break;\n  case \"apple\":\n    console.log(\"红色\");   // ← 命中\n    break;\n  default:\n    console.log(\"不知道什么颜色\");\n}",
+          "note": "case 逐个匹配、break 结束本分支、default 兜底；比长串 else if 清爽。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* truthy / falsy：非布尔值也能当条件 */\nlet username = \"\";        // 空字符串 = falsy\nif (username) {\n  console.log(\"欢迎回来\");\n} else {\n  console.log(\"请先登录\"); // ← 走这条\n}\n// 假值只有：false、0、\"\"、null、undefined、NaN（-0、0n）\n// 其余（含 \"0\"、[]）全是真值",
+          "note": "假值清单很短，背它就够；其余一切值放进条件都按真处理。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "背字符串方法清单",
+          "text": "官方明说：内置字符串方法远比教程里多，不需要通读更不需要背。正确的动作是把 MDN 的 String 参考文档加入书签，用的时候去查。背清单的时间不如多写几道练习。"
+        },
+        {
+          "title": "顺手写 == 觉得更顺手",
+          "text": "== 会先做类型转换再比较，转换规则复杂（\"5\" == 5 为 true、但 \"\" == 0 也为 true），极易埋下难查的 bug。从现在养成肌肉记忆：相等判断一律 === / !==，== 只在读旧代码时认识它。"
+        },
+        {
+          "title": "以为 if 里只能放 true / false",
+          "text": "条件位置上任何值都会被按 truthy / falsy 裁决：空字符串、0、null、undefined 是假，其余是真。if (list) 判断「list 是否有内容」在数组上是常见误用——空数组 [] 也是真值。拿不准就显式写清条件。"
+        },
+        {
+          "title": "练习里看不懂 return 和 alert 就停在那里",
+          "text": "官方两次预告：练习题里 return 表示「函数跑完返回这个值」、alert 的行为后面课程才讲——现在看不懂是正常的，不影响做题。卡在这种「预告式未知」上不值得，按顺序做练习、读终端报错就好。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "为了给你充分的练习，官方准备了一套带测试的 JavaScript 练习：测试用来确认你的代码按预期工作。看到 return 就先理解为「函数跑完会返回它后面的值」——这些概念后面的课程会详细展开，现在别纠结。务必按这里给出的顺序做：读全部说明、盯着终端、读所有报错。",
+          "① 跟随 javascript-exercises 仓库 README 的说明配置本地环境（fork、clone、安装 Jest）；② 配置完成后进入仓库的 foundations/data_types_and_conditionals 目录，先读每个练习的 README，再按顺序完成五个练习：01_helloWorld（这一题故意做得非常新手友好，确认你的环境一切就绪）、02_addNumbers、03_numberChecker、04_mathEquations、05_joinStrings。每个练习的 solution 文件夹里有答案。",
+          "外部阅读按官方结构分两组——字符串：① 通读并跟着敲 MDN 的字符串教程（跳过 Concatenation in context 小节，那是后面 DOM 课的内容）；② 过一遍 W3Schools 的字符串方法一课；③ 知道 MDN 的 String 参考文档存在并加入书签（不必通读）。条件判断：④ 先学 JavaScript.info 的比较；⑤ 读 MDN 的条件语句文章；⑥ JavaScript.info 的 if/else（当复习，重点做页面底部练习题）；⑦ JavaScript.info 的逻辑运算符（练习里出现 alert 的地方现在看不懂没关系，答案是对的，后面会懂）；⑧ 学 switch 语句。另：本课开头还要求先通读 JavaScript.info 的数据类型概览。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 data_types_and_conditionals.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "1292b61008ba1a9d2aaa98b894f992c3ed6925d65df6f147fd706f10f1f5c877",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "javascript-developer-tools",
+      "title": "JavaScript Developer Tools",
+      "zh": "JavaScript 开发者工具",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-javascript-developer-tools",
+      "summary": "JavaScript 开发者工具：DevTools 的三种打开方式、断点调试、DOM 与 CSS 的实时查看修改，以及 console 面板的使用。",
+      "guide": "以下是官方原课的中文化梳理，带常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "DevTools 对 JavaScript 开发的三个核心用途：跑代码、不刷新页面改 HTML/CSS、看性能数据。",
+        "三种打开方式：Chrome 菜单 → 更多工具 → 开发者工具；右键 → 检查；快捷键 F12 或 Ctrl+Shift+C（Mac 上 Opt+Cmd+C）。",
+        "断点（breakpoint）让代码在指定行暂停，逐行观察变量与执行流程——比 console.log 更系统的调试方式。",
+        "Elements 面板实时查看与编辑 DOM 和 CSS；Sources 面板看网页正在运行的脚本。",
+        "官方口径：DevTools 文档「知道去哪查」即可，不需要背——95% 的时间你只用其中一小部分功能。",
+        "Google 已改版部分教程页面，教程里的按钮可能不存在了——用页面上现存的元素照样跟着练。"
+      ],
+      "terms": [
+        {
+          "en": "DevTools",
+          "zh": "浏览器开发者工具：Chrome 内置的调试与检查面板，跑代码、改样式、看性能都在这里"
+        },
+        {
+          "en": "breakpoint",
+          "zh": "断点：让代码在指定行暂停执行的标记，暂停时可逐行执行、查看变量，是系统化调试的核心"
+        },
+        {
+          "en": "DOM (Document Object Model)",
+          "zh": "文档对象模型：浏览器把 HTML 解析成的可编程树形结构，DevTools 的 Elements 面板实时展示并可编辑它"
+        },
+        {
+          "en": "Elements panel",
+          "zh": "元素面板：DevTools 里查看与实时编辑 DOM 和 CSS 的地方，改完立即生效（刷新即复原）"
+        },
+        {
+          "en": "Sources panel",
+          "zh": "源代码面板：查看网页正在运行的脚本文件的地方，断点调试也在这里进行"
+        },
+        {
+          "en": "device mode",
+          "zh": "设备模式：DevTools 里模拟不同屏幕尺寸与媒体查询的模式，做响应式检查用"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，记住 DevTools 的三种打开方式（尤其 F12 快捷键）。",
+        "完成官方 Assignment：先跟完 JavaScript.info 的 Chrome 调试教程（重点体验断点），再按清单过一遍 Chrome DevTools 官方文档的 CSS / DOM / 断点各节，最后读 console 概览。",
+        "官方文档按「知道在哪」的深度读——不用背，之后需要时回来查。",
+        "拿本站任意课页练手：F12 打开 DevTools，在 Elements 里改几个字看看效果，在 Sources 里找到本站正在运行的 app.js。",
+        "用下面的「简单自测」检查你对打开方式、断点与文档口径的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "打开 Chrome DevTools 有哪三种方式？最快的是哪种？",
+          "answer": "① Chrome 菜单 → 更多工具 → 开发者工具；② 在网页任意处右键 →「检查 / Inspect」；③ 快捷键 F12 或 Ctrl+Shift+C（Mac 上 Opt+Cmd+C）。最快的是快捷键——练成肌肉记忆，之后每次调试都省几秒。"
+        },
+        {
+          "question": "断点是什么？它比 console.log 强在哪？",
+          "answer": "断点是让代码在指定行暂停执行的标记。暂停时你可以逐行执行、查看任意变量的当前值、观察调用路径——console.log 每次只能看你自己想到要打印的东西，断点能让你在真实执行流里「停下来环顾四周」，适合更复杂的排查。上一课介绍的 debugger 语句与 DevTools 的 Sources 面板配合的正是这套机制。"
+        },
+        {
+          "question": "官方为什么说 DevTools 文档「不需要背」？",
+          "answer": "官方原话：这些子文档覆盖你 95% 时间里会用到的功能，但目的是建立「知道有这个能力」的意识，需要时回来查——调试是查文档的活，不是背手册的活。把精力花在理解断点、Elements、console 这几个核心面板上，其余的用到再学。"
+        },
+        {
+          "question": "教程里的按钮在现在的 Google 文档页面上找不到了，怎么办？",
+          "answer": "官方在 Assignment 开头就预告了：Google 改版过部分页面，某些元素已变样或不存在。用页面上现存的元素照着练就行——比如教程让你检查一个已下架的按钮，你可以检查页面上任何现存的元素，学的工具和方法是一样的。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "你在 HTML/CSS 阶段已经用 DevTools 调过样式；从这一课起，JavaScript 成为你调试的主角。跑一段代码、看它哪行出错、变量当时是什么值、DOM 被改成了什么样——这些全是 DevTools 的地盘。这课不深，但它给后面所有 JS 课程配好「仪表盘」：越早顺手，后面每课的排错越省力。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "会使用浏览器里的开发者工具（Developer Tools，简称 DevTools）是任何 Web 开发者的重要技能：跑 JavaScript 代码、不刷新页面直接改 HTML 与 CSS、查看性能数据——还能帮你省下大量时间。",
+            "上手没有任何门槛。你之前调试 HTML/CSS 时已经用过它们；这一课看看它们在写 JavaScript 时能帮什么忙。"
+          ]
+        },
+        {
+          "h": "三种打开方式",
+          "p": [
+            "打开 Chrome DevTools 有三条路：Chrome 菜单 → 更多工具 → 开发者工具；在网页任意位置右键 →「检查」；或快捷键 F12 / Ctrl+Shift+C（Mac 上 Opt+Cmd+C）。",
+            "三种殊途同归，快捷键最顺手——把它练成不用想的动作。上一课你已经用「右键 → 检查」打开过控制台，现在多了整块面板可逛。"
+          ]
+        },
+        {
+          "h": "调试 JavaScript：断点",
+          "p": [
+            "官方 Assignment 的第一项是 JavaScript.info 的 Chrome 调试教程：在 Sources 面板里给代码打断点、让它停在那一行、逐行执行、观察变量怎么变。",
+            "这是比 console.log 更系统的调试方式：console.log 只能看你想得到要打印的东西；断点让你在真实执行流里随时暂停、环顾四周。上一课「读懂报错」里点开错误行号链接跳到的就是 Sources 面板——现在你正式认识它了。"
+          ]
+        },
+        {
+          "h": "查看与修改 DOM 和 CSS",
+          "p": [
+            "DevTools 文档的 CSS 与 DOM 各节覆盖你 95% 时间里要做的事：在 Elements 面板里实时查看与修改样式和 DOM 结构，改完立即生效，刷新即复原——试验想法零成本。",
+            "官方清单还包括：给类加 CSS 伪类状态、按字母序看 CSS 属性、查看与编辑盒模型、设备模式里模拟媒体查询、禁用/启用 CSS 类。这些全是「知道存在、用时来查」的技能。"
+          ]
+        },
+        {
+          "h": "console 面板",
+          "p": [
+            "Assignment 最后一项是 Chrome DevTools 的 console 概览：控制台不止能打印——还能运行代码、过滤输出、查看报错与警告的来源。",
+            "到这里，「跑代码看输出」「打断点停下看」「Elements 里改样式」三件套就齐了——后面每一课的练习都会反复用到它们。"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "把 DevTools 文档当教材从头背",
+          "text": "官方明说这些子文档不需要记，目的是「建立意识」：知道浏览器能调试什么，需要时回来查。把时间花在跟着调试教程动手打断点上，比通读文档有效得多。"
+        },
+        {
+          "title": "教程元素找不着就卡住不做了",
+          "text": "Google 改版过文档页面，教程里的某些按钮可能已不存在——官方在 Assignment 开头就预告了。用页面上现存的任何元素照着练，学的工具一样。"
+        },
+        {
+          "title": "改了 Elements 里的样式以为改到了源码",
+          "text": "Elements 面板的修改只存在于当前页面会话，刷新就复原。它是试验场不是编辑器——试出想要的效果后，回代码文件里改才是真改动。"
+        },
+        {
+          "title": "只认识 Console 一个面板",
+          "text": "console.log 用顺手之后很多人就不逛别的面板了。至少亲手打一次断点、逛一次 Sources 和 Elements——知道每个面板管什么，遇到问题时才知道往哪走。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "先说明：Google 更新过下列教程里的部分页面，某些元素已变化或不存在，但用同样的功能与工具仍可跟着做——比如教程让你检查的按钮已不在页面上，检查现存的元素即可。① 完整跟做 JavaScript.info 的「在 Chrome 里调试」教程；② 打开 Google 的 Chrome DevTools 文档，过一遍以下小节（覆盖你 95% 时间会用到的东西；不需要背，目的是建立「浏览器上怎么调试」的意识，随时可以回来查）：CSS 部分——「查看与更改 CSS」与「CSS 功能参考」；「开始查看与更改 DOM」；JavaScript 部分——「不同类型的断点」；③ 过一遍 Chrome DevTools 的 console 概览，熟悉控制台及其用法。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 javascript_developer_tools.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "813d3f4b3779b855be364b7900ea3becf35ac5e4a50ad5376ee1ade3f46e1af7",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "function-basics",
+      "title": "Function Basics",
+      "zh": "函数基础",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-function-basics",
+      "summary": "函数基础：定义与调用、参数与实参、返回值、默认参数、函数作用域，以及函数表达式与箭头函数的初识。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "函数把一段代码打包成可反复使用的单元——声明一次，随处调用。",
+        "参数（parameter）是函数声明括号里的占位符，实参（argument）是调用时实际传入的值。",
+        "return 把函数的执行结果交还给调用处；没有接收者的返回值会「返回到虚无」——什么也不发生。",
+        "函数调用本身可以直接作为另一个函数的实参（如 console.log(add7(3))），返回值原地顶上。",
+        "默认参数让实参缺省时有兜底值，是 JavaScript 较新的实用能力。",
+        "作用域（scope）决定变量在哪里可见——函数体内声明的变量函数外不可见；这是新手与中级开发者共同的坑，值得提前花时间。"
+      ],
+      "terms": [
+        {
+          "en": "function declaration",
+          "zh": "函数声明：function 名字(参数) { … } 的写法，把一段代码打包命名，之后按名字调用"
+        },
+        {
+          "en": "parameter",
+          "zh": "参数（形参）：函数声明括号里列出的名字，是未来某个值的占位符"
+        },
+        {
+          "en": "argument",
+          "zh": "实参：调用函数时实际传入的值，顶替参数占位符"
+        },
+        {
+          "en": "return",
+          "zh": "返回：把函数执行的结果交还给调用处；return 之后的代码不再执行"
+        },
+        {
+          "en": "default parameter",
+          "zh": "默认参数：声明时给参数写默认值（参数 = 默认值），实参缺省时用它兜底"
+        },
+        {
+          "en": "scope",
+          "zh": "作用域：变量可被访问的范围；函数体内声明的变量只在函数内可见（函数作用域）"
+        },
+        {
+          "en": "call stack",
+          "zh": "调用栈：引擎记录「谁调用了谁」的栈结构，函数一层层调用入栈、return 后出栈；报错的栈回溯读的正是它"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，分清参数与实参、搞懂 return 的值去了哪。",
+        "按官方顺序读五篇阅读材料：JavaScript.info 函数基础（含默认参数）→ MDN 函数（重点读 Function Scope 小节）→ MDN 返回值 → JavaScript.info 函数表达式与箭头函数 → 调用栈一文；官方已提示部分练习题涉及未学内容，跳过即可。",
+        "在骨架 HTML 的 script 标签里亲手写官方的四道练习函数（add7 / multiply / capitalize / lastLetter），每个都用 console.log 验证输出。",
+        "capitalize 是四题里最绕的：小写、全大写、混写三种输入都要得到「只有首字母大写」——写不出先伪代码再动手。",
+        "用下面的「简单自测」检查你对参数、返回值与作用域的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "参数和实参的区别是什么？拿 favoriteAnimal 举例。",
+          "answer": "参数（parameter）是函数声明括号里的名字——favoriteAnimal(animal) 里的 animal，它只是个占位符，换成 pet、x 语义不变（但好的参数名能给读者上下文）。实参（argument）是调用时实际传入的值——favoriteAnimal('Goat') 里的 'Goat'，它顶替占位符参与函数体的运算。"
+        },
+        {
+          "question": "下面代码会在控制台显示什么？为什么？\nfunction greet(name) {\n  return 'Hello ' + name;\n}\ngreet('Odin');",
+          "answer": "什么都不显示。greet('Odin') 确实执行了、也确实返回了字符串——但没有任何接收者：返回值既没存进变量、也没传给 console.log，就「返回到虚无」了。想看到它：console.log(greet('Odin')) 或 const m = greet('Odin'); console.log(m)。"
+        },
+        {
+          "question": "函数调用直接当实参是什么意思？",
+          "answer": "console.log(favoriteAnimal('Goat')) 里，favoriteAnimal('Goat') 先执行，它的返回值 \"Goat is my favorite animal!\" 原地成为 console.log 的实参。这种写法很常见——省去中间变量。前提是被调函数有返回值；只打印不返回的函数这样接会得到 undefined。"
+        },
+        {
+          "question": "函数作用域是什么？为什么官方说它值得提前花时间？",
+          "answer": "函数体内声明的变量只在函数内可见，函数外访问不到。作用域是新手和中级开发者共同的坑：变量「明明声明了」却报 not defined、两个函数想共享数据却各拿各的副本。官方特意叮嘱 MDN 函数一文里重点读 Function Scope 小节——现在多花的十分钟，以后少调一小时。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "到这里你写的代码已经不少，但都是「一次性」的：想复用就得整段复制。函数把代码打包成带名字的零件——声明一次、随处调用、换参数出不同结果，这是程序从「脚本」变成「程序」的那一步。后面 DOM 课的每个事件处理器、每个项目课的每个功能块，全是函数；这一课把它练成肌肉记忆。",
+      "sections": [
+        {
+          "h": "把代码打包：函数是什么",
+          "p": [
+            "到目前为止你已经写了不少解决问题的代码，但它们还不够「有用」——想再次使用就得重写或复制。",
+            "想象把你的一段脚本捆成一个小包裹，之后可以一遍又一遍地使用而不用重写——这就是函数的力量，而且 JavaScript 里函数无处不在。"
+          ]
+        },
+        {
+          "h": "定义与调用",
+          "p": [
+            "函数声明长这样：function favoriteAnimal(animal) { return animal + \" is my favorite animal!\" }。第一行声明函数（起名、写参数），花括号里是函数体。",
+            "const message = favoriteAnimal('Goat') 是调用：函数名加括号加实参。调用时执行函数体、拿到返回值，这里存进了 message 再打印。不调用，函数体一行都不会跑——声明只是「定义了这个零件」。"
+          ]
+        },
+        {
+          "h": "参数与实参",
+          "p": [
+            "参数是声明括号里的名字（animal），实参是调用时传入的值（'Goat'）。参数只是占位符——告诉 JavaScript「调用时会送一个值进来，函数体里用这个名字指代它」。",
+            "参数名叫什么都行（pet、x、blah），但取 animal 这样的名字能给读代码的人上下文，不用猜它会装什么。改实参就能换输出：'Goat' 换成任何动物都成立——这就是参数带来的灵活性。",
+            "官方原文配了一张示意图：参数怎么传进函数、返回值怎么传出来——正好对应本节的文字描述。"
+          ]
+        },
+        {
+          "h": "返回值去哪了",
+          "p": [
+            "favoriteAnimal('Goat') 的返回值可以存进变量再用，也可以直接当另一个函数的实参：console.log(favoriteAnimal('Goat'))——函数先执行，返回值原地成为 console.log 的实参。",
+            "注意反面：如果只是单独写一行 favoriteAnimal('Goat') 而不接任何接收者，它照样执行、照样返回字符串——但返回到「虚无」：控制台什么都不显示，字符串也没存进任何变量。这种「返回值没人接」的写法之后你会经常有意无意遇到，先记住这个画面。"
+          ]
+        },
+        {
+          "h": "默认参数",
+          "p": [
+            "JavaScript 这些年给函数加了不少新能力，官方阅读清单第一篇（JavaScript.info 函数基础）重点讲其中一个实用的：默认参数——声明时给参数写默认值，调用时不传就用默认值兜底。",
+            "比如 function greet(name = '朋友') { return '你好，' + name }，greet() 得到「你好，朋友」，greet('Odin') 得到「你好，Odin」。小巧但常用。"
+          ]
+        },
+        {
+          "h": "作用域：变量在哪里可见",
+          "p": [
+            "函数体内声明的变量只在函数内可见，外面拿不到——这就是函数作用域（scope）。",
+            "官方特意叮嘱：MDN 函数一文里可能有超出本课的内容，不用慌，但 Function Scope 小节要重点读——作用域是新手和中级开发者共同的绊脚石，值得提前花时间。具体规则（局部变量、嵌套函数怎么取外层变量）留给阅读材料展开。"
+          ]
+        },
+        {
+          "h": "函数表达式与箭头函数：认识即可",
+          "p": [
+            "除了 function 声明，函数还能写成表达式（const f = function() {}），以及更新的箭头函数（const f = () => {}）——官方阅读清单的第四篇介绍它们。",
+            "官方口径很宽松：箭头函数有用但不是必需，现在不用太纠结，之所以安排在这里是因为后面读代码时一定会遇到——先有个「看到认得」的印象就够。"
+          ]
+        },
+        {
+          "h": "调用栈：return 的接力",
+          "p": [
+            "阅读清单最后一篇讲调用栈（call stack）：函数 A 调用函数 B 时，引擎把「谁在等谁」一层层记在栈上，return 后逐层弹出——上一课报错信息里的「栈回溯」读的正是这个结构。",
+            "官方预告：链式调用里 return 的值怎么接力可能暂时看不全懂，没关系——关键是心里有数「返回的值要去哪」。这也算一点提前的计算机科学。"
+          ]
+        },
+        {
+          "h": "动手写四个函数",
+          "p": [
+            "官方 Assignment 的练习：在骨架 HTML 的 script 标签里写四个函数，用 console.log 验证——add7（一个数加 7）、multiply（两数相乘）、capitalize（字符串只有首字母大写，小写/全大写/混写三种输入都要对）、lastLetter（返回字符串最后一个字母）。",
+            "capitalize 是四题里最需要动脑的：它要处理任意大小写混合的输入。写不动的时候想想上一课的方法论——先理解问题（三种输入各该出什么），再伪代码，再拆小步。忘了骨架 HTML 怎么搭，回官方原课的「How to run JavaScript code」小节复习。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "javascript",
+          "code": "/* 声明、调用、参数与实参 */\nfunction favoriteAnimal(animal) {      // animal 是参数（占位符）\n  return animal + \" is my favorite animal!\";\n}\n\nconst message = favoriteAnimal('Goat'); // 'Goat' 是实参\nconsole.log(message);   // Goat is my favorite animal!\n\nconsole.log(favoriteAnimal('Cat')); // 函数调用直接当实参，返回值原地顶上",
+          "note": "参数在声明括号里，实参在调用括号里；好参数名（animal 而不是 x）给读者上下文。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 返回值没人接 = 返回到虚无 */\nfunction greet(name) {\n  return 'Hello ' + name;\n}\n\ngreet('Odin');   // 执行了、也返回了——但没人接收，控制台无输出\n\nconst m = greet('Odin');   // 接住它\nconsole.log(m);            // Hello Odin\nconsole.log(greet('Odin')); // 或直接当实参打印",
+          "note": "单独一行 greet('Odin') 不会显示任何东西——返回值需要接收者（变量或另一个函数调用）。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 默认参数：缺省时兜底 */\nfunction greet(name = '朋友') {\n  return '你好，' + name;\n}\n\nconsole.log(greet());    // 你好，朋友（用了默认值）\nconsole.log(greet('Odin')); // 你好，Odin（实参顶替默认值）",
+          "note": "JavaScript 较新的实用能力：声明时写「参数 = 默认值」。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 官方四道练习的目标行为 */\nfunction add7(n) { return n + 7; }\nconsole.log(add7(10));   // 17\n\nfunction multiply(a, b) { return a * b; }\nconsole.log(multiply(3, 2)); // 6\n\nfunction lastLetter(str) { return str[str.length - 1]; }\nconsole.log(lastLetter(\"abcd\")); // d\n\n// capitalize 留给你写：三种输入都要得到只有首字母大写\nconsole.log(capitalize(\"abcd\")); // Abcd\nconsole.log(capitalize(\"ABCD\")); // Abcd\nconsole.log(capitalize(\"aBcD\")); // Abcd",
+          "note": "前三个是热身；capitalize 要处理任意大小写——先想清楚三种输入各该出什么再动手。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "调用函数忘了写括号",
+          "text": "console.log(greet) 打印的是函数本身（ƒ greet(name){…}），greet() 才是调用、拿到返回值。括号就是「执行」的意思——少打两个括号是新手最高频的「怎么打印出个函数」来源。"
+        },
+        {
+          "title": "在函数里打印了就以为它有返回值",
+          "text": "函数体里 console.log(x) 只是把 x 显示出来，函数的返回值仍是没有（undefined）。想用这个值必须写 return——「打印给人看」和「返回给程序用」是两件事。"
+        },
+        {
+          "title": "在函数外访问函数内的变量",
+          "text": "函数体内声明的变量是局部的，函数外访问会报 not defined。想在两个函数之间传值，靠参数传进去、靠返回值传出来——而不是指望「里面声明的外面还能用」。作用域详见 MDN 阅读材料的 Function Scope 小节。"
+        },
+        {
+          "title": "在箭头函数上过早较劲",
+          "text": "官方明说箭头函数有用但不是必需，现阶段目标只是「读到认得」。把主要精力放在声明、参数、返回值、作用域这四件事上；箭头函数等后面反复遇到时自然会熟。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "提示：指定 MDN 文章自带练习题，不要做——它们用到还没学的知识。① 读 JavaScript.info 的「函数基础」——覆盖函数近年新增的实用能力之一「默认参数」（其中 Functions == Comments 小节与最后一个练习用到下一课才学的循环，跳过不用管）；② 读 MDN 的函数文章——部分内容可能超出本课范围，但 Function Scope 小节要特别注意，作用域是新手与中级开发者共同的坑，值得提前花时间；③ 读 MDN 的「返回值」文章；④ 读 JavaScript.info 的「函数表达式」补充上下文，再读「箭头函数基础」——箭头函数有用但不是必需，现在知道在看什么即可；⑤ 最后学 JavaScript Tutorial 的「JavaScript 调用栈」——深入讲调用栈与 return 在链式调用里的工作方式，暂时看不全懂没关系，记住「返回的值要去哪」这回事就好，顺便算一点提前的计算机科学。",
+          "写几个函数！在骨架 HTML 文件的 script 标签里完成（忘了怎么搭环境，回看官方「How to run JavaScript code」的说明），暂时每个函数都用 console.log 测试输出：① 写函数 add7：接收一个数字，返回它 +7（add7(10) 应返回 17）；② 写函数 multiply：接收两个数字，返回乘积（multiply(3, 2) 应返回 6）；③ 写函数 capitalize：接收一个字符串，返回只有首字母大写的版本，小写、全大写、混写输入都要正确（capitalize(\"abcd\") / capitalize(\"ABCD\") / capitalize(\"aBcD\") 都应得到 \"Abcd\"）；④ 写函数 lastLetter：接收一个字符串，返回最后一个字母（lastLetter(\"abcd\") 应返回 \"d\"）。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 function_basics.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "ad3e083dc03b5b917bf9face48b38ad3913d2b46814e5ffac452eba80c0fab09",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "problem-solving",
+      "title": "Problem Solving",
+      "zh": "解决问题的思路",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-problem-solving",
+      "summary": "解决问题的思路：理解问题、计划（伪代码）、分而治之三步法，并用它从头到尾实战解决 Fizz Buzz。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "问题解决是开发者最核心的技能——语言与工具都是次要的；它定义为「写出执行特定任务并满足全部约束的原创程序」。",
+        "三步流程：理解问题 → 计划 → 分而治之；跳过前两步直接写代码是新手最常见的困境来源。",
+        "理解问题的标准：能用大白话向别人解释清楚这个问题——写下来、换词复述、画图都有帮助。",
+        "计划阶段回答四个问题：有界面吗长什么样、输入是什么、期望输出是什么、从输入到输出的步骤（算法）是什么。",
+        "伪代码用自然语言写程序逻辑，逼你慢下来想清每一步。",
+        "分而治之：把大问题拆成子问题，从最小最简单的做起——解出一个常会照亮下一个；别试图一口气解决整个大问题。"
+      ],
+      "terms": [
+        {
+          "en": "problem solving",
+          "zh": "问题解决：写出执行特定任务并满足全部约束的原创程序的能力，开发者最核心的技能"
+        },
+        {
+          "en": "algorithm",
+          "zh": "算法：解决某个问题的步骤配方——定义计算机要依次执行的每一步，常用伪代码描述"
+        },
+        {
+          "en": "pseudocode",
+          "zh": "伪代码：用自然语言而不是程序设计语言写出的程序逻辑，帮你在写代码前想清楚步骤"
+        },
+        {
+          "en": "divide and conquer",
+          "zh": "分而治之：把大问题分解成更小更易解的子问题逐个击破——应对复杂性的主要手段（decomposition，分解）"
+        },
+        {
+          "en": "subproblem",
+          "zh": "子问题：大问题分解出的更小问题，算法里的每一步通常就是一个子问题"
+        },
+        {
+          "en": "modulus operator (%)",
+          "zh": "取余运算符：返回除法的余数；i % 3 === 0 即「i 能被 3 整除」，是 Fizz Buzz 判断的核心"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把三步流程（理解 → 计划 → 分治）背下来——这是本课唯一需要记住的东西。",
+        "跟着中文讲解把 Fizz Buzz 的完整推导重走一遍：每一步先遮住代码自己想，再对照。",
+        "按官方要求读三篇材料：freeCodeCamp 的「像程序员一样思考」文章、一小时的 Coding Tech 演讲视频、Built In 的伪代码教程。",
+        "亲手把 Fizz Buzz 完整跑一遍（骨架 HTML + script 标签），输入 20 验证输出与官方示例逐行一致。",
+        "用下面的「简单自测」检查你对三步法与 Fizz Buzz 关键细节的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "问题解决三步流程是什么？为什么不能跳过前两步？",
+          "answer": "① 理解问题——弄清它到底在问什么，标准是能用大白话解释给别人听；② 计划——想清楚有没有界面、输入是什么、期望输出是什么、从输入到输出的步骤（算法）；③ 分而治之——把问题拆成子问题逐个解决。跳过前两步直接写代码，你可能解错问题（不知道「解出来了」长什么样）或原地打转（不知道从哪下手）——这正是新手盯着编辑器发呆的典型成因。"
+        },
+        {
+          "question": "伪代码是什么？它解决什么问题？",
+          "answer": "伪代码是用自然语言（而不是程序设计语言）写出的程序逻辑，比如「当用户输入一个数字 / 从 1 循环到该数字 / 若能被 3 整除则打印 Fizz」。它逼你慢下来、想清楚程序要经过的每一步，而不用同时操心语法——写伪代码时发现逻辑漏洞，比写完代码再发现便宜得多。"
+        },
+        {
+          "question": "为什么 Fizz Buzz 的最终版要把「同时被 3 和 5 整除」的判断放在最前面？",
+          "answer": "if / else if 是从上往下、命中即止的：如果「被 3 整除打印 Fizz」在最前面，15 会先命中它、打印 Fizz 就跳去下一个数——永远轮不到 FizzBuzz 的判断。把 i % 3 === 0 && i % 5 === 0 放最前面，先排除「两整除」的情况，再分别判断单整除——条件顺序本身就是逻辑的一部分。"
+        },
+        {
+          "question": "prompt 的外面包一层 parseInt 是为什么？",
+          "answer": "prompt 返回的是字符串（用户输入 10 得到 \"10\"）。parseInt 把它转成数字 10，之后的 i <= answer 比较与循环才有意义。这是「输入处理」这个子问题的一部分——官方教程里用提示框专门讲了这个细节。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "语法你都学得会，真正的分水岭在「拿到一个没见过的问题时知道从哪下手」。无数新手能顺利读完语法课，一自己动手就盯着空白编辑器发呆——差的不是语法，是流程。这一课给的就是那个流程：理解、计划、分治，然后用 Fizz Buzz 从头到尾走一遍。之后每个项目课，先回这里。",
+      "sections": [
+        {
+          "h": "开发者最核心的技能",
+          "p": [
+            "在进入更多 JavaScript 之前，得先谈谈问题解决——开发者需要的最重要的技能。它是软件开发者做的核心事情，用的语言和工具都排在这项基本功之后。",
+            "V. Anton Spraul 在《像程序员一样思考》里给出的定义：问题解决就是写出执行特定任务、并满足全部既定约束的原创程序。任务可小到一道编码练习，大到 Facebook 这样的社交网络或 Google 这样的搜索引擎——每个问题都有自己的约束（练习不在乎性能，Google 的每秒十亿次查询就必须在乎）。",
+            "新手普遍觉得问题解决最难练：语法和概念都能顺利学完，可一旦自己动手写点什么，就盯着编辑器发呆不知道从哪开始。这很正常——而这一课的流程正是为这个时刻准备的。提升的唯一路径是多写程序攒经验，先把方法带走。"
+          ]
+        },
+        {
+          "h": "第一步：理解问题",
+          "p": [
+            "解决问题的第一步是确切理解问题是什么。不理解问题，你就不知道「成功解出」长什么样，还可能在一个错误的解法上浪费大量时间。",
+            "怎么获得清晰理解？把问题写在纸上、用大白话换着词复述直到它对你说得通、有必要就画图。**当你能用大白话把问题解释给别人听时，你就是理解了它**——这句话值得当尺子用。"
+          ]
+        },
+        {
+          "h": "第二步：计划",
+          "p": [
+            "知道要解什么之后，先别跳进代码——先把「怎么解」计划出来。这个阶段该回答的问题：",
+            "程序有用户界面吗？长什么样？有什么功能？（画在纸上）输入是什么？用户输入数据还是别处来？期望的输出是什么？以及最关键的：给定输入，产出期望输出的步骤是什么？",
+            "最后一问就是在写算法——你可以把算法想成解决某个问题的菜谱，用伪代码定义计算机要走的每一步。"
+          ]
+        },
+        {
+          "h": "伪代码",
+          "p": [
+            "伪代码就是用自然语言写程序逻辑，不用程序设计语法。它帮你慢下来、想清楚程序要经过的每一步。",
+            "一个「打印从 1 到用户输入数字」的程序的伪代码可能是：当用户输入一个数字 / 初始化计数器并置零 / 当计数器小于输入数字时把计数器加一 / 打印计数器的值。先有这么一张步骤单，写代码就只是「翻译」。"
+          ]
+        },
+        {
+          "h": "第三步：分而治之",
+          "p": [
+            "计划阶段你已经能看出大问题的一些子问题——算法里的每一步就是子问题。挑最小或最简单的那个开始写代码。",
+            "重要心态：你不可能一开始就知道全部步骤，算法可能不完整——没关系。动手解掉一个子问题，常常会照亮下一个该解什么；就算早知道下一个，第一个解掉之后再做它也往往更简单。",
+            "很多新手试图一口气把大问题整个解决。**别这样**——问题够复杂时你只会把自己缠成死结。把问题分解成更小更易解的子问题是应对复杂性的主要手段，它让问题更容易解、也更容易懂。一句话：把大的拆小，逐个解决，直到大问题被解决完。"
+          ]
+        },
+        {
+          "h": "实战：理解 Fizz Buzz",
+          "p": [
+            "来看流程怎么落地。Fizz Buzz（Wikipedia 有条目，见本课外部资料）的题目：写一个程序，接收用户输入的数字，打印从 1 到该数的所有数字；其中能被 3 整除的打印 Fizz，能被 5 整除的打印 Buzz，同时被 3 和 5 整除的打印 FizzBuzz。",
+            "按第一步先复述：允许用户输入一个数；逐个打印 1 到这个数；「除以 3 余 0」的打印 Fizz，「除以 5 余 0」的打印 Buzz，「除以 3 和 5 都余 0」的打印 FizzBuzz。复述完，问题已经清晰了。"
+          ]
+        },
+        {
+          "h": "实战：计划",
+          "p": [
+            "四个计划问题逐一回答：界面？——控制台程序，不需要界面，唯一的交互是让用户输入数字。输入？——用户从弹窗（prompt）输入一个数字。输出？——1 到输入数的数字列表，其中被 3 整除处显示 Fizz、被 5 整除处显示 Buzz、双整除处显示 FizzBuzz。",
+            "第四问「从输入到输出的步骤」就是下一节的伪代码。"
+          ]
+        },
+        {
+          "h": "实战：写伪代码",
+          "p": [
+            "当用户输入一个数字 / 从 1 循环到输入的数字 / 若当前数能被 3 整除则打印 \"Fizz\" / 若当前数能被 5 整除则打印 \"Buzz\" / 若当前数能被 3 和 5 同时整除则打印 \"FizzBuzz\" / 否则打印当前数。",
+            "六行伪代码就是完整的算法骨架——接下来的事只是把它逐行翻译成 JavaScript，一次翻一行。"
+          ]
+        },
+        {
+          "h": "实战：逐个子问题落地",
+          "p": [
+            "子问题一：拿到用户输入。let answer = parseInt(prompt(\"请输入要 FizzBuzz 到几：\"))——prompt 弹窗取输入，parseInt 把字符串转成数字（官方教程里专门用提示框讲了这层包装的原因）。",
+            "子问题二：从 1 循环到 answer。用 for 循环：for (let i = 1; i <= answer; i++) { console.log(i); }——三段分别是初始值（程序员多数时候从 0 循环，这里按题目需要从 1）、条件、每轮加一。输入 10 就打印 1 到 10。MDN 的 for 文档见本课资料。",
+            "子问题三：被 3 整除打印 Fizz。用取余运算符 %——上一课讲过它返回除法余数，i % 3 === 0 就是「除 3 余 0」。加上 if/else：命中打 Fizz，否则打数字。跑一遍：输入 10，3、6、9 的位置变成 Fizz。",
+            "子问题四：被 5 整除打印 Buzz——在后面接 else if (i % 5 === 0)。跑一遍：5、10 变成 Buzz。结构已经立住，剩下的只是同一类条件的变体。"
+          ]
+        },
+        {
+          "h": "实战：最后一个子问题与条件顺序",
+          "p": [
+            "最后一个子问题：同时被 3 和 5 整除打印 FizzBuzz。直接在前面加 if (i % 3 === 0 && i % 5 === 0) 打印 FizzBuzz——但注意条件的顺序必须调整：这个判断必须放在最前。",
+            "原因：if/else if 从上往下命中即止。若「被 3 整除」仍在最前，15 会先命中它打印 Fizz 然后跳走，永远轮不到 FizzBuzz。把双整除判断提到第一，先排除它，再判断单整除——程序完成。输入 20：15 的位置打印 FizzBuzz，其余按规则。",
+            "到这里 Fizz Buzz 从「一道面试名题」变成「一次流程演示」：理解 → 计划 → 分治，每一步都有名字、有产物、有验证。官方 Assignment 的三篇阅读把这套流程再展开一层（含一小时的完整演讲），值得投入。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "text",
+          "code": "# Fizz Buzz 的伪代码（计划阶段的产物）\n当用户输入一个数字\n从 1 循环到输入的数字\n若当前数能被 3 整除则打印 \"Fizz\"\n若当前数能被 5 整除则打印 \"Buzz\"\n若当前数能被 3 和 5 同时整除则打印 \"FizzBuzz\"\n否则打印当前数",
+          "note": "伪代码用自然语言写逻辑，逼你先想清每一步再操心语法。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 子问题一：拿到用户输入（prompt 返回字符串，parseInt 转数字）*/\nlet answer = parseInt(prompt(\"请输入要 FizzBuzz 到几：\"));",
+          "note": "不包 parseInt 的话 answer 是字符串，后面的 i <= answer 比较会出问题。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 子问题二：for 循环——初始值、条件、每轮增量 */\nlet answer = parseInt(prompt(\"请输入要 FizzBuzz 到几：\"));\n\nfor (let i = 1; i <= answer; i++) {\n  console.log(i);   // 输入 10 → 打印 1 到 10\n}",
+          "note": "多数循环从 0 开始，这里按题目需要从 1——官方教程专门用提示框讲了这一点。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 子问题三：取余判断「整除」 */\nfor (let i = 1; i <= answer; i++) {\n  if (i % 3 === 0) {\n    console.log(\"Fizz\");  // 除 3 余 0 → 被 3 整除\n  } else {\n    console.log(i);\n  }\n}",
+          "note": "% 返回除法余数；余 0 即整除——上一课运算符知识的第一次实战。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 完整版：双整除判断必须在最前，否则 15 永远轮不到 FizzBuzz */\nlet answer = parseInt(prompt(\"请输入要 FizzBuzz 到几：\"));\n\nfor (let i = 1; i <= answer; i++) {\n  if (i % 3 === 0 && i % 5 === 0) {\n    console.log(\"FizzBuzz\");   // 15、30…先排除双整除\n  } else if (i % 3 === 0) {\n    console.log(\"Fizz\");\n  } else if (i % 5 === 0) {\n    console.log(\"Buzz\");\n  } else {\n    console.log(i);\n  }\n}",
+          "note": "if/else if 从上往下命中即止——条件顺序本身就是逻辑，不是排版偏好。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "读完题就直接开写",
+          "text": "跳过理解与计划是「盯着编辑器发呆」的头号成因：不知道「解出来」长什么样、不知道从哪一步下手。先写下来、复述清楚，再回答计划四问——纸上的十分钟省代码端的一小时。"
+        },
+        {
+          "title": "试图一口气解决整个大问题",
+          "text": "官方原话加粗的 Don't do this：问题够复杂时你会把自己缠成死结。算法里的每一步就是子问题，挑最小最简单的先解——解出一个，下一个常常自己亮起来。分解（decomposition）是应对复杂性的主要手段。"
+        },
+        {
+          "title": "以为算法必须一步想到位",
+          "text": "你不可能一开始就知道全部步骤，算法不完整很正常——官方明说 this is fine。先解掉已识别的子问题，未知的下一步往往在动手后才显形。计划是活文档，不是施工图。"
+        },
+        {
+          "title": "Fizz Buzz 条件顺序随手排",
+          "text": "把「被 3 整除」放最前，15 会先命中它打印 Fizz 就跳走——双整除的 FizzBuzz 永远不出现。if/else if 命中即止：越「特殊」的条件越要往前放。这个坑是「条件顺序即逻辑」的最小案例。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 读 Richard Reis 的《如何像程序员一样思考——问题解决课》（freeCodeCamp）；② 看 Coding Tech 的演讲《How to Begin Thinking Like a Programmer》——一小时长但信息量大，值得投入；③ 读 Built In 的《伪代码：它是什么、怎么写》。",
+          "另：正文实战用到的 Fizz Buzz 维基条目与 MDN 的 for 循环文档也在本课外部资料里，需要查语法细节时直达。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 problem_solving.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "636835f4a6661a0367721020052a8c78c2a38409c03d23cda571607dba7eb991",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "understanding-errors",
+      "title": "Understanding Errors",
+      "zh": "读懂报错信息",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-understanding-errors",
+      "summary": "读懂报错信息：错误对象的结构（类型 + 消息 + 文件行号 + 栈回溯）、三种常见错误（SyntaxError / ReferenceError / TypeError）与解决报错的四条建议。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "错误（Error）是 JavaScript 内置的对象类型，由类型/名字 + 消息构成，是定位与修复问题的关键信息源。",
+        "错误信息的两个定位部件：出错文件名与行号（script.js:4，可点击跳转 Sources 面板），有时还有列号（script.js:4:13）。",
+        "栈回溯（stack trace）按「谁调用了谁」层层上溯，告诉你错误是在哪个函数的哪条调用链里抛出的。",
+        "三种常见错误：SyntaxError（代码不符合语法规则，如漏括号）、ReferenceError（引用了不存在或拼错的变量）、TypeError（对不兼容的类型做操作，如对字符串用数组的 .push()）。",
+        "解决报错四建议：把报错当朋友（它精确指出哪里错了）→ 搜错误信息（StackOverflow / 文档）→ 用调试器（断点逐行）→ 善用 console（log / table / trace）。",
+        "错误（error，红色，中断执行）与警告（warning，黄色，不中断）是两回事——警告尽量修，但它不会让程序停摆。"
+      ],
+      "terms": [
+        {
+          "en": "Error object",
+          "zh": "错误对象：JavaScript 内置的对象类型，由类型/名字与消息构成，携带定位与修复错误的关键信息"
+        },
+        {
+          "en": "stack trace",
+          "zh": "栈回溯：错误信息里「谁调用了谁」的上溯记录，从出错点一路列到最初的调用处，帮你找到错误的真正源头"
+        },
+        {
+          "en": "SyntaxError",
+          "zh": "语法错误：代码不符合 JavaScript 语法规则（如 console.log 漏了括号），代码根本跑不起来"
+        },
+        {
+          "en": "ReferenceError",
+          "zh": "引用错误：引用了当前作用域里不存在（或拼错）的变量——c is not defined 是最经典的形态"
+        },
+        {
+          "en": "TypeError",
+          "zh": "类型错误：对不兼容的类型执行操作——对字符串用数组的 .push() 会得到 str.push is not a function"
+        },
+        {
+          "en": "warning",
+          "zh": "警告：提示潜在问题但不中断程序执行的消息，通常黄色显示；与红色、会中断执行的错误相对"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，数得出三种常见错误各自的触发方式与典型消息。",
+        "亲手制造错误：在骨架 HTML 的 script 里分别写出三种错误各一次，读控制台的错误信息，找到类型、消息、文件行号三要素。",
+        "按官方 Assignment：读 MDN 的 ReferenceError / SyntaxError / TypeError 三篇文档（示例里的 try...catch 现在知道存在即可），再做「哪里出错了？」排错教程（下载带故意错误的起始代码）。",
+        "把本页「解决报错四建议」用在下一道卡住的练习上：先读信息、再搜索、再断点、再 console。",
+        "用下面的「简单自测」检查你对错误结构与三类错误的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "一条错误信息里有哪些部件帮你定位问题？",
+          "answer": "① 错误类型（如 ReferenceError）——第一手线索，告诉你面对的是哪一类问题；② 错误消息（如 c is not defined）——说明具体原因；③ 文件名与行号（script.js:4，有时还有列号 script.js:4:13）——点击可直接跳到 Sources 面板的出错行；④ 栈回溯——「谁调用了谁」的完整链路，把错误追到真正的源头。"
+        },
+        {
+          "question": "ReferenceError 和 TypeError 的区别是什么？各举一例。",
+          "answer": "ReferenceError 是「引用的变量不存在」——console.log(c) 而 c 从未声明，得到 c is not defined；变量拼错也归这类。TypeError 是「值存在但类型跟操作不匹配」——\"hello\".push(\"!\") 里字符串存在，但 .push 是数组方法不是字符串方法，得到 str1.push is not a function。一句话：找不到 vs 用错了。"
+        },
+        {
+          "question": "为什么 \"str1.push is not a function\" 特别容易迷惑新手？",
+          "answer": "因为新手明明知道 .push 是个函数（给数组加元素用过）——但它是数组的方法，不是字符串的。错误消息说的不是「push 不存在」，而是「在字符串身上找不到这个函数」。遇到 TypeError 的通用思路：先想清楚你正在对什么数据类型用什么方法，多半类型跟你以为的不一样（把 .push 换成字符串自己的 .concat 就能跑）。"
+        },
+        {
+          "question": "错误和警告有什么区别？",
+          "answer": "错误（通常红色）会中断程序或当前流程的执行；警告（通常黄色）提示潜在问题但不中断，程序照常跑。警告应尽快处理，但它性质上更偏「提示信息」。颜色区分不是铁律，但多数平台会用视觉差异区分两者——见到红色要立即处理，黄色可以计划着修。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "新手见到满屏红色下意识想逃，但错误信息其实是开发者能拿到的最慷慨的礼物：它精确告诉你哪里错了、为什么错、该去哪看。学会拆解一条错误（类型、消息、行号、栈回溯），调试就从「玄学」变成「按图索骥」——这一课的每一分钟，都会在后面每个项目课里复利。",
+      "sections": [
+        {
+          "h": "报错是宝藏",
+          "p": [
+            "读懂数学与……不，读懂错误信息是开发者的必备能力。初见时很多人被吓退：满屏术语、又红又长。但错误信息其实提供了一整箱知识——解决错误所需的一切几乎都在里面。",
+            "能不慌不忙地拆解错误与警告，你就能高效调试、从别人那里获得有意义的帮助、在错误面前继续推进而不是卡死。这一课教你拆解它。"
+          ]
+        },
+        {
+          "h": "错误对象的结构",
+          "p": [
+            "错误（Error）是 JavaScript 内置的一种对象，由类型/名字和消息构成。写下 const a = \"Hello\"; const b = \"World\"; console.log(c)——代码会运行但抛出（throw）错误。",
+            "第一部分是错误类型：这里 是 ReferenceError——它给了你判断「面对的是什么问题」的第一条线索。第二部分是消息：c is not defined，说明了具体原因。同一个类型可以有不同消息（如 can't access lexical declaration 'X' before initialization 就指向完全不同的原因）——类型与消息要合起来读。",
+            "官方原文在这里配了控制台截图，直观展示了这两部分的形态。"
+          ]
+        },
+        {
+          "h": "文件名、行号与列号",
+          "p": [
+            "错误信息接下来给出出错文件（script.js）与行号——示例里错误源自第 4 行，显示为 at script.js:4 的可点击链接。点击它，多数浏览器会直接跳到 DevTools 的 Sources 面板、停在那行代码上。",
+            "有时还会显示列号（script.js:4:13）——第 4 行第 13 个字符处。行号帮你一步直达出事现场，这一课与 DevTools 课正好接上。"
+          ]
+        },
+        {
+          "h": "栈回溯",
+          "p": [
+            "错误的另一重要部分是栈回溯（stack trace）：它告诉你错误抛出时「发生了什么、哪些函数被依次调用」。示例：print() 调用了 add()，add() 里引用了未声明的 c——栈回溯从上往下列出这条链：c is not defined（在 add() 里，第 5 行声明）← add() 被 print() 调用（第 9 行声明）← print() 在第 12 行被调用。",
+            "顺着栈回溯，你能把错误一路追到它的源头（这里是 add() 的声明处）。函数基础课学的调用栈，在这里变成了排错的地图。"
+          ]
+        },
+        {
+          "h": "三种常见错误：SyntaxError",
+          "p": [
+            "语法错误：代码写得不符合 JavaScript 的语法规则。比如 console.log \"Hello World!\" 漏了括号——直接抛 SyntaxError。",
+            "语法错误的特征是「根本跑不起来」：引擎在执行前解析整段代码，语法不过关就一步都不走。好消息是它最容易修——错误信息几乎总是指向那一行。"
+          ]
+        },
+        {
+          "h": "ReferenceError",
+          "p": [
+            "引用错误：你要引用的变量在当前作用域里不存在——或者拼错了。第一个例子里的 c is not defined 就是它。",
+            "遇到它先检查三件事：变量声明了吗、名字拼对了吗、它在当前作用域里可见吗（函数作用域的概念见函数基础课）。"
+          ]
+        },
+        {
+          "h": "TypeError 与 push 之谜",
+          "p": [
+            "类型错误的官方定义（MDN）：传给函数的实参与期望类型不兼容；或试图修改不能改的值；或以不合适的方式使用值。",
+            "经典案例：想拼接两个字符串，写了 str1.push(str2)——得到 TypeError: str1.push is not a function。这句话特别迷惑，因为你明明知道 .push 是函数（给数组用过）——但它是数组的方法，不是字符串的。把它换成字符串自己的 .concat()，代码立刻正常。",
+            "面对 TypeError 的通用心法：想想你正在对什么数据类型用什么方法——十有八九类型跟你以为的不一样。"
+          ]
+        },
+        {
+          "h": "解决报错的四条建议",
+          "p": [
+            "① 错误信息是朋友不是敌人——它精确告诉你什么错了、该检查哪几行；没有它，代码照样不工作，而你连为什么都不知道。② 去搜索错误信息——StackOverflow 或文档里大概率有现成的解释与修法。③ 用调试器——上一课学的断点：暂停、逐行、看变量，适合更深的排查。④ 用好 console——console.log 快速反馈，还有 console.table()、console.trace() 等实用方法。",
+            "四条按成本从低到高排：先读信息（免费），再搜索（一分钟），再 console（几分），最后断点（系统性）。大多数错误死在前两步。"
+          ]
+        },
+        {
+          "h": "错误与警告",
+          "p": [
+            "最后区分两个概念：错误会中断程序执行；警告只是提示潜在问题，不会让程序崩。警告应尽快处理，但它通常更像「告知」——多数平台警告显示为黄色、错误为红色，颜色不是铁律但视觉差异几乎总有。",
+            "看到红色立刻处理，看到黄色记下来尽快修——这个优先级本身就是调试工作流的一部分。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "javascript",
+          "code": "/* ReferenceError：引用不存在的变量 */\nconst a = \"Hello\";\nconst b = \"World\";\n\nconsole.log(c);\n// → ReferenceError: c is not defined (at script.js:4)\n// 点击行号链接直达 Sources 面板的出错行",
+          "note": "类型（ReferenceError）给线索，消息（c is not defined）给原因，行号给位置——三件套齐读。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 栈回溯：把错误追到源头 */\nconst a = 5;\nconst b = 10;\n\nfunction add() {\n  return c;        // ← 错误在这里抛出（c 未声明）\n}\n\nfunction print() {\n  add();           // ← 是它调用的 add\n}\n\nprint();           // ← 一切的起点\n// 栈回溯自上而下：add() ← print() ← 顶层调用",
+          "note": "栈回溯 = 「谁调用了谁」的上溯清单；读它，从报错行一路追到源头。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* SyntaxError：语法不过关，一步都不跑 */\nfunction helloWorld() {\n  console.log \"Hello World!\"   // ← 漏了括号\n}\n// → SyntaxError: Unexpected string\n\n/* TypeError：类型不匹配 */\nconst str1 = \"Hello\";\nconst str2 = \"World!\";\nconst message = str1.push(str2);\n// → TypeError: str1.push is not a function\n// .push 是数组方法；字符串拼接用 .concat：\nconst ok = str1.concat(str2);   // \"HelloWorld!\"",
+          "note": "SyntaxError 跑不起来（解析期）；TypeError 跑到那行才炸（执行期）——对字符串用数组方法是经典陷阱。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "见到红色就清控制台",
+          "text": "错误信息是「哪里错了」的精确答案，清掉它等于把地图扔了再找路。正确动作：读类型、读消息、点行号——先把信息榨干再谈修。"
+        },
+        {
+          "title": "只看第一行就下结论",
+          "text": "同一种错误类型可以有完全不同的消息（not defined 与 can't access lexical declaration 是两回事）。类型定方向、消息定原因——合起来读，别只认 ReferenceError 五个字。"
+        },
+        {
+          "title": "把 \"x is not a function\" 理解成「这个函数不存在」",
+          "text": "str1.push is not a function 说的是「在字符串这个类型身上找不到 push」——push 本身存在，但它属于数组。遇到 TypeError 先自问：我正在对什么类型用什么方法？类型多半和你以为的不同。"
+        },
+        {
+          "title": "把警告当错误吓自己",
+          "text": "警告（黄色）不中断执行，程序还在正常跑；错误（红色）才停。警告要尽快修，但不必像看到红色那样立刻停下手头的一切。分清优先级，别被黄色拖住节奏。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 到文档里去：从 MDN 读 ReferenceError、SyntaxError 与 TypeError 三篇——不必现在就完全读懂全部文档，目标是熟悉概念。文档示例用了 try...catch 语句（执行 try 块里的代码、出错则被 catch 块接住，从而在脚本终止前处理错误）——现在只要记住 try...catch 存在、课程后面会用到即可。② 做完 MDN 的「哪里出错了？JavaScript 排错」教程——记得下载它提供的、带有故意错误的起始代码跟着练。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 understanding_errors.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "cac38c4a9944bec56f26bc42d06501fa8c5340d8af544080a8cd618fe82d6d96",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "rock-paper-scissors",
+      "title": "Project: Rock Paper Scissors",
+      "zh": "项目：石头剪刀布",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-rock-paper-scissors",
+      "summary": "项目：石头剪刀布——你的第一个从零编写的 JavaScript 项目，完全在控制台里玩。本站提供要求中文版、六步拆解与验收清单，不提供成品代码。",
+      "guide": "以下是官方原课的中文化梳理，带拆解、验收清单与少量 Hint。这一课的成品代码必须由你自己写出来——本站不提供任何可直接复制的实现。",
+      "understand": [
+        "这是第一个从零编写的 JavaScript 项目：石头剪刀布，完全在浏览器控制台里进行（没有图形界面）。",
+        "官方明说：先不做按钮 / 界面 / 样式（GUI 后面的课才会学），现在只把逻辑做对，并尽早、勤快地 commit。",
+        "每一步都按问题解决课的三步走：先计划 / 伪代码 → 再写代码 → 再测试确认能用。",
+        "六个步骤：搭项目结构 → 电脑随机出拳 → 玩家输入出拳 → 计分变量 → 单轮逻辑 → 五轮全局。",
+        "官方两个关键 Hint：Math.random 返回 [0, 1) 的随机数，想想怎么用它条件性地返回三种选择之一；数组不是必需的（数组下一课才学，不知道数组完全不影响做这个项目）。",
+        "把函数调用的返回值存进变量后，再用那个变量不会重新调用函数——每一轮要重新调用出拳函数拿新选择。"
+      ],
+      "terms": [
+        {
+          "en": "GUI (graphical user interface)",
+          "zh": "图形用户界面：按钮、文本框等可见元素。本项目的游戏完全在控制台里玩，GUI 留给后面的课"
+        },
+        {
+          "en": "Math.random()",
+          "zh": "返回大于等于 0 且小于 1 的随机数——用它条件性地三选一是电脑出拳的核心思路"
+        },
+        {
+          "en": "prompt()",
+          "zh": "弹窗获取用户输入的方法，返回字符串——玩家出拳用它；暂时不用处理非法输入（官方明说）"
+        },
+        {
+          "en": "case-insensitive",
+          "zh": "大小写不敏感：让 humanChoice 参数无论 rock / ROCK / RocK 都能正确处理（想想字符串方法）"
+        },
+        {
+          "en": "helper function",
+          "zh": "辅助函数：为了整体结构更顺而拆出 / 改写的小函数；官方鼓励按需要重构"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把官方六步的顺序与每步的验收点记牢。",
+        "从 Step 1 开始逐步实施：建仓库 → 骨架 HTML + 外部 script → console.log(\"Hello World\") 确认链路。",
+        "按「计划 → 写 → 测」的节奏完成 Step 2–6：每步先用伪代码想清楚，写完用 console.log 验证再进下一步。",
+        "全程勤 commit：每完成一步就提交一次，commit 信息参考第 19 课的规范。",
+        "对照下方「验收清单」逐项自查；用「简单自测」检查对要求本身的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "为什么官方特别提醒「现在不要做 GUI」？",
+          "answer": "因为后面有的示例解决方案带按钮和文本，容易让人手痒提前做界面——但 GUI 是后面课程的内容，本项目完全在控制台里玩。提前做界面会分散注意力：逻辑写对才是这个项目的目的。官方建议把打磨交互与视觉的精力留给以后的作品集项目。"
+        },
+        {
+          "question": "getComputerChoice 怎么「随机三选一」？官方给了什么思路？",
+          "answer": "官方 Hint：Math.random() 返回 [0, 1) 的随机数——想想怎么用它条件性地返回 rock / paper / scissors 之一。常见的做法是把随机数切成三段区间、每段对应一种选择（具体实现由你写）。另一个官方提醒：这道题不需要数组——数组下一课才学，用条件分支就够了。"
+        },
+        {
+          "question": "官方对玩家非法输入（比如拼错单词）是什么口径？",
+          "answer": "不用处理重新询问：那需要后面才教的知识。现在直接假设用户永远输入合法的选择——把「正确处理合法输入」做扎实，非法输入的容错留给未来。"
+        },
+        {
+          "question": "Step 6 的 Hint 提醒了一个什么坑？",
+          "answer": "把函数调用的返回值赋给变量后，那个变量里存的是当时的值——之后访问变量不会重新调用函数。所以五轮游戏每一轮都要重新调用 getHumanChoice / getComputerChoice 拿新的选择，不能复用第一轮存下的旧值。官方还提示：可以改写既有函数或加辅助函数，让返回值更有用；会循环的可以用循环，不会也完全不影响。"
+        }
+      ],
+      "optional": [],
+      "note": "本站提供这个项目的要求中文版、六步拆解与验收清单，不提供成品代码。这一步必须由你自己写出来——这是官方课程的用意，也是本站的红线。",
+      "why": "学了变量、函数、报错、问题解决，该把它们拧成一个真东西了。石头剪刀布很小，但它是你**第一个从零编写的 JavaScript 项目**：自己建仓库、自己搭结构、自己把六个子问题逐个解掉。做项目时那种「不知道从哪下手」的感觉，正是上一课三步流程的用武之地——这个小项目就是流程的第一次完整实战。",
+      "sections": [
+        {
+          "h": "这一课在讲什么",
+          "p": [
+            "这个项目要求你做出石头剪刀布游戏（wikiHow 有玩法说明，见本课外部资料）——完全在控制台里玩，没有界面。",
+            "这是第一个从零编写的 JavaScript 项目。官方提醒两件事：一，先不做 GUI——有些示例解决方案带按钮和文本，那些是后面课程的内容，现在别做；二，记得把代码 commit 到 GitHub。"
+          ]
+        },
+        {
+          "h": "每一步都用问题解决的流程",
+          "p": [
+            "既然是从零写第一个项目，就要记住问题解决课（第 36 课）的忠告。这个项目的每一步都按三件事走：先计划或写伪代码；再写代码；再测试确认它能用。",
+            "六步拆解后面逐条给出。每一步都别跳过「测」——上一步没验证可用就进下一步，错了会连着错两层。"
+          ]
+        },
+        {
+          "h": "专注手头任务",
+          "p": [
+            "做交互项目时很容易手痒：加功能、改交互、磨体验、做设计……官方建议都先忍住——这些精力留给以后的作品集项目（官方配了一篇「策略性地打造作品集」的文章，见本课外部资料）。",
+            "这个项目的全部价值在逻辑本身：出拳、判胜负、计分、五轮收官。把每一步做对、每一步 commit，比做出花哨界面重要得多。"
+          ]
+        },
+        {
+          "h": "Step 1：搭项目结构",
+          "p": [
+            "三件事：为项目建一个新的 Git 仓库；建一个带 script 标签的空白 HTML 文档；验证 JavaScript 链接正确——在脚本里写 console.log(\"Hello World\")，打开网页后控制台应打印一次 Hello World。",
+            "官方建议：script 标签里链外部 .js 文件（保持 HTML 干净）。HTML 里不需要写别的代码——这个游戏完全在控制台里玩。忘了怎么搭，回第 31 课「How to run JavaScript code」复习。"
+          ]
+        },
+        {
+          "h": "Step 2：电脑出拳",
+          "p": [
+            "写一个函数 getComputerChoice，随机返回 \"rock\"、\"paper\" 或 \"scissors\" 三者之一。",
+            "官方 Hint：Math.random 返回 [0, 1) 的随机数（MDN 文档见本课外部资料）——想想怎么用它条件性地返回三种选择之一。另一个提醒：**数组不是必需的**——没学过数组完全不影响，条件分支就够。",
+            "写完先测：用 console.log（或第 34 课学的 DevTools）多跑几次，确认三种结果都会随机出现，再进下一步。"
+          ]
+        },
+        {
+          "h": "Step 3：玩家出拳 + Step 4：计分变量",
+          "p": [
+            "Step 3：写函数 getHumanChoice，接收用户输入并返回有效选择。Hint：用 prompt 拿输入（MDN 文档见本课外部资料）。不用处理非法输入的重新询问——那需要后面才教的知识，现在假设用户永远输入合法选择。写完用 console.log 测。",
+            "Step 4：在全局作用域建两个变量 humanScore 与 computerScore，初始值 0——比分牌就位。"
+          ]
+        },
+        {
+          "h": "Step 5：单轮逻辑",
+          "p": [
+            "写函数 playRound，接收 humanChoice 与 computerChoice 两个参数，打一轮：判定胜负、给赢方加分、用 console.log 宣布结果（形如 \"You lose! Paper beats Rock\"）。",
+            "两个要点：参数大小写不敏感——玩家输入 rock / ROCK / RocK 都要能正确处理（想想第 33 课的字符串方法）；根据本轮赢家给 humanScore 或 computerScore 加分。官方给了函数签名的示例骨架（参数名与调用方式），实现由你自己写。"
+          ]
+        },
+        {
+          "h": "Step 6：五轮全局",
+          "p": [
+            "写函数 playGame：调用 playRound 打满五轮、追踪比分、最后宣布最终赢家。两个结构调整：把 playRound 与计分变量**移进** playGame 函数内部声明。",
+            "官方 Hint（这是最容易踩的坑）：把函数调用的返回值赋给变量后，变量里存的是**当时那个值**——之后访问变量不会重新调用函数。所以每一轮都要重新调用出拳函数拿新选择。按需要改写既有函数或新增辅助函数；会循环可以用，不会也没关系（下一课才正式学）。"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "提前做界面",
+          "text": "官方明确：现在不做按钮、文本、样式——那是 GUI，后面的课才学。控制台就是本项目的全部「界面」。把做界面的冲动记下来，留给作品集项目。"
+        },
+        {
+          "title": "以为必须用数组才能随机三选一",
+          "text": "官方特意注明：数组不是必需的。没学过数组（下一课才学）完全不影响——用条件分支处理 Math.random 的区间就够。别为了这题提前去啃数组。"
+        },
+        {
+          "title": "五轮复用第一轮的出拳变量",
+          "text": "const choice = getComputerChoice() 之后，choice 就是那一次的值，不会自己刷新。五轮游戏每轮都要重新调用函数拿新选择——这正是 Step 6 官方 Hint 预告的坑。"
+        },
+        {
+          "title": "一口气写完六步再测试",
+          "text": "官方流程是「计划 → 写 → 测」逐步走，且叮嘱 commit early and often。每步验证通过再进下一步、每步提交一次——错了好定位，进度也随时有存档。全部写完再跑一次，报错时你面对的是六层叠加的嫌疑。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "提示框一（无 GUI）：下面有些学生解决方案带按钮、文本等元素——那些属于图形用户界面（GUI），后面的课才会做；现在只做逻辑，记得把代码 commit 到 GitHub。提示框二（专注手头任务）：做交互项目容易忍不住加功能、改交互、磨体验——建议忍住，把这份精力留给作品集项目（配套阅读「策略性地打造作品集」一文，见外部资料）。记得尽早、勤快地 commit（忘了规范回看 commit messages 那一课）。Step 1 搭项目结构：为项目新建 Git 仓库；建带 script 标签的空白 HTML 文档；写 console.log(\"Hello World\") 验证链接正确（打开网页后控制台打印一次即通过）。最佳实践是 script 标签链外部 JavaScript 文件，保持 HTML 干净；HTML 里不需要额外代码，游戏完全在控制台里玩。",
+          "Step 2 电脑出拳：新建函数 getComputerChoice，让它随机 return \"rock\"、\"paper\" 或 \"scissors\" 之一。Hint：Math.random 返回 [0, 1) 的随机数，想想怎么用它条件性地返回多种选择之一；数组不是必需的（没学过数组不用担心，后面课程会讲）。写完用 console.log 或浏览器开发者工具测试函数返回符合预期，再进下一步。Step 3 玩家出拳：新建函数 getHumanChoice，根据用户输入返回有效选择。Hint：用 prompt 获取输入；不需要处理非法输入的重新询问（那需要后面才教的知识），现在假设用户总是输入有效选择。用 console.log 测试。Step 4 计分变量：在全局作用域新建 humanScore 与 computerScore 两个变量并初始化为 0。",
+          "Step 5 单轮逻辑：新建函数 playRound，定义 humanChoice 与 computerChoice 两个参数接收双方选择；让 humanChoice 参数大小写不敏感（rock / ROCK / RocK 等变体都能正确处理）；函数用 console.log 输出表示本轮赢家的字符串（如 \"You lose! Paper beats Rock\"）；根据赢家给 humanScore 或 computerScore 加分。Step 6 五轮全局：新建函数 playGame，把 playRound 函数与计分变量移到 playGame 内部声明；调用 playRound 打满 5 轮、追踪比分、最后宣布赢家。Hint：把函数调用的返回值赋给变量后，再访问变量只会得到那个已存的值、不会重新调用函数——每轮都要重新调用出拳函数获取新选择；可按需要改写既有函数或新增辅助函数（比如让返回值更有用）；已经会循环的可以用循环，不会也没关系——下一课就学。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 project_rock_paper_scissors.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "687c127d90f2353ef0ee62773312437c023c9bd495ae23fce49cd54164da807b",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "clean-code",
+      "title": "Clean Code",
+      "zh": "整洁代码",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-clean-code",
+      "summary": "整洁代码：好命名（描述性、一致、可搜索）、缩进与行宽、分号，以及注释的纪律——讲为什么而不是怎么做。",
+      "guide": "以下是官方原课的中文化梳理，带对比示例与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "开发者大量时间花在读代码上（别人的、离职同事的、两周前的自己的）——可读性是写给未来的自己与队友的。",
+        "同样的功能，命名清晰、缩进一致的代码远比单字母变量、乱缩进的代码好懂——两个能跑的函数价值可以差很远。",
+        "好名字三条：描述性（generateUserGreeting 而不是 x）、用词一致（同类函数统一 getXxx）、可搜索可理解（ONE_HOUR 而不是 3600000）。",
+        "变量名以名词或形容词开头（它们是「东西」），函数名以动词开头（它们是「动作」）。",
+        "缩进用 tab 还是空格、要不要分号都无所谓——**一致**才是重点；行宽超过约 80 字符就手动换行。",
+        "注释纪律：git 能管的事（变更记录、死代码）不用注释；注释讲**为什么**（理由、公式、反直觉的必要性），不是复述代码怎么做——最好的代码靠命名让注释变得不必要。"
+      ],
+      "terms": [
+        {
+          "en": "clean code",
+          "zh": "整洁代码：命名清晰、结构一致、易于他人（和未来的自己）阅读的代码——两个功能相同的实现，可读性可以差很远"
+        },
+        {
+          "en": "camelCase",
+          "zh": "驼峰命名：多个单词连写时首词全小写、后续词首字母大写（如 generateUserGreeting），JavaScript 最常用的命名约定"
+        },
+        {
+          "en": "magic value",
+          "zh": "魔法值：代码里直接出现的裸数字 / 字符串（如 3600000），读者无法知道其含义——应提取为描述性命名常量"
+        },
+        {
+          "en": "SCREAMING_SNAKE_CASE",
+          "zh": "全大写下划线命名：真正不变的常量（如 ONE_HOUR）的约定写法，表示「这个值确定永不变」"
+        },
+        {
+          "en": "style guide",
+          "zh": "风格指南：团队统一的代码书写规范（缩进、行宽、分号等）；课程后面会专门讲，现阶段只需保持一致"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把 Example A / B 的对比多看两遍——记住「同样的功能，可读性可以差这么远」这个直觉。",
+        "按官方 Assignment 读三篇文章：10 条整洁原则、以及 codinghorror 的两篇注释文章（讲为什么 / 不写注释）。",
+        "拿你自己在第 38 课写的石头剪刀布代码做一次自查：函数名动词开头了吗？变量名描述性吗？有没有魔法值？注释讲的是为什么还是怎么做？",
+        "reddit 的「tab vs 空格」帖子是官方的玩笑引用——知道这是经典梗即可，别真的站队。",
+        "用下面的「简单自测」检查你对命名、一致性与注释纪律的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "为什么说「读代码」的时间比「写代码」多？这跟整洁代码有什么关系？",
+          "answer": "开发者的工作里有大量时间花在读代码上：队友写的、已经离职的人写的、甚至两周前自己写的（已经忘了）。你写的每一行代码，未来都会被读很多次——写的时候多花一分钟让它好读，读的人（包括你自己）每次都省几分钟。可读性是代码的主要成本项，不是锦上添花。"
+        },
+        {
+          "question": "魔法值是什么问题？setTimeout(stopTimer, 3600000) 怎么改？",
+          "answer": "3600000 是裸数字，读者不知道它是什么、要等多久（毫秒得换算半天）。提取为描述性常量：const ONE_HOUR = 3600000（甚至写 60 * 60 * 1000 更直观），再 setTimeout(stopTimer, ONE_HOUR)——一眼看懂。真正不变的常量用全大写命名是约定俗成的信号。"
+        },
+        {
+          "question": "getPlayerScore / getPlayerName / getPlayerTag 为什么比 getUserScore / fetchPlayerName / retrievePlayer1Tag 好？",
+          "answer": "前者用词一致：同类函数统一「get + 对象 + 属性」的命名系统，读者能预测下一个函数叫什么。后者三个动词混用（get/fetch/retrieve），读者会怀疑不同动词是有意区分的语义；User / Player / Player1 三个名词混用同样让人猜「它们是不是不同的东西」。一致性带来可预测性——没有实际区别就用同一个词。"
+        },
+        {
+          "question": "什么样的注释是坏注释？什么样的注释是好注释？",
+          "answer": "坏注释：① 复述代码怎么做的（「返回从 [ 到 ] 的字符串」——读代码本身就知道）；② 记录变更历史的（「2023-01-10 删除了…」——那是 git log 的活）；③ 注释掉的死代码（不需要就删，git 里都找得回）。好注释讲**为什么**：BMI 公式的注释帮读者回忆公式本身、为什么身高要先换算；反直觉的代码为什么必须这么写。最好的状态是命名好到不需要注释。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "你的代码已经能跑了——但「能跑」只是及格线。从这一课起，代码有了第二个读者：未来的你和你的队友。命名、一致性、注释纪律这些小习惯，单看每条都不难，叠起来决定了一份代码是「越读越清楚」还是「天书」。趁现在代码量还小，把这些原则变成肌肉记忆，比以后改掉坏习惯便宜得多。",
+      "sections": [
+        {
+          "h": "读代码比写代码多",
+          "p": [
+            "你可能以为开发者的主要工作是写代码。实际上，大量时间花在**读**代码上：队友写的、已经离开团队的人写的、甚至两周前你自己写的（已经记不太清了）。",
+            "官方先给一个心态垫底：这些原则不需要立刻精通，每个人都写过乱代码，专业人士也不例外。目标是让可读性随着你写的代码量逐步提升——渐进改善，不求完美。别因为写不出晶莹剔透的代码而自责。"
+          ]
+        },
+        {
+          "h": "什么是整洁代码",
+          "p": [
+            "看官方的一组对比（完整代码见下方示例区）：Example A 用单字母变量、缩进与空格忽有忽无；Example B 函数与变量命名清晰、缩进一致。两个函数**做的是同一件事、写法也完全一样、都是合法代码**——但 B 一眼能猜出在干什么，A 要逐行破译。",
+            "想象你在协作项目里接到 Example A：得先花多久搞懂它在干什么才能继续你的工作？或者那是你很久以前自己写的、你已经完全忘了——两种情形最终都能搞懂，但过程都不愉快。",
+            "一个例外：循环或回调函数的上下文里，单字母变量是可以接受的（比如 map((num) => num + 1) 的 num）——除此之外避免。"
+          ]
+        },
+        {
+          "h": "camelCase 与「约定只是约定」",
+          "p": [
+            "camelCase（驼峰命名）把多个单词连着写：第一个词全小写，后续每个词首字母大写（generateUserGreeting）。不是所有语言都用它，但 JavaScript 里非常普遍，本课程的示例大多遵循它。",
+            "官方特意用提示框说明：**约定只是约定**。每家公司都有自己的具体做法，可能与本课的示例略有出入——没有什么是绝对的。这些做法共同服务的目标是可读性与可维护性；在必须遵守某套规范之前，选一套合理的约定并保持一致就好。"
+          ]
+        },
+        {
+          "h": "好名字是描述性的",
+          "p": [
+            "Example B 里：变量叫 greeting、参数叫 name、函数叫 generateUserGreeting——函数干的就是名字说的事，干净、可懂。",
+            "反过来想象跟人讨论 Example A：函数叫 x，变量是 z 和 w——「x 里的 w 加上 z……」没法聊。名字是你代码里最便宜的文档。"
+          ]
+        },
+        {
+          "h": "用词要一致",
+          "p": [
+            "同类型的函数最好遵循同一套命名系统：getPlayerScore / getPlayerName / getPlayerTag 都是「get 一个东西」，读者能预测下一个。",
+            "反例：getUserScore / fetchPlayerName / retrievePlayer1Tag——三个动词（get/fetch/retrieve）意思相近，读者却会怀疑它们是有意区分的语义；User / Player / Player1 三个名词也让人猜「是不是不同的东西」。没有实际区别就用同一个词——一致性带来可预测性。",
+            "配套规则：变量代表「东西」，名字以名词或形容词开头（numberOfThings、selected）；函数代表「动作」，名字以动词开头（getCount()）。反过来写（变量叫 getCount、函数叫 myName）会让人误判它是变量还是函数。"
+          ]
+        },
+        {
+          "h": "可搜索、可理解的名字",
+          "p": [
+            "「魔法值」是代码里直接出现的裸数字或字符串。setTimeout(stopTimer, 3600000)——3600000 是什么？就算你知道 JavaScript 用毫秒计时，也得拿计算器算算这是几分钟。",
+            "提取成描述性常量：const ONE_HOUR = 3600000（甚至直接写 60 * 60 * 1000），再传 ONE_HOUR 进去——读代码的人不用做任何计算。全大写命名是「真正不变的常量」的约定信号（一小时多少毫秒永远不会变，所以合适）；它只是约定，不是每个人都会这么写。"
+          ]
+        },
+        {
+          "h": "缩进与行宽",
+          "p": [
+            "接下来是「争议地带」：缩进用 tab 还是空格？官方插了个程序员的经典梗（reddit 上的「圣战」帖，见本课外部资料）。真正重要的是**一致性**：选一种，一直用。各家风格指南推荐不一，没有谁真的更优——风格指南与配套工具课程后面会专门讲。",
+            "行宽：几乎所有风格指南都建议限制每行长度。经验值约 80 字符——超过就手动换行，很多编辑器有标线提示。换行的位置：在运算符或逗号**之后**断开；续行怎么排（缩进对齐 or 重新起行）没有唯一正解，选一种保持一致。"
+          ]
+        },
+        {
+          "h": "分号",
+          "p": [
+            "JavaScript 里分号大部分时候可省——解释器会自动补上（自动分号插入）。但这个机制在某些情况下会出岔子、造成 bug，所以官方建议养成加分号的习惯。",
+            "加或不加，老规矩：**一致**最重要。"
+          ]
+        },
+        {
+          "h": "注释的坑：git 能管的别用注释",
+          "p": [
+            "注释是好工具，但会被误用。新手常见的诱惑是用注释解释代码做的**每一件事**——这通常不是好实践。",
+            "坑一：用注释记录变更历史（「2023-01-10 删除了 XX / 2023-06-22 新增了 XX」）——你已经有 git 了！这些注释很快会失于维护、给出不完整的图景，还让文件充满无关内容。git log 把这一切整理得妥妥帖帖。",
+            "坑二：注释掉的死代码挂在文件里（// oldFunction(); // evenOlderUselessFunction();）——测试时临时注释当然可以，但一旦某段代码不需要了就删掉。将来需要？git 提交历史里找得回。"
+          ]
+        },
+        {
+          "h": "注释讲为什么，不是怎么做",
+          "p": [
+            "理想的注释不是复述代码的伪代码，而是解释代码背后的**原因**——有时甚至根本不需要注释。",
+            "官方的三连进化：第一版注释复述代码（「返回从 [ 之后到 ] 的字符串」——读代码本身就知道，冗余）；第二版注释说明函数目的（「提取方括号内的文字（不含括号）」——有用）；第三版直接用描述性命名（extractTextWithinBrackets + bracketTextStart/End）——**不需要任何注释**。",
+            "但这不等于好代码就该没有注释。反例：calculateBMI 里的公式注释帮读者回忆 BMI 怎么算、为什么身高要先换算——命名再好也补不了这个背景。放置得当的注释是无价的：解释反直觉代码为何必要、某个函数为什么必须在这里调用。Assignment 里的文章会展开讲。"
+          ]
+        },
+        {
+          "h": "结语：渐进改善",
+          "p": [
+            "回到开头的心态：别追求完美的整洁代码，那只会带来挫败感。写出「意大利面」不可避免，人人都有这时候。把这些原则放在心里，随着时间与练习，你的代码会越来越干净。",
+            "学写整洁代码是一个持续改进的过程，会延续到你完成 TOP 之后很久——这一课只是起点。官方的收尾金句：**好代码来自经验，经验来自不那么好的代码。**"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "javascript",
+          "code": "/* 同一功能的两个版本（官方 Example A / B）*/\n\n// Example A：能跑，但难读\nconst x = function (z) {\n   const w = \"Hello \";\nreturn w + z\n\n }\nx(\"John\");\n\n// Example B：同样的事，一眼看懂\nconst generateUserGreeting = function (name) {\n  const greeting = \"Hello \";\n  return greeting + name;\n};\ngenerateUserGreeting(\"John\");",
+          "note": "两个函数完全等价——差别只在命名与缩进。单字母变量仅限循环 / 回调上下文使用。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 用词一致 vs 混用 */\n// 一致：同一套「get + 对象 + 属性」\nfunction getPlayerScore();\nfunction getPlayerName();\nfunction getPlayerTag();\n\n// 混用：三个动词 + 三个名词变体，读者会猜「它们不一样？」\nfunction getUserScore();\nfunction fetchPlayerName();\nfunction retrievePlayer1Tag();",
+          "note": "没有实际区别就用同一个词——一致性带来可预测性。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 变量名词开头，函数动词开头 */\n// 可取：变量是「东西」\nconst numberOfThings = 10;\nconst myName = \"Thor\";\nconst selected = true;\n\n// 不可取：动词开头，会被误认成函数\nconst getCount = 10;\nconst showNorseGods = [\"Odin\", \"Thor\", \"Loki\"];\n\n// 可取：函数是「动作」\nfunction getCount() { return numberOfThings; }\n\n// 不可取：myName 不代表动作\nfunction myName() { return \"Thor\"; }",
+          "note": "看到名字能猜出它是变量还是函数——这是命名的隐藏收益。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 魔法值 → 描述性常量 */\nsetTimeout(stopTimer, 3600000);          // 3600000 是什么？？\n\nconst ONE_HOUR = 3600000;                // 或 60 * 60 * 1000\nsetTimeout(stopTimer, ONE_HOUR);         // 一目了然",
+          "note": "真正不变的常量用全大写命名（约定信号）；读代码的人从此不用换算毫秒。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 注释三连进化（官方示例）*/\n// 版本一：复述代码——冗余\nfunction extractText(s) {\n  // Return the string starting after the \"[\" and ending at \"]\"\n  return s.substring(s.indexOf(\"[\") + 1, s.indexOf(\"]\"));\n}\n\n// 版本二：说明目的——有用\n// Extracts text inside square brackets (excluding the brackets)\nfunction extractText(s) {\n  return s.substring(s.indexOf(\"[\") + 1, s.indexOf(\"]\"));\n}\n\n// 版本三：命名到位——不需要注释\nfunction extractTextWithinBrackets(text) {\n  const bracketTextStart = text.indexOf(\"[\") + 1;\n  const bracketTextEnd = text.indexOf(\"]\");\n  return text.substring(bracketTextStart, bracketTextEnd);\n}",
+          "note": "好注释讲为什么（如下面的 BMI 公式）；讲怎么做的注释多半可以被更好的命名取代。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 好注释的样子：补命名补不了的背景 */\nfunction calculateBMI(height, weight) {\n  // The formula for BMI is weight in kilograms divided by height in meters squared\n  const heightInMeters = height / 100;\n  const bmi = weight / (heightInMeters * heightInMeters);\n  return bmi;\n}",
+          "note": "公式注释帮读者理解为什么身高要换算、这串计算在干什么——命名做到头也需要它。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "为了整洁立刻重写全部旧代码",
+          "text": "官方明说：渐进改善，不求完美；每个人都写过乱代码。把这些原则用在**新写的**代码上，旧代码等真的要动它时再顺手收拾——为了「变干净」而大规模重写，引入 bug 的风险比收益大。"
+        },
+        {
+          "title": "用注释记录修改历史",
+          "text": "「某日某人删了什么」是 git log 的本职——注释里的历史很快失修、画面不完整，还把文件撑胀。同理：不再需要的代码直接删，别注释掉挂着——将来要找回，git 提交历史里都有。"
+        },
+        {
+          "title": "在缩进 / 分号 / tab vs 空格上较真站队",
+          "text": "这些是经典「圣战」话题（官方都配了梗帖），但真正重要的只有一致性：选一种、一直用。风格指南与自动格式化工具课程后面会讲，现阶段别在这上面消耗热情。"
+        },
+        {
+          "title": "以为好代码就该零注释",
+          "text": "官方特意加粗：这不意味着好代码不需要注释。公式、反直觉的必要性、「为什么必须在这里调用」这类背景，命名补不了——放置得当的注释无价。要避免的是复述代码的冗余注释。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 读《保持代码整洁的 10 条原则》（One Extra Pixel）获取整洁代码的实用技巧；② 为更好理解好的注释实践，读 codinghorror 的《代码告诉你怎么做，注释告诉你为什么》与《不靠注释写代码》两篇。另：正文提到的「tab vs 空格圣战」reddit 帖是玩笑引用，见本课外部资料。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 clean_code.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "45fe6f905cdd04d72a85f595c33289bba8813fecc9e36b9075e0d147953e142f",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "loops-and-arrays",
+      "title": "Loops and Arrays",
+      "zh": "循环与数组",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-loops-and-arrays",
+      "summary": "循环与数组：for/while 循环、数组这个有序集合，以及 map / filter / reduce 三个强大的数组方法，最后初识测试驱动开发（TDD）。",
+      "guide": "以下是官方原课的中文化梳理，带可动手的代码片段与常见错误卡片。本课要求的外部资料与练习入口都在「官方任务」一节末尾的「本课外部资料」。",
+      "understand": [
+        "循环是重复执行一段代码的控制结构；计算机不知疲倦且极快，适合干重复计算的活。",
+        "数组是一个变量里存多个值的有序集合（字符串、数字、别的都行）——解决「一个名字一个变量」的管理噩梦。",
+        "for 循环三段式：初始值、继续条件、每轮增量——第 36 课 Fizz Buzz 已经用过。",
+        "map 对数组每个元素执行回调并返回**新数组**（原数组不变）；filter 按回调返回真假筛选出新数组；reduce 用回调把数组累积成一个值。",
+        "回调（callback）：把一个函数作为参数传给另一个函数——arr.map(addOne) 里的 addOne 就是回调。",
+        "reduce 的回调有两个参数：累计器（当前累计值，首轮是 initialValue 或首元素）与当前元素；reduce 本身还可选传 initialValue。",
+        "链式组合 map / filter / reduce 常常比 for 循环更好读：sumOfTripledEvens 可以写成三行方法链。",
+        "TDD（测试驱动开发）：先写描述期望行为的自动化测试、再写实现代码——测试先红后绿。"
+      ],
+      "terms": [
+        {
+          "en": "loop",
+          "zh": "循环：重复执行一段代码的控制结构——计算机擅长干不知疲倦的重复活"
+        },
+        {
+          "en": "array",
+          "zh": "数组：一个变量里按顺序存多个值的集合（[1, 2, 3]）；下标从 0 开始访问"
+        },
+        {
+          "en": "callback",
+          "zh": "回调：作为参数传给另一个函数的函数——map/filter/reduce 都吃回调"
+        },
+        {
+          "en": "map()",
+          "zh": "数组方法：对每个元素执行回调、返回由结果组成的新数组；不改原数组"
+        },
+        {
+          "en": "filter()",
+          "zh": "数组方法：回调返回 true 的元素进入新数组、false 的被滤掉；不改原数组"
+        },
+        {
+          "en": "reduce()",
+          "zh": "数组方法：用回调（累计器, 当前元素）把整个数组累积成一个值；可传 initialValue 设初始累计值"
+        },
+        {
+          "en": "accumulator",
+          "zh": "累计器：reduce 回调的第一个参数，保存到当前轮为止的累计结果，首轮为 initialValue 或首元素"
+        },
+        {
+          "en": "TDD (test-driven development)",
+          "zh": "测试驱动开发：先写描述期望行为的自动化测试（此时必红），再写实现让测试通过（转绿）的开发实践"
+        }
+      ],
+      "tasks": [
+        "通读本页中文讲解，把 map / filter / reduce 各自「吃回调、返回什么」的分工会清楚。",
+        "按官方 Assignment：先读 MDN 的循环教程（**做页面底部练习**）与 JavaScript.info 的 while/for（**做页面练习**）——官方两次强调「做中学」。",
+        "数组部分：看 6 分钟的 YouTube 速览，读 JavaScript.info 的数组与数组方法两篇（官方明确这两篇**不用做**页尾练习，后面会回来）。把 MDN 的 Array 文档加入书签——不背，查。",
+        "亲手把 sumOfTripledEvens 用 map/filter/reduce 重写（先自己写、测过再看官方折叠答案）。",
+        "完成官方两组练习：JavaScript.info 数组方法页指定的七道题 + javascript-exercises 的 loops_and_arrays 六题（按顺序，先读各 README）。",
+        "用下面的「简单自测」检查你对三个方法与 TDD 的理解。"
+      ],
+      "quiz": [
+        {
+          "question": "map、filter、reduce 各做什么？哪个会改原数组？",
+          "answer": "map 对每个元素跑回调、返回结果组成的新数组（长度不变、值被转换）；filter 按回调返回真假筛选、返回子集新数组（长度可能变、值不变）；reduce 把整个数组用回调累积成单个值（数字、字符串、什么都可以）。三个都**不改原数组**——都返回新东西。"
+        },
+        {
+          "question": "回调是什么？arr.map(addOne) 里谁是回调？",
+          "answer": "回调是「作为参数传给另一个函数的函数」——map 期望的参数就是一个回调。arr.map(addOne) 把 addOne 传给 map，map 自动遍历数组、对每个元素调用 addOne。进一步可以连 addOne 都不单独定义，直接内联箭头函数：arr.map((num) => num + 1)——只用一次的简单函数这样写更干净。"
+        },
+        {
+          "question": "reduce 的回调两个参数是什么？initialValue 起什么作用？",
+          "answer": "第一个是累计器（accumulator）——到当前轮为止的累计结果，首轮等于 initialValue（没传就是首元素）；第二个是当前元素。initialValue 是 reduce 的可选第二参数：想对全数组求和可以不传（从首元素起累加）；想「求和再加 10」就传 10 当起点。求数组乘积的例子里传 1：arr.reduce((total, cur) => total * cur, 1) 得 120。"
+        },
+        {
+          "question": "用 map/filter/reduce 重写 sumOfTripledEvens 的思路是什么？",
+          "answer": "三个子问题对应三个方法：只要偶数 → filter((num) => num % 2 === 0)；每个乘三 → map((num) => num * 3)；全部加起来 → reduce((acc, curr) => acc + curr)。链起来三行：return array.filter(…).map(…).reduce(…)——比 for 循环 + if + 累加变量更好读，每一步的意图都在方法名上。"
+        },
+        {
+          "question": "TDD 是什么流程？为什么比「写完再手动测」高效？",
+          "answer": "先写描述期望行为的自动化测试（此时必红），再写实现代码，测试转绿即知代码正确。没有测试的话，你得反复手动运行、换各种输入——add(2, 2) 还好，井字棋胜负判断（game_win([...])）你得自己跟自己下好几盘才能验证！写测试的方法课程后面教，现在先建立「测试先行」的概念。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "到目前为止，处理一批数据只能一个变量一个变量地写、一段逻辑一段逻辑地复制。循环让重复指令只写一次，数组让一堆数据只占一个变量——而 map/filter/reduce 让「对每个元素做点事」读起来像一句话。这是从「写代码」到「组织数据」的跨越，也是 TDD 练习场 javascript-exercises 最后一组的开门钥匙。",
+      "sections": [
+        {
+          "h": "两个老问题：重复与批量",
+          "p": [
+            "编程的两个经典难题在这一课同时解决。重复：同样的指令要执行很多次，手动复制粘贴既难读又难改。批量：想存全班同学的名字，一个名字一个变量？冗长、低效、难管理——以后想改想取都费劲。",
+            "解法是循环（loop）与数组（array）：循环是重复执行一段代码的控制结构；数组是一个变量里存多个值的数据结构。两者经常搭档——对数组的每个元素做同样的事，正是循环的主场。最后还会初识测试驱动开发（TDD）：先写测试、再写代码的实践。"
+          ]
+        },
+        {
+          "h": "循环",
+          "p": [
+            "计算机不会累，而且非常非常快——几秒内重复几千上万次计算不在话下（具体多快取决于计算复杂度与机器）。所以重复计算类的问题天生适合交给它。",
+            "官方的循环阅读材料两篇：MDN 的 Looping Code（偏长，**要做页面底部的练习**）与 JavaScript.info 的 while/for（同一批知识的另一视角，**也要做页尾练习**——官方强调 You learn best by doing）。部分示例会用到数组，现在只需知道「数组就是一列东西」，下一节展开。",
+            "for 循环你在第 36 课 Fizz Buzz 里已经用过：for (let i = 1; i <= answer; i++) 的三段式（初始值 / 条件 / 增量）就是循环的骨架。"
+          ]
+        },
+        {
+          "h": "数组：一列东西",
+          "p": [
+            "字符串和数字是积木，但脚本复杂起来就需要一次处理一大堆。数组（Array）是有序的元素集合——[1, 2, 3, 4, 5] 或 [\"Odin\", \"Thor\", \"Loki\"] 都行，类型混着也可以。",
+            "官方配套材料：一个 6 分钟的 YouTube 数组速览、JavaScript.info 的数组入门与数组方法两篇（这两篇**不用做**页尾练习，后面课程会回来）、以及 MDN 的 Array 参考文档——**加入书签，不用背**，这里能查到全部内置数组属性与方法，以后会常回来。",
+            "注意一个现象：有些数组方法干的事跟循环很像。有时你需要循环的完全控制，有时合适的数组方法就够、而且读起来更顺——两套工具并存。"
+          ]
+        },
+        {
+          "h": "数组魔法：sumOfTripledEvens",
+          "p": [
+            "数组除了存数据，还自带一组操作数据的强大函数。官方用 sumOfTripledEvens 做引子：接收一个数组，把其中每个**偶数**乘三，再把结果**加总**。",
+            "先用第 36 课的方法伪代码：① 只对偶数操作；② 把这些数各乘三；③ 把变换结果累加。用 for 循环实现（官方完整代码见下方示例区）：if (array[i] % 2 === 0) 判偶、array[i] * 3 乘三、sum += … 累加——每一段都解决一个关键子问题，完全正确。",
+            "但同样的事可以用数组方法写出来——而且常常更好读。接下来逐个认识三员大将。"
+          ]
+        },
+        {
+          "h": "map：逐个变换",
+          "p": [
+            "map 期望一个**回调**作为参数——「回调」就是「把一个函数当参数传给另一个函数」的雅称。假设有函数 addOne（数字加一）和数组 [1, 2, 3, 4, 5]，想给每个元素加一：不写循环，直接 arr.map(addOne)——map **自动**遍历数组，对每个元素调用 addOne，返回新数组 [2, 3, 4, 5, 6]。",
+            "两个要点：map 返回**新数组、不改原数组**（console.log(arr) 还是 [1,2,3,4,5]）；addOne 只在这一处用、又简单，可以内联成箭头函数：arr.map((num) => num + 1)——更简洁。"
+          ]
+        },
+        {
+          "h": "filter：按条件筛",
+          "p": [
+            "filter 与 map 类似地遍历并逐个调用回调，但不做变换——它按回调的返回值**筛选**：回调返回 true 的元素进新数组，false 的被滤掉。",
+            "例：函数 isOdd 返回数字是否为奇数。arr.filter(isOdd) 对 [1,2,3,4,5] 逐个问「是奇数吗」，得到 [1, 3, 5]——原数组同样不变。筛选条件就写在回调的返回真假里。"
+          ]
+        },
+        {
+          "h": "reduce：攒成一个值",
+          "p": [
+            "想算 [1,2,3,4,5] 的全部乘积（1×2×3×4×5）？传统写法要声明 total、for 循环逐个乘。reduce 一步到位，但有两个关键差异：",
+            "① 回调**两个参数**：第一个是累计器（accumulator）——到当前这轮为止的累计结果，首轮是 initialValue（没传就是首元素）；第二个是当前元素。② reduce 自己有个可选的 initialValue 第二参数——当不想让累计从首元素开始时用。例：纯求和可以不传；「求和再加 10」就传 10。",
+            "arr.reduce((total, currentItem) => total * currentItem, 1)：初始 1，逐个相乘，得 120——原数组不变。"
+          ]
+        },
+        {
+          "h": "三明治与三连击",
+          "p": [
+            "官方配了一张三明治示意图（见官方原课配图）：直观展示三个方法各自动什么——filter 筛原料、map 加工、reduce 合成。快速回顾的锚点。",
+            "动手时刻：把开头的 sumOfTripledEvens 用这三个方法重写。写完并测过之后再展开官方的折叠答案对照——三行方法链，每个意图都在方法名上。这是本课官方唯一要求先做后看的答案。",
+            "小结：map / filter / reduce 三个方法让代码更可读、因而更少 bug——后面课程与项目里你会到处见到它们。"
+          ]
+        },
+        {
+          "h": "TDD 初识",
+          "p": [
+            "测试驱动开发（TDD）是开发圈的高频词：先写**描述代码应该怎么工作**的自动化测试，再写代码。比如要写个加法函数，先写一个调用它、写明期望输出的测试——测试先失败（代码还没写），实现写完测试通过，你就知道代码是对的。",
+            "为什么高效？没有测试的话，你得反复手动运行、换各种输入直到确信无误——add(2, 2) 无所谓，但井字棋的胜负判断函数（game_win([\"o\", null, \"x\", …])）你真要跟自己下好几盘才能验！怎么写测试课程后面教，现在先做 javascript-exercises 的练习体会「测试先行」。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "javascript",
+          "code": "/* sumOfTripledEvens 的 for 循环版（官方原版）*/\nfunction sumOfTripledEvens(array) {\n  let sum = 0;\n  for (let i = 0; i < array.length; i++) {\n    // Step 1: If the element is an even number\n    if (array[i] % 2 === 0) {\n      // Step 2: Multiply this number by three\n      const tripleEvenNumber = array[i] * 3;\n      // Step 3: Add the new number to the total\n      sum += tripleEvenNumber;\n    }\n  }\n  return sum;\n}",
+          "note": "完全正确——三段各解决一个子问题。但下面还有更好读的写法。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* map：逐个变换，返回新数组 */\nfunction addOne(num) { return num + 1; }\nconst arr = [1, 2, 3, 4, 5];\n\nconst mappedArr = arr.map(addOne);        // 传回调，自动遍历\nconsole.log(mappedArr); // [2, 3, 4, 5, 6]\nconsole.log(arr);       // [1, 2, 3, 4, 5] ← 原数组不变\n\n// 只用一次的简单函数 → 内联箭头函数更干净\nconst mapped2 = arr.map((num) => num + 1); // [2, 3, 4, 5, 6]",
+          "note": "回调 = 把函数当参数传；map 不改原数组。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* filter：回调返回 true 的进新数组 */\nfunction isOdd(num) { return num % 2 !== 0; }\nconst arr = [1, 2, 3, 4, 5];\n\nconst oddNums = arr.filter(isOdd);\nconsole.log(oddNums); // [1, 3, 5]\nconsole.log(arr);     // [1, 2, 3, 4, 5] ← 原数组不变",
+          "note": "筛选条件写在回调的返回真假里；偶数被滤掉。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* reduce：累计成一个值 */\nconst arr = [1, 2, 3, 4, 5];\nconst productOfAllNums = arr.reduce((total, currentItem) => {\n  return total * currentItem;\n}, 1);   // ← initialValue：累计从 1 起步\n\nconsole.log(productOfAllNums); // 120（1×2×3×4×5）\nconsole.log(arr);              // [1, 2, 3, 4, 5] ← 原数组不变",
+          "note": "回调两参（累计器 + 当前元素）；initialValue 决定累计起点（纯求和可不传，求和加 10 就传 10）。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* 三连击：sumOfTripledEvens 的方法链版（官方答案，先自己写再看）*/\nfunction sumOfTripledEvens(array) {\n  return array\n    .filter((num) => num % 2 === 0)   // 只要偶数\n    .map((num) => num * 3)            // 各乘三\n    .reduce((acc, curr) => acc + curr); // 加总\n}\n\nsumOfTripledEvens([1, 2, 3, 4]);  // 2×3 + 4×3 = 18",
+          "note": "三个子问题对应三个方法——每个意图都写在方法名上，比 for 版好读。"
+        },
+        {
+          "lang": "javascript",
+          "code": "/* TDD 的样子：测试先行（课程后面教怎么写，现在先看概念）*/\n// 1. 先写测试：描述期望行为（此刻必红）\n// test('add 求两数之和', () => {\n//   expect(add(2, 2)).toBe(4);\n// });\n\n// 2. 再写实现\nfunction add(a, b) { return a + b; }\n\n// 3. 测试转绿 = 代码正确；以后改代码随时重跑",
+          "note": "井字棋胜负判断这类复杂函数，手动验证要跟自己下好几盘——测试一次写好、永远可重跑。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "以为 map / filter 会修改原数组",
+          "text": "三个方法都返回**新**数组、原数组分毫不动——const result = arr.map(…) 之后 arr 还是原样。想要改动生效就接住返回值；直接调用不接收等于白做。"
+        },
+        {
+          "title": "reduce 忘了 initialValue 的语义",
+          "text": "不传 initialValue 时累计从首元素起步：求和没事，但「求数组乘积」如果不小心把初始值逻辑想错（比如该传 1 却没传），首元素会被当起点处理，结果可能对也可能错得隐蔽。拿不准就显式传。"
+        },
+        {
+          "title": "偷看 sumOfTripledEvens 的答案",
+          "text": "官方把方法链版答案放在折叠块里，用意是让你先自己写、测过再看。直接展开抄一遍，错过的是「把三个子问题映射到三个方法」的那次思考——这道小练习正是方法链思维的入门钥匙。"
+        },
+        {
+          "title": "跳过练习直接读下一课",
+          "text": "官方在本课两次强调「做中学」：MDN 循环教程与 JavaScript.info 的 while/for 都明确要求做页尾练习；数组方法页则明确说**不用做**（后面回来）——按官方口径区分哪些必做哪些缓做，别一刀切地全跳或全做。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 到 JavaScript.info 数组方法文章页尾的练习区，只做以下七题：Translate border-left-width to borderLeftWidth、Filter range、Filter range \"in place\"、Sort in decreasing order、Copy and sort array、Shuffle an array、Filter unique array members；② 到 javascript-exercises 仓库的 foundations/loops_and_arrays 目录（隔了一阵子了，先回看仓库 README 的通用说明），读每个练习的 README 后按顺序完成六题：01_repeatString、02_reverseString、03_removeFromArray、04_sumAll、05_leapYears、06_tempConversion。每个练习的 solution 文件夹里有答案。另：正文阅读材料为 MDN 循环教程（做页尾练习）、JavaScript.info 的 while/for（做页尾练习）、YouTube 数组速览、JavaScript.info 数组与数组方法两篇（均不做页尾练习）、MDN Array 文档（加书签不背）——均见本课外部资料。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 loops_and_arrays.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "45c7a5c49b4744c9f7123d5e4405ca1ef05d3d17e90ad715900c6cd4fb60d32c",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "dom-manipulation-and-events",
+      "title": "DOM Manipulation and Events",
+      "zh": "操作 DOM 与处理事件",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-dom-manipulation-and-events",
+      "summary": "JavaScript 最独特的能力来了：操作网页本身。本课讲 DOM——浏览器把 HTML 解析成的节点树——以及怎么用选择器找到节点、创建 / 挂载 / 删除 / 修改元素，最后讲事件：让网页对点击和按键做出反应。这是前端开发者每天都在用的看家本领。",
+      "guide": "前面你写的 JavaScript 都在控制台里跑，跟网页本身没关系。本课开始，JS 真正「碰到」页面：读取和修改页面内容、响应用户的点击。整条链路分两段——先学 DOM 操作（改页面），再学事件（响应用户）。学完这课，第 42 课就能给你第 38 课的石头剪刀布装上按钮界面。官方这篇正文很长、示例很多，本站把每一段都保留并中文化；建议边读边在本地文件里跟着敲——这是官方原文明说的练习要求，不是可选项。",
+      "understand": [
+        "DOM 是什么：浏览器把 HTML 解析成的一棵「节点树」，JS 眼里的网页就是它",
+        "节点（node）与元素（element）：元素是节点的主要类型，本课只操作元素",
+        "用 CSS 式选择器 + 关系属性（firstElementChild 等）精确定位任意节点",
+        "querySelector / querySelectorAll：找节点的两把主力钥匙；NodeList 不是数组",
+        "createElement 只在内存里造元素，appendChild / insertBefore / removeChild 才把它放进或移出页面",
+        "改元素四件套：style（注意 kebab-case 要转 camelCase）、setAttribute / getAttribute、classList、textContent",
+        "textContent 优先于 innerHTML：后者有跨站脚本（XSS）安全风险",
+        "script 的时机：放页面底部或用 defer，否则 JS 跑在节点出生之前",
+        "事件三种挂法：HTML 属性、onclick 属性、addEventListener——第三种是首选（关注点分离 + 可挂多个）",
+        "回调与事件对象 e：e.target 告诉你「谁被点了」",
+        "querySelectorAll + forEach：给一组元素批量挂监听"
+      ],
+      "terms": [
+        {
+          "en": "DOM",
+          "zh": "Document Object Model，文档对象模型"
+        },
+        {
+          "en": "node",
+          "zh": "节点"
+        },
+        {
+          "en": "element",
+          "zh": "元素"
+        },
+        {
+          "en": "selector",
+          "zh": "选择器"
+        },
+        {
+          "en": "NodeList",
+          "zh": "节点列表"
+        },
+        {
+          "en": "event",
+          "zh": "事件"
+        },
+        {
+          "en": "event listener",
+          "zh": "事件监听器"
+        },
+        {
+          "en": "callback",
+          "zh": "回调函数"
+        },
+        {
+          "en": "bubbling",
+          "zh": "事件冒泡"
+        }
+      ],
+      "tasks": [
+        "通读本站中文讲解，每段代码都在本地跟着敲一遍（官方 Exercise 明确要求先跑通示例再往下）",
+        "完成官方 Exercise 三件套：红字 p、蓝字 h3、带边框粉底 div 里再嵌 h1 与 p——只用 JS 创建",
+        "把三种事件挂法各写一遍，体会为什么 addEventListener 是首选",
+        "完成 Assignment：JavaScript Tutorial 六篇事件阅读（建意识不求深解）+ dev.to 回调文章 + MDN DOM scripting 的两个练习小节（基础 DOM 操作 + 动态购物清单）"
+      ],
+      "quiz": [
+        {
+          "question": "DOM 与 HTML 的关系是什么？",
+          "answer": "DOM 是浏览器解析 HTML 后在内存里生成的节点树；JS 改的是 DOM，HTML 文件本身不变——刷新后 JS 重跑、改动重新发生。官方特意强调这一点：你操作的不是文本文件，而是这棵活着的树。"
+        },
+        {
+          "question": "querySelectorAll 返回的 NodeList 与数组的关键区别是？",
+          "answer": "NodeList 长得像数组、行为也部分像，但不是数组——缺好些数组方法。需要时可用 Array.from() 或展开运算符（...）转成真数组。forEach 它有，map / filter 这类不能想当然。"
+        },
+        {
+          "question": "div.style.background-color 这行代码的问题是什么？",
+          "answer": "点号写法里 JS 会把连字符当成减号，相当于「div.style.background 减 color」。改用 div.style.backgroundColor（点号 + camelCase）或 div.style[\"background-color\"]（方括号字符串，kebab-case / camelCase 都行）。"
+        },
+        {
+          "question": "为什么优先用 textContent 而不是 innerHTML 加文本？",
+          "answer": "innerHTML 拼进来的字符串会被当成 HTML 解析，可能注入恶意脚本（XSS 风险），要谨慎少用；加纯文本一律 textContent。官方提示框明说并配了 XSS 攻防视频。"
+        },
+        {
+          "question": "三种事件挂法中 addEventListener 被称为首选的两个理由是？",
+          "answer": "一是关注点分离：HTML 里不混 JS（方法 1 的问题）；二是同一个元素能挂多个监听器（方法 1 和 2 的 onclick 都只能一个）。方法 3 灵活强大，代价只是写法稍长。"
+        }
+      ],
+      "optional": [],
+      "note": "本课是 JS 阶段第一次「真动手改页面」：官方 Exercise（三件套）与 Assignment（MDN 购物清单练习）都是必做操作，不是选读。事件阅读六篇官方明说「目标是建立意识、不求立刻全懂」——别陷进去。",
+      "why": "石头剪刀布的控制台版本已经能玩，但真实产品没有人用 prompt 玩游戏。DOM + 事件是从「控制台程序员」到「网页开发者」的那道门，后面的 Etch-a-Sketch、Calculator 两个 Project 全建在这课之上。",
+      "sections": [
+        {
+          "h": "DOM：网页在浏览器眼里的样子",
+          "p": [
+            "浏览器读入你的 HTML 后，会把它解析成一棵**节点树**——这就是 DOM（Document Object Model，文档对象模型）。树上的每个东西叫一个**节点**（node），节点有很多类型，绝大多数你用不到；本课只盯着最重要的一类：**元素**（element）节点。",
+            "拿官方这段 HTML 看：",
+            "```html\n<div id=\"container\">\n  <div class=\"display\"></div>\n  <div class=\"controls\"></div>\n</div>\n```",
+            "`.display` 是 `#container` 的**孩子**（child），又是 `.controls` 的**兄弟**（sibling）；`#container` 是**父节点**（parent）。把它想成家谱：每个元素坐在自己的「枝条」上，父子兄弟关系由 HTML 里的嵌套决定。这棵树就是 JS 眼里的网页——你操作的不是文本文件，而是这棵活着的树。"
+          ]
+        },
+        {
+          "h": "用选择器定位节点",
+          "p": [
+            "想操作一个节点，先得「抓住」它。抓法是**选择器**（selector）——就是你在 CSS 里写惯的那套：",
+            "```text\ndiv.display           ← 标签 + 类\n.display              ← 只用类\n#container > .display ← 父 > 子\ndiv#container > div.display\n```",
+            "除了 CSS 式选择器，还能用节点自带的**关系属性**按「亲戚关系」抓：",
+            "```javascript\n// 抓 #container（语法细节马上讲）\nconst container = document.querySelector(\"#container\");\n\n// 抓它的第一个孩子 => .display\nconst display = container.firstElementChild;\nconsole.log(display);  // <div class=\"display\"></div>\n```",
+            "```javascript\n// 抓 .controls\nconst controls = document.querySelector(\".controls\");\n\n// 抓它的前一个兄弟 => .display\nconst display = controls.previousElementSibling;\n```",
+            "这就是「按与邻居的关系认人」：firstElementChild / lastElementChild / previousElementSibling / nextElementSibling 这一族，搭配选择器基本没有抓不到的节点。"
+          ]
+        },
+        {
+          "h": "插曲：变量名后面的那个点",
+          "p": [
+            "`container.firstElementChild` 里的点号是什么？这是 JS **对象**（object）的属性访问写法。对象是一种装着「键：值」对的数据类型——`container` 这个对象身上挂着一大堆属性，`firstElementChild` 是其中一把钥匙，取出来的值是 `.display` 那个 div。",
+            "官方明说：对象**目前**了解到这一步就够了，整个 Objects Basics 课（第 44 课）会专门展开。现在你只需要看懂「点号 = 从对象身上取东西」。"
+          ]
+        },
+        {
+          "h": "DOM 方法总览：找、造、挂、删",
+          "p": [
+            "HTML 被浏览器解析成 DOM 之后，每个节点都是 JS 对象，身上挂着大量属性和方法——这些就是你的工具箱。",
+            "**找**：",
+            "```text\nelement.querySelector(selector)     → 第一个匹配的节点的引用\nelement.querySelectorAll(selectors) → 一个包含全部匹配的 NodeList\n```",
+            "官方提示：还有几个更具体的查询方法（性能略优但差距很小），现在不用管。",
+            "**造**：",
+            "```javascript\nconst div = document.createElement(\"div\");\n```",
+            "注意：createElement **不会**把元素放进页面——它只在内存里造出来，让你先加样式、类名、文字，收拾好了再挂上去。",
+            "**挂 / 删**：",
+            "```text\nparentNode.appendChild(childNode)              → 挂为孩子（排在最后）\nparentNode.insertBefore(newNode, referenceNode) → 挂在某个孩子前面\nparentNode.removeChild(child)                   → 从页面移除，返回该节点引用\n```"
+          ]
+        },
+        {
+          "h": "改元素①：内联样式",
+          "p": [
+            "拿到元素引用后，最直接的改法是改它的 style：",
+            "```javascript\n// 改单条样式\ndiv.style.color = \"blue\";\n\n// 一次性设整段内联样式\ndiv.setAttribute(\"style\", \"color: blue; background: white;\");\n```",
+            "坑来了：CSS 的 kebab-case（如 `background-color`）不能直接用点号写——JS 会把连字符当减号：",
+            "```javascript\ndiv.style.background-color;    // ✗ 相当于 div.style.background 减 color\ndiv.style.backgroundColor;     // ✓ 点号写法用 camelCase\ndiv.style[\"background-color\"]; // ✓ 方括号写法，kebab-case / camelCase 都行\ndiv.style[\"backgroundColor\"];  // ✓ 同上\n```"
+          ]
+        },
+        {
+          "h": "改元素②：属性与类",
+          "p": [
+            "**属性**（attribute）三件套：",
+            "```javascript\ndiv.setAttribute(\"id\", \"theDiv\"); // id 存在就改、不存在就建\ndiv.getAttribute(\"id\");            // 读，返回 \"theDiv\"\ndiv.removeAttribute(\"id\");         // 删\n```",
+            "全部可用属性见 MDN 的 HTML 属性参考（外部资料区有中文版直达）。",
+            "**类**（class）用 classList，三招：",
+            "```javascript\ndiv.classList.add(\"new\");     // 加类\ndiv.classList.remove(\"new\");  // 去类\ndiv.classList.toggle(\"active\"); // 有则删、无则加\n```",
+            "官方顺带一个工程习惯：**改类名通常比改内联样式更干净**——把外观写在 CSS 类里，JS 只负责 toggle 类。"
+          ]
+        },
+        {
+          "h": "改元素③：文字与 HTML",
+          "p": [
+            "```javascript\n// 加纯文本\ndiv.textContent = \"Hello World!\";\n\n// 加 HTML（会被解析渲染）\ndiv.innerHTML = \"<span>Hello World!</span>\";\n```",
+            "⚠️ **安全提示**：加文本一律优先 textContent。innerHTML 会把你给的字符串当 HTML 解析，等于给「往页面里塞脚本」开了口子——这就是最常见的跨站脚本攻击（XSS）的入口。官方配了一个 XSS 攻防视频（见外部资料），看一眼就知道危险在哪。innerHTML 不是不能用，是要省着用、用在可控内容上。"
+          ]
+        },
+        {
+          "h": "串起来：把一个 div 放进页面",
+          "p": [
+            "完整流程走一遍。HTML 里只有一个空容器：",
+            "```html\n<body>\n  <h1>THE TITLE OF YOUR WEBPAGE</h1>\n  <div id=\"container\"></div>\n</body>\n```",
+            "JS 四步：",
+            "```javascript\n// ① 抓住已存在的容器\nconst container = document.querySelector(\"#container\");\n\n// ② 内存里造新 div\nconst content = document.createElement(\"div\");\n\n// ③ 收拾它：加类、加文字\ncontent.classList.add(\"content\");\ncontent.textContent = \"This is the glorious text-content!\";\n\n// ④ 挂进页面\ncontainer.appendChild(content);\n```",
+            "跑完后 DOM 树变成：",
+            "```html\n<body>\n  <h1>THE TITLE OF YOUR WEBPAGE</h1>\n  <div id=\"container\">\n    <div class=\"content\">This is the glorious text-content!</div>\n  </div>\n</body>\n```",
+            "再强调一次官方的原话：JS 改的**不是你的 HTML 文件，而是 DOM**——源文件纹丝不动，变的是浏览器渲染的那棵树。"
+          ]
+        },
+        {
+          "h": "时机问题：script 放哪儿",
+          "p": [
+            "JS 大体在「文件被运行」或「HTML 读到 script 标签」时执行。如果你把 `<script>` 放在 `<head>` 里，它会跑在**节点出生之前**——`querySelector(\"#container\")` 抓到 null，后面全线崩。",
+            "两种修法：",
+            "```html\n<!-- 修法一：script 放 </body> 前，DOM 先解析完 -->\n<body>\n  ...\n  <script src=\"app.js\"></script>\n</body>\n\n<!-- 修法二：留在 head，但加 defer——HTML 解析完才执行 -->\n<head>\n  <script src=\"app.js\" defer></script>\n</head>\n```",
+            "defer 的详细行为见外部资料里 JavaScript.info 那篇（有中文版）。"
+          ]
+        },
+        {
+          "h": "官方 Exercise：三件套",
+          "p": [
+            "官方要求先把上面的示例在本地跑通（补全 HTML 骨架、接好 JS 文件），然后**只用 JS 和上面讲过的方法**往 container 里加三样东西：",
+            "1. 一个红字的 `<p>`：\"Hey I'm red!\"",
+            "2. 一个蓝字的 `<h3>`：\"I'm a blue h3!\"",
+            "3. 一个黑边框粉底的 `<div>`，里面再装：一个说 \"I'm in a div\" 的 `<h1>` 和一个说 \"ME TOO!\" 的 `<p>`",
+                "第三件的官方提示：先 createElement 造出外层 div，**先把 h1 和 p append 到它身上，再把它挂进 container**——顺序别反。样式（红字、蓝字、边框底色）用 style 或 classList 都行，正好练刚学的两招。"
+          ]
+        },
+        {
+          "h": "事件：让页面开始「听」",
+          "p": [
+            "到目前为止一切都是「JS 跑一遍、页面变一次」。**事件**（event）让页面能等用户动作——点击、按键——再做出反应。官方列出三种挂法，全都用同一个例子演示：点按钮弹 \"Hello World\"。",
+            "**方法 1：HTML 属性**",
+            "```html\n<button onclick=\"alert('Hello World')\">Click Me</button>\n```",
+            "不理想：JS 混进了 HTML，而且一个元素的 onclick **只能有一个**。",
+            "**方法 2：DOM 属性**",
+            "```html\n<button id=\"btn\">Click Me</button>\n```",
+            "```javascript\nconst btn = document.querySelector(\"#btn\");\nbtn.onclick = () => alert(\"Hello World\");\n```",
+            "JS 挪出了 HTML，进步；但 onclick 依然只能挂一个。",
+            "**方法 3：addEventListener（首选）**",
+            "```html\n<button id=\"btn\">Click Me Too</button>\n```",
+            "```javascript\nconst btn = document.querySelector(\"#btn\");\nbtn.addEventListener(\"click\", () => {\n  alert(\"Hello World\");\n});\n```",
+            "关注点分离 + 可挂多个监听器——灵活强大，代价是写法稍长。三种方法都能配命名函数：函数体长了、或多处复用，就把它拎成具名函数（如 alertFunction），再传给 onclick / addEventListener。"
+          ]
+        },
+        {
+          "h": "回调与事件对象 e",
+          "p": [
+            "传给 addEventListener 的那个函数有个名字：**回调**（callback）——被当作参数传进另一个函数的函数。第 40 课 map / filter 你已经用过这个模式，这里正式点名。",
+            "回调可以带一个参数（习惯写 e），JS 会自动把**事件对象**塞给它——里面装着这次事件的全部信息：按了哪个键、哪个鼠标键、以及最重要的 **target**（被点的那个 DOM 节点）：",
+            "```javascript\nbtn.addEventListener(\"click\", function (e) {\n  console.log(e);        // 整个事件对象\n});\n\nbtn.addEventListener(\"click\", function (e) {\n  console.log(e.target); // 被点的节点\n});\n\nbtn.addEventListener(\"click\", function (e) {\n  e.target.style.background = \"blue\"; // 直接改被点节点的背景\n});\n```",
+            "e 这个名字没有任何魔法——事件监听回调按定义就接收一个 Event 对象，处理器会把自己的引用传进来。事件对象全貌见外部资料里 MDN 的事件介绍（有中文版）。"
+          ]
+        },
+        {
+          "h": "给一组节点批量挂监听",
+          "p": [
+            "页面上一排按钮都要挂监听，一个个写太笨。用 querySelectorAll 拿 NodeList，forEach 扫一遍：",
+            "```html\n<div id=\"container\">\n  <button id=\"one\">Click Me</button>\n  <button id=\"two\">Click Me</button>\n  <button id=\"three\">Click Me</button>\n</div>\n```",
+            "```javascript\n// buttons 是个 NodeList，长得、用得都像数组\nconst buttons = document.querySelectorAll(\"button\");\n\nbuttons.forEach((button) => {\n  button.addEventListener(\"click\", () => {\n    alert(button.id);\n  });\n});\n```",
+            "点到哪个按钮就弹哪个的 id。常用事件还有 dblclick、keydown、keyup；完整事件清单见外部资料 W3Schools 那页。官方说这只是冰山一角——但足够你做完接下来的练习了。"
+          ]
+        },
+        {
+          "h": "Assignment 怎么做",
+          "p": [
+            "三条任务：",
+            "1. **读 JavaScript Tutorial 的六篇事件文章**（事件 / 鼠标 / 键盘 / 事件委托 / dispatchEvent / 自定义事件）。官方原话：目标是**建立意识**——知道工具箱里有哪些东西，不是立刻全懂会用。特定事件的细节永远可以回头查文档。",
+            "2. **读 dev.to 的回调文章**：把「回调」这个概念再夯实一遍。",
+            "3. **做 MDN DOM scripting 的两个练习小节**：基础 DOM 操作 + 动态购物清单。这是动手项——购物清单那个练习会让你把本课全部内容串起来用一遍（创建、挂载、监听、改文字），是第 42 课 RPS UI 的完美热身。",
+            "所有阅读与练习入口都在下方外部资料区，逐条带中文说明。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "html",
+          "code": "<div id=\"container\">\n  <div class=\"display\"></div>\n  <div class=\"controls\"></div>\n</div>\n\n<!-- #container 是 parent；.display 与 .controls 互为 sibling；\n     两个小 div 都是 #container 的 child -->",
+          "note": "浏览器把这段 HTML 解析成一棵三层节点树。JS 的一切操作都以这棵树上的关系为坐标。"
+        },
+        {
+          "lang": "javascript",
+          "code": "const container = document.querySelector(\"#container\");\nconst display = container.firstElementChild;   // .display\n\nconst controls = document.querySelector(\".controls\");\nconst display2 = controls.previousElementSibling; // 还是 .display",
+          "note": "两条路殊途同归：一条从父往下（firstElementChild），一条从兄弟横着来（previousElementSibling）。"
+        },
+        {
+          "lang": "javascript",
+          "code": "const container = document.querySelector(\"#container\");\n\nconst content = document.createElement(\"div\");\ncontent.classList.add(\"content\");\ncontent.textContent = \"This is the glorious text-content!\";\n\ncontainer.appendChild(content);",
+          "note": "官方核心示例。四步顺序：抓容器 → 内存造 → 加类加字 → 挂进页面。"
+        },
+        {
+          "lang": "javascript",
+          "code": "div.style.background-color;    // ✗ 被当成减法\ndiv.style.backgroundColor;     // ✓ 点号 + camelCase\ndiv.style[\"background-color\"]; // ✓ 方括号 + kebab-case\ndiv.style[\"backgroundColor\"];  // ✓ 方括号 + camelCase",
+          "note": "唯一错误的写法就是最容易顺手写出来的那种——点号后面跟带连字符的名字。"
+        },
+        {
+          "lang": "javascript",
+          "code": "div.setAttribute(\"id\", \"theDiv\");   // 改/建\ndiv.getAttribute(\"id\");              // 读 => \"theDiv\"\ndiv.removeAttribute(\"id\");           // 删\n\ndiv.classList.add(\"new\");\ndiv.classList.remove(\"new\");\ndiv.classList.toggle(\"active\");      // 有则删无则加",
+          "note": "属性三件套 + 类三招。toggle 是「开关类」的利器——菜单展开收起、按钮选中态全靠它。"
+        },
+        {
+          "lang": "html",
+          "code": "<!-- 方法 1：JS 混进 HTML -->\n<button onclick=\"alert('Hello World')\">Click Me</button>\n\n<!-- 方法 2 / 3 的 HTML -->\n<button id=\"btn\">Click Me Too</button>",
+          "note": "方法 1 污染 HTML 且 onclick 只能一个；方法 2（btn.onclick = ...）干净些但仍然只能一个；方法 3（addEventListener）两个问题全解决——这就是它是首选的原因。"
+        },
+        {
+          "lang": "javascript",
+          "code": "function alertFunction() {\n  alert(\"YAY! YOU DID IT!\");\n}\nconst btn = document.querySelector(\"#btn\");\n\nbtn.onclick = alertFunction;                  // 方法 2\nbtn.addEventListener(\"click\", alertFunction); // 方法 3",
+          "note": "注意传的是函数名不带括号——传的是函数本身，不是它的执行结果。多处复用或函数体长时，具名函数清爽得多。"
+        },
+        {
+          "lang": "javascript",
+          "code": "btn.addEventListener(\"click\", function (e) {\n  e.target.style.background = \"blue\";\n});",
+          "note": "e.target 是被点的那个节点。这一行 = 「点谁谁变蓝」——事件对象让回调知道「发生了什么、发生在谁身上」。"
+        },
+        {
+          "lang": "javascript",
+          "code": "const buttons = document.querySelectorAll(\"button\");\n\nbuttons.forEach((button) => {\n  button.addEventListener(\"click\", () => {\n    alert(button.id);\n  });\n});",
+          "note": "NodeList 自带 forEach。一排按钮各弹各的 id——第 42 课 RPS 的三个出拳按钮就是这么挂的。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "script 放 head 里又不加 defer",
+          "text": "querySelector 拿到 null、全线崩——记住「先有 DOM 再跑 JS」"
+        },
+        {
+          "title": "div.style.ba…",
+          "text": "div.style.background-color：点号写法里连字符是减号，运行时直接报错或得到 NaN"
+        },
+        {
+          "title": "把 innerHTML 当万能文本工具",
+          "text": "用户输入一旦拼进 innerHTML 就是 XSS 入口——加文本用 textContent"
+        },
+        {
+          "title": "以为 querySelectorAll 返回数组",
+          "text": "它是 NodeList，缺好些数组方法，需要时 Array.from() 或展开运算符转真数组"
+        },
+        {
+          "title": "传回调时写成 alertFunction()",
+          "text": "带括号是「立刻执行并把返回值传过去」，你要传的是函数本身"
+        },
+        {
+          "title": "createElemen…",
+          "text": "createElement 之后忘了 appendChild：元素只存在于内存里，页面上什么都看不到"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 读 JavaScript Tutorial 的 DOM 系列六篇（JavaScript events / Mouse events / Keyboard events / Event delegation / The dispatchEvent method / Custom events）——官方明说目标是建立工具意识、不求深解，特定事件细节随时查文档；② 读 dev.to 的《Understanding Callbacks in JavaScript》加深回调理解；③ 完成 MDN DOM scripting 页的两个练习小节：Doing some basic DOM manipulation 与 Creating a dynamic shopping list。另：正文阅读材料（MDN 展开语法 / HTML 属性参考 / 事件介绍 / DOM 脚本简介、JavaScript.info 的 defer 讲解、XSS 攻防视频、W3Schools 事件参考）均见本课外部资料。"
+        ],
+        "exercise": [
+          "把「创建并挂载一个 div」示例在本地跑通（补全 HTML 骨架、接好 JS 文件），然后只用 JS 与本课方法向 container 添加三件：红字 p（Hey I'm red!）、蓝字 h3（I'm a blue h3!）、黑边框粉底 div 内嵌 h1（I'm in a div）与 p（ME TOO!）——第三件先把 h1 与 p append 到内层 div 再挂进 container"
+        ],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources":       {
+        "basedOn": "TOP 官方 DOM_manipulation_and_events.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "30b3a3e929076d7bda9b612aba6388742e8a7e2ea6b210ed0b309d479bc0c2b5",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "revisiting-rock-paper-scissors",
+      "title": "Revisiting Rock Paper Scissors",
+      "zh": "重做石头剪刀布",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors",
+      "summary": "学完 DOM 就回去给第 38 课的石头剪刀布装 UI：按钮出拳、div 显示比分。动手之前先补一块 Git 知识——分支（branch）：在不弄坏现有版本的前提下开发新功能，做完再合并回主干。一次课，两个收获。",
+      "guide": "这课的形式和第 38 课一样是「边学边做」：前半讲 Git 分支（为什么 + 怎么用），后半是给 RPS 加界面的完整项目流程（开分支 → 改代码 → 合并 → 清理 → 发布）。Git 部分是纯知识，项目部分是纯动手。官方只有一个热身练习（learngitbranching 前 3 关）——建议认真玩，分支这种「多条平行现实」的概念，可视化练习十分钟胜过读十遍文字。",
+      "understand": [
+        "分支 = 仓库里同时存在的多个「平行版本」；在第 07 课设 init.defaultBranch main 时你其实已经在用分支了",
+        "main 是默认分支（主干），feature branch 是从主干或别的分支上长出来的开发分支",
+        "git branch（列）/ git branch <名>（建）/ git checkout <名>（切换）/ git checkout -b <名>（一步建+切）",
+        "合并：切到目标分支后 git merge <来源分支>；同文件同行被两边改过会产生冲突（下节课才讲解法）",
+        "删分支：已合并用 git branch -d，未合并强制删用 -D；用完就删，别让分支堆成山",
+        "分支的分享用法：把卡住的 broken code 推到临时分支求援，不污染 main 的「永久记录」",
+        "RPS UI 需求：三个按钮替代 prompt、去掉五轮限制、div 显示结果、先到 5 分宣布胜者"
+      ],
+      "terms": [
+        {
+          "en": "branch",
+          "zh": "分支"
+        },
+        {
+          "en": "default branch",
+          "zh": "默认分支"
+        },
+        {
+          "en": "main",
+          "zh": "主干分支"
+        },
+        {
+          "en": "feature branch",
+          "zh": "功能分支"
+        },
+        {
+          "en": "merge",
+          "zh": "合并"
+        },
+        {
+          "en": "merge conflict",
+          "zh": "合并冲突"
+        },
+        {
+          "en": "checkout",
+          "zh": "切换分支"
+        },
+        {
+          "en": "refactor",
+          "zh": "重构"
+        }
+      ],
+      "tasks": [
+        "完成 learngitbranching.js.org「Introduction Sequence」第 1–3 关（只做这三关）",
+        "在原 RPS 仓库开 rps-ui 分支并推到 GitHub（git checkout -b rps-ui + git push origin rps-ui）",
+        "按官方步骤给 RPS 加 UI：三按钮替代 prompt、去掉五轮、div 显示结果与累计比分、先到 5 分宣布胜者",
+        "完成后合并回 main（checkout main → merge rps-ui → push）、删掉本地与远端的 rps-ui 分支",
+        "发布到 GitHub Pages 并把 live preview 链接填回项目课页面"
+      ],
+      "quiz": [
+        {
+          "question": "关于分支，哪句是对的？",
+          "answer": "在某个分支上做的 commit 只存在于那个分支上，其他分支保持分叉时的原样——官方称之为「平行现实」。merge 才把时间线汇合。"
+        },
+        {
+          "question": "git checkout -b rps-ui 做了什么？",
+          "answer": "一步完成：创建 rps-ui 分支并切换过去（等于 git branch rps-ui + git checkout rps-ui 两条合一）。官方整个项目流程就从这条命令开始。"
+        },
+        {
+          "question": "把 rps-ui 的成果合并进 main 的正确顺序是？",
+          "answer": "先 git checkout main 切到要合入的分支，再 git merge rps-ui 把来源分支合进来。merge 的方向感最容易搞反：git merge <名字> = 把 <名字> 上的提交搬进当前分支。"
+        },
+        {
+          "question": "git branch -d 与 git branch -D 的区别是？",
+          "answer": "-d 删已合并的分支（没合并会拒绝，安全删）；-D 连未合并的分支也强制删（未合并的提交会丢）。删远端分支另有命令：git push origin --delete <名>。"
+        }
+      ],
+      "optional": [],
+      "note": "本课的 RPS UI 部分是动手项目：本站提供官方要求的中文化与拆解，不提供界面成品代码——三个按钮怎么建、监听怎么挂、比分怎么显示，用第 41 课刚学的方法自己写。官方也明说：为了适配 UI 你大概率要重构原代码，这很正常，「重写旧代码是程序员生涯的常规部分」。",
+      "why": "第一次做「旧项目升级」：既练 DOM（把控制台游戏变成真网页游戏），又练分支工作流（真实开发里没人直接在 main 上写新功能）。两个能力都是后面两个 Project 的直通前置。",
+      "sections": [
+        {
+          "h": "为什么现在学分支",
+          "p": [
+            "马上要给石头剪刀布加 UI——但万一改坏了呢？总不能眼睁睁看着能跑的旧版本被自己改崩。**分支**（branch）解决的就是这个：让仓库同时持有多个「平行现实」版本的文件。",
+            "其实你早就在用分支了。第 07 课设 `git config --global init.defaultBranch main` 时，你设置的就是**默认分支**的名字——第一次 commit 时 git 自动创建的那个分支。像树一样（所以叫 branch），所有分支都从「树干」（main）或别的分支上长出来。",
+            "核心规则：**在某个分支上做的提交只存在于那个分支上**。于是 main 可以只放「确认能跑的完成品」，每个新功能都在自己的 feature branch 上开发，做完了再合并回去。"
+          ]
+        },
+        {
+          "h": "分支四招：建、看、切、删",
+          "p": [
+            "```text\ngit branch              ← 列出所有分支，当前所在的前面有星号\ngit branch <名字>       ← 新建分支\ngit checkout <名字>     ← 切换到该分支\ngit checkout -b <名字>  ← 新建 + 切换，一步到位\n```",
+            "切换回 main 与切到任何分支写法一样：`git checkout main`。",
+            "**合并**（merge）：功能做完，切到要合入的分支（如 main），执行 `git merge <功能分支名>`——功能分支上的提交全部汇入当前分支。",
+            "**冲突预告**：如果两个分支改了**同一文件的同一行**，合并时会报 merge conflict。怎么解冲突是后面课的内容，现在只要知道「有这回事」。",
+            "**删分支**：用完了就删，否则越积越多、找起来费劲。已合并的用 `git branch -d <名字>`；没合并但确定不要了，用 `-D` 强制删。"
+          ]
+        },
+        {
+          "h": "分支的另一个用法：求援",
+          "p": [
+            "分支不只能装新功能，还能**分享不敢提交的代码**。比如新功能里有个查不出的 bug、代码处于崩溃状态——你不想让这份 broken code 进 main 的「永久记录」。做法：开个临时分支、提交上去、推到 GitHub，把分支链接发给能帮你的人。",
+            "Assignment 里你会真实地走一遍「开分支 → 推分支」的流程，为 RPS UI 做准备。"
+          ]
+        },
+        {
+          "h": "项目①：热身——learngitbranching 前 3 关",
+          "p": [
+            "官方唯一指定的热身：Peter Cottle 做的交互式 Git 分支可视化练习 learngitbranching.js.org（外部资料区有中文版直达——该站自带简体中文界面）。",
+            "**只做 Introduction Sequence 的第 1–3 关**。每关都是「用命令把提交树摆成目标形状」的谜题，玩几关之后「分支是平行时间线」这句话会从文字变成直觉。"
+          ]
+        },
+        {
+          "h": "项目②：开 rps-ui 分支并推上 GitHub",
+          "p": [
+            "回到你第 38 课的 RPS 仓库，照官方步骤走：",
+            "```text\ngit checkout -b rps-ui     ← 建 rps-ui 分支并切过去\ngit branch                 ← 确认星号在 rps-ui 上\ngit push origin rps-ui     ← 推到 GitHub（远端此刻只有 main）\n```",
+            "推完去 GitHub 仓库页看：分支下拉框里出现两个分支，可以随时切换查看。之后在这个分支上加文件、提交、推送，跟平时完全一样——只是推送命令变成 `git push origin rps-ui`。",
+            "官方配了一张 GitHub 分支下拉框的截图（见外部资料说明），照着找就不会迷路。"
+          ]
+        },
+        {
+          "h": "项目③：给游戏装界面（核心任务）",
+          "p": [
+            "需求逐条（全部来自官方原文）：",
+            "1. **去掉五轮制**：删掉「恰好玩五轮」的逻辑",
+            "2. **三个按钮替代 prompt**：石头 / 剪刀 / 布各一个，各挂监听器，点击时用正确的 playerSelection 调用你的 playRound（这步可以暂时保留 console.log）",
+            "3. **div 显示结果**：加一个显示区，把所有 console.log 换成 DOM 方法",
+            "4. **累计比分 + 胜者**：显示当前比分，一方先到 5 分时宣布赢家",
+            "官方原话提醒：为了适配 UI 你**大概率要重构原代码**——没关系，「重写旧代码是程序员生涯的重要部分」。第 41 课的批量监听示例（querySelectorAll + forEach）就是为三个按钮准备的。"
+          ]
+        },
+        {
+          "h": "项目④：合并、清理、发布",
+          "p": [
+            "全部做完、确认满意、`git status` 确认都提交了之后，收官五步：",
+            "```text\ngit checkout main            ← 切回主干\ngit merge rps-ui             ← 把功能分支合进来\ngit log                      ← 检查提交都在\ngit push origin main         ← 推主干\ngit branch -d rps-ui         ← 删本地功能分支\ngit push origin --delete rps-ui  ← 删远端功能分支\n```",
+            "最后一步：把项目发布到 **GitHub Pages**，并把 live preview 链接填回 TOP 官方的项目课页面——这是官方要求的收尾动作。恭喜：你完成了第一次完整的「功能分支工作流」。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "text",
+          "code": "git checkout -b rps-ui      # ① 建并切\n# ...开发、commit、push origin rps-ui...\ngit checkout main           # ② 切回主干\ngit merge rps-ui            # ③ 合并\ngit branch -d rps-ui        # ④ 删本地\ngit push origin --delete rps-ui  # ⑤ 删远端",
+          "note": "官方项目流程的全部 git 命令就这五条。顺序别乱：merge 前一定先切到要合入的分支。"
+        },
+        {
+          "lang": "text",
+          "code": "$ git branch\n  main\n* rps-ui",
+          "note": "无参数的 git branch 列出所有分支，星号标出当前所在。开分支后先跑一遍它确认自己站对了地方，是官方反复强调的习惯。"
+        },
+        {
+          "lang": "text",
+          "code": "# 错：站在 rps-ui 上 merge main —— 方向反了\ngit checkout main       # 先切到「要合入」的分支\ngit merge rps-ui        # 再把「来源」合进来",
+          "note": "git merge <名字> = 「把 <名字> 上的提交搬进我当前所在的分支」。记住这句就不会合反。"
+        },
+        {
+          "lang": "javascript",
+          "code": "// 第 41 课的批量监听模式——具体实现自己写\nconst buttons = document.querySelectorAll(\"button\");\nbuttons.forEach((button) => {\n  button.addEventListener(\"click\", () => {\n    // 用 button 的身份推出 playerSelection，调 playRound，更新 div\n  });\n});",
+          "note": "这是官方 hint 的边界转述：告诉你「监听 + playRound」怎么接，具体实现留给你的第 41 课知识。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "在 rps-ui 分支上…",
+          "text": "在 rps-ui 分支上直接 git merge main：方向搞反——先 checkout main 再 merge rps-ui"
+        },
+        {
+          "title": "忘了推新分支",
+          "text": "本地建了 rps-ui，GitHub 上没有——git push origin rps-ui 一次搞定"
+        },
+        {
+          "title": "往 main 直接写新功能",
+          "text": "本课整个意义就是练「main 只放完成品」的纪律"
+        },
+        {
+          "title": "merge 后忘了 git log 检查",
+          "text": "官方步骤里专门有这一步，确认提交都进来了再推送"
+        },
+        {
+          "title": "用完的分支不删",
+          "text": "分支越积越多，下次找目标分支要翻半天——本地 -d、远端 --delete 一对收尾"
+        },
+        {
+          "title": "删错方向",
+          "text": "-d 只删已合并分支（安全），-D 会丢未合并的提交——想清楚再用大写"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 热身：完成 learngitbranching.js.org「Introduction Sequence」第 1–3 关（只做这三关）；② 在原 RPS 仓库开 rps-ui 分支（git checkout -b rps-ui）并推到远端（git push origin rps-ui），确认 GitHub 分支下拉框出现两个分支；③ 在 rps-ui 分支上给游戏装 UI：去掉五轮制、三个按钮各挂监听以正确参数调 playRound（可暂留 console.log）、加 div 显示结果并把 console.log 全换成 DOM 方法、显示累计比分并在一方先到 5 分时宣布胜者——官方提示大概率需要重构原代码；④ 全部提交后合并回 main（checkout main → merge rps-ui → log 检查 → push origin main）、删除本地与远端的 rps-ui 分支；⑤ 发布到 GitHub Pages 并把 live preview 链接填回 TOP 官方项目课页面。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources":       {
+        "basedOn": "TOP 官方 revisiting_rock_paper_scissors.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "7f31c3ed7a108a899a2794a3f1ffc66746d2813a0440561232374138104ebb24",
+        "verifiedAt": "2026-09-25"
+      }
+    
+},
+    {
+      "id": "etch-a-sketch",
+      "title": "Project: Etch-a-Sketch",
+      "zh": "项目：像素画板",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-etch-a-sketch",
+      "summary": "DOM 操课的实战首秀：做一个介于素描本和 Etch-A-Sketch 玩具之间的浏览器画板——JS 生成 16×16 方格、鼠标划过留痕、按钮重设网格。官方明说这课不该轻松：频繁查资料正是项目的一部分。",
+      "guide": "以下是官方原课的中文化梳理，带拆解、验收清单与 Hint 边界转述。这个项目的成品代码必须由你自己写出来——本站不提供任何可直接复制的实现，网格怎么生成、悬停怎么监听、重设怎么清场，全部用你第 41 课刚学的工具自己拼。官方原话：这个项目就该不容易，你会频繁 Google——这正是项目的设计意图，不是你不行。卡死了去 Discord 求助（课 05 资料卡有入口）。",
+      "understand": [
+        "项目定位：一个介于素描本与 Etch-A-Sketch 之间的浏览器玩具，练 DOM 操作",
+        "四步主线：建仓 → JS 生成 16×16 方格 → 悬停变色留痕 → 按钮重设网格",
+        "方格必须用 JS 创建（禁止手写复制 256 个 div），容器 div 可以写在 HTML 里",
+        "用 Flexbox 排网格——官方明令不碰 CSS Grid（那是 Foundations 之后的内容）",
+        "边框与外边距会改变方格实际尺寸，排格子时要算清楚",
+        "悬停 = mouseenter / mouseleave 事件；变色可用加类或直接改背景色两条路",
+        "重设按钮用 prompt 拿每边格数（上限 100），旧网格删掉、新网格占据同样的总空间",
+        "Extra credit（选做一或二）：随机 RGB 变色；每次交互加深 10%、十次全黑（opacity 思路）"
+      ],
+      "terms": [
+        {
+          "en": "grid",
+          "zh": "网格：本项目中由 Flexbox 排出的方格阵列（不是 CSS Grid 布局）"
+        },
+        {
+          "en": "hover",
+          "zh": "悬停：鼠标进入元素到离开之间的状态——mouseenter / mouseleave"
+        },
+        {
+          "en": "prompt()",
+          "zh": "弹窗获取用户输入：重设网格时拿每边格数（第 38 课已用过）"
+        },
+        {
+          "en": "opacity",
+          "zh": "CSS 不透明度属性：0 全透明到 1 全不透明——Extra credit 渐黑效果的钥匙"
+        },
+        {
+          "en": "RGB",
+          "zh": "红绿蓝三通道颜色值——Extra credit 随机颜色的思路"
+        }
+      ],
+      "tasks": [
+        "按 recipes 课的建仓步骤建好仓库，commit early and often（参考第 19 课提交信息规范）",
+        "用 JS 生成 16×16 方格并用 Flexbox 排成网格（容器 div 写在 HTML，方格一个都不许手写）",
+        "实现悬停变色：鼠标划过留下像素化的痕迹，像笔迹一样",
+        "实现重设按钮：prompt 拿每边格数（≤100），旧网格移除、新网格占据同样总空间",
+        "推送到 GitHub；（选做）Extra credit：随机 RGB / 每次 10% 渐黑，做一或两个都行"
+      ],
+      "quiz": [
+        {
+          "question": "官方为什么明令这个项目不许用 CSS Grid？",
+          "answer": "CSS Grid 是 Foundations 之后才会教的内容，而这个项目的定位就是专门练 Flexbox——用你已学的工具解决问题是项目的设计意图。同理，官方也说你会需要频繁查 JS 方法和 CSS——查资料本身是项目的一部分，不是犯规。"
+        },
+        {
+          "question": "悬停变色的 Hint 给了哪两条路？",
+          "answer": "一是给 div 加一个新类（配合 CSS 类规则变色）；二是直接用 JS 改 div 的背景色。两条路都通——正好对应第 41 课讲的 classList 与 style 两种改元素方式。悬停本身则用 mouseenter / mouseleave 事件监听实现。"
+        },
+        {
+          "question": "重设网格时为什么要把用户输入限制在 100 以内？",
+          "answer": "格数越多占用的计算资源越多——超过一定量会导致延迟、卡死甚至崩溃。官方 Tip：上限设 100。另外新网格要与旧网格占据同样的总空间（如 960px 宽），变的是每格的尺寸而不是画板总尺寸。"
+        }
+      ],
+      "optional": [],
+      "note": "本课为 Project 红线课：examples 为空数组，本站不提供成品代码（网格生成、悬停监听、重设逻辑的实现全部由你自己写）；正文提供官方要求中文化、拆解与验收清单。Extra credit 两项（随机 RGB / 10% 渐黑）为选做，做一或两个都行。",
+      "why": "第 41 课学了整套 DOM 工具，这课是它们的第一次全量实战——生成、挂载、监听、删除一个不少，还逼你把 Flexbox（第 26–30 课）与 JS 串起来用。作品集里它是你第一个「能玩」的页面。",
+      "sections": [
+        {
+          "h": "这是个什么项目",
+          "p": [
+            "官方的定位：一个介于素描本（sketchpad）和 Etch-A-Sketch 玩具之间的浏览器版画板。效果想象：屏幕上一片方格，鼠标划过的地方留下痕迹，像用很粗的像素笔画图。",
+            "官方两句话先垫底：① 这个项目**不该轻松**——你会频繁 Google 查 JS 方法和 CSS，这正是项目的设计意图；② 你完全可以用已学的工具做出来，真需要课外知识，网上资料多得是。卡死了去 Discord 求助。"
+          ]
+        },
+        {
+          "h": "开工前：建仓与纪律",
+          "p": [
+            "按 Project: Recipes（第 20 课）里「设置项目 GitHub 仓库」的同套步骤建仓。",
+            "官方特别提醒贯穿全程：**commit early and often**——小步提交，别写完一大坨才想起来。提交信息参考第 19 课的规范。"
+          ]
+        },
+        {
+          "h": "第一步：JS 生成 16×16 方格",
+          "p": [
+            "要求拆解：",
+            "官方还预判了你的崩溃时刻——「OMG，为什么我的网格没出现？？？」——排查清单：CSS 样式表链接了吗？开发者工具打开看看；JS 控制台有报错吗？Elements 面板里元素是不是其实生成了只是被藏住了？往代码里到处撒 console.log 看 JS 到底加载没有。",
+            "用什么造格、怎么挂进容器？第 41 课的 createElement + appendChild 就是为此准备的。"
+          ],
+          "list": [
+            "方格**必须用 JavaScript 创建**——禁止在 HTML 里手写复制 256 个 div",
+            "一个「容器」div 可以写在 HTML 里，方格全部挂进它",
+            "用 **Flexbox** 把方格排成网格（一行 16 个、共 16 行）——**不要**去研究 CSS Grid，那是后面路径的内容，本项目专门练 Flexbox",
+            "注意边框（border）和外边距（margin）会改变方格实际占的尺寸——格子排不齐先查这里"
+          ]
+        },
+        {
+          "h": "第二步：悬停变色留痕",
+          "p": [
+            "效果：鼠标划过方格时它变色，在网格上留下一串（像素化的）痕迹，像笔迹。",
+            "官方 Hint（边界转述）：「悬停」= 鼠标**进入**方格开始、**离开**结束——给这两种事件挂监听器就是起点。变色有两条路：给方格加一个新类；或用 JS 直接改背景色。具体实现（监听挂在谁身上、逐格挂还是用第 41 课的批量 forEach、事件委托行不行）由你决定。"
+          ]
+        },
+        {
+          "h": "第三步：重设按钮",
+          "p": [
+            "屏幕顶部加一个按钮，点击后弹窗问用户「新网格每边多少格」。输入后：",
+            "官方 Tip：用户输入**上限 100**——格数太多会吃掉大量计算资源，可能卡顿、冻结甚至崩溃，要防住。",
+            "拿用户输入用什么？第 38 课的 prompt。删旧网格用什么？第 41 课的 removeChild（或等价思路）。"
+          ],
+          "list": [
+            "**旧的网格整个移除**",
+            "新网格生成在**与之前相同的总空间**里（比如 960px 宽）——总尺寸不变、变的是每格大小",
+            "输入 `64`，就该得到一个全新的 64×64 网格，总像素占位不变"
+          ]
+        },
+        {
+          "h": "第四步：收尾发布",
+          "p": [
+            "把项目推上 GitHub。别忘了整个过程里你一直在小步 commit。",
+            "到这里四步主线就完成了。下面两项 Extra credit 是选做——做其中一个或两个都做，随你。"
+          ]
+        },
+        {
+          "h": "Extra credit（选做）",
+          "p": [
+            "改造方格与鼠标的交互行为，两个方向任选：",
+            "1. **随机 RGB**：不再是全网格同一种颜色，每次交互随机化方格的 RGB 值",
+            "2. **渐进变黑**：每次交互让方格加深 10%，目标是十次交互后完全变黑（或完全着色）——官方 Hint：opacity 这个 CSS 属性很有用，用法见 MDN 文档（外部资料区有中文版直达）",
+            "两个挑战共享同一个底层改造点：方格的「颜色行为」从静态变成有状态。怎么记录「这个格子已经被划过几次」是你的设计决策。"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "手写 256 个 div",
+          "text": "官方明令方格必须用 JS 创建——手写复制粘贴 div 既违背练习目的，第三步重设网格时也会让你删无可删。"
+        },
+        {
+          "title": "偷懒去用 CSS Grid",
+          "text": "官方点名不许——CSS Grid 是 Foundations 之后的内容，本项目就是 Flexbox 的专项练习场。"
+        },
+        {
+          "title": "忽略边框与外边距对尺寸的影响",
+          "text": "border 和 margin 都会撑大方格的实际占位——排不出整齐网格时，先检查盒模型的这两个来源（第 24 课的知识在这里回头咬人）。"
+        },
+        {
+          "title": "重设时不限制输入上限",
+          "text": "格数无上限会让资源占用爆炸（卡顿 / 冻结 / 崩溃）。官方 Tip：上限 100。"
+        },
+        {
+          "title": "新网格改变了画板总尺寸",
+          "text": "要求是「同样的总空间、新的格数」——64×64 每格变小，画板整体还是 960px 宽。忘了这点会做出越点越大的画板。"
+        },
+        {
+          "title": "一格一监听写到怀疑人生",
+          "text": "第 41 课的批量监听（querySelectorAll + forEach）或事件委托思路都在——但选哪种、怎么写，是你这个项目的核心练习，本站不给成品。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 按 recipes 课的建仓步骤建仓，commit early and often（提交信息参考第 19 课）；② 用 JS 创建 16×16 方格网格——方格禁止手写复制，容器 div 可写在 HTML；用 Flexbox 排列（不碰 CSS Grid），小心边框与外边距对尺寸的影响；网格没出现的排查清单：CSS 链接 / 控制台报错 / Elements 面板 / console.log；③ 实现悬停变色：mouseenter / mouseleave 事件为起点，加类或改背景色两条路均可；④ 顶部加重设按钮：prompt 拿每边格数（上限 100），移除旧网格、新网格占据同样总空间（如 960px）；⑤ 推送到 GitHub。Extra credit（选做一或两个）：每次交互随机 RGB；每次交互加深 10%、十次全黑（Hint：opacity，见 MDN 文档）。另：卡住了去 Discord 求助。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 project_etch_a_sketch.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "8ec077f6f02a4518c6636e8689716b325c39d6ac4a159e6257363c570e2da00c",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "object-basics",
+      "title": "Object Basics",
+      "zh": "对象基础",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-object-basics",
+      "summary": "Foundations 倒数第三课：正式认识对象——键值对的集合，JS 里组织复杂数据的主力。更重要的是本课讲透一个此前一直「知其然」的现象：原始类型按值拷贝、对象按引用共享——为什么改 DOM 变量页面会跟着变，答案就在这。",
+      "guide": "恭喜走到 Foundations 的最后几课。本课两件事：对象的基础操作（创建、取值、运算符），以及原始类型与对象在「赋值时到底发生了什么」上的本质区别——引用（reference）概念。后者解释了你从第 41 课起一直在用的现象：为什么改 element 变量页面就变。官方明说对象可以讲得很深，这里只打基础，完整深潜是后面路径的内容。",
+      "understand": [
+        "对象 = 键值对的集合，存放复杂数据的主力；数组、函数也都属于对象数据类型",
+        "点号与方括号两种取值方式；本课阅读覆盖创建与属性访问",
+        "原始类型（string / number / boolean 等）一个变量只装一个值",
+        "赋值的本质区别：原始类型拷贝值、对象拷贝引用（指向同一个东西的地址）",
+        "修改（mutate）通过引用可见于所有引用者；重新赋值只改变量自己的指向",
+        "DOM 节点变量是引用——这就是改 element.style 页面会变的原因",
+        "函数传参同理：传对象改的是原对象、传原始类型改的只是副本"
+      ],
+      "terms": [
+        {
+          "en": "object",
+          "zh": "对象：键值对的集合，{ key: value }"
+        },
+        {
+          "en": "property",
+          "zh": "属性：对象里的一对键与值"
+        },
+        {
+          "en": "primitive data type",
+          "zh": "原始数据类型：string / number / boolean 等只装单个值的类型"
+        },
+        {
+          "en": "reference",
+          "zh": "引用：指向对象本身的地址——变量装的不是对象副本，是「去哪找它」"
+        },
+        {
+          "en": "mutate",
+          "zh": "修改：改动对象本身的内容（对引用者全部可见）"
+        },
+        {
+          "en": "reassign",
+          "zh": "重新赋值：让变量指向一个新对象（不影响其他引用者）"
+        }
+      ],
+      "tasks": [
+        "读 JavaScript.info 的对象文章（本课最佳起点，官方说不用做页尾练习）",
+        "读 MDN 的「JavaScript 对象基础」（跳过 Introducing constructors 一节，构造函数是后面的内容）",
+        "回到课 40 的数组方法练习区补做五道对象相关题：Map to names / Map to objects / Sort users by age / Get average age / Create keyed object from array",
+        "Fork 并克隆 Wes Bos 的 JavaScript30 仓库，跟做两个视频练习（Array Cardio Day 1 / Day 2，从 index-START.html 开始）",
+        "完成 javascript-exercises 的 object_basics 五题：calculator / palindromes / fibonacci / getTheTitles / findTheOldest"
+      ],
+      "quiz": [
+        {
+          "question": "let dataCopy = data 之后改 dataCopy，data 什么时候会跟着变？",
+          "answer": "当 data 装的是原始类型（数字、字符串等）时不跟变——dataCopy 拿到的是值的拷贝；当 data 装的是对象（含数组、函数、DOM 节点）时会跟变——dataCopy 拿到的是同一个对象的引用，改的是同一个东西。"
+        },
+        {
+          "question": "为什么改 element.style.backgroundColor 页面会立刻变？",
+          "answer": "element 变量装的是对 DOM 节点的引用——你代码里的变量和浏览器渲染用的 DOM 是同一个节点。如果它是副本（像原始类型那样），改它只会改副本、页面上什么都不会发生。你在 Etch-A-Sketch 里改格子颜色用的正是这个原理。"
+        },
+        {
+          "question": "修改（mutate）与重新赋值（reassign）对引用者的影响有何不同？",
+          "answer": "修改对象内容（objCopy.data = 43）作用于对象本身，所有引用同一对象的变量都能看到变化；把变量重新赋值为新对象（animal = { species: \"cat\" }）只改变量自己的指向，其他引用者还指着老对象。"
+        }
+      ],
+      "optional": [],
+      "note": "",
+      "why": "对象是 JS 组织真实项目数据的标配——Etch-A-Sketch 之后的所有项目都会用到；引用与拷贝的区别则是「为什么我的函数改了外面的变量」这类怪象的总答案，早懂早少踩坑。",
+      "sections": [
+        {
+          "h": "对象：键值对的集合",
+          "p": [
+            "对象是 JS 里非常重要的部分。简单甚至中等难度的任务可以不碰它，但任何真实项目都绕不开。官方口径：对象可以讲得很深，本课只打基础，后面路径会深潜。",
+            "两篇指定阅读：① JavaScript.info 的对象文章——官方称为最佳起点（不用做页尾练习）；② MDN 的「JavaScript 对象基础」——**跳过 Introducing constructors 一节**，构造函数是后面的内容。入口都在下方外部资料区。"
+          ]
+        },
+        {
+          "h": "对象与原始类型：一个装集合，一个装单值",
+          "p": [
+            "第 33 课学过原始数据类型（string / number / boolean 等）：一个变量只装**一个**东西。",
+            "对象数据类型则用于装**一组**数据与更复杂的实体——注意这个家族比你想的大：{ key: value } 对象、数组、函数，全都是对象数据类型。",
+            "但真正影响写代码的，是两者在**赋值与传参时的技术区别**——下一节。"
+          ]
+        },
+        {
+          "h": "拷贝值 vs 拷贝引用",
+          "p": [
+            "原始类型：赋值给新变量时，新变量拿到的是**值的拷贝**——之后各改各的，互不影响。",
+            "对象：赋值给新变量时，新变量拿到的是**引用**（reference）——指向同一个对象的地址。改动会双向可见。"
+          ],
+          "list": [
+            "原始类型：let data = 42; let dataCopy = data; 改 dataCopy 不影响 data",
+            "对象：const obj = { data: 42 }; const objCopy = obj; 改 objCopy.data 两个都变",
+            "数组同理（它也是对象）：拷贝出来的「数组变量」其实共享同一个数组"
+          ]
+        },
+        {
+          "h": "你已经用过引用了：DOM 节点",
+          "p": [
+            "上一个项目（Etch-A-Sketch）里你改格子颜色用的正是引用。看官方这段代码：",
+            "const element = document.querySelector(\"#container\"); 这行拿到的 element 不是节点的副本，而是对 DOM 里那个真实节点的引用。所以 element.style.backgroundColor = \"red\" 改的是页面上真正的节点。",
+            "反过来想：如果 element 是副本（原始类型的行为），改它对页面**毫无影响**——改的只是拷贝。第 41 课「JS 改的是 DOM」的完整原理，到这里闭环了。"
+          ]
+        },
+        {
+          "h": "函数传参：同一个区别",
+          "p": [
+            "传参就是把值赋给参数——所以原始类型与对象在函数里的行为也分道扬镳。看官方的两个计数器函数（正文有完整代码）：把对象 { counter: 0 } 传进去，函数里 counter += 1 改的是原对象——调用后外面的对象真的变了；把数字 0 传进去，函数里 += 1 改的只是副本——调用后外面的数字纹丝不动。",
+            "先猜再跑——官方也是这么建议的：看完代码先预测两个函数调用后各自的结果，再实际执行验证。这个「猜-跑-对答案」的循环是引用概念的最好练习。"
+          ]
+        },
+        {
+          "h": "修改 vs 重新赋值（官方提示框）",
+          "p": [
+            "多个变量引用同一个对象时：**修改**对象内容，所有引用者都看得到；**重新赋值**某个变量指向新对象，只有它自己换指向，其他引用者还指着老对象。",
+            "官方例子：animal = { species: \"dog\" }; dog = animal; 然后 animal = { species: \"cat\" }——此时 animal 是猫、dog 还是狗。重新赋值切断了 animal 与旧对象的连接，但 dog 的引用没动。",
+            "一句话记法：**改内容大家共享，换对象各走各路**。"
+          ]
+        },
+        {
+          "h": "Assignment 怎么做",
+          "p": [
+            "三条任务：",
+            "① 回到课 40 读过的 JavaScript.info 数组方法文章页尾练习区，补做五道对象相关题（Map to names / Map to objects / Sort users by age / Get average age / Create keyed object from array）——题目入口与课 40 同页。",
+            "② Fork 并克隆 Wes Bos 的 JavaScript30 仓库，跟做两个视频练习：Array Cardio Day 1 与 Day 2（从 index-START.html 开始跟练；视频入口在下方外部资料区）。",
+            "③ 完成 javascript-exercises 仓库 object_basics 目录的五题（calculator / palindromes / fibonacci / getTheTitles / findTheOldest，每题先读 README，答案在 solution 文件夹）。",
+            "官方收尾提醒：觉得撑不住或卡住，回去复习或去 TOP Discord 求助都完全正常。"
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "lang": "javascript",
+          "code": "let data = 42;\n// dataCopy 存的是 data 所含值的一份拷贝（42 的拷贝）\nlet dataCopy = data;\n\n// 改 dataCopy 不影响 data\ndataCopy = 43;\n\nconsole.log(data);     // 42\nconsole.log(dataCopy); // 43",
+          "note": "原始类型：拷贝值。两个变量从此各过各的。"
+        },
+        {
+          "lang": "javascript",
+          "code": "// obj 存的是对右侧这个对象的引用\nconst obj = { data: 42 };\n// objCopy 存的是对同一个对象的引用\nconst objCopy = obj;\n\n// 改 objCopy 就是在改它们共同指向的对象\nobjCopy.data = 43;\n\nconsole.log(obj);     // { data: 43 }\nconsole.log(objCopy); // { data: 43 }",
+          "note": "对象：拷贝引用。两个名字、一个对象——改谁都等于改它。"
+        },
+        {
+          "lang": "javascript",
+          "code": "const element = document.querySelector(\"#container\");\nelement.style.backgroundColor = \"red\";",
+          "note": "第 41 课的 DOM 操作，现在有了完整解释：element 是对真实节点的引用，改它就是改页面。"
+        },
+        {
+          "lang": "javascript",
+          "code": "function increaseCounterObject(objectCounter) {\n  objectCounter.counter += 1;  // 改的是原对象\n}\n\nfunction increaseCounterPrimitive(primitiveCounter) {\n  primitiveCounter += 1;      // 改的只是副本\n}\n\nconst object = { counter: 0 };\nlet primitive = 0;\n\nincreaseCounterObject(object);\nincreaseCounterPrimitive(primitive);\n\n// object.counter 变成 1；primitive 还是 0",
+          "note": "函数传参同规则：对象传引用、原始类型传拷贝。官方建议先猜结果再跑。"
+        },
+        {
+          "lang": "javascript",
+          "code": "let animal = { species: \"dog\" };\nlet dog = animal;\n\n// 重新赋值：只换 animal 自己的指向\nanimal = { species: \"cat\" };\n\nconsole.log(animal); // { species: \"cat\" }\nconsole.log(dog);    // { species: \"dog\" }",
+          "note": "修改内容大家共享、重新赋值各走各路——dog 的引用还拴在旧对象上。"
+        }
+      ],
+      "pitfalls": [
+        {
+          "title": "以为 const objCopy = obj 得到了独立副本",
+          "text": "拿到的是同一个对象的引用——改 objCopy 就是改 obj。真要独立副本得显式拷贝（那是有代价与坑的话题，本课不展开）。"
+        },
+        {
+          "title": "混淆修改与重新赋值",
+          "text": "objCopy.data = 43（改内容，双向可见）与 objCopy = { data: 43 }（换指向，只影响自己）是完全不同的两个操作。"
+        },
+        {
+          "title": "以为函数改了原始类型参数会影响外面",
+          "text": "原始类型传参是拷贝——函数里怎么改都不出去。想让函数「输出」结果，用返回值。"
+        },
+        {
+          "title": "对象比较用 === 想比内容",
+          "text": "对象比较比的是引用——两个内容一模一样的对象也是不相等的（不是同一个对象）。本课阅读里会讲到。"
+        },
+        {
+          "title": "提前去啃构造函数",
+          "text": "官方明说 MDN 那篇跳过 Introducing constructors 一节——构造函数是后面路径的内容，现在看只会增加负担。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 回到课 40 的 JavaScript.info 数组方法文章页尾练习区，只做五道对象相关题：Map to names、Map to objects、Sort users by age、Get average age、Create keyed object from array；② Fork 并克隆 Wes Bos 的 JavaScript30 仓库，从 index-START.html 开始跟做两个视频练习：04 Array Cardio Day 1 与 07 Array Cardio Day 2；③ 到 javascript-exercises 仓库的 foundations/object_basics 目录，读每个练习的 README 后按顺序完成五题：01_calculator、02_palindromes、03_fibonacci、04_getTheTitles、05_findTheOldest（答案在各练习的 solution 文件夹）。另：正文阅读（JavaScript.info 对象文章 + MDN 对象基础，跳过构造函数一节）见本课外部资料；卡住了回 TOP Discord 求助。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 object_basics.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "9c2ee497103aee431cbd01df7663f345f496fc24a331432e22c40c18d3b1cc42",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "calculator",
+      "title": "Project: Calculator",
+      "zh": "项目：计算器",
+      "group": 6,
+      "url": "https://www.theodinproject.com/lessons/foundations-calculator",
+      "summary": "Foundations 的收官项目：用 JavaScript、HTML、CSS 做一个屏幕计算器——四个运算函数、operate 调度、按钮驱动显示屏，再躲过官方点名的一串 Gotchas（单对运算链、连续运算符、除以 0……）。官方开篇先泼冷水：eval() 这个诱惑函数不许用。",
+      "guide": "以下是官方原课的中文化梳理，带拆解、验收清单与 Gotchas 转述。与前面三个 Project 一样，这个项目的成品代码必须由你自己写出来——本站不提供任何可直接复制的实现，四个运算函数怎么定义、operate 怎么调度、状态怎么存，全部用你前 44 课攒下的工具自己拼。官方原话：项目里会有对你不轻松的部分，但一路跟下来的你手里已经有了完成它需要的一切。怎么实现每一步，由你决定。",
+      "understand": [
+        "项目定位：屏幕计算器，JS + HTML + CSS 三件套的收官综合演练——把 Foundations 学的全部东西串起来用",
+        "官方第一步警告：研究「怎么求值数学表达式」时会撞见 eval() 与 new Function() 这两个现成方案——都不许用，理由见开工警告一节",
+        "主线五步：四个运算函数 → 三个变量（数 / 运算符 / 数）+ operate → HTML 骨架（按钮 + 显示屏）→ 数字按钮更新变量与显示屏 → = 时调用 operate 出结果",
+        "一条运算 = 一个数 + 一个运算符 + 另一个数（如 3 + 5）——用三个变量分别存，之后更新显示屏全靠它们",
+        "HTML 先搭骨架不管功能：每个数字和运算符一个按钮（含 =）、一个显示屏先填假数据看着对、一个 clear 按钮",
+        "Gotchas 七坑：单对运算链（12 + 7 - 1 = 18）、长小数四舍五入、= 早按、clear 要真清空、除以 0 出嘲讽报错且不崩、连续运算符只认最后一个、结果显示后按数字开新算",
+        "Extra credit（选做）：小数点按钮（禁 12.3.56.5 这种多个点）、backspace 撤销上一次输入、键盘支持"
+      ],
+      "terms": [
+        {
+          "en": "operate",
+          "zh": "调度函数：接收一个运算符和两个数字，按运算符调用对应运算函数——计算器的心脏"
+        },
+        {
+          "en": "eval()",
+          "zh": "把字符串当 JS 代码执行的函数——官方明令本项目禁用（安全风险，见开工警告）"
+        },
+        {
+          "en": "new Function()",
+          "zh": "从字符串创建函数对象的构造器——与 eval() 同源的危险方案，官方同样禁用"
+        },
+        {
+          "en": "display",
+          "zh": "显示屏：计算器顶部展示当前数字 / 结果的区域，随变量值更新"
+        },
+        {
+          "en": "clear",
+          "zh": "清空按钮：一键抹掉全部现有数据，让用户真正从头开始"
+        },
+        {
+          "en": "backspace",
+          "zh": "退格按钮（Extra credit）：撤销上一次输入，按错数字不用整场重来"
+        }
+      ],
+      "tasks": [
+        "创建 add / subtract / multiply / divide 四个运算函数并在浏览器控制台里逐个测试",
+        "创建三个变量（数 / 运算符 / 数）与 operate 函数（接收运算符和两个数，调用上面的运算函数）",
+        "搭 HTML 计算器骨架：每个数字和运算符一个按钮（含 =）、显示屏先填假数据、加 clear 按钮——先不管功能",
+        "实现数字按钮点击更新对应的数字变量、显示屏同步更新；= 按钮触发 operate 并显示结果（这是全项目最难的部分）",
+        "逐条对照 Gotchas 清单修 bug（单对运算链 / 连续运算符 / 除以 0 / clear / 长小数 / = 早按 / 结果后按数字）；（选做）Extra credit：小数点、backspace、键盘支持"
+      ],
+      "quiz": [
+        {
+          "question": "官方为什么在开工前专门警告 eval() 和 new Function()？",
+          "answer": "因为研究「怎么求值数学表达式」时你几乎一定会搜到这两个现成方案——它们都能把字符串当代码执行，看起来正好是计算器需要的。但执行不可信的字符串是公认的安全风险（MDN 有专章解释为什么绝不该用直接 eval），new Function() 的隐患同类。所以官方要求你自己写函数来求值表达式——何况「让方案替你干完所有活」还有什么乐趣。"
+        },
+        {
+          "question": "「单对运算链」是什么意思？以 12 + 7 - 1 = 为例说说计算器该怎么运作。",
+          "answer": "计算器一次只求值一对数字。输入 12、按 +、输入 7、按 - 的那一刻：先算出 12 + 7 并显示 19；再输入 1、按 =（或再按运算符）：用上一轮结果 19 当第一个数，算 19 - 1 显示 18。也就是说第二个运算符按下去时就要结算前一对——而不是把整串表达式攒着最后一起算。"
+        },
+        {
+          "question": "用户连按两次 + 运算符，计算器应该怎么处理？",
+          "answer": "不进行任何求值——不能把 2 + 算成 2 + 2 显示 4。连续按运算符时，计算器只记录最后一次按下的运算符，用它参与下一轮运算。核心原则：只有用户给齐了两个数和一个运算符，才运行一次运算。"
+        },
+        {
+          "question": "用户按 = 按早了（数字或运算符还没输全）会怎样？官方对除以 0 的要求是什么？",
+          "answer": "按早了 = 可能引发各种问题——这正是官方点名要「防住」的 Gotcha：你得保证没凑齐「两个数 + 一个运算符」时 = 不执行任何运算。除以 0 则要求显示一句嘲讽式（snarky）的错误信息，而且绝不能让计算器崩溃——报错之后它还得能继续用。"
+        }
+      ],
+      "optional": [],
+      "note": "本课为 Project 红线课：examples 为空数组，本站不提供成品代码（运算函数、operate 调度、状态存储与按钮监听的实现全部由你自己写）；正文提供官方要求中文化、拆解与 Gotchas 验收清单。Extra credit 三项（小数点 / backspace / 键盘支持）为选做，做几项随你。",
+      "why": "这是 Foundations 的最终项目：四个运算函数练函数封装，三个变量 + operate 练状态设计，按钮与显示屏练 DOM 与事件（第 41 课），Gotchas 七坑练边界思维——除 0、连按运算符、= 早按，全是真实世界程序的典型边角。做完它，你手里就有了一个能拿出手的交互作品，Foundations 也正式收官。",
+      "sections": [
+        {
+          "h": "这是个什么项目",
+          "p": [
+            "官方开场白：你已经走到了这里！到现在你应该对 JavaScript 基础有了非常扎实的把握。当然还有很多可学的，但此刻的你已经能做出相当多的东西了。最终项目要把你至今学过的一切综合起来：用 JavaScript、HTML 和 CSS 做一个屏幕计算器。",
+            "照例说在前头：项目里会有对你来说不轻松的部分，但一路跟下来的你绝对拥有完成它所需的全部。官方会带你过一遍可以采取的各种步骤——但每一步具体怎么实现，由你决定！"
+          ]
+        },
+        {
+          "h": "开工前的警告：eval() 与 new Function()",
+          "p": [
+            "动手前官方必须先交代一句警告。在你研究「JavaScript 怎么求值复杂的数学表达式」时，大概率会撞见那个诱人的 eval() 函数。但这个函数非常危险，MDN 专门写明了为什么你永远不该用它（外部资料区有中文版直达）。",
+            "所以这个项目要求你自己写函数来求值表达式。同一话题下，你可能还会看到「返回一个 new Function() 来对字符串求值」的解法——它与 eval() 同样不该用，坑在「对不可信数据求值」这件事本身（有个 StackOverflow 讨论专门对比两者，见资料卡）。",
+            "官方顺带补了一刀：何况，用替你干完所有活的解法还有什么乐趣？开工吧！"
+          ]
+        },
+        {
+          "h": "第一步：四个运算函数",
+          "p": [
+            "你的计算器要包含计算器上典型可见的全部基本数学运算符的函数。先给下面四项各建一个函数，并在浏览器控制台里逐个测试：",
+            "这四个函数是整台计算器的地基——add / subtract / multiply / divide，每个接收两个数字、返回运算结果。先在控制台里把它们测到全对，再往下走。"
+          ],
+          "list": [
+            "add（加）",
+            "subtract（减）",
+            "multiply（乘）",
+            "divide（除）"
+          ]
+        },
+        {
+          "h": "第二步：三个变量与 operate 函数",
+          "p": [
+            "一次计算器运算 = 一个数字、一个运算符、另一个数字。比如 3 + 5。创建三个变量，每个对应运算的一部分——之后更新显示屏时你会用到它们。",
+            "再创建一个新函数 operate：接收一个运算符和两个数字，然后对这两个数字调用上面四个运算函数中的对应那个。operate 是调度者——它自己不做事，把活派给正确的运算函数。"
+          ]
+        },
+        {
+          "h": "第三步：搭 HTML 骨架（先不管功能）",
+          "p": [
+            "用 HTML 搭一个基础计算器：每个数字和每个运算符各一个按钮（包括 =）。这一步先不用操心让它们能用。",
+            "还要有一个显示屏（display）——先往里填点假数据，让它看起来是对的。",
+            "再加一个「clear（清空）」按钮。骨架立起来、样子看着对，再进入下一步。"
+          ]
+        },
+        {
+          "h": "第四步：数字按钮更新变量与显示屏",
+          "p": [
+            "创建这样的函数：当计算器的数字按钮被点击时，更新你其中一个数字变量。同时计算器的显示屏也要更新，反映那个数字变量当前的值。",
+            "这一步把「按钮 → 变量 → 显示屏」这条数据流打通——事件监听是第 41 课的看家本领。"
+          ]
+        },
+        {
+          "h": "第五步：让它跑起来（最难的部分）",
+          "p": [
+            "让计算器真正工作！你需要存储用户输入的第一个和第二个数字，然后在用户按下 = 按钮时，根据两数之间选定的运算符对它们调用 operate()。",
+            "更新显示屏的代码你在上一步已经有了——所以 operate 被调用后，把运算结果更新到显示屏上。",
+            "官方明说：这是整个项目最难的部分。你需要想清楚怎么把所有值存下来、再用它们调用 operate 函数——如果花了很久才理清逻辑，完全不用难受，这很正常。"
+          ]
+        },
+        {
+          "h": "Gotchas：官方点名的七个坑",
+          "p": [
+            "下面这些 bug 要留心——如果你的代码里出现了就把它们修掉。逐条过：",
+            "想亲眼看「单对运算链」长什么样，可以把 12 + 7 - 1 = 输进官方给的在线计算器演示（资料卡有直达）感受一遍。"
+          ],
+          "list": [
+            "**一次只求值一对数字**：输入 12 → 按 + → 输入 7 → 按 -（此刻结算 12 + 7，显示 19）→ 输入 1 → 按 = 或再按运算符（用 19 当第一个数算 19 - 1，显示 18）",
+            "**长小数要四舍五入**：别让一长串小数把显示屏撑爆",
+            "**= 早按会出问题**：数字或运算符还没输全就按 =，得防住",
+            "**clear 要真清空**：抹掉全部现有数据，确保用户按完真的是从头开始",
+            "**除以 0**：显示一句嘲讽式错误信息，且绝不能让计算器崩溃",
+            "**连续按运算符**：不许把它算成 2 + 2 显示 4——不执行任何求值，只把最后按下的运算符记作下一轮用的那个；核心原则是只有给齐两个数和一个运算符才运算",
+            "**结果显示后再按数字**：应清掉结果、开始新计算，而不是把数字接到现有结果后面——在你自己的计算器上验证一下这条"
+          ]
+        },
+        {
+          "h": "Extra credit（选做）",
+          "p": [
+            "三项加分任选：",
+            "1. **小数点按钮**：用户能做出浮点数结果但目前还打不进去小数——加一个 `.` 按钮，允许输入小数！但同一显示屏里只能有一个小数点（不许 12.3.56.5），显示屏里已有小数点时把 `.` 按钮禁用掉",
+            "2. **backspace 按钮**：让用户按错数字时能撤销上一次输入",
+            "3. **键盘支持**：不只点按钮，键盘也能操作"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "用 eval() 或 new Function() 求值",
+          "text": "官方开工前警告的头号坑：这两个方案都能把字符串当代码执行，看着省事实则危险（对不可信数据求值是公认安全风险）。这个项目的练习目的就是让你自己写函数求值表达式。"
+        },
+        {
+          "title": "把整串表达式攒着最后一起算",
+          "text": "计算器一次只处理一对数字——第二个运算符按下去时就必须结算前一对（12 + 7 - 1 里按 - 的瞬间显示 19）。攒表达式的设计会在 Gotcha 1 上直接翻车。"
+        },
+        {
+          "title": "连续运算符被算成运算",
+          "text": "按 2、按 +、再按 +：不能显示 4。连续运算符不触发任何求值，只更新「下一个要用的运算符」。"
+        },
+        {
+          "title": "除以 0 让计算器崩掉",
+          "text": "官方要求的是显示一句嘲讽式错误信息并且程序继续活着——崩溃或 NaN 卡死都不算过关。"
+        },
+        {
+          "title": "clear 按完没真清空",
+          "text": "clear 要把所有现有数据抹干净：变量、显示屏、运算符状态，一个不留——用户按完 clear 必须是真的从头开始。"
+        },
+        {
+          "title": "结果还挂在屏上，新数字接了上去",
+          "text": "显示结果后再按数字，应该开启一轮新计算而不是把数字 append 到旧结果后面。官方点名要自查这条。"
+        },
+        {
+          "title": "长小数撑爆显示屏",
+          "text": "0.1 + 0.2 这类运算会吐出一长串小数——不四舍五入的话显示屏会溢出。"
+        }
+      ],
+      "official": {
+        "assignment": [
+          "① 创建 add / subtract / multiply / divide 四个运算函数并在控制台测试；② 创建三个变量（数 / 运算符 / 数，如 3 + 5）与 operate 函数（接收运算符和两个数，调用对应运算函数）；③ 搭基础 HTML 计算器：每个数字和运算符一个按钮（含 =）、显示屏先填假数据、加 clear 按钮，先不管功能；④ 数字按钮点击更新对应数字变量并同步显示屏；⑤ 让计算器工作：存储用户输入的两个数字，按 = 时按所选运算符对它们调用 operate() 并把结果显示出来（官方明说这是最难的部分，理清逻辑花时间很正常）。Gotchas：一次只求值一对数字（12 + 7 - 1 = 18，结算时机在按第二个运算符时）；长小数四舍五入防溢出；= 早按要防住；clear 真清空；除以 0 显示嘲讽错误信息且不崩溃；连续运算符不运算、只记最后一个；结果后再按数字应开新计算。Extra credit（选做）：小数点按钮（已有小数点则禁用）、backspace 按钮、键盘支持。开工前警告：eval() 与 new Function() 都不许用（见正文）。另：别忘了 commit early and often（参考第 19 课提交信息规范）。"
+        ],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 project_calculator.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "0124b4ab63c6bab560786618d0e5e688b8955aa270a1af7e93258d67ab19bb0d",
+        "verifiedAt": "2026-09-25"
+      }
+    },
+    {
+      "id": "choose-your-path-forward",
+      "title": "Choose Your Path Forward",
+      "zh": "选择接下来的方向",
+      "group": 7,
+      "url": "https://www.theodinproject.com/lessons/foundations-choose-your-path-forward",
+      "summary": "Foundations 的结语课：回顾你已经攒下的本事，然后做一个真正的抉择——下一段走 Ruby on Rails 还是 Node/Express。官方立场明确：没有标准答案，唯一错误的做法是中途换道。本课没有 Assignment，读完想清楚、选定、往下走就是全部任务。",
+      "guide": "以下是官方原课的中文化梳理。这是 Foundations 的最后一课——一篇纯结语，官方没有布置任何 Assignment：它的全部内容就是帮你回顾学到的东西、想清楚下一段路怎么选。两条路径（Ruby on Rails / JavaScript + Node/Express）官方都支持到成为出色的开发者，差别只在风格；纠结本身比选错更浪费。本站照实转述两条路的特性对比，不给倾向性建议。",
+      "understand": [
+        "你已经掌握的：至少三门语言的基础（HTML / CSS / JavaScript）、命令行、浏览器输入网址到页面返回的原理、用 JS 让网页动起来的能力",
+        "TOP 的目标不止于「能拼出网页」：把你带到能独立构建全功能、可扩展的 Web 应用——无论单干还是在顶级科技公司做开发者",
+        "关键抉择：Ruby with Rails 还是 JavaScript with Node/Express——两条路都通向出色的开发者，没有哪个更对",
+        "唯一的错误做法是中途换道：这只会让你倒退。多门语言让你全面，一门深耕让你专精——都成立",
+        "编程远不止学语言：研究并解决难题、工程思维、复杂代码库、与开发者高效沟通——这些能力可迁移，学第二门语言比第一门容易得多",
+        "Ruby on Rails 四特性：Opinionated（约定结构）/ Elegant（简洁优雅）/ Rapid development（快速开发）/ Single paradigm（OOP 单范式）",
+        "Node & Express 四特性：Un-opinionated（结构自己定）/ Very fast（JIT 编译）/ Verbose（无魔法、贴近计算机本质）/ 前后端同语言"
+      ],
+      "terms": [
+        {
+          "en": "Opinionated",
+          "zh": "有主见（框架约定）：Rails 替你决定项目结构——省去决策，也更容易接手别人的项目"
+        },
+        {
+          "en": "OOP",
+          "zh": "面向对象编程：Ruby 的单一范式，许多主流语言也以它为主"
+        },
+        {
+          "en": "JIT",
+          "zh": "即时编译（Just-In-Time）：JavaScript 借此获得很快的运算速度"
+        },
+        {
+          "en": "Full Stack",
+          "zh": "全栈：前后端都做——Node 路线前后端同语言是它的独特优势"
+        }
+      ],
+      "tasks": [
+        "对照官方回顾清单自查：命令行、网址到页面的原理、基础页面 + JS 交互、这一切如何组合成 Web 应用",
+        "认真读两条路径的特性对比，结合自己的偏好（要约定还是要自由、要快还是要透）形成初步倾向",
+        "还是定不下来就看官方的兜底建议：调研本地岗位（别忘了远程岗）、或让命运转盘替你拍板——然后分享到 Discord 聊天室",
+        "选定之后不再回头：把「不中途换道」写进你的学习计划，进入 Foundations 之后的完整路径课程"
+      ],
+      "quiz": [
+        {
+          "question": "官方认为选路径这件事上，唯一真正的错误是什么？",
+          "answer": "中途换道。两条路径没有对错之分——多学几门语言让你更全面，深耕一门让你更专精，两条路都能把你带成出色的开发者；但换道只会让你倒退。纠结语言选择本身也不值得：好课程远比你先学哪门语言重要。"
+        },
+        {
+          "question": "「编程远不止学一门语言」——官方列了哪些同样重要的能力？为什么不必担心选错语言？",
+          "answer": "研究与解决难题的能力、工程思维、应对复杂问题与代码库、与其他开发者高效沟通。这些能力可以迁移到其他语言和软件领域；而且多数语言在概念与结构上相似，学第二门语言会远比第一门容易。"
+        },
+        {
+          "question": "Rails 的「Opinionated」和 Node 的「Un-opinionated」分别是什么体验？",
+          "answer": "Rails 有主见：项目结构由框架约定，你不必做结构决策，接手他人项目也容易，还能顺带学「The Ruby Way」写出其他语言里的整洁代码。Node 无主见：没有标准做法，项目结构你自己定——自由与责任并存，好也坏都是你的。"
+        },
+        {
+          "question": "Node & Express 路线「前后端同语言」的优势是什么？",
+          "answer": "语言统一让整个应用的代码风格更容易保持一致；还能做一些酷事——同一段代码同时跑在浏览器和服务器上做优化。另外 Node 借 JIT 编译运算很快，且没有魔法、一切透明，反而让你更贴近计算机阅读代码的本质。"
+        }
+      ],
+      "optional": [],
+      "note": "本课是 Foundations 结语课：官方没有 Assignment 节（官方文件顶部即声明因独特的课结构豁免常规布局），本站也不添加任何作业。正文的「命运转盘」是官方嵌在页面里的交互玩具（wheeldecide），按本站不嵌第三方 iframe 的口径不搬运，正文转述其玩法。",
+      "why": "这是 Foundations 的终点线，也是路径选择的起跑线。回顾清单让你确认这 46 课没白学；路径对比帮你做学习生涯里第一个大方向决策。官方那句话值得记住：旅程才刚刚开始——后面的课程与项目会把你逼到极限，但走过去，你就准备好在编程世界留下自己的印记了。",
+      "sections": [
+        {
+          "h": "走到了这里：先回头看看",
+          "p": [
+            "这一路相当不易。停下来一秒，消化一个事实：你刚刚学完了至少三门不同语言的基础——如果需要，你现在大概已经能自己拼出一个网页了。",
+            "官方的回顾清单：你应该能相当自如地在命令行里敲命令；应该理解在浏览器输入一个网址后、一个能用的页面是怎么返回来的；应该能创建基础网页并用 JavaScript 让它做一些基础的事；最后，应该清楚这一切怎样组合起来、放进你未来作为 Web 应用构建者的图景里。"
+          ]
+        },
+        {
+          "h": "从「能拼网页」到「能做产品」",
+          "p": [
+            "以你现在知道的东西，已经可以开始拼一些基础网站了。但 TOP 的目标远不止于此：要把你带到能自信构建**全功能、可扩展的 Web 应用**的程度——要么独立做，要么作为开发者进入一家顶级科技公司。",
+            "学习曲线上你已经爬了很远，但还有更多好玩的东西等着学。现在，是时候决定接下来走哪条路了。"
+          ]
+        },
+        {
+          "h": "关键抉择：Rails 还是 Node/Express",
+          "p": [
+            "两条路径：**Ruby with Ruby on Rails**，或 **JavaScript with Node/Express**。两条都会带你构建技能、积累项目作品集、成为出色的开发者。",
+            "官方立场：**这里没有标准答案**。学多门语言能让你成为更全面的开发者；深耕一门则可能让你成为某门语言的专家——两条路都通。",
+            "唯一要避免的是**中途换道**——这只会让你倒退。选定了就走下去。"
+          ]
+        },
+        {
+          "h": "编程远不止学语言",
+          "p": [
+            "学会编程比学一门语言**多得多**：学会怎样研究和解决难题、建立工程思维、处理复杂问题与代码库、与其他开发者高效沟通，还有**多得多的东西**。",
+            "好消息：这些能力全部可迁移到其他语言与软件领域。而且多数语言在概念和结构上相似——学第二门语言会比学第一门容易得多。",
+            "「要学本地公司在用的语言」这类说法听着有理，但因为**好的开发者能轻松迁移技能**，你先学什么并不会大幅改变求职结果。实在放不下这个顾虑，就去调研你所在地区有哪些岗位（别忘了远程岗位）。**一门好课程远比先学哪门语言重要。**"
+          ]
+        },
+        {
+          "h": "Ruby on Rails 的四张牌",
+          "p": [
+            "官方给两条技术栈各列了四条特性。Ruby on Rails：",
+            "（「The Ruby Way」指 Ruby 社区的惯用写法——按它的套路写，代码自然整洁，这个习惯还能带进其他语言。）"
+          ],
+          "list": [
+            "**Opinionated（有主见）**：项目结构不用你决策，接手别人搭的项目也更容易",
+            "**Elegant（优雅）**：自带大量趁手工具，代码易读；Ruby 的解法往往比其他语言简洁得多",
+            "**Rapid development（快速开发）**：Rails 帮你非常快地搭应用——同样的时间你能做出更多有意思的项目",
+            "**Single paradigm（单一范式）**：面向对象编程（OOP）就是 Ruby 之道，许多其他语言也是以 OOP 为主"
+          ]
+        },
+        {
+          "h": "Node & Express 的四张牌",
+          "p": [
+            "JavaScript 阵营的 Node & Express：",
+            "（「Verbose / 无魔法」意味着没有框架替你藏细节——每个环节都得自己理解，反而让你离「计算机实际上怎么读你的代码」更近。）"
+          ],
+          "list": [
+            "**Un-opinionated（无主见）**：没有标准做法，项目结构你自己定——是好是坏都得自己扛",
+            "**Very fast（非常快）**：JavaScript 借 JIT（即时编译）技术，运算速度很快",
+            "**Verbose（直白啰嗦）**：没有任何魔法，你必须理解每个环节才能看懂整体",
+            "**前后端同语言**：语言统一让整个应用的代码风格更容易一致；还能做酷事——同一段代码同时跑在浏览器和服务器上做优化"
+          ]
+        },
+        {
+          "h": "还是拿不定主意？",
+          "p": [
+            "官方的最后通牒式安慰：到最后，选哪条路根本不重要——重要的是坚持下去，并且在整个职业生涯里保持学习者心态。",
+            "还没被说服？读读官方附的这篇文章《Choosing The Right Programming Language: how not to ruin your career》（by Carlos Diaz，Medium，英文）——外部资料区有直达链接。",
+            "官方还嵌了一个「命运转盘」玩具（wheeldecide，两个选项：Ruby on Rails / Node，转 7 秒定生死）——按本站不嵌第三方 iframe 的口径不搬运，想玩去官方原课页面转。转完的结果，官方原话：欢迎分享到聊天室里！"
+          ]
+        },
+        {
+          "h": "旅程才刚刚开始",
+          "p": [
+            "准备好——这只是个开始。现在要往 Foundations 覆盖的各个领域更深处走了。后面的课程里有一些精彩的项目，会把你逼到极限；但走出来时，你已经准备好在编程世界留下自己的印记。",
+            "The journey has just begun!"
+          ]
+        }
+      ],
+      "examples": [],
+      "pitfalls": [
+        {
+          "title": "中途换道",
+          "text": "官方点名的唯一硬伤：两条路没有对错，换道只会让你倒退。选定之前的纠结是合理调研，选定之后的反复是纯损耗。"
+        },
+        {
+          "title": "把语言选择看得比什么都重",
+          "text": "好开发者能轻松迁移技能——先学哪门语言不会大幅改变求职结果，一门好课程远比语言选择重要。纠结本身比选错更浪费。"
+        },
+        {
+          "title": "调研本地岗位时忘了远程岗",
+          "text": "官方的兜底建议是查你所在地区有什么工作——但特别提醒别忘了远程岗位。只看本地会低估两条路的真实机会。"
+        },
+        {
+          "title": "以为 Foundations 毕业就是终点",
+          "text": "官方原话：这只是个开始。后面的路径课程与项目会把你逼到极限——保持学习者心态走进去，才是这 46 课教你的最后一课。"
+        }
+      ],
+      "official": {
+        "assignment": [],
+        "exercise": [],
+        "knowledgeCheck": [],
+        "optional": []
+      },
+      "sources": {
+        "basedOn": "TOP 官方 conclusion.md（本站自行编写简体讲解，未改编自任何第三方中文课程）",
+        "sha256": "5962848716f2c8be64be084be6fc47a0129f4a2e8b48a47680ff7bf582e82c07",
+        "verifiedAt": "2026-09-25"
       }
     }
   ]

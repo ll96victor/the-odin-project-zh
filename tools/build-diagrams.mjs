@@ -876,8 +876,8 @@ export const GEOMETRY_SPECS = [
               { label: '官方文档' }
             ]
           },
-          { label: 'Exercise（部分课有）' },
-          { label: 'Knowledge Check 自查题' }
+          { label: 'Assignment（必做任务）' },
+          { label: 'Exercise（部分课有）' }
         ]
       }
     }
@@ -1568,7 +1568,132 @@ export const GEOMETRY_SPECS = [
         { part: 1, text: '出自本课 tip 框：GitHub 的 72 字符显示限制。日常写法 subject 尽量短、整条不超 72 字符宽，两个口径同时满足' }
       ]
     }
-  }
+  },
+  /* ---------- v4.11.17（第 21–23 课）新增两张 ----------
+   * 判据住 LESSON-PAGE-GUIDE.md 第 4 节：课 21「三种加 CSS 的方式及优先级」是分层
+   * 覆盖关系，用 stack（第一项画最上层，天然表达「内联 > 内部 > 外部」）；
+   * 课 22「层叠的判定顺序」是标准流程，用 flow。
+   * 课 23 是打开 DevTools 跟着做的操作课，按判据第一条（一次性操作不配图）不配。 */
+  {
+    id: 'css-three-methods-stack',
+    file: 'css-three-methods-stack.svg',
+    lessonId: 'intro-to-css',
+    sectionIndex: 15,
+    type: 'stack',
+    data: {
+      layers: [
+        { label: '内联 CSS', desc: '写在元素的 style 属性上，没有选择器；优先级最高，压过另外两种' },
+        { label: '内部 CSS', desc: '写在 HTML 文件自己的 style 标签里，只作用于这一个页面' },
+        { label: '外部 CSS', desc: '写在单独的 .css 文件里，用 link 元素链进来；最常用、最好维护' }
+      ],
+      note: '三种方式写的是同一套规则语言，区别只在规则放在哪里；同一个元素被多种方式命中时，内联压过内部与外部。'
+    }
+  },
+  {
+    id: 'cascade-decision-order',
+    file: 'cascade-decision-order.svg',
+    lessonId: 'the-cascade',
+    sectionIndex: 10,
+    type: 'flow',
+    data: {
+      steps: [
+        { label: '直接命中', sub: '直接命中的规则赢过继承来的值' },
+        { label: '比选择器类型', sub: 'ID 胜过任意数量的类，类胜过任意数量的类型' },
+        { label: '比同类数量', sub: '类型打平时，同类选择器多的赢' },
+        { label: '比规则顺序', sub: '仍分不出胜负时，写在后面的那条生效' }
+      ],
+      note: '通配选择器与组合器符号本身不贡献特异性；浏览器的默认样式也参与比较，但权重通常很低。'
+    }
+  },
+  {
+    id: 'box-model-four-layers',
+    file: 'box-model-four-layers.svg',
+    lessonId: 'the-box-model',
+    sectionIndex: 3,
+    type: 'anatomy',
+    data: {
+      band: ['一切皆矩形盒', '四层由内到外叠加', '布局就是安排这些盒子'],
+      subject: { label: '一个元素盒子（box model）' },
+      parts: [
+        { label: 'content 内容' },
+        { label: 'padding 内边距' },
+        { label: 'border 边框' },
+        { label: 'margin 外边距' }
+      ],
+      callouts: [
+        { part: 0, text: '装文字与图片的那一层；默认盒模型的 width / height 只量它' },
+        { part: 1, text: '边框与内容之间的空间，把内容往里撑——增加的是自己内部的空间' },
+        { part: 2, text: '包住 padding 与内容的一道框，哪怕只有一两个像素也占地方' },
+        { part: 3, text: '盒子的边框与相邻盒子的边框之间的空间，把别的盒子推开' }
+      ]
+    }
+  },
+  {
+    id: 'display-types-map',
+    file: 'display-types-map.svg',
+    lessonId: 'block-and-inline',
+    sectionIndex: 5,
+    type: 'map',
+    data: {
+      center: { label: '元素的显示类型', sub: '由 display 属性决定' },
+      satellites: [
+        { label: 'block 块级', desc: '独占一行、每个新元素另起一行往下堆叠；段落、标题都是默认块级' },
+        { label: 'inline 行内', desc: '不换行，排在文字流里与邻居同行，链接最典型；一般别硬加 padding / margin' },
+        { label: 'inline-block 行内块', desc: '中间地带：像行内一样并排，又保留块级盒子的尺寸与间距行为；排一行盒子实际更多用 flexbox' }
+      ]
+    }
+  },
+  {
+    id: 'flex-axes-compare',
+    file: 'flex-axes-compare.svg',
+    lessonId: 'axes',
+    sectionIndex: 1,
+    type: 'compare',
+    data: {
+      left: {
+        title: 'flex-direction: row（默认）',
+        items: [
+          '主轴：水平，从左到右（项目排布方向）',
+          '交叉轴：垂直',
+          'justify-content 管水平分布',
+          'align-items 管垂直对齐',
+          'flex-basis 对应 width'
+        ]
+      },
+      right: {
+        title: 'flex-direction: column',
+        items: [
+          '主轴：垂直，从上到下',
+          '交叉轴：水平',
+          'justify-content 变成管垂直分布',
+          'align-items 变成管水平对齐',
+          'flex-basis 对应 height'
+        ]
+      },
+      note: '两根轴永远互相垂直；flex-direction 一换，整组坐标旋转——对齐与尺寸属性的方向全部跟着转。'
+    }
+  },
+  {
+    id: 'flex-shorthand-anatomy',
+    file: 'flex-shorthand-anatomy.svg',
+    lessonId: 'growing-and-shrinking',
+    sectionIndex: 2,
+    type: 'anatomy',
+    data: {
+      band: ['写一条声明 flex: 1', '展开成三份', '各管一件事'],
+      subject: { label: 'flex 简写（flex: 1）' },
+      parts: [
+        { label: 'flex-grow: 1' },
+        { label: 'flex-shrink: 1' },
+        { label: 'flex-basis: 0' }
+      ],
+      callouts: [
+        { part: 0, text: '放大因子：容器有富余空间时按这个比例增长；因子 1 与 2 的项目宽度比是 1 : 2' },
+        { part: 1, text: '缩小因子：所有项目装不下时按这个比例收缩；默认 1 均匀收缩，0 绝不收缩' },
+        { part: 2, text: '初始尺寸：伸缩的起点；0 从零开始按比例分，auto 会参考项目的 width 声明' }
+      ]
+    }
+  },
 ];
 
 /* ---------- CLI ---------- */

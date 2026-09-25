@@ -225,17 +225,18 @@ const exerciseReview = state => {
   Logic.evaluateAchievements(state, lessons, AT, DAY);
   /* 刻意让今天为 0 秒：如果优先级写错，就会给出“再学 10 分钟”的荒谬提示 */
   const item = brief(state, { currentLessonId: lessons[0].id });
-  assert.equal(item.completedCount, lessons.length, check('20 课全部完成'));
+  assert.equal(item.completedCount, lessons.length, check('46 课全部完成'));
   assert.equal(item.percent, 100, check('完成百分比为 100'));
   assert.equal(item.todaySeconds, 0, check('今天 0 秒'));
   assert.equal(item.tip.kind, 'all-done', check('全部完成时 all-done 优先于 today-short'));
   assert.equal(item.tip.text, '当前开放课程已全部完成，后续课程尚未开放。', check('终局提示文字与 §10 一致'));
-  /* §6.4：完成数最大就是已开放的 20，绝不能被说成 46 */
-  assert.equal(item.totalLessons, 20, check('分母是已开放的 20 课'));
-  assert.notEqual(item.completedCount, 46, check('完成数不会是 46'));
+  /* §6.4：完成数不得超过已开放数。v4.11.20 第九批（46/46 全开）重表述：原「完成数不会是
+   * 46」的前提（开放数 < 46）已消失——全完成时完成数 = 已开放数 = 46 是合法的。 */
+  assert.equal(item.totalLessons, 46, check('分母是已开放的 46 课'));
+  assert.ok(item.completedCount <= item.totalLessons, check('完成数不会超过已开放数'));
   const withCatalog = brief(state, { catalogTotal: 46 });
   assert.equal(withCatalog.catalogTotal, 46, check('官方总数单独作为 catalogTotal 回传'));
-  assert.equal(withCatalog.completedCount, 20, check('完成数仍然只统计已开放课程'));
+  assert.equal(withCatalog.completedCount, 46, check('完成数仍然只统计已开放课程'));
 }
 
 /* ===================== 8. 最近学习 / 推荐继续 ===================== */

@@ -6,7 +6,7 @@
  *   A2 —— 资源区前言不再出现核验方法论字样（HTTP 状态码 / 重定向 / 汉字数 / oEmbed），
  *         只保留核验日期与「见首页关于本站」指引（方法论全文由 home-ia.test.cjs
  *         钉住在首页 FAQ 第 4 项）；
- *   B  —— 概念图渲染归位（v4.11.6 全站）：逐课渲染图数 = 清单数、47 张全部
+ *   B  —— 概念图渲染归位（v4.11.6 全站，v4.11.17 起 49 张）：逐课渲染图数 = 清单数、全部
  *         住在 section-explain 对应章之后（零 main 级漂浮）、git-areas 仍归
  *         git-basics 且 introduction-to-git 只有自己的对比图（数据层绑定由
  *         diagrams.test.cjs 钉住，这里钉渲染结果）；
@@ -74,16 +74,25 @@ const collectTagDeep = (root, tagName) => {
 };
 
 const LESSON_IDS = guide.lessons.map(l => l.id);
-assert.equal(LESSON_IDS.length, 20, '前提：20 课');
+assert.equal(LESSON_IDS.length, 46, '前提：46 课');
 
 /* ===== C-数据层：映射文件完整性（防悬空引用） ===== */
 assert.equal(taskLinks.version, 1, 'C: 映射文件带版本号');
 assert.deepEqual(Object.keys(taskLinks.links).sort(), [...LESSON_IDS].sort(),
-  'C: 映射文件恰好覆盖 20 课，无未知 lessonId（防悬空课程引用）');
+  'C: 映射文件恰好覆盖全部课程，无未知 lessonId（防悬空课程引用）');
 const sourceOf = fs.readFileSync(path.join(root, 'lesson-task-links.js'), 'utf8');
 assert.ok(!/\bfetch\(|XMLHttpRequest|innerHTML|document\.cookie/.test(sourceOf),
   'C: 映射文件不联网、不注入标记、不读写 cookie（与其他数据文件同纪律）');
-let mappedAssignmentItems = 0, mappedAssignmentUrls = 0, mappedKcItems = 0;
+/* v4.11.17：官方 2026-09-23 移除课末自查题一节，本站同步下线——映射文件只剩
+ * Assignment 一类。反向钉住：任何一课重新出现 k（自查题）映射即红，
+ * 防止有人在数据里把已下线的课节悄悄接回来。 */
+assert.ok(Object.values(taskLinks.links).every(entry => entry.k === undefined),
+  'C: 自查题映射已整体下线，任何一课都不得再有 k 映射');
+/* v4.11.17 反向钉子（数据层）：渲染层已把该区块整体删除——正则里塞回题目不会让
+ * 页面上多出元素，因此这道数据层的钉子是该事实的第一道防线。 */
+assert.ok(guide.lessons.every(l => l.official.knowledgeCheck.length === 0),
+  'C: 官方已下线课末自查题节，全部课程的自查题必须为空数组（塞回任意一条即红）');
+let mappedAssignmentItems = 0, mappedAssignmentUrls = 0;
 for (const lesson of guide.lessons) {
   const entry = taskLinks.links[lesson.id];
   const lessonUrls = new Set();
@@ -91,34 +100,31 @@ for (const lesson of guide.lessons) {
     lessonUrls.add(urlBase(r.originalUrl));
     if (r.zhUrl) lessonUrls.add(urlBase(r.zhUrl));
   });
-  for (const [kind, limit] of [['a', lesson.official.assignment.length], ['k', lesson.official.knowledgeCheck.length]]) {
-    for (const [num, urls] of Object.entries(entry[kind] || {})) {
-      const n = Number(num);
-      assert.ok(Number.isInteger(n) && n >= 1 && n <= limit,
-        `C: ${lesson.id} ${kind}${num} 条目号必须在 1..${limit} 内（与 lessons.js 渲染顺序一致）`);
-      assert.ok(Array.isArray(urls) && urls.length >= 1, `C: ${lesson.id} ${kind}${num} 链接组非空`);
-      urls.forEach(u => {
-        assert.ok(/^https?:\/\//.test(u), `C: ${lesson.id} ${kind}${num} 地址为 http(s)`);
-        assert.ok(lessonUrls.has(urlBase(u)),
-          `C: ${lesson.id} ${kind}${num} 的地址（去锚点）必须属于本课资源清单——防悬空引用：${u}`);
-      });
-      if (kind === 'a') { mappedAssignmentItems += 1; mappedAssignmentUrls += urls.length; }
-      else mappedKcItems += 1;
-    }
+  for (const [num, urls] of Object.entries(entry.a || {})) {
+    const n = Number(num);
+    assert.ok(Number.isInteger(n) && n >= 1 && n <= lesson.official.assignment.length,
+      `C: ${lesson.id} a${num} 条目号必须在 1..${lesson.official.assignment.length} 内（与 lessons.js 渲染顺序一致）`);
+    assert.ok(Array.isArray(urls) && urls.length >= 1, `C: ${lesson.id} a${num} 链接组非空`);
+    urls.forEach(u => {
+      assert.ok(/^https?:\/\//.test(u), `C: ${lesson.id} a${num} 地址为 http(s)`);
+      assert.ok(lessonUrls.has(urlBase(u)),
+        `C: ${lesson.id} a${num} 的地址（去锚点）必须属于本课资源清单——防悬空引用：${u}`);
+    });
+    mappedAssignmentItems += 1;
+    mappedAssignmentUrls += urls.length;
   }
 }
-/* 覆盖率钉住：本轮人工核对的映射规模（46/108 与 31/96）。数字变化必须是有意的
+/* 覆盖率钉住：本轮人工核对的映射规模（73/149）。数字变化必须是有意的
  * （新增映射或课程数据变更），而不是解析规则悄悄失效。 */
-assert.equal(mappedAssignmentItems, 46, 'C: Assignment 接链条目数 = 46（本轮语义核对结论）');
-assert.equal(mappedAssignmentUrls, 54, 'C: Assignment 链接总数 = 54');
-assert.equal(mappedKcItems, 31, 'C: Knowledge Check 接链题数 = 31');
+assert.equal(mappedAssignmentItems, 76, 'C: Assignment 接链条目数 = 76（本轮语义核对结论，课 44 两个跟练视频接链、Project 课均显式空映射，课 45/46 显式空映射——课 46 官方无 Assignment）；');
+assert.equal(mappedAssignmentUrls, 117, 'C: Assignment 链接总数 = 117');
 
 /* ===== C-渲染层 ===== */
 for (const lesson of guide.lessons) {
   const page = mountLesson(lesson.id);
   const rendered = taskLinksOf(page);
   const entry = taskLinks.links[lesson.id];
-  const expectedUrls = [...Object.values(entry.a || {}), ...Object.values(entry.k || {})].flat();
+  const expectedUrls = Object.values(entry.a || {}).flat();
   /* 每个映射地址都渲染且只渲染一次（全部地址都能按 titleZh 反查到资源） */
   assert.equal(rendered.length, expectedUrls.length,
     `C: ${lesson.id} 渲染链接数 ${rendered.length} ≠ 映射数 ${expectedUrls.length}（存在未渲染的悬空地址或重复渲染）`);
@@ -130,21 +136,25 @@ for (const lesson of guide.lessons) {
     assert.equal(a.rel, 'noopener noreferrer', 'C: 任务链接带 noopener noreferrer');
     assert.ok(/↗$/.test(textOf(a)), 'C: 任务链接文字以 ↗ 结尾（离开本站提示，与资源卡同语言）');
   });
-  /* 条目文本一字不改：li / kc-q 仍以 lessons.js 原文开头。
+  /* 条目文本一字不改：li 仍以 lessons.js 原文开头。
    * v4.11.5（交接 3.C）：OL 取法改为穿透折叠容器，且「取不到」从静默跳过
    * 升级为断言失败——旧写法在 Assignment <ol> 被包进 div.collapse-body 后
    * ols.length 变 0，if 整段跳过，这条保护空转而测试仍然全绿。
-   * 文档序第一个 OL 必是 Assignment 列表（Exercise 列表在其后，KC 用 div.kc-list，
-   * 「官方可选项」是无序列表）。负向验证见下方独立块。 */
+   * 文档序第一个 OL 必是 Assignment 列表（Exercise 列表在其后，
+   * 「官方可选项」是无序列表）。负向验证见下方独立块。
+   * v4.11.17：自查题列表整体下线，改为反向钉住整页不得再出现该类元素。 */
+  /* v4.11.20 第九批：第 46 课（结语课）官方无 Assignment——OL 与条目数断言按空数组口径
+   * 执行（ols 可为 0，条目数为 0），其余课仍要求 OL 必须取到（防静默跳过不变）。 */
   const ols = collectTagDeep(officialOf(page), 'OL');
-  assert.ok(ols.length >= 1, `C: ${lesson.id} Assignment OL 必须能穿透折叠容器取到（防静默跳过）`);
-  const lis = ols[0].childNodes;
+  if (lesson.official.assignment.length > 0) {
+    assert.ok(ols.length >= 1, `C: ${lesson.id} Assignment OL 必须能穿透折叠容器取到（防静默跳过）`);
+  }
+  const lis = ols.length ? ols[0].childNodes : [];
   assert.equal(lis.length, lesson.official.assignment.length, `C: ${lesson.id} Assignment 条目数不变`);
   lis.forEach((li, i) => assert.ok(textOf(li).startsWith(lesson.official.assignment[i]),
     `C: ${lesson.id} A${i + 1} 条目文本未被改动（链接只追加在尾部）`));
-  const kcQs = collectByClass(officialOf(page), 'kc-q');
-  kcQs.forEach((q, i) => assert.ok(textOf(q).startsWith(lesson.official.knowledgeCheck[i].q),
-    `C: ${lesson.id} K${i + 1} 题目文本未被改动`));
+  assert.equal(collectByClass(officialOf(page), 'kc-q').length, 0,
+    `C: ${lesson.id} 课页不得再出现自查题题目元素（官方 2026-09-23 已下线该节）`);
 }
 /* 负向钉住：本地动作 / 纯练习条目不得渲染链接（OL 取法与上方同为穿透收集，v4.11.5） */
 {
@@ -170,25 +180,24 @@ for (const lesson of guide.lessons) {
   const cmOl = collectTagDeep(officialOf(cm), 'OL')[0];
   assert.equal(collectByClass(cmOl.childNodes[2], 'task-link').length, 0, 'C: commit-messages A3 不接链');
 }
-/* KC 锚点映射抽查：command-line-basics K1/K2（官方页内锚点）不接，K3–K11 接；
- * how-does-the-web-work 15 题全接（官方 KC 全部是题目即链接） */
+/* 自查题映射整体下线后的反向抽查（v4.11.17）：
+ * 官方 2026-09-23 移除该节，课页不得再出现自查题区块的任何形态；
+ * 原本接在自查题上的两份资料（课 09 softcover、课 13 Bryt Designs）也已随之
+ * 从资源清单移除，映射文件里不得再引用。 */
 {
-  const clb = mountLesson('command-line-basics');
-  const kcQs = collectByClass(officialOf(clb), 'kc-q');
-  assert.equal(collectByClass(kcQs[0], 'task-link').length, 0, 'C: clb K1 页内锚点题不接链');
-  assert.equal(collectByClass(kcQs[1], 'task-link').length, 0, 'C: clb K2 页内锚点题不接链');
-  for (let i = 2; i <= 10; i += 1) {
-    assert.equal(collectByClass(kcQs[i], 'task-link').length, 1, `C: clb K${i + 1} 接 1 个链接`);
+  for (const id of ['command-line-basics', 'how-does-the-web-work']) {
+    const page = mountLesson(id);
+    const official = officialOf(page);
+    assert.equal(collectByClass(official, 'kc-q').length, 0, `C: ${id} 零自查题题目`);
+    assert.equal(collectByClass(official, 'kc-list').length, 0, `C: ${id} 零自查题列表容器`);
+    assert.equal(collectByClass(official, 'kc-item').length, 0, `C: ${id} 零自查题条目`);
+    assert.ok(!querySelect(official, '#official-kc-body'), `C: ${id} 无自查题折叠容器`);
   }
-  assert.ok(kcQs[2].childNodes.some(n => n.tagName === 'A' && n.href.includes('#sec-basics-cd')),
-    'C: clb K3 沿用官方原锚点直达对应小节');
+  /* 中文优先：MDN 资源的 Assignment 链接一律用已核验中文版地址 */
   const hwtw = mountLesson('how-does-the-web-work');
-  const hwtwKc = collectByClass(officialOf(hwtw), 'kc-q');
-  assert.equal(hwtwKc.length, 15, 'C: how-does-the-web-work 15 题');
-  hwtwKc.forEach((q, i) => assert.equal(collectByClass(q, 'task-link').length, 1, `C: hwtw K${i + 1} 接 1 个链接`));
-  /* 中文优先：MDN 三篇的 KC 链接用已核验中文版地址 */
   const zhLinks = taskLinksOf(hwtw).filter(a => a.href.includes('developer.mozilla.org'));
-  assert.ok(zhLinks.length >= 10 && zhLinks.every(a => a.href.includes('/zh-CN/')),
+  assert.equal(zhLinks.length, 4, 'C: 本课 Assignment 的 4 处 MDN 链接全部渲染');
+  assert.ok(zhLinks.every(a => a.href.includes('/zh-CN/')),
     'C: MDN 资源一律给已核验中文版地址（与本站中文自足口径一致）');
 }
 
@@ -281,7 +290,7 @@ for (const lesson of guide.lessons) {
     assert.deepEqual(chapterSequence, expected.map(item => item.sectionIndex).sort((a, b) => a - b),
       `B: ${lesson.id} 每张图落在其 sectionIndex 章节之后（同章按清单顺序稳定排序）`);
   }
-  assert.equal(totalFigures, 47, 'B: 全站渲染 47 张图（14 存量 + 33 新增，交接 §3.4 分配表）');
+  assert.equal(totalFigures, 53, 'B: 全站渲染 53 张图（v4.11.6 的 47 张 + v4.11.17 第 21/22 课 2 张 + v4.11.18 第 24/25 课 2 张 + v4.11.19 第 27/28 课各 1 张）');
   /* 抽查：git-areas 的归属与文件引用（v4.11.2 B 组的两个事实继续沿用） */
   const gb = mountLesson('git-basics');
   const gbFigures = collectByClass(mainOf(gb), 'concept-diagram');
@@ -306,31 +315,35 @@ for (const lesson of guide.lessons) {
   const why = textOf(collectByClass(mainOf(page), 'section-why')[0]);
   const officialFirstP = textOf((officialOf(page).childNodes || []).find(n => n.tagName === 'P'));
   /* D1：section-why 出现中文辅助引导 + 「不必先啃英文原文」
-   * v4.11.16 按课型分支：Project 课（recipes）没有官方 Knowledge Check，
-   * 第 1 节引导改说「本站自测题的答案也全部渲染在本页」（app.js 同源分支），
-   * 不得声称官方自查题在本页。 */
+   * v4.11.17：官方移除课末自查题节后，页面上只剩本站自测一种自查，引导语
+   * 固定为这一种说法（v4.11.16 的按课型分支随之取消）。反向钉住：课页不得
+   * 再声称有官方自查题渲染在本页。 */
   assert.ok(why.includes('中文辅助'), `D1: ${lesson.id} section-why 含「中文辅助」引导`);
   assert.ok(why.includes('不必先去啃英文原文'), `D1: ${lesson.id} section-why 明确不必先看英文`);
-  if (lesson.official.knowledgeCheck.length) {
-    assert.ok(why.includes('官方自查题（Knowledge Check）的题目与中文答案也全部渲染在本页'),
-      `D1: ${lesson.id} section-why 告知自查题中文答案在本页`);
-  } else {
-    assert.ok(why.includes('本站自测题的答案也全部渲染在本页'),
-      `D1: ${lesson.id} section-why 告知本站自测答案在本页（Project 课无官方 KC）`);
-    assert.ok(!why.includes('官方自查题（Knowledge Check）的题目与中文答案'),
-      `D1: ${lesson.id} 无官方 KC 的课不得声称官方自查题渲染在本页`);
-  }
+  assert.ok(why.includes('本站自测题的答案也全部渲染在本页'),
+    `D1: ${lesson.id} section-why 告知本站自测答案在本页`);
+  assert.ok(!why.includes('官方自查题'), `D1: ${lesson.id} 不得声称有官方自查题渲染在本页`);
   /* D2：官方任务开头引导（v4.11.5 更新：仍是两句——第一句在 v4.11.4 版基础上
    * 增补「列表可以用标题旁的按钮收起或展开」，第二句不变；改口依据
    * CONTENT-STYLE-GUIDE.md 第 3、9 节，交接 3.B。正文跳转按钮已删、节级无直接子
    * 链接的 v4.11.4 口径保持——页内跳转入口挂在 Assignment 标题内，见 E 组。
-   * v4.11.16 按课型分支：Project 课（recipes）无 Exercise / KC，引导语只说
-   * Assignment——不得描述页面上不存在的区块（app.js 同源分支）。 */
-  const expectedOfficialGuide = lesson.official.knowledgeCheck.length
-    ? '以下是官方原课的 Assignment、Exercise 与 Knowledge Check 的中文化版本，Assignment 与 Knowledge Check 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'
-    : '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。';
+   * v4.11.17：自查题节下线后，引导语只按「本课有没有 Exercise」分支——
+   * 不得描述页面上不存在的列表（app.js 同源分支）。
+   * v4.11.19：零外部资料课（首个为课 26 introduction-to-flexbox）再补分支——
+   * 第二句不说「就在本节末尾的『本课外部资料』」（不存在的落点），如实说明
+   * 本课没有外部资料。与 app.js renderLessonV2 的三分支同源。 */
+  const lessonHasResources = resourceData.resources.some(resource => resource.lessonId === lesson.id);
+  /* v4.11.20 第九批：官方无 Assignment 的课（当前仅第 46 课结语课）第四分支——
+   * 如实说明无 Assignment，不描述不存在的列表（与 app.js renderLessonV2 同源）。 */
+  const expectedOfficialGuide = lesson.official.assignment.length === 0
+    ? '这一课官方没有布置 Assignment（结语课，官方文件顶部声明因独特的课结构豁免常规布局）。本站只收录官方正文的中文化梳理与本站自拟的回顾任务；正文推荐的外部文章在下方「本课外部资料」有中文辅助入口。'
+    : (!lessonHasResources
+    ? '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这一课官方没有布置外部资料，跟着本页讲解与任务说明往下走即可。'
+    : (lesson.official.exercise.length
+      ? '以下是官方原课的 Assignment 与 Exercise 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'
+      : '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这些任务要求的外部文章与视频，本站已备好中文辅助，就在本节末尾的「本课外部资料」。'));
   assert.equal(officialFirstP, expectedOfficialGuide,
-    `D2: ${lesson.id} 官方任务开头引导为当前课型的逐字全文`);
+    `D2: ${lesson.id} 官方任务开头引导为当前数据的逐字全文`);
   const officialChildren = officialOf(page).childNodes || [];
   assert.ok(officialChildren.filter(n => n.tagName === 'A').length === 0,
     `D2: ${lesson.id} 官方任务节不得有节级跳转按钮（官方入口只在页顶）`);
@@ -357,12 +370,18 @@ for (const lesson of guide.lessons) {
    * 页内跳转链接——其文字按交接 3.B 与资源区标题逐字一致（「本课外部资料
    * （本站中文辅助 · N 条）」，CONTENT-STYLE-GUIDE.md 第 9 节），属于导航入口
    * 而不是新增引导语，不违反「引导语不堆砌」的本意。
+   * v4.11.19：零外部资料课的基数是 1——资源分句（why 的资源形态 + 跳转链接 +
+   * 资源区 h3 + 资源区前言四处全不渲染，官方任务开头也不提「中文辅助」），
+   * 唯一一处在 why 的零资源分句里（「本站的中文辅助就是本页的中文讲解与自测」）。
    * lessons.js 正文数据里的合法提及按课加回（当前只有课 01 的中文讲解正文
    * 含 1 处，数据文件是红线不改）。 */
+  /* v4.11.20 第九批：官方无 Assignment 的课（当前仅第 46 课，有 1 条正文资源）基数 4——
+   * Assignment 标题内的跳转链接随标题整块不渲染，前言第四分支自带 1 处「中文辅助入口」。 */
+  const noAssignmentBase = !lessonHasResources ? 1 : (lesson.official.assignment.length === 0 ? 4 : 5);
   const dataCount = (JSON.stringify(lesson).match(/中文辅助/g) || []).length;
   const zhAssistCount = (mainText.match(/中文辅助/g) || []).length;
-  assert.equal(zhAssistCount, 5 + dataCount,
-    `D7: ${lesson.id} 「中文辅助」出现 ${zhAssistCount} 次，应为渲染层 5 处 + 数据层 ${dataCount} 处（防堆砌也防丢失）`);
+  assert.equal(zhAssistCount, noAssignmentBase + dataCount,
+    `D7: ${lesson.id} 「中文辅助」出现 ${zhAssistCount} 次，应为渲染层 ${noAssignmentBase} 处 + 数据层 ${dataCount} 处（防堆砌也防丢失）`);
   assert.equal((mainText.match(/不必先去啃英文原文/g) || []).length, 1,
     `D7: ${lesson.id} 「不必先去啃英文原文」只在第 1 节说一次`);
   assert.equal((mainText.match(/先在本页看懂/g) || []).length, 0,
@@ -382,7 +401,7 @@ for (const lesson of guide.lessons) {
   const usage = textOf(querySelect(home.dom.body, '.site-usage'));
   assert.ok(usage.includes('可以在本站学完并自查'), 'D5/D0: 首页 FAQ「本站怎么用」与自足口径一致');
   assert.ok(!usage.includes('正式完成动作仍在 TOP 原课进行'), 'D5/D0: 首页 FAQ 旧口径已移除');
-  assert.ok(usage.includes('其余课程请回官方原课学习'), 'D5: 20 课覆盖边界声明保留（事实边界）');
+  assert.ok(usage.includes('Foundations 之后的路径课程请回官方原课学习'), 'D5: 覆盖边界声明保留（事实边界；v4.11.20 第九批起 Foundations 46 课全开，边界指向路径课程）');
   assert.ok(usage.includes('项目提交、Discord 社区与其后课程在 TOP 官方进行'), 'D5/D6: 项目提交与社区仍明确在官方（事实边界，非过度承诺）');
   assert.ok(usage.includes('不提供成品答案'), 'D5: FAQ 明确 Project 课不提供成品答案（红线第 4 条的首页口径）');
 }
@@ -404,11 +423,15 @@ for (const lesson of guide.lessons) {
   const page = mountLesson(lesson.id);
   const main = mainOf(page);
   const official = officialOf(page);
-  /* E1：折叠头（知识课 2 个：Assignment + KC；Project 课 1 个：仅 Assignment——
-   * v4.11.16 起 recipes 无官方 KC，KC 区块按数据条件渲染），button + aria 契约 */
-  const expectedToggles = lesson.official.knowledgeCheck.length ? 2 : 1;
+  /* v4.11.19：与 D 组同一判定——本课有没有外部资料（决定 E2/E3 的分支）。 */
+  const lessonHasResources = resourceData.resources.some(resource => resource.lessonId === lesson.id);
+  /* E1：折叠头恒为 1 个（只有 Assignment）——v4.11.17 起官方自查题节整体下线，
+   * 页面上只剩一个可折叠列表；button + aria 契约不变。
+   * v4.11.20 第九批：官方无 Assignment 的课（结语课）折叠头随 Assignment 整块
+   * 不渲染，为 0 个——「恒为 1」的前提（每课必有 Assignment 列表）对该课不成立。 */
+  const expectedToggles = lesson.official.assignment.length === 0 ? 0 : 1;
   const buttons = collectByClass(official, 'collapse-toggle');
-  assert.equal(buttons.length, expectedToggles, `E1: ${lesson.id} 恰有 ${expectedToggles} 个折叠头（Assignment${lesson.official.knowledgeCheck.length ? ' + Knowledge Check' : '；Project 课无官方 KC'}）`);
+  assert.equal(buttons.length, expectedToggles, `E1: ${lesson.id} 恰有 1 个折叠头（只有 Assignment）`);
   buttons.forEach(button => {
     assert.equal(button.tagName, 'BUTTON', `E1: ${lesson.id} 折叠头是 button 元素`);
     assert.equal(button.getAttribute('aria-expanded'), 'true', `E1: ${lesson.id} 默认展开（aria-expanded=true）`);
@@ -425,37 +448,64 @@ for (const lesson of guide.lessons) {
   assert.equal(collectTagDeep(main, 'DETAILS').length, lesson.quiz.length,
     `E1: ${lesson.id} details 数量 = quiz 数量（折叠零引入 details/summary）`);
   assert.equal(collectTagDeep(official, 'DETAILS').length, 0, `E1: ${lesson.id} 官方任务节零 details`);
-  /* E2：Assignment OL 与 kc-list 各自住在受控容器里；资源区不在任何受控容器里 */
+  /* E2：Assignment OL 住在受控容器里；资源区不在任何受控容器里；
+   * v4.11.17 反向：全课不得再出现自查题的折叠容器 */
   const assignmentBody = querySelect(official, '#official-assignment-body');
-  assert.ok(assignmentBody && collectTagDeep(assignmentBody, 'OL').length === 1, `E2: ${lesson.id} Assignment OL 住在受控容器内`);
-  if (lesson.official.knowledgeCheck.length) {
-    const kcBody = querySelect(official, '#official-kc-body');
-    assert.equal(collectByClass(kcBody, 'kc-list').length, 1, `E2: ${lesson.id} kc-list 住在受控容器内`);
+  /* v4.11.20 第九批：官方无 Assignment 的课（结语课）受控容器随 Assignment 整块不渲染；
+   * 其余课必须住在受控容器里（防渲染回归静默溜过）。 */
+  if (lesson.official.assignment.length === 0) {
+    assert.ok(!assignmentBody, `E2: ${lesson.id} 官方无 Assignment，受控容器不得出现`);
   } else {
-    assert.ok(!querySelect(official, '#official-kc-body'), `E2: ${lesson.id} 无官方 KC 时不渲染 KC 折叠容器`);
+    assert.ok(assignmentBody && collectTagDeep(assignmentBody, 'OL').length === 1, `E2: ${lesson.id} Assignment OL 住在受控容器内`);
   }
+  assert.ok(!querySelect(official, '#official-kc-body'), `E2: ${lesson.id} 已下线的自查题折叠容器不得出现`);
+  /* E2：Assignment OL 住在受控容器里；资源区不在任何受控容器里；
+   * v4.11.17 反向：全课不得再出现自查题的折叠容器
+   * v4.11.19：零外部资料课没有资源列表，「未被折叠包裹」的检查天然跳过——
+   * 但有资源的课必须有资源列表（防渲染回归静默溜过），见下方断言。 */
   const resourceList = collectByClass(official, 'resource-list')[0];
-  assert.ok(resourceList, `E2: ${lesson.id} 资源列表在位`);
-  let cursor = resourceList.parentNode;
-  let resourceWrapped = false;
-  while (cursor && cursor !== official) {
-    if (String(cursor.className || '').split(/\s+/).includes('collapse-body')) resourceWrapped = true;
-    cursor = cursor.parentNode;
+  if (lessonHasResources) {
+    assert.ok(resourceList, `E2: ${lesson.id} 资源列表在位`);
+  } else {
+    assert.ok(!resourceList, `E2: ${lesson.id} 零外部资料课不渲染资源列表`);
   }
-  assert.equal(resourceWrapped, false, `E2: ${lesson.id} 资源区未被折叠容器包裹（跳转目标必须同节可见）`);
-  /* E3：页内跳转入口 */
+  if (resourceList) {
+    let cursor = resourceList.parentNode;
+    let resourceWrapped = false;
+    while (cursor && cursor !== official) {
+      if (String(cursor.className || '').split(/\s+/).includes('collapse-body')) resourceWrapped = true;
+      cursor = cursor.parentNode;
+    }
+    assert.equal(resourceWrapped, false, `E2: ${lesson.id} 资源区未被折叠容器包裹（跳转目标必须同节可见）`);
+  }
+  /* E3：页内跳转入口。v4.11.19：零外部资料课（首个为课 26）整块不渲染——
+   * 跳转入口、资源区列表与锚点都不存在（不承诺不存在的落点，app.js 的
+   * officialResourceCount 守卫与 buildResourceBlock 空列表 return []）。 */
   const jumps = collectByClass(official, 'resource-jump');
-  assert.equal(jumps.length, 1, `E3: ${lesson.id} 恰有 1 个页内跳转入口`);
-  assert.equal(jumps[0].tagName, 'A', `E3: ${lesson.id} 跳转入口是 a 元素`);
-  assert.equal(jumps[0].href, '#lesson-resources', `E3: ${lesson.id} 跳转入口指向 #lesson-resources`);
-  assert.equal(jumps[0].parentNode.tagName, 'H3', `E3: ${lesson.id} 跳转入口挂在 h3 内（节级直接子 <a> 仍为 0，D2 组钉住）`);
-  assert.ok(textOf(jumps[0]).includes('本课外部资料（本站中文辅助 · '), `E3: ${lesson.id} 跳转文字与资源区标题同款`);
-  const anchor = querySelect(official, '#lesson-resources');
-  assert.ok(anchor && anchor.tagName === 'H3', `E3: ${lesson.id} 锚点目标是资源区标题 h3`);
-  assert.equal(textOf(anchor), textOf(jumps[0]), `E3: ${lesson.id} 跳转文字与资源区标题逐字一致`);
+  /* v4.11.20 第九批：官方无 Assignment 的课（结语课，有正文资源）跳转入口随 Assignment
+   * 标题整块不渲染（挂载点消失）——资源区锚点仍在、前言文字指向它。 */
+  const noAssignmentLesson = lesson.official.assignment.length === 0;
+  if (!lessonHasResources) {
+    assert.equal(jumps.length, 0, `E3: ${lesson.id} 零外部资料课不渲染页内跳转入口`);
+    assert.ok(!querySelect(official, '#lesson-resources'), `E3: ${lesson.id} 零外部资料课不渲染资源区锚点`);
+  } else if (noAssignmentLesson) {
+    assert.equal(jumps.length, 0, `E3: ${lesson.id} 官方无 Assignment，跳转挂载点（Assignment 标题）不渲染`);
+    assert.ok(querySelect(official, '#lesson-resources'), `E3: ${lesson.id} 资源区锚点在位（前言文字指向它）`);
+  } else {
+    assert.equal(jumps.length, 1, `E3: ${lesson.id} 恰有 1 个页内跳转入口`);
+    assert.equal(jumps[0].tagName, 'A', `E3: ${lesson.id} 跳转入口是 a 元素`);
+    assert.equal(jumps[0].href, '#lesson-resources', `E3: ${lesson.id} 跳转入口指向 #lesson-resources`);
+    assert.equal(jumps[0].parentNode.tagName, 'H3', `E3: ${lesson.id} 跳转入口挂在 h3 内（节级直接子 <a> 仍为 0，D2 组钉住）`);
+    assert.ok(textOf(jumps[0]).includes('本课外部资料（本站中文辅助 · '), `E3: ${lesson.id} 跳转文字与资源区标题同款`);
+    const anchor = querySelect(official, '#lesson-resources');
+    assert.ok(anchor && anchor.tagName === 'H3', `E3: ${lesson.id} 锚点目标是资源区标题 h3`);
+    assert.equal(textOf(anchor), textOf(jumps[0]), `E3: ${lesson.id} 跳转文字与资源区标题逐字一致`);
+  }
   /* E3：跳转入口不伪装外链（页内锚点，无 target/rel/↗；stub 未设 target 时为 undefined，真实 DOM 为 ''，统一按 falsy 判） */
-  assert.ok(!jumps[0].target, `E3: ${lesson.id} 页内跳转不设 target（↗ 专属离开本站语义）`);
-  assert.ok(!/↗$/.test(textOf(jumps[0])), `E3: ${lesson.id} 页内跳转文字不带 ↗`);
+  if (jumps[0]) {
+    assert.ok(!jumps[0].target, `E3: ${lesson.id} 页内跳转不设 target（↗ 专属离开本站语义）`);
+    assert.ok(!/↗$/.test(textOf(jumps[0])), `E3: ${lesson.id} 页内跳转文字不带 ↗`);
+  }
 }
 /* E4：折叠偏好随档案生效（progress 读档 → 渲染默认态） */
 {
@@ -469,13 +519,12 @@ for (const lesson of guide.lessons) {
   const page = mountWithArchive(collapsedArchive);
   const official = officialOf(page);
   const buttons = collectByClass(official, 'collapse-toggle');
-  assert.equal(buttons.length, 2, 'E4: 折叠档案下仍有 2 个折叠头');
+  assert.equal(buttons.length, 1, 'E4: 折叠档案下恰有 1 个折叠头（只有 Assignment）');
   buttons.forEach(button => {
     assert.equal(button.getAttribute('aria-expanded'), 'false', 'E4: 档案 collapseOfficialTasks=true → aria-expanded=false');
     assert.ok(/展开/.test(textOf(button)), 'E4: 收起态按钮文字是「展开…」（恢复出口就是折叠头本身）');
   });
   assert.equal(querySelect(official, '#official-assignment-body').hidden, true, 'E4: Assignment 受控容器默认收起');
-  assert.equal(querySelect(official, '#official-kc-body').hidden, true, 'E4: KC 受控容器默认收起');
   /* 非法值按展开（读档校验只有显式 true 才算折叠） */
   const badArchive = JSON.parse(archiveJson());
   badArchive.settings.collapseOfficialTasks = 'yes';
@@ -483,4 +532,4 @@ for (const lesson of guide.lessons) {
   assert.equal(querySelect(officialOf(badPage), '#official-assignment-body').hidden, false, 'E4: 非法值按展开处理');
 }
 
-console.log(`通过：课页读者向断言（v4.11.16 口径）——A1 资源区零审计信息（20 课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（20 课）、B 概念图全站归位（47 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（20 课 / Assignment 46 条 54 链接 / KC 31 题，地址零悬空；recipes 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且 Project 课不声称官方自查题在本页、D2 官方任务开头按课型逐字钉住且节内零直接子链接、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导固定 5 处不堆砌）、E 折叠与跳转（折叠头 button[aria-expanded] 知识课 2 个 / Project 课 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记、折叠偏好随档案生效且非法值按展开）。`);
+console.log(`通过：课页读者向断言（v4.11.20 第九批口径）——A1 资源区零审计信息（有资源的课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（全 46 课）、B 概念图全站归位（53 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（46 课 / Assignment 76 条 117 链接，地址零悬空；自查题映射已整体下线且反向钉住；recipes 与课 26、课 30、课 32、课 33、课 38、课 40、课 43、课 45、课 46 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且不再声称有官方自查题在本页、D2 官方任务开头按数据逐字钉住且节内零直接子链接（v4.11.19 起零资料课三分支）、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导按资源分支不堆砌（有资源 5 处 / 零资源 1 处））、E 折叠与跳转（折叠头 button[aria-expanded] 恰 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记（零资料课跳转与锚点整块不渲染）、折叠偏好随档案生效且非法值按展开）。`);

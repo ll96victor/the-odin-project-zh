@@ -18,8 +18,8 @@
  *     （coinFlags 闩锁 'tier:<family>:<tier>'），重复求值 / 撤销重做都无法重复发放。
  *
  * 阈值说明：交接 D1 的示例数值（如自测 5/20/50、探索 5/15/30）按本站实际
- * 收敛——本站开放 20 课，且“同一行为不得通过撤销重做反复刷计数”，因此按课
- * 去重的族阈值上限就是 20（5/12/20）。按天/按次累计的族保留交接量级。
+ * 收敛——本站开放 46 课（Foundations 全部），且“同一行为不得通过撤销重做反复刷计数”，
+ * 因此按课去重的族阈值上限就是 46（5/12/46）。按天/按次累计的族保留交接量级。
  * Boss 族按交接原值：通过 1 次 / 高评价 3 次 / 高评价 8 次（铜阶用“通过数”、
  * 银金阶用“高评价数”，因此每阶可以有自己的 metric——tiers 结构是 tier 级的）。
  *
@@ -82,7 +82,7 @@
       tiers: [
         { metric: { kind: 'quizLessons' }, value: 5, reward: 10 },
         { metric: { kind: 'quizLessons' }, value: 12, reward: 25 },
-        { metric: { kind: 'quizLessons' }, value: 20, reward: 50 }
+        { metric: { kind: 'quizLessons' }, value: 46, reward: 50 }
       ]
     },
     {
@@ -92,7 +92,7 @@
       tiers: [
         { metric: { kind: 'startedLessons' }, value: 5, reward: 10 },
         { metric: { kind: 'startedLessons' }, value: 12, reward: 25 },
-        { metric: { kind: 'startedLessons' }, value: 20, reward: 50 }
+        { metric: { kind: 'startedLessons' }, value: 46, reward: 50 }
       ]
     },
     {

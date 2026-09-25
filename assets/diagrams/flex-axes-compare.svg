@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="292" viewBox="0 0 740 292" role="img" aria-labelledby="t-flex-axes-compare d-flex-axes-compare">
+  <title id="t-flex-axes-compare">主轴与交叉轴：随 flex-direction 旋转的一对坐标</title>
+  <desc id="d-flex-axes-compare">对比图。左列标题 flex-direction: row（默认）：主轴水平、从左到右，是项目排布的方向；交叉轴垂直；justify-content 管水平分布、align-items 管垂直对齐；flex-basis 对应 width。右列标题 flex-direction: column：主轴垂直、从上到下；交叉轴水平；justify-content 变成管垂直分布、align-items 变成管水平对齐；flex-basis 对应 height。底部注释：两根轴永远互相垂直，flex-direction 一换、整组坐标旋转 90 度——对齐与尺寸属性的方向全部跟着转。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="200" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">flex-direction: row（默认）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">主轴：水平，从左到右（项目排布方向）</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">交叉轴：垂直</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">justify-content 管水平分布</tspan></text>
+  <circle cx="42" cy="172" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="176" text-anchor="start"><tspan x="52">align-items 管垂直对齐</tspan></text>
+  <circle cx="42" cy="202" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="206" text-anchor="start"><tspan x="52">flex-basis 对应 width</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="200" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">flex-direction: column</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">主轴：垂直，从上到下</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">交叉轴：水平</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">justify-content 变成管垂直分布</tspan></text>
+  <circle cx="403" cy="172" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="176" text-anchor="start"><tspan x="413">align-items 变成管水平对齐</tspan></text>
+  <circle cx="403" cy="202" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="206" text-anchor="start"><tspan x="413">flex-basis 对应 height</tspan></text>
+  <rect class="note" x="22" y="236" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="258" text-anchor="middle"><tspan x="370">两根轴永远互相垂直；flex-direction 一换，整组坐标旋转——对齐与尺寸属性的方向全部跟着转。</tspan></text>
+</svg>

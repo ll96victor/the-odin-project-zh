@@ -1,34 +1,39 @@
 /* 官方 The Odin Project Foundations 的完整 46 课目录（纯数据文件，零依赖）。
  *
- * 为什么要与 lessons.js 分开：lessons.js 装的是本站已经写好中文自足讲解的 20 课
- * （逐课开放，到 Project: Recipes 为止），每课带正文、术语、任务、自测等大量内容；
+ * 为什么要与 lessons.js 分开：lessons.js 装的是本站已经写好中文自足讲解的 46 课
+ * （逐课开放，到 Object Basics 为止，JavaScript 基础组开放 14/15），每课带正文、术语、任务、自测等大量内容；
  * 本文件只装“官方 Foundations 一共有哪些课、顺序是什么、本站开放到哪一课”，
  * 用来渲染完整目录与真实总进度。
- * 红线（AGENTS.md 第 3 条）：未开放课程（21-46，共 26 课）的正文绝不允许塞进
+ * 红线（AGENTS.md 第 3 条）：Foundations 46 课已全部开放（v4.11.20 第九批），
+ * 该红线自本批起转为「新增课程（Foundations 之后的路径课）未开放前正文不进 lessons.js」
  * lessons.js ——那些课本站还没有中文正文，塞进去只会得到一堆空壳，也会让人误以为
  * 已经写完；开放新课必须逐课完成官方原文指纹核对与中文自足讲解撰写。
  *
  * 字段说明：
  *   order     官方目录里的序号，1-46，连续且不重复
- *   slug      官方课程页 URL 末段，与 lessons.js 的 id 对已开放的 20 课逐字相同
+ *   slug      官方课程页 URL 末段，与 lessons.js 的 id 对已开放的 46 课逐字相同
  *   title     官方英文标题，作为次级文字原样保留
- *   zh        简体中文标题。01-20 沿用 lessons.js 已定稿的译名（tests/catalog.test.cjs
- *             会断言两边逐字一致）；21-46 由本站自行编写，尚未有正文。
+ *   zh        简体中文标题。01-29 沿用 lessons.js 已定稿的译名（tests/catalog.test.cjs
+ *             会断言两边逐字一致）。
  *   group     所属官方分组的 id，对应下面的 groups
  *   type      'lesson' 或 'project'；project 在界面上明确标记“项目”
- *   available 本站是否已经开放中文正文。true 的 20 课可以点进去；false 的 26 课
+ *   available 本站是否已经开放中文正文。true 的 46 课可以点进去（v4.11.20 第九批起全部开放）
  *             一律灰化显示“暂未开放”，并且不生成任何可进入正文的链接。
  *             available 必须与 lessons.js 双向一致（catalog.test.cjs 钉住）。
  *
  * 注意：本文件的分组是官方 8 个分组，而 lessons.js 的 groups 只列已开放课程涉及的
- * 前 4 个分组，progress.js 的 unit-* 成就按 lessons.js 的分组下标判定。两者刻意不合并：
+ * 前 6 个分组，progress.js 的 unit-* 成就按 lessons.js 的分组下标判定。两者刻意不合并：
  * 成就语义是“完成本站已开放的这个单元”，不是“完成官方这个单元”——HTML Foundations
- * 单元自 2026-09-23（第 20 课开放）起两者恰好重合：官方 8 课本站已全部开放。
+ * 单元自 2026-09-23（第 20 课开放）起两者恰好重合：官方 8 课本站已全部开放；
+ * CSS Foundations 单元自 2026-09-24（第 24–25 课开放）起同样全组重合：官方 5 课
+ * 本站已全部开放。Flexbox 单元自 2026-09-24 起分三批开放（26–27、28–29、30），
+ * 第 30 课 Project: Landing Page 开放后 5/5 全组重合。JavaScript Basics 单元自
+ * 2026-09-25 起分批开放（31–33、34–37、38 三批共 8 课，尚未收组）。
  */
 window.ODIN_CATALOG = {
   version: 1,
   /* 官方目录的核对日期。官方若调整顺序或增删课程，需要重新核对并更新本文件。 */
-  verifiedAt: '2026-09-23',
+  verifiedAt: '2026-09-24',
   courseUrl: 'https://www.theodinproject.com/paths/foundations/courses/foundations',
   /* 官方 Foundations 全部课程数，UI 的总进度分母直接取 lessons.length，
    * 不另写一个常量，避免两处数字打架。 */
@@ -63,31 +68,31 @@ window.ODIN_CATALOG = {
     { order: 18, slug: 'links-and-images', title: 'Links and Images', zh: '链接与图片', group: 'html-foundations', type: 'lesson', available: true },
     { order: 19, slug: 'commit-messages', title: 'Commit Messages', zh: '写清楚提交说明', group: 'html-foundations', type: 'lesson', available: true },
     { order: 20, slug: 'recipes', title: 'Project: Recipes', zh: '项目：菜谱网页', group: 'html-foundations', type: 'project', available: true },
-    { order: 21, slug: 'intro-to-css', title: 'Intro to CSS', zh: '认识 CSS', group: 'css-foundations', type: 'lesson', available: false },
-    { order: 22, slug: 'the-cascade', title: 'The Cascade', zh: 'CSS 层叠规则', group: 'css-foundations', type: 'lesson', available: false },
-    { order: 23, slug: 'inspecting-html-and-css', title: 'Inspecting HTML and CSS', zh: '检查 HTML 与 CSS', group: 'css-foundations', type: 'lesson', available: false },
-    { order: 24, slug: 'the-box-model', title: 'The Box Model', zh: '盒模型', group: 'css-foundations', type: 'lesson', available: false },
-    { order: 25, slug: 'block-and-inline', title: 'Block and Inline', zh: '块级与行内', group: 'css-foundations', type: 'lesson', available: false },
-    { order: 26, slug: 'introduction-to-flexbox', title: 'Introduction to Flexbox', zh: '认识 Flexbox', group: 'flexbox', type: 'lesson', available: false },
-    { order: 27, slug: 'growing-and-shrinking', title: 'Growing and Shrinking', zh: '放大与缩小', group: 'flexbox', type: 'lesson', available: false },
-    { order: 28, slug: 'axes', title: 'Axes', zh: '主轴与交叉轴', group: 'flexbox', type: 'lesson', available: false },
-    { order: 29, slug: 'alignment', title: 'Alignment', zh: '对齐方式', group: 'flexbox', type: 'lesson', available: false },
-    { order: 30, slug: 'landing-page', title: 'Project: Landing Page', zh: '项目：落地页', group: 'flexbox', type: 'project', available: false },
-    { order: 31, slug: 'variables-and-operators', title: 'Variables and Operators', zh: '变量与运算符', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 32, slug: 'installing-node-js', title: 'Installing Node.js', zh: '安装 Node.js', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 33, slug: 'data-types-and-conditionals', title: 'Data Types and Conditionals', zh: '数据类型与条件判断', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 34, slug: 'javascript-developer-tools', title: 'JavaScript Developer Tools', zh: 'JavaScript 开发者工具', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 35, slug: 'function-basics', title: 'Function Basics', zh: '函数基础', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 36, slug: 'problem-solving', title: 'Problem Solving', zh: '解决问题的思路', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 37, slug: 'understanding-errors', title: 'Understanding Errors', zh: '读懂报错信息', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 38, slug: 'rock-paper-scissors', title: 'Project: Rock Paper Scissors', zh: '项目：石头剪刀布', group: 'javascript-basics', type: 'project', available: false },
-    { order: 39, slug: 'clean-code', title: 'Clean Code', zh: '整洁代码', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 40, slug: 'loops-and-arrays', title: 'Loops and Arrays', zh: '循环与数组', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 41, slug: 'dom-manipulation-and-events', title: 'DOM Manipulation and Events', zh: '操作 DOM 与处理事件', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 42, slug: 'revisiting-rock-paper-scissors', title: 'Revisiting Rock Paper Scissors', zh: '重做石头剪刀布', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 43, slug: 'etch-a-sketch', title: 'Project: Etch-a-Sketch', zh: '项目：像素画板', group: 'javascript-basics', type: 'project', available: false },
-    { order: 44, slug: 'object-basics', title: 'Object Basics', zh: '对象基础', group: 'javascript-basics', type: 'lesson', available: false },
-    { order: 45, slug: 'calculator', title: 'Project: Calculator', zh: '项目：计算器', group: 'javascript-basics', type: 'project', available: false },
-    { order: 46, slug: 'choose-your-path-forward', title: 'Choose Your Path Forward', zh: '选择接下来的方向', group: 'conclusion', type: 'lesson', available: false },
+    { order: 21, slug: 'intro-to-css', title: 'Intro to CSS', zh: '认识 CSS', group: 'css-foundations', type: 'lesson', available: true },
+    { order: 22, slug: 'the-cascade', title: 'The Cascade', zh: 'CSS 层叠规则', group: 'css-foundations', type: 'lesson', available: true },
+    { order: 23, slug: 'inspecting-html-and-css', title: 'Inspecting HTML and CSS', zh: '检查 HTML 与 CSS', group: 'css-foundations', type: 'lesson', available: true },
+    { order: 24, slug: 'the-box-model', title: 'The Box Model', zh: '盒模型', group: 'css-foundations', type: 'lesson', available: true },
+    { order: 25, slug: 'block-and-inline', title: 'Block and Inline', zh: '块级与行内', group: 'css-foundations', type: 'lesson', available: true },
+    { order: 26, slug: 'introduction-to-flexbox', title: 'Introduction to Flexbox', zh: '认识 Flexbox', group: 'flexbox', type: 'lesson', available: true },
+    { order: 27, slug: 'growing-and-shrinking', title: 'Growing and Shrinking', zh: '放大与缩小', group: 'flexbox', type: 'lesson', available: true },
+    { order: 28, slug: 'axes', title: 'Axes', zh: '主轴与交叉轴', group: 'flexbox', type: 'lesson', available: true },
+    { order: 29, slug: 'alignment', title: 'Alignment', zh: '对齐方式', group: 'flexbox', type: 'lesson', available: true },
+    { order: 30, slug: 'landing-page', title: 'Project: Landing Page', zh: '项目：落地页', group: 'flexbox', type: 'project', available: true },
+    { order: 31, slug: 'variables-and-operators', title: 'Variables and Operators', zh: '变量与运算符', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 32, slug: 'installing-node-js', title: 'Installing Node.js', zh: '安装 Node.js', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 33, slug: 'data-types-and-conditionals', title: 'Data Types and Conditionals', zh: '数据类型与条件判断', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 34, slug: 'javascript-developer-tools', title: 'JavaScript Developer Tools', zh: 'JavaScript 开发者工具', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 35, slug: 'function-basics', title: 'Function Basics', zh: '函数基础', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 36, slug: 'problem-solving', title: 'Problem Solving', zh: '解决问题的思路', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 37, slug: 'understanding-errors', title: 'Understanding Errors', zh: '读懂报错信息', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 38, slug: 'rock-paper-scissors', title: 'Project: Rock Paper Scissors', zh: '项目：石头剪刀布', group: 'javascript-basics', type: 'project', available: true },
+    { order: 39, slug: 'clean-code', title: 'Clean Code', zh: '整洁代码', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 40, slug: 'loops-and-arrays', title: 'Loops and Arrays', zh: '循环与数组', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 41, slug: 'dom-manipulation-and-events', title: 'DOM Manipulation and Events', zh: '操作 DOM 与处理事件', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 42, slug: 'revisiting-rock-paper-scissors', title: 'Revisiting Rock Paper Scissors', zh: '重做石头剪刀布', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 43, slug: 'etch-a-sketch', title: 'Project: Etch-a-Sketch', zh: '项目：像素画板', group: 'javascript-basics', type: 'project', available: true },
+    { order: 44, slug: 'object-basics', title: 'Object Basics', zh: '对象基础', group: 'javascript-basics', type: 'lesson', available: true },
+    { order: 45, slug: 'calculator', title: 'Project: Calculator', zh: '项目：计算器', group: 'javascript-basics', type: 'project', available: true },
+    { order: 46, slug: 'choose-your-path-forward', title: 'Choose Your Path Forward', zh: '选择接下来的方向', group: 'conclusion', type: 'lesson', available: true },
   ]
 };

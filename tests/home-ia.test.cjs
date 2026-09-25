@@ -106,7 +106,7 @@ function openSheetOf(page) {
   assert.equal(lead.textContent, '沿 The Odin Project 路线学习 Web 开发。', check('第三轮：副标题是一句话定位'));
   assert.equal(querySelect(hero, 'h1').textContent, 'Full Stack JavaScript 路线', check('第三轮：主标题承担路线名'));
   /* World 数量与中文覆盖下沉到世界地图与 World 1 卡片，不再塞进 Hero */
-  for (const fact of ['8 个 World', '197 课', '前 20 课']) {
+  for (const fact of ['8 个 World', '197 课', '前 46 课']) {
     assert.ok(!hero.textContent.includes(fact), check(`第三轮：Hero 不再塞「${fact}」`));
   }
   assert.ok(!main.textContent.includes('核对日期 2026-09-09'), check('v4.5.1：首页主内容移除核对日期'));
@@ -187,7 +187,7 @@ function openSheetOf(page) {
   const worldCards = collectByClass(sheet, 'world-card');
   assert.equal(worldCards.length, 8, check('F2：世界地图 Tab 顶层是 8 个 World 卡（官方全路线）'));
   assert.ok(worldCards[0].textContent.includes('Foundations'), check('F2：World 1 是 Foundations'));
-  assert.ok(worldCards[0].textContent.includes('前 20 课已有中文学习内容'),
+  assert.ok(worldCards[0].textContent.includes('前 46 课已有中文学习内容'),
     check('第三轮：World 1 卡片承载中文覆盖说明（自 Hero 下沉）'));
   assert.ok(worldCards[7].textContent.includes('求职之路'), check('F2：World 8 是求职之路（Getting Hired）'));
   assert.ok(worldCards[1].textContent.includes('尚未开放中文内容'), check('F3：后续 World 卡明确「尚未开放中文内容」'));
@@ -214,7 +214,7 @@ function openSheetOf(page) {
     });
   })(sheet);
   assert.equal(anchors.length, 0, check('F3：占位视图不存在任何 lesson.html 链接'));
-  assert.ok(sheet.textContent.includes('官方共 25 课'), check('F5：占位视图带官方课数（快照口径）'));
+  assert.ok(sheet.textContent.includes('官方共 25 课'), check('F5：占位视图带官方课数（快照口径，React World 官方 25 课，与本站开放数无关）'));
   /* 切到 Foundations 探索 Tab：独立入口直达节点地图（交接 B「按信息架构合理归位」） */
   clickMapTab('Foundations 探索');
   assert.ok(collectByClass(sheet, 'map-nodes').length >= 1, check('B：Foundations 探索 Tab 直达五阶节点地图'));
@@ -263,10 +263,10 @@ function openSheetOf(page) {
   dispatch(querySelect(dom.body, '.catalog-trigger'), 'click', {});
   const catalogDialog = collectByClass(dom.body, 'catalog-dialog').find(item => item.open === true);
   assert.ok(catalogDialog, check('A1：header 目录按钮打开课程目录 dialog'));
-  assert.equal(collectByClass(catalogDialog, 'lesson-link').length, 20,
-    check('目录 dialog 内已开放课程链接恰好 20 条（21-46 课无链接的红线不变）'));
-  assert.equal(collectByClass(catalogDialog, 'lesson-locked').length, 26,
-    check('目录 dialog 内 26 课灰化不可点'));
+  assert.equal(collectByClass(catalogDialog, 'lesson-link').length, 46,
+    check('目录 dialog 内已开放课程链接恰好 46 条（Foundations 全开，无灰化课）'));
+  assert.equal(collectByClass(catalogDialog, 'lesson-locked').length, 0,
+    check('目录 dialog 内 0 课灰化（Foundations 46 课全开放）'));
   const officialCatalog = querySelect(catalogDialog, '.catalog-official-link');
   assert.ok(officialCatalog, check('v4.5.1：本站目录内有 TOP 官方目录外链'));
   assert.equal(officialCatalog.href, 'https://www.theodinproject.com/paths/foundations/courses/foundations', check('v4.5.1：官方目录 URL 正确'));
@@ -660,7 +660,7 @@ function openSheetOf(page) {
   assert.deepEqual(cards.map(c => Boolean(querySelect(c, '.world-mini-progress'))),
     [true, false, false, false, false, false, false, false],
     check('G2a：只有开放的 World 1 带完成度进度条，未开放卡不放假进度'));
-  assert.ok(cards[0].textContent.includes('前 20 课已有中文学习内容'),
+  assert.ok(cards[0].textContent.includes('前 46 课已有中文学习内容'),
     check('G2a：World 1 的中文覆盖说明保留（自 Hero 下沉的那句）'));
   assert.ok(cards.slice(1).every(c => c.textContent.includes('尚未开放中文内容')),
     check('G2a：7 张未开放卡仍明确写「尚未开放中文内容」——装饰不替代状态文案'));

@@ -1,8 +1,9 @@
 {
-  "verifiedAt": "2026-09-09",
+  "verifiedAt": "2026-09-25",
   "courseUrl": "https://www.theodinproject.com/paths/foundations/courses/foundations",
-  "excludedBoundary": "https://www.theodinproject.com/lessons/foundations-intro-to-css",
-  "method": "读取官方线上目录和全部 20 课正文，再核对官方 curriculum Markdown；sha256 为本次读取 Markdown 的摘要。第 01–19 课指纹最近一次全量复核为 2026-09-09（全局 verifiedAt）；第 20 课 Project: Recipes 于 2026-09-23 抓取核对（逐课日期见 lessons.js 各课 sources.verifiedAt）。",
+  "excludedBoundary": "",
+  "knowledgeCheckRemovedAt": "2026-09-23",
+  "method": "读取官方线上目录和全部 30 课正文，再核对官方 curriculum Markdown；sha256 为本次读取 Markdown 的摘要。2026-09-24 对已开放 20 课做全量复核：官方于 2026-09-23 合并 PR #31412 移除全部 Knowledge Check，本站同步下线（knowledgeCheckRemovedAt 记录该日期）。复核方法为「取 KC 移除前的 commit 7a32f72e，剥掉 ### Knowledge check 段与随之失效的 <span id> 锚点壳，与当前 main 逐行比对」——20 课全部零剩余差异，证明官方除 KC（及其锚点壳）外未改动本站正文所依据的任何内容；第 19 课 commit-messages 另有一次2026-09-19 的官方节序调整（PR #31389，纯位置移动、文字未变），一并复核后刷新。第 21–23 课（CSS Foundations 起步三课）于 2026-09-24 首次抓取核对并开放。第 24–25 课（The Box Model / Block and Inline）于 2026-09-24 抓取核对并开放，CSS Foundations 单元就此 5 课全开放。 2026-09-24（第二批）：开放第 26–27 课（Flexbox 组起步），两课 raw Markdown 重新抓取核对 SHA-256 后登记；两课均无 Knowledge Check、无 Additional Resources（与上游移除后的口径一致），课 26 的 Assignment 仅一句无作业声明、课 27 的 Assignment 为两条阅读任务。 2026-09-24（第三批）：开放第 28–29 课（Flexbox 组第 3–4 课），两课 raw Markdown 重新抓取核对 SHA-256 后登记；两课均无 Knowledge Check、无 Additional Resources，Assignment 分别为 1 条与 4 条阅读/练习任务。 2026-09-24（第四批）：开放第 30 课 Project: Landing Page（Flexbox 组收组 5/5），官方文件为 project_landing_page.md（注意前缀不是 flexbox_）；无 Knowledge Check、无 Additional Resources，Assignment 为项目任务与规格清单。 2026-09-25（第五批）：开放第 31–33 课（JavaScript Basics 起步三课），三课 raw Markdown 重新抓取核对 SHA-256 后登记（31/33 为知识课、32 为环境课；注意官方文件名是 installing_nodejs.md 不是 installing_node_js.md）；三课均无 Knowledge Check、无 Additional Resources；课 31 Assignment 为算术与变量练习 + 四篇阅读，课 32 Assignment 为 nvm/Node/npm 安装与 REPL（零外部资料，官方安装指南为 TOP curriculum 仓库自有页不计入），课 33 Assignment 为 javascript-exercises 五题练习 + 九篇阅读（javascript-exercises 两个链接为练习操作目标，按 odin-recipes 先例不计入资料清单）。 2026-09-25（第六批）：开放第 34–37 课（JavaScript Basics 第 4–7 课：DevTools / 函数基础 / 问题解决 / 读懂报错），四课 raw Markdown 重新抓取核对 SHA-256 后登记；四课均无 Knowledge Check、无 Additional Resources；课 34 Assignment 为调试教程与 DevTools 文档导览（7 条链接全收），课 35 为五篇阅读 + 四道函数练习（1 张配图 CDN 与 1 条 TOP 自有课页链接剔除），课 36 为三篇阅读（正文 Fizz Buzz 条目与 MDN for 文档一并收录），课 37 为 MDN 三篇错误对象文档 + 排错教程（4 张官方配图 CDN 剔除）。 2026-09-25（第七批）：开放第 38 课 Project: Rock Paper Scissors（JavaScript Basics 8/15，官方文件为 project_rock_paper_scissors.md，注意 project_ 前缀）；无 Knowledge Check、无 Additional Resources；Assignment 为六步项目拆解（项目结构 / 电脑出拳 / 玩家出拳 / 计分变量 / 单轮逻辑 / 五轮全局）；外链 6 条中 2 条 TOP 自有课页（commit-messages / javascript-developer-tools）剔除，实收 4 条（wikiHow 玩法说明 zh.wikihow 无对应条目为 C 类、dev.to 作品集文章 C 类、MDN Math.random 与 prompt 有 zh-CN 为 A 类）。 2026-09-25（第八批）：开放第 39–40 课（JavaScript Basics 第 9–10 课：整洁代码 / 循环与数组），两课 raw Markdown 重新抓取核对 SHA-256 后登记（clean_code.md 14968 字节、loops_and_arrays.md 14333 字节）；两课均无 Knowledge Check、无 Additional Resources；课 39 Assignment 为一篇原则清单 + 两篇注释实践文章（3 条外链全 C 类，其中 onextrapixel 两次无响应、reddit 帖为正文玩笑引用均如实登记受限）；课 40 Assignment 为 JavaScript.info 数组方法七题 + javascript-exercises 六题（两条练习仓库链接为操作目标按先例不计入资料清单），正文阅读材料 6 条（MDN 循环教程与 Array 文档、JavaScript.info 三篇均核验出官方中文版 A 类、YouTube 数组速览视频 oEmbed 核验 C 类），1 张三明治配图 CDN 剔除，Assignment 的 array-methods#tasks 锚点与正文同页合并。 2026-09-25（第九批）：开放第 41–42 课（JavaScript Basics 第 11–12 课：DOM 操作与事件 / 重做石头剪刀布，注意官方文件名是大写 DOM_manipulation_and_events.md），两课 raw Markdown 重新抓取核对 SHA-256 后登记（19924 / 8956 字节）；两课均无 Knowledge Check、无 Additional Resources；课 41 Assignment 为 JavaScript Tutorial 六篇事件阅读 + dev.to 回调文章 + MDN DOM scripting 两节练习（正文外链 8 条中 2 条跨课合并：javascript.info 箭头函数并入课 35、codepen 并入课 21；Assignment 的 MDN 两个锚点同页合并），实收 14 条（A 类 ×5：MDN 展开语法 / HTML 属性参考 / 事件介绍 / DOM 脚本简介均核验出 zh-CN 官方中文版——本批两条 Learn_web_development 新路径均有中文版、与此前多课相反，逐条核验必要；JavaScript.info defer 一篇走 zh.javascript.info；C 类 ×9：XSS 攻防视频 oEmbed 核验、W3Schools 事件参考 200、jstut 六篇、dev.to 一篇）；课 42 Assignment 为 learngitbranching 前 3 关 + RPS UI 项目六步（3 条 TOP 自有课页与 1 张 GitHub 截图 CDN 剔除），实收 1 条（learngitbranching.js.org 站点自带 ?locale=zh_CN 官方简体中文界面、真实浏览器实测渲染中文，A 类）。 2026-09-25（第十批）：开放第 43 课 Project: Etch-A-Sketch（JavaScript Basics 13/15，官方文件为 project_etch_a_sketch.md，注意 project_ 前缀）；无 Knowledge Check、无 Additional Resources；Assignment 为四步项目拆解（建仓 / JS 生成 16×16 方格 + Flexbox 排列（官方明令不碰 CSS Grid）/ 悬停变色 / 重设按钮 prompt 上限 100）+ Extra credit 两项选做（随机 RGB / 每次 10% 渐黑，Hint 为 opacity）；外链 4 条中 3 条 TOP 自有链接（commit-messages 课 / recipes 建仓锚点 / Discord 与课 05 跨课合并）不收，1 条 Extra credit 的 MDN opacity（zh-CN 有官方中文版）实收，A 类 ×1。 2026-09-25（第十一批）：开放第 44 课 Object Basics（JavaScript Basics 14/15，概念密度高按交接单独一批）；无 Knowledge Check、无 Additional Resources；Assignment 为课 40 数组方法页补做五道对象题 + JavaScript30 两个视频跟练（Array Cardio Day 1/2）+ javascript-exercises 五题；外链实收 5 条（A 类 ×2：JavaScript.info 对象文章走 zh.javascript.info、MDN 对象基础 zh-CN；C 类 ×3：Wes Bos JavaScript30 仓库与两个 Array Cardio 视频 oEmbed 核验；array-methods#tasks 与课 40 同页合并、javascript-exercises 为操作目标、Discord 跨课合并、课 33 TOP 自有页剔除）。 2026-09-25（第十二批）：开放第 45 课 Project: Calculator（JavaScript Basics 15/15，Project 红线课：examples 空数组 + 片段表，本站不提供成品代码）；无 Knowledge Check、无 Additional Resources；Assignment 为官方七条 use cases（四运算函数 / 三个变量 + operate / HTML 骨架 / 数字按钮更新 / = 触发 operate）+ Gotchas 七坑 + Extra credit 三项（小数点 / backspace / 键盘支持）；开工警告：eval() 与 new Function() 均禁用。外链实收 3 条（A 类 ×1：MDN eval() zh-CN 有官方中文版；C 类 ×2：StackOverflow eval 对比讨论 403 受限入 verifyLimited、CalculatorSoup 在线计算器演示 200；commit-messages 课为 TOP 自有页剔除）。 2026-09-25（第十三批）：开放第 46 课 Choose Your Path Forward（Foundations 46 课全部开放，新增第 8 分组 Conclusion）；官方文件为 foundations/tying_it_all_together/conclusion.md（文件名是 conclusion，不在 javascript_basics 目录）；官方无 Knowledge Check、无 Additional Resources、**也无 Assignment**（官方文件顶部即声明因独特的课结构豁免常规布局，本站 sources 首次登记 hasAssignment: false）；外链 1 条：Medium 选语言指南文章（by Carlos Diaz，命令行 403 反爬受限、真实浏览器核验可达，C 类入 verifyLimited）；官方页面内嵌的 wheeldecide 命运转盘 iframe 按不嵌第三方 iframe 口径剔除、正文转述。",
   "lessons": [
     {
       "order": 1,
@@ -10,9 +11,9 @@
       "id": "how-this-course-will-work",
       "url": "https://www.theodinproject.com/lessons/foundations-how-this-course-will-work",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/how_this_course_will_work.md",
-      "sha256": "67d649b15ce14d2f11a34ebe8d4f46930bc56e468803337da1593599721ec73e",
+      "sha256": "ebb184d719e42783432008dcadeeb288bf6b2ccfb28a2ec91d0a067ea0cb6845",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -21,9 +22,9 @@
       "id": "introduction-to-web-development",
       "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-web-development",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/introduction_to_web_development.md",
-      "sha256": "15516fb43ea8b4e9ca80495be45e80ae694c5fbdd8fc45d67cde6a40abc030e5",
+      "sha256": "a3564f8880aaea1b05d2b4e951bf97a486fd8f0d6418b782984b2a1e4dc51db5",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -32,9 +33,9 @@
       "id": "motivation-and-mindset",
       "url": "https://www.theodinproject.com/lessons/foundations-motivation-and-mindset",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/motivation_and_mindset.md",
-      "sha256": "b823d2d5ae49e2c0304a6e70097d877aa66e10468f9cad4033b622d9f1d137b8",
+      "sha256": "4430feaa678caf96dbe52d4278a429e532c7ee40cf72c5da88f143ec6586df33",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -43,9 +44,9 @@
       "id": "asking-for-help",
       "url": "https://www.theodinproject.com/lessons/foundations-asking-for-help",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/asking_for_help.md",
-      "sha256": "b9363e0d58bc5c1217439ff470b1f32b2ed414881ede19a6a15b433b5cca7b95",
+      "sha256": "7bdf2fb7f8388619491d0983625be182df47846632527652898a40cd808ea77a",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -54,9 +55,9 @@
       "id": "join-the-odin-community",
       "url": "https://www.theodinproject.com/lessons/foundations-join-the-odin-community",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/introduction/join_the_odin_community.md",
-      "sha256": "21ec5016df0142f01d1c84068e41242d0c6ee5726eef20e735e7c1ec7d2f3170",
+      "sha256": "fa8578d6c1821cf7bad61c98bc800dfa577898e5be2ab53f1f13830dda4fcb8f",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -65,9 +66,9 @@
       "id": "how-does-the-web-work",
       "url": "https://www.theodinproject.com/lessons/foundations-how-does-the-web-work",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/how_does_the_web_work.md",
-      "sha256": "a2b61415e0f99792dd8f2151ca819714beb2a6cf1b075212a61a75cf2fa36e6d",
+      "sha256": "b95192604e2d697207b5723a318a7b53604886ebab72fb2489e73ebd317a99f5",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -76,9 +77,9 @@
       "id": "installations",
       "url": "https://www.theodinproject.com/lessons/foundations-installations",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/installations.md",
-      "sha256": "498a87c8a66f40ad9bb8a06834104a3ced53979b7229500aa492d3da85e7355e",
+      "sha256": "972b5892df337f48cc77757481f7e730ccdab35440b26e38a18e97817ee9cb3f",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -87,9 +88,9 @@
       "id": "text-editors",
       "url": "https://www.theodinproject.com/lessons/foundations-text-editors",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/text_editors.md",
-      "sha256": "f310ff092d98fd3a8a1b3b9b6adf236518ab22dcfa13f10666aa642e05b18fd0",
+      "sha256": "4fbd90bfc03829e485889cd4458544b8ad6727e174a4c4a923baa799e5dfbbb6",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -98,9 +99,9 @@
       "id": "command-line-basics",
       "url": "https://www.theodinproject.com/lessons/foundations-command-line-basics",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/command_line_basics.md",
-      "sha256": "b55c2407f0f1df9793f96823644ad22a78e53c6bbe319d2180c6cfc02914431a",
+      "sha256": "9d052b4ab01ca1571bbea9259c8112d4dc7ba597f4ad8fb34803453021dad40a",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -109,9 +110,9 @@
       "id": "setting-up-git",
       "url": "https://www.theodinproject.com/lessons/foundations-setting-up-git",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/installations/setting_up_git.md",
-      "sha256": "d58a50f5062246d8f21442d2a33491d86a1750e732fdb514f430dd13a164cb56",
+      "sha256": "0b3fa0be6ec54703f2ea3ffcb201478e24fa3565a5dff33d3b23f7155cbed3fc",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -120,9 +121,9 @@
       "id": "introduction-to-git",
       "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-git",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/git/foundations_git/introduction_to_git.md",
-      "sha256": "c8294bd368708276a0306b9a49b9971d0a3d913fec9d65f2a14ba9694c6fc847",
+      "sha256": "b074a7d658b8cc5b04fc2527ace67e11ddc549537a8971c86a27c182dea77a7d",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -131,9 +132,9 @@
       "id": "git-basics",
       "url": "https://www.theodinproject.com/lessons/foundations-git-basics",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/git/foundations_git/git_basics.md",
-      "sha256": "f0799bae4620e07c958070a6ae73479d5577ec1f00631e8c572c62f69eaf8712",
+      "sha256": "11d54ee61c8a8ed0b7fefedcd782f5d197a6deb28c0a2e85b8fa94afef8c815c",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -142,9 +143,9 @@
       "id": "introduction-to-html-and-css",
       "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-html-and-css",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/intro_to_html_css.md",
-      "sha256": "5b4fed2b946e308e8b2af30003504623922a6a911a0e39f9d10341559591a0be",
+      "sha256": "c78bcb23601937da8496e9b9f9533be8badff5a2f34165234ee4094b2db195f8",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -153,9 +154,9 @@
       "id": "elements-and-tags",
       "url": "https://www.theodinproject.com/lessons/foundations-elements-and-tags",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/elements_and_tags.md",
-      "sha256": "043a63a046152cbcaaf2976386f8b43c0ef5687c8033ef223dea03a0a1762190",
+      "sha256": "9071c789729a6eec0dbc3084b916eea5af721da52ff2b8328d09132604829a2e",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -164,9 +165,9 @@
       "id": "html-boilerplate",
       "url": "https://www.theodinproject.com/lessons/foundations-html-boilerplate",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/html_boilerplate.md",
-      "sha256": "aca920f0cda981bff27b772847413476d139192833b983df25b082197c01dd23",
+      "sha256": "9294e346b7ec0d49abe5b37a4a91bb9f4912cc5028ffe590c7af5070ea658ca3",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -175,9 +176,9 @@
       "id": "working-with-text",
       "url": "https://www.theodinproject.com/lessons/foundations-working-with-text",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/working_with_text.md",
-      "sha256": "0fc721eab0f2faef475222363596fc69290ab1566c78b64890f89a612b0440ae",
+      "sha256": "5f5ca5ee43c74bc462eaa9d9e2e7c9283828393025c88658e7a037a7bfc9867a",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -186,9 +187,9 @@
       "id": "lists",
       "url": "https://www.theodinproject.com/lessons/foundations-lists",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/lists.md",
-      "sha256": "46b6fdddaddcd9d940edf06527f8101e9a53e52c36ab5df25c78a81a2d0fcaec",
+      "sha256": "8790be220a6f6723af9814c60a85b32acdb2150292537a5cae43decf7a37f1de",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -197,9 +198,9 @@
       "id": "links-and-images",
       "url": "https://www.theodinproject.com/lessons/foundations-links-and-images",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/links_and_images.md",
-      "sha256": "1d439ea2a20e55f449814ca86c7bbfe3d228dc4fa06d2075a4140b9a4027b012",
+      "sha256": "681afbb8332ca6de288a8e06b4f5411a5fbef04621f4fdc1fefa95b3e00d7df0",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -208,9 +209,9 @@
       "id": "commit-messages",
       "url": "https://www.theodinproject.com/lessons/foundations-commit-messages",
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/git/foundations_git/commit_messages.md",
-      "sha256": "0df78378e6c5c60d84781c08d49f6e1ab21cc0fd02b25578659a37d5d5637d1a",
+      "sha256": "1a7c2cec596b4204e2467d6a6231d982f52fb819087c07869518b28a646a9fa0",
       "hasAssignment": true,
-      "hasKnowledgeCheck": true,
+      "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     },
     {
@@ -221,6 +222,292 @@
       "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/html_foundations/project_recipes.md",
       "sha256": "3df1c88af6a029312451edd9c3688df4e864929091bd56e25133d69b50947840",
       "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 21,
+      "title": "Intro to CSS",
+      "id": "intro-to-css",
+      "url": "https://www.theodinproject.com/lessons/foundations-intro-to-css",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/css_foundations/intro_to_css.md",
+      "sha256": "33ec47f17592845314c92f1dc3ffa681c1c28a0d2efb80cfe08237f31afc6020",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 22,
+      "title": "The Cascade",
+      "id": "the-cascade",
+      "url": "https://www.theodinproject.com/lessons/foundations-the-cascade",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/css_foundations/the_cascade.md",
+      "sha256": "8f5e2076fd6404e2323e2065ea1bc4af84d87dceccaf50bcf73c40bb836d333a",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 23,
+      "title": "Inspecting HTML and CSS",
+      "id": "inspecting-html-and-css",
+      "url": "https://www.theodinproject.com/lessons/foundations-inspecting-html-and-css",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/css_foundations/inspecting_html_and_css.md",
+      "sha256": "3d18c31863fbeb7b9f8c1c2b3ded19c6ac0072eac177e9bca66da9e0881ab9a5",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 24,
+      "title": "The Box Model",
+      "id": "the-box-model",
+      "url": "https://www.theodinproject.com/lessons/foundations-the-box-model",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/css_foundations/the_box_model.md",
+      "sha256": "51f77e5aafec01f8e4ba8c9e52d4652167d835890a8fcefc2ef8be060dfec6a2",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 25,
+      "title": "Block and Inline",
+      "id": "block-and-inline",
+      "url": "https://www.theodinproject.com/lessons/foundations-block-and-inline",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/css_foundations/block_and_inline.md",
+      "sha256": "fd601f862b2a77c3d3e9eb0fc78366d4981026dc2ce2b02db6e666adde3b1b81",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 26,
+      "title": "Introduction to Flexbox",
+      "id": "introduction-to-flexbox",
+      "url": "https://www.theodinproject.com/lessons/foundations-introduction-to-flexbox",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/flexbox/flexbox_intro.md",
+      "sha256": "e3fef3a09816d4149df460d5b198f74722ac85fdb683f673ddc2efff3f1698b8",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 27,
+      "title": "Growing and Shrinking",
+      "id": "growing-and-shrinking",
+      "url": "https://www.theodinproject.com/lessons/foundations-growing-and-shrinking",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/flexbox/flexbox_growing_and_shrinking.md",
+      "sha256": "71ca0a77d40a7efb12fc9b9e95660499daed4fa5858e6efe59d81e394584d39c",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 28,
+      "title": "Axes",
+      "id": "axes",
+      "url": "https://www.theodinproject.com/lessons/foundations-axes",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/flexbox/flexbox_axes.md",
+      "sha256": "8572579e61511713e492452b07cce80be496b7cffa3d6d1914ec0a6f7ec64f93",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 29,
+      "title": "Alignment",
+      "id": "alignment",
+      "url": "https://www.theodinproject.com/lessons/foundations-alignment",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/flexbox/flexbox_alignment.md",
+      "sha256": "de53d45f397a6adb43ee01df466ed9deac919544a9901898567d08b9829649bc",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 30,
+      "title": "Project: Landing Page",
+      "id": "landing-page",
+      "url": "https://www.theodinproject.com/lessons/foundations-landing-page",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/html_css/flexbox/project_landing_page.md",
+      "sha256": "39b954c5897b785b5dcefec624f9a8aa7c7c84298b88b258064a0455d09e968d",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 31,
+      "title": "Variables and Operators",
+      "id": "variables-and-operators",
+      "url": "https://www.theodinproject.com/lessons/foundations-variables-and-operators",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/variables_and_operators.md",
+      "sha256": "5d937eddfdff44390cc7a72cb8727bf58b9ae98337ca0c785c52e4588b8b4e6b",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 32,
+      "title": "Installing Node.js",
+      "id": "installing-node-js",
+      "url": "https://www.theodinproject.com/lessons/foundations-installing-node-js",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/installing_nodejs.md",
+      "sha256": "3a6e854cc18901404044806672f69495a38a2ba8fde7004b7f28c911280f656a",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 33,
+      "title": "Data Types and Conditionals",
+      "id": "data-types-and-conditionals",
+      "url": "https://www.theodinproject.com/lessons/foundations-data-types-and-conditionals",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/data_types_and_conditionals.md",
+      "sha256": "1292b61008ba1a9d2aaa98b894f992c3ed6925d65df6f147fd706f10f1f5c877",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 34,
+      "title": "JavaScript Developer Tools",
+      "id": "javascript-developer-tools",
+      "url": "https://www.theodinproject.com/lessons/foundations-javascript-developer-tools",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/javascript_developer_tools.md",
+      "sha256": "813d3f4b3779b855be364b7900ea3becf35ac5e4a50ad5376ee1ade3f46e1af7",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 35,
+      "title": "Function Basics",
+      "id": "function-basics",
+      "url": "https://www.theodinproject.com/lessons/foundations-function-basics",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/function_basics.md",
+      "sha256": "ad3e083dc03b5b917bf9face48b38ad3913d2b46814e5ffac452eba80c0fab09",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 36,
+      "title": "Problem Solving",
+      "id": "problem-solving",
+      "url": "https://www.theodinproject.com/lessons/foundations-problem-solving",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/problem_solving.md",
+      "sha256": "636835f4a6661a0367721020052a8c78c2a38409c03d23cda571607dba7eb991",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 37,
+      "title": "Understanding Errors",
+      "id": "understanding-errors",
+      "url": "https://www.theodinproject.com/lessons/foundations-understanding-errors",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/understanding_errors.md",
+      "sha256": "cac38c4a9944bec56f26bc42d06501fa8c5340d8af544080a8cd618fe82d6d96",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 38,
+      "title": "Project: Rock Paper Scissors",
+      "id": "rock-paper-scissors",
+      "url": "https://www.theodinproject.com/lessons/foundations-rock-paper-scissors",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/project_rock_paper_scissors.md",
+      "sha256": "687c127d90f2353ef0ee62773312437c023c9bd495ae23fce49cd54164da807b",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 39,
+      "title": "Clean Code",
+      "id": "clean-code",
+      "url": "https://www.theodinproject.com/lessons/foundations-clean-code",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/clean_code.md",
+      "sha256": "45fe6f905cdd04d72a85f595c33289bba8813fecc9e36b9075e0d147953e142f",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 40,
+      "title": "Loops and Arrays",
+      "id": "loops-and-arrays",
+      "url": "https://www.theodinproject.com/lessons/foundations-loops-and-arrays",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/loops_and_arrays.md",
+      "sha256": "45c7a5c49b4744c9f7123d5e4405ca1ef05d3d17e90ad715900c6cd4fb60d32c",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 41,
+      "title": "DOM Manipulation and Events",
+      "id": "dom-manipulation-and-events",
+      "url": "https://www.theodinproject.com/lessons/foundations-dom-manipulation-and-events",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/DOM_manipulation_and_events.md",
+      "sha256": "30b3a3e929076d7bda9b612aba6388742e8a7e2ea6b210ed0b309d479bc0c2b5",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 42,
+      "title": "Revisiting Rock Paper Scissors",
+      "id": "revisiting-rock-paper-scissors",
+      "url": "https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/revisiting_rock_paper_scissors.md",
+      "sha256": "7f31c3ed7a108a899a2794a3f1ffc66746d2813a0440561232374138104ebb24",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 43,
+      "title": "Project: Etch-a-Sketch",
+      "id": "etch-a-sketch",
+      "url": "https://www.theodinproject.com/lessons/foundations-etch-a-sketch",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/project_etch_a_sketch.md",
+      "sha256": "8ec077f6f02a4518c6636e8689716b325c39d6ac4a159e6257363c570e2da00c",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 44,
+      "title": "Object Basics",
+      "id": "object-basics",
+      "url": "https://www.theodinproject.com/lessons/foundations-object-basics",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/object_basics.md",
+      "sha256": "9c2ee497103aee431cbd01df7663f345f496fc24a331432e22c40c18d3b1cc42",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 45,
+      "title": "Project: Calculator",
+      "id": "calculator",
+      "url": "https://www.theodinproject.com/lessons/foundations-calculator",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/javascript_basics/project_calculator.md",
+      "sha256": "0124b4ab63c6bab560786618d0e5e688b8955aa270a1af7e93258d67ab19bb0d",
+      "hasAssignment": true,
+      "hasKnowledgeCheck": false,
+      "hasAdditionalResources": false
+    },
+    {
+      "order": 46,
+      "title": "Choose Your Path Forward",
+      "id": "choose-your-path-forward",
+      "url": "https://www.theodinproject.com/lessons/foundations-choose-your-path-forward",
+      "source": "https://github.com/TheOdinProject/curriculum/blob/main/foundations/tying_it_all_together/conclusion.md",
+      "sha256": "5962848716f2c8be64be084be6fc47a0129f4a2e8b48a47680ff7bf582e82c07",
+      "hasAssignment": false,
       "hasKnowledgeCheck": false,
       "hasAdditionalResources": false
     }

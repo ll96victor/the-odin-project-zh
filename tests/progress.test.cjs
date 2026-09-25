@@ -229,12 +229,12 @@ const local = value => [...value];
   /* 迁移后再次导出，应当是明确的 v2 */
   assert.equal(JSON.parse(Logic.exportJson(migrated.state, '2026-09-11T00:00:00.000Z')).schemaVersion, 4, check('迁移后的档案再导出为 v4'));
 
-  /* v4.11.16：反例课 id 从 recipes 换成 intro-to-css——recipes 自第 20 课开放起
+  /* v4.11.20 第九批：46 课全开后不再有未开放课，反例 id 改用不存在的课程编号
    * 是合法 id，不再能被用来验证「范围外课程编号被拒绝」。 */
   const badLesson = JSON.parse(exported);
-  badLesson.lessons['intro-to-css'] = Logic.emptyLessonEntry();
+  badLesson.lessons['not-a-real-lesson'] = Logic.emptyLessonEntry();
   const rejected = Logic.parseImport(JSON.stringify(badLesson), lessonIds);
-  assert.equal(rejected.ok, false, check('范围外课程编号 intro-to-css 被拒绝'));
+  assert.equal(rejected.ok, false, check('范围外课程编号 not-a-real-lesson 被拒绝'));
   assert.match(rejected.error, /未知的课程编号/, check('非法课程编号给出明确原因'));
 
   const badDay = JSON.parse(exported);
@@ -371,8 +371,8 @@ const local = value => [...value];
 
   lessons.forEach(lesson => Logic.setLessonFlag(state, lesson.id, 'completed', true, '2026-09-10T11:00:00.000Z', Logic.XP_FIRST_LESSON_COMPLETE));
   const finalUnlock = Logic.evaluateAchievements(state, lessons, '2026-09-10T11:00:01.000Z', '2026-09-10');
-  assert.ok(finalUnlock.includes('all-lessons'), check('完成全部 19 课解锁成就'));
-  for (const group of [1, 2, 3]) assert.ok(finalUnlock.includes(`unit-${group}`), check(`完成全部课程同时解锁 unit-${group}`));
+  assert.ok(finalUnlock.includes('all-lessons'), check('完成全部 25 课解锁成就'));
+  for (const group of [1, 2, 3, 4]) assert.ok(finalUnlock.includes(`unit-${group}`), check(`完成全部课程同时解锁 unit-${group}`));
   // 本轮只累计了 30 分钟，2 小时与 10 小时成就不应被解锁
   const unlockedIds = Object.keys(state.achievements);
   assert.ok(!unlockedIds.includes('active-2h'), check('未达 2 小时不解锁对应成就'));
@@ -385,30 +385,32 @@ const local = value => [...value];
     'active-15m', 'active-30m',
     'streak-2', 'streak-3', 'streak-5', 'streak-7',
     'first-lesson', 'lessons-3', 'lessons-5', 'lessons-10', 'lessons-15', 'all-lessons',
-    'unit-0', 'unit-1', 'unit-2', 'unit-3',
+    'unit-0', 'unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7',
     'first-start',
     /* v4.3（交接 C1）：进过第一课就会解锁的早期成就 */
     'first-steps',
-    /* v4.2 新增三项：完成 19 课共 790 XP（Lv.8）解锁 level-5；
-     * daily 被替换为 600 秒之前，今日一度累计过 1800 秒，day-30m 在那次求值时合法解锁 */
-    'level-5', 'day-30m',
-    /* v4.11.3 C3：完成 19 课 = 包含全部 4 门大课，两个大课成就合法解锁 */
+    /* v4.2 新增三项：完成当时的全部课程解锁 level-5；
+     * daily 被替换为 600 秒之前，今日一度累计过 1800 秒，day-30m 在那次求值时合法解锁。
+     * v4.11.17：分母 19→23 后 XP 随之提高，本次求值跨过 Lv.10 门槛，level-10 亦合法解锁 */
+    'level-5', 'level-10', 'day-30m',
+    /* v4.11.3 C3：完成全部课程 = 包含全部大课，两个大课成就合法解锁 */
     'heavy-first', 'heavy-all'
   ];
-  assert.deepEqual(local(unlockedIds).sort(), [...EXPECTED_UNLOCKED].sort(), check('已解锁成就恰好是这 22 个，没有凭空多解锁'));
+  assert.deepEqual(local(unlockedIds).sort(), [...EXPECTED_UNLOCKED].sort(), check(`已解锁成就恰好是这 ${EXPECTED_UNLOCKED.length} 个，没有凭空多解锁`));
   assert.equal(unlockedIds.length, EXPECTED_UNLOCKED.length, check('已解锁成就数与预期集合一致'));
   /* 未达标的一律不许解锁：时长只到 30 分钟、streak 只到 7 天、官方任务与自测都没勾过、
    * 复习从没标记过。逐个点名，避免“集合断言通过但原因不对”。 */
   for (const notYet of ['active-1h', 'active-2h', 'active-5h', 'active-10h', 'active-20h', 'active-30h', 'active-50h', 'active-100h',
     'streak-14', 'streak-21', 'streak-30', 'streak-60', 'streak-100', 'official-first', 'official-3', 'official-5', 'official-10', 'official-all',
     'quiz-first', 'quiz-3', 'quiz-5', 'quiz-10', 'quiz-all', 'review-first', 'review-cleared',
-    'day-1h', 'day-2h', 'level-10', 'level-20', 'purchase-first', 'purchase-5', 'purchase-10',
+    'day-1h', 'day-2h', 'level-20', 'purchase-first', 'purchase-5', 'purchase-10',
     'started-10', 'started-all']) {
     assert.ok(!unlockedIds.includes(notYet), check(`未达标成就不解锁：${notYet}`));
   }
   /* 成就总数按 v4.2 配置断言（交接 §7 要求约 55–65 个；Batch 4 交付 52 + Batch 5 的 3 个每日目标类） */
-  assert.ok(Logic.ACHIEVEMENTS.length >= 55 && Logic.ACHIEVEMENTS.length <= 65, check('成就总数落在 §7 要求的 55–65 个之间'));
-  assert.equal(Logic.ACHIEVEMENTS.length, 63, check('成就总数与本轮配置一致（63 = v4.3 的 61 + v4.11.3 的 heavy-first / heavy-all）'));
+  /* v4.11.20 第九批：unit-6/unit-7 收组后 67 个，§7 上限同步扩到 70。 */
+  assert.ok(Logic.ACHIEVEMENTS.length >= 55 && Logic.ACHIEVEMENTS.length <= 70, check('成就总数落在 §7 要求的 55–70 个之间'));
+  assert.equal(Logic.ACHIEVEMENTS.length, 67, check('成就总数与本轮配置一致（67 = v4.3 的 61 + v4.11.3 的 heavy-first / heavy-all + v4.11.17 的 unit-4 + v4.11.19 的 unit-5 + v4.11.20 第九批的 unit-6/unit-7）'));
   /* v3 已有的 12 个 achievement id 必须全部原样保留（交接 §4：避免现有档案失效） */
   const V3_IDS = ['first-start', 'first-lesson', 'active-30m', 'active-2h', 'active-10h',
     'streak-3', 'streak-7', 'unit-0', 'unit-1', 'unit-2', 'unit-3', 'all-lessons'];
@@ -428,8 +430,8 @@ const local = value => [...value];
   // 首页面板数据
   const summary = Logic.summary(partial, lessons, '2026-09-10');
   assert.equal(summary.completedCount, 2, check('面板完成课程数'));
-  assert.equal(summary.totalLessons, 20, check('面板课程总数'));
-  assert.equal(summary.percent, Math.round((2 / 20) * 100), check('面板完成百分比'));
+  assert.equal(summary.totalLessons, 46, check('面板课程总数'));
+  assert.equal(summary.percent, Math.round((2 / 46) * 100), check('面板完成百分比'));
   assert.equal(summary.level, Logic.levelOf(partial.xp), check('面板 Level'));
   assert.equal(summary.xpToNext, Logic.nextLevelXp(partial.xp) - partial.xp, check('面板下一等级所需 XP'));
   assert.equal(summary.achievementTotal, Logic.ACHIEVEMENTS.length, check('面板成就总数'));

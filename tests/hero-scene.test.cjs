@@ -302,8 +302,8 @@ function ruleBody(selector) {
   assert.ok(!/\+3[3]%/.test(self),
     check('8.9 本文件零残留的旧高度增益口径（第 1 组已改为批次 D 实测的真实线性增益）'));
   const testFiles = fs.readdirSync(path.join(root, 'tests')).filter(f => f.endsWith('.test.cjs'));
-  assert.equal(testFiles.length, 45,
-    check(`8.9 Node 测试文件总数为 45（v4.11.2 新增 lesson-reader-fixes → 39；v4.11.3 新增 heavy-lesson → 40；v4.11.6 新增 task-resource-note → 41；v4.11.8 新增 visual-assets 与 lesson-chapter-nav → 43；v4.11.9 新增 lesson-visual-modules → 44；v4.11.14 新增 export-whitelist → 45；实际 ${testFiles.length}）`));
+  assert.equal(testFiles.length, 47,
+    check(`8.9 Node 测试文件总数为 47（v4.11.2 新增 lesson-reader-fixes → 39；v4.11.3 新增 heavy-lesson → 40；v4.11.6 新增 task-resource-note → 41；v4.11.8 新增 visual-assets 与 lesson-chapter-nav → 43；v4.11.9 新增 lesson-visual-modules → 44；v4.11.14 新增 export-whitelist → 45；v4.11.16 后新增 stale-claims → 46；v4.11.18 补轮新增 doc-numbers → 47；实际 ${testFiles.length}）`));
 }
 
 /* ============ 9. v4.11 批次 F（B0）：Hero 道具**可见性**层级 ============

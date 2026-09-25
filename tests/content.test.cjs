@@ -12,18 +12,28 @@ const expectedIds = [
   'asking-for-help', 'join-the-odin-community', 'how-does-the-web-work', 'installations',
   'text-editors', 'command-line-basics', 'setting-up-git', 'introduction-to-git', 'git-basics',
   'introduction-to-html-and-css', 'elements-and-tags', 'html-boilerplate', 'working-with-text',
-  'lists', 'links-and-images', 'commit-messages', 'recipes'
+  'lists', 'links-and-images', 'commit-messages', 'recipes',
+  'intro-to-css', 'the-cascade', 'inspecting-html-and-css', 'the-box-model', 'block-and-inline',
+  'introduction-to-flexbox', 'growing-and-shrinking', 'axes', 'alignment', 'landing-page',
+  'variables-and-operators', 'installing-node-js', 'data-types-and-conditionals',
+  'javascript-developer-tools', 'function-basics', 'problem-solving', 'understanding-errors',
+  'rock-paper-scissors', 'clean-code', 'loops-and-arrays',
+  'dom-manipulation-and-events', 'revisiting-rock-paper-scissors', 'etch-a-sketch', 'object-basics', 'calculator', 'choose-your-path-forward'
 ];
-assert.deepEqual(data.lessons.map(l => l.id), expectedIds, '包含官方前 20 课（至 Project: Recipes），顺序一致');
+assert.deepEqual(data.lessons.map(l => l.id), expectedIds, '包含官方全部 46 课（Foundations 全开，v4.11.20 第九批），顺序一致');
 assert.deepEqual(data.lessons.map(l => l.title), sources.lessons.map(l => l.title), '英文名称与官方记录一致');
 assert.deepEqual(data.lessons.map(l => l.url), sources.lessons.map(l => l.url), '每课来源 URL 一致');
-assert.deepEqual(data.groups.map(g => g.en), ['Introduction', 'Prerequisites', 'Git Basics', 'HTML Foundations']);
+assert.deepEqual(data.groups.map(g => g.en), ['Introduction', 'Prerequisites', 'Git Basics', 'HTML Foundations', 'CSS Foundations', 'Flexbox', 'JavaScript Basics', 'Conclusion']);
 assert.equal(data.verifiedAt, sources.verifiedAt);
-/* v4.11.16 按课型分支：Project 课是任务型课，官方原文（project_recipes.md，2026-09-23
- * 实抓核对）有 Assignment 但没有 Knowledge Check——KC 相关断言对这些课不成立。
- * 刻意写成显式集合而不是从数据推导：新增 Project 课时必须人工复核官方页有无 KC，
- * 再决定它进不进这个名单，防止「顺手放宽」。 */
-const PROJECT_NO_KC = new Set(['recipes']);
+/* v4.11.17：官方 2026-09-23 的 PR #31412 把全部课程的课末自查题一节整体移除
+ * （216 文件 +190/-2309，只删不补；官方 LAYOUT_STYLE_GUIDE 已无该节且无替代节），
+ * 本站全面跟随上游，把已开放课程里的官方自查题一并下线。因此 v4.11.16 的
+ * 「按课型分支」不再存在，本文件改为**统一的反向钉子**：全部课程都必须为零，
+ * 而不是恰好为空——任何人往任意一课塞回一道自查题、或在任务文案里写回该节名称，
+ * 这里先红。反向验证（交付前实跑）：给任意一课塞回一条自查题 → 本文件与
+ * lesson-reader-fixes.test.cjs 必须变红。
+ * 节名只在这一个常量里出现一次，供下面的反向断言使用；改这里等于改被钉的字符串。 */
+const KC_SECTION_NAME = 'Knowledge Check';
 for (const [i, lesson] of data.lessons.entries()) {
   for (const key of ['id', 'zh', 'title', 'summary', 'guide', 'url']) assert.ok(lesson[key].trim(), `${lesson.id}: ${key}`);
   /* v4.11.16 加固：分组下标不再硬编码边界三元式（i<5?0:…，扩到第 21 课
@@ -38,10 +48,15 @@ for (const [i, lesson] of data.lessons.entries()) {
   assert.ok(lesson.terms.length >= 3 && lesson.terms.every(t => t.en && t.zh));
   assert.ok(lesson.quiz.length >= 3 && lesson.quiz.length <= 5);
   assert.ok(lesson.quiz.every(q => q.question && q.answer));
-  if (!PROJECT_NO_KC.has(lesson.id)) assert.ok(lesson.tasks.some(t => t.includes('Knowledge Check')));
-  assert.ok(sources.lessons[i].hasAssignment, `${lesson.id}: 官方有 Assignment`);
-  assert.equal(sources.lessons[i].hasKnowledgeCheck, !PROJECT_NO_KC.has(lesson.id),
-    `${lesson.id}: hasKnowledgeCheck 必须与课型名单一致（Project 课无官方 KC；官方若新增 KC，先复核原文再迁移名单）`);
+  assert.ok(!lesson.tasks.some(t => t.includes(KC_SECTION_NAME)),
+    `${lesson.id}: 官方已下线该节，任务文案不得再出现「${KC_SECTION_NAME}」（发现即说明有人把已删除的课节写回来了）`);
+  if (lesson.id === 'choose-your-path-forward') {
+    assert.equal(sources.lessons[i].hasAssignment, false, `${lesson.id}: 官方无 Assignment（结语课，官方文件顶部声明结构豁免——若官方补了 Assignment 节，先复核原文再迁移此断言）`);
+  } else {
+    assert.ok(sources.lessons[i].hasAssignment, `${lesson.id}: 官方有 Assignment`);
+  }
+  assert.equal(sources.lessons[i].hasKnowledgeCheck, false,
+    `${lesson.id}: hasKnowledgeCheck 必须为 false（官方 2026-09-23 已移除该节；官方若恢复，先复核原文再迁移）`);
   assert.equal(sources.lessons[i].hasAdditionalResources, false);
   assert.match(lesson.url, /^https:\/\/www\.theodinproject\.com\/lessons\/foundations-[a-z-]+$/);
 }
@@ -61,15 +76,32 @@ for (const [id, fragments] of Object.entries({
   'links-and-images': ['Preparation', 'dog.jpg', 'alt', 'width', 'height', '三个视频', '阅读并跟做', '四种图片格式'],
   'commit-messages': ['72', '50', 'seven rules', '没有要求另做'],
   /* v4.11.16 Project 课的高遗漏风险点：仓库名 / 外部灵感站 / 不提供成品代码的边界声明 /
-   * GitHub Pages 可选项——漏掉任何一条都意味着项目要求或红线边界被删改。 */
-  'recipes': ['odin-recipes', 'Allrecipes', '不提供成品代码', 'GitHub Pages', 'Iteration']
+   * GitHub Pages 可选项——漏掉任何一条都意味着项目要求或红线边界被删改。
+   * v4.11.19 第三批新增课 30 的同族要点。 */
+  'recipes': ['odin-recipes', 'Allrecipes', '不提供成品代码', 'GitHub Pages', 'Iteration'],
+  'landing-page': ['不提供成品代码', 'GitHub Pages', '设计图', '一次只做一个区块', '像素级'],
+  /* v4.11.20 第三批新增课 38 的同族要点：六步结构 / 两个官方 Hint 的边界词 /
+   * 数学与输入两个 MDN 落点 / 不做 GUI / 不需要数组。 */
+  'rock-paper-scissors': ['不提供成品代码', 'Hello World', 'Math.random', 'prompt', '大小写不敏感', '五轮', '数组不是必需的', 'commit early'],
+  /* v4.11.20 第六批新增课 43 的同族要点：四步主线 / Flexbox 专属（官方明令不碰
+   * CSS Grid）/ 悬停事件边界词 / prompt 上限 100 / Extra credit 两项。 */
+  'etch-a-sketch': ['不提供成品代码', '16×16', 'Flexbox', 'CSS Grid', 'mouseenter', 'prompt', '100', '960px', 'Extra credit', 'opacity', 'commit early'],
+  /* v4.11.20 第八批新增课 45 的同族要点：四运算函数 / operate 调度 / eval 禁令 /
+   * 单对运算链的 12+7-1 演示 / 连续运算符只认最后一个 / 除以 0 不崩 / Extra credit 三项。 */
+  'calculator': ['不提供成品代码', 'eval', 'new Function', 'add', 'subtract', 'multiply', 'divide', 'operate', 'clear', '12 + 7', '19 - 1', '除以 0', 'Extra credit', '键盘', '小数点', 'backspace', 'commit early']
 })) for (const fragment of fragments) assert.ok(full(id).includes(fragment), `${id} 漏掉 ${fragment}`);
 assert.ok(data.lessons.find(l => l.id === 'installations').understand.some(s => s.includes('允许跳过')));
-// v2 自足中文讲解格式：前 20 课（含 Project: Recipes）已全部采用，每课都必须满足 v2 数据结构。
+/* Project 红线结构钉（v4.11.20 第三批加固）：所有 Project 课 examples 必须为空数组——
+ * 塞入任何成品代码这里先红。此前该红线只靠「写课时留空 + 片段表」，无机械保障。 */
+for (const lesson of data.lessons.filter(l => /Project/i.test(l.title))) {
+  assert.ok(Array.isArray(lesson.examples) && lesson.examples.length === 0,
+    `${lesson.id}: Project 课 examples 必须为空数组（红线：不给成品代码）`);
+}
+// v2 自足中文讲解格式：全部 46 课（含五个 Project）已全部采用，每课都必须满足 v2 数据结构。
 const V2_LESSONS = data.lessons.map(l => l.id);
-assert.equal(V2_LESSONS.length, 20, '全部 20 课都应进入 v2 数据结构');
+assert.equal(V2_LESSONS.length, 46, '全部 46 课都应进入 v2 数据结构');
 // 动手 / 命令 / 代码类课程必须有示例；理念类课程 examples 为空数组即可
-const EXAMPLES_REQUIRED = ['asking-for-help', 'join-the-odin-community', 'text-editors', 'command-line-basics', 'setting-up-git', 'git-basics', 'elements-and-tags', 'html-boilerplate', 'working-with-text', 'lists', 'links-and-images', 'commit-messages'];
+const EXAMPLES_REQUIRED = ['asking-for-help', 'join-the-odin-community', 'text-editors', 'command-line-basics', 'setting-up-git', 'git-basics', 'elements-and-tags', 'html-boilerplate', 'working-with-text', 'lists', 'links-and-images', 'commit-messages', 'intro-to-css', 'the-cascade'];
 const TRADITIONAL_CHARS = '個們來時說後過發對還進種會學將無現點實樣經麼頭開問間馬鳥魚車東長書電話腦見觀視聽寫讀記憶體軟網頁連線圖檔資訊號設計劃輸處變據庫係統應執碼鍵數單雙復複選擇載陣類參屬監觸獲擊佈顏';
 for (const id of V2_LESSONS) {
   const lesson = data.lessons.find(l => l.id === id);
@@ -84,16 +116,19 @@ for (const id of V2_LESSONS) {
   assert.ok(Array.isArray(lesson.examples) && lesson.examples.every(e => e.lang && e.code && e.note), `${id}: examples 结构`);
   if (EXAMPLES_REQUIRED.includes(id)) assert.ok(lesson.examples.length >= 1, `${id}: 动手课需要代码示例`);
   assert.ok(Array.isArray(lesson.pitfalls) && lesson.pitfalls.length >= 2 && lesson.pitfalls.every(p => p.title && p.text), `${id}: pitfalls >= 2`);
-  assert.ok(lesson.official && Array.isArray(lesson.official.assignment) && lesson.official.assignment.length >= 1, `${id}: official.assignment 非空`);
-  assert.ok(Array.isArray(lesson.official.exercise), `${id}: official.exercise 数组`);
-  /* v4.11.16 按课型分支：Project 课官方无 Knowledge Check，knowledgeCheck 必须为空数组
-   * （不是缺失、不是凑数假条目）；知识课保持至少 1 题且每题问答齐全。 */
-  if (PROJECT_NO_KC.has(id)) {
-    assert.ok(Array.isArray(lesson.official.knowledgeCheck) && lesson.official.knowledgeCheck.length === 0,
-      `${id}: Project 课无官方 KC，knowledgeCheck 必须为空数组`);
+  if (id === 'choose-your-path-forward') {
+    /* v4.11.20 第九批：第 46 课是官方唯一的无 Assignment 课（结语课，官方文件顶部声明
+     * 结构豁免）——official.assignment 必须为空数组而非缺失；官方若补了该节，先复核再迁移。 */
+    assert.ok(lesson.official && Array.isArray(lesson.official.assignment) && lesson.official.assignment.length === 0, `${id}: 官方无 Assignment（结语课结构豁免），assignment 应为空数组`);
   } else {
-    assert.ok(Array.isArray(lesson.official.knowledgeCheck) && lesson.official.knowledgeCheck.length >= 1 && lesson.official.knowledgeCheck.every(k => k.q && k.a), `${id}: official.knowledgeCheck 非空`);
+    assert.ok(lesson.official && Array.isArray(lesson.official.assignment) && lesson.official.assignment.length >= 1, `${id}: official.assignment 非空`);
   }
+  assert.ok(Array.isArray(lesson.official.exercise), `${id}: official.exercise 数组`);
+  /* v4.11.17：官方 2026-09-23 已移除课末自查题一节，本站同步下线——
+   * 字段保留（语义＝本站收录的官方自查题数）但必须为空数组，不是缺失、
+   * 也不是凑数假条目。反向验证：塞回任意一条即红（见文件头说明）。 */
+  assert.ok(Array.isArray(lesson.official.knowledgeCheck) && lesson.official.knowledgeCheck.length === 0,
+    `${id}: 官方已下线该节，自查题必须为空数组`);
   assert.ok(Array.isArray(lesson.official.optional), `${id}: official.optional 数组`);
   assert.ok(lesson.sources && lesson.sources.basedOn.trim() && lesson.sources.verifiedAt.trim(), `${id}: sources 非空`);
   assert.equal(lesson.sources.sha256, sources.lessons.find(s => s.id === id).sha256, `${id}: sha256 与 sources.json 一致`);
@@ -143,10 +178,21 @@ const GUIDE_FIELDS = ['why', 'points', 'terms', 'focus', 'takeaway'];
 assert.ok(Array.isArray(RES) && RES.length > 0, '外部资料清单为非空数组');
 assert.ok('zhUrl' in RES[0] && 'zhType' in RES[0], '每条资源都显式声明 zhUrl 与 zhType（无中文版时为 null，而不是缺字段）');
 
-/* §4-12 lessonId 必须属于当前 20 课，不得出现第 21 课及以后的编号 */
+/* §4-12 lessonId 必须属于已开放课程，不得出现未开放课程的编号 */
 const lessonIds = new Set(data.lessons.map(l => l.id));
-RES.forEach(r => assert.ok(lessonIds.has(r.lessonId), `资源 ${r.title} 的 lessonId ${r.lessonId} 属于 20 课之内`));
-assert.equal(new Set(RES.map(r => r.lessonId)).size, 20, '20 课每一课都至少有一条外部资料');
+RES.forEach(r => assert.ok(lessonIds.has(r.lessonId), `资源 ${r.title} 的 lessonId ${r.lessonId} 属于已开放课程之内`));
+/* v4.11.19：零外部资料课的显式豁免集合（先例：KC 下线前的 PROJECT_NO_KC 写法）。
+ * 课 26 Introduction to Flexbox 官方原文的 3 条外链全部是 statically CDN 课程
+ * 配图（非学习资料，按盘点范围剔除），Assignment 仅一句无作业声明——官方该课
+ * 就没有任何外部学习资料。不凑数、不登记配图。集合里每加一课都必须在这里写明
+ * 理由；除此集合外，每课至少一条的断言不放宽。 */
+const NO_RESOURCE_LESSONS = new Set(['introduction-to-flexbox', 'installing-node-js']);
+const coveredIds = new Set(RES.map(r => r.lessonId));
+data.lessons.forEach(l => {
+  if (NO_RESOURCE_LESSONS.has(l.id)) return;
+  assert.ok(coveredIds.has(l.id), `${l.id} 应至少有一条外部资料（零资料课必须在 NO_RESOURCE_LESSONS 登记理由）`);
+});
+assert.equal(coveredIds.size, data.lessons.length - NO_RESOURCE_LESSONS.size, '有外部资料的课数 = 总课数 − 零资料豁免集合');
 
 /* §4-11 数据结构完整性 */
 RES.forEach(r => {
@@ -242,15 +288,15 @@ RES.filter(r => !/CC[ -]?BY/i.test(r.license)).forEach(r => {
 
 /* ===== v4.11.1 A1 数据前提：受限地址可精确匹配、恰好分布于 3 课 ===== */
 const LIMITED = resourceData.audit.verifyLimitedUrls;
-assert.ok(Array.isArray(LIMITED) && LIMITED.length === 5, 'verifyLimitedUrls 共 5 条');
+assert.ok(Array.isArray(LIMITED) && LIMITED.length === 16, 'verifyLimitedUrls 共 16 条（v4.11.17 起含课 21 的 W3Schools 颜色值参考页，v4.11.18 起含课 25 的三条 W3Schools 字体与块级清单参考页，v4.11.19 起含课 30 的 Pexels 与 Pixabay 免费图库，v4.11.20 起含课 33 的 W3Schools 字符串方法教程，第四批起含课 39 的 reddit 缩进玩笑帖与 onextrapixel 原则清单，第八批起含课 45 的 StackOverflow eval 对比讨论，第九批起含课 46 的 Medium 选语言指南）');
 LIMITED.forEach(entry => {
   const url = entry.split('（')[0];
   assert.ok(RES.some(r => r.originalUrl === url), `受限地址 ${url} 能按全角括号前缀与某条资源 originalUrl 精确匹配`);
 });
 const limitedLessons = new Set();
 RES.forEach(r => { if (LIMITED.some(e => e.split('（')[0] === r.originalUrl)) limitedLessons.add(r.lessonId); });
-assert.deepEqual([...limitedLessons].sort(), ['html-boilerplate', 'join-the-odin-community', 'links-and-images'],
-  '受限条目恰好分布于 3 课——「按课显示提示」的数据前提');
+assert.deepEqual([...limitedLessons].sort(), ['block-and-inline', 'calculator', 'choose-your-path-forward', 'clean-code', 'data-types-and-conditionals', 'html-boilerplate', 'intro-to-css', 'join-the-odin-community', 'landing-page', 'links-and-images'],
+  '受限条目恰好分布于 10 课——「按课显示提示」的数据前提');
 const resourceSource = fs.readFileSync(path.join(root, 'external-resources.js'), 'utf8');
 assert.ok(!/\bfetch\(|XMLHttpRequest|innerHTML|<iframe/.test(resourceSource), 'external-resources.js 不联网、不使用 innerHTML、不含 iframe');
 /* §2.2 清单是公开教学数据，不得夹带任何账号凭据值 */
@@ -307,4 +353,4 @@ for (const lesson of data.lessons) {
 assert.equal(collectByClass(mountLesson('working-with-text').dom.body, 'resource-translation').length, 0, '课16 无译文块');
 
 const quizTotal = data.lessons.reduce((n, l) => n + l.quiz.length, 0);
-console.log(`通过：20 课顺序与来源、每课六类内容、${quizTotal} 道自测、${V2_LESSONS.length} 课 v2 自足讲解格式与繁体保险、重点任务及范围边界（Project 课无官方 KC 按课型分支）、本地资源和无构建依赖、${RES.length} 条外部资料（其中 ${resourceData.stats.withZh} 条有已核验中文版、${resourceData.stats.guideOnly} 条为本站中文导读 + 英文原文；${RES.length} 条全部带中文速览、${TRANSLATED.length} 条 CC 来源带本站中文精译；v4.11.4 课页零块级受限提示、单卡核验说明保留）。`);
+console.log(`通过：46 课顺序与来源、每课六类内容、${quizTotal} 道自测、${V2_LESSONS.length} 课 v2 自足讲解格式与繁体保险、重点任务及范围边界（官方已下线课末自查题节，全课自查题为空数组且任务文案零残留，反向钉住）、本地资源和无构建依赖、${RES.length} 条外部资料（其中 ${resourceData.stats.withZh} 条有已核验中文版、${resourceData.stats.guideOnly} 条为本站中文导读 + 英文原文；${RES.length} 条全部带中文速览、${TRANSLATED.length} 条 CC 来源带本站中文精译；v4.11.4 课页零块级受限提示、单卡核验说明保留）。`);

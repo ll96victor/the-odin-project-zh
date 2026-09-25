@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="959" height="287" viewBox="0 0 959 287" role="img" aria-labelledby="t-lesson-structure-tree d-lesson-structure-tree">
+<svg xmlns="http://www.w3.org/2000/svg" width="956" height="287" viewBox="0 0 956 287" role="img" aria-labelledby="t-lesson-structure-tree d-lesson-structure-tree">
   <title id="t-lesson-structure-tree">TOP 的一课是怎么组织的</title>
-  <desc id="d-lesson-structure-tree">层级树示意图。根节点是 TOP 的一课（聚合式结构），向下分出四个分支：主题介绍与背景；外部资料——它本身就是正课，再分为 MDN 等文章、YouTube 等视频、官方文档三类；Exercise 练习（部分课才有）；Knowledge Check 自查题。整棵树说明：一课的学习闭环是读正文和它指定的外部资料、动手做练习、回答自查题确认理解，再进入下一课。</desc>
+  <desc id="d-lesson-structure-tree">层级树示意图。根节点是 TOP 的一课（聚合式结构），向下分出四个分支：主题介绍与背景；外部资料——它本身就是正课，再分为 MDN 等文章、YouTube 等视频、官方文档三类；Assignment 必做任务；Exercise 练习（部分课才有）。整棵树说明：一课的学习闭环是读正文和它指定的外部资料、动手做练习与任务，再进入下一课。</desc>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
@@ -28,12 +28,12 @@
     .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
   </style>
 
-  <path class="spoke" d="M480,67 L480,95 L96,95 L96,117" marker-end="url(#arr)"/>
-  <path class="spoke" d="M480,67 L480,95 L357,95 L357,117" marker-end="url(#arr)"/>
-  <path class="spoke" d="M480,67 L480,95 L641,95 L641,117" marker-end="url(#arr)"/>
-  <path class="spoke" d="M480,67 L480,95 L833,95 L833,117" marker-end="url(#arr)"/>
-  <rect class="accentbox" x="388" y="26" width="183" height="41" rx="6"/>
-  <text class="hb" x="480" y="51" text-anchor="middle"><tspan x="480">TOP 的一课（聚合式结构）</tspan></text>
+  <path class="spoke" d="M478,67 L478,95 L96,95 L96,117" marker-end="url(#arr)"/>
+  <path class="spoke" d="M478,67 L478,95 L357,95 L357,117" marker-end="url(#arr)"/>
+  <path class="spoke" d="M478,67 L478,95 L648,95 L648,117" marker-end="url(#arr)"/>
+  <path class="spoke" d="M478,67 L478,95 L839,95 L839,117" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="387" y="26" width="183" height="41" rx="6"/>
+  <text class="hb" x="478" y="51" text-anchor="middle"><tspan x="478">TOP 的一课（聚合式结构）</tspan></text>
   <rect class="box" x="38" y="123" width="115" height="41" rx="6"/>
   <text class="b" x="96" y="148" text-anchor="middle"><tspan x="96">主题介绍与背景</tspan></text>
   <path class="spoke" d="M357,164 L357,192 L225,192 L225,214" marker-end="url(#arr)"/>
@@ -47,8 +47,8 @@
   <text class="b" x="357" y="245" text-anchor="middle"><tspan x="357">YouTube 等视频</tspan></text>
   <rect class="box" x="441" y="220" width="96" height="41" rx="6"/>
   <text class="b" x="489" y="245" text-anchor="middle"><tspan x="489">官方文档</tspan></text>
-  <rect class="box" x="561" y="123" width="159" height="41" rx="6"/>
-  <text class="b" x="641" y="148" text-anchor="middle"><tspan x="641">Exercise（部分课有）</tspan></text>
-  <rect class="box" x="744" y="123" width="177" height="41" rx="6"/>
-  <text class="b" x="833" y="148" text-anchor="middle"><tspan x="833">Knowledge Check 自查题</tspan></text>
+  <rect class="box" x="561" y="123" width="174" height="41" rx="6"/>
+  <text class="b" x="648" y="148" text-anchor="middle"><tspan x="648">Assignment（必做任务）</tspan></text>
+  <rect class="box" x="759" y="123" width="159" height="41" rx="6"/>
+  <text class="b" x="839" y="148" text-anchor="middle"><tspan x="839">Exercise（部分课有）</tspan></text>
 </svg>

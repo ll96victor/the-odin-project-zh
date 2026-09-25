@@ -13,17 +13,18 @@
  *          操作入口「前往操作」、工具 / 网站「打开工具」、数据文件「下载文件」、
  *          素材「查看素材」、文本类与精译兜底「打开英文原文」；zhUrl 卡维持
  *          双按钮文字不变；标签表与 CONTENT-STYLE-GUIDE.md 第 4 节同源；
- *   C1 —— 大课集合由真实数据算出（读 sections / knowledgeCheck），恰为 4 课；
+ *   C1 —— 大课集合由真实数据算出（读 sections / 自查题字段），恰为 3 课；
+ *          C1b —— heavy-all 成就 desc 的「当前 N 门」必须等于大课集合真值（现算）；
  *          故意调低阈值后集合变大 —— 证明不是硬编码课 id；
- *   C2 —— 大课课页渲染体量提示（中性事实：章节数 / 自查题数），普通课不渲染；
+ *   C2 —— 大课课页渲染体量提示（中性事实：章节数），普通课不渲染；
  *          勾选完成时大课多发一条「大课拿下」低干扰提示，普通课没有；
- *   C3 —— 新成就 heavy-first / heavy-all：完成 4 门大课的档案解锁、完成 3 门
+ *   C3 —— 新成就 heavy-first / heavy-all：完成全部大课的档案解锁、只差一门
  *          只解锁第一级；61 个既有成就的判定与 XP / 等级曲线零改动
  *          （对照改前备份 history/progress_20260919-v4.11.3-heavy-lessons.js）；
  *          存量档案补发解锁后 XP 与等级不降。
  *
  * 负向对照（证明这些断言真的能抓到回归）：
- *   N1 阈值扰动（C1 组内）；N2 完成 3 门大课不解锁 heavy-all（C3 组内）；
+ *   N1 阈值扰动（C1 组内）；N2 只差一门大课不解锁 heavy-all（C3 组内）；
  *   N3 普通课无体量提示、无强化反馈（C2 组内）；N4 未覆盖类型回落兜底（B1 组内）。 */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -107,7 +108,7 @@ const check = label => { checks += 1; return label; };
     check('A 负向自检: 未带课页前缀的 .lesson-guide 规则确实会被判为泄漏'));
 
   /* 三处引导（今天实际要做什么 / section-why / section-official）全部换用 lesson-guide，
-   * 不再是 muted。前两处在当前 19 课都会渲染，第一处（D3 兼容分支）只留在源码里。 */
+   * 不再是 muted。前两处在当前每一课都会渲染，第一处（D3 兼容分支）只留在源码里。 */
   const appSrc = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   assert.equal(appSrc.split("'lesson-guide'").length - 1, 3,
     check('A: app.js 恰有 3 处引导使用 lesson-guide class（三处引导全部覆盖）'));
@@ -139,11 +140,11 @@ const check = label => { checks += 1; return label; };
     return '本站未找到可靠的官方中文版本，因此只提供上面这份本站原创中文导读，加上英文原文链接。';
   };
   const affected = resourceData.resources.filter(r => !r.zhUrl && !r.zhTranslation);
-  assert.equal(affected.length, 49, check('B1: 前提——受 fallback 影响的无中文版条目共 49 条（v4.11.16 起含 recipes 的 3 条导读条目）'));
+  assert.equal(affected.length, 108, check('B1: 前提——受 fallback 影响的无中文版条目共 108 条（v4.11.17：随自查题节下线 −2，随第 21–23 课开放 +12，其中 2 条有官方中文版；v4.11.18 随第 24–25 课开放 +10，其中 2 条 MDN 有官方中文版；v4.11.19 随第 26–30 课开放 +10，其中 3 条 MDN 有官方中文版；v4.11.20 三批随第 31–38 课开放 +38，其中 23 条有官方中文版；第四批随第 39–40 课开放 +10，其中 5 条有官方中文版；第五批随第 41–42 课开放 +15，其中 6 条有官方中文版；第七批随第 44 课开放 +5，其中 2 条有官方中文版；第八批随第 45 课开放 +3，其中 1 条有官方中文版；第九批随第 46 课开放 +1，无中文版）'));;
 
   /* 数据层：每张视频卡的「中文字幕」声明恰好 1 次，且在许可字段（B2） */
   const videos = resourceData.resources.filter(r => r.type === '视频');
-  assert.equal(videos.length, 15, check('B2: 前提——视频条目共 15 条'));
+  assert.equal(videos.length, 22, check('B2: 前提——视频条目共 22 条（v4.11.20 第二批起含课 36 的 Coding Tech 演讲，第四批起含课 40 的数组速览视频，第五批起含课 41 的 XSS 攻防视频，第七批起含课 44 的两个 Array Cardio 跟练视频）'));
   for (const v of videos) {
     const inLicense = (v.license.match(/中文字幕/g) || []).length;
     const elsewhere = [v.zhGuide.overview, ...v.zhGuide.points, v.note || ''].join('|||').match(/中文字幕/g) || [];
@@ -192,10 +193,10 @@ const check = label => { checks += 1; return label; };
       }
     });
   }
-  assert.equal(videoCards, 15, check('B1: 15 张视频卡全部渲染视频措辞'));
+  assert.equal(videoCards, 22, check('B1: 22 张视频卡全部渲染视频措辞（v4.11.18 起含课 24 的 2 张，v4.11.20 第二批起含课 36 的 Coding Tech 演讲，第四批起含课 40 的数组速览视频，第五批起含课 41 的 XSS 攻防视频，第七批起含课 44 的两个 Array Cardio 跟练视频）'));
   assert.equal(translationCards, 14, check('B1: 14 张精译卡的说明句全部改指精译（v4.11.2 遗留的矛盾句修正）'));
-  assert.equal(toolCards, 9, check('B1: 9 张工具 / 操作入口 / 网站卡全部渲染工具措辞（v4.11.16 起含 Allrecipes）'));
-  assert.equal(articleCards, 16, check('B1: 16 张文章 / 文档类卡片保持原措辞（v4.11.16 起含 Learning Code）'));
+  assert.equal(toolCards, 12, check('B1: 12 张工具 / 操作入口 / 网站卡全部渲染工具措辞（v4.11.16 起含 Allrecipes，v4.11.19 起含 Flexbox Froggy，v4.11.20 起含课 31 的 Live Preview 扩展，第八批起含课 45 的 CalculatorSoup 在线计算器）'));
+  assert.equal(articleCards, 53, check('B1: 53 张文章 / 文档类卡片保持原措辞（v4.11.20 第九批起含课 46 的 Medium 选语言指南（v4.11.17 起含第 21–23 课的 7 张文档 / 文章卡，v4.11.18 起含第 24–25 课的 5 张：CSS-Tricks margin 文档 + W3Schools 参考文档×3 + DigitalOcean 文章，v4.11.19 起含课 29 的 2 张：joshwcomeau 教程文章 + CSS-Tricks 参考文档，v4.11.20 第一批起含课 33 的 W3Schools 字符串方法教程，第二批起含第 34–37 课的 9 张：chrome 文档×6 + 教程文章 / 文章，第三批起含课 38 的 wikiHow 教程与 dev.to 文章，第四批起含课 39 的 onextrapixel 教程与 codinghorror 两篇博客文章，第五批起含第 41 课的 JavaScript Tutorial 六篇教程 + W3Schools 事件参考 + dev.to 回调文章共 8 张，第七批起含课 44 的 JavaScript.info 对象与 MDN 对象基础 2 张）'));
   assert.equal(archiveCards, 1, check('B1: 「文章（存档）」这条未覆盖类型走了兜底'));
 }
 
@@ -246,13 +247,13 @@ if (hasExternalDoc) {
       }
     });
   }
-  assert.equal(counts.双按钮中文版, 24, check('B4: 24 张官方中文版卡维持双按钮（文字不变）'));
-  assert.equal(counts.观看视频, 15, check('B4: 15 张视频卡按钮为「观看视频 ↗」'));
+  assert.equal(counts.双按钮中文版, 71, check('B4: 71 张官方中文版卡维持双按钮（v4.11.20 第八批起含课 45 的 MDN eval 中文版（文字不变；v4.11.17 起含课 22 的两篇 MDN 中文版，v4.11.18 起含课 24/25 的两篇 MDN 中文版，v4.11.19 起含课 27/28 的 MDN 中文版，v4.11.20 第一批起含第 31–33 课的 12 张，第二批起含第 34–37 课的 11 张，第三批起含课 38 的 MDN Math.random 与 prompt，第四批起含第 39–40 课的 MDN 循环教程 / Array 与 JavaScript.info 循环 / 数组 / 数组方法共 5 张）'));
+  assert.equal(counts.观看视频, 22, check('B4: 22 张视频卡按钮为「观看视频 ↗」'));
   assert.equal(counts.前往操作, 3, check('B4: 3 张操作入口卡按钮为「前往操作 ↗」'));
-  assert.equal(counts.打开工具, 6, check('B4: 6 张工具 / 网站卡按钮为「打开工具 ↗」（v4.11.16 起含 Allrecipes）'));
+  assert.equal(counts.打开工具, 9, check('B4: 9 张工具 / 网站卡按钮为「打开工具 ↗」（v4.11.16 起含 Allrecipes，v4.11.19 起含 Flexbox Froggy，v4.11.20 起含课 31 的 Live Preview 扩展，第八批起含课 45 的 CalculatorSoup 在线计算器）'));
   assert.equal(counts.下载文件, 1, check('B4: 1 张数据文件卡按钮为「下载文件 ↗」'));
-  assert.equal(counts.查看素材, 1, check('B4: 1 张素材卡按钮为「查看素材 ↗」'));
-  assert.equal(counts.打开英文原文, 37, check('B4: 37 张文本类 / 精译卡按钮保持「打开英文原文 ↗」（兜底；v4.11.16 起含 Learning Code 与 Discord 求助频道）'));
+  assert.equal(counts.查看素材, 4, check('B4: 4 张素材卡按钮为「查看素材 ↗」（v4.11.19 起含课 30 的三个免费图库）'));
+  assert.equal(counts.打开英文原文, 83, check('B4: 83 张文本类 / 精译卡按钮保持「打开英文原文 ↗」（兜底；v4.11.20 第九批起含课 46 的 Medium 博客文章v4.11.20 第八批起含课 45 的 StackOverflow 社区讨论v4.11.17 起含第 21–23 课的 10 张无中文版文本卡，v4.11.18 起含第 24–25 课的 6 张：5 张文本类 + 1 张代码仓库视图，v4.11.19 起含课 27 的 W3C 规范卡与课 29 的 3 张：教程文章 + 参考文档 + 代码仓库视图，v4.11.20 第一批起含课 33 的 W3Schools 字符串方法，第二批起含第 34–36 课的 9 张：chrome 文档×6 + 教程文章 / 文章，第三批起含课 38 的 wikiHow 教程与 dev.to 文章，第四批起含课 39 的 reddit 社区讨论与 onextrapixel 教程 / codinghorror 两篇博客共 4 张，第五批起含第 41 课的 8 张 C 类文本卡，第七批起含课 44 的 JavaScript30 仓库视图 1 张）'));
   /* CONTENT-STYLE-GUIDE.md 第 4 节标签表与实现同源（三处同源的第三处）。
    * 公开仓内该文档不存在 → 只跳过这一小段文档同步检查，上方按钮计数断言照跑。 */
   if (hasStyleGuide) {
@@ -269,15 +270,29 @@ if (hasExternalDoc) {
 {
   const heavy = PROGRESS.Logic.heavyLessonList(lessons);
   assert.deepEqual([...heavy.map(l => l.id)].sort(),
-    ['command-line-basics', 'git-basics', 'how-does-the-web-work', 'links-and-images'],
-    check('C1: 大课集合由真实数据算出，恰为 4 课（与规划实测一致）'));
+    ['command-line-basics', 'dom-manipulation-and-events', 'git-basics', 'intro-to-css', 'links-and-images'],
+    check('C1: 大课集合由真实数据算出，恰为 5 课（自查题下线后 how-does-the-web-work 掉出，第 21 课 16 章进入；v4.11.18 的第 24 课 8 章 / 第 25 课 9 章均未达 14 章阈值；第五批的第 41 课 14 章恰好达标进入，4 门 → 5 门）'));
   /* 公式一致性：判定与阈值公式逐课等价 */
   for (const l of lessons) {
     const sections = (l.sections || []).length;
     const kc = ((l.official || {}).knowledgeCheck || []).length;
     assert.equal(PROGRESS.Logic.isHeavyLesson(l), sections >= 14 || kc >= 10,
-      check(`C1: ${l.id} 的判定与「章≥14 或 KC≥10」公式一致`));
+      check(`C1: ${l.id} 的判定与「章≥14 或 自查题≥10」公式一致（自查题恒 0，官方若恢复该节即自动复活）`));
   }
+  /* C1b（v4.11.20 发布前 FIX 轮 / 2026-09-25 补位）：heavy-all 成就 desc 的门数必须与大课
+   * 集合的真值一致——desc 是成就面板直接显示给学习者的话，写错门数（历史上
+   * desc 的门数在大课集合增长后漏改）会误导用户对达成条件的理解。
+   * 语义钉在 C1 组（大课集合的事实源），N 从 heavyLessonList(lessons) 现算、
+   * 不写死——大课集合变化时 desc 必须跟着改，否则这里先红。
+   * 为什么不把「门」加进 stale-claims R2：「门」在别处也有（如「4 门大课」的
+   * 历史叙述），放宽 R2 正则会制造假命中；此处用数据源直连的精准断言。 */
+  const heavyAllAchievement = PROGRESS.Logic.ACHIEVEMENTS.find(a => a.id === 'heavy-all');
+  assert.ok(heavyAllAchievement, check('C1b: heavy-all 成就存在'));
+  const doorCountMatch = /当前\s*(\d+)\s*门/.exec(heavyAllAchievement.desc || '');
+  assert.ok(doorCountMatch, check('C1b: heavy-all desc 含「当前 N 门」句式（句式变更需同步本断言）'));
+  assert.equal(Number(doorCountMatch[1]), heavy.length,
+    check(`C1b: heavy-all desc 的门数（${doorCountMatch[1]}）等于大课集合真值（${heavy.length}）`));
+
   /* N1 负向对照：故意调低阈值 → 集合必须变大（证明不是硬编码 id 清单） */
   const perturbed = loadProgress('progress.js', [
     ['HEAVY_LESSON_MIN_SECTIONS = 14', 'HEAVY_LESSON_MIN_SECTIONS = 12'],
@@ -285,17 +300,17 @@ if (hasExternalDoc) {
   ]);
   const heavyPerturbed = perturbed.Logic.heavyLessonList(lessons);
   assert.ok(heavyPerturbed.length > heavy.length, check('C1/N1: 阈值调低后大课集合变大（非硬编码）'));
-  assert.ok(heavyPerturbed.some(l => l.id === 'html-boilerplate'), check('C1/N1: 阈值 12/8 时 html-boilerplate（12 章）进入集合'));
+  assert.ok(heavyPerturbed.some(l => l.id === 'html-boilerplate'), check('C1/N1: 章节阈值调到 12 时 html-boilerplate（12 章）进入集合'));
 }
 
 /* ===== C2：体量提示（事前）与强化反馈（完课时） ===== */
 {
-  const heavyPage = mountLesson('how-does-the-web-work');
+  const heavyPage = mountLesson('command-line-basics');
   const heavyNotices = collectByClass(mainOf(heavyPage), 'notice');
   const scaleNotice = heavyNotices.find(n => textOf(n).includes('本课体量较大'));
   assert.ok(scaleNotice, check('C2: 大课课页渲染体量提示'));
-  assert.ok(textOf(scaleNotice).includes('8 章') && textOf(scaleNotice).includes('15 道'),
-    check('C2: 体量提示用中性事实（章节数 / 自查题数）表述'));
+  assert.ok(textOf(scaleNotice).includes('14 章') && !textOf(scaleNotice).includes('自查题'),
+    check('C2: 体量提示只讲章节数这一项中性事实（自查题节已下线，不再出现在提示里）'));
   assert.ok(!/难|放弃|劝退/.test(textOf(scaleNotice)), check('C2: 体量提示无负面措辞'));
 
   const lightPage = mountLesson('introduction-to-html-and-css');
@@ -315,8 +330,8 @@ if (hasExternalDoc) {
     .filter(t => t.includes('大课拿下'));
   toggleCompleted(heavyPage);
   assert.equal(notesWith(heavyPage).length, 1, check('C2: 大课勾选完成出现 1 条「大课拿下」强化反馈'));
-  assert.ok(notesWith(heavyPage)[0].includes('8 章讲解') && notesWith(heavyPage)[0].includes('15 道官方自查题'),
-    check('C2: 强化反馈点出体量事实'));
+  assert.ok(notesWith(heavyPage)[0].includes('14 章讲解') && !notesWith(heavyPage)[0].includes('自查题'),
+    check('C2: 强化反馈点出体量事实（只讲章节数）'));
   toggleCompleted(lightPage);
   assert.equal(notesWith(lightPage).length, 0, check('C2/N3: 普通课勾选完成没有强化反馈'));
 }
@@ -324,34 +339,41 @@ if (hasExternalDoc) {
 /* ===== C3：新成就 + 既有判定零改动 + 存量档案兼容 ===== */
 {
   const nowIds = PROGRESS.Logic.ACHIEVEMENTS.map(a => a.id);
-  assert.equal(nowIds.length, 63, check('C3: 当前 63 个成就 = 61 既有 + 2 新增'));
+  assert.equal(nowIds.length, 67, check('C3: 当前 67 个成就 = 61 既有 + v4.11.3 的 2 个 + v4.11.17 的 unit-4 + v4.11.19 的 unit-5 + v4.11.20 第九批的 unit-6/unit-7（JS Basics 与 Conclusion 收组）'));
 
   /* 与 history/ 改前备份的对照断言（公开仓内无该备份 → 跳过整段） */
   if (hasOldProgress) {
     const oldIds = OLD_PROGRESS.Logic.ACHIEVEMENTS.map(a => a.id);
     assert.equal(oldIds.length, 61, check('C3: 前提——改前备份里是 61 个成就'));
-    assert.deepEqual([...nowIds].sort(), [...new Set([...oldIds, 'heavy-first', 'heavy-all'])].sort(),
-      check('C3: 新增恰为 heavy-first / heavy-all 两个，既有 id 零改动'));
+    assert.deepEqual([...nowIds].sort(), [...new Set([...oldIds, 'heavy-first', 'heavy-all', 'unit-4', 'unit-5', 'unit-6', 'unit-7'])].sort(),
+      check('C3: 新增为 heavy-first / heavy-all / unit-4 / unit-5 / unit-6 / unit-7 六个，既有 id 零改动'));
 
     /* 61 个既有成就的定义逐字段不变（goal / 文案 / 分类 / milestone / hidden）。
      * 两份定义来自不同 vm 上下文（原型不同），用 JSON 序列化对比内容。
-     * v4.11.16 例外名单：开放第 20 课（Project: Recipes）轮**有意**迁移了 5 个
-     * 成就的 desc（「19 课」→「20 课」、unit-3「7 课（不含 Recipes）」→「8 课
-     * （含 Project: Recipes）」），以及 started-all 的 goal.value（19 → 20——
-     * startedCount 是数值硬编码、不随 lessons.js 自动跟随）。依据规划文档
-     * 20260923-1320 §6.2 第 42–47 项；除 desc（及 started-all 的 goal）外
-     * 仍逐字段对比，其余 56 个成就保持零改动。 */
-    const DESC_MIGRATED_V41116 = new Set(['all-lessons', 'official-all', 'quiz-all', 'unit-3', 'started-all']);
+     * desc 例外名单（**只放行 desc，其余字段仍逐字段冻结**）：
+     *   · v4.11.16 那批（Project: Recipes 开放）：all-lessons / official-all / quiz-all /
+     *     unit-3 / started-all（unit-3 的 desc 改「8 课（含 Project: Recipes）」；
+     *     started-all 另放行 goal.value 19→20）；
+     *   · v4.11.17 本批（第 21–23 课）：上列 5 个再迁移一次（分母 20→23），
+     *     并新增 frame-graduate（「完成当前开放的全部课程」那句）与
+     *     heavy-first / heavy-all（体量判定只看章节数，desc 去掉自查题口径；分母 3→4）。
+     *   · v4.11.18 本批（第 24–25 课）：上列 7 个再迁移一次（分母 23→25），
+     *     并新增 unit-4（css-foundations 收组，分母 3→5）。
+     * 其余 55 个既有成就保持逐字段零改动。 */
+    const DESC_MIGRATED = new Set(['all-lessons', 'official-all', 'quiz-all', 'unit-3', 'unit-4', 'started-all',
+      'frame-graduate', 'heavy-first', 'heavy-all']);
     const stripMigrated = a => JSON.stringify(Object.assign({}, a, { desc: null },
       a.id === 'started-all' ? { goal: null } : {}));
     const oldById = new Map(OLD_PROGRESS.Logic.ACHIEVEMENTS.map(a => [a.id, a]));
     for (const a of PROGRESS.Logic.ACHIEVEMENTS) {
       if (!oldById.has(a.id)) continue;
-      if (DESC_MIGRATED_V41116.has(a.id)) {
+      if (DESC_MIGRATED.has(a.id)) {
         assert.equal(stripMigrated(a), stripMigrated(oldById.get(a.id)),
           check(`C3: 迁移成就 ${a.id} 除 desc${a.id === 'started-all' ? ' / goal' : ''} 外零字段改动`));
-        assert.ok(/20 课|8 课/.test(a.desc), check(`C3: ${a.id} 的新 desc 写明当前开放数（20 课 / unit-3 为 8 课）`));
-        if (a.id === 'started-all') assert.equal(a.goal.value, 20, check('C3: started-all 阈值迁移为 20（数值硬编码，漏改会提前解锁）'));
+        const openCount = lessons.length;
+        assert.ok(new RegExp(`(${openCount} 课|8 课|4 门|5 课)`).test(a.desc),
+          check(`C3: ${a.id} 的新 desc 写明当前开放数（${openCount} 课 / unit-3 为 8 课 / unit-4 为 5 课）`));
+        if (a.id === 'started-all') assert.equal(a.goal.value, openCount, check(`C3: started-all 阈值迁移为 ${openCount}（数值硬编码，漏改会提前解锁）`));
         continue;
       }
       assert.equal(JSON.stringify(a), JSON.stringify(oldById.get(a.id)), check(`C3: 既有成就 ${a.id} 定义逐字段不变`));
@@ -369,7 +391,7 @@ if (hasExternalDoc) {
     skippedBlocks.push('C3-对照（history/ 改前备份不存在，公开仓场景；新成就判定与存量档案兼容断言仍执行）');
   }
 
-  /* 解锁判定：完成 4 门大课 → 两个都解锁；完成 3 门 → 只解锁第一级（N2 负向对照） */
+  /* 解锁判定：完成全部大课 → 两个都解锁；只差一门 → 只解锁第一级（N2 负向对照） */
   const heavyIds = PROGRESS.Logic.heavyLessonList(lessons).map(l => l.id);
   const makeState = completedIds => {
     const state = PROGRESS.Logic.emptyState();
@@ -382,13 +404,13 @@ if (hasExternalDoc) {
   const TODAY = '2026-09-19';
   const state4 = makeState(heavyIds);
   const unlocked4 = PROGRESS.Logic.evaluateAchievements(state4, lessons, NOW, TODAY);
-  assert.ok(unlocked4.includes('heavy-first'), check('C3: 完成 4 门大课解锁「啃下一门大课」'));
-  assert.ok(unlocked4.includes('heavy-all'), check('C3: 完成 4 门大课解锁「大课全数拿下」'));
+  assert.ok(unlocked4.includes('heavy-first'), check('C3: 完成全部大课解锁「啃下一门大课」'));
+  assert.ok(unlocked4.includes('heavy-all'), check('C3: 完成全部大课解锁「大课全数拿下」'));
 
-  const state3 = makeState(heavyIds.slice(0, 3));
+  const state3 = makeState(heavyIds.slice(0, 2));
   const unlocked3 = PROGRESS.Logic.evaluateAchievements(state3, lessons, NOW, TODAY);
-  assert.ok(unlocked3.includes('heavy-first'), check('C3: 完成 3 门大课解锁「啃下一门大课」'));
-  assert.ok(!unlocked3.includes('heavy-all'), check('C3/N2: 完成 3 门大课不解锁「大课全数拿下」'));
+  assert.ok(unlocked3.includes('heavy-first'), check('C3: 完成部分大课解锁「啃下一门大课」'));
+  assert.ok(!unlocked3.includes('heavy-all'), check('C3/N2: 只差一门时不解锁「大课全数拿下」'));
 
   /* 与 history/ 改前备份的新旧解算对照（公开仓内无该备份 → 跳过整段） */
   if (hasOldProgress) {
@@ -400,7 +422,7 @@ if (hasExternalDoc) {
       });
       return state;
     };
-    for (const [name, completedIds] of [['4门大课', heavyIds], ['3门大课', heavyIds.slice(0, 3)], ['空档案', []]]) {
+    for (const [name, completedIds] of [['全部大课', heavyIds], ['部分大课', heavyIds.slice(0, 2)], ['空档案', []]]) {
       const oldUnlocked = OLD_PROGRESS.Logic.evaluateAchievements(makeOldState(completedIds), lessons, NOW, TODAY);
       const currentUnlocked = PROGRESS.Logic.evaluateAchievements(makeState(completedIds), lessons, NOW, TODAY);
       const legacyOnly = currentUnlocked.filter(id => !oldUnlocked.includes(id));
@@ -422,7 +444,7 @@ if (hasExternalDoc) {
   const levelBefore = PROGRESS.Logic.levelOf(legacy.xp);
   const unlockedLegacy = PROGRESS.Logic.evaluateAchievements(legacy, lessons, NOW, TODAY);
   assert.ok(unlockedLegacy.includes('heavy-first') && unlockedLegacy.includes('heavy-all'),
-    check('C3: 存量档案（已完成 4 门大课）按历史状态补发解锁两个新成就'));
+    check('C3: 存量档案（已完成全部大课）按历史状态补发解锁两个新成就'));
   assert.equal(legacy.xp, 550, check('C3: 补发解锁不改变 XP（成就不带 XP）'));
   assert.equal(PROGRESS.Logic.levelOf(legacy.xp), levelBefore, check('C3: 等级不降'));
 
@@ -441,7 +463,7 @@ if (hasExternalDoc) {
     check('C3: 旧档案载入后新成就自动解锁（补发解锁的端到端路径）'));
   assert.equal(loadedState.xp, 550, check('C3: 旧档案载入后 XP 不变（550）'));
   assert.equal(PROGRESS.Logic.levelOf(loadedState.xp), levelBefore, check('C3: 旧档案载入后等级不降'));
-  assert.ok(homePage.progress.Logic.isHeavyLesson(lessons.find(l => l.id === 'how-does-the-web-work')),
+  assert.ok(homePage.progress.Logic.isHeavyLesson(lessons.find(l => l.id === 'command-line-basics')),
     check('C3: 挂载后的 progress 实例带 isHeavyLesson（供课页判定用）'));
 }
 

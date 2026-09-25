@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="264" viewBox="0 0 700 264" role="img" aria-labelledby="t-css-three-methods-stack d-css-three-methods-stack">
+  <title id="t-css-three-methods-stack">三种把 CSS 加进 HTML 的方式</title>
+  <desc id="d-css-three-methods-stack">分层堆叠图，自上而下三层：最上层是内联 CSS——把声明直接写在元素的 style 属性上，没有选择器，优先级最高，会压过另外两种方式；中间层是内部 CSS——把规则写在 HTML 文件自己的 style 标签里，只作用于这一个页面，规则一多文件就会变大；最下层是外部 CSS——把规则写在单独的 .css 文件里，用 link 元素链进来，是三种里最常用、也最好维护的一种。底部注释：三种方式写的是同一套规则语言，区别只在规则放在哪里；同一个元素被多种方式命中时，内联压过内部与外部。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="accentbox" x="26" y="26" width="648" height="48" rx="6"/>
+  <text class="hb" x="146" y="55" text-anchor="middle"><tspan x="146">内联 CSS</tspan></text>
+  <text class="s" x="475" y="55" text-anchor="middle"><tspan x="475">写在元素的 style 属性上，没有选择器；优先级最高，压过另外两种</tspan></text>
+  <rect class="box" x="26" y="84" width="648" height="48" rx="6"/>
+  <text class="hb" x="146" y="113" text-anchor="middle"><tspan x="146">内部 CSS</tspan></text>
+  <text class="s" x="475" y="113" text-anchor="middle"><tspan x="475">写在 HTML 文件自己的 style 标签里，只作用于这一个页面</tspan></text>
+  <rect class="box" x="26" y="142" width="648" height="48" rx="6"/>
+  <text class="hb" x="146" y="171" text-anchor="middle"><tspan x="146">外部 CSS</tspan></text>
+  <text class="s" x="475" y="171" text-anchor="middle"><tspan x="475">写在单独的 .css 文件里，用 link 元素链进来；最常用、最好维护</tspan></text>
+  <rect class="note" x="26" y="204" width="648" height="34" rx="6"/>
+  <text class="s" x="350" y="226" text-anchor="middle"><tspan x="350">三种方式写的是同一套规则语言，区别只在规则放在哪里；同一个元素被多种方式命中时，内联压过内部与外部。</tspan></text>
+</svg>

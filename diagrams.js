@@ -267,11 +267,11 @@ window.ODIN_DIAGRAMS = {
       lessonId: 'how-this-course-will-work',
       sectionIndex: 1,
       zhTitle: 'TOP 的一课是怎么组织的',
-      alt: '层级树示意图。根节点是 TOP 的一课（聚合式结构），向下分出四个分支：主题介绍与背景；外部资料——它本身就是正课，再分为 MDN 等文章、YouTube 等视频、官方文档三类；Exercise 练习（部分课才有）；Knowledge Check 自查题。整棵树说明：一课的学习闭环是读正文和它指定的外部资料、动手做练习、回答自查题确认理解，再进入下一课。',
-      caption: '一课不只是一页文字：外部资料就是正课本身，闭环是读 → 练 → 自查 → 下一课。',
+      alt: '层级树示意图。根节点是 TOP 的一课（聚合式结构），向下分出四个分支：主题介绍与背景；外部资料——它本身就是正课，再分为 MDN 等文章、YouTube 等视频、官方文档三类；Assignment 必做任务；Exercise 练习（部分课才有）。整棵树说明：一课的学习闭环是读正文和它指定的外部资料、动手做练习与任务，再进入下一课。',
+      caption: '一课不只是一页文字：外部资料就是正课本身，闭环是读 → 练 → 完成必做任务 → 下一课。',
       points: [
         'TOP 靠聚合工作：课文把你指向外部文章、视频与文档，那就是正课本身。',
-        'Knowledge Check 让你在前进前确认自己理解了；部分课另有 Exercise。',
+        'Assignment 是每课都有的必做任务；部分课另有 Exercise 练习。',
         'Project 穿插在整个课程中，靠真正动手构建加深理解。'
       ]
     },
@@ -721,6 +721,99 @@ window.ODIN_DIAGRAMS = {
         '50 字符：官方指定文章「七条规则」的更严格写作建议。',
         '72 字符：GitHub 的显示限制，出自本课 tip 框。',
         '往 50 靠、不超 72——日常写法两个口径同时满足。'
+      ]
+    },
+    {
+      id: 'css-three-methods-stack',
+      file: 'css-three-methods-stack.svg',
+      lessonId: 'intro-to-css',
+      sectionIndex: 15,
+      zhTitle: '三种把 CSS 加进 HTML 的方式',
+      alt: '分层堆叠图，自上而下三层：最上层是内联 CSS——把声明直接写在元素的 style 属性上，没有选择器，优先级最高，会压过另外两种方式；中间层是内部 CSS——把规则写在 HTML 文件自己的 style 标签里，只作用于这一个页面，规则一多文件就会变大；最下层是外部 CSS——把规则写在单独的 .css 文件里，用 link 元素链进来，是三种里最常用、也最好维护的一种。底部注释：三种方式写的是同一套规则语言，区别只在规则放在哪里；同一个元素被多种方式命中时，内联压过内部与外部。',
+      caption: '三种方式写的是同一套规则语言，区别只在「规则放在哪里」；冲突时内联压过内部与外部。',
+      points: [
+        '外部 CSS 最常用：规则单独成文件，用 link 元素链进来，多页共用好维护。',
+        '内部 CSS 写在 HTML 自己的 style 标签里，只作用于当前页面。',
+        '内联 CSS 写在元素的 style 属性上，优先级最高，官方不推荐常用。'
+      ]
+    },
+    {
+      id: 'cascade-decision-order',
+      file: 'cascade-decision-order.svg',
+      lessonId: 'the-cascade',
+      sectionIndex: 10,
+      zhTitle: '层叠的判定顺序',
+      alt: '四步流程图，依次回答四个问题来确定多条冲突的 CSS 规则里哪一条生效。第一步：这条规则是直接命中该元素，还是从祖先继承来的？直接命中永远赢过继承。第二步：都比选择器类型——ID 选择器胜过任意数量的类选择器，类选择器胜过任意数量的类型选择器。第三步：类型上打平时比同类选择器的数量，数量多的赢。第四步：仍然分不出胜负时比规则顺序，写在后面的那条生效。底部注释：通配选择器与组合器符号本身不贡献任何特异性，浏览器的默认样式也参与比较，但权重通常很低。',
+      caption: '冲突的规则按「直接命中 → 选择器类型 → 同类数量 → 规则顺序」依次比下去，先分出差别的那个因素就定胜负。',
+      points: [
+        '第一步永远是「直接命中还是继承」：直接命中赢过一切继承来的值。',
+        '比特异性先比类型（ID 类 类型），类型打平才比同类数量。',
+        '最后才比规则顺序：写到后面的那条生效。',
+        '通配选择器与组合器符号本身不加特异性。'
+      ]
+    },
+    /* ---------- v4.11.18（第 24–25 课，css-foundations 收组）：各配 1 张 ----------
+     * 24 课用 anatomy 画盒模型四层剖面（一段一层、逐段标注——盒模型是四层，
+     * nested 图型恰 3 层、columns 恰 2 栏都套不下，剖面是图型容量决定的有意取舍）；
+     * 25 课用 map 画三种显示类型（中心 = display 决定的显示类型，卫星 = 三档行为）。 */
+    {
+      id: 'box-model-four-layers',
+      file: 'box-model-four-layers.svg',
+      lessonId: 'the-box-model',
+      sectionIndex: 3,
+      zhTitle: '盒模型的四层：由内到外',
+      alt: '解剖图。主体横条从左到右四段，把一个元素盒子从内到外切开：第一段 content（内容）——装文字与图片的那一层，width / height 默认只量它；第二段 padding（内边距）——边框与内容之间的空间，把内容往里撑；第三段 border（边框）——包住 padding 与内容的一道框，哪怕只有一两个像素也占地方；第四段 margin（外边距）——盒子的边框与相邻盒子的边框之间的空间，把别的盒子推开。底部注释：布局一个网页，本质上就是在决定这些盒子怎样嵌套、怎样堆叠。',
+      caption: '四层从内到外：内容、内边距、边框、外边距——padding 撑自己内部，margin 推别人，border 是两层之间实打实的一道线。',
+      points: [
+        'content 装内容，默认盒模型的 width 只量这一层。',
+        'padding 在边框与内容之间，增加的是自己内部的空间。',
+        'margin 在两边盒子的边框之间，把相邻的盒子推开。',
+        'border 本身占宽度，画上去就生效。'
+      ]
+    },
+    {
+      id: 'display-types-map',
+      file: 'display-types-map.svg',
+      lessonId: 'block-and-inline',
+      sectionIndex: 5,
+      zhTitle: '三种显示类型：block、inline、inline-block',
+      alt: '概念关系图。中心是「元素的显示类型（display 属性）」，三颗卫星环绕：block（块级）——独占一行、每个新元素另起一行往下堆叠，段落和标题都是默认块级；inline（行内）——不换行，排在文字流里与邻居同行，链接是典型代表，但一般别往它身上加 padding 或 margin；inline-block（行内块）——中间地带：像行内元素一样并排，又保留块级盒子的 padding 与 margin 行为，想并排摆能设尺寸的盒子时可用，不过实际项目排一行盒子更多直接用 flexbox。',
+      caption: 'display 决定盒子行为：block 独占一行、inline 挤在文字流里、inline-block 并排又能设尺寸间距。',
+      points: [
+        'block：独占一行、往下堆叠，段落标题都是默认块级。',
+        'inline：不换行、排在文字流里，链接最典型；别硬加 padding / margin。',
+        'inline-block：并排放置 + 正常的尺寸间距行为，是中间地带。',
+        '排一排盒子的需求，官方说实际更多用下一课的 flexbox。'
+      ]
+    },
+    {
+      id: 'flex-shorthand-anatomy',
+      file: 'flex-shorthand-anatomy.svg',
+      lessonId: 'growing-and-shrinking',
+      sectionIndex: 2,
+      zhTitle: 'flex 简写的解剖：一条声明，三个分量',
+      alt: '解剖图。上方小流程：写一条声明 flex: 1，展开成三份，分别管一件事。中间一个横条代表 flex 简写（flex: 1），从左到右分成三段：flex-grow: 1、flex-shrink: 1、flex-basis: 0。下方三条注释分别说明：flex-grow 是放大因子，容器有富余空间时按这个比例增长，因子 1 与 2 的项目宽度比是 1 : 2；flex-shrink 是缩小因子，所有项目装不下时按这个比例收缩，默认 1 均匀收缩、0 绝不收缩；flex-basis 是初始尺寸即伸缩的起点，0 从零开始按比例分、auto 会参考项目的 width 声明。',
+      caption: 'flex: 1 = flex-grow: 1 + flex-shrink: 1 + flex-basis: 0——放大、缩小、初始尺寸三件事一条声明说完。',
+      points: [
+        'flex 是简写属性：一条声明同时设置 grow、shrink、basis 三个值。',
+        'grow 管富余空间怎么分蛋糕，shrink 管装不下时怎么收缩。',
+        'basis 是伸缩起点：0 等分的关键，auto 才参考 width。',
+        '顺序固定 grow → shrink → basis，flex: 2 0 auto 即按序对应。'
+      ]
+    },
+    {
+      id: 'flex-axes-compare',
+      file: 'flex-axes-compare.svg',
+      lessonId: 'axes',
+      sectionIndex: 1,
+      zhTitle: '主轴与交叉轴：随 flex-direction 旋转的一对坐标',
+      alt: '对比图。左列标题 flex-direction: row（默认）：主轴水平、从左到右，是项目排布的方向；交叉轴垂直；justify-content 管水平分布、align-items 管垂直对齐；flex-basis 对应 width。右列标题 flex-direction: column：主轴垂直、从上到下；交叉轴水平；justify-content 变成管垂直分布、align-items 变成管水平对齐；flex-basis 对应 height。底部注释：两根轴永远互相垂直，flex-direction 一换、整组坐标旋转 90 度——对齐与尺寸属性的方向全部跟着转。',
+      caption: 'row 主轴水平、column 主轴垂直；justify 永远沿主轴、align 永远沿交叉轴，basis 永远沿主轴度量。',
+      points: [
+        'row（默认）：主轴水平左→右，交叉轴垂直。',
+        'column：主轴垂直上→下，交叉轴水平——整组坐标旋转。',
+        'justify-content 沿主轴、align-items 沿交叉轴，方向随轴转。',
+        'flex-basis 沿主轴度量：row 对应 width、column 对应 height。'
       ]
     }
   ]

@@ -229,29 +229,29 @@
     { id: 'lessons-5', zh: '完成 5 课', desc: '累计完成 5 课', category: 'lesson', goal: { kind: 'completed', value: 5 } },
     { id: 'lessons-10', zh: '完成 10 课', desc: '累计完成 10 课', category: 'lesson', goal: { kind: 'completed', value: 10 } },
     { id: 'lessons-15', zh: '完成 15 课', desc: '累计完成 15 课', category: 'lesson', goal: { kind: 'completed', value: 15 } },
-    { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（当前开放 20 课，含 Project: Recipes）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
+    { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（当前开放 46 课，含五个 Project——Foundations 全部课程）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
     /* C2. 大课体量（v4.11.3 交接 C3）：既有 61 个成就全部按数量维度（完成数 /
      * 时长 / 连续天数），没有任何一个考察「单课体量」——最重的课
      * （links-and-images，22 章 5151 字）与最轻的课（866 字 5 章）在完成
      * 反馈上毫无区别。补两个只看「体量较大的课」的成就；XP 与等级曲线
      * 零改动（用户已明确选择不改数值），成就不带 XP，补发不会补发经验值。
      * 体量判定见 isHeavyLesson（由真实数据算出，不硬编码课 id）。 */
-    { id: 'heavy-first', zh: '啃下一门大课', desc: '完成一门内容体量明显更大的课程（章节或官方自查题数量显著高于其余课程）', category: 'lesson', goal: { kind: 'completedHeavy', value: 1 } },
-    { id: 'heavy-all', zh: '大课全数拿下', desc: '把本站体量最大的几门课（当前 4 门）全部完成', category: 'lesson', goal: { kind: 'completedHeavy' } },
+    { id: 'heavy-first', zh: '啃下一门大课', desc: '完成一门内容体量明显更大的课程（章节数显著高于其余课程）', category: 'lesson', goal: { kind: 'completedHeavy', value: 1 } },
+    { id: 'heavy-all', zh: '大课全数拿下', desc: '把本站体量最大的几门课（当前 5 门）全部完成', category: 'lesson', goal: { kind: 'completedHeavy' } },
 
     /* D. 官方任务 */
     { id: 'official-first', zh: '首次完成官方任务', desc: '第一次把任意一课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 1 } },
     { id: 'official-3', zh: '完成 3 课官方任务', desc: '累计 3 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 3 } },
     { id: 'official-5', zh: '完成 5 课官方任务', desc: '累计 5 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 5 } },
     { id: 'official-10', zh: '完成 10 课官方任务', desc: '累计 10 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 10 } },
-    { id: 'official-all', zh: '完成当前开放课程的官方任务', desc: '当前收录的 20 课全部标记为官方任务已完成', category: 'official', goal: { kind: 'officialAll' }, milestone: true },
+    { id: 'official-all', zh: '完成当前开放课程的官方任务', desc: '当前收录的 46 课全部标记为官方任务已完成', category: 'official', goal: { kind: 'officialAll' }, milestone: true },
 
     /* E. 本站自测 */
     { id: 'quiz-first', zh: '首次完成本站自测', desc: '第一次把任意一课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 1 } },
     { id: 'quiz-3', zh: '完成 3 课本站自测', desc: '累计 3 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 3 } },
     { id: 'quiz-5', zh: '完成 5 课本站自测', desc: '累计 5 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 5 } },
     { id: 'quiz-10', zh: '完成 10 课本站自测', desc: '累计 10 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 10 } },
-    { id: 'quiz-all', zh: '完成当前开放课程的本站自测', desc: '当前收录的 20 课全部标记为本站自测已完成', category: 'quiz', goal: { kind: 'quizAll' } },
+    { id: 'quiz-all', zh: '完成当前开放课程的本站自测', desc: '当前收录的 46 课全部标记为本站自测已完成', category: 'quiz', goal: { kind: 'quizAll' } },
 
     /* F. 单元。unit-3 的分母取自 lessons.js 里该分组的课程数，2026-09-23 开放
      * Project: Recipes 后自动从 7 变 8——用户拍板 Project 课**计入**单元完成成就，
@@ -262,6 +262,16 @@
     { id: 'unit-1', zh: '完成 Prerequisites 单元', desc: '完成 Prerequisites 单元全部课程', category: 'unit', goal: { kind: 'unit', value: 1 } },
     { id: 'unit-2', zh: '完成 Git Basics 单元', desc: '完成 Git Basics 单元全部课程', category: 'unit', goal: { kind: 'unit', value: 2 } },
     { id: 'unit-3', zh: '完成 HTML Foundations 已开放课程', desc: '完成当前 HTML Foundations 已开放的 8 课（含 Project: Recipes）', category: 'unit', goal: { kind: 'unit', value: 3 } },
+    /* v4.11.17（第 20 课开放轮之后新增）：CSS Foundations 是本站在 v4.11.17 新开放的分组，
+     * 而「完成单元数」由 app.js 按 id 前缀 unit- 从成就表推导——不补这一条，
+     * CSS 基础单元学完不会计入「完成单元数」，与其余四个单元不一致。
+     * 分母（已开放课数）由数据算出，24–25 课开放后自动跟随，文案随之改。 */
+    { id: 'unit-4', zh: '完成 CSS Foundations 已开放课程', desc: '完成当前 CSS Foundations 已开放的 5 课', category: 'unit', goal: { kind: 'unit', value: 4 } },
+    { id: 'unit-5', zh: '完成 Flexbox 已开放课程', desc: '完成当前 Flexbox 已开放的 5 课', category: 'unit', goal: { kind: 'unit', value: 5 } },
+    /* v4.11.20 第九批（第 45 课开放后 JavaScript Basics 15/15 全组）：unit-6 收组对齐既有五个单元。 */
+    { id: 'unit-6', zh: '完成 JavaScript Basics 已开放课程', desc: '完成当前 JavaScript Basics 已开放的 15 课（含三门 Project）', category: 'unit', goal: { kind: 'unit', value: 6 } },
+    /* v4.11.20 第九批（第 46 课开放，Conclusion 单课组）：Foundations 毕业单元。 */
+    { id: 'unit-7', zh: 'Foundations 毕业', desc: '完成 Conclusion 单元的 1 课——Foundations 46 课全部走完', category: 'unit', goal: { kind: 'unit', value: 7 } },
 
     /* G. 复习与使用 */
     { id: 'first-start', zh: '迈出第一步', desc: '第一次开始学习任意一课', category: 'usage', goal: { kind: 'started' } },
@@ -292,7 +302,7 @@
 
     /* K. 学习广度（v4.2 新增） */
     { id: 'started-10', zh: '读过 10 课', desc: '打开过 10 节课程页面', category: 'exploration', goal: { kind: 'startedCount', value: 10 } },
-    { id: 'started-all', zh: '全部课程都看过', desc: '打开过当前收录的全部 20 课', category: 'exploration', goal: { kind: 'startedCount', value: 20 } },
+    { id: 'started-all', zh: '全部课程都看过', desc: '打开过当前收录的全部 46 课', category: 'exploration', goal: { kind: 'startedCount', value: 46 } },
 
     /* L. 章节挑战（v4.3 新增，交接 E3）。高分只代表“已有相关背景知识 /
      * 当前题目掌握良好”，成就文案不宣称“无需学习整章”。 */
@@ -352,7 +362,7 @@
     { id: 'frame-time', zh: '时间框', desc: '累计有效学习 10 小时', unlock: { kind: 'achievement', value: 'active-10h' }, css: 'frame-time' },
     { id: 'frame-quiz', zh: '自测框', desc: '完成当前开放全部课程的本站自测', unlock: { kind: 'achievement', value: 'quiz-all' }, css: 'frame-quiz' },
     { id: 'frame-task', zh: '任务框', desc: '完成当前开放全部课程的官方任务', unlock: { kind: 'achievement', value: 'official-all' }, css: 'frame-task' },
-    { id: 'frame-graduate', zh: '当前阶段毕业框', desc: '完成当前开放的全部 20 课', unlock: { kind: 'achievement', value: 'all-lessons' }, css: 'frame-graduate' },
+    { id: 'frame-graduate', zh: '当前阶段毕业框', desc: '完成当前开放的全部 46 课', unlock: { kind: 'achievement', value: 'all-lessons' }, css: 'frame-graduate' },
     /* v4.3 Batch 6（交接 H/E3）：Boss 挑战的纪念框——首破任意单元 Boss 即解锁 */
     { id: 'frame-boss', zh: '破甲框', desc: '第一次通过任意单元的 Boss 挑战', unlock: { kind: 'achievement', value: 'boss-first' }, css: 'frame-boss' },
     /* v4.2 叶片解锁框（交接 §4、§5）：解锁方式是花叶片解锁后永久拥有。
@@ -442,8 +452,8 @@
       companionNicknames: {},
       /* v4.5（交接 C2）：学习伙伴显示模式 auto / always / minimal，默认 auto */
       companionDisplay: DEFAULT_COMPANION_DISPLAY,
-      /* v4.11.5（交接 3.A2）：课页「官方任务」节 Assignment / Knowledge Check
-       * 列表是否默认收起。默认 false = 展开。**刻意不进 SETTING_BOOLEAN_KEYS**：
+      /* v4.11.5（交接 3.A2）：课页「官方任务」节 Assignment 列表是否默认收起。
+       * 默认 false = 展开。**刻意不进 SETTING_BOOLEAN_KEYS**：
        * 那份白名单的语义是「每键默认必须 true、只有显式 false 才关」
        * （tests/settings.test.cjs 钉住），本字段方向相反（默认 false、只有显式
        * true 才折叠），读写走专用 API setOfficialTasksCollapsed。 */
@@ -883,14 +893,15 @@
   }
 
   /* ---------- v4.11.3 C1：课程体量判定（「大课」） ----------
-   * 判定由真实数据算出（读 lessons.js 现成的 sections 与 official.knowledgeCheck
-   * 字段，不硬编码课 id，不改 lessons.js）：
-   *   章节数 >= 14 或 官方自查题数 >= 10。
-   * 阈值稳健性：规划阶段用三种独立阈值（章≥14 或 KC≥10 / 章+KC≥20 / 章+KC×1.5≥25）
-   * 对 19 课实测，判定集合完全相同——{ links-and-images(22章/9题),
-   * git-basics(16/11), command-line-basics(14/11), how-does-the-web-work(8/15) }，
-   * 且与第 5 名（html-boilerplate 12 章/4 题）之间有明确间隔，因此该集合
+   * 判定由真实数据算出（读 lessons.js 现成的 sections 与自查题字段，
+   * 不硬编码课 id，不改 lessons.js）：
+   *   章节数 >= 14 或 自查题数 >= 10。
+   * 阈值稳健性：规划阶段用三种独立阈值（章≥14 或 题≥10 / 章+题≥20 / 章+题×1.5≥25）
+   * 对 19 课实测，判定集合完全相同；且与第 5 名之间有明确间隔，因此该集合
    * 不依赖阈值的精确取值；调整阈值 ±2 不会改变集合。
+   * v4.11.17：官方 2026-09-23 移除课末自查题节，本站同步下线，题数分支
+   * 恒为 0——判定实际退化为「只看章节数」。公式与阈值刻意保留不动
+   * （heavy-lesson.test.cjs 逐课钉住公式等价），官方若恢复该节即自动复活。
    * 语义边界：这只描述「体量」（内容多、值得多花时间），不评价难度——
    * 展示文案不得写成「这课很难」之类的负面暗示。 */
   const HEAVY_LESSON_MIN_SECTIONS = 14;
@@ -923,7 +934,7 @@
       case 'completedAll':
         return { current: countBy(lessons, state, 'completed'), target: total, unit: 'lessons' };
       /* v4.11.3 C3：大课体量成就——lessons 数组已传入判定函数，直接读
-       * sections / knowledgeCheck 算体量（isHeavyLesson），保持表驱动风格。
+       * sections 算体量（isHeavyLesson），保持表驱动风格。
        * goal.value 给出时目标为该值（如「第一门大课」= 1）；缺省时目标为
        * 当前大课总数（与 completedAll 同一「总数由数据算出」模式，课程
        * 收录变化时目标自动跟随）。 */

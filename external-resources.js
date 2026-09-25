@@ -1,7 +1,11 @@
 /* 本课外部资料清单（v3；v4.11.1 扩展中文内容与 handling 语义；v4.11.16 收录第 20 课）。
- * 数据来源：重新拉取 20 课官方 curriculum Markdown（第 01–19 课指纹与 sources.json 全部一致，
+ * 数据来源：重新拉取已开放课程的官方 curriculum Markdown（第 01–19 课指纹与 sources.json 全部一致，
  * 2026-09-10 核验；第 20 课 Project: Recipes 于 2026-09-23 抓取，官方文件名为 project_recipes.md），
  * 程序化提取正文与 Assignment 中明确要求学习的外部资源，再逐条联网核验。
+ * v4.11.17（2026-09-24）：官方于 2026-09-23 下线课末自我检查节，本站同步下线；
+ * 只因该节才收录的 2 条（课 09 softcover《Unix 命令基础》、课 13 Bryt Designs 文章）
+ * 一并移除，其余条目的依据改记正文 / Assignment。
+ * 同轮开放第 21–23 课并登记 12 条（课 21 三条 / 课 22 四条 / 课 23 五条），层级从 85 增至 97。
  * 分类依据 v3 交接 §3.2：
  *   A 类 = 有已核验的官方中文版本，同时给出中文版与英文原文入口；
  *   C 类 = 没有可靠中文版，提供本站原创中文导读要点 + 英文原文链接。
@@ -10,16 +14,98 @@
  *   zh-translation = 许可明确为 CC 系列且无官方中文版的文本条目（14 条），本站提供中文精译，
  *     译文采用与原作相同的 CC 许可并带署名、来源与译者说明。第 15 条 CC 条目
  *     shell-lesson-data.zip 为二进制数据文件，无文本可译，保持 link-only。
- * zhGuide.overview（中文速览，87 条每条一段）与 zhTranslation（精译）为 v4.11.1 增量字段，
+ * zhGuide.overview（中文速览，97 条每条一段）与 zhTranslation（精译）为 v4.11.1 增量字段，
  * 既有 why / points / terms / focus / takeaway 全部保留。
  * zhGuide 内容只依据官方 Markdown 对该资源的说明与本站已核验事实编写，不臆测第三方页面的具体论点。
  * 精译全部依据 2026-09-18 真实抓取的原文编写（各条 translatorNote 记录了抓取日期与依据）。
  * v4.11.16（2026-09-23）：第 20 课 Project: Recipes 新增 3 条（Allrecipes / TOP Discord 求助
  * 频道 / dev.to Learning Code 文章），全部 C 类 link-only；官方原文中的 discord.gg 邀请链接
- * 与课 05 既有条目规范化后同址，跨课合并登记在课 05，不重复收录。 */
+ * 与课 05 既有条目规范化后同址，跨课合并登记在课 05，不重复收录。
+ * v4.11.18（2026-09-24）：第 24–25 课（css-foundations 收组）新增 10 条（课 24 四条 / 课 25
+ * 六条，逐条三级核验，跨课去重后与既有 97 条零重复）。其中 MDN 盒模型与 MDN 布局入门两条
+ * 核验出官方简体中文版（A 类，登记新路径 zh-CN 地址）；3 条 W3Schools 地址 403 受限（与
+ * 上轮 W3Schools 同因），如实记 note 并入 verifyLimitedUrls；官方正文里的 3 条 statically
+ * CDN 配图、1 条 Giphy 动图、1 条 Rickroll 彩蛋链接（官方刻意安排、演示内联链接行为用）、
+ * 2 处 CodePen 课内演示与 cpwebassets 嵌入脚本按盘点范围剔除，不登记。
+ * v4.11.19（2026-09-24）：开放第 26–27 课（Flexbox 组起步）。课 26 是唯一零外部
+ * 资料的课（3 条外链全是 statically CDN 课程配图，按既有范围剔除，不为凑数登记，
+ * 头注释该课小节有说明）；课 27 登记三条（MDN 简写属性与 MDN flex 两条核验出
+ * 官方简体中文版按 A 类登记 zh-CN 地址，W3C 规范 7.1.1 无中文版按 C 类），
+ * 官方正文的 1 张 statically CDN 配图与 2 处 CodePen 课内演示按既有范围剔除。
+ * v4.11.19 第二批（同日）：开放第 28–29 课。课 28 登记 1 条（MDN flex-direction 核验出
+ * 官方简体中文版按 A 类登记 zh-CN 新路径 Reference/Properties；2 处 CodePen 课内演示剔除）；
+ * 课 29 登记 4 条（joshwcomeau 交互指南 / CSS-Tricks 指南 / Flexbox Froggy / 练习目录，
+ * 全部 C 类 link-only；2 张 statically CDN 配图与 3 处 CodePen 演示剔除）。
+ * v4.11.19 第三批（同日）：开放第 30 课 Project: Landing Page（Flexbox 收组）。登记 3 条
+ * 免费图片素材站（Pexels / Pixabay / Unsplash，官方正文 A note about images 推荐；全部 C 类——
+ * Pexels 与 Pixabay 403 反爬受限如实登记，Unsplash 200）；官方的 4 条 TOP 自有页面链接
+ * （Recipes 项目 ×2 / Commit Messages 课 / 部署小节）按既有剔除口径不收；设计图
+ * （statically CDN）与 codepen 嵌入剔除。项目课正文 examples 为空数组（红线：不给成品代码）。
+ * v4.11.20 第一批（2026-09-25）：开放第 31–33 课（JavaScript Basics 起步）。课 31 登记 5 条
+ * （Live Preview 扩展 reference 类 + MDN What is JS / JavaScript.info variables / MDN Math /
+ * JavaScript.info operators 四篇 Assignment 指定阅读；MDN Learn 系 2 条核验出官方简体中文版按
+ * 新路径 Learn_web_development 登记 zh-CN，JavaScript.info 系核验出 zh.javascript.info 官方
+ * 中文版；1 张 statically CDN 变量盒子配图剔除）；课 32 零外部资料（官方仅 2 条 TOP curriculum
+ * 仓库自有安装指南，按口径不收，零资源课机制沿用课 26）；课 33 登记 9 条（正文 Strings /
+ * Conditionals 各小节的九篇阅读：JavaScript.info 系 6 条全部有官方中文版、MDN 系 3 条有
+ * zh-CN、W3Schools 1 条 403 反爬受限如实登记；javascript-exercises 2 条为练习操作目标，
+ * 按 odin-recipes 先例不收）。
+ * v4.11.20 第二批（同日）：开放第 34–37 课（JavaScript Basics 4–7/15）。课 34 登记 7 条
+ * （JavaScript.info 调试教程有 zh 官方中文版；developer.chrome.com 系 6 条文档——/zh/ 路径
+ * 实测返回英文内容，按无可靠中文版登记 C 类）；课 35 登记 6 条（JavaScript.info×3 与 MDN×2
+ * 均有官方中文版，javascripttutorial.net 1 条 C 类；1 张配图 CDN 与 1 条 TOP 自有课页链接剔除）；
+ * 课 36 登记 5 条（freecodecamp 文章 chinese 站未收录该篇为 C 类、Coding Tech 演讲 oEmbed
+ * 核验、Built In 伪代码文章、维基 Fizz Buzz 条目中文维基无对应为 C 类、MDN for 文档有 zh-CN）；
+ * 课 37 登记 4 条（MDN 三篇错误对象文档 + What_went_wrong 排错教程，全部有 zh-CN 中文版；
+ * 4 张官方配图 CDN 剔除）。
+ * v4.11.20 第三批（同日）：开放第 38 课 Project: Rock Paper Scissors（JavaScript Basics 8/15，
+ * 官方文件为 project_rock_paper_scissors.md，注意 project_ 前缀）。登记 4 条：wikiHow 玩法说明
+ * （zh.wikihow 无对应条目 404，C 类）、dev.to 作品集文章（C 类，reference）、MDN Math.random 与
+ * prompt（均核验出 zh-CN 官方中文版，A 类）；官方的 2 条 TOP 自有课页链接（commit-messages /
+ * javascript-developer-tools）按既有口径剔除。项目课正文 examples 为空数组（红线：不给成品代码）。
+ * v4.11.20 第四批（同日）：开放第 39–40 课（整洁代码 / 循环与数组，JavaScript Basics 10/15）。
+ * 登记 10 条：课 39 共 4 条全 C 类（reddit 缩进玩笑帖 403 受限、onextrapixel 原则清单两次无响应
+ * 受限，均如实登记未凑数；codinghorror 两篇注释实践文章 200 无中文）；课 40 共 6 条
+ * （MDN 循环教程旧路径 zh-CN 与 MDN Array 参考文档均核验出官方简体中文版、JavaScript.info
+ * 循环 / 数组 / 数组方法三篇走 zh.javascript.info 官方中文站，A 类 ×5；YouTube 数组速览视频
+ * oEmbed 核验后 C 类 ×1）。课 40 的 1 张三明治配图（statically CDN）剔除；javascript-exercises
+ * 两条练习链接为操作目标、按课 20 先例不计入资料清单；Assignment 的 array-methods#tasks
+ * 锚点与正文条目同页合并，未单列。
+ * v4.11.20 第五批（同日）：开放第 41–42 课（操作 DOM 与处理事件 / 重做石头剪刀布，
+ * JavaScript Basics 12/15，注意官方文件名是大写 DOM_manipulation_and_events.md）。
+ * 登记 15 条：课 41 共 14 条（A 类 ×5：MDN 展开语法 / HTML 属性参考 / 事件介绍 / DOM 脚本
+ * 均核验出 zh-CN 官方中文版——其中事件介绍与 DOM 脚本两条 Learn_web_development 新路径
+ * 即有中文版、与此前多课相反，逐条内容级核验必要；JavaScript.info defer 一篇走
+ * zh.javascript.info；C 类 ×9：XSS 攻防视频 oEmbed 核验、W3Schools 事件参考（本次 200
+ * 未受限，如实登记）、JavaScript Tutorial 事件六篇、dev.to 回调文章）；正文另有 2 条跨课
+ * 合并（javascript.info 箭头函数并入课 35、codepen 并入课 21），Assignment 的 MDN 两个
+ * 锚点同页合并。课 42 共 1 条：learngitbranching.js.org（站点自带 ?locale=zh_CN 官方
+ * 简体中文界面，SPA 命令行抓不到正文、已用真实浏览器实测中文渲染，A 类）；课 42 的
+ * 3 条 TOP 自有课页与 1 张 GitHub 截图 CDN 剔除。
+ * v4.11.20 第六批（同日）：开放第 43 课 Project: Etch-A-Sketch（JavaScript Basics 13/15，
+ * 官方文件为 project_etch_a_sketch.md，注意 project_ 前缀）。登记 1 条：Extra credit 的
+ * MDN opacity（zh-CN 有官方中文版，A 类，optional）；其余外链——commit-messages 课与
+ * recipes 建仓锚点为 TOP 自有页剔除、Discord 与课 05 跨课合并。项目课正文 examples 为
+ * 空数组（红线：不给成品代码）。
+ * v4.11.20 第七批（同日）：开放第 44 课 Object Basics（JavaScript Basics 14/15）。
+ * 登记 5 条（A 类 ×2：JavaScript.info 对象文章走 zh.javascript.info、MDN 对象基础
+ * zh-CN——新旧路径均重定向到 Learn_web_development 现役地址；C 类 ×3：Wes Bos
+ * JavaScript30 仓库（代码仓库视图）与两个 Array Cardio 视频逐条 oEmbed 核验）。
+ * array-methods#tasks 与课 40 同页合并、javascript-exercises 为操作目标、Discord
+ * 与课 05 跨课合并、课 33 TOP 自有页剔除。
+ * v4.11.20 第八批（同日）：开放第 45 课 Project: Calculator（JavaScript Basics 15/15，
+ * Project 红线课）。登记 3 条（A 类 ×1：MDN eval() zh-CN 有官方中文版；C 类 ×2：
+ * StackOverflow eval 对比讨论 403 受限如实记 note 入 verifyLimitedUrls、CalculatorSoup
+ * 在线计算器演示 200）。commit-messages 课为 TOP 自有页剔除。项目课正文 examples 为
+ * 空数组（红线：不给成品代码）。
+ * v4.11.20 第九批（同日）：开放第 46 课 Choose Your Path Forward（Foundations 46 课全部
+ * 开放，新增第 8 分组 Conclusion）。登记 1 条（C 类：Medium 选语言指南 by Carlos Diaz，
+ * 命令行 403 受限、真实浏览器核验可达入 verifyLimitedUrls）。官方页面内嵌的 wheeldecide
+ * 命运转盘 iframe 按不嵌第三方 iframe 口径剔除、正文转述。本课无 Assignment（官方结构
+ * 豁免），任务映射为显式空映射。 */
 window.ODIN_RESOURCES = {
-  verifiedAt: '2026-09-23',
-  method: '重新拉取官方 curriculum raw Markdown 并按 SHA-256 比对指纹（首批 19 课于 2026-09-10 核验全部未变；第 20 课于 2026-09-23 抓取登记）→ 程序化提取正文 / Assignment / Knowledge Check 中的外部链接 → 按重定向后的规范化地址去重（含跨课合并）→ 逐条 curl 核验状态码与重定向目标 → 对中文候选做内容级语言核验（统计正文汉字数，不只看 HTTP 200）→ 视频另用 YouTube oEmbed 公开接口核验可用性与真实标题。各条资料的核验日期以条目 verifiedAt 为准。',
+  verifiedAt: '2026-09-25',
+  method: '重新拉取官方 curriculum raw Markdown 并按 SHA-256 比对指纹（首批 19 课于 2026-09-10 核验全部未变；第 20 课于 2026-09-23 抓取登记）→ 程序化提取正文 / Assignment 中的外部链接（2026-09-24 全量重扫：同年 9 月 23 日官方一口气下线了课末的自我检查节，该节原带的链接已一并复核处置，受影响的是课 09 与课 13 各一条，均已从清单移除；同轮新增第 21–23 课共 12 条（课 21 三条 / 课 22 四条 / 课 23 五条，逐条三级核验，跨课去重后与既有 85 条零重复）；同日另一批新增第 24–25 课共 10 条（课 24 四条 / 课 25 六条，逐条三级核验，跨课去重后与既有 97 条零重复，其中 3 条 W3Schools 地址 403 受限、如实登记未凑数，MDN 两条核验出官方中文版登记为 A 类）；2026-09-24 第二批新增第 26–27 课（课 26 官方外链全为课程配图、零资料登记；课 27 新增 3 条，其中 MDN 两条核验出官方简体中文版登记为 A 类，W3C 规范 1 条无中文版登记为 C 类）；同日第三批新增第 28–29 课（课 28 的 MDN flex-direction 核验出官方简体中文版登记为 A 类；课 29 新增 4 条全部 C 类）；同日第四批新增第 30 课的 3 条免费图片素材站（Pexels / Pixabay 403 受限如实登记）；详见 sources.json 与 MAINTENANCE.md）→ 按重定向后的规范化地址去重（含跨课合并）→ 逐条 curl 核验状态码与重定向目标 → 对中文候选做内容级语言核验（统计正文汉字数，不只看 HTTP 200）→ 视频另用 YouTube oEmbed 公开接口核验可用性与真实标题。各条资料的核验日期以条目 verifiedAt 为准。',
   policy: {
     handling: 'link-only 或 zh-translation（v4.11.1 起两个合法值）',
     noTranslation: '许可未明确标注的第三方内容一律不翻译、不复制，只提供链接与本站原创中文导读/速览；许可明确为 CC 系列且无官方中文版的文本来源，本站提供中文精译——译文采用与原作相同的 CC 许可，并带署名、来源标注与译者修改说明。',
@@ -27,14 +113,22 @@ window.ODIN_RESOURCES = {
     subtitleClaim: '没有可靠证据证明存在中文字幕的视频，一律不声称有中文字幕。',
     fallback: '无法确认版权许可时，默认只做中文摘要 / 导读加原始链接。'
   },
-  stats: { total: 87, withZh: 24, guideOnly: 63, verifyLimited: 5, withTranslation: 14 },
+  stats: { total: 193, withZh: 71, guideOnly: 122, verifyLimited: 16, withTranslation: 14 },
   audit: {
     perLesson: {
       'how-this-course-will-work': 2, 'introduction-to-web-development': 5, 'motivation-and-mindset': 6,
       'asking-for-help': 3, 'join-the-odin-community': 7, 'how-does-the-web-work': 9, installations: 6,
-      'text-editors': 2, 'command-line-basics': 8, 'setting-up-git': 6, 'introduction-to-git': 5,
-      'git-basics': 3, 'introduction-to-html-and-css': 2, 'elements-and-tags': 2, 'html-boilerplate': 2,
-      'working-with-text': 3, lists: 2, 'links-and-images': 9, 'commit-messages': 2, recipes: 3
+      'text-editors': 2, 'command-line-basics': 7, 'setting-up-git': 6, 'introduction-to-git': 5,
+      'git-basics': 3, 'introduction-to-html-and-css': 1, 'elements-and-tags': 2, 'html-boilerplate': 2,
+      'working-with-text': 3, lists: 2, 'links-and-images': 9, 'commit-messages': 2, recipes: 3,
+      'intro-to-css': 3, 'the-cascade': 4, 'inspecting-html-and-css': 5,
+      'the-box-model': 4, 'block-and-inline': 6, 'growing-and-shrinking': 3, axes: 1, alignment: 4,
+      'landing-page': 3, 'variables-and-operators': 5, 'data-types-and-conditionals': 9,
+      'javascript-developer-tools': 7, 'function-basics': 6, 'problem-solving': 5, 'understanding-errors': 4,
+      'rock-paper-scissors': 4, 'clean-code': 4, 'loops-and-arrays': 6,
+      'dom-manipulation-and-events': 14, 'revisiting-rock-paper-scissors': 1,
+      'etch-a-sketch': 1, 'object-basics': 5, calculator: 3,
+      'choose-your-path-forward': 1
     },
     /* 完整性复查记录：初次程序化提取共得到 118 条链接。第一阶段剔除 20 条非第三方学习资料
      * （5 条 TOP 自有课程页、13 条 TOP 官方安装指引、2 条课程演示素材，即 CodePen 演示笔与
@@ -47,16 +141,27 @@ window.ODIN_RESOURCES = {
      * 已补入并完成同样的核验，成为 83 条。课 09 的 The Unix Shell 课程主页与其 Download files
      * 小节在规范化去重后本会合并为一条，但官方 Assignment 把 Download files 列为独立一项并给了
      * 独立指示（只需照该节说明做、不必安装软件），因此按官方任务结构保留为两条。合计 84 条。 */
-    completenessRecheck: '已对 19 份官方 Markdown 全量重扫链接并与本清单逐条比对；除 Vim 条目（已补入）外无其他遗漏。2026-09-23 开放第 20 课时对官方 project_recipes.md 做同样的全量扫描：去重后共提取 9 个地址，其中 4 个 TOP 自有课程页（Introduction to Git / Git Basics / Setting up Git 的 SSH 小节 / Commit Messages）与 1 个课程配图（statically CDN）按阶段一剔除；discord.gg/fbFCkYabZB 邀请链接与课 05 既有条目规范化后同址，跨课合并登记在课 05；其余 3 条（Allrecipes、TOP Discord 求助频道、dev.to Learning Code 文章）已收录并完成同样的三级核验。',
+    completenessRecheck: '已对 19 份官方 Markdown 全量重扫链接并与本清单逐条比对；除 Vim 条目（已补入）外无其他遗漏。2026-09-23 的 Project: Recipes 那一批对官方 project_recipes.md 做同样的全量扫描：去重后共提取 9 个地址，其中 4 个 TOP 自有课程页（Introduction to Git / Git Basics / Setting up Git 的 SSH 小节 / Commit Messages）与 1 个课程配图（statically CDN）按阶段一剔除；discord.gg/fbFCkYabZB 邀请链接与课 05 既有条目规范化后同址，跨课合并登记在课 05；其余 3 条（Allrecipes、TOP Discord 求助频道、dev.to Learning Code 文章）已收录并完成同样的三级核验。',
     deliberateSplit: ['command-line-basics: The Unix Shell 主页与 Download files 小节按官方 Assignment 的分项结构保留为两条'],
     verifyLimitedUrls: [
+      'https://www.pexels.com/（403，站点反爬拦截非浏览器请求）',
+      'https://pixabay.com/（403，站点反爬拦截非浏览器请求）',
       'https://github.com/join（403，GitHub 反爬拦截，重定向到 github.com/signup）',
       'https://codepen.io（403，站点反爬拦截）',
       'https://validator.w3.org/#validate_by_input（403，W3C 校验服务拦截非浏览器请求）',
       'https://support.freepik.com/s/article/Attribution-How-when-and-where?language=en_US（403，且跨域重定向到 magnific.com，主题已不完全对应）',
-      'https://web.archive.org/web/20250918082145/https://old.codinginflow.com/google-programming-questions（自动核验未取得响应）'
+      'https://web.archive.org/web/20250918082145/https://old.codinginflow.com/google-programming-questions（自动核验未取得响应）',
+      'https://www.w3schools.com/cssref/css_colors_legal.asp（403，站点反爬拦截非浏览器请求）',
+      'https://www.w3schools.com/html/html_blocks.asp（403，站点反爬拦截非浏览器请求）',
+      'https://www.w3schools.com/Css/css_font.asp（403，站点反爬拦截非浏览器请求）',
+      'https://www.w3schools.com/cssref/css_websafe_fonts.asp（403，站点反爬拦截非浏览器请求）',
+      'https://www.w3schools.com/js/js_string_methods.asp（403，站点反爬拦截非浏览器请求，带浏览器 UA 复核为 200）',
+      'https://www.reddit.com/r/programming/comments/p1j1c/tabs_vs_spaces_vs_both/（403，站点反爬拦截非浏览器请求）',
+      'https://onextrapixel.com/10-principles-for-keeping-your-programming-code-clean/（000，两次自动核验均未取得响应）',
+      'https://stackoverflow.com/questions/4599857/are-eval-and-new-function-the-same-thing（403，站点反爬拦截非浏览器请求）',
+      'https://medium.com/@bycdiaz/choosing-the-right-language-a-short-guide-on-how-not-to-ruin-your-career-2b353be1371（403，站点反爬拦截非浏览器请求；真实浏览器核验可达）'
     ],
-    verifyLimitedNote: '以上 5 条无法用命令行自动确认可达性，均已在对应条目的 note 字段中如实记录，未声称为“已验证可访问”。它们的地址都直接取自官方 Markdown 原文，本站未做替换。'
+    verifyLimitedNote: '以上 16 条无法用命令行自动确认可达性，均已在对应条目的 note 字段中如实记录，未声称为“已验证可访问”。它们的地址都直接取自官方 Markdown 原文，本站未做替换。'
   },
   resources: [
   /* ===== 01 How This Course Will Work ===== */
@@ -562,16 +667,15 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第三条要求阅读并收藏这份 TOP 社区指南，它是你需要求助时随时可查的参考，官方说在思考文中列出的那些要点时，你可能会自己就把问题解决了。本课官方 Knowledge Check 第二题「你的提问应该包含哪 5 样东西」直接指向这份指南；第 5 课官方正文列出的提问五项上下文可作对照：你认为问题是什么、你究竟希望发生什么、实际发生的是什么、你是怎么走到这一步的、到目前为止你试过什么。重点读它列出的提问要素清单，收藏起来以后每次提问前对照。',
+      overview: '官方 Assignment 第三条要求阅读并收藏这份 TOP 社区指南，它是你需要求助时随时可查的参考，官方说在思考文中列出的那些要点时，你可能会自己就把问题解决了。第 5 课官方正文列出的提问五项上下文可作对照：你认为问题是什么、你究竟希望发生什么、实际发生的是什么、你是怎么走到这一步的、到目前为止你试过什么。重点读它列出的提问要素清单，收藏起来以后每次提问前对照。',
       why: '官方 Assignment 第三条要求阅读并收藏这份社区指南，说它是你需要求助时随时可查的好参考。',
       points: [
         '官方说在思考文中列出的那些要点时，你可能会自己就把问题解决了。',
-        '本课官方 Knowledge Check 的第二题“你的提问应该包含哪 5 样东西”直接指向这份指南，答案以指南列出的内容为准。',
         '第 5 课官方正文列出的提问五项上下文可作对照：你认为问题是什么、你究竟希望发生什么、实际发生的是什么、你是怎么走到这一步的、到目前为止你试过什么。'
       ],
       terms: ['technical question（技术问题）', 'context（上下文）', 'reproduce（重现）'],
       focus: '重点读它列出的提问要素清单，收藏起来以后每次提问前对照。',
-      takeaway: '有一份自己的提问检查清单，能答出官方 KC 的“5 样东西”。'
+      takeaway: '有一份自己的提问检查清单，提问前能逐条对照。'
     },
     license: 'TOP 官方指南，采用 CC BY-NC-SA 4.0；本站提供中文精译（见卡内译文区块），译文采用与原作相同的许可。',
     zhTranslation: {
@@ -625,10 +729,9 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第二条要求读这个页面，它指出的是新手和有经验的程序员在提问时都会掉进去的常见陷阱；本课官方 Knowledge Check 第一题「什么是 XY Problem」就以该站点为权威出处。它描述的情形本课中文讲解已概括：你真正要解决的是 X，却把自己猜的解决路径 Y 当成问题去问，于是别人在帮你处理 Y，而 X 从没被说清楚。页面很短，读完能识别自己是不是在问 Y，提问时先说出真正想达成的目标。',
+      overview: '官方 Assignment 第二条要求读这个页面，它指出的是新手和有经验的程序员在提问时都会掉进去的常见陷阱。它描述的情形本课中文讲解已概括：你真正要解决的是 X，却把自己猜的解决路径 Y 当成问题去问，于是别人在帮你处理 Y，而 X 从没被说清楚。页面很短，读完能识别自己是不是在问 Y，提问时先说出真正想达成的目标。',
       why: '官方 Assignment 第二条要求读它，说这是新手和有经验的程序员在提问时都会掉进去的常见陷阱。',
       points: [
-        '本课官方 Knowledge Check 第一题就是“什么是 XY Problem”，并直接指向这个站点，权威说明以该页为准。',
         '它对应的现实情形是：你真正要解决的是 X，却把自己猜的解决路径 Y 当成问题去问，于是别人在帮你处理 Y，而 X 从没被说清楚。',
         '这也解释了本课“问手头的问题，不要问解法本身”那条建议背后的道理。'
       ],
@@ -684,12 +787,11 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第二条要求登录 TOP 的 Discord 服务器，进去打个招呼并开始探索。官方建了一个 introductions 自我介绍频道，课程覆盖的每个开发主题也都有对应频道；参与前官方要求先在左侧边栏 TOP META 下读 rules 和 faq。本课官方 Knowledge Check 第一题就是「怎样加入 TOP 的 Discord 服务器」。按官方顺序做：加入、打招呼、读规则与常见问题、先观察再参与；需要 Discord 账号与登录后才能进入。',
+      overview: '官方 Assignment 第二条要求登录 TOP 的 Discord 服务器，进去打个招呼并开始探索。官方建了一个 introductions 自我介绍频道，课程覆盖的每个开发主题也都有对应频道；参与前官方要求先在左侧边栏 TOP META 下读 rules 和 faq。按官方顺序做：加入、打招呼、读规则与常见问题、先观察再参与；需要 Discord 账号与登录后才能进入。',
       why: '官方 Assignment 第二条要求登录 TOP 的 Discord 服务器，进去打个招呼并开始探索。',
       points: [
         '官方说他们建了一个 introductions 自我介绍聊天室，是介绍自己的好地方；课程覆盖的每个开发主题都有对应聊天室。',
-        '参与前官方要求先在左侧边栏 TOP META 下读 rules 和 faq。',
-        '本课官方 Knowledge Check 第一题就是“怎样加入 TOP 的 Discord 服务器”。'
+        '参与前官方要求先在左侧边栏 TOP META 下读 rules 和 faq。'
       ],
       terms: ['Discord server（Discord 服务器）', 'introductions（自我介绍频道）', 'rules / faq（规则与常见问题）'],
       focus: '按官方顺序做：加入 → 打招呼 → 读 rules 与 faq → 先观察再参与。',
@@ -869,7 +971,7 @@ window.ODIN_RESOURCES = {
     titleZh: '互联网是如何工作的？',
     type: '文档',
     requirement: 'required',
-    zone: 'Assignment 第 2 条（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 2 条',
     originalUrl: 'https://developer.mozilla.org/en-US/Learn/Common_questions/How_does_the_Internet_work',
     originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work',
     sourceDomain: 'developer.mozilla.org',
@@ -877,10 +979,9 @@ window.ODIN_RESOURCES = {
     zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work',
     zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
     zhGuide: {
-      overview: '官方 Assignment 第二条要求读这篇 Mozilla 文章，它是本课「互联网怎样运作」的权威说明；官方 Knowledge Check 的「什么是互联网」「客户端与服务器是什么」两题都直接指向这篇及其姊妹篇。MDN 官方简体中文版已做内容级核验（正文汉字 9931 个，与英文版为同一篇文章），直接读中文版即可，遇到不确定的术语再切回英文版核对。读完应能说出数据从你的浏览器到服务器再回来大致经过哪些环节。',
+      overview: '官方 Assignment 第二条要求读这篇 Mozilla 文章，它是本课「互联网怎样运作」的权威说明。MDN 官方简体中文版已做内容级核验（正文汉字 9931 个，与英文版为同一篇文章），直接读中文版即可，遇到不确定的术语再切回英文版核对。读完应能说出数据从你的浏览器到服务器再回来大致经过哪些环节。',
       why: '官方 Assignment 第二条要求读这篇 Mozilla 文章，它是本课“互联网怎样运作”的权威说明。',
       points: [
-        '官方 Knowledge Check 的“什么是互联网”“客户端与服务器是什么”两题都直接指向这篇及其姊妹篇。',
         '中文版已内容级核验：正文汉字 9931 个，标题为“互联网是如何工作的？”，与英文版同一篇文章。',
         'MDN 页面右上角有语言切换，中英文可随时对照。'
       ],
@@ -899,7 +1000,7 @@ window.ODIN_RESOURCES = {
     titleZh: '网页、网站、服务器与搜索引擎（MDN，现役标题为“浏览互联网”）',
     type: '文档',
     requirement: 'required',
-    zone: 'Assignment 第 4 条（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 4 条',
     originalUrl: 'https://developer.mozilla.org/en-US/Learn/Common_questions/Pages_sites_servers_and_search_engines',
     originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web',
     sourceDomain: 'developer.mozilla.org',
@@ -907,10 +1008,9 @@ window.ODIN_RESOURCES = {
     zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web',
     zhType: 'MDN 官方简体中文版（已核验正文汉字 21206 个，标题“浏览互联网”）',
     zhGuide: {
-      overview: '官方 Assignment 第四条要求弄清网页、网站与搜索引擎的区别，Knowledge Check 有同名的题目，答案就在这一篇。关键区分本课正文已给出：网页是单个文档，网站是许多网页的集合，搜索引擎帮你找到网页，浏览器负责显示网页。MDN 学习区重组后这篇的现役标题为「浏览互联网」，官方简体中文版已核验（正文汉字 21206 个），覆盖了同一组概念，可放心阅读；重点读四者区别的部分。',
+      overview: '官方 Assignment 第四条要求弄清网页、网站与搜索引擎的区别，答案就在这一篇。关键区分本课正文已给出：网页是单个文档，网站是许多网页的集合，搜索引擎帮你找到网页，浏览器负责显示网页。MDN 学习区重组后这篇的现役标题为「浏览互联网」，官方简体中文版已核验（正文汉字 21206 个），覆盖了同一组概念，可放心阅读；重点读四者区别的部分。',
       why: '官方 Assignment 第四条要求弄清网页、网站（web site）与搜索引擎的区别。',
       points: [
-        '官方 Knowledge Check 有一题就是“网页、网站与搜索引擎的区别是什么”，答案在这一篇。',
         '本课正文已给出关键区分：网页是单个文档；网站是许多网页的集合；搜索引擎帮你找到网页；浏览器负责显示网页。',
         '中文页在 MDN 重组后标题为“浏览互联网”，内容覆盖了同一组概念，可放心阅读。'
       ],
@@ -929,7 +1029,7 @@ window.ODIN_RESOURCES = {
     titleZh: '万维网是如何工作的（客户端与服务器、数据包）',
     type: '文档',
     requirement: 'required',
-    zone: 'Assignment 第 6 条前半（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 6 条前半',
     originalUrl: 'https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/How_the_Web_works#clients_and_servers',
     originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works',
     sourceDomain: 'developer.mozilla.org',
@@ -937,8 +1037,8 @@ window.ODIN_RESOURCES = {
     zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works',
     zhType: 'MDN 官方简体中文版（已核验正文汉字 12335 个，标题“万维网是如何工作的”）',
     zhGuide: {
-      overview: '官方 Assignment 第六条要求读这篇讲「网络各部分怎样互相配合」的 MDN 文章；官方给了两个锚点——clients and servers（客户端与服务器）与 packets explained（数据包解释），说明这两段是本课要掌握的核心，Knowledge Check 也另行指向数据包小节。本课正文已说明：客户端发起请求、服务器返回响应，数据被切成数据包在网络上传输。MDN 官方简体中文版「万维网是如何工作的」已核验；只读这两节即可，其余章节属于后续课程范围。',
-      why: '官方 Assignment 第六条要求读“网络各部分怎样互相配合”，Knowledge Check 另外指向其中的数据包小节。',
+      overview: '官方 Assignment 第六条要求读这篇讲「网络各部分怎样互相配合」的 MDN 文章；官方给了两个锚点——clients and servers（客户端与服务器）与 packets explained（数据包解释），说明这两段是本课要掌握的核心。本课正文已说明：客户端发起请求、服务器返回响应，数据被切成数据包在网络上传输。MDN 官方简体中文版「万维网是如何工作的」已核验；只读这两节即可，其余章节属于后续课程范围。',
+      why: '官方 Assignment 第六条要求读“网络各部分怎样互相配合”，并用两个锚点指明本课要掌握的两段。',
       points: [
         '官方给了两个锚点：clients and servers（客户端与服务器）与 packets explained（数据包解释），说明这两段是本课要掌握的核心。',
         '本课正文已说明：客户端发起请求，服务器返回响应；数据被切成数据包在网络上传输。',
@@ -967,11 +1067,10 @@ window.ODIN_RESOURCES = {
     zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name',
     zhType: 'MDN 官方简体中文版（已核验正文汉字 8825 个，标题“什么是域名？”）',
     zhGuide: {
-      overview: '官方 Assignment 第六条的后半要求读这篇讲 DNS 请求怎样工作的 MDN 文章；官方同时提供了一个视频作为替代选项。本课正文已给出 DNS 的定义：域名系统把人类可读的域名翻译成机器使用的 IP 地址，好比电话簿；Knowledge Check 的「DNS 服务器做什么」一题答案就在这一篇。MDN 官方简体中文版已核验；重点读「DNS 请求是怎样工作的」那一节，页面其余部分讲的是域名的注册与结构。',
+      overview: '官方 Assignment 第六条的后半要求读这篇讲 DNS 请求怎样工作的 MDN 文章；官方同时提供了一个视频作为替代选项。本课正文已给出 DNS 的定义：域名系统把人类可读的域名翻译成机器使用的 IP 地址，好比电话簿。MDN 官方简体中文版已核验；重点读「DNS 请求是怎样工作的」那一节，页面其余部分讲的是域名的注册与结构。',
       why: '官方 Assignment 第六条要求读这篇讲 DNS 请求怎样工作的 MDN 文章；官方同时提供了一个视频作为替代选项。',
       points: [
         '本课正文已给出 DNS 的定义：域名系统把人类可读的域名翻译成机器使用的 IP 地址，好比电话簿。',
-        '官方 Knowledge Check 有一题是“DNS 服务器做什么”，答案在这一篇。',
         '中文版与英文版同源，锚点小节在中文页对应“DNS 请求是怎样工作的”。'
       ],
       terms: ['domain name（域名）', 'DNS（Domain Name System，域名系统）', 'IP address（IP 地址）'],
@@ -1047,22 +1146,21 @@ window.ODIN_RESOURCES = {
     titleZh: '5 分钟讲清互联网怎样运作',
     type: '视频',
     requirement: 'required',
-    zone: 'Assignment 第 3 条（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 3 条',
     originalUrl: 'https://www.youtube.com/watch?v=7_LPdttKXPc',
     sourceDomain: 'youtube.com',
     originalUrlStatus: '200（oEmbed 核验：真实标题 How the Internet Works in 5 Minutes，作者 Aaron）',
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '这是本课被官方引用两次的资源：Assignment 第三条要求看这个 5 分钟视频，Knowledge Check 的「解释互联网怎样工作」也指向它，属于必看的总览材料。本站已用 oEmbed 核验其真实标题与作者 Aaron；官方链接以 youtu.be 短链并带起播参数给出，与本站链接指向同一视频。观看需要 YouTube 访问权限；看时注意它对「数据怎样在机器之间找到彼此」的解释，这与官方 KC 的问题直接对应。',
-      why: '官方 Assignment 第三条要求看这个 5 分钟视频，官方 Knowledge Check 也把“解释互联网怎样工作”指向它。',
+      overview: '官方 Assignment 第三条要求看这个 5 分钟视频，属于必看的总览材料。本站已用 oEmbed 核验其真实标题与作者 Aaron；官方链接以 youtu.be 短链并带起播参数给出，与本站链接指向同一视频。观看需要 YouTube 访问权限；看时注意它对「数据怎样在机器之间找到彼此」的解释。',
+      why: '官方 Assignment 第三条要求看这个 5 分钟视频。',
       points: [
-        '这是本课被引用两次的资源：既在 Assignment，也在 Knowledge Check，属于必看的总览材料。',
         '需要 YouTube 访问权限。',
         '官方链接以 youtu.be 短链并带 t=46s 起播参数给出，与本站的 watch 链接指向同一视频。'
       ],
       terms: ['internet（互联网）', 'IP address（IP 地址）', 'protocol（协议）'],
-      focus: '注意它对“数据怎样在机器之间找到彼此”的解释，这与官方 KC 的问题直接对应。',
+      focus: '注意它对“数据怎样在机器之间找到彼此”的解释。',
       takeaway: '能用五句话向别人解释互联网怎样工作。'
     },
     license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
@@ -1076,17 +1174,16 @@ window.ODIN_RESOURCES = {
     titleZh: '什么是浏览器？（Google 短片）',
     type: '视频',
     requirement: 'required',
-    zone: 'Assignment 第 5 条前半（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 5 条前半',
     originalUrl: 'https://www.youtube.com/watch?v=BrXPcaRlBqo',
     sourceDomain: 'youtube.com',
     originalUrlStatus: '200（oEmbed 核验：真实标题 What is a browser?，作者 Google）',
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第五条的前半：先看这个 Google 短片了解浏览器是什么，然后去 whatsmybrowser.org 查出自己当前的浏览器与版本。本课正文已给出定义：网页浏览器是让你访问并显示网页的软件，例如 Chrome、Firefox、Safari、Edge；Knowledge Check 的「网页浏览器是什么」一题指向这个视频。本站已用 oEmbed 核验其真实标题与作者 Google；观看需要 YouTube 访问权限。',
+      overview: '官方 Assignment 第五条的前半：先看这个 Google 短片了解浏览器是什么，然后去 whatsmybrowser.org 查出自己当前的浏览器与版本。本课正文已给出定义：网页浏览器是让你访问并显示网页的软件，例如 Chrome、Firefox、Safari、Edge。本站已用 oEmbed 核验其真实标题与作者 Google；观看需要 YouTube 访问权限。',
       why: '官方 Assignment 第五条：先看这个 Google 短片了解浏览器是什么，然后去 whatsmybrowser.org 查出自己当前的浏览器与版本。',
       points: [
-        '官方 Knowledge Check 有一题是“网页浏览器是什么”，指向这个视频。',
         '本课正文已给出定义：网页浏览器是让你访问并显示网页的软件，例如 Chrome、Firefox、Safari、Edge。',
         '需要 YouTube 访问权限。'
       ],
@@ -1607,15 +1704,14 @@ window.ODIN_RESOURCES = {
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方点名要完成的第三节，对应本课最核心的一组导航命令：pwd（显示当前位置）、ls（列出内容）、cd（切换目录），这也是本课正文重点讲的部分。本课官方 Knowledge Check 有五题直接指向这一组命令——怎样进入指定目录、单独输入 cd 会去哪、cd .. 会去哪、怎样显示当前所在目录名、怎样列出目录内容。这一节要动手练而不是只读，练完能不看笔记在目录之间自由移动、随时知道自己在哪；官方提醒输出可能与课程展示略有不同，属正常现象。',
+      overview: '官方点名要完成的第三节，对应本课最核心的一组导航命令：pwd（显示当前位置）、ls（列出内容）、cd（切换目录），这也是本课正文重点讲的部分。这一节要动手练而不是只读，练完能不看笔记在目录之间自由移动、随时知道自己在哪；官方提醒输出可能与课程展示略有不同，属正常现象。',
       why: '官方点名要完成的第三节，对应本课最核心的一组导航命令。',
       points: [
-        '本课官方 Knowledge Check 有五题直接指向这一组命令：怎样进入指定目录、单独输入 cd 会去哪、cd .. 会去哪、怎样显示当前所在目录名、怎样列出目录内容。',
         '涉及的命令是 pwd（显示当前位置）、ls（列出内容）、cd（切换目录），这也是本课正文重点讲的部分。',
         '官方提醒输出可能与课程展示略有不同，属正常现象。'
       ],
       terms: ['pwd（print working directory）', 'ls（list）', 'cd（change directory）', 'absolute / relative path（绝对 / 相对路径）'],
-      focus: '这一节要动手练，不是只读；练完能回答官方 KC 的五道题。',
+      focus: '这一节要动手练，不是只读；练完能不看笔记在目录之间自由移动。',
       takeaway: '不看笔记也能在目录之间自由移动，并随时知道自己在哪。'
     },
     license: 'Software Carpentry 课程材料采用 CC BY 4.0；本站提供中文精译（见卡内译文区块），译文采用与原作相同的许可。',
@@ -1722,7 +1818,7 @@ window.ODIN_RESOURCES = {
       overview: '官方点名要完成的第四节，把导航延伸到真正的增删改操作，涉及的命令包括 mkdir（建目录）、touch（建文件）、cp（复制）、mv（移动或重命名）、rm（删除）。删除类命令要特别谨慎：没有回收站兜底，属于不可逆操作，执行前应先用 ls 或 pwd 确认自己在正确的位置。练习重点是创建、复制、移动；删除操作先在练习目录里试，确认理解后果再在其他地方用。官方提醒输出可能与课程展示略有不同，属正常现象。',
       why: '官方点名要完成的第四节，把导航延伸到真正的增删改操作。',
       points: [
-        '本课正文与 KC 涉及的命令包括 mkdir（建目录）、touch（建文件）、cp（复制）、mv（移动或重命名）、rm（删除）。',
+        '本节涉及的命令包括 mkdir（建目录）、touch（建文件）、cp（复制）、mv（移动或重命名）、rm（删除）。',
         '删除类命令没有回收站兜底，属于不可逆操作；执行前应先用 ls 或 pwd 确认自己在正确的位置。',
         '官方提醒输出可能与课程展示略有不同，属正常现象。'
       ],
@@ -1840,35 +1936,6 @@ window.ODIN_RESOURCES = {
     handling: 'link-only',
     verifiedAt: '2026-09-10',
     note: '官方原文中该链接没有可读的链接文字，标题由本站按文件名与用途补写。'
-  },
-  {
-    lessonId: 'command-line-basics',
-    title: 'Unix Commands — Basics (cd, pwd, ls)',
-    titleZh: 'Unix 命令基础（cd / pwd / ls）',
-    type: '参考书章节',
-    requirement: 'reference',
-    zone: 'Knowledge Check 五题全部指向本书不同小节',
-    originalUrl: 'https://www.softcover.io/read/fc6c09de/unix_commands/basics',
-    sourceDomain: 'softcover.io',
-    originalUrlStatus: '200',
-    zhUrl: null,
-    zhType: null,
-    zhGuide: {
-      overview: '官方 Knowledge Check 的五道题全部指向这本在线书的 basics 章节，它是回答这些问题的权威出处：怎样进入某个指定目录、单独输入 cd 会到哪、cd .. 会到哪、怎样显示当前所在目录的名字、怎样显示当前目录的内容。官方在五个问题后各给了不同的锚点，都指向同一章节内的小节。Softcover 是在线出版平台，本书为英文；本站核验的是可达性，未复制书内内容。做 KC 时按题目跳到对应小节，这一章也可以当作命令速查表长期收藏。',
-      why: '官方 Knowledge Check 的五道题全部指向这本书的 basics 章节，是回答这些问题的权威出处。',
-      points: [
-        '五道题分别是：怎样进入某个指定目录、单独输入 cd 会到哪、cd .. 会到哪、怎样显示当前所在目录的名字、怎样显示当前目录的内容。',
-        '官方在五个问题后各给了不同的锚点（sec-basics-cd、uid31、uid30、sec-basics-pwd、sec-basics-ls），指向同一章节内的小节。',
-        'Softcover 是在线出版平台，本书为英文；本站核验的是可达性，未复制书内内容。'
-      ],
-      terms: ['cd（change directory）', 'pwd（print working directory）', 'ls（list）'],
-      focus: '做 KC 时按题目跳到对应小节；这一章也可当作命令速查表收藏。',
-      takeaway: '能准确回答官方 KC 的五道导航题，并有一处可长期查阅的命令参考。'
-    },
-    license: 'Softcover 在线书籍，版权归原作者所有；本站只做链接与原创导读，不复制书内内容。',
-    handling: 'link-only',
-    verifiedAt: '2026-09-10',
-    note: '官方五处链接指向同一章节的不同锚点，本站按规范化地址合并为一条，锚点信息保留在要点中。'
   },
   /* ===== 10 Setting Up Git ===== */
   {
@@ -2053,7 +2120,7 @@ window.ODIN_RESOURCES = {
     titleZh: '关于 GitHub 与 Git（GitHub 官方文档，现役标题为 What is GitHub）',
     type: '文档',
     requirement: 'required',
-    zone: 'Assignment 第 3 条（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 3 条',
     originalUrl: 'https://docs.github.com/en/get-started/start-your-journey/about-github-and-git',
     originalUrlEffective: 'https://docs.github.com/en/get-started/start-your-journey/what-is-github',
     sourceDomain: 'docs.github.com',
@@ -2061,11 +2128,10 @@ window.ODIN_RESOURCES = {
     zhUrl: 'https://docs.github.com/zh/get-started/start-your-journey/about-github-and-git',
     zhType: 'GitHub 官方文档简体中文版（已核验页面标题含中文，与英文版同一篇文档）',
     zhGuide: {
-      overview: '官方 Assignment 第三条：读 About GitHub and Git，简要了解 GitHub 是什么，以及 Git 与 GitHub 怎样协同工作。官方给了明确的范围限定——末尾的 Where do I start? 一节可以跳过；官方 Knowledge Check 有一题「为什么 Git 和 GitHub 对开发团队有用」直接指向这一篇。关键区分本课正文已给出：Git 是版本控制系统软件，GitHub 是基于 Git 的托管服务，两者不是同一个东西，也不是同一家公司创建的。GitHub 文档改版后英文页现役标题为 What is GitHub；官方简体中文版已核验，与英文版同一篇文档。',
+      overview: '官方 Assignment 第三条：读 About GitHub and Git，简要了解 GitHub 是什么，以及 Git 与 GitHub 怎样协同工作。官方给了明确的范围限定——末尾的 Where do I start? 一节可以跳过。关键区分本课正文已给出：Git 是版本控制系统软件，GitHub 是基于 Git 的托管服务，两者不是同一个东西，也不是同一家公司创建的。GitHub 文档改版后英文页现役标题为 What is GitHub；官方简体中文版已核验，与英文版同一篇文档。',
       why: '官方 Assignment 第三条：读 About GitHub and Git，简要了解 GitHub 是什么，以及 Git 与 GitHub 怎样协同工作。',
       points: [
         '官方给了明确的范围限定：末尾的 Where do I start? 一节可以跳过。',
-        '官方 Knowledge Check 有一题是“为什么 Git 和 GitHub 对开发团队有用”，直接指向这一篇。',
         '本课正文已给出关键区分：Git 是版本控制系统软件，GitHub 是基于 Git 的托管服务，两者不是同一个东西，也不是同一家公司创建的。'
       ],
       terms: ['Git（版本控制系统）', 'GitHub（代码托管平台）', 'version control（版本控制）', 'repository（仓库）'],
@@ -2112,17 +2178,16 @@ window.ODIN_RESOURCES = {
     titleZh: '2 分钟讲清什么是 Git（Programming with Mosh）',
     type: '视频',
     requirement: 'required',
-    zone: 'Assignment 第 2 条（Knowledge Check 亦指向）',
+    zone: 'Assignment 第 2 条',
     originalUrl: 'https://www.youtube.com/watch?v=2ReR1YJrNOM',
     sourceDomain: 'youtube.com',
     originalUrlStatus: '200（oEmbed 核验：真实标题 What is Git? Explained in 2 Minutes!，作者 Programming with Mosh）',
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 第二条：看这个「2 分钟讲清什么是 Git」的视频，它讲的是 Git 是什么，以及它怎样改善个人与团队开发者的工作流；官方 Knowledge Check 的「为什么 Git 对开发者有用」一题同样指向它。本站已用 oEmbed 接口核验其真实标题与作者 Programming with Mosh；观看需要 YouTube 访问权限。两分钟很短，重点听它怎样解释「保存历史版本」这件事的价值，官方描述强调的个人工作流与团队协作两个层面可以分别对照。',
+      overview: '官方 Assignment 第二条：看这个「2 分钟讲清什么是 Git」的视频，它讲的是 Git 是什么，以及它怎样改善个人与团队开发者的工作流。本站已用 oEmbed 接口核验其真实标题与作者 Programming with Mosh；观看需要 YouTube 访问权限。两分钟很短，重点听它怎样解释「保存历史版本」这件事的价值，官方描述强调的个人工作流与团队协作两个层面可以分别对照。',
       why: '官方 Assignment 第二条：看这个“2 分钟讲清什么是 Git”的视频，它讲的是 Git 是什么，以及它怎样改善个人与团队开发者的工作流。',
       points: [
-        '官方 Knowledge Check 有一题是“为什么 Git 对开发者有用”，同样指向这个视频。',
         '需要 YouTube 访问权限。',
         '官方描述强调两个层面：个人工作流与团队协作，看的时候可以分别对照。'
       ],
@@ -2307,36 +2372,6 @@ window.ODIN_RESOURCES = {
     note: '官方原文使用 Markdown 尖括号自动链接写法 <https://…>，且地址含括号；本条目在初次程序化提取时被括号截断而漏收，已于完整性复查中补入并核验。'
   },
   /* ===== 13 Introduction to HTML and CSS ===== */
-  {
-    lessonId: 'introduction-to-html-and-css',
-    title: 'HTML, CSS, JavaScript — What’s the Difference?',
-    titleZh: 'HTML、CSS、JavaScript 有什么区别（Bryt Designs）',
-    type: '文章',
-    requirement: 'reference',
-    zone: 'Knowledge Check 两题指向本文（含 #What_is_HTML 锚点）',
-    originalUrl: 'https://brytdesigns.com/html-css-javascript-whats-the-difference/',
-    originalUrlEffective: 'https://www.brytdesigns.com/html-css-javascript-whats-the-difference',
-    sourceDomain: 'brytdesigns.com',
-    originalUrlStatus: '200（重定向到带 www 的现役地址）',
-    zhUrl: null,
-    zhType: null,
-    zhGuide: {
-      overview: '官方 Knowledge Check 的两道题都指向这篇文章：「HTML 和 CSS 分别是什么的缩写」指向其 What is HTML 小节，「HTML、CSS 与 JavaScript 的区别是什么」指向全文。核心区分本课正文已给出：HTML 负责网页的结构与内容，CSS 负责外观与样式，两者分工明确；JavaScript 属于后续课程范围。官方正文还用了同一个类比——把网页想成人的话，HTML 是骨骼，CSS 是皮肤和衣服。这是一篇第三方设计工作室的博客文章，本站未复制其内容；直接读 What is HTML 与讲区别的部分，用来回答官方 KC 的两道题。',
-      why: '官方 Knowledge Check 的两道题都指向这篇文章：“HTML 和 CSS 分别是什么的缩写”指向其 What is HTML 小节，“HTML、CSS 与 JavaScript 的区别是什么”指向全文。',
-      points: [
-        '本课正文已给出核心区分：HTML 负责网页的结构与内容，CSS 负责外观与样式，两者分工明确；JavaScript 属于后续课程范围。',
-        '官方正文用了同一个类比：把网页想成人的话，HTML 是骨骼，CSS 是皮肤和衣服。',
-        '这是一篇第三方设计工作室的博客文章，本站未复制其内容。'
-      ],
-      terms: ['HTML（HyperText Markup Language，超文本标记语言）', 'CSS（Cascading Style Sheets，层叠样式表）', 'JavaScript'],
-      focus: '直接读 What is HTML 与讲区别的部分，用来回答官方 KC 的两道题。',
-      takeaway: '能准确写出 HTML 与 CSS 的全称，并说清各自负责什么。'
-    },
-    license: 'Bryt Designs 博客文章，许可未明确标注；本站只做链接与原创导读，不翻译、不复制。',
-    handling: 'link-only',
-    verifiedAt: '2026-09-10',
-    note: ''
-  },
   {
     lessonId: 'introduction-to-html-and-css',
     title: 'HTML, CSS, JavaScript Explained [in 4 minutes for beginners]',
@@ -2565,7 +2600,7 @@ window.ODIN_RESOURCES = {
         '需要 YouTube 访问权限。'
       ],
       terms: ['strong / b（强调 / 粗体）', 'em / i（着重 / 斜体）', 'HTML comment（HTML 注释）'],
-      focus: '重点听语义元素与非语义元素的差别，这是本课 KC 常考的点。',
+      focus: '重点听语义元素与非语义元素的差别，这是本课的重点。',
       takeaway: '知道什么时候该用 strong/em 而不是 b/i，并会写 HTML 注释。'
     },
     license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
@@ -2728,17 +2763,17 @@ window.ODIN_RESOURCES = {
     titleZh: 'Interting is Hard：链接与图片',
     type: '教程文章',
     requirement: 'required',
-    zone: 'Assignment（并有一题 Knowledge Check 指向其 #image-formats 小节）',
+    zone: 'Assignment',
     originalUrl: 'https://internetingishard.netlify.app/html-and-css/links-and-images',
     sourceDomain: 'internetingishard.netlify.app',
     originalUrlStatus: '200',
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 要求阅读并跟着敲代码这篇教程，并特别注意讲四种主要图片格式的那一节——官方 Knowledge Check 的「网页上可用的四种主要图片格式是什么」一题就指向该文的 image formats 小节，答案以该文为准。官方还明确指出了与该文的一处不同意见：这篇文章建议用 CSS 设置图片尺寸，而本课程仍然建议像本课前面讲的那样在所有图片上设置 width 与 height 属性，遇到冲突时以 TOP 课程要求为准。这是一本免费在线教程，与本站无关联；本站未复制或翻译其内容。',
+      overview: '官方 Assignment 要求阅读并跟着敲代码这篇教程，并特别注意讲四种主要图片格式的那一节（image formats 小节），答案以该文为准。官方还明确指出了与该文的一处不同意见：这篇文章建议用 CSS 设置图片尺寸，而本课程仍然建议像本课前面讲的那样在所有图片上设置 width 与 height 属性，遇到冲突时以 TOP 课程要求为准。这是一本免费在线教程，与本站无关联；本站未复制或翻译其内容。',
       why: '官方 Assignment 要求阅读并跟着敲代码：Read and code along with Interneting is Hard’s article on Links and Images，并特别注意讲四种主要图片格式的那一节。',
       points: [
-        '官方 Knowledge Check 有一题是“网页上可用的四种主要图片格式是什么”，指向该文的 image formats 小节，答案以该文为准。',
+        '官方特别点出 image formats 小节：讲四种主要图片格式的部分是该文最需要读的一段。',
         '官方明确指出了与该文的一处不同意见：这篇文章建议用 CSS 设置图片尺寸，而本课程仍然建议像本课前面讲的那样，在所有图片上设置 width 与 height 属性。遇到冲突时以 TOP 课程要求为准。',
         '这是一本免费在线教程，与本站无关联；本站未复制或翻译其内容。'
       ],
@@ -2749,7 +2784,7 @@ window.ODIN_RESOURCES = {
     license: 'Interting is Hard 为第三方免费在线教程，版权归原作者所有；本站只做链接与原创导读，不翻译、不复制。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
-    note: '官方两处链接（正文条目与 KC 锚点）指向同一页面，本站按规范化地址合并为一条。标题拼写按该站自有的 “Interting is Hard” 原样保留。'
+    note: '官方在正文条目中给出的链接带 #image-formats 锚点直达该小节；本站按规范化地址登记为一条。标题拼写按该站自有的 “Interting is Hard” 原样保留。'
   },
   {
     lessonId: 'links-and-images',
@@ -2969,29 +3004,28 @@ window.ODIN_RESOURCES = {
     titleZh: '怎样写 Git 提交信息（Chris Beams）',
     type: '文章',
     requirement: 'required',
-    zone: 'Assignment（Knowledge Check 两题分别指向 #intro 与 #limit-50）',
+    zone: 'Assignment',
     originalUrl: 'https://cbea.ms/git-commit',
     sourceDomain: 'cbea.ms',
     originalUrlStatus: '200',
     zhUrl: null,
     zhType: null,
     zhGuide: {
-      overview: '官方 Assignment 说这篇文章涵盖了怎样写好提交信息的所有主要方面；整篇文章都很好、很有信息量，但文章的核心是「优秀提交信息的七条规则」。官方 Knowledge Check 有两题指向它：「写好提交信息与良好提交历史有哪两个好处」指向 intro 小节，「提交信息的主题行应该是多少字符」指向 limit-50 小节。七条规则中的关键几条本课正文已给出：主题行与正文之间空一行、主题行不超过 50 个字符、正文每行不超过 72 个字符、用祈使语气写。这是一篇第三方技术文章，本站未翻译或复制其内容；直接读七条规则那一节，再回头读 intro 回答官方 KC 的第一题。',
+      overview: '官方 Assignment 说这篇文章涵盖了怎样写好提交信息的所有主要方面；整篇文章都很好、很有信息量，但文章的核心是「优秀提交信息的七条规则」。七条规则中的关键几条本课正文已给出：主题行与正文之间空一行、主题行不超过 50 个字符、正文每行不超过 72 个字符、用祈使语气写。这是一篇第三方技术文章，本站未翻译或复制其内容；直接读七条规则那一节。',
       why: '官方 Assignment 说：这篇文章涵盖了怎样写好提交信息的所有主要方面；整篇文章都很好、很有信息量，但文章的核心是“优秀提交信息的七条规则”。',
       points: [
-        '官方 Knowledge Check 有两题指向它：“写好提交信息与良好提交历史有哪两个好处”指向 intro 小节，“提交信息的主题行应该是多少字符”指向 limit-50 小节。',
         '官方明确圈定了重点：七条规则那一节是文章的核心，时间有限时优先读它。',
         '本课正文已给出七条规则中的关键几条：主题行与正文之间空一行、主题行不超过 50 个字符、正文每行不超过 72 个字符、用祈使语气写。',
         '这是一篇第三方技术文章，本站未翻译或复制其内容。'
       ],
       terms: ['commit message（提交信息）', 'subject line（主题行）', 'body（正文）', 'imperative mood（祈使语气）'],
-      focus: '直接读七条规则那一节，再回头读 intro 回答官方 KC 的第一题。',
+      focus: '直接读七条规则那一节。',
       takeaway: '能按七条规则写出规范的提交信息，并说清良好提交历史的两个好处。'
     },
     license: 'Chris Beams 的原创文章，版权归作者所有；本站只做链接与原创导读，不翻译、不复制。',
     handling: 'link-only',
     verifiedAt: '2026-09-10',
-    note: '官方三处链接（Assignment 全文、KC 的 #intro、KC 的 #limit-50）指向同一篇文章的不同锚点，本站按规范化地址合并为一条，锚点信息保留在要点中。'
+    note: '官方在 Assignment 中给出的链接指向这篇文章；本站按规范化地址登记为一条。'
   },
   {
     lessonId: 'commit-messages',
@@ -3109,6 +3143,3418 @@ window.ODIN_RESOURCES = {
     verifiedAt: '2026-09-23',
     note: ''
   },
+    {
+      lessonId: 'intro-to-css',
+      title: 'The OdinProject/css-exercises',
+      titleZh: '官方 CSS 练习仓库',
+      type: '代码仓库',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://github.com/TheOdinProject/css-exercises',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方 Assignment 第一条要求先到这个练习仓库读根目录的 README——它是整套 CSS 练习的总说明，告诉你练习怎么组织、怎么自查。仓库由 TOP 官方维护，随课程更新；界面本身是英文，GitHub 没有为仓库内容提供机器翻译版本，所以本站只给原文入口。先把 README 读完再动手，能省下不少「不知道从哪开始」的时间；这份仓库的组织方式（每个练习一个目录、自带说明与 solution）也是后面几课练习的统一入口。',
+        why: '官方 Assignment 第一条要求先到这个练习仓库读根目录的 README，弄清整套练习怎么用。',
+        points: [
+          '这是 CSS Foundations 全部练习的官方仓库，后续几课的练习也都在这里面。',
+          '每个练习各自有 README 说明与 solution 参考目录：先自己做，卡住再对照。',
+          '仓库界面为英文，GitHub 不提供仓库内容的机器翻译版本，故本站不提供中文链接。'
+        ],
+        terms: [
+          'repository（代码仓库）',
+          'README（仓库根目录的说明文件）'
+        ],
+        focus: '先把根目录 README 读完，弄清练习的组织方式与自查方法。',
+        takeaway: '知道练习在哪里、怎么开始、怎么自查。'
+      },
+      license: 'TOP 官方课程仓库，与本课程同许可（CC BY-NC-SA 4.0）；本站只提供链接与本站原创导读，不复制仓库内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'intro-to-css',
+      title: 'css-exercises/foundations/intro-to-css',
+      titleZh: '本课练习目录（foundations/intro-to-css）',
+      type: '代码仓库视图',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://github.com/TheOdinProject/css-exercises/tree/main/foundations/intro-to-css',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方 Assignment 第二条把本课的五个练习集中在 foundations/intro-to-css 这个目录里。官方要求：动手做每个练习之前先读该练习自己的 README，然后按顺序完成 01-css-methods、02-class-id-selectors、03-grouping-selectors、04-chaining-selectors、05-descendant-combinator。这五个名字正好对应本课的选择器内容——练习顺序就是从「三种加样式的方式」一路练到后代组合器。官方提示每个练习的 solution 文件夹里都有参考答案，先自己做再看。',
+        why: '官方 Assignment 第二条要求进这个目录，按顺序完成本课的五个练习。',
+        points: [
+          '五个练习按顺序做：01-css-methods、02-class-id-selectors、03-grouping-selectors、04-chaining-selectors、05-descendant-combinator。',
+          '每个练习动手前先读它自己的 README，做完再对照同目录下的 solution 参考答案。',
+          '练习名字与本课讲解的顺序一一对应，卡住就回本页对照相应那一节。'
+        ],
+        terms: [
+          'exercise（练习）',
+          'solution（参考答案）'
+        ],
+        focus: '五个练习按序做完，每个先读 README、再看答案。',
+        takeaway: '五类选择器的写法都能不看资料写出来。'
+      },
+      license: 'TOP 官方课程仓库，与本课程同许可（CC BY-NC-SA 4.0）；本站只提供链接与本站原创导读，不复制仓库内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'intro-to-css',
+      title: 'CSS Legal Color Values',
+      titleZh: 'CSS 合法颜色值（W3Schools）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文（颜色属性一节）',
+      originalUrl: 'https://www.w3schools.com/cssref/css_colors_legal.asp',
+      sourceDomain: 'w3schools.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方正文在讲 color 与 background-color 的属性值时点名了这一页，用来查看怎么给颜色加一个 alpha 分量来调不透明度。颜色值有三种常见写法：HEX（如 #1100ff）、RGB（如 rgb(100, 0, 127)）、HSL（如 hsl(15, 82%, 56%)）；这一页补齐的是「加第四个分量控制透明度」这一层——HEX 加两位、rgb 换 rgba 或多一个斜杠分量、hsl 同理。它是一份速查参考，不必通读，用到时再查。W3Schools 是第三方教程站，本站未复制其内容。',
+        why: '官方正文在讲颜色属性时点名了这一页，用来查怎么调整颜色的不透明度。',
+        points: [
+          'HEX、RGB、HSL 三种写法都可以再加一个 alpha 分量控制不透明度。',
+          '它是一份速查表而不是教程：用到时按写法查对应的那一节即可。'
+        ],
+        terms: [
+          'alpha（不透明度分量）',
+          'HSL（色相 / 饱和度 / 亮度）'
+        ],
+        focus: '需要调不透明度时再来查，不必通读。',
+        takeaway: '知道三种颜色写法各自怎么加透明度。'
+      },
+      license: 'W3Schools 站点自有版权，未标注可自由复用的 CC 许可；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称其为“已验证可访问”，也未替换官方给出的地址。'
+    },
+    {
+      lessonId: 'the-cascade',
+      title: 'The CSS Cascade',
+      titleZh: 'CSS 层叠：交互式讲解',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://2019.wattenberger.com/blog/css-cascade',
+      sourceDomain: '2019.wattenberger.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方 Assignment 第一条要求读这篇交互式讲解。它的定位是「比本课再深一层」：本课只讲了特异性、继承与规则顺序三个因素，而文章会带你走完层叠实际参与的更多因素，并且用可交互的示例让你当场改数值看结果。作者 Amelia Wattenberger 是知名的数据可视化教程作者，页面本身是英文，没有官方中文版；配合本课中文讲解一起看，先看本页建立框架，再用它做延伸与自测。',
+        why: '官方 Assignment 第一条要求读这篇交互式讲解，它比本课多讲了一些影响「最终哪条规则生效」的因素。',
+        points: [
+          '本课只讲三个判定因素；这篇文章把层叠实际参与的因素讲得更完整，适合作为延伸。',
+          '页面是交互式的：改一改示例里的选择器或声明顺序，能立刻看到结果变化。',
+          '页面为英文且无官方中文版，建议先读本页中文讲解建立框架，再来做延伸。'
+        ],
+        terms: [
+          'cascade（层叠）',
+          'origin（样式来源：作者样式、浏览器默认样式等）'
+        ],
+        focus: '配合本课一起用：先用本页建立框架，再用它做延伸与自测。',
+        takeaway: '能说清层叠除了本课三个因素之外还会考虑什么。'
+      },
+      license: '第三方个人站点文章，未标注可自由复用的 CC 许可；本站只提供链接与本站原创导读，不复制、不翻译原文。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'the-cascade',
+      title: 'CSS color property（含 Formal Definition）',
+      titleZh: 'MDN：CSS color 属性',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文（继承一节）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 目录重组，站内重定向到现役路径）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/color',
+      zhType: 'MDN 官方简体中文版（同一属性页的 zh-CN 语言版本）',
+      zhGuide: {
+        overview: '官方正文用这个页面演示「怎么查一个属性会不会被继承」：打开 MDN 的属性页，找到 Formal Definition（正式定义）一节，里面会写明 Inherited 是 yes 还是 no。color 的这一栏是 yes——这正是它会被后代继承的原因。这是本课给出的通用方法：以后遇到任何属性拿不准会不会继承，都去它的 MDN 页面看这一节。MDN 官方简体中文版已做内容级核验（正文汉字 6502 个），直接读中文版即可。',
+        why: '官方正文用这个页面演示怎么查属性是否会被继承：看 MDN 属性页的 Formal Definition 一节。',
+        points: [
+          '查继承的通用方法：打开 MDN 属性页，看 Formal Definition 一节的 Inherited 一栏。',
+          'color 的 Inherited 是 yes，这就是它会被后代自动继承的原因。',
+          '中文版已内容级核验（正文汉字 6502 个），页面右上角可随时切回英文对照。'
+        ],
+        terms: [
+          'Formal Definition（正式定义）',
+          'Inherited（是否可继承）'
+        ],
+        focus: '只看 Formal Definition 一节，把「怎么查继承」这套方法记下来。',
+        takeaway: '能自己查任意属性是否会被继承。'
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只提供链接与官方中文版入口，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: '官方原文给出的是 …/Web/CSS/color#formal_definition；MDN 目录重组后站内重定向到 …/Web/CSS/Reference/Properties/color，本站按重定向后的现役路径登记，需要的那一节就在页面内。'
+    },
+    {
+      lessonId: 'the-cascade',
+      title: 'CSS display property（含 Formal Definition）',
+      titleZh: 'MDN：CSS display 属性',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文（继承一节）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 目录重组，站内重定向到现役路径）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/display',
+      zhType: 'MDN 官方简体中文版（同一属性页的 zh-CN 语言版本）',
+      zhGuide: {
+        overview: '官方正文用这个页面做 color 的对照：同样是看 Formal Definition 一节，display 的 Inherited 一栏是 no——它不会被后代继承。两个页面放在一起，正好把「排版类属性通常可继承、其余通常不可继承」这条经验性规律落实成可自查的方法。display 本身的具体用法属于后续课程范围，这里只需要它的 Formal Definition 那一行。MDN 官方简体中文版已做内容级核验（正文汉字 9453 个）。',
+        why: '官方正文用这个页面做对照：display 的 Formal Definition 标明它不可继承。',
+        points: [
+          'display 的 Inherited 是 no，与 color 的 yes 正好构成一组对照。',
+          '本课只需要看 Formal Definition 那一行，display 的用法属于后续课程范围。',
+          '中文版已内容级核验（正文汉字 9453 个），与英文版同一页面。'
+        ],
+        terms: [
+          'display（元素在页面中的显示方式）',
+          'Inherited（是否可继承）'
+        ],
+        focus: '与 color 的属性页对照着看 Formal Definition 一节。',
+        takeaway: '记住「排版类属性通常继承、其余通常不继承」这条规律并会自查。'
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只提供链接与官方中文版入口，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: '官方原文给出的是 …/Web/CSS/display#formal_definition；MDN 目录重组后站内重定向到 …/Web/CSS/Reference/Properties/display，本站按重定向后的现役路径登记。'
+    },
+    {
+      lessonId: 'the-cascade',
+      title: 'css-exercises/foundations/cascade',
+      titleZh: '本课练习目录（foundations/cascade）',
+      type: '代码仓库视图',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://github.com/TheOdinProject/css-exercises/tree/main/foundations/cascade',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方 Assignment 第二条指定了这一课的练习：01-cascade-fix。做法是先读练习自己的 README，按它的要求把一份「样式没按预期生效」的 CSS 修好——这正是本课要练的判断力：哪条规则赢了、为什么赢。官方提示 solution 文件夹里有参考答案，先自己做，卡住再对照。仓库界面为英文，GitHub 没有为仓库内容提供机器翻译版本，故本站只给原文入口。',
+        why: '官方 Assignment 第二条指定本课练习 01-cascade-fix，按它自己的 README 完成。',
+        points: [
+          '练习名 01-cascade-fix：把一份没有按预期生效的 CSS 修好，练的就是本课的判断顺序。',
+          '先自己判断哪条规则赢了、为什么，再对照 solution 文件夹里的参考答案。'
+        ],
+        terms: [
+          'exercise（练习）',
+          'solution（参考答案）'
+        ],
+        focus: '自己先判一遍特异性与规则顺序，再看参考答案。',
+        takeaway: '能把「样式没生效」拆成「谁赢了、为什么赢」。'
+      },
+      license: 'TOP 官方课程仓库，与本课程同许可（CC BY-NC-SA 4.0）；本站只提供链接与本站原创导读，不复制仓库内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'inspecting-html-and-css',
+      title: 'Chrome DevTools（文档总入口）',
+      titleZh: 'Chrome 开发者工具文档总入口',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（总入口）',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/',
+      originalUrlEffective: 'https://developer.chrome.com/docs/devtools/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200（官方给的短链 developers.google.com/web/tools/chrome-devtools 站内重定向到这里）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方 Assignment 给出的第一个链接是这套文档的总入口。官方的用法很克制：只要求你了解 DevTools 里有哪些工具可用，不要顺着页面上的其他链接跳走——现在不需要学会它们每一个，知道「有这些工具存在」就够了。这套文档是 Chrome 官方维护的英文文档，没有官方中文版；本课真正要跟着做的是下面四条具体页面。',
+        why: '官方 Assignment 给出的总入口，只要求了解有哪些工具可用，不要顺着链接跳走。',
+        points: [
+          '官方明确要求：只了解有哪些工具，不要顺着页面上的其他链接继续跳。',
+          '本课真正要动手跟做的是它下面那四条具体页面，这个总入口只是起点。',
+          'Chrome 官方英文文档，无官方中文版，本站不提供中文链接。'
+        ],
+        terms: [
+          'DevTools（开发者工具）',
+          'panel（面板）'
+        ],
+        focus: '只做「知道自己有哪些工具」这一步，不要继续点下去。',
+        takeaway: '对 DevTools 的工具版图有一个总体印象。'
+      },
+      license: 'Google 官方文档站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: '官方原文给的是 developers.google.com/web/tools/chrome-devtools，实测站内重定向到 developer.chrome.com/docs/devtools/；本站按重定向后的现役地址登记为一条，不重复收录。'
+    },
+    {
+      lessonId: 'inspecting-html-and-css',
+      title: 'DevTools overview',
+      titleZh: 'Chrome DevTools 总览',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条列表第 1 项',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/overview/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方指定这一节用来概览 DevTools 的全部工具。要求仍旧是「只看不动」——官方在这一条里写得很直白：不要跟着页面上的其他链接跳走，先弄清有哪些工具可用，而不是现在就把每一个都学会。读完能对面板的分布有个印象就达到目的了，具体到 Elements 与 Styles 两个面板的用法本页中文讲解已经讲过。',
+        why: '官方指定这一节用来概览 DevTools 的全部工具，只看不动。',
+        points: [
+          '目的是「知道有哪些工具」，不是「学会每一个」。',
+          '官方明确要求这一节不要跟着其他链接继续跳转。'
+        ],
+        terms: [
+          'Elements panel（元素面板）',
+          'Console（控制台，本课不涉及）'
+        ],
+        focus: '快速扫一遍工具清单即可。',
+        takeaway: '能说出 DevTools 大致分哪些类工具。'
+      },
+      license: 'Google 官方文档站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'inspecting-html-and-css',
+      title: 'Open Chrome DevTools',
+      titleZh: '打开 Chrome DevTools',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条列表第 2 项',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/open/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方说这一节与本页中文讲解里「打开检查器」那一段内容相近，但多了一些有用的补充——例如除了右键「检查」和按 F12 之外，还有几种打开方式，以及打开后怎么把它停靠到窗口的不同位置。本页已经讲了最常用的两种开法，这一节当作补充与巩固。',
+        why: '官方说这一节与本页「打开检查器」内容相近，但多了几种打开方式与停靠设置的补充。',
+        points: [
+          '本页讲过的两种开法（右键「检查」、按 F12）在这一节里也有。',
+          '补充内容主要是其他打开方式与面板停靠位置，按需了解即可。'
+        ],
+        terms: [
+          'docking（面板停靠位置）'
+        ],
+        focus: '重点看本页没讲到的几种打开方式。',
+        takeaway: '在任何页面上都能随手把检查器打开。'
+      },
+      license: 'Google 官方文档站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'inspecting-html-and-css',
+      title: 'Get Started With Viewing And Changing The DOM',
+      titleZh: '查看与修改 DOM 入门',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条列表第 3 项',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/dom/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方指定这一节对应本页讲的 Elements 面板：怎样在结构树里浏览页面、怎样选中某个元素。官方给了一条明确的范围限定——**跳过任何用到 JavaScript 控制台的部分**，那些属于后面的课程。本课只关心「看结构、选元素」这件事，其余内容现在略过。',
+        why: '官方指定这一节对应 Elements 面板，并明确要求跳过任何用到 JavaScript 控制台的部分。',
+        points: [
+          '范围限定：跳过一切用到 JavaScript 控制台的部分，那是后续课程的内容。',
+          '只关注「浏览结构、选中元素」，与本页中文讲解的 Elements 面板那一节对应。'
+        ],
+        terms: [
+          'DOM（文档对象模型，即浏览器里的页面结构树）',
+          'element（元素）'
+        ],
+        focus: '只看结构浏览与元素选中，遇到 Console 的部分直接跳过。',
+        takeaway: '能在结构树里快速找到页面上看到的那块内容。'
+      },
+      license: 'Google 官方文档站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+    {
+      lessonId: 'inspecting-html-and-css',
+      title: 'View and change CSS',
+      titleZh: '查看与修改 CSS',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条列表第 4 项',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/css',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方指定这一节对应本页讲的 Styles 面板，并且要求「跟着页面上的交互说明一起动手做」——这是四条里唯一一条明确要求动手的。内容就是本课的核心操作：查看某个元素上生效的样式、看到被划掉的声明、直接改属性和值看页面实时变化。配合本页中文讲解一起做，效果最好。',
+        why: '官方指定这一节对应 Styles 面板，并明确要求跟着页面上的交互说明一起动手做。',
+        points: [
+          '这是四条指定阅读里唯一要求动手跟做的一条，别只读。',
+          '内容与本页「在检查器里直接改样式」「被划掉的样式」两节直接对应。'
+        ],
+        terms: [
+          'Styles panel（样式面板）',
+          'declaration（一条声明）'
+        ],
+        focus: '跟着页面上的交互说明逐条做一遍。',
+        takeaway: '能独立用 Styles 面板查出「哪条样式被谁覆盖了」。'
+      },
+      license: 'Google 官方文档站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-24',
+      note: ''
+    },
+  /* ===== 24 The Box Model ===== */
+  {
+    lessonId: 'the-box-model',
+    title: 'Learn CSS Box Model In 8 Minutes',
+    titleZh: '八分钟讲清 CSS 盒模型（视频）',
+    type: '视频',
+    requirement: 'required',
+    zone: 'Assignment 第 1 条',
+    originalUrl: 'https://www.youtube.com/watch?v=rIO5326FgPE',
+    sourceDomain: 'youtube.com',
+    originalUrlStatus: '200（oEmbed 核验：真实标题 Learn CSS Box Model In 8 Minutes，作者 Web Dev Simplified）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第一条指定的视频，用它对盒模型、padding 与 margin 做一遍直观概览——官方明说「先看它，它统领后面所有内容」。作者 Web Dev Simplified 用八分钟把「每个元素都是一个盒子、盒子分几层、每层管什么」讲得清楚直接，与本页中文讲解的四层结构一一对应。视频为英文原声，本站不翻译视频。',
+      why: '官方 Assignment 第一条要求现在就看这个视频，它统领本课后面所有内容。',
+      points: [
+        '盒模型四层（content / padding / border / margin）的直观演示。',
+        '对应本页「四层同心结构」与「三层空间的分工」两章，先看视频再读文字效率最高。'
+      ],
+      terms: [
+        'box model（盒模型）',
+        'padding / margin（内边距 / 外边距）'
+      ],
+      focus: '跟着视频在脑子里过一遍四层结构，不追求记住每个细节。',
+      takeaway: '对「元素是盒子、盒子分四层」有直观印象，为后面的 MDN 文章打底。'
+    },
+    license: 'YouTube 视频自有版权；本站只提供链接与本站原创导读，不搬运视频内容，不声称有中文字幕。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'the-box-model',
+    title: 'box-sizing: border-box (EASY!)',
+    titleZh: 'box-sizing: border-box 讲解（视频）',
+    type: '视频',
+    requirement: 'required',
+    zone: 'Assignment 第 2 条',
+    originalUrl: 'https://www.youtube.com/watch?v=HdZHcFWcAd8',
+    sourceDomain: 'youtube.com',
+    originalUrlStatus: '200（oEmbed 核验：真实标题 box-sizing: border-box (EASY!)，作者 ByteGrad）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第二条指定，是上一个盒模型视频的补充，专讲 box-sizing——为什么默认的 content-box 会让尺寸难算，以及 border-box 怎么把问题解决掉。与本页「默认算法：width 只量内容那一层」「box-sizing: border-box：让尺寸好算」两章直接对应。视频为英文原声，本站不翻译视频。',
+      why: '官方 Assignment 第二条要求看它，作为上一个视频在 box-sizing 上的补充讲解。',
+      points: [
+        '演示 content-box 与 border-box 在同样 width / padding / border 下的实际占位差异。',
+        '看完再回本页「默认算法」一章的 350px 例子，两边对得上。'
+      ],
+      terms: [
+        'content-box / border-box（两种盒模型算法）',
+        'box-sizing（切换算法的属性）'
+      ],
+      focus: '看懂「同一份 width，两种算法算出来的盒子大小不同」这件事。',
+      takeaway: '能说出 border-box 下 width 含 padding 与 border、实际项目为什么几乎都用它。'
+    },
+    license: 'YouTube 视频自有版权；本站只提供链接与本站原创导读，不搬运视频内容，不声称有中文字幕。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'the-box-model',
+    title: 'The box model',
+    titleZh: '盒模型（MDN）',
+    type: '文档',
+    requirement: 'required',
+    zone: 'Assignment 第 3 条',
+    originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model',
+    originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model',
+    sourceDomain: 'developer.mozilla.org',
+    originalUrlStatus: '200（站内重定向到 Learn_web_development 新路径，同主题页面）',
+    zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Box_model',
+    zhType: 'MDN 官方简体中文版',
+    zhGuide: {
+      overview: '官方说盒模型「太根本了」，所以除了两个视频还要求再读深一层——MDN 这篇覆盖同样的内容，并引入下一课要探索的行内盒子（inline boxes）。文中解释元素渲染方式时会提到内部 / 外部显示类型，官方明确说这些细节现在不必完全理解或背诵；把注意力放在例子上，并在文章提供的浏览器内编辑器里动手改一改。有 MDN 官方中文版，建议直接读中文。',
+      why: '官方 Assignment 第三条：盒模型概念太根本，要求用 MDN 文章再挖深一层。',
+      points: [
+        '覆盖两个视频同样的内容并更进一步，含行内盒子与内 / 外部显示类型。',
+        '文章提供浏览器内编辑器，官方要求花时间在里面动手实验。',
+        '显示类型那部分「不必完全理解或背诵」，别在那儿卡住。'
+      ],
+      terms: [
+        'inline box（行内盒子）',
+        'display type（显示类型）'
+      ],
+      focus: '例子与浏览器内编辑器里的动手实验；行内盒子部分留个印象即可。',
+      takeaway: '把四层结构与尺寸算法在真实例子里过一遍手，为下一课 block / inline 打底。'
+    },
+    license: 'MDN 文档采用 CC-BY-SA 2.5 许可；本站提供链接与中文导读，不复制原文。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'the-box-model',
+    title: 'margin',
+    titleZh: 'margin 属性详解（CSS-Tricks）',
+    type: '文档',
+    requirement: 'required',
+    zone: 'Assignment 第 4 条',
+    originalUrl: 'https://css-tricks.com/almanac/properties/m/margin/',
+    sourceDomain: 'css-tricks.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 最后一条指定的 margin 属性参考页，属于 CSS-Tricks 的 CSS Almanac（属性手册）。官方点名的重点是其中两小节：auto（左右 margin 写 auto 让定宽元素水平居中）与 margin collapsing（上下相邻的外边距坍缩合并、取较大值）。与本页「margin 的两个进阶话题」一章直接对应。英文页面，本站只提供链接与导读。',
+      why: '官方 Assignment 第四条要求读它，特别是 auto 与 margin collapsing 两小节。',
+      points: [
+        'margin: auto 的水平居中手法。',
+        '外边距坍缩：上下相邻的 margin 合并成较大的那个，不是相加。',
+        '这是一份属性手册，按小节查即可，不必通读。'
+      ],
+      terms: [
+        'auto（自动分配可用空间）',
+        'margin collapsing（外边距坍缩）'
+      ],
+      focus: 'auto 与 margin collapsing 两小节，其余小节需要时再回来查。',
+      takeaway: '知道水平居中用 auto、间距「怎么调都不对」时先想到坍缩。'
+    },
+    license: 'CSS-Tricks 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  /* ===== 25 Block and Inline ===== */
+  {
+    lessonId: 'block-and-inline',
+    title: 'Introduction to CSS layout',
+    titleZh: 'CSS 布局入门：Normal Flow（MDN）',
+    type: '文档',
+    requirement: 'required',
+    zone: 'Assignment 第 1 条',
+    originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow',
+    originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Introduction',
+    sourceDomain: 'developer.mozilla.org',
+    originalUrlStatus: '200（站内重定向到 Learn_web_development 新路径「Introduction to CSS layout」，同主题页面）',
+    zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/CSS_layout/Introduction',
+    zhType: 'MDN 官方简体中文版',
+    zhGuide: {
+      overview: '官方 Assignment 第一条：盒模型资料里处处隐含「Normal flow（正常文档流）」却没有明说，MDN 这篇把它讲透——不写任何布局规则时，块级盒子从上往下堆、行内盒子在文字流里从左往右排。官方要求读完它能理解「元素默认情况下怎样自行布局」。有 MDN 官方中文版，建议直接读中文。',
+      why: '官方 Assignment 第一条：确保你理解 Normal flow——元素默认怎样自己排布。',
+      points: [
+        'Normal flow = 块级上下堆叠、行内沿文字流排布的默认规则。',
+        '后面的 flexbox 等布局方式，本质都是把元素从 Normal flow 里拿出来重新安排。',
+        '与本页「先认识 Normal flow」一章对照读。'
+      ],
+      terms: [
+        'Normal flow（正常文档流）',
+        'block / inline（块级 / 行内）'
+      ],
+      focus: '「默认排布规则」这一层理解，不用记后面的布局方式细节。',
+      takeaway: '能说出「不写布局规则时页面按什么规则排」。'
+    },
+    license: 'MDN 文档采用 CC-BY-SA 2.5 许可；本站提供链接与中文导读，不复制原文。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'block-and-inline',
+    title: 'HTML Block and Inline Elements',
+    titleZh: 'HTML 块级与行内元素清单（W3Schools）',
+    type: '参考文档',
+    requirement: 'required',
+    zone: 'Assignment 第 2 条',
+    originalUrl: 'https://www.w3schools.com/html/html_blocks.asp',
+    sourceDomain: 'w3schools.com',
+    originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第二条指定的 W3Schools 参考页：对块级与行内元素的说明，加上「哪些元素默认是块级、哪些默认是行内」的完整清单。清单本身是速查表——div、p、h1 这类块级与 a、span、strong 这类行内混在一起容易记混，需要时回来查这一页最方便。W3Schools 是第三方教程站，本站未复制其内容。',
+      why: '官方 Assignment 第二条要求读它：拿一份默认块级 / 行内元素的完整清单。',
+      points: [
+        '块级与行内元素各是什么，附完整清单。',
+        '速查表性质：现在通读一遍留印象，以后按需回查。'
+      ],
+      terms: [
+        'block-level element（块级元素）',
+        'inline element（行内元素）'
+      ],
+      focus: '清单部分：块级一组、行内一组，各认几个熟面孔。',
+      takeaway: '知道常见元素谁块级谁行内，拿不准时回这页查。'
+    },
+    license: 'W3Schools 站点自有版权，未标注可自由复用的 CC 许可；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称其为“已验证可访问”，也未替换官方给出的地址。'
+  },
+  {
+    lessonId: 'block-and-inline',
+    title: 'Inline vs Inline-block Display in CSS',
+    titleZh: 'inline 与 inline-block 的差别（DigitalOcean 教程）',
+    type: '文章',
+    requirement: 'required',
+    zone: 'Assignment 第 3 条',
+    originalUrl: 'https://www.digitalocean.com/community/tutorials/css-display-inline-vs-inline-block',
+    sourceDomain: 'digitalocean.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第三条指定的 DigitalOcean 教程，专门厘清 inline 与 inline-block 这对容易混的显示类型。官方评价它「有几个很好的例子」——同样一行盒子，inline 版上下 padding 撑不开、inline-block 版正常撑开，对照着看一眼就明白差别在哪。与本页「inline-block：中间地带」一章直接对应。',
+      why: '官方 Assignment 第三条：用它的例子分清 inline 与 inline-block。',
+      points: [
+        'inline 与 inline-block 在 padding / margin 行为上的对照示例。',
+        '看完能回答：为什么往行内元素上加间距常常不生效。'
+      ],
+      terms: [
+        'inline-block（行内块）',
+        'display（显示类型属性）'
+      ],
+      focus: '例子的对照部分，两个版本并排看差异。',
+      takeaway: '能说出 inline-block「像行内一样并排、又保留块级尺寸间距行为」。'
+    },
+    license: 'DigitalOcean 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'block-and-inline',
+    title: 'css-exercises/foundations/block-and-inline',
+    titleZh: '本课练习目录（foundations/block-and-inline）',
+    type: '代码仓库视图',
+    requirement: 'required',
+    zone: 'Assignment 第 4 条',
+    originalUrl: 'https://github.com/TheOdinProject/css-exercises/tree/main/foundations/block-and-inline',
+    sourceDomain: 'github.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第四条把本课练习集中在这个目录，按顺序做 01-margin-and-padding-1 与 02-margin-and-padding-2 两个练习（说明在 README 里；每个练习的 solution 文件夹里有参考答案，先自己做再看）。两个练习练的正是本课主线：margin 与 padding 的用法，以及它们在盒子上怎么表现。',
+      why: '官方 Assignment 第四条要求在这个目录里按顺序完成两个 margin-and-padding 练习。',
+      points: [
+        '两个练习按顺序做：01-margin-and-padding-1、02-margin-and-padding-2。',
+        '动手前先读练习自己的 README，卡住再对照 solution 文件夹里的参考答案。',
+        '仓库界面为英文，GitHub 不提供仓库内容的机器翻译版本。'
+      ],
+      terms: [
+        'exercise（练习）',
+        'solution（参考答案）'
+      ],
+      focus: '两个练习都亲手做完，别只看答案。',
+      takeaway: '能用 margin 与 padding 做出练习要求的间距效果。'
+    },
+    license: 'TOP 官方课程仓库，与本课程同许可（CC BY-NC-SA 4.0）；本站只提供链接与本站原创导读，不复制仓库内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'block-and-inline',
+    title: 'CSS Fonts',
+    titleZh: 'CSS 字体与通用字体族（W3Schools）',
+    type: '参考文档',
+    requirement: 'required',
+    zone: 'Assignment 第 5 条（Recipes 加样式任务中）',
+    originalUrl: 'https://www.w3schools.com/Css/css_font.asp',
+    sourceDomain: 'w3schools.com',
+    originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第五条（给 Recipes 页面加 CSS）里的辅助参考：课程还没讲 font-family 的自定义字体怎么用，官方让你先看这一页，从「通用字体族（generic font families）」的清单里挑——serif、sans-serif、monospace 这些。还记得第 21 课的写法纪律吗：想要的字体在前、最后放一个通用族名兜底。W3Schools 是第三方教程站，本站未复制其内容。',
+      why: '官方 Assignment 第五条要求看它：因为自定义字体还没讲到，先从通用字体族清单里挑。',
+      points: [
+        '通用字体族：serif / sans-serif / monospace 等，浏览器总能渲染。',
+        'font-family 的值是候选列表，最后一个留通用族名兜底。'
+      ],
+      terms: [
+        'generic font family（通用字体族）',
+        'font-family（字体族属性）'
+      ],
+      focus: '通用字体族清单部分，配合下一页的安全字体清单一起用。',
+      takeaway: '会给 font-family 写一组「具体字体 + 通用族兜底」的值。'
+    },
+    license: 'W3Schools 站点自有版权，未标注可自由复用的 CC 许可；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称其为“已验证可访问”，也未替换官方给出的地址。'
+  },
+  {
+    lessonId: 'block-and-inline',
+    title: 'CSS Web Safe Fonts',
+    titleZh: 'Web 安全字体清单（W3Schools）',
+    type: '参考文档',
+    requirement: 'required',
+    zone: 'Assignment 第 5 条（Recipes 加样式任务中）',
+    originalUrl: 'https://www.w3schools.com/cssref/css_websafe_fonts.asp',
+    sourceDomain: 'w3schools.com',
+    originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第五条的另一个辅助参考：「Web 安全字体」指几乎装在每台电脑与设备上的字体（Arial、Georgia、Courier New 这些），用了它们就不怕用户机器上没有。官方同时提醒：就算用了安全字体，最后也还是要带一个通用字体族兜底。与上一条 CSS Fonts 清单配合着用。',
+      why: '官方 Assignment 第五条要求看它：从 Web 安全字体清单里挑字体。',
+      points: [
+        'Web 安全字体：几乎每台设备都装了的字体，用着放心。',
+        '官方提醒：安全字体之后仍要带通用字体族兜底。'
+      ],
+      terms: [
+        'web safe font（Web 安全字体）',
+        'fallback（兜底字体）'
+      ],
+      focus: '挑一两个喜欢的安全字体，配一个通用族名组成 font-family 的值。',
+      takeaway: '理解「安全字体 + 通用族兜底」的两层保险写法。'
+    },
+    license: 'W3Schools 站点自有版权，未标注可自由复用的 CC 许可；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称其为“已验证可访问”，也未替换官方给出的地址。'
+  },
+  /* ===== 26 Introduction to Flexbox =====
+   * v4.11.19（2026-09-24）：本课是 27 个已开放课中唯一零外部资料的一课——官方
+   * flexbox_intro.md 的 3 条外链全部是 statically CDN 上的课程配图（非学习资料，
+   * 按既有盘点范围剔除），Assignment 仅一句无作业声明。不为凑数登记配图，
+   * content.test.cjs 的「每课至少一条」断言对本课显式豁免（NO_RESOURCE_LESSONS）。 */
+  /* ===== 27 Growing and Shrinking ===== */
+  {
+    lessonId: 'growing-and-shrinking',
+    title: "Shorthand properties",
+    titleZh: 'CSS 简写属性（MDN）',
+    type: '文档',
+    requirement: 'required',
+    zone: '正文引文来源（The flex shorthand 一节）',
+    originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties',
+    sourceDomain: 'developer.mozilla.org',
+    originalUrlStatus: '200',
+    zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Shorthand_properties',
+    zhType: 'MDN 官方简体中文版',
+    zhGuide: {
+      overview: '官方在正文里引用了 MDN 这一段来正式定义「简写属性」：一条声明同时设置多个其他 CSS 属性的值，写出更简洁也更可读的样式表。本页「先认识简写属性」一章已把这段中文化；MDN 原页还系统地列了 CSS 里各种简写（margin、background、flex 等）与它们的展开规则，想系统性了解时读它。有 MDN 官方中文版，建议直接读中文。',
+      why: '官方正文正式定义简写属性时引用的来源，本课 flex 简写的概念出处。',
+      points: [
+        '简写属性的定义与价值：一条声明顶多条，省时省力。',
+        'MDN 原页系统列举 CSS 各简写属性及其展开规则。',
+        '与本页「先认识简写属性」一章对照读，概念完全一致。'
+      ],
+      terms: [
+        'shorthand property（简写属性）',
+        'longhand（全写形式）'
+      ],
+      focus: '定义段落与 flex 相关的部分；其余简写属性混个脸熟即可。',
+      takeaway: '能说出「flex: 1 是三条声明的简写」并知道去哪里查展开规则。'
+    },
+    license: 'MDN 文档采用 CC-BY-SA 2.5 许可；本站提供链接与中文导读，不复制原文。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'growing-and-shrinking',
+    title: 'flex',
+    titleZh: 'flex 属性参考（MDN）',
+    type: '文档',
+    requirement: 'required',
+    zone: 'Assignment 第 2 条',
+    originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex',
+    sourceDomain: 'developer.mozilla.org',
+    originalUrlStatus: '200',
+    zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex',
+    zhType: 'MDN 官方简体中文版',
+    zhGuide: {
+      overview: '官方 Assignment 第二条：MDN 的 flex 属性参考页完整汇总整个 flex 简写的取值，并介绍 W3C 那篇文章没覆盖的一些新语法。这是本课三个分量的权威手册——flex-grow / flex-shrink / flex-basis 各自的取值、单值与双值简写的展开规则、flex: auto 与 flex: none 这些关键字全都在这里。读完 Assignment 后回来查它效率最高。有 MDN 官方中文版，建议直接读中文。',
+      why: '官方 Assignment 第二条要求读它：完整汇总 flex 简写取值并补充新语法。',
+      points: [
+        'flex 三个分量的完整取值说明与展开规则。',
+        'flex: auto（1 1 auto）、flex: none（0 0 auto）等关键字简写的含义。',
+        '补充了 W3C 7.1.1 那篇没覆盖的语法。'
+      ],
+      terms: [
+        'flex keyword values（flex 关键字取值）',
+        'flex-basis（初始尺寸）'
+      ],
+      focus: '取值语法表与几个常见关键字简写的含义；当手册查，不必一次读完。',
+      takeaway: '遇到任何 flex 写法都能在这里查到它的展开含义。'
+    },
+    license: 'MDN 文档采用 CC-BY-SA 2.5 许可；本站提供链接与中文导读，不复制原文。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'growing-and-shrinking',
+    title: "7.1.1 Basic Values of 'flex'",
+    titleZh: "W3C 规范 7.1.1：flex 的基本取值",
+    type: '规范',
+    requirement: 'required',
+    zone: 'Assignment 第 1 条',
+    originalUrl: 'https://www.w3.org/TR/css-flexbox-1/#flex-common',
+    sourceDomain: 'w3.org',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第一条：读 W3C CSS Flexbox 规范的这一小节，理解常见 flex 简写值的基本取值——规范在这里正式定义了 flex: initial、flex: auto、flex: none、flex: <number> 这些常用写法各自展开成什么。规范语言比教程干硬，但这一节篇幅很短，恰好只覆盖「你天天会写的那几个值」。与 MDN flex 参考页配合：这节定调，MDN 展开。W3C 规范无官方中文版，本站只提供链接与导读。',
+      why: "官方 Assignment 第一条要求读它：常见 flex 简写值的规范定义出处。",
+      points: [
+        'flex: initial、flex: auto、flex: none、flex: <number> 的规范定义。',
+        '规范小节篇幅短，只讲常用值的展开，不涉及算法细节。',
+        '读完再看 MDN flex 页，两边互为印证。'
+      ],
+      terms: [
+        'spec（规范）',
+        'flex: initial / flex: none（两个常用关键字简写）'
+      ],
+      focus: '每个常用值展开成的三元素组（grow / shrink / basis）。',
+      takeaway: '能对 flex: 1、flex: auto、flex: none 各自说出展开的三元素组。'
+    },
+    license: 'W3C 规范文档采用 W3C 文档许可（宽松署名）；本站只提供链接与本站原创导读，不复制原文。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  /* ===== 28 Axes ===== */
+  {
+    lessonId: 'axes',
+    title: 'flex-direction',
+    titleZh: 'flex-direction 属性参考（MDN）',
+    type: '文档',
+    requirement: 'required',
+    zone: 'Assignment 第 1 条',
+    originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-direction',
+    sourceDomain: 'developer.mozilla.org',
+    originalUrlStatus: '200',
+    zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/flex-direction',
+    zhType: 'MDN 官方简体中文版',
+    zhGuide: {
+      overview: '官方 Assignment 唯一一条：读 MDN 的 flex-direction 文档与示例——本课的主角属性。文档讲全它的四个取值（row / row-reverse / column / column-reverse）、对主轴方向的影响，以及与书写方向（rtl 语言）的交互；与本页「主轴与交叉轴」一章对照读，概念完全一致。有 MDN 官方中文版，建议直接读中文。',
+      why: '官方 Assignment 要求读它：flex-direction 的权威参考与示例。',
+      points: [
+        '四个方向取值与各自的主轴方向。',
+        '文档里的可视化示例展示 direction 变化时项目排布怎样旋转。',
+        'rtl 书写方向下的行为差异现在只需知道存在即可。'
+      ],
+      terms: [
+        'row-reverse / column-reverse（两个反向取值）',
+        'writing mode（书写方向，影响轴方向的边界情况）'
+      ],
+      focus: 'row 与 column 的轴方向对照；反向取值混个脸熟。',
+      takeaway: '能对任意 direction 取值说出主轴与交叉轴各朝哪边。'
+    },
+    license: 'MDN 文档采用 CC-BY-SA 2.5 许可；本站提供链接与中文导读，不复制原文。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  /* ===== 29 Alignment ===== */
+  {
+    lessonId: 'alignment',
+    title: 'Interactive Guide to Flexbox',
+    titleZh: 'Flexbox 交互式指南（joshwcomeau）',
+    type: '教程文章',
+    requirement: 'required',
+    zone: 'Assignment 第 1 条',
+    originalUrl: 'https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/',
+    sourceDomain: 'joshwcomeau.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第一条：这篇漂亮的交互式指南覆盖你需要知道的 flexbox 全部内容，用非常有趣又有创意的示例巩固本组课已讲的概念。官方特别说「在这里多花点时间——部分内容到此应是复习，但这里的地基很重要」。文章每节都嵌可拖动 / 可开关的演示，两轴、grow/shrink、对齐这些概念在浏览器里亲手玩一遍的体验远胜静态图文。英文文章，本站只提供链接与导读。',
+      why: '官方 Assignment 第一条指定：覆盖全部 flexbox 知识的交互式指南，用创意示例巩固已讲概念。',
+      points: [
+        '全篇嵌入可交互演示，每个概念都能亲手拨弄。',
+        '部分内容是本组课的复习，但更深入、也有几处没讲过的细节。',
+        '官方建议在这里多花时间——地基比进度重要。'
+      ],
+      terms: [
+        'interactive demo（交互式演示）',
+        'flex container / item（容器与项目）'
+      ],
+      focus: '跟着每个演示动手，重点感受两轴旋转与对齐属性的行为。',
+      takeaway: '把本组四课的概念在交互示例里整体串一遍，补上没讲过的角落。'
+    },
+    license: 'joshwcomeau.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'alignment',
+    title: 'A Complete Guide to Flexbox',
+    titleZh: 'Flexbox 完全指南（CSS-Tricks）',
+    type: '参考文档',
+    requirement: 'required',
+    zone: 'Assignment 第 2 条',
+    originalUrl: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
+    sourceDomain: 'css-tricks.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第二条：CSS-Tricks 的 Flexbox 指南是一篇经典，配图与示例超级有用。官方的建议是复习它的第 1–3 部分与第 5 部分（媒体查询部分先不管，课程后面会讲），然后把它收藏成今后的速查表——做本组练习时保持随手可查。文首那两张「父属性 / 子属性」全景图就是最常被引用的 flexbox 速查图。英文页面，本站只提供链接与导读。',
+      why: '官方 Assignment 第二条指定：经典指南，复习指定部分后收藏为速查表。',
+      points: [
+        '第 1–3 部分与第 5 部分是官方指定的复习范围。',
+        '父属性与子属性两张全景图是最好的速查图。',
+        '媒体查询部分本组先跳过，课程后面会讲。'
+      ],
+      terms: [
+        'cheat sheet（速查表）',
+        'parent / child properties（容器属性 / 项目属性）'
+      ],
+      focus: '指定的复习部分过一遍，然后收藏——做练习时回来查。',
+      takeaway: '有一个随手可查的 flexbox 全景参考，练习时不用凭记忆硬写。'
+    },
+    license: 'CSS-Tricks 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'alignment',
+    title: 'Flexbox Froggy',
+    titleZh: 'Flexbox Froggy 游戏练习',
+    type: '工具',
+    requirement: 'required',
+    zone: 'Assignment 第 3 条',
+    originalUrl: 'https://flexboxfroggy.com/',
+    sourceDomain: 'flexboxfroggy.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第三条：玩通 Flexbox Froggy——一个练习用 flexbox 移动东西的小游戏，官方形容它「挺有意思」。每一关把青蛙引导到荷叶上的唯一工具就是 flexbox 属性（justify-content、align-items 等），关卡从居中一路排到综合布局，正好把本课的对齐属性练成肌肉记忆。24 关全部通关即可。网页游戏（英文界面，属性名本身就是内容），本站只提供链接与导读。',
+      why: '官方 Assignment 第三条要求玩通它：用游戏把 flexbox 移动操作练熟。',
+      points: [
+        '每关用 flexbox 属性把青蛙挪到荷叶上，错了立刻看到结果。',
+        '关卡由浅入深，覆盖 justify-content 与 align-items 的全部常用取值。',
+        '游戏界面是英文，但内容就是属性名本身，无阅读障碍。'
+      ],
+      terms: [
+        'justify-content（主轴分布）',
+        'align-items（交叉轴对齐）'
+      ],
+      focus: '通关过程中试着预测每条属性的效果再点验证。',
+      takeaway: '对齐属性的取值形成手感，看到布局需求能直接反应出该写哪条。'
+    },
+    license: 'Flexbox Froggy 是 Codepip 的免费公开练习游戏；本站只提供链接与本站原创导读，不复制游戏内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  {
+    lessonId: 'alignment',
+    title: 'css-exercises/foundations/flex',
+    titleZh: '本组练习目录（foundations/flex）',
+    type: '代码仓库视图',
+    requirement: 'required',
+    zone: 'Assignment 第 4 条',
+    originalUrl: 'https://github.com/TheOdinProject/css-exercises/tree/main/foundations/flex',
+    sourceDomain: 'github.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方 Assignment 第四条：按顺序完成 CSS exercises 仓库 foundations/flex 目录里的全部 7 个练习（01-flex-center、02-flex-header、03-flex-header-2、04-flex-information、05-flex-modal、06-flex-layout、07-flex-layout-2），说明在 README 里，每个练习的 solution 文件夹有参考答案。这组练习从居中一路做到整页布局，是 Flexbox 单元的动手收官——官方在正文里明说做练习时会需要回查前面的资料，这完全正常。',
+      why: '官方 Assignment 第四条：按顺序完成 foundations/flex 目录的 7 个练习。',
+      points: [
+        '严格按 01 到 07 的顺序做，难度递进。',
+        '说明在目录 README；卡住先回查 CSS-Tricks 速查表。',
+        '每个练习的 solution 文件夹有参考答案，做完再对。'
+      ],
+      terms: [
+        'flex-center（居中练习）',
+        'flex-layout（布局练习）'
+      ],
+      focus: '每个练习先自己写，写不出再查资料，最后对照 solution 复盘。',
+      takeaway: 'Flexbox 单元的动手收官：从居中到整页布局全部亲手做过一遍。'
+    },
+    license: 'TOP css-exercises 仓库采用 MIT 许可；本站只提供链接与本站原创导读，不复制仓库内容。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+  /* ===== 30 Project: Landing Page ===== */
+  {
+    lessonId: 'landing-page',
+    title: 'Pexels',
+    titleZh: 'Pexels 免费图库',
+    type: '素材',
+    requirement: 'reference',
+    zone: '正文（A note about images on the web）',
+    originalUrl: 'https://www.pexels.com/',
+    sourceDomain: 'pexels.com',
+    originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方在项目课里提醒图片版权后推荐的三个免费图库之一：Pexels 的图片可免费使用（具体以每张图的许可说明为准），站内搜索量大、人物与实景照片多。给落地页的占位图找真实图片时，从这里下载并按官方建议把作者署名写进仓库 README。403 是站点拦截命令行请求，浏览器打开正常。',
+      why: '官方正文推荐的可自由使用图片来源之一。',
+      points: [
+        '免费可商用图库，下载前确认单张图的许可说明。',
+        '官方建议：把图片作者的名字与联系方式写进项目 README 署名。',
+        '命令行核验 403 属站点反爬，浏览器访问正常。'
+      ],
+      terms: [
+        'free-to-use image（可自由使用的图片）',
+        'attribution（署名）'
+      ],
+      focus: '给落地页挑几张占位图，顺手在 README 里给作者署名。',
+      takeaway: '知道去哪里找合法可用的图片，并养成署名习惯。'
+    },
+    license: 'Pexels 站点内容按其自身许可条款提供（免费使用、署名规则以站内说明为准）；本站只提供链接与本站原创导读，不搬运图片。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称为"已验证可访问"，也未替换官方给出的地址。'
+  },
+  {
+    lessonId: 'landing-page',
+    title: 'Pixabay',
+    titleZh: 'Pixabay 免费图库',
+    type: '素材',
+    requirement: 'reference',
+    zone: '正文（A note about images on the web）',
+    originalUrl: 'https://pixabay.com/',
+    sourceDomain: 'pixabay.com',
+    originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方推荐的三个免费图库之二：Pixabay 收录照片与插画两类素材，同样免费使用（具体以站内许可说明为准）。与 Pexels 互补——需要插画风格的占位图时它更合适。同样记得给作者署名进 README。403 是站点拦截命令行请求，浏览器打开正常。',
+      why: '官方正文推荐的可自由使用图片来源之二。',
+      points: [
+        '照片与插画都有的综合免费图库。',
+        '许可细则以站内每张素材的说明为准。',
+        '命令行核验 403 属站点反爬，浏览器访问正常。'
+      ],
+      terms: [
+        'illustration（插画素材）',
+        'license terms（许可条款）'
+      ],
+      focus: '照片之外试试插画类素材，看哪种更配你的落地页。',
+      takeaway: '多一个可靠的免费素材来源，风格选择更宽。'
+    },
+    license: 'Pixabay 站点内容按其自身许可条款提供（免费使用、细则以站内说明为准）；本站只提供链接与本站原创导读，不搬运图片。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称为"已验证可访问"，也未替换官方给出的地址。'
+  },
+  {
+    lessonId: 'landing-page',
+    title: 'Unsplash',
+    titleZh: 'Unsplash 免费图库',
+    type: '素材',
+    requirement: 'reference',
+    zone: '正文（A note about images on the web）',
+    originalUrl: 'https://unsplash.com/',
+    sourceDomain: 'unsplash.com',
+    originalUrlStatus: '200',
+    zhUrl: null,
+    zhType: null,
+    zhGuide: {
+      overview: '官方推荐的三个免费图库之三：Unsplash 以高质量摄影图著称，免费使用（细则以站内许可说明为准），适合给落地页的主视觉与图片卡挑质感好的照片。同样按官方建议把作者署名写进仓库 README。',
+      why: '官方正文推荐的可自由使用图片来源之三。',
+      points: [
+        '以高质量摄影为主的免费图库，HTTP 200 核验通过。',
+        '下载前照例确认该图的许可说明。',
+        '作者署名写进 README——三个图库同一个习惯。'
+      ],
+      terms: [
+        'stock photo（图库照片）',
+        'hero image（主视觉配图）'
+      ],
+      focus: '给主视觉区挑一张有质感的大图，落地页的气质基本由它决定。',
+      takeaway: '三站各有所长，按需要混用；署名习惯不变。'
+    },
+    license: 'Unsplash 站点内容按其自身许可条款提供（免费使用、细则以站内说明为准）；本站只提供链接与本站原创导读，不搬运图片。',
+    handling: 'link-only',
+    verifiedAt: '2026-09-24',
+    note: ''
+  },
+    {
+      lessonId: 'variables-and-operators',
+      title: 'Live Preview – Visual Studio Code Marketplace',
+      titleZh: 'VS Code 的 Live Preview 扩展（官方页面）',
+      type: '工具扩展',
+      requirement: 'reference',
+      zone: '正文 Live preview 提示框',
+      originalUrl: 'https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server',
+      sourceDomain: 'marketplace.visualstudio.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在正文提示框里推荐的 VS Code 扩展：保存文件时自动刷新浏览器里的预览页，省掉手动刷新。装上它之后，你改一行代码、切到浏览器就能看到结果，试错成本更低。这是可选的效率工具，不装也能学。',
+      why: '官方提示框推荐的开发体验增强工具。',
+      points: [
+        '作用：保存即刷新，改完代码不用手动刷新浏览器。',
+        '安装入口在 VS Code 扩展面板，搜 Live Preview 即可。',
+        '可选工具，不影响课程进度。'
+      ],
+      terms: [
+        'Live Preview（实时预览扩展）',
+        'extension（VS Code 扩展）'
+      ],
+      focus: '装好后用它打开你的练习 HTML 文件，改一行 console.log 看预览页与控制台的联动。',
+      takeaway: '工具好不好用试过才知道；之后写 DOM 课的大量练习时它会一直陪着你。',
+      },
+      license: 'Microsoft 扩展页按 VS Code Marketplace 条款提供；本站只提供链接。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'variables-and-operators',
+      title: 'What is JavaScript?',
+      titleZh: '什么是 JavaScript？（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 阅读第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/What_is_JavaScript',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「什么是 JavaScript？」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 阅读第一条：理解 JavaScript 在网页里扮演的角色。这篇 MDN 入门讲了 JS 是什么、浏览器如何执行它、它能让页面做什么——正好承接本课「从 HTML/CSS 到 JavaScript」的过渡。MDN 已有官方简体中文版，直接读中文。',
+      why: '官方指定的第一篇阅读，建立对 JavaScript 角色的整体认知。',
+      points: [
+        'JavaScript 是让网页可交互的编程语言，运行在浏览器里。',
+        '与 HTML（结构）、CSS（样式）三分天下。',
+        'MDN 该页已重定向至新路径 Learn_web_development/Core/Scripting，中文版同步存在。'
+      ],
+      terms: [
+        'JavaScript（JavaScript 语言）',
+        'interactivity（交互性）'
+      ],
+      focus: '读中文版通读一遍，重点抓「JS 在网页里负责什么」这一层认知。',
+      takeaway: '知道 JS 的角色定位，后面每课学的语法都有了归属。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'variables-and-operators',
+      title: 'Variables',
+      titleZh: '变量（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 阅读第 2 条',
+      originalUrl: 'https://javascript.info/variables',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/variables',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 阅读第二条：JavaScript.info 的变量教程。它把本课讲的 let / const / var 三种声明再过一遍，还讲了变量命名规范（比如用 camelCase、不用保留字）——这是本站讲解之外补充的部分。站内有官方中文版，页面底部同样有练习题。',
+      why: '官方指定阅读：换一个更细的粒度重讲变量声明与命名。',
+      points: [
+        'let / const 的取舍与两种声明的行为差异。',
+        '变量命名规范：camelCase、不用数字开头、避开保留字。',
+        '教程底部有练习题，官方鼓励做。'
+      ],
+      terms: [
+        'camelCase（驼峰命名法）',
+        'reserved word（保留字）'
+      ],
+      focus: '读中文版，命名规范那部分是本课没展开的新内容，值得留意。',
+      takeaway: '会声明变量只是及格线，起一个好名字是后面读代码省力的习惯。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'variables-and-operators',
+      title: 'Basic math in JavaScript — numbers and operators',
+      titleZh: 'JavaScript 中的基础数学（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 阅读第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/Math',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「JavaScript 中的基础数学」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 阅读第三条：MDN 的数学教程，从稍微不同的角度覆盖本课同样的内容，并教你一些基本数学运算的实际写法。数字还有很多能玩的（取余、自增、Math 对象……），但官方明说：现阶段掌握这些就够了。',
+      why: '官方指定阅读：巩固数字与运算符，换一个视角复习。',
+      points: [
+        '运算符与运算顺序的复习与补充。',
+        '取余（%）这类本课没细讲的运算符会在这里出现。',
+        '官方口径：数字的世界很大，现阶段够用即可。'
+      ],
+      terms: [
+        'operator（运算符）',
+        'modulo / remainder（取余）'
+      ],
+      focus: '读中文版，跟着例子动手敲；与本课讲解对照着看，两边都懂的才是真的懂。',
+      takeaway: '算术是所有后面逻辑的地基，多算几遍不亏。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'variables-and-operators',
+      title: 'Basic operators, maths',
+      titleZh: '基础运算符（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 阅读第 4 条',
+      originalUrl: 'https://javascript.info/operators',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/operators',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 阅读第四条，也是官方特意叮嘱的一篇：通读并且跟着敲！教程里的运算符种类比本课多（字符串拼接的 +、取余、自增自减、逗号运算符等），能让你对「JavaScript 里能用数字做什么」有完整概念。页面底部的 Tasks（练习题）官方明说要做。',
+      why: '官方指定阅读 + 明确要求做练习题的一篇。',
+      points: [
+        '+ 的双重身份：数字相加与字符串拼接。',
+        '取余 %、自增 ++、自减 -- 的行为。',
+        '底部 Tasks 必做——官方原话「别忘了做」。'
+      ],
+      terms: [
+        'increment / decrement（自增 / 自减）',
+        'concatenation（字符串拼接）'
+      ],
+      focus: '读中文版 + 做完底部全部练习题，这一条是官方硬要求。',
+      takeaway: '跟着敲过一遍，运算符才算进了你的手指而不只是眼睛。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'Data types',
+      titleZh: '数据类型（JavaScript.info 概览）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Introduction',
+      originalUrl: 'https://javascript.info/types',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/types',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方在课程正文开头就要求先通读的一篇：用一页讲清 JavaScript 的八种数据类型——number、bigint、string、boolean、null、undefined、symbol、object，各自是什么、typeof 怎么判别。本站讲解的「八种数据类型总览」一章正对应它，读完中文版你会对本课要学的东西有完整地图。',
+      why: '官方指定的开篇阅读：数据类型的全景图。',
+      points: [
+        '八种类型一口气过一遍：number / string / boolean 现阶段最高频。',
+        'typeof 运算符可以查看值的类型。',
+        'null 与 undefined 的区别：空值 vs 未定义。'
+      ],
+      terms: [
+        'primitive type（原始类型）',
+        'typeof（类型判别运算符）'
+      ],
+      focus: '读中文版通读，不必背——重点是建立「类型」这个分类意识。',
+      takeaway: '有了类型地图，后面读任何资料都知道自己在哪个区域。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'Basic strings in JavaScript',
+      titleZh: '文本处理——JavaScript 字符串（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Strings 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/Strings',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「文本处理——JavaScript 中的字符串」，简体中文）',
+      zhGuide: {
+      overview: '官方字符串部分第一篇：MDN 的字符串教程，官方要求「通读并跟着敲」。覆盖字符串的创建、三种引号、模板字面量、拼接与转义。官方特别交代跳过 Concatenation in context 一节——那是后面 DOM 课的内容，现在读了会消化不良。',
+      why: '官方字符串主读材料，读 + 跟着敲。',
+      points: [
+        '单引号 / 双引号 / 反引号三种包裹方式。',
+        '模板字面量与 ${} 嵌入。',
+        'Concatenation in context 小节跳过——官方明说。'
+      ],
+      terms: [
+        'template literal（模板字面量）',
+        'escape character（转义字符）'
+      ],
+      focus: '读中文版并跟着敲全部示例；记住跳过哪一节。',
+      takeaway: '字符串是你以后写得最多的数据类型，这一篇是地基。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'JavaScript String Methods',
+      titleZh: 'JavaScript 字符串方法（W3Schools 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Strings 第 2 条',
+      originalUrl: 'https://www.w3schools.com/js/js_string_methods.asp',
+      sourceDomain: 'www.w3schools.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方字符串部分第二篇：W3Schools 的字符串方法课，让你多见识一些字符串能做的事——查找、截取、替换、大小写转换。这里第一次正式接触「方法」概念：内置在语言里的功能，用「值.方法名()」调用。W3Schools 每个例子都带「试一试」按钮，点点看。',
+      why: '官方指定阅读：字符串方法入门 + 「方法」概念的第一次亮相。',
+      points: [
+        '方法（method）= 语言内置的功能，句式是 值.方法名()。',
+        '常见方法：length、toUpperCase、indexOf、slice。',
+        '每个示例都有 Try it yourself 按钮，边点边学。'
+      ],
+      terms: [
+        'method（方法）',
+        'string method（字符串方法）'
+      ],
+      focus: '过一遍教程，每个「试一试」都点开看看改改。',
+      takeaway: '不用背方法名——知道「有这类工具、去哪查」就是本篇的收获。',
+      },
+      license: 'W3Schools 站点自有版权，未标注可自由复用的 CC 许可；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求，与上轮 W3Schools 各条同因；带浏览器 UA 复核为 200，页面存在），本站未声称其为“已验证可访问”，也未替换官方给出的地址。'
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'String - JavaScript | MDN',
+      titleZh: 'String 参考文档（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Strings 第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「String」，简体中文）',
+      zhGuide: {
+      overview: '官方第三篇不是让你读的，是让你存的：MDN 的 String 参考文档，收录全部内置字符串方法的完整参考。官方原话——不用通读更不用背，但应当知道它存在，把它加入书签。以后想对字符串做什么，先来这里查有没有现成方法。',
+      why: '官方指定的「书签位」：字符串方法的工具箱总目录。',
+      points: [
+        '全部内置字符串方法的完整参考与示例。',
+        '官方口径：不通读、不背，加入书签。',
+        '配套中文版同样存在，查起来更顺。'
+      ],
+      terms: [
+        'reference documentation（参考文档）',
+        'bookmark（书签）'
+      ],
+      focus: '点开扫一眼目录结构就好，然后真的把它加进书签。',
+      takeaway: '「知道去哪查」从这一课开始成为正式学习目标。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'Comparisons',
+      titleZh: '比较（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Conditionals 第 1 条',
+      originalUrl: 'https://javascript.info/comparison',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/comparison',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方条件部分第一步：先把「比较」学扎实。>、<、>=、<= 都直观，重点是 == 与 === 的区别——宽松相等会先做类型转换，规则复杂易埋 bug；严格相等不做转换，行为可预期。官方与本站口径一致：日常一律用 ===。',
+      why: '官方条件部分的起步阅读：比较运算符全家福。',
+      points: [
+        '所有比较的结果都是布尔值 true / false。',
+        '== 宽松相等 vs === 严格相等，日常用后者。',
+        '不同类型比较时的转换规则，知道有这回事即可。'
+      ],
+      terms: [
+        'strict equality（严格相等）',
+        'loose equality（宽松相等）'
+      ],
+      focus: '读中文版，把 === 的肌肉记忆从这一篇开始建立。',
+      takeaway: '条件语句的原料就是比较，比较学扎实了条件才可靠。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'Making decisions in your code — conditionals',
+      titleZh: '在代码中做决定——条件语句（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Conditionals 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/Conditionals',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「在代码中做决定——条件语句」，简体中文）',
+      zhGuide: {
+      overview: '官方条件部分的主读材料：MDN 的条件语句文章，系统讲 if / else if / else、比较运算符、嵌套，还有 AND / OR / NOT 逻辑运算符的组合用法。官方说它是「各种写条件代码的方式的出色介绍」——本站讲解的条件各章都能在这篇里找到更完整的展开。',
+      why: '官方条件部分主读：if/else 全家 + 逻辑运算符入门。',
+      points: [
+        'if / else if / else 的完整语法与执行流程。',
+        '嵌套条件与多条件组合。',
+        '逻辑运算符 && || ! 的第一次系统讲解。'
+      ],
+      terms: [
+        'conditional statement（条件语句）',
+        'nesting（嵌套）'
+      ],
+      focus: '读中文版，配合本站讲解互为对照；例子都跑一遍。',
+      takeaway: '这一篇读完，你的代码第一次真正会「做决定」。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'The "if" statement',
+      titleZh: 'if 语句（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Conditionals 第 3 条',
+      originalUrl: 'https://javascript.info/ifelse',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/ifelse',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方说这篇当「复习」读：JavaScript.info 的 if/else 教程与 MDN 那篇覆盖同一批基础概念，但角度略不同。真正的重点在页面底部的练习题——官方原话是「more importantly, offers the usual tasks at the bottom of the page」，做完才算过关。',
+      why: '官方指定的复习材料 + 底部练习题是重点。',
+      points: [
+        'if / else 语法复习，与 MDN 篇互为印证。',
+        '底部 Tasks 练习题是官方明说的重点。',
+        '练习里可能出现没学过的写法，先按直觉做。'
+      ],
+      terms: [
+        'if / else statement（if / else 语句）'
+      ],
+      focus: '快速通读中文版，然后认真做完底部全部练习题。',
+      takeaway: '两篇讲同一件事的读物里都懂了，才是真的懂了。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'Logical operators',
+      titleZh: '逻辑运算符（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Conditionals 第 4 条',
+      originalUrl: 'https://javascript.info/logical-operators',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/logical-operators',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方逻辑运算符主读材料：&&（与）、||（或）、!（非）三个运算符的行为、优先级，以及 truthy / falsy 的完整规则。官方有个预告：练习题里会出现 alert(数字) 这类现在还解释不了的写法——别慌，答案是对的，学到后面自然明白，官方原话「Don\'t worry too much about it now」。',
+      why: '官方指定阅读：三个逻辑运算符 + truthy/falsy 全解。',
+      points: [
+        '&& 两边都真才真；|| 一边真即真；! 真假互换。',
+        'truthy / falsy：假值清单很短，其余全是真值。',
+        '练习里的 alert 现象后面课程解释，别卡住。'
+      ],
+      terms: [
+        'logical operator（逻辑运算符）',
+        'truthy / falsy（真值 / 假值）'
+      ],
+      focus: '读中文版 + 做底部练习；遇到看不懂的 alert 题按官方口径放行。',
+      takeaway: '逻辑运算符是组合条件的胶水，后面 DOM 事件判断全靠它们。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'data-types-and-conditionals',
+      title: 'The "switch" statement',
+      titleZh: 'switch 语句（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Conditionals 第 5 条',
+      originalUrl: 'https://javascript.info/switch',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/switch',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方条件部分收官阅读：switch 语句，适合「一个值对多种情况」的分支。case 逐个匹配、break 结束本分支、default 兜底；官方提醒条件一多它比一长串 else if 清爽得多。switch 有个经典的「忘了写 break 会贯穿到下一个 case」的坑，教程里会讲。',
+      why: '官方指定阅读：多条件分支的另一种写法。',
+      points: [
+        'switch / case / break / default 四件套。',
+        '适用场景：一个值对多种情况的判断。',
+        '忘写 break 会 fall-through 贯穿执行——经典坑。'
+      ],
+      terms: [
+        'switch statement（switch 语句）',
+        'fall-through（贯穿执行）'
+      ],
+      focus: '读中文版，记住 break 的作用与忘写的后果。',
+      takeaway: '工具箱里多一种分支写法，读别人的代码时认得出来。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'Debugging in Chrome',
+      titleZh: '在 Chrome 里调试（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://javascript.info/debugging-chrome',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/debugging-chrome',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 第一项：完整跟做这篇 Chrome 调试教程——在 Sources 面板打开示例页、打断点、逐行执行、观察变量。断点是本课的核心新技能：让代码停在指定行、在真实执行流里「环顾四周」。JavaScript.info 有官方中文版，跟着敲完全没问题。',
+      why: '官方指定主教程：DevTools 断点调试的完整动手流程。',
+      points: [
+        'Sources 面板打开页面源码、点行号设断点。',
+        '暂停后逐行执行（Step over / Step into）、右侧查看变量当前值。',
+        'debugger 语句与条件断点教程里也会讲到。'
+      ],
+      terms: [
+        'breakpoint（断点）',
+        'Sources panel（源代码面板）'
+      ],
+      focus: '读中文版并跟着每一步实际操作——只读不练等于没学。',
+      takeaway: '断点调试是从「打印式调试」升级到「系统化调试」的门槛技能。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'Chrome DevTools',
+      titleZh: 'Chrome DevTools 文档主页（Google 官方）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条（总览）',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第二项的入口页：Google 的 Chrome DevTools 官方文档主页。官方说明这些子文档覆盖你 95% 时间会用到的功能，目的是「建立意识」而不是背——需要时回来查。注：该站 /zh/ 路径实测返回英文内容，暂无可靠中文版，导读看本站速览即可。',
+      why: '官方指定的 DevTools 文档总入口。',
+      points: [
+        '官方文档总站，下钻各子文档的起点。',
+        '「知道在哪」级别的阅读深度即可。'
+      ],
+      terms: [
+        'Chrome DevTools（Chrome 开发者工具）'
+      ],
+      focus: '从主页逛到 Assignment 清单列出的各子节（CSS / DOM / 断点），不求记住。',
+      takeaway: '把「查官方文档」变成遇到问题的第一反射之一。',
+      },
+      license: 'Chrome DevTools 文档按 Google 站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'View and change CSS',
+      titleZh: '查看与更改 CSS（Chrome DevTools 文档）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条 CSS 小节 1',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/css/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方清单 CSS 部分第一篇：在 Elements 面板里实时查看与修改 CSS——改样式立即生效、刷新复原，是试验样式想法的零成本试验场。教程含检查元素、改规则、加类、查看计算样式等操作。',
+      why: '官方指定阅读：DevTools 里操作 CSS 的核心文档。',
+      points: [
+        'Elements 面板选中元素、右侧 Styles 区改规则。',
+        '修改实时生效、刷新即复原（试验场不是编辑器）。',
+        '盒模型视图也在这套文档里。'
+      ],
+      terms: [
+        'Elements panel（元素面板）',
+        'computed style（计算样式）'
+      ],
+      focus: '照着文档在本站任意页面上动手改几个样式。',
+      takeaway: '不刷新页面试样式，是前端日常效率的基石。',
+      },
+      license: 'Chrome DevTools 文档按 Google 站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'CSS features reference',
+      titleZh: 'CSS 功能参考（Chrome DevTools 文档）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: 'Assignment 第 2 条 CSS 小节 2',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/css/reference/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方清单 CSS 部分第二篇：DevTools CSS 功能的完整参考——伪类状态（:hover 等怎么模拟）、按字母序看属性、禁用/启用单条规则等都在这里。官方口径依然是「知道存在、用时来查」。',
+      why: '官方指定阅读：CSS 侧功能的速查总目录。',
+      points: [
+        '给元素加 :hover / :focus 等伪类状态不用真鼠标悬停。',
+        '按字母序查看全部生效属性。',
+        '单条规则一键禁用，看它到底起没起作用。'
+      ],
+      terms: [
+        'pseudo-class（伪类）',
+        'CSS reference（CSS 参考）'
+      ],
+      focus: '扫一遍目录知道有什么，需要时回来查条目。',
+      takeaway: '参考文档的正确用法是查，不是通读。',
+      },
+      license: 'Chrome DevTools 文档按 Google 站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'Get started with viewing and changing the DOM',
+      titleZh: '开始查看与更改 DOM（Chrome DevTools 文档）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条 DOM 小节',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/dom/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方清单 DOM 一节：在 Elements 面板查看与实时编辑 DOM——节点树里选中、改文字改属性、删节点，改动即时反映到页面。与 CSS 一节同一套「试验场」逻辑，只是操作对象换成 DOM 结构。',
+      why: '官方指定阅读：DevTools 里操作 DOM 的入门文档。',
+      points: [
+        'Elements 面板的树形结构就是浏览器解析出的 DOM。',
+        '双击可直接改文字与属性。',
+        '节点可实时增删（刷新复原）。'
+      ],
+      terms: [
+        'DOM（文档对象模型）',
+        'node（节点）'
+      ],
+      focus: '在 Elements 里改本站首页几个字，刷新看它复原。',
+      takeaway: '「页面即数据结构」——这个认知越早建立越好。',
+      },
+      license: 'Chrome DevTools 文档按 Google 站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'Pause your code with breakpoints',
+      titleZh: '用断点暂停代码（Chrome DevTools 文档）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条 JavaScript 小节',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/javascript/breakpoints/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方清单 JavaScript 一节：不同类型的断点——行断点、条件断点、事件断点、DOM 变更断点等。第一篇 JavaScript.info 教程带你打过普通断点，这篇让你知道断点家族还有哪些成员、各适合什么场景。',
+      why: '官方指定阅读：断点类型的完整谱系。',
+      points: [
+        '行断点是基础：停在那一行。',
+        '条件断点：满足条件才停，适合循环里找特定一轮。',
+        '事件断点 / DOM 断点：点击时停、DOM 变化时停。'
+      ],
+      terms: [
+        'conditional breakpoint（条件断点）',
+        'event listener breakpoint（事件断点）'
+      ],
+      focus: '至少亲手打一次普通断点；其余类型知道名字与用途即可。',
+      takeaway: '断点类型越多，排查手段越多——先记住目录，用时回来查。',
+      },
+      license: 'Chrome DevTools 文档按 Google 站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-developer-tools',
+      title: 'Console overview',
+      titleZh: '控制台概览（Chrome DevTools 文档）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/console/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 最后一项：控制台的完整概览——不止打印，还能运行代码、过滤输出（按错误级别、按文字）、分组与计时。你在浏览器里写 JavaScript 的「仪表盘」说明书写全了。',
+      why: '官方指定阅读：console 面板的系统性认识。',
+      points: [
+        'console 既是输出区也是运行区（直接敲代码回车）。',
+        '按级别过滤：只看 errors / warnings / info。',
+        'console.log 之外还有 table、trace、group 等方法。'
+      ],
+      terms: [
+        'console（控制台）',
+        'filter（输出过滤）'
+      ],
+      focus: '通读一遍，顺手在控制台里敲几行代码体验「运行区」的一面。',
+      takeaway: '到这里跑代码、打断点、改样式三件套齐了，后面每课都在用。',
+      },
+      license: 'Chrome DevTools 文档按 Google 站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'function-basics',
+      title: 'The modern language, Functions',
+      titleZh: '函数基础（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://javascript.info/function-basics',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/function-basics',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方阅读第一篇：函数声明、调用、参数、返回值的系统讲解，并重点覆盖近年新增的实用能力「默认参数」。官方提示：其中 Functions == Comments 小节和最后一个练习用到下一课才学的循环，跳过即可。站内有官方中文版。',
+      why: '官方指定主读：函数基础与默认参数。',
+      points: [
+        '声明 / 调用 / 参数 / 返回值一条线讲透。',
+        '默认参数：声明时写「参数 = 默认值」兜底缺省实参。',
+        '两处涉及循环的内容官方明说跳过。'
+      ],
+      terms: [
+        'function declaration（函数声明）',
+        'default parameter（默认参数）'
+      ],
+      focus: '读中文版跟着敲全部示例，页面底部的练习挑不涉及循环的做。',
+      takeaway: '这篇是本课阅读清单的地基，其他各篇都是它的展开。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'function-basics',
+      title: 'Functions — reusable blocks of code',
+      titleZh: '函数——可复用的代码块（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Functions',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「函数——可复用的代码块」，简体中文）',
+      zhGuide: {
+      overview: '官方阅读第二篇：MDN 的函数教程。官方叮嘱：部分内容可能超出本课范围不用慌，但 **Function Scope（函数作用域）小节要重点读**——作用域是新手与中级开发者共同的坑，值得提前花时间。MDN 有官方中文版。',
+      why: '官方指定阅读：重点是 Function Scope 小节。',
+      points: [
+        '函数的另一种视角讲解，与前一篇互补。',
+        'Function Scope 小节：函数内声明的变量外面看不见。',
+        '自带练习题官方明说**不要做**（涉及未学知识）。'
+      ],
+      terms: [
+        'function scope（函数作用域）',
+        'local variable（局部变量）'
+      ],
+      focus: '读中文版，Function Scope 小节慢读两遍；文末练习跳过。',
+      takeaway: '作用域搞扎实，后面一半的「变量去哪了」问题不会发生。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'function-basics',
+      title: 'Return values',
+      titleZh: '返回值（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Return_values',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「函数返回值」，简体中文）',
+      zhGuide: {
+      overview: '官方阅读第三篇：专门讲返回值——return 把什么交还给调用处、没有 return 的函数返回什么（undefined）、返回值怎么被接住与使用。与本站讲解「返回值去哪了」一章互为印证。MDN 有官方中文版。',
+      why: '官方指定阅读：返回值专题。',
+      points: [
+        'return 交还结果；return 后的代码不执行。',
+        '不写 return 的函数返回 undefined。',
+        '返回值要么存变量、要么直接当下一个调用的实参。'
+      ],
+      terms: [
+        'return value（返回值）',
+        'undefined（未定义值）'
+      ],
+      focus: '读中文版，把「返回到虚无」那个例子自己跑一遍。',
+      takeaway: '理解返回值流向，链式调用才不是黑盒。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'function-basics',
+      title: 'Function expressions',
+      titleZh: '函数表达式（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条（其一）',
+      originalUrl: 'https://javascript.info/function-expressions',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/function-expressions',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方阅读第四篇的前半：函数表达式——函数不只可以用 function 声明，还能作为一个值赋给变量（const f = function() {}）。官方说这篇是「补充上下文」，读完对「函数是一等公民」有个印象即可。站内有官方中文版。',
+      why: '官方指定阅读：函数是值的另一种写法。',
+      points: [
+        '函数声明 vs 函数表达式两种形态。',
+        '函数可以存进变量、当参数传——它是「一等公民」。'
+      ],
+      terms: [
+        'function expression（函数表达式）'
+      ],
+      focus: '读中文版通读即可，不必深挖两种形态的差异细节。',
+      takeaway: '知道函数能当值用，后面的回调才不突兀。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'function-basics',
+      title: 'Arrow functions, the basics',
+      titleZh: '箭头函数基础（JavaScript.info 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条（其二）',
+      originalUrl: 'https://javascript.info/arrow-functions-basics',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/arrow-functions-basics',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方阅读第四篇的后半：箭头函数——(a, b) => a + b 的更短写法。官方口径宽松：有用但不是必需，现在不用太纠结；安排在这里是因为后面读代码一定会遇到，先「看到认得」。站内有官方中文版。',
+      why: '官方指定阅读：箭头函数的初识（认识即可）。',
+      points: [
+        '语法更短：参数 => 表达式。',
+        '与函数表达式同族，是写函数的另一种姿势。',
+        '官方明说：现在不必深究，认得就行。'
+      ],
+      terms: [
+        'arrow function（箭头函数）'
+      ],
+      focus: '快速通读中文版，记住形态即可。',
+      takeaway: '读到 const f = x => x * 2 时知道这是函数，目标达成。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'function-basics',
+      title: 'JavaScript Call Stack',
+      titleZh: 'JavaScript 调用栈（JavaScriptTutorial 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 5 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-call-stack/',
+      sourceDomain: 'javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方阅读最后一篇：调用栈（call stack）——引擎用栈结构记录「谁在等谁」：函数调用入栈、return 后出栈。文章深入讲链式调用里 return 怎么接力，官方预告可能暂时看不全懂——没关系，关键是心里有数「返回的值要去哪」，顺便算一点提前的计算机科学。',
+      why: '官方指定阅读：调用栈与 return 的接力机制。',
+      points: [
+        '调用栈：函数调用入栈、执行完出栈。',
+        '栈溢出（stack overflow）就是栈太深了。',
+        '报错的「栈回溯」读的正是这个结构（下一课会用到）。'
+      ],
+      terms: [
+        'call stack（调用栈）',
+        'stack overflow（栈溢出）'
+      ],
+      focus: '通读英文原文，看不懂的部分先放着——官方原话「Don\'t worry if you don\'t fully understand this yet」。',
+      takeaway: '调用栈是理解递归、报错回溯、异步的前置地图。',
+      },
+      license: 'JavaScriptTutorial.net 站点自有版权；本站只提供链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'problem-solving',
+      title: 'Fizz buzz',
+      titleZh: 'Fizz buzz（维基百科条目）',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文 Solving Fizz Buzz 小节',
+      originalUrl: 'https://en.wikipedia.org/wiki/Fizz_buzz',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文实战案例 Fizz Buzz 的维基条目：这道题的来历（儿童数数游戏）、它在编程圈的地位（面试名题）。官方正文直接拿它当「理解问题→计划→分治」流程的演示对象。中文维基暂无对应条目（已核验 404），读英文原版即可——正文本身已经把题目讲清。',
+      why: '官方正文引用的案例背景条目。',
+      points: [
+        'Fizz Buzz 源自儿童数数游戏：逢 3 喊 Fizz、逢 5 喊 Buzz。',
+        '它被广泛用作编程入门与面试题。'
+      ],
+      terms: [
+        'Fizz Buzz（数数游戏）'
+      ],
+      focus: '扫一眼背景即可，题目本身以官方正文为准。',
+      takeaway: '知道这道题为什么出名，做题时更有代入感。',
+      },
+      license: '维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版或英文原版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'problem-solving',
+      title: 'for - JavaScript | MDN',
+      titleZh: 'for 循环（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文 Solving Fizz Buzz 小节',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「for」，简体中文）',
+      zhGuide: {
+      overview: '官方正文里 Fizz Buzz 第二个子问题用到的 for 循环：官方原话「这是你在 Java、C++、Ruby 等很多语言里都会见到的常见写法」。初始值、条件、增量三段的完整语义在这里查。MDN 有官方中文版。',
+      why: '官方正文引用的语法参考：for 循环。',
+      points: [
+        '三段式：let i = 1（初始）；i <= n（条件）；i++（每轮增量）。',
+        '多数循环从 0 开始，Fizz Buzz 按题目需要从 1。'
+      ],
+      terms: [
+        'for loop（for 循环）',
+        'iteration（迭代）'
+      ],
+      focus: '写 Fizz Buzz 时对照本页确认三段语义。',
+      takeaway: 'for 是循环的第一块积木，下一课（循环与数组）会正式展开。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'problem-solving',
+      title: 'How to Think Like a Programmer - Lessons in Problem Solving',
+      titleZh: '如何像程序员一样思考（freeCodeCamp 文章）',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.freecodecamp.org/news/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2/',
+      sourceDomain: 'freecodecamp.org',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第一篇：Richard Reis 的《如何像程序员一样思考——问题解决课》。核心论点与本课一致：编程难的不是语言而是问题解决，而问题解决可以按流程练——理解、分解、逐个击破。中文版暂无官方对应（chinese.freecodecamp.org 未收录该篇，已核验 404），读英文原版。',
+      why: '官方指定阅读：问题解决方法论的开篇。',
+      points: [
+        '「程序员的大脑」不是天赋，是一套可练习的流程。',
+        '遇到卡壳：先理解、再分解，而不是先写代码。'
+      ],
+      terms: [
+        'problem solving（问题解决）',
+        'decomposition（分解）'
+      ],
+      focus: '通读文章，把作者给的流程与官方三步对照着看。',
+      takeaway: '方法论多一个视角，卡壳时多一条出路。',
+      },
+      license: 'freeCodeCamp 文章采用 CC BY-NC-SA 4.0；本站只提供链接与本站原创导读，不复制原文。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'problem-solving',
+      title: 'How to Begin Thinking Like a Programmer',
+      titleZh: '如何开始像程序员一样思考（Coding Tech 演讲）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=azcrPFhaY9k',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第二项：Coding Tech 的一小时演讲。官方原话：一小时长但信息量大，绝对值得你的时间。视频（YouTube，oEmbed 已核验标题与频道）把「问题解决课」的内容当面讲一遍——适合读完上面文章后当复习与加深。',
+      why: '官方指定观看：一小时的问题解决完整演讲。',
+      points: [
+        '与第一篇文章同一主题的展开版。',
+        '一小时时长，值得整块时间投入。'
+      ],
+      terms: [
+        'talk（技术演讲）'
+      ],
+      focus: '找一段完整时间看完，边看边对照官方三步流程。',
+      takeaway: '听一遍真人讲透，比再读三篇文章更能把流程「焊」进脑子。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'problem-solving',
+      title: 'Pseudocode: What It Is and How to Write It',
+      titleZh: '伪代码：它是什么、怎么写（Built In 文章）',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.builtin.com/data-science/pseudocode',
+      sourceDomain: 'builtin.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第三篇：Built In 的伪代码教程——伪代码是什么、为什么先写它、怎么写好它。与本课「计划」阶段的伪代码小节互为印证：用自然语言写逻辑，逼自己在写代码前想清每一步。',
+      why: '官方指定阅读：伪代码专题。',
+      points: [
+        '伪代码 = 自然语言版程序逻辑，无固定语法。',
+        '好处：写代码前暴露逻辑漏洞，成本最低。'
+      ],
+      terms: [
+        'pseudocode（伪代码）'
+      ],
+      focus: '读文章，回头把 Fizz Buzz 的六行伪代码自己再写一遍。',
+      takeaway: '伪代码练熟了，任何新语言都能「先想清再翻译」。',
+      },
+      license: 'Built In 站点自有版权；本站只提供链接与本站原创导读，不复制原文。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'understanding-errors',
+      title: 'ReferenceError - JavaScript | MDN',
+      titleZh: 'ReferenceError（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（其一）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「ReferenceError」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 三篇文档之一：ReferenceError 的 MDN 参考——什么时候抛、常见消息形态、怎么排查。官方叮嘱：不必现在完全读懂全部文档，目标是熟悉概念；示例用的 try...catch 现在知道存在即可。',
+      why: '官方指定阅读：引用错误的权威定义。',
+      points: [
+        '触发：引用了当前作用域不存在的变量（或拼错）。',
+        'c is not defined 与 can\'t access lexical declaration 是两种不同原因。',
+        '文档示例的 try...catch：现在只要知道存在。'
+      ],
+      terms: [
+        'ReferenceError（引用错误）',
+        'try...catch（捕获语句）'
+      ],
+      focus: '读中文版，重点看「什么时候抛」的说明部分。',
+      takeaway: '三种错误各有一篇官方定义，读齐了判断就有依据。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'understanding-errors',
+      title: 'SyntaxError - JavaScript | MDN',
+      titleZh: 'SyntaxError（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（其二）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「SyntaxError」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 三篇文档之二：SyntaxError 的 MDN 参考——代码不符合语法规则时在解析阶段抛出（如 console.log 漏括号）。特征是程序一步都不跑：引擎先解析全文，语法不过关不开始执行。',
+      why: '官方指定阅读：语法错误的权威定义。',
+      points: [
+        '触发：语法不合规，解析期就拦下。',
+        '特征：程序根本跑不起来，错误行号几乎总是直指病灶。'
+      ],
+      terms: [
+        'SyntaxError（语法错误）',
+        'parse（解析）'
+      ],
+      focus: '读中文版，「什么时候抛」部分细看。',
+      takeaway: '语法错误最常见也最好修——信息几乎总指向那一行。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'understanding-errors',
+      title: 'TypeError - JavaScript | MDN',
+      titleZh: 'TypeError（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（其三）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「TypeError」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 三篇文档之三：TypeError 的 MDN 参考。正文里那个 str1.push is not a function 的经典案例，权威定义就在这篇——对不兼容的类型做操作时抛出。心法：遇到它先想「我在对什么类型用什么方法」。',
+      why: '官方指定阅读：类型错误的权威定义。',
+      points: [
+        '触发：实参类型不兼容 / 改不能改的值 / 用不合适的方式用值。',
+        'str.push is not a function：方法是别的类型的。'
+      ],
+      terms: [
+        'TypeError（类型错误）'
+      ],
+      focus: '读中文版，把正文 push 案例对照官方定义再走一遍。',
+      takeaway: 'TypeError 是日常出现频率最高的错误，值得最熟。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'understanding-errors',
+      title: 'What went wrong? Troubleshooting JavaScript',
+      titleZh: '哪里出错了？JavaScript 排错（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/What_went_wrong',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「查找并解决 JavaScript 代码中的错误」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 收官：MDN 的排错实操教程——官方特意叮嘱**下载它提供的带故意错误的起始代码**跟着修。把本课学的错误结构、三类错误、四条建议全部实战一遍。MDN 有官方中文版。',
+      why: '官方指定实操：带着故意错误练排错。',
+      points: [
+        '提供起始代码，错误是故意埋好的。',
+        '逐个读错误信息、定位、修复——完整排错流程。',
+        '覆盖 SyntaxError / ReferenceError 等真实场景。'
+      ],
+      terms: [
+        'troubleshooting（排错）'
+      ],
+      focus: '下载起始代码，把每个错误修完——这是本课唯一必做的动手项。',
+      takeaway: '修完这套题，「读错误信息」就从知识变成肌肉记忆。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'rock-paper-scissors',
+      title: 'How to Play Rock, Paper, Scissors',
+      titleZh: '怎样玩石头剪刀布（wikiHow）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Introduction',
+      originalUrl: 'https://www.wikihow.com/Play-Rock,-Paper,-Scissors',
+      sourceDomain: 'wikihow.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在项目介绍里链接的玩法说明：石头剪刀布的规则——三种手势谁克谁、几局定胜负。如果你对规则本身有哪怕一点不确定，先花两分钟读它；项目逻辑（谁赢谁输）全建立在这个规则上。中文 wikiHow 无对应条目（已核验 404），读英文版即可——规则部分全是图示，语言压力很小。',
+      why: '官方正文引用的项目规则说明。',
+      points: [
+        '三种手势的相克关系：石头克剪刀、剪刀克布、布克石头。',
+        '本项目打五轮、总分定胜负。'
+      ],
+      terms: [
+        'rock / paper / scissors（石头 / 剪刀 / 布）'
+      ],
+      focus: '扫一遍确认规则记忆无误，然后回到项目拆解。',
+      takeaway: '规则记错，后面 playRound 的判断逻辑会整体写反。',
+      },
+      license: 'wikiHow 内容按其站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'rock-paper-scissors',
+      title: 'Strategically Building Your Portfolio',
+      titleZh: '策略性地打造作品集（dev.to 文章）',
+      type: '文章',
+      requirement: 'reference',
+      zone: '正文 Focus on the task 提示框',
+      originalUrl: 'https://dev.to/theodinproject/strategically-building-your-portfolio-1km4',
+      sourceDomain: 'dev.to',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在「专注手头任务」提示框里配的文章：为什么现在不该在这个小项目上堆功能、磨交互——以及应该把打磨的精力「策略性地」投到哪里（作品集项目）。这是 TOP 官方博客的文章，讲的是学习投资的整体思路。',
+      why: '官方提示框配套阅读：把打磨精力留给对的地方。',
+      points: [
+        '小项目的价值在把逻辑做对，不在做花。',
+        '打磨交互与视觉的精力留给作品集项目。'
+      ],
+      terms: [
+        'portfolio（作品集）',
+        'scope creep（范围蔓延）'
+      ],
+      focus: '可选阅读：做完项目后读，理解官方「别加功能」的用意。',
+      takeaway: '知道克制也是工程能力的一部分。',
+      },
+      license: 'dev.to 文章按其平台条款提供；本站只提供链接与本站原创导读，不复制原文。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'rock-paper-scissors',
+      title: 'Math.random() - JavaScript | MDN',
+      titleZh: 'Math.random（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment Step 2 Hint',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/random',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「Math.random」，简体中文）',
+      zhGuide: {
+      overview: '官方 Step 2 的 Hint 链接：Math.random 返回大于等于 0 且小于 1 的随机数。怎么用它「条件性地三选一」由你自己想（官方只给原料不给答案）——文档里的「得到两值之间的随机整数」示例是很好的参照，但别直接抄，想清楚区间怎么切。MDN 有官方中文版。',
+      why: '官方 Hint 引用：随机数的权威定义。',
+      points: [
+        '返回 [0, 1) 的浮点数——含 0 不含 1。',
+        '想想怎么把这段区间切成三份，每份对应一种出拳。',
+        '官方明说：这题不需要数组。'
+      ],
+      terms: [
+        'Math.random()（随机数方法）',
+        'interval（区间）'
+      ],
+      focus: '读中文版，重点看返回值范围；实现自己写。',
+      takeaway: '理解「含 0 不含 1」的半开区间，切三份才不会出错。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'rock-paper-scissors',
+      title: 'window.prompt - Web APIs | MDN',
+      titleZh: 'prompt（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment Step 3 Hint',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/API/Window/prompt',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「prompt()」，简体中文）',
+      zhGuide: {
+      overview: '官方 Step 3 的 Hint 链接：prompt 弹窗获取用户输入——第 36 课 Fizz Buzz 里你已经用过它（配 parseInt 转数字）。这次拿的是字符串出拳，不需要转数字；官方明说不用处理非法输入的重新询问。MDN 有官方中文版。',
+      why: '官方 Hint 引用：获取用户输入的标准方法。',
+      points: [
+        'prompt(提示文字) 弹窗并返回用户输入的字符串。',
+        '用户取消时返回 null——本项目按官方口径假设输入总是合法。'
+      ],
+      terms: [
+        'prompt（输入弹窗）',
+        'null（空值）'
+      ],
+      focus: '读中文版确认返回值类型，直接开写。',
+      takeaway: '这是你与「用户输入」打的第二次交道，以后会越来越熟。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+  /* ===== 39 Clean Code ===== */
+    {
+      lessonId: 'clean-code',
+      title: 'Tabs vs Spaces vs Both?',
+      titleZh: '用 Tab、空格还是都要？（reddit 旧帖）',
+      type: '社区讨论',
+      requirement: 'reference',
+      zone: '正文 Indentation and line length',
+      originalUrl: 'https://www.reddit.com/r/programming/comments/p1j1c/tabs_vs_spaces_vs_both/',
+      sourceDomain: 'reddit.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文在进入缩进话题前开的玩笑——程序员圈流传最广的「圣战」：缩进到底用 Tab 还是空格。这帖是 r/programming 的老帖，官方引用它只是给「这是个争议话题」加个幽默注脚，读不读都不影响学本课。官方真正想说的只有一句：选一种方式并保持一致，哪种都行。403 是 reddit 拦截命令行请求，浏览器打开正常。',
+      why: '官方正文的玩笑引用：说明缩进风格是圈内争议话题。',
+      points: [
+        'Tab 还是空格没有标准答案，风格指南各执一词。',
+        '官方立场：真正重要的是一致性，选一种并坚持。'
+      ],
+      terms: [
+        'tabs vs spaces（缩进圣战）',
+        'style guide（风格指南）'
+      ],
+      focus: '扫一眼感受一下争议氛围即可，别陷进去。',
+      takeaway: '缩进风格之争没有胜负，一致性才是唯一答案。',
+      },
+      license: 'reddit 帖子内容按其站点条款提供；本站只提供链接与本站原创导读，不复制帖子内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称为"已验证可访问"，也未替换官方给出的地址。'
+    },
+    {
+      lessonId: 'clean-code',
+      title: '10 Principles for Keeping Your Programming Code Clean',
+      titleZh: '保持编程代码整洁的 10 条原则（One Extra Pixel）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://onextrapixel.com/10-principles-for-keeping-your-programming-code-clean/',
+      sourceDomain: 'onextrapixel.com',
+      originalUrlStatus: '000（两次自动核验均未取得响应）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方指定阅读：把本课讲的整洁代码原则展开成 10 条可操作的清单。本课正文已覆盖命名、一致性、注释等核心，这篇的作用是「复习 + 换个角度补充」。命令行核验两次均无响应（站点不回应自动请求），浏览器打开如也异常可稍后重试——它是补充阅读，打不开不阻塞本课。',
+      why: '官方 Assignment 第一条：获取整洁代码实用技巧。',
+      points: [
+        '与本课原则同源的 10 条清单式总结。',
+        '英文原文、无中文版；本课正文已覆盖核心，读它是巩固。'
+      ],
+      terms: [
+        'principle（原则）',
+        'readability（可读性）'
+      ],
+      focus: '对照正文逐条过，看哪些是新课、哪些是复述。',
+      takeaway: '原则清单化便于自查：写完代码拿它扫一遍。',
+      },
+      license: 'onextrapixel 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '该地址两次自动核验均未取得响应（000），本站未声称为"已验证可访问"，也未替换官方给出的地址。'
+    },
+    {
+      lessonId: 'clean-code',
+      title: 'Code Tells You How, Comments Tell You Why',
+      titleZh: '代码告诉你怎么做，注释告诉你为什么（Coding Horror）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/',
+      sourceDomain: 'blog.codinghorror.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Jeff Atwood（Coding Horror 博客作者、Stack Overflow 联合创始人）的注释经典文：代码本身已经说明「怎么做」，注释的价值在于说清「为什么」——为什么选这个方案、为什么这里必须绕一下。本课「注释讲为什么，不是怎么做」一节正是从这篇来的（节标题即其口号的翻版），读完能补上正文没展开的案例。',
+      why: '官方 Assignment 第二条：理解好的注释实践。',
+      points: [
+        '代码负责 how，注释负责 why——分工别搞反。',
+        '为什么存在比做了什么更难从代码里读出来。'
+      ],
+      terms: [
+        'comment（注释）',
+        'intent（意图）'
+      ],
+      focus: '注意文中「好注释救了读代码的人」的具体例子。',
+      takeaway: '下次写注释先问：这句是复述代码，还是在解释动机？',
+      },
+      license: 'Coding Horror 博客文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'clean-code',
+      title: 'Coding Without Comments',
+      titleZh: '不靠注释写代码（Coding Horror）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://blog.codinghorror.com/coding-without-comments/',
+      sourceDomain: 'blog.codinghorror.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '上一篇的姊妹篇：好代码常常根本不需要注释——名字起对了、结构清晰了，注释就成了重复劳动；同时点名「坏注释」的典型形态（复述代码的废话注释、无人维护的过期注释）。与本课 extractText 三连进化的示例完全呼应：最后一版零注释反而最清楚。',
+      why: '官方 Assignment 第二条：理解什么时候根本不需要注释。',
+      points: [
+        '好命名与好结构能消灭大部分注释。',
+        '注释也是要维护的代码——过期注释比没注释更糟。'
+      ],
+      terms: [
+        'self-documenting code（自解释代码）',
+        'stale comment（过期注释）'
+      ],
+      focus: '对照本课 extractText 三个版本看「注释逐渐消失」的过程。',
+      takeaway: '想写注释时先试试改名字，改不动再写注释。',
+      },
+      license: 'Coding Horror 博客文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+  /* ===== 40 Loops and Arrays ===== */
+    {
+      lessonId: 'loops-and-arrays',
+      title: 'Looping code - Learn Web Development | MDN',
+      titleZh: '循环代码（MDN 入门教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Loops 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Looping_code',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「循环吧，代码！」，简体中文；MDN 新路径 Learn_web_development 暂无中文版，本条 zh-CN 为旧路径、仍在线）',
+      zhGuide: {
+      overview: '官方指定的循环主读：for / while / do...while 的写法与适用场景，重点讲「循环条件什么时候退出」——条件写错就是死循环。官方明说要做页面底部的练习。MDN 有官方中文版（旧路径，标题「循环吧，代码！」）。',
+      why: '官方正文指定的循环主读教程。',
+      points: [
+        'for 适合已知次数，while 适合未知次数，do...while 至少跑一次。',
+        '循环三要素：初始化、条件、更新——漏了更新就是死循环。',
+        '官方要求完成页面底部的练习。'
+      ],
+      terms: [
+        'loop（循环）',
+        'infinite loop（死循环）',
+        'iterate（迭代）'
+      ],
+      focus: '读中文版，把每种循环的退出条件都亲手敲一遍。',
+      takeaway: '循环是后面练习题的主力工具，退出条件必须想清楚再写。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'loops-and-arrays',
+      title: 'Loops: while and for',
+      titleZh: '循环：while 和 for（JavaScript.info）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Loops 第 2 条',
+      originalUrl: 'https://javascript.info/while-for',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/while-for',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '同一主题换个讲法：while / do..while / for / break / continue 逐个过，例子都可运行。官方原话是「You learn best by doing」——页尾练习要做。站内有官方中文版。',
+      why: '官方正文指定的循环第二读：同一信息、不同语境。',
+      points: [
+        'break 提前跳出、continue 跳过本轮。',
+        '官方要求完成页面底部的练习。'
+      ],
+      terms: [
+        'break（跳出循环）',
+        'continue（跳过本轮）'
+      ],
+      focus: '和 MDN 那篇对照着读，两边的练习都做。',
+      takeaway: '两套讲法互相印证，循环语法就稳了。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'loops-and-arrays',
+      title: 'JavaScript Arrays Crash Course',
+      titleZh: 'JavaScript 数组速览（YouTube 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: '正文 Arrays 第 1 条',
+      originalUrl: 'https://www.youtube.com/watch?v=7W4pQQ20nJg',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 JavaScript Arrays Crash Course: Array Methods Explained，作者 Web Dev Simplified）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在进入数组阅读清单前给的约 6 分钟速览：数组是什么、怎么建、怎么存取，顺带扫一遍常用方法。本站已用 YouTube oEmbed 接口核验其真实标题与作者（Web Dev Simplified）；观看需要 YouTube 访问权限。',
+      why: '官方正文指定的数组入门视频。',
+      points: [
+        '约 6 分钟讲完数组的创建与存取。',
+        '需要 YouTube 访问权限才能观看。'
+      ],
+      terms: [
+        'array（数组）',
+        'index（下标）'
+      ],
+      focus: '看完对数组有个整体印象，细节交给后面两篇阅读。',
+      takeaway: '视频给直觉，文档给细节——两条腿走路。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'loops-and-arrays',
+      title: 'Arrays',
+      titleZh: '数组（JavaScript.info）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Arrays 第 2 条',
+      originalUrl: 'https://javascript.info/array',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/array',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '数组入门系统读：声明、下标存取、length、push/pop/shift/unshift 两端操作，以及「数组本质是对象」这个关键认知。官方明说这篇不做页尾练习。站内有官方中文版。',
+      why: '官方正文指定的数组入门阅读。',
+      points: [
+        '两端操作方法要记牢：尾部 push/pop、头部 shift/unshift。',
+        '数组是对象——这解释了它的很多怪脾气（后面课会展开）。',
+        '官方明说：不做页尾练习。'
+      ],
+      terms: [
+        'element（元素）',
+        'length（长度）'
+      ],
+      focus: '读中文版把两端操作的四个方法亲手敲一遍。',
+      takeaway: 'push/pop 是你用得最多的两个数组操作。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'loops-and-arrays',
+      title: 'Array methods',
+      titleZh: '数组方法（JavaScript.info）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Arrays 第 3 条',
+      originalUrl: 'https://javascript.info/array-methods',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/array-methods',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '更深的数组方法清单：splice/slice、concat、forEach、indexOf、includes、find、filter、map、sort。官方说通读时不做页尾练习——但 Assignment 第一项恰恰是回到这篇页尾的练习区做指定七题，所以「不做」指的是通读阶段不刷题，做完练习照旧要来。站内有官方中文版。',
+      why: '官方正文指定的数组方法阅读（也是 Assignment 练习的出处）。',
+      points: [
+        'splice 与 slice 一字之差：一个改原数组、一个返回新数组。',
+        'filter / map 在这里先混个脸熟，本课正文会重点展开。',
+        'Assignment 七题就在这篇的页尾练习区。'
+      ],
+      terms: [
+        'splice / slice（拼接 / 切片）',
+        'forEach（逐个执行）'
+      ],
+      focus: '读中文版，练习留到 Assignment 阶段回来做。',
+      takeaway: '这篇既是阅读材料又是练习场地，值得加书签。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: 'Assignment 的 array-methods#tasks 锚点与本条同页，按同页合并登记，未单列。'
+    },
+    {
+      lessonId: 'loops-and-arrays',
+      title: 'Array - JavaScript | MDN',
+      titleZh: 'Array（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文 Arrays 第 4 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「Array」，简体中文）',
+      zhGuide: {
+      overview: '官方原话是「加书签，不用背」：全部内建数组属性与方法的参考文档，写代码时回来查。本课 map/filter/reduce 之后的学习里会反复用到它。MDN 有官方中文版。',
+      why: '官方正文指定：全部数组内建方法的查询入口。',
+      points: [
+        '官方明说：不要求背，遇到查。',
+        '这会是日后最常回访的参考页之一。'
+      ],
+      terms: [
+        'built-in method（内建方法）',
+        'reference documentation（参考文档）'
+      ],
+      focus: '现在只需要确认自己能找到它；顺手加书签。',
+      takeaway: '查文档的速度就是写代码的速度。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+  /* ===== 41 DOM Manipulation and Events ===== */
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'Spread syntax (...) - JavaScript | MDN',
+      titleZh: '展开语法（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文 DOM 方法 querySelectorAll 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「展开语法（...）」，简体中文）',
+      zhGuide: {
+      overview: '官方在讲「NodeList 不是数组」时给出的解法链接：用展开运算符（...）把 NodeList 摊开成真数组。语法本身一行就能学会，第 40 课的数组方法（map / filter）转过来就能用。MDN 有官方中文版。',
+      why: '官方正文引用：把 NodeList 转成数组的标准方法之一。',
+      points: [
+        '[...nodeList] 一行把类数组摊开成真数组。',
+        'Array.from(nodeList) 是等价的另一条路。'
+      ],
+      terms: [
+        'spread operator（展开运算符）',
+        'iterable（可迭代对象）'
+      ],
+      focus: '读中文版的语法示例即可，深水区（函数调用 / 对象展开）后面课会用。',
+      takeaway: 'NodeList 缺数组方法时，先想到把它摊开。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: 'MDN 新旧路径并存：en 原路径 Spread_operator 重定向至 Spread_syntax；zh-CN 旧路径无中文版（重定向回 en-US），zhUrl 按新路径登记。'
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'HTML attribute reference - HTML | MDN',
+      titleZh: 'HTML 属性参考（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文 Altering elements · Editing attributes 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「HTML 属性参考」，简体中文）',
+      zhGuide: {
+      overview: '官方在 setAttribute / getAttribute / removeAttribute 三件套后面给的查询入口：全部 HTML 属性的参考文档，改属性时回来查。MDN 有官方中文版。',
+      why: '官方正文指定：可用属性的完整清单。',
+      points: [
+        'setAttribute / getAttribute / removeAttribute 三招走天下。',
+        '全部合法属性都在这份参考里，遇到不熟的属性回来查。'
+      ],
+      terms: [
+        'attribute（属性）',
+        'id / class（最常见的两个属性）'
+      ],
+      focus: '现在扫一眼结构即可，写代码时回来查。',
+      takeaway: '属性操作三件套 + 一份可查的清单，足够应付本课全部需求。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: 'MDN 路径迁移：en 原路径 Web/HTML/Attributes 重定向至 Web/HTML/Reference/Attributes，zhUrl 按重定向后的新路径登记。'
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'How To Prevent The Most Common Cross Site Scripting Attack',
+      titleZh: '怎样防住最常见的跨站脚本攻击（YouTube 视频）',
+      type: '视频',
+      requirement: 'reference',
+      zone: '正文 Security risks 提示框（加 HTML 内容一节）',
+      originalUrl: 'https://www.youtube.com/watch?v=ns1LX6mEvyM',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 How To Prevent The Most Common Cross Site Scripting Attack，作者 Web Dev Simplified）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在「该属性的安全风险」提示框里配的视频：演示最常见的 XSS（跨站脚本）攻击怎么发生、怎么防。看完你会明白为什么官方反复强调「加文本用 textContent、会把字符串当 HTML 解析的那条路要省着用」。本站已用 YouTube oEmbed 接口核验其真实标题与作者（Web Dev Simplified）；观看需要 YouTube 访问权限。',
+      why: '官方提示框指定：理解该属性危险性的可视化讲解。',
+      points: [
+        'XSS = 攻击者把恶意脚本当 HTML 塞进你的页面。',
+        '用户输入永远不直接拼进会被当 HTML 解析的字符串里。',
+        '需要 YouTube 访问权限才能观看。'
+      ],
+      terms: [
+        'XSS（Cross-Site Scripting，跨站脚本）',
+        'injection（注入）'
+      ],
+      focus: '看懂「字符串怎么变成可执行脚本」的那一刻即可。',
+      takeaway: 'textContent 默认、HTML 解析属性例外——这条纪律从这课开始保持到职业生涯结束。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'Scripts: async, defer',
+      titleZh: '脚本：async 与 defer（JavaScript.info）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Timing of JavaScript 提示框',
+      originalUrl: 'https://javascript.info/script-async-defer',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/script-async-defer',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方在「script 放哪儿」提示框里给的延伸阅读：defer 与 async 两种加载方式的精确区别。本课只需要 defer 这半页（HTML 解析完才执行）；async（下载完立刻执行、顺序不保证）知道有这回事即可。站内有官方中文版。',
+      why: '官方提示框引用：defer 属性的权威解释。',
+      points: [
+        'defer = 等 HTML 解析完再执行，多个 defer 脚本按顺序跑。',
+        'async = 下载完就执行、顺序不保证——本课用不上。'
+      ],
+      terms: [
+        'defer（延迟执行）',
+        'async（异步执行）'
+      ],
+      focus: '读中文版，只精读 defer 相关小节。',
+      takeaway: '「script 放底部或加 defer」从此成为你的肌肉记忆。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'Introduction to events - Learn web development | MDN',
+      titleZh: '事件介绍（MDN 入门教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Events 段（事件对象 e）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/Events',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「事件介绍」，简体中文；本条 Learn_web_development 新路径即有中文版，与此前多课新路径无中文版的情况相反）',
+      zhGuide: {
+      overview: '官方在讲事件对象 e 时给的链接：事件体系的系统教程，event 对象的全部属性与方法（按了哪个键、target 是谁、怎么阻止默认行为）都在这里。本课用到的是其中「Event objects」一小节；整篇值得通读一遍打底。MDN 有官方中文版。',
+      why: '官方正文指定：事件对象的权威文档。',
+      points: [
+        'e.target 是被触发的节点，e 本身装着事件的全部信息。',
+        '常见事件不止 click：dblclick / keydown / keyup 等。'
+      ],
+      terms: [
+        'Event object（事件对象）',
+        'target（事件目标）'
+      ],
+      focus: '读中文版的 Event objects 一节，其余小节扫读。',
+      takeaway: '回调里的 e 不是魔法参数，是一个装满现场信息的对象。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '官方原文链接带 #event_objects 锚点，与本条同页，按同页合并登记。'
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'HTML DOM Event Object',
+      titleZh: 'HTML DOM 事件对象参考（W3Schools）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文 Events 段（常用事件清单）',
+      originalUrl: 'https://www.w3schools.com/jsref/dom_obj_event.asp',
+      sourceDomain: 'www.w3schools.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在列出 click / dblclick / keydown / keyup 几个常用事件后给的完整清单入口：每种 DOM 事件一行说明。不需要背——知道「事件字典」在哪、用的时候回来查就行。W3Schools 无官方中文版，英文页面词汇量很小。',
+      why: '官方正文指定：完整事件清单的查询入口。',
+      points: [
+        'click / dblclick / keydown / keyup 是本课主力。',
+        '完整清单按「鼠标 / 键盘 / 表单 / 文档」分类，查起来很快。'
+      ],
+      terms: [
+        'event type（事件类型）',
+        'event reference（事件参考）'
+      ],
+      focus: '扫一遍分类结构，记住「有事回来查」。',
+      takeaway: '事件种类比你想的多得多——没人背这个。',
+      },
+      license: 'W3Schools 内容按其站点条款提供；本站只提供链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '本条本次自动核验为 200（带浏览器 UA）；此前课 21 / 25 / 33 收录的 W3Schools 页面均 403 反爬受限，本页未受限，如实按 200 登记。'
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'Understanding JavaScript Events',
+      titleZh: '理解 JavaScript 事件（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-dom/javascript-events/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第一组阅读六篇之首：事件体系的总览——事件是什么、怎么注册监听、事件对象长什么样。与本课正文互相印证，读起来应该很顺（正文已经把核心讲过一遍）。JavaScript Tutorial 无官方中文版。',
+      why: '官方 Assignment 指定阅读：事件总览。',
+      points: [
+        '事件注册三种方式与监听器优先级，正文已讲——这里换一套例子复习。',
+        '官方口径：这组阅读目标是建立意识，不是全懂会用。'
+      ],
+      terms: [
+        'event handler（事件处理器）',
+        'register（注册监听）'
+      ],
+      focus: '快速通读，遇到正文没见过的词记个脸熟即可。',
+      takeaway: '六篇阅读的第一篇定基调：建意识，不求深解。',
+      },
+      license: 'JavaScript Tutorial 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'JavaScript Mouse Events',
+      titleZh: 'JavaScript 鼠标事件（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-dom/javascript-mouse-events/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '六篇之二：鼠标事件家族——click / dblclick / mousedown / mouseup / mousemove / mouseover / mouseout 逐个过。重点看 click 与 dblclick 的关系（dblclick 会先触发两次 click）这类「知道就好」的细节。',
+      why: '官方 Assignment 指定阅读：鼠标事件。',
+      points: [
+        'click 是 mousedown + mouseup 的组合结果。',
+        'hover 类事件（mouseover / mouseout）常配 CSS 替代方案使用。'
+      ],
+      terms: [
+        'mousedown / mouseup（按下 / 抬起）',
+        'hover（悬停）'
+      ],
+      focus: '对照事件表扫读，别死记顺序。',
+      takeaway: '鼠标事件的细分种类比你日常用的多，用的时候回来查。',
+      },
+      license: 'JavaScript Tutorial 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'JavaScript Keyboard Events Explained',
+      titleZh: 'JavaScript 键盘事件详解（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-dom/javascript-keyboard-events/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '六篇之三：键盘事件三兄弟 keydown / keypress / keyup——哪个该用哪个弃用（keypress 已废弃）、e.key 与 e.code 的区别。游戏类项目（方向键操作）会真用到。',
+      why: '官方 Assignment 指定阅读：键盘事件。',
+      points: [
+        'keydown / keyup 是现役主力，keypress 已废弃。',
+        'e.key 是「按了什么字符」，e.code 是「按了哪个物理键」。'
+      ],
+      terms: [
+        'keydown / keyup（按下 / 松开）',
+        'deprecated（已废弃）'
+      ],
+      focus: '记住 keypress 别用、其余扫读。',
+      takeaway: '键盘事件主要活在游戏和快捷键场景。',
+      },
+      license: 'JavaScript Tutorial 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'Understanding JavaScript Event Delegation Technique',
+      titleZh: '理解 JavaScript 事件委托（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-dom/javascript-event-delegation/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '六篇之四、也是含金量最高的一篇：事件委托——不在每个子元素上挂监听，而是在父元素上挂一个、用 e.target 判断是谁被点。本课「批量挂监听」的正统升级版；后面 Etch-a-Sketch 的网格点击是它的经典用武之地。',
+      why: '官方 Assignment 指定阅读：事件委托（正文只给了脚注预告，官方还配了 bubbling 概念目标）。',
+      points: [
+        '子元素批量监听 → 父元素一个监听 + e.target 判断。',
+        '依赖事件冒泡（bubbling）：子元素的事件会向上冒到父元素。'
+      ],
+      terms: [
+        'event delegation（事件委托）',
+        'bubbling（事件冒泡）'
+      ],
+      focus: '六篇里唯一值得慢读的一篇——但看不懂也不慌，后面项目会逼你自然掌握。',
+      takeaway: '「给一堆元素挂监听」的标准答案不止 forEach，还有委托。',
+      },
+      license: 'JavaScript Tutorial 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'JavaScript dispatchEvent(): Generate Events programmatically',
+      titleZh: '用 dispatchEvent() 以代码触发事件（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-dom/javascript-dispatchevent/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '六篇之五：dispatchEvent——不等用户操作，用代码主动「制造」一个事件派发出去。自动测试和组件库内部通信会用到，日常开发出场率不高。知道「事件可以人造」就够了。',
+      why: '官方 Assignment 指定阅读：程序化派发事件。',
+      points: [
+        'new Event(\"click\") 造一个事件，dispatchEvent 发出去。',
+        '主要用途：自动化测试与框架内部机制。'
+      ],
+      terms: [
+        'dispatch（派发）',
+        'programmatically（以编程方式）'
+      ],
+      focus: '扫读即可，本课项目用不到。',
+      takeaway: '事件不只是用户触发——代码也能当「假用户」。',
+      },
+      license: 'JavaScript Tutorial 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'An Essential Guide To JavaScript Custom Events',
+      titleZh: 'JavaScript 自定义事件必读（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-dom/javascript-custom-events/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '六篇收官：自定义事件——不止用浏览器内置的 click / keydown，还能给 CustomEvent 塞自己的事件名和数据。属于「框架时代之前的重要技术」，现代项目里出场少，但理解它能帮你看懂很多库的内部。',
+      why: '官方 Assignment 指定阅读：自定义事件。',
+      points: [
+        'CustomEvent(\"我的事件名\", { detail: 数据 }) 自造事件。',
+        '属于建意识类知识，本课项目用不到。'
+      ],
+      terms: [
+        'custom event（自定义事件）',
+        'detail（自定义数据载体）'
+      ],
+      focus: '扫读收官，六篇阅读到此完成。',
+      takeaway: '六篇读完，事件工具箱的全景图就齐了——具体的用的时候再回来查。',
+      },
+      license: 'JavaScript Tutorial 文章按其站点条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'Understanding Callbacks in JavaScript',
+      titleZh: '理解 JavaScript 回调（dev.to 文章）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://dev.to/i3uckwheat/understanding-callbacks-2o9e',
+      sourceDomain: 'dev.to',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第二条：专讲回调的独立文章。本课正文只在提示框里点了「传进 addEventListener 的函数叫回调」，这篇把它讲透——回调是什么、为什么 JS 到处是它（第 40 课的 map / filter、这课的事件监听、以后的时代码）。dev.to 无官方中文版。',
+      why: '官方 Assignment 指定阅读：回调的专门讲解。',
+      points: [
+        '回调 = 被当作参数传给另一个函数的函数。',
+        '「你不调用它，你把它交出去，让别人在合适的时机调用」。'
+      ],
+      terms: [
+        'callback（回调函数）',
+        'higher-order function（高阶函数）'
+      ],
+      focus: '把「谁调用回调」这个问题在每段代码里问一遍。',
+      takeaway: '回调是 JS 异步世界的入场券——现在把它焊牢。',
+      },
+      license: 'dev.to 文章按其站点条款与作者发布条款提供；本站只提供链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'dom-manipulation-and-events',
+      title: 'DOM scripting introduction - Learn web development | MDN',
+      titleZh: 'DOM 脚本简介（MDN 入门教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/DOM_scripting',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「DOM 脚本简介」，简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 第三条是动手项：完成 MDN 这篇教程里的两个练习小节——「基础 DOM 操作」与「动态购物清单」。前者是本课内容的复习；后者（输入框 + 按钮增删购物项）会把创建、挂载、监听、改文字全部串起来用一遍，是第 42 课 RPS UI 的完美热身。MDN 有官方中文版。',
+      why: '官方 Assignment 指定练习：两个动手小节。',
+      points: [
+        '「基础 DOM 操作」小节：复习本课正文。',
+        '「动态购物清单」小节：完整的小项目练习，认真做完。'
+      ],
+      terms: [
+        'DOM scripting（DOM 脚本编程）',
+        'shopping list example（购物清单示例）'
+      ],
+      focus: '跟着中文版一步步敲，别只看不做。',
+      takeaway: '购物清单做顺了，RPS 的 UI 就是同一套套路换皮。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: 'Assignment 的两个锚点（#doing_some_basic_dom_manipulation / #creating_a_dynamic_shopping_list）与本条同页，按同页合并登记，未单列。'
+    },
+  /* ===== 42 Revisiting Rock Paper Scissors ===== */
+    {
+      lessonId: 'revisiting-rock-paper-scissors',
+      title: 'Learn Git Branching',
+      titleZh: '学习 Git 分支（交互式练习）',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment Warm up 第 1 条',
+      originalUrl: 'https://learngitbranching.js.org/',
+      sourceDomain: 'learngitbranching.js.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://learngitbranching.js.org/?locale=zh_CN',
+      zhType: 'learngitbranching 官方多语言界面的简体中文版（?locale=zh_CN；本站已用真实浏览器实测该地址渲染简体中文界面——站点为单页应用，命令行抓取不含正文文本）',
+      zhGuide: {
+      overview: '官方指定的热身：Peter Cottle 做的交互式 Git 分支可视化练习。每关是用命令把提交树摆成目标形状的谜题，输入 git 命令、树上立刻可视化结果。官方要求只做「Introduction Sequence」的第 1–3 关——玩完这三关，「分支是平行时间线」会从文字变成直觉。站点自带简体中文界面（地址栏加 ?locale=zh_CN）。',
+      why: '官方 Warm up 唯一指定练习：分支操作的手感训练。',
+      points: [
+        '只做 Introduction Sequence 第 1–3 关，别贪多。',
+        '每关输错不扣分，随便试——可视化会即时告诉你发生了什么。'
+      ],
+      terms: [
+        'visualizer（可视化工具）',
+        'level（关卡）'
+      ],
+      focus: '每关先看目标树的形状，再想命令，最后动手。',
+      takeaway: '十分钟可视化练习胜过十遍文字阅读——分支空间感就是这么来的。',
+      },
+      license: 'learngitbranching 开源项目界面按其仓库许可提供；本站只提供链接与本站原创导读，不复制站点内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '站点为 SPA，命令行抓取不到正文文本；中文界面已用真实浏览器实测渲染（标题栏「学习 Git 分支」、按钮「关卡 / 解答 / 重置」等），如实记录核验方式。'
+    },
+  /* ===== 43 Project: Etch-A-Sketch ===== */
+    {
+      lessonId: 'etch-a-sketch',
+      title: 'opacity - CSS: Cascading Style Sheets | MDN',
+      titleZh: 'opacity（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'optional',
+      zone: 'Assignment Extra credit 第 2 项 Hint',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/opacity',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/opacity',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「opacity」，简体中文）',
+      zhGuide: {
+      overview: '官方在 Extra credit 第二项（渐进变黑：每次交互加深 10%、十次全黑）的 Hint 里给的链接：opacity 属性——0 全透明到 1 全不透明。把它当「叠十层黑纱」来想：每划一次格子加 0.1 的黑，十次后完全不透明。MDN 有官方中文版。',
+      why: '官方 Extra credit Hint 引用：渐进变黑效果的实现钥匙。',
+      points: [
+        'opacity 取值 0–1，作用于整个元素（含内容）。',
+        '「每次加深 10%、十次全黑」就是每次加 0.1 的思路——具体怎么记状态由你设计。'
+      ],
+      terms: [
+        'opacity（不透明度）',
+        'Extra credit（选做加分项）'
+      ],
+      focus: '读中文版确认取值范围；实现方式是本项目的设计决策，本站不给成品。',
+      takeaway: 'Extra credit 做不做随你——但 opacity 这个属性从此进你的工具箱。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+  /* ===== 44 Object Basics ===== */
+    {
+      lessonId: 'object-basics',
+      title: 'Objects',
+      titleZh: '对象（JavaScript.info）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Objects 第 1 条',
+      originalUrl: 'https://javascript.info/object',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/object',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方指定的对象学习最佳起点：什么是对象、怎么创建、点号与方括号两种取值、增删属性、方括号与点号的取舍、属性名简写。官方明说这篇**不用做页尾练习**。站内有官方中文版。',
+      why: '官方正文指定：对象学习的起点文章。',
+      points: [
+        '对象用 { key: value } 创建，点号取值、方括号也能取值。',
+        '官方明说：不做页尾练习。'
+      ],
+      terms: [
+        'object literal（对象字面量）',
+        'property access（属性访问）'
+      ],
+      focus: '读中文版跟着敲每段示例。',
+      takeaway: '这是对象的地基——后面所有项目都在它上面盖楼。',
+      },
+      license: 'JavaScript.info 教程文本采用 CC-BY-NC-SA 3.0 许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'object-basics',
+      title: 'JavaScript object basics - Learn web development | MDN',
+      titleZh: 'JavaScript 对象基础（MDN 入门教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: '正文 Objects 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/Object_basics',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「JavaScript 对象基础」，简体中文；zh-CN 新旧路径均重定向到该现役地址）',
+      zhGuide: {
+      overview: '官方指定的第二篇阅读：对象的实战视角——真实示例里怎么用对象组织数据、点号与方括号、设置成员、this 的初见。**官方要求跳过 Introducing constructors 一节**（构造函数是后面路径的内容，现在看只会增加负担）。MDN 有官方中文版。',
+      why: '官方正文指定：对象基础的系统阅读（跳过构造函数一节）。',
+      points: [
+        '与 JavaScript.info 那篇互为印证，两篇都读。',
+        'Introducing constructors 一节官方明说跳过。'
+      ],
+      terms: [
+        'member（成员）',
+        'this（对象自身的引用，初见即可）'
+      ],
+      focus: '读中文版，到构造函数一节直接跳过。',
+      takeaway: '两篇读完，对象的创建 / 取值 / 增删就齐了。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: 'MDN 路径迁移：zh-CN 旧路径 Learn/JavaScript/Objects/Basics 与新路径均重定向到 Learn_web_development/Core/Scripting/Object_basics，zhUrl 按重定向后现役地址登记。'
+    },
+    {
+      lessonId: 'object-basics',
+      title: 'wesbos/JavaScript30',
+      titleZh: 'JavaScript30（Wes Bos 的 30 天原生 JS 挑战仓库）',
+      type: '代码仓库视图',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://github.com/wesbos/JavaScript30',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第二条的练习载体：Wes Bos 的 JavaScript30——30 个原生 JS（无框架）小项目。本课只跟做其中两个视频（Array Cardio Day 1 / 2）。按要求 **Fork 再克隆**这个仓库，从 index-START.html 开始跟练。',
+      why: '官方 Assignment 指定：对象与数组方法的实战跟练。',
+      points: [
+        'Fork 到自己账号再 clone 到本地。',
+        '从 index-START.html 开始，别开完成版。'
+      ],
+      terms: [
+        'fork（复刻仓库到自己的账号）',
+        'vanilla JavaScript（无框架的原生 JS）'
+      ],
+      focus: '只做 04 与 07 两课，其余 28 个以后有的是机会。',
+      takeaway: 'JavaScript30 是知名的免费练习资源——今天先认识它。',
+      },
+      license: 'JavaScript30 仓库内容按其仓库许可提供；本站只提供链接与本站原创导读，不复制仓库内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'object-basics',
+      title: 'JavaScript Array Cardio Practice - Day 1 — #JavaScript30 4/30',
+      titleZh: '数组心肺练习 Day 1（YouTube 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=HB1ZC7czKRs',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 JavaScript Array Cardio Practice - Day 1 — #JavaScript30 4/30，作者 Wes Bos）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方指定的两个跟练视频之一：Wes Bos 带你用 sort / reduce / filter / map 做一轮数组「心肺训练」。跟着视频在 JavaScript30 仓库的 index-START.html 里同步敲。本站已用 oEmbed 核验标题与作者；观看需要 YouTube 访问权限。',
+      why: '官方 Assignment 指定：Array Cardio Day 1 跟练。',
+      points: [
+        '边看边敲，暂停权在你手里。',
+        '需要 YouTube 访问权限才能观看。'
+      ],
+      terms: [
+        'cardio（心肺训练——比喻反复练习基础操作）'
+      ],
+      focus: '重点看对象在 sort / reduce 里的角色。',
+      takeaway: 'Day 1 练完，数组方法 + 对象访问的组合拳就有手感了。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'object-basics',
+      title: '.some(), .every(), .find() and [...SPREADS] — Array Cardio Day 2 - #JavaScript30 7/30',
+      titleZh: '数组心肺练习 Day 2（YouTube 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=QNmRfyNg1lw',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 .some(), .every(), .find() and [...SPREADS] — Array Cardio Day 2 - #JavaScript30 7/30，作者 Wes Bos）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方指定的两个跟练视频之二：some / every / find 与展开运算符的实战——第 40 课埋的种子（展开运算符把 NodeList 转数组）在这里开花。同样在 index-START.html 里跟敲。本站已用 oEmbed 核验标题与作者；观看需要 YouTube 访问权限。',
+      why: '官方 Assignment 指定：Array Cardio Day 2 跟练。',
+      points: [
+        'some / every 返回布尔值、find 返回第一个命中项。',
+        '需要 YouTube 访问权限才能观看。'
+      ],
+      terms: [
+        'some / every（存在 / 全部满足）',
+        'spread（展开）'
+      ],
+      focus: '留意哪些操作返回新数组、哪些返回布尔。',
+      takeaway: 'Day 1 + Day 2 做完，本课的练习配额就齐了。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    /* ===== 45 Project: Calculator ===== */
+    {
+      lessonId: 'calculator',
+      title: 'eval() - JavaScript | MDN',
+      titleZh: 'eval()（MDN 参考文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文开工警告 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「eval() - JavaScript | MDN」，简体中文）',
+      zhGuide: {
+      overview: '官方开工警告的核心引用：eval() 会把字符串当 JavaScript 代码执行，而 MDN 专门写了「永远不要用直接 eval」一节解释原因——执行不可信字符串是公认的安全风险。官方明令本项目的表达式求值必须自己写函数，不许走 eval 这条捷径。MDN 有官方中文版。',
+      why: '官方开工警告指定阅读：理解为什么 eval() 危险。',
+      points: [
+        'eval() 直接执行字符串代码——同样的机制也是注入攻击的温床。',
+        'MDN 的「never use direct eval」一节（中文版含同节）是官方点名的依据。'
+      ],
+      terms: [
+        'eval()（字符串求值）',
+        '注入风险'
+      ],
+      focus: '读中文版里「永远不要用直接 eval」一节即可；本项目不使用它，理解风险原因就够了。',
+      takeaway: '「现成方案 ≠ 可用方案」——官方用 eval 教的第一课是安全意识。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'calculator',
+      title: 'Are eval and new Function the same thing? - Stack Overflow',
+      titleZh: 'eval 和 new Function 是一回事吗（Stack Overflow 讨论）',
+      type: '社区讨论',
+      requirement: 'required',
+      zone: '正文开工警告 第 2 条',
+      originalUrl: 'https://stackoverflow.com/questions/4599857/are-eval-and-new-function-the-same-thing',
+      sourceDomain: 'stackoverflow.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求，命令行无法自动确认可达；地址直接取自官方 Markdown 原文）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在警告 new Function() 时给的参考：为什么「返回一个 new Function() 来对字符串求值」和 eval() 同样不该用——坑在对不可信数据求值这件事本身。这是社区对两种方案的对比讨论。',
+      why: '官方开工警告引用：new Function() 与 eval() 的隐患对比。',
+      points: [
+        'new Function() 与 eval() 都把字符串当代码——风险同源。',
+        '本条为英文社区讨论，无官方中文版。'
+      ],
+      terms: [
+        'new Function()（函数构造器）',
+        '不可信数据'
+      ],
+      focus: '明白「换了个写法，风险没换」这一点就够了；官方结论已在前文给出。',
+      takeaway: '本站只链接不搬运；结论记一句——两条路都封死，自己写求值函数。',
+      },
+      license: 'Stack Overflow 内容采用 CC BY-SA 4.0；本站只做链接与原创导读，不搬运讨论内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '403 受限：Stack Overflow 拦截非浏览器请求，无法用命令行自动确认可达性；地址直接取自官方 Markdown 原文，本站未做替换，未声称为「已验证可访问」。'
+    },
+    {
+      lessonId: 'calculator',
+      title: 'Basic Calculator - CalculatorSoup',
+      titleZh: '基础计算器在线演示（CalculatorSoup）',
+      type: '工具',
+      requirement: 'optional',
+      zone: 'Assignment Gotchas 第 1 条参考演示',
+      originalUrl: 'https://www.calculatorsoup.com/calculators/math/basic.php',
+      sourceDomain: 'calculatorsoup.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在 Gotcha「一次只求值一对数字」里给的亲眼看的机会：把 12 + 7 - 1 = 输进这台在线计算器，感受「按第二个运算符时结算前一对」的运作方式——它就是你计算器要对齐的参照行为。',
+      why: '官方 Gotcha 参考演示：验证单对运算链的目标行为。',
+      points: [
+        '官方原话是「feel free to input」——参考演示，不是必做资料。',
+        '输入 12 + 7 - 1 = 观察：按 - 的瞬间显示 19，按 = 后显示 18。'
+      ],
+      terms: [
+        '单对运算链（一次只算一对数字）'
+      ],
+      focus: '只看行为：第二个运算符按下去那一刻发生了什么。',
+      takeaway: '对齐参照行为后，Gotcha 1 的验收标准就不用猜了。',
+      },
+      license: '第三方在线工具，版权归原作者；本站只做链接与原创导读，不搬运。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    /* ===== 46 Choose Your Path Forward ===== */
+    {
+      lessonId: 'choose-your-path-forward',
+      title: 'Choosing The Right Programming Language: how not to ruin your career | by Carlos Diaz | Medium',
+      titleZh: '选对编程语言：如何不毁掉你的职业生涯（Medium 文章）',
+      type: '博客文章',
+      requirement: 'optional',
+      zone: '正文 结论 第 1 条',
+      originalUrl: 'https://medium.com/@bycdiaz/choosing-the-right-language-a-short-guide-on-how-not-to-ruin-your-career-2b353be1371',
+      sourceDomain: 'medium.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求；真实浏览器核验可达，页面标题「Choosing The Right Programming Language: how not to ruin your career | by Carlos Diaz | Medium」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在「选哪条路根本不重要」的结论后附的文章：选编程语言不会毁掉你的职业生涯——好开发者能迁移技能，纠结语言选择本身就是陷阱。官方原话是「还没被说服？读读这篇」。',
+      why: '官方正文指定阅读（语气为推荐而非必做，故 optional）。',
+      points: [
+        '作者是 Carlos Diaz；英文文章，无官方中文版。',
+        '核心立场与本课一致：坚持一门深入比选哪门更重要。'
+      ],
+      terms: [
+        'career（职业生涯）'
+      ],
+      focus: '读它的论证方式：语言是载体，可迁移的解决问题能力才是资产。',
+      takeaway: '读完还纠结的话——命运转盘在官方原课页面等着你。',
+      },
+      license: 'Medium 文章版权归原作者 Carlos Diaz 所有；本站只做链接与原创导读，不搬运正文。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '403 受限：Medium 拦截非浏览器请求，命令行无法自动确认；已用真实浏览器核验可达（by Carlos Diaz），地址直接取自官方 Markdown 原文，本站未做替换。'
+    },
   /* === END === */
   ]
 };

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="299" viewBox="0 0 760 299" role="img" aria-labelledby="t-flex-shorthand-anatomy d-flex-shorthand-anatomy">
+  <title id="t-flex-shorthand-anatomy">flex 简写的解剖：一条声明，三个分量</title>
+  <desc id="d-flex-shorthand-anatomy">解剖图。上方小流程：写一条声明 flex: 1，展开成三份，分别管一件事。中间一个横条代表 flex 简写（flex: 1），从左到右分成三段：flex-grow: 1、flex-shrink: 1、flex-basis: 0。下方三条注释分别说明：flex-grow 是放大因子，容器有富余空间时按这个比例增长，因子 1 与 2 的项目宽度比是 1 : 2；flex-shrink 是缩小因子，所有项目装不下时按这个比例收缩，默认 1 均匀收缩、0 绝不收缩；flex-basis 是初始尺寸即伸缩的起点，0 从零开始按比例分、auto 会参考项目的 width 声明。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="130" y="24" width="140" height="38" rx="6"/>
+  <text class="b" x="200" y="48" text-anchor="middle"><tspan x="200">写一条声明 flex: 1</tspan></text>
+  <rect class="chip" x="310" y="24" width="140" height="38" rx="6"/>
+  <text class="b" x="380" y="48" text-anchor="middle"><tspan x="380">展开成三份</tspan></text>
+  <path class="edge" d="M274,43 L303,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="490" y="24" width="140" height="38" rx="6"/>
+  <text class="b" x="560" y="48" text-anchor="middle"><tspan x="560">各管一件事</tspan></text>
+  <path class="edge" d="M454,43 L483,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">flex 简写（flex: 1）</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="219" height="54" rx="6"/>
+  <text class="hb" x="134" y="168" text-anchor="middle"><tspan x="134">flex-grow: 1</tspan></text>
+  <rect class="box" x="243" y="136" width="256" height="54"/>
+  <text class="hb" x="371" y="168" text-anchor="middle"><tspan x="371">flex-shrink: 1</tspan></text>
+  <path class="divider" d="M243,136 L243,190"/>
+  <rect class="box" x="499" y="136" width="237" height="54"/>
+  <text class="hb" x="618" y="168" text-anchor="middle"><tspan x="618">flex-basis: 0</tspan></text>
+  <path class="divider" d="M499,136 L499,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M134,196 L134,206 L136,218"/>
+  <text class="s" x="136" y="239" text-anchor="middle"><tspan x="136">放大因子：容器有富余空间时按这个</tspan><tspan x="136" dy="17">比例增长；因子 1 与 2 的项目宽度</tspan><tspan x="136" dy="17">比是 1 : 2</tspan></text>
+  <path class="spoke" d="M371,196 L371,206 L380,218"/>
+  <text class="s" x="380" y="239" text-anchor="middle"><tspan x="380">缩小因子：所有项目装不下时按这个</tspan><tspan x="380" dy="17">比例收缩；默认 1 均匀收缩，0</tspan><tspan x="380" dy="17">绝不 收缩</tspan></text>
+  <path class="spoke" d="M618,196 L618,206 L624,218"/>
+  <text class="s" x="624" y="239" text-anchor="middle"><tspan x="624">初始尺寸：伸缩的起点；0 从零开始</tspan><tspan x="624" dy="17">按比例分，auto 会参考项目的</tspan><tspan x="624" dy="17">width 声明</tspan></text>
+</svg>

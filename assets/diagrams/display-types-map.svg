@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-display-types-map d-display-types-map">
+  <title id="t-display-types-map">三种显示类型：block、inline、inline-block</title>
+  <desc id="d-display-types-map">概念关系图。中心是「元素的显示类型（display 属性）」，三颗卫星环绕：block（块级）——独占一行、每个新元素另起一行往下堆叠，段落和标题都是默认块级；inline（行内）——不换行，排在文字流里与邻居同行，链接是典型代表，但一般别往它身上加 padding 或 margin；inline-block（行内块）——中间地带：像行内元素一样并排，又保留块级盒子的 padding 与 margin 行为，想并排摆能设尺寸的盒子时可用，不过实际项目排一行盒子更多直接用 flexbox。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,205 L366,105"/>
+  <path class="spoke" d="M450,278 L460,283"/>
+  <path class="spoke" d="M282,278 L272,283"/>
+  <rect class="accentbox" x="276" y="205" width="180" height="73" rx="10"/>
+  <text class="hb" x="366" y="239" text-anchor="middle"><tspan x="366">元素的显示类型</tspan></text>
+  <text class="s" x="366" y="255" text-anchor="middle"><tspan x="366">由 display 属性决定</tspan></text>
+  <rect class="box" x="252" y="29" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="51" text-anchor="middle"><tspan x="366">block 块级</tspan></text>
+  <text class="s" x="366" y="67" text-anchor="middle"><tspan x="366">独占一行、每个新元素另起一行往下</tspan><tspan x="366" dy="17">堆叠；段落、标题都是默认块级</tspan></text>
+  <rect class="box" x="453" y="283" width="228" height="93" rx="6"/>
+  <text class="hb" x="567" y="305" text-anchor="middle"><tspan x="567">inline 行内</tspan></text>
+  <text class="s" x="567" y="321" text-anchor="middle"><tspan x="567">不换行，排在文字流里与邻居同行，</tspan><tspan x="567" dy="17">链接最典型；一般别硬加 padding</tspan><tspan x="567" dy="17">/ margin</tspan></text>
+  <rect class="box" x="51" y="283" width="228" height="93" rx="6"/>
+  <text class="hb" x="165" y="305" text-anchor="middle"><tspan x="165">inline-block 行内块</tspan></text>
+  <text class="s" x="165" y="321" text-anchor="middle"><tspan x="165">中间地带：像行内一样并排，又保留</tspan><tspan x="165" dy="17">块级盒子的尺寸与间距行为；排一行</tspan><tspan x="165" dy="17">盒子实际更多用 flexbox</tspan></text>
+</svg>

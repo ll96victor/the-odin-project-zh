@@ -3,7 +3,7 @@
  * map.js / bosses.js 是纯逻辑与纯数据模块。这里在 vm 沙箱里与 catalog /
  * lessons / economy / tiers / history / progress 一起加载，验证：
  *   1. 节点状态五阶推导（未探索/已侦察/已破甲/已击破/已精通）与 locked 口径；
- *   2. 总地图结构：8 单元 46 节点、开放 19、未开放不可点、Boss 入口只在
+ *   2. 总地图结构：8 单元 46 节点、开放 44、未开放不可点、Boss 入口只在
  *      有题库的已开放单元；
  *   3. Boss 题库质量：题目全部标注来源课程且来源属于本单元已开放课、
  *      选项与答案合法、无远程引用；
@@ -86,12 +86,12 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
 
   const brief = mapModule.mapBrief(state, catalog, lessons, Logic.continueLessonId(state, lessons));
   assert.equal(brief.totalNodes, 46, check('总地图 46 个节点（官方全目录）'));
-  assert.equal(brief.openNodes, 20, check('当前开放 20 个节点'));
-  assert.equal(brief.counts.locked, 26, check('未开放 26 个节点仍可见（灰点）'));
+  assert.equal(brief.openNodes, 46, check('当前开放 46 个节点（Foundations 全开）'));
+  assert.equal(brief.counts.locked, 0, check('未开放 0 个节点（Foundations 全开，locked 机制为未来扩展保留）'));
   assert.equal(brief.counts.defeated, 1, check('第一课已击破'));
   assert.equal(brief.counts.broken, 1, check('第二课已破甲'));
   assert.equal(brief.counts.scouted, 1, check('第三课已侦察'));
-  assert.equal(brief.counts.unexplored, 17, check('其余开放课未探索'));
+  assert.equal(brief.counts.unexplored, 43, check('其余开放课未探索'));
   assert.equal(brief.units.length, 8, check('8 个单元'));
 
   /* 每单元：开放数、Boss 入口 */
@@ -99,17 +99,25 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
   assert.equal(byId['introduction'].openCount, 5, check('Introduction 开放 5 节点'));
   assert.equal(byId['html-foundations'].openCount, 8, check('HTML Foundations 本站开放 8 节点（与官方 8 课重合，含 Project: Recipes）'));
   assert.equal(byId['html-foundations'].totalCount, 8, check('HTML Foundations 官方 8 节点全部可见'));
-  assert.equal(byId['css-foundations'].openCount, 0, check('CSS Foundations 未开放'));
-  for (const unitId of ['introduction', 'prerequisites', 'git-basics', 'html-foundations']) {
+  assert.equal(byId['css-foundations'].openCount, 5, check('CSS Foundations 开放 5 节点（v4.11.18 收组，官方 5 课全开放）'));
+  assert.equal(byId['flexbox'].openCount, 5, check('Flexbox 开放 5 节点（v4.11.19 第三批收组，官方 5 课全开放）'));
+  for (const unitId of ['introduction', 'prerequisites', 'git-basics', 'html-foundations', 'css-foundations', 'flexbox', 'javascript-basics']) {
     assert.ok(byId[unitId].boss, check(`已开放单元 ${unitId} 有 Boss 入口`));
   }
-  for (const unitId of ['css-foundations', 'flexbox', 'javascript-basics', 'conclusion']) {
-    assert.equal(byId[unitId].boss, null, check(`未开放单元 ${unitId} 没有 Boss 入口（题目必须来自已讲知识）`));
-  }
+  /* v4.11.20 第九批：javascript-basics 组 15/15 收齐（第 45 课 Calculator 起补全），
+   * 按 P3/P6 先例同批收组配 Boss「全栈试炼」（7 题）。 */
+  assert.equal(byId['javascript-basics'].openCount, 15, check('JavaScript Basics 开放 15 节点（15/15 全组开放，官方该单元共 15 门）'));
+  assert.equal(byId['conclusion'].openCount, 1, check('Conclusion 开放 1 节点（单课组，Foundations 毕业课）'));
+  assert.ok(byId['javascript-basics'].boss, check('javascript-basics 全组开放，配 Boss「全栈试炼」（P3/P6 先例：全组开放的同批收组）'));
+  assert.equal(byId['conclusion'].boss, null, check('conclusion 单课组不配 Boss（知识点不足以出综合预检题，题目必须来自已讲知识）'));
+  /* v4.11.18：css-foundations 全组 5 课开放（用户在 v4.11.17 拍板「等全组开放再配 Boss」的
+   * 时机已到），本轮配 Boss「层叠高塔」；v4.11.17 的「有开放节点但不配 Boss」特例断言随之删除。
+   * v4.11.19 第三批：flexbox 组 5/5 全组开放（第 30 课 Project: Landing Page），
+   * 本轮配 Boss「弹性矩阵」并从「没有 Boss 入口」名单移出。 */
 
   /* 未开放节点结构上不可点击；Project 节点有标记 */
   const lockedNodes = brief.units.flatMap(unit => unit.nodes).filter(node => node.status === 'locked');
-  assert.equal(lockedNodes.length, 26, check('26 个 locked 节点'));
+  assert.equal(lockedNodes.length, 0, check('0 个 locked 节点'));
   assert.ok(lockedNodes.every(node => node.linkable === false), check('locked 节点不可点（linkable=false，UI 不生成链接）'));
   const allNodes = brief.units.flatMap(unit => unit.nodes);
   const projectNodes = allNodes.filter(node => node.type === 'project');
@@ -118,8 +126,17 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
   const recipesNode = projectNodes.find(node => node.slug === 'recipes');
   assert.ok(recipesNode && recipesNode.status !== 'locked' && recipesNode.linkable === true,
     check('recipes 是首个开放的 Project 节点（可点、非灰点）'));
-  assert.equal(projectNodes.filter(node => node.status === 'locked').length, 4,
-    check('其余 4 个 Project 未开放（Landing Page 起）'));
+  /* v4.11.20 第八批：calculator 开放，5 个 Project 节点全部可点。 */
+  assert.equal(projectNodes.filter(node => node.status === 'locked').length, 0,
+    check('全部 5 个 Project 节点已开放（无 locked Project）'));
+  /* v4.11.20 第三批：rock-paper-scissors 开放，第三个可点的 Project 节点 */
+  const rpsNode = projectNodes.find(node => node.slug === 'rock-paper-scissors');
+  assert.ok(rpsNode && rpsNode.status !== 'locked' && rpsNode.linkable === true,
+    check('rock-paper-scissors 是第三个开放的 Project 节点（可点、非灰点）'));
+  /* v4.11.19 第三批：landing-page 开放，第二个可点的 Project 节点 */
+  const landingNode = projectNodes.find(node => node.slug === 'landing-page');
+  assert.ok(landingNode && landingNode.status !== 'locked' && landingNode.linkable === true,
+    check('landing-page 是第二个开放的 Project 节点（可点、非灰点）'));
 
   /* 当前节点标记唯一且落在第一个未完成课 */
   const currentNodes = allNodes.filter(node => node.isCurrent);
@@ -135,7 +152,7 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
 
 /* ===================== 3. Boss 题库质量（交接 E3） ===================== */
 {
-  assert.equal(bossesModule.BOSSES.length, 4, check('4 个已开放单元各一个 Boss'));
+  assert.equal(bossesModule.BOSSES.length, 7, check('7 个已开放单元各一个 Boss（v4.11.20 第九批 javascript-basics 收组后含全栈试炼；conclusion 单课组不配）'));
   const catalogById = Object.fromEntries(catalog.lessons.map(entry => [entry.slug, entry]));
   for (const boss of bossesModule.BOSSES) {
     assert.ok(boss.unitId && boss.zh && boss.desc, check(`${boss.unitId}: 元信息齐全`));
@@ -171,7 +188,8 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
 {
   const boss = bossesModule.bossForUnit('introduction');
   assert.ok(boss, check('bossForUnit 找到 Introduction Boss'));
-  assert.equal(bossesModule.bossForUnit('css-foundations'), null, check('未开放单元没有 Boss'));
+  assert.ok(bossesModule.bossForUnit('css-foundations'), check('css-foundations 已配 Boss（v4.11.18 全组开放）'));
+  assert.ok(bossesModule.bossForUnit('flexbox'), check('flexbox 已配 Boss（v4.11.19 第三批全组开放，弹性矩阵）'));
   const allCorrect = boss.questions.map(question => question.answer);
   const allWrong = boss.questions.map(() => (0));
   /* 全对：100% 压倒性优势 */
@@ -320,9 +338,12 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
   assert.equal(again.ok, true, check('第二个 Boss 提交成功'));
   assert.equal(page.getState().achievementTiers['boss'], 1, check('高评价 2 次未到银阶（3 次），阶级保持铜'));
 
-  /* 未知单元拒绝 */
-  const unknown = page.submitBoss('css-foundations', [0, 0, 0, 0, 0], false);
-  assert.equal(unknown.ok, false, check('未开放单元没有 Boss，拒绝提交'));
+  /* 未知单元拒绝：v4.11.20 第九批起 javascript-basics 已配 Boss——用不配 Boss 的
+   * conclusion 单课组与不存在的单元 id 双重验证拒绝路径 */
+  const unknown = page.submitBoss('conclusion', [0, 0, 0, 0, 0], false);
+  assert.equal(unknown.ok, false, check('无 Boss 单元（conclusion）拒绝提交'));
+  const notExist = page.submitBoss('not-a-unit', [0], false);
+  assert.equal(notExist.ok, false, check('不存在的单元 id 拒绝提交'));
 
   /* bossBrief：UI 数据齐全且不泄漏答案 */
   const brief = page.bossBrief('introduction');
