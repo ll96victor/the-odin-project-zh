@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="172" viewBox="0 0 780 172" role="img" aria-labelledby="t-prototype-chain-lookup d-prototype-chain-lookup">
+  <title id="t-prototype-chain-lookup">原型链查找：player1.valueOf() 是怎么找到的</title>
+  <desc id="d-prototype-chain-lookup">四步流程图，展示一次属性查找沿原型链逐级向上的过程。第一步「player1 自身」：valueOf 是自己的属性吗——不是。第二步「Player.prototype」：也没有定义 valueOf。第三步「Object.prototype」：找到了，valueOf 定义在这里，调用成功。第四步「null（链尾）」：如果查到终点还没有，返回 undefined。图下说明：查找沿 [[Prototype]] 链逐级向上，一个对象只有一个 [[Prototype]]（没有多继承），Object.prototype 的原型是 null——链不会无限延伸。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="98" y="55" text-anchor="middle"><tspan x="98">player1 自身</tspan></text>
+  <text class="s" x="98" y="68" text-anchor="middle"><tspan x="98">valueOf</tspan><tspan x="98" dy="15">是自己的吗？ 不是</tspan></text>
+  <rect class="box" x="221" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="293" y="55" text-anchor="middle"><tspan x="293">Player.prototype</tspan></text>
+  <text class="s" x="293" y="75" text-anchor="middle"><tspan x="293">这里也没定义</tspan></text>
+  <path class="edge" d="M169,57 L214,57" marker-end="url(#arr)"/>
+  <rect class="box" x="416" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="488" y="55" text-anchor="middle"><tspan x="488">Object.prototype</tspan></text>
+  <text class="s" x="488" y="68" text-anchor="middle"><tspan x="488">找到了：valueOf 定</tspan><tspan x="488" dy="15">义在这</tspan></text>
+  <path class="edge" d="M364,57 L409,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="611" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="683" y="55" text-anchor="middle"><tspan x="683">null（链尾）</tspan></text>
+  <text class="s" x="683" y="68" text-anchor="middle"><tspan x="683">查到这还没有 →</tspan><tspan x="683" dy="15">undefined</tspan></text>
+  <path class="edge" d="M559,57 L604,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="728" height="52" rx="6"/>
+  <text class="s" x="390" y="116" text-anchor="middle"><tspan x="390">查找沿 [[Prototype]] 链逐级向上；一个对象只有一个 [[Prototype]]（没有多继承），Object.prototype 的原型是</tspan><tspan x="390" dy="18">null——链不会无限延伸。</tspan></text>
+</svg>

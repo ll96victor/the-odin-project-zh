@@ -236,9 +236,11 @@ const {
   const statCells = collectByClass(home.dom.body, 'stat');
   const doneCell = statCells.find(cell => cell.children[0] && cell.children[0].textContent === '已完成开放课程');
   assert.ok(doneCell, check('A3：学习进度 sheet 有「已完成开放课程」统计格'));
-  assert.equal(doneCell.children[1].textContent, '1 / 46', check('A3：sheet DOM 显示 1 / 46'));
+  assert.equal(doneCell.children[1].textContent, '1 / 197', check('A3：sheet DOM 显示 1 / 197（197 = Foundations 46 + World 2 四个章节 22 课 + World 3 javascript 全八章 41 课——收组 + World 4 三章节 16 课——收组 + World 5 react 八章节 25 课——收组 + World 6 databases 3 课——收组 + World 7 nodejs 全八章节 30 课——收组 + World 8 getting-hired 两章节 14 课——收组，全站收官）'));
   const totalCell = statCells.find(cell => cell.children[0] && cell.children[0].textContent === 'Foundations 总进度');
-  assert.equal(totalCell.children[1].textContent, '1 / 46', check('A3：三层进度同步刷新（1 / 46）'));
+  /* 路径课试点批次 3：两个口径自 World 2 起分离——「Foundations 总进度」分母仍是
+   * 官方 Foundations 46（主目标不漂移）；「已完成开放课程」分母是全站开放课 120。 */
+  assert.equal(totalCell.children[1].textContent, '1 / 46', check('A3：Foundations 总进度分母仍是官方 46（1 / 46）'));
 }
 
 /* ===================== 6. A3：课页勾选框随 bfcache 恢复同步 ===================== */

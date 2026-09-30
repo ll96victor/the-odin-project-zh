@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="585" height="296" viewBox="0 0 585 296" role="img" aria-labelledby="t-json-round-trip d-json-round-trip">
+  <title id="t-json-round-trip">JSON 往返：stringify 存进去，parse 取出来</title>
+  <desc id="d-json-round-trip">五步流程图，展示数据在 JSON 形态与 JavaScript 对象形态之间的一次往返。第一步「JS 对象」：带着方法的数据。第二步「JSON.stringify()」：序列化，对象变成 JSON 文本。第三步「存储 / 传输」：存进 localStorage、或发给服务器。第四步「JSON.parse()」：解析，JSON 文本变回对象。第五步「方法没了」：JSON 里不能存函数，取回后要自己把方法装回对象。图下说明：方向记清——存/传之前 stringify、收到/读出之后 parse；Todo List 的持久化正是这一趟往返，怎么把行为装回去是官方留给你的思考题。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="98" y="55" text-anchor="middle"><tspan x="98">JS 对象</tspan></text>
+  <text class="s" x="98" y="75" text-anchor="middle"><tspan x="98">带着方法的数据</tspan></text>
+  <rect class="box" x="221" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="293" y="55" text-anchor="middle"><tspan x="293">JSON.stringify()</tspan></text>
+  <text class="s" x="293" y="68" text-anchor="middle"><tspan x="293">序列化：对象 →</tspan><tspan x="293" dy="15">JSON 文本</tspan></text>
+  <path class="edge" d="M169,57 L214,57" marker-end="url(#arr)"/>
+  <rect class="box" x="416" y="26" width="143" height="62" rx="6"/>
+  <text class="hb" x="488" y="55" text-anchor="middle"><tspan x="488">存储 / 传输</tspan></text>
+  <text class="s" x="488" y="68" text-anchor="middle"><tspan x="488">localStorage、发给</tspan><tspan x="488" dy="15">服务器</tspan></text>
+  <path class="edge" d="M364,57 L409,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="143" height="62" rx="6"/>
+  <text class="hb" x="98" y="179" text-anchor="middle"><tspan x="98">JSON.parse()</tspan></text>
+  <text class="s" x="98" y="192" text-anchor="middle"><tspan x="98">解析：JSON 文本</tspan><tspan x="98" dy="15">→ 对象</tspan></text>
+  <rect class="accentbox" x="221" y="150" width="143" height="62" rx="6"/>
+  <text class="hb" x="293" y="179" text-anchor="middle"><tspan x="293">方法没了</tspan></text>
+  <text class="s" x="293" y="192" text-anchor="middle"><tspan x="293">函数不进 JSON，要自</tspan><tspan x="293" dy="15">己装回</tspan></text>
+  <path class="edge" d="M169,181 L214,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M488,88 L488,119 L98,119 L98,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="533" height="52" rx="6"/>
+  <text class="s" x="293" y="240" text-anchor="middle"><tspan x="293">方向记清：存 / 传之前 stringify，收到 / 读出之后 parse；Todo List 的持久化正是</tspan><tspan x="293" dy="18">这一趟往返——怎么把行为装回对象，是官方留给你的思考题。</tspan></text>
+</svg>

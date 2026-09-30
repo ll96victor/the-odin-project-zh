@@ -948,8 +948,15 @@
 
   function catalogBodyChildren() {
     const total = catalogTotal();
+    /* 路径课试点批次 3：data.lessons 含 World 2 起的路径课正文，可能比 Foundations
+     * 目录数多——把「目录共几课」与「已开放几课」两个口径并排写会自相矛盾，
+     * 分开表述（路径课入口在学习地图的 World 列表，不进 Foundations 目录）；
+     * v4.11.21 起本注释不复写具体数字，两个数都由数据现算。 */
+    const pathOpenCount = data.lessons.length - total;
     const intro = node('p', total
-      ? `官方 Foundations 完整目录，共 ${total} 课。本站已开放 ${data.lessons.length} 课中文自足讲解，可以直接点开；标为“暂未开放”的课程还没有中文正文，请回官方原课学习。`
+      ? (pathOpenCount > 0
+        ? `官方 Foundations 完整目录，共 ${total} 课，全部已开放中文自足讲解；另有路径课程 ${pathOpenCount} 课中文正文（入口在「学习地图」的 World 列表）。`
+        : `官方 Foundations 完整目录，共 ${total} 课。本站已开放 ${data.lessons.length} 课中文自足讲解，可以直接点开；标为“暂未开放”的课程还没有中文正文，请回官方原课学习。`)
       : `本站已开放 ${data.lessons.length} 课中文自足讲解。完整目录数据未载入，请确认 catalog.js 与 HTML 文件在同一个文件夹里。`, 'muted');
 
     const officialCatalog = link('查看 The Odin Project 官方课程目录 ↗', 'https://www.theodinproject.com/paths/foundations/courses/foundations', 'catalog-official-link', true);
@@ -1044,6 +1051,13 @@
     if (!catalogDialog) {
       catalogDialog = buildCatalogDialog();
       document.body.append(catalogDialog);
+      /* B+ 轮阶段 3（a11y）：原生 Esc / 点击 backdrop 关闭不经过 closeCatalogDialog——
+       * close 事件兜底归还焦点（picker 系统 openPicker 既有兜底同型，第四处补齐；
+       * 与按钮路径的 focus() 重复调用幂等无害）。 */
+      catalogDialog.addEventListener('close', () => {
+        const target = catalogTriggerEl || catalogButton;
+        if (target && typeof target.focus === 'function') target.focus();
+      });
     } else {
       /* 每次打开都重建内容：当前课高亮要跟着 activeLessonId 走 */
       catalogBody.replaceChildren(...catalogBodyChildren());
@@ -2244,6 +2258,10 @@
     if (!resetDialog) {
       resetDialog = buildPickerDialog('重置学习进度', resetDialogBody, closeResetDialog, 'reset-dialog-title');
       document.body.append(resetDialog);
+      /* B+ 轮阶段 3（a11y）：close 事件兜底归还焦点（原生 Esc / backdrop 路径） */
+      resetDialog.addEventListener('close', () => {
+        if (playerEntry && typeof playerEntry.focus === 'function') playerEntry.focus();
+      });
     } else {
       resetDialog.querySelector('.picker-body').replaceChildren(...resetDialogBody());
     }
@@ -2708,6 +2726,12 @@
     if (firstBuild) {
       profileDialog = buildProfilePanel();
       document.body.append(profileDialog);
+      /* B+ 轮阶段 3（a11y）：close 事件兜底归还焦点（原生 Esc / backdrop 路径；
+       * 目标与 closeProfilePanel 同一优先级——profileTrigger 优先、playerEntry 兜底） */
+      profileDialog.addEventListener('close', () => {
+        const target = profileTrigger && typeof profileTrigger.focus === 'function' ? profileTrigger : playerEntry;
+        if (target && typeof target.focus === 'function') target.focus();
+      });
     }
     /* 每次打开都清掉上一轮的操作提示，避免旧消息看起来像刚发生的 */
     profileNotice = '';
@@ -2773,9 +2797,15 @@
     /* 主目标是官方 46 课，因此这一格加重显示，让三个数字的层级一眼可辨（§6.4） */
     const primary = statCell('Foundations 总进度', `${summary.completedCount} / ${total}`, '官方 Foundations 全部课程');
     primary.className = 'stat stat-primary';
+    /* 路径课试点批次 3：开放数可能超过 Foundations 官方 46——「49 / 46」会让分母
+     * 失去意义。Foundations 收满后改述为「46 / 46 · 另有路径课 N 课」，分母语义
+     * 保持「官方 Foundations 主线」不漂移。 */
+    const openCell = summary.totalLessons <= total
+      ? statCell('本站已开放中文课程', `${summary.totalLessons} / ${total}`, '本站当前开放的课程范围')
+      : statCell('本站已开放中文课程', `${total} / ${total} · 另有路径课 ${summary.totalLessons - total}`, 'Foundations 已全部开放，路径课自 World 2 起逐批开放');
     return [
       primary,
-      statCell('本站已开放中文课程', `${summary.totalLessons} / ${total}`, '本站当前开放的课程范围'),
+      openCell,
       /* v4.2（交接 §2.1）：把完成口径写在数字旁边——只有勾选「本课已完成」才计入这里，
        * 官方任务 / 自测 / 复习是独立记录，不会让完成数 +1。 */
       statCell('已完成开放课程', `${summary.completedCount} / ${summary.totalLessons}`, `完成 ${summary.percent}% · 仅统计勾选了「本课已完成」的课`)
@@ -3349,6 +3379,11 @@
     if (firstBuild) {
       assistantDialog = buildAssistantPanel();
       document.body.append(assistantDialog);
+      /* B+ 轮阶段 3（a11y）：close 事件兜底归还焦点（原生 Esc / backdrop 路径；
+       * closeAssistantPanel 按钮路径的 focus() 与此重复调用幂等无害） */
+      assistantDialog.addEventListener('close', () => {
+        if (assistantTrigger && typeof assistantTrigger.focus === 'function') assistantTrigger.focus();
+      });
     }
     if (typeof assistantDialog.showModal === 'function') {
       if (!assistantDialog.open) assistantDialog.showModal();
@@ -4470,6 +4505,9 @@
     const boss = bossesModule.bossForUnit(bossUnitId);
     const children = [];
     const headline = node('div', undefined, `boss-result is-${result.rating}`);
+    /* B+ 轮阶段 3（a11y）：评分结果替换弹层内容时读屏无感知——role=status
+     * 让「评级 · 百分比 · 答对 N/M」作为动态区域礼貌播报（toast 同型惯例）。 */
+    headline.setAttribute('role', 'status');
     headline.append(node('p', `${result.ratingZh} · ${result.pct}%`, 'boss-result-rating'));
     headline.append(node('p', `答对 ${result.correct} / ${result.total} 题 · ${result.ratingDesc}`, 'boss-result-meta'));
     if (isPrecheck && result.pct >= 70) {
@@ -5059,9 +5097,11 @@
 
   function renderCommandResults() {
     const query = commandInput.value.trim();
-    /* 上限 60：当前全量 = 14 个动作 + 20 课 = 34 条，必须全部可见——
-     * 静默截断会让「所有课都能搜到」变成假话；60 也给未来课程留余量 */
-    commandItems = commandEntries().filter(item => commandMatches(item, query)).slice(0, 60);
+    /* 上限 220：按全路线终点算（动作 + 197 门课程），留余量。语义不是「性能限制」
+     * 而是「全量必须全部可见」的护栏——静默截断会让「所有课都能搜到」变成假话；
+     * 配套断言（stretch-features）钉「条目数 === 动作数 + 已开放课数」，上限只在
+     * 全路线开放后仍小于全量时才会失效（届时先调断言再调上限）。 */
+    commandItems = commandEntries().filter(item => commandMatches(item, query)).slice(0, 220);
     commandActiveIndex = 0;
     if (!commandItems.length) {
       commandList.replaceChildren(node('li', '没有匹配的课程或功能。试试「Git」「复习」「主题」这样的关键词。', 'command-empty muted empty-state'));
@@ -5575,14 +5615,96 @@
    * 撤回原因、证据与“不是视觉事故”的口径见 MAINTENANCE.md「废弃功能与旧方案库」。
    * 本注释刻意不写出已删除的标识符与资产路径：产品源码里不留它们的字面量。 */
 
+  /* ---------- v4.11.20 后批次 2（路径课试点）：World 层工具 ----------
+   * curriculumLessonWorld(lessonId)：slug → 所属官方 course 的反查（Foundations 的
+   *   46 课不在 curriculum sections 里——它走 lessonsInCatalog 特例，返回 null）。
+   *   派生一次建 Map 缓存；curriculum.js 缺失时返回 null（降级安全）。
+   * openWorldLessonsExcluding(order)：全站课程里属于「其他 World」的课数——
+   *   Foundations 卡片的「前 N 课」= 全站开放数 − 其他 World 的课数。
+   * completedCountOfCourse(course)：某 World 范围内用户已完成的课数——
+   *   Foundations 用 catalog 口径（id 不以 node-path- 开头的即 Foundations），
+   *   路径 World 按 curriculumLessonWorld 归属统计。 */
+  let curriculumWorldIndex = null;
+  function curriculumLessonWorld(lessonId) {
+    if (!curriculum || !Array.isArray(curriculum.courses)) return null;
+    if (!curriculumWorldIndex) {
+      curriculumWorldIndex = new Map();
+      curriculum.courses.forEach(course => {
+        (course.sections || []).forEach(sec => {
+          sec.lessons.forEach(l => curriculumWorldIndex.set(l.slug, { order: course.order, id: course.id, zh: course.zh }));
+        });
+      });
+    }
+    return curriculumWorldIndex.get(lessonId) || null;
+  }
+  function openWorldLessonsExcluding(order) {
+    return data.lessons.filter(l => {
+      const w = curriculumLessonWorld(l.id);
+      return w && w.order !== order;
+    }).length;
+  }
+  function completedCountOfCourse(course) {
+    if (!progress) return 0;
+    return data.lessons.filter(l => {
+      const belongs = course.lessonsInCatalog ? !curriculumLessonWorld(l.id) : Boolean(curriculumLessonWorld(l.id) && curriculumLessonWorld(l.id).order === course.order);
+      if (!belongs) return false;
+      const state = progress.getState ? progress.getState() : null;
+      const entry = state && state.lessons ? state.lessons[l.id] : null;
+      return Boolean(entry && entry.completed);
+    }).length;
+  }
+
+  /* 批次 0（2026-09-26）：「某个 World 已开放多少课」的口径只留一份。
+   * Foundations 走 catalog 口径（全站开放数 − 其他 World 的开放数），路径 World 按
+   * curriculumLessonWorld 归属计数。World 卡片（worldListChildren）与首页路线预览条
+   * （worldPreviewBar）共用本函数：预览条此前自己硬编码「尚未开放 / open: false」，
+   * World 2 有 8 课中文正文后该文案失实——正是「三处 World 层动态化」漏掉的第四处
+   * 兄弟位置。抽成共享入口，下一处 World 层展示就不用再抄一遍算法。 */
+  function courseOpenCountOf(course, summary) {
+    return course.lessonsInCatalog
+      ? summary.totalLessons - openWorldLessonsExcluding(course.order)
+      : data.lessons.filter(l => { const w = curriculumLessonWorld(l.id); return w && w.order === course.order; }).length;
+  }
+
   function worldListChildren() {
     const summary = progress.summary();
     const children = [];
-    children.push(node('p', `官方 Full Stack JavaScript 路线共 ${curriculum.courses.length} 个 World（Foundations 是前置 World，其后 7 个按官方顺序），合计 ${curriculumTotalLessons()} 课。本站目前只开放 World 1 Foundations 前 ${summary.totalLessons} 课的中文正文；其余 World 展示官方结构占位（课程名与顺序），明确「尚未开放中文内容」，不计入本站完成统计。`, 'muted'));
+    /* v4.11.20 后批次 2（路径课试点）：「只开放 World 1」改为按真实已开放 World 动态推导——
+     * 已开放 World 的判定用 curriculumLessonWorld（slug→course 反查，Foundations 走
+     * lessonsInCatalog 特例）：该 World 在全站课程数据里有任一已开放课即视为已开放。 */
+    const openWorldOrders = new Set();
+    data.lessons.forEach(l => {
+      const world = curriculumLessonWorld(l.id);
+      if (world) openWorldOrders.add(world.order);
+    });
+    /* lessonsInCatalog World（Foundations——明细在 catalog.js，curriculum sections 无
+     * 其课程清单、slug 反查恒 null）按下方 World 卡 open 判定同口径补位：catalog 课
+     * 任一在 data.lessons 即视为已开放（catalog 条目的键是 slug，与 lesson.id 同值）。缺此特例时 openWorldOrders 恒为 {2..8}，
+     * 全开放后 allWorldsOpen 仍 false、动态文案分支永不生效（阶段 4 真实浏览器验证抓出）。 */
+    curriculum.courses.forEach(c => {
+      if (!c.lessonsInCatalog || openWorldOrders.has(c.order)) return;
+      const cat = (catalog && Array.isArray(catalog.lessons)) ? catalog.lessons : [];
+      const idSet = new Set(data.lessons.map(l => l.id));
+      if (cat.some(cl => idSet.has(cl.slug || cl.id))) openWorldOrders.add(c.order);
+    });
+    /* 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，全站收官）：8 个 World 全部开放后
+     * 「其余 World 展示官方结构占位」失实——文案按全开放状态动态分支（既有动态推导
+     * 口径的最后一处硬编码尾巴）。 */
+    const allWorldsOpen = openWorldOrders.size >= curriculum.courses.length;
+    const openWorldText = allWorldsOpen
+      ? `已开放全部 ${curriculum.courses.length} 个 World`
+      : (openWorldOrders.size <= 1
+        ? '目前只开放 World 1 Foundations'
+        : `目前已开放 ${[...openWorldOrders].sort((a, b) => a - b).join('、')} 号 World`);
+    children.push(node('p', `官方 Full Stack JavaScript 路线共 ${curriculum.courses.length} 个 World（Foundations 是前置 World，其后 7 个按官方顺序），合计 ${curriculumTotalLessons()} 课。本站${openWorldText}的中文正文（全站已开放 ${summary.totalLessons} 课）${allWorldsOpen ? '——官方 Full Stack JavaScript 路线的全部课程就此在本站开放完毕。' : '；其余 World 展示官方结构占位（课程名与顺序），明确「尚未开放中文内容」，不计入本站完成统计。'}`, 'muted'));
     children.push(node('p', `结构快照 ${curriculum.snapshotAt} · 来源 theodinproject.com 官方课程页（curriculum.js 可维护刷新）`, 'meta'));
     const list = node('ul', undefined, 'world-list');
     curriculum.courses.forEach(course => {
-      const open = Boolean(course.lessonsInCatalog);
+      /* v4.11.20 后批次 2：Foundations 走 lessonsInCatalog（catalog.js 是它的明细源）；
+       * 路径 World 按数据判定——全站课程里存在属于该 World 的课即「已开放」，
+       * 已开放数从课程数据现算（不再借用 Foundations 的 totalLessons）。 */
+      const courseOpenCount = courseOpenCountOf(course, summary);
+      const open = course.lessonsInCatalog || courseOpenCount > 0;
       const card = node('button', undefined, `world-card${open ? ' is-open' : ' is-locked'}`);
       card.type = 'button';
       /* G2a：纯展示色相钩子（见 WORLD_CARD_TONES 注释）——只回答「这张卡画什么
@@ -5595,9 +5717,13 @@
       card.append(head);
       const stats = node('span', undefined, 'world-stats meta');
       if (open) {
-        /* 第三轮：「前 N 课已有中文学习内容」的覆盖说明从首页 Hero 下沉到
-         * 对应 World 卡片（当前仅 World 1 开放，N = 已开放课数）。 */
-        stats.textContent = `${course.totalLessons} 课 · 前 ${summary.totalLessons} 课已有中文学习内容 · 你已完成 ${summary.completedCount}`;
+        /* 第三轮：「前 N 课已有中文学习内容」的覆盖说明从首页 Hero 下沉到对应 World 卡片。
+         * v4.11.20 后批次 2：N 按课所属 World 现算（Foundations 用 catalog 口径、
+         * 路径 World 用 courses/* 计数），不再整站共用一个数。
+         * 批次 4 修正：courseOpenCount 对两种口径都已是「该 World 的开放课数」
+         * （lessonsInCatalog 时 = totalLessons − 其他 World 的开放数），直接用，
+         * 不再二次相减（旧写法 49 − 46 会把 Foundations 显示成「前 3 课」）。 */
+        stats.textContent = `${course.totalLessons} 课 · 前 ${courseOpenCount} 课已有中文学习内容 · 你已完成 ${completedCountOfCourse(course)}`;
       } else {
         const sections = Array.isArray(course.sections) ? course.sections.length : 0;
         stats.textContent = `${course.totalLessons} 课 · ${sections} 个章节 · 尚未开放中文内容`;
@@ -5606,8 +5732,8 @@
       /* Stretch I5：开放 World 的完成度视觉——细进度条复用今日条的
        * mini 进度条样式（同一视觉语法），数字口径就是 stats 行那一句
        * （completedCount / 已开放课数），装饰性 aria-hidden，读屏已有文本 */
-      if (open && summary.totalLessons > 0) {
-        const pct = Math.min(100, Math.round((summary.completedCount / summary.totalLessons) * 100));
+      if (open && courseOpenCount > 0) {
+        const pct = Math.min(100, Math.round((completedCountOfCourse(course) / courseOpenCount) * 100));
         const mini = node('span', undefined, 'today-mini-progress world-mini-progress');
         const fill = node('span', undefined, `today-mini-fill${pct >= 100 ? ' is-done' : ''}`);
         fill.style.width = `${pct}%`;
@@ -5617,7 +5743,7 @@
       }
       const hint = node('span', open ? '进入探索地图 →' : '查看官方结构 →', 'world-hint meta');
       card.append(hint);
-      card.setAttribute('aria-label', `World ${course.order} ${course.zh}（${course.en}）：${stats.textContent}。${open ? '进入 Foundations 探索地图' : '查看官方课程结构占位'}`);
+      card.setAttribute('aria-label', `World ${course.order} ${course.zh}（${course.en}）：${stats.textContent}。${open ? `进入该 World 的探索地图（已开放课可直接进入正文）` : '查看官方课程结构占位'}`);
       card.addEventListener('click', () => {
         worldView = course.id;
         refreshSheetById('map');
@@ -5649,9 +5775,21 @@
       else children.push(node('p', 'Foundations 地图数据未载入（map.js 缺失）。', 'muted'));
       return children;
     }
-    /* 未开放 World：结构占位（F3 红线——无链接、无伪装、明确未开放） */
+    /* 路径 World：结构占位为主（F3 红线——未开放课无链接、无伪装、明确未开放）。
+     * 路径课试点批次 3（2026-09-25）：World 内已开放的课（findLesson 命中该 slug，
+     * 即 courses/* 已并入 data.lessons）渲染为可进入本站正文的真链接；未开放的课
+     * 保持结构占位不变。开放数现算，不写死数字。 */
     children.push(node('h3', `World ${course.order} · ${course.zh}`));
-    children.push(node('p', `${course.en} · 官方共 ${course.totalLessons} 课。本站尚未开放这个 World 的中文内容：下面是官方课程结构占位（快照 ${curriculum.snapshotAt}），课程名保留英文原题；学习内容请去官方原课，本站不提供这些课程的正文或项目答案。`, 'notice'));
+    const openedInCourse = (course.sections || []).reduce(
+      (count, sec) => count + sec.lessons.filter(item => findLesson(item.slug)).length, 0);
+    /* 超长续轮批次 7 阶段 4（全站收官轮）：全开放 World 的「其余课程仍为官方结构
+     * 占位」失实（真实浏览器验证抓出——World 2–8 收组后详情文案共性尾巴），加
+     * openedInCourse >= totalLessons 全开放分支；混合与未开放两支保持原文案。 */
+    children.push(node('p', openedInCourse >= course.totalLessons
+      ? `${course.en} · 官方共 ${course.totalLessons} 课。本站已开放全部 ${openedInCourse} 课中文正文（下面可直接点开学习，课程名用中文）——该 World 已全开放，无占位课程；本站不提供项目答案。`
+      : openedInCourse > 0
+      ? `${course.en} · 官方共 ${course.totalLessons} 课。本站已开放 ${openedInCourse} 课中文正文（下面可直接点开学习，课程名用中文）；其余课程仍为官方结构占位（快照 ${curriculum.snapshotAt}），课程名保留英文原题——学习内容请去官方原课，本站不提供这些课程的正文或项目答案。`
+      : `${course.en} · 官方共 ${course.totalLessons} 课。本站尚未开放这个 World 的中文内容：下面是官方课程结构占位（快照 ${curriculum.snapshotAt}），课程名保留英文原题；学习内容请去官方原课，本站不提供这些课程的正文或项目答案。`, 'notice'));
     children.push(link('在官方打开这门课程 ↗', course.url, 'button-secondary', true));
     (course.sections || []).forEach(sec => {
       const secBlock = node('div', undefined, 'world-section');
@@ -5661,7 +5799,19 @@
       secBlock.append(head);
       const lessonList = node('ol', undefined, 'world-lesson-list');
       sec.lessons.forEach(lesson => {
-        /* 刻意用 div/span 而不是 <a>：结构上不存在进入本站正文的路径（F3） */
+        const opened = findLesson(lesson.slug);
+        if (opened) {
+          /* 已开放：真链接进本站正文（中文课名，title 悬浮给英文原题） */
+          const row = node('li', undefined, 'world-lesson world-lesson-open');
+          const entry = link(opened.zh || lesson.title, lessonHref(opened), 'world-lesson-link');
+          entry.title = lesson.title;
+          row.append(entry);
+          if (lesson.type === 'project') row.append(node('span', '项目', 'lesson-type'));
+          row.append(node('span', '已有中文正文', 'world-lesson-flag meta'));
+          lessonList.append(row);
+          return;
+        }
+        /* 未开放：刻意用 div/span 而不是 <a>——结构上不存在进入本站正文的路径（F3） */
         const row = node('li', undefined, 'world-lesson');
         row.append(node('span', lesson.title, 'world-lesson-title'));
         if (lesson.type === 'project') row.append(node('span', '项目', 'lesson-type'));
@@ -5669,6 +5819,39 @@
         lessonList.append(row);
       });
       secBlock.append(lessonList);
+      /* World 2 第三批（2026-09-26）：路径课章节的 Boss 入口。
+       * 粒度与 Foundations 一致——Boss 一律对应「官方章节」。unitId 自批次 4
+       * （2026-09-26）起为 `<courseId>/<sectionId>`（经 bosses.js 的 pathBossUnitId
+       * 构造，如 intermediate-html-and-css/grid）——裸 section id 已实测跨命名空间
+       * 撞名（javascript / react 的 introduction 与 Foundations 分组 id 同名），
+       * 前缀隔离后 state.bosses 的单键存储才不会串档。
+       * 出现条件两条都按数据现算，不写死章节名：**本章全部课都已开放**（题目只能来自
+       * 已讲知识，开一半的章节不配 Boss）+ bosses.js 里确有该 unitId 的题库。
+       * 位置沿用 Foundations 地图的约定：Boss 在该单元路线**末尾**，不塞进章节标题行。
+       * 视觉与容器全部复用既有规则（.map-nodes 行容器 + .map-boss-dot + .map-boss-rating），
+       * **零新 CSS**——它和地图里的 Boss 行是同一种 UI 模式，不另造一套。 */
+      const sectionBoss = (bossesModule && sec.lessons.length && sec.lessons.every(l => findLesson(l.slug)))
+        ? progress.bossBrief(bossesModule.pathBossUnitId(course.id, sec.id))
+        : null;
+      if (sectionBoss) {
+        const bossRow = node('div', undefined, 'map-nodes');
+        const bossButton = node('button', sectionBoss.attempted ? '☗' : '?', `map-node map-boss-dot${sectionBoss.attempted ? ' is-attempted' : ''}`);
+        bossButton.type = 'button';
+        const record = sectionBoss.record || null;
+        const bestPct = record && record.bestPct !== null && record.bestPct !== undefined ? record.bestPct : null;
+        const rating = bestPct !== null && bossesModule.ratingOf ? bossesModule.ratingOf(bestPct) : null;
+        const bossTitle = `Boss · ${sectionBoss.zh}${bestPct !== null && rating ? `（历史最佳 ${bestPct}% · ${rating.zh}）` : '（还没挑战过）'}`;
+        bossButton.title = bossTitle;
+        bossButton.setAttribute('aria-label', `打开${sec.zh}章节的 Boss 挑战：${sectionBoss.zh}`);
+        bossButton.addEventListener('click', () => openBossDialog(sectionBoss.unitId));
+        bossRow.append(bossButton);
+        if (sectionBoss.attempted && rating && rating.zh) {
+          const chip = node('span', rating.zh, `map-boss-rating is-${rating.id || 'none'}`);
+          chip.title = bossTitle;
+          bossRow.append(chip);
+        }
+        secBlock.append(bossRow);
+      }
       children.push(secBlock);
     });
     return children;
@@ -6581,7 +6764,23 @@
     PREVIEW_STAGES.forEach(stage => {
       /* tone 必须一起带过去（B3）：这里是从 PREVIEW_STAGES 重建展示对象，
        * 漏掉 tone 会让四格里的三格没有色相钩子。 */
-      if (courseAt(stage.order)) stages.push({ name: stage.name, state: '尚未开放', open: false, tone: stage.tone });
+      const course = courseAt(stage.order);
+      if (!course) return;
+      /* 批次 0（2026-09-26）：状态与 is-open 改为按数据现算，与 World 卡片走同一个
+       * courseOpenCountOf 口径。「已开放 N / M」的形制对齐 Foundations 格的
+       * 「已完成 N / M」，但语义刻意不同且可区分：Foundations 格说的是**你的进度**，
+       * 路径 World 格说的是**本站已有多少可学内容**（与 World 卡片「前 N 课已有
+       * 中文学习内容」同一事实）。totalLessons 拿不到时只报已开放数，不编造总数
+       * （与 catalogBodyChildren / Foundations 格同口径）。 */
+      const openCount = courseOpenCountOf(course, summary);
+      stages.push({
+        name: stage.name,
+        state: openCount
+          ? (course.totalLessons ? `已开放 ${openCount} / ${course.totalLessons}` : `已开放 ${openCount} 课`)
+          : '尚未开放',
+        open: openCount > 0,
+        tone: stage.tone
+      });
     });
     const bar = node('button', undefined, 'world-preview');
     bar.type = 'button';
@@ -6660,7 +6859,10 @@
     const usageBody = node('div', undefined, 'site-usage-body');
     const faqItems = [
       ['本站怎么用？', 'Foundations 全部 46 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 的中文化版本——可以在本站学完并自查。Project 课的代码要你自己写：本站提供要求中文版、拆解与验收清单，不提供成品答案；项目提交、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
-      ['中文内容覆盖到哪里？', 'Foundations 的全部 46 课已有完整中文学习内容（八个分组全部开放，含 46 课 Choose Your Path Forward）；本站同时展示 8 个 World、197 课的完整路线结构，Foundations 之后的路径课程请回官方原课学习。'],
+      /* 路径课试点批次 3：边界声明从「路径课程请回官方原课」改为「未开放的课回官方」
+       * ——World 2 起已有逐批开放的中文正文。句式刻意避开「开放…N 课」（stale-claims
+       * R2 的全站开放计数口径），46 是 Foundations 范围声明不是全站开放数。 */
+      ['中文内容覆盖到哪里？', 'Foundations 的全部 46 课已有完整中文学习内容（八个分组、46 课全部开放——含 Choose Your Path Forward）；路径课程自 World 2「中级 HTML 与 CSS」起逐批提供中文正文，首批 3 课已上线（入口在「学习地图」的 World 列表）；本站同时展示 8 个 World、197 课的完整路线结构，未开放的课程请回官方原课学习。'],
       ['哪些内容需要联网？', '中文课程与学习记录可在本地使用；TOP 原课、视频及外部资料需要联网。官方课程如有更新，以 TOP 为准。'],
       /* v4.11.2 A2：外部资料核验方法论从课页资源区移到这里。方法论（状态码、
        * 重定向、内容级语言核验、oEmbed）是审计信息，读者主动打开「关于本站」时
@@ -6691,9 +6893,15 @@
     const lesson = data.lessons[index];
     activeLessonId = lesson.id;
     document.title = `${lesson.zh} · ${lesson.title} · Odin 中文学习站`;
-    /* 第三轮：课页顶部轻量返回入口——当前 46 课均属 World 1，直接显示
-     * 「← Foundations」；左上品牌 Logo 回首页的既有链路不变。不做显眼大按钮。 */
-    main.append(link('← Foundations', 'index.html', 'lesson-back'));
+    /* 第三轮：课页顶部轻量返回入口。v4.11.20 后批次 2（路径课试点）：按课所属
+     * World 动态取名——Foundations 课显示「← Foundations」，路径课显示所属 World
+     * 的中文名（从 curriculum.js 反查，如「← 中级 HTML 与 CSS」）；反查不到时回落
+     * 「← 课程列表」。左上品牌 Logo 回首页的既有链路不变。不做显眼大按钮。 */
+    const lessonWorld = curriculumLessonWorld(lesson.id);
+    const backLabel = lessonWorld
+      ? `← ${lessonWorld.zh}`
+      : (data.groups[lesson.group] && lesson.group <= 7 ? `← ${'Foundations'}` : '← 课程列表');
+    main.append(link(backLabel, 'index.html', 'lesson-back'));
     /* v4.11.16：分母改为 data.lessons.length 推导，扩课不再需要改这一行。 */
     main.append(node('p', `第 ${String(index + 1).padStart(2, '0')} / ${data.lessons.length} 课 · ${data.groups[lesson.group].zh}`, 'meta'));
     main.append(node('h1', lesson.zh), node('p', lesson.title, 'english'), node('p', lesson.summary, 'lead'));
@@ -6954,7 +7162,8 @@
     });
   }
 
-  /* v2 中文自足讲解布局：当前 46 课均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
+  /* v2 中文自足讲解布局：当前全部已开放课（Foundations 46 课与路径课试点批次）
+   * 均带 sections 字段，都走此分支；上方旧导读布局作为兼容分支保留。 */
   function renderLessonV2(lesson) {
     main.classList.add('lesson-v2');
     const chapterIds = [];
@@ -7066,11 +7275,17 @@
      * 没有外部资料。与第 1 节引导、下方跳转链接守卫同一口径。 */
     const officialResourceCount = (resourceData && Array.isArray(resourceData.resources))
       ? resourceData.resources.filter(resource => resource.lessonId === lesson.id).length : 0;
-    /* v4.11.20 第九批：第 46 课（结语课）是官方唯一的无 Assignment 课——前言如实说明，
-     * 不描述页面上不存在的 Assignment 列表（与零资料课分支同一口径）。 */
+    /* v4.11.20 第九批：第 46 课（结语课）曾是官方唯一的无 Assignment 课——前言如实说明，
+     * 不描述页面上不存在的 Assignment 列表（与零资料课分支同一口径）。
+     * World 3 批次 4：第二门无 Assignment 课出现（javascript 课程引言课，官方文件
+     * 没有 Assignment 节）——括注措辞按课分支，不再对所有无 Assignment 课硬说「结语课」；
+     * 「外部文章入口」半句按本课是否真有资源条件渲染（不承诺不存在的落点）。 */
     const noOfficialAssignment = lesson.official.assignment.length === 0;
+    const noAssignParenthetical = lesson.id === 'choose-your-path-forward'
+      ? '（结语课，官方文件顶部声明因独特的课结构豁免常规布局）'
+      : '（官方该课文件没有 Assignment 节）';
     official.append(node('p', noOfficialAssignment
-      ? '这一课官方没有布置 Assignment（结语课，官方文件顶部声明因独特的课结构豁免常规布局）。本站只收录官方正文的中文化梳理与本站自拟的回顾任务；正文推荐的外部文章在下方「本课外部资料」有中文辅助入口。'
+      ? `这一课官方没有布置 Assignment${noAssignParenthetical}。本站只收录官方正文的中文化梳理与本站自拟的回顾任务${officialResourceCount ? '；正文推荐的外部文章在下方「本课外部资料」有中文辅助入口' : ''}。`
       : (officialResourceCount === 0
       ? '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这一课官方没有布置外部资料，跟着本页讲解与任务说明往下走即可。'
       : (lesson.official.exercise.length
@@ -7081,7 +7296,8 @@
      * 锚点不是外链，不加 ↗。目标资源区永不折叠，原生锚点直达、无需先展开。
      * 本课没有外部资料时不渲染——不承诺不存在的落点（与第 1 节引导同一口径）。 */
     const collapseNow = officialTasksCollapsed();
-    /* v4.11.20 第九批：官方无 Assignment 的课（当前仅第 46 课结语课）不渲染
+    /* v4.11.20 第九批：官方无 Assignment 的课（Foundations 里仅第 46 课结语课；
+     * 路径课试点批次的 3 课均有 Assignment）不渲染
      * 「Assignment（必做）」标题与空列表——渲染空的「必做」列表是对官方结构的失实。 */
     if (!noOfficialAssignment) {
       const assignmentHead = node('h3', 'Assignment（必做）');

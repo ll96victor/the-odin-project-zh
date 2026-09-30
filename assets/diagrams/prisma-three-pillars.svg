@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="516" viewBox="0 0 732 516" role="img" aria-labelledby="t-prisma-three-pillars d-prisma-three-pillars">
+  <title id="t-prisma-three-pillars">Prisma 三件套：Schema / Client / Migrate</title>
+  <desc id="d-prisma-three-pillars">概念关系图，中心一个节点 Prisma ORM（schema 是单一事实源），三条辐条连向三个卫星节点。Schema：用 PSL 定义 models 与 relations，住进代码库、被版本控制追踪，治「代码库看不懂表结构」的痛点。Client：npx prisma generate 按 schema 定制生成，prisma.message.create/findMany，治「重复查询代码」的痛点。Migrate：把 schema 变更应用到数据库，migrations 文件夹追踪、变更日志标准化，治「手写迁移易错」的痛点。三件套各对应 raw SQL 的一个痛点。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,222 L366,122"/>
+  <path class="spoke" d="M446,295 L453,298"/>
+  <path class="spoke" d="M286,295 L267,303"/>
+  <rect class="accentbox" x="276" y="222" width="180" height="73" rx="10"/>
+  <text class="hb" x="366" y="255" text-anchor="middle"><tspan x="366">Prisma ORM</tspan></text>
+  <text class="s" x="366" y="271" text-anchor="middle"><tspan x="366">schema 是单一事实源</tspan></text>
+  <rect class="box" x="252" y="29" width="228" height="93" rx="6"/>
+  <text class="hb" x="366" y="51" text-anchor="middle"><tspan x="366">Schema</tspan></text>
+  <text class="s" x="366" y="67" text-anchor="middle"><tspan x="366">PSL 定义 models 与 relations——</tspan><tspan x="366" dy="17">住进代码库、被版本控制追踪（治「</tspan><tspan x="366" dy="17">代码库看不懂表」）</tspan></text>
+  <rect class="box" x="453" y="295" width="228" height="110" rx="6"/>
+  <text class="hb" x="567" y="317" text-anchor="middle"><tspan x="567">Client</tspan></text>
+  <text class="s" x="567" y="333" text-anchor="middle"><tspan x="567">npx prisma generate 按 schema</tspan><tspan x="567" dy="17">定制生成</tspan><tspan x="567" dy="17">——prisma.message.create/findMany</tspan><tspan x="567" dy="17">（治「重复查询代码」）</tspan></text>
+  <rect class="box" x="51" y="303" width="228" height="93" rx="6"/>
+  <text class="hb" x="165" y="326" text-anchor="middle"><tspan x="165">Migrate</tspan></text>
+  <text class="s" x="165" y="342" text-anchor="middle"><tspan x="165">把 schema 变更应用到数据库</tspan><tspan x="165" dy="17">——migrations 文件夹追踪、变更日</tspan><tspan x="165" dy="17">志标准化（治「手写迁移易错」）</tspan></text>
+</svg>

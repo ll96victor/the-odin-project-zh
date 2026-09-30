@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="448" viewBox="0 0 732 448" role="img" aria-labelledby="t-sql-join-four-flavors d-sql-join-four-flavors">
+  <title id="t-sql-join-four-flavors">四种 JOIN：各保留哪些行</title>
+  <desc id="d-sql-join-four-flavors">中心辐射图。中心是「JOIN 四种取舍」，副题注明左表等于 FROM 里那张、ON 给拉链列。四个卫星节点：INNER JOIN，只保留两表匹配上的行——95% 场景，没匹配的两侧都丢；LEFT OUTER JOIN，左表全保留、右表匹配的加进来、右表没对上的格子填 NULL；RIGHT OUTER JOIN，右表全保留、左表匹配的加进来、左表没对上的格子填 NULL；FULL OUTER JOIN，两表所有行全保留、任何对不上的格子都填 NULL。图下注：选哪种 JOIN 本质是问「要不要保留没匹配上的行」——要保左表用 LEFT、要保右表用 RIGHT、都保用 FULL、只要匹配的用 INNER。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,188 L366,96"/>
+  <path class="spoke" d="M456,224 L484,224"/>
+  <path class="spoke" d="M366,261 L366,352"/>
+  <path class="spoke" d="M276,224 L248,224"/>
+  <rect class="accentbox" x="276" y="188" width="180" height="73" rx="10"/>
+  <text class="hb" x="366" y="221" text-anchor="middle"><tspan x="366">JOIN 四种取舍</tspan></text>
+  <text class="s" x="366" y="237" text-anchor="middle"><tspan x="366">左表 = FROM 里那张；ON 给拉链列</tspan></text>
+  <rect class="box" x="252" y="20" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="43" text-anchor="middle"><tspan x="366">INNER JOIN</tspan></text>
+  <text class="s" x="366" y="59" text-anchor="middle"><tspan x="366">只保留两表匹配上的行——95% 场景；</tspan><tspan x="366" dy="17">没匹配的两侧都丢</tspan></text>
+  <rect class="box" x="484" y="186" width="228" height="76" rx="6"/>
+  <text class="hb" x="598" y="209" text-anchor="middle"><tspan x="598">LEFT OUTER</tspan></text>
+  <text class="s" x="598" y="225" text-anchor="middle"><tspan x="598">左表全保留、右表匹配的加进来；右</tspan><tspan x="598" dy="17">表没对上的格子填 NULL</tspan></text>
+  <rect class="box" x="252" y="352" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="375" text-anchor="middle"><tspan x="366">RIGHT OUTER</tspan></text>
+  <text class="s" x="366" y="391" text-anchor="middle"><tspan x="366">右表全保留、左表匹配的加进来；左</tspan><tspan x="366" dy="17">表没对上的格子填 NULL</tspan></text>
+  <rect class="box" x="20" y="186" width="228" height="76" rx="6"/>
+  <text class="hb" x="134" y="209" text-anchor="middle"><tspan x="134">FULL OUTER</tspan></text>
+  <text class="s" x="134" y="225" text-anchor="middle"><tspan x="134">两表所有行全保留；任何对不上的格</tspan><tspan x="134" dy="17">子都填 NULL</tspan></text>
+</svg>

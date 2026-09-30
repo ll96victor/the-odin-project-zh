@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="184" viewBox="0 0 740 184" role="img" aria-labelledby="t-hidden-content-paths d-hidden-content-paths">
+  <title id="t-hidden-content-paths">隐藏内容的两种方案：部分修复与正解</title>
+  <desc id="d-hidden-content-paths">两列对比图。左列「子项逐个 tabindex=-1 · 部分修复」：键盘焦点维度——子项被移出 Tab 序列，打勾；辅助技术维度——其他辅助技术仍能访问并播报这些看不见的内容，打叉；代价是每个子项都要加、新增子项容易漏。右列「容器 display:none 或 visibility:hidden · 正解」：键盘焦点维度——整个容器连同子项移出 Tab 序列，打勾；辅助技术维度——同样不再播报，打勾；需要显示时移除或覆盖该属性即可。图下说明：菜单与模态框未展开时，内容要对键盘与辅助技术同时隐藏——只藏一边就会出现「焦点消失在看不见的元素里」的事故。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">子项逐个 tabindex="-1" · 部分修复</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">键盘焦点：移出 Tab 序列 ✓</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">辅助技术：仍能访问并播报 ✗</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">代价：每个子项都要加，新增子项易漏</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="38" text-anchor="middle"><tspan x="551">容器 display:none / visibility:hidden</tspan><tspan x="551" dy="19">· 正解</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">键盘焦点：整容器移出 Tab 序列 ✓</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">辅助技术：不再播报 ✓</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">显示时：移除或覆盖该属性即可</tspan></text>
+</svg>

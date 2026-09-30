@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="316" viewBox="0 0 760 316" role="img" aria-labelledby="t-grid-lines-and-cells d-grid-lines-and-cells">
+  <title id="t-grid-lines-and-cells">网格部件解剖：线、轨道、单元格与项目</title>
+  <desc id="d-grid-lines-and-cells">结构解剖图，顶部三个阶段带：用 grid-template 定义轨道、线与单元格随之隐式产生、项目按线号或区域名落位。中央被拆解的主体是「3×3 网格（容器）」，拆出四个部件：网格线 line——随轨道定义隐式产生、不能直接创建，从 1 开始编号，n 条轨道对应 n+1 条线，负数线号从另一端倒数；轨道 track——两条相邻线之间的空间，一条行轨道或一条列轨道；单元格 cell——一条行轨道与一条列轨道的交集，类似电子表格的一格，默认每个项目占一格；网格项目 item——容器的直接子元素，按线号或区域名定位、可以跨多格。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="chip" x="100" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="180" y="39" text-anchor="middle"><tspan x="180">用 grid-template</tspan><tspan x="180" dy="17">定义 轨道</tspan></text>
+  <rect class="chip" x="300" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="380" y="48" text-anchor="middle"><tspan x="380">线与单元格隐式产生</tspan></text>
+  <path class="edge" d="M264,43 L293,43" marker-end="url(#arr)"/>
+  <rect class="chip" x="500" y="24" width="160" height="38" rx="6"/>
+  <text class="b" x="580" y="48" text-anchor="middle"><tspan x="580">项目按线号 / 区域名落位</tspan></text>
+  <path class="edge" d="M464,43 L493,43" marker-end="url(#arr)"/>
+  <text class="h" x="380" y="117" text-anchor="middle"><tspan x="380">3×3 网格（容器）</tspan></text>
+  <rect class="accentbox" x="24" y="136" width="174" height="54" rx="6"/>
+  <text class="hb" x="111" y="168" text-anchor="middle"><tspan x="111">网格线 line</tspan></text>
+  <rect class="box" x="198" y="136" width="160" height="54"/>
+  <text class="hb" x="278" y="168" text-anchor="middle"><tspan x="278">轨道 track</tspan></text>
+  <path class="divider" d="M198,136 L198,190"/>
+  <rect class="box" x="358" y="136" width="174" height="54"/>
+  <text class="hb" x="445" y="168" text-anchor="middle"><tspan x="445">单元格 cell</tspan></text>
+  <path class="divider" d="M358,136 L358,190"/>
+  <rect class="box" x="532" y="136" width="204" height="54"/>
+  <text class="hb" x="634" y="168" text-anchor="middle"><tspan x="634">网格项目 item</tspan></text>
+  <path class="divider" d="M532,136 L532,190"/>
+  <rect class="outline" x="24" y="136" width="712" height="54" rx="6"/>
+  <path class="spoke" d="M111,196 L111,206 L108,218"/>
+  <text class="s" x="108" y="239" text-anchor="middle"><tspan x="108">随轨道定义隐式产生，不能</tspan><tspan x="108" dy="17">直接创建；从 1 编号，n</tspan><tspan x="108" dy="17">条轨道对应 n+1 条线，负</tspan><tspan x="108" dy="17">数线从另一端倒数</tspan></text>
+  <path class="spoke" d="M278,196 L278,206 L289,218"/>
+  <text class="s" x="289" y="239" text-anchor="middle"><tspan x="289">两条相邻线之间的空间——一</tspan><tspan x="289" dy="17">条行轨道或一条列轨道</tspan></text>
+  <path class="spoke" d="M445,196 L445,206 L471,218"/>
+  <text class="s" x="471" y="239" text-anchor="middle"><tspan x="471">一条行轨道 × 一条列轨道</tspan><tspan x="471" dy="17">的交集，像电子表格的一格；</tspan><tspan x="471" dy="17">默认每个项目占一格</tspan></text>
+  <path class="spoke" d="M634,196 L634,206 L652,218"/>
+  <text class="s" x="652" y="239" text-anchor="middle"><tspan x="652">容器的直接子元素；按线号</tspan><tspan x="652" dy="17">或区域名定位，可以跨多格</tspan></text>
+</svg>

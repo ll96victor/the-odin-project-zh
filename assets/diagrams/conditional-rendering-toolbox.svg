@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="448" viewBox="0 0 732 448" role="img" aria-labelledby="t-conditional-rendering-toolbox d-conditional-rendering-toolbox">
+  <title id="t-conditional-rendering-toolbox">条件渲染工具箱：三元、逻辑与、if 守卫</title>
+  <desc id="d-conditional-rendering-toolbox">中心辐射图。中心是「条件渲染工具箱」，副题注明先数分支再挑工具，挑什么都是 JSX 大括号里的 JavaScript 表达式。四个卫星节点：三元运算符——二选一场景，条件成立渲染 A 否则渲染 B，什么都不渲染的分支写 null；&amp;&amp; 运算符——满足才渲染场景，条件为假时渲染空，坑是左边别放数字，0 会被渲染到页面上；if 守卫提前返回——多分支与边界先行场景，先接住数据未到位的 Loading 与空列表提示，两关都过再渲染主列表；嵌套组合——嵌套三元与多段 &amp;&amp; 连用逻辑上等价但看着吓人，分支多时优先守卫写法。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,180 L366,96"/>
+  <path class="spoke" d="M456,224 L484,224"/>
+  <path class="spoke" d="M366,269 L366,352"/>
+  <path class="spoke" d="M276,224 L248,224"/>
+  <rect class="accentbox" x="276" y="180" width="180" height="89" rx="10"/>
+  <text class="hb" x="366" y="213" text-anchor="middle"><tspan x="366">条件渲染工具箱</tspan></text>
+  <text class="s" x="366" y="229" text-anchor="middle"><tspan x="366">先数分支再挑工具——挑什么都是 JSX</tspan><tspan x="366" dy="16">大括号里的 JS 表达式</tspan></text>
+  <rect class="box" x="252" y="20" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="43" text-anchor="middle"><tspan x="366">三元 ? :</tspan></text>
+  <text class="s" x="366" y="59" text-anchor="middle"><tspan x="366">二选一：成立渲染 A、否则渲染 B；</tspan><tspan x="366" dy="17">「什么都不渲染」的分支写 null</tspan></text>
+  <rect class="box" x="484" y="186" width="228" height="76" rx="6"/>
+  <text class="hb" x="598" y="209" text-anchor="middle"><tspan x="598">&amp;&amp; 运算符</tspan></text>
+  <text class="s" x="598" y="225" text-anchor="middle"><tspan x="598">满足才渲染：假时渲染空；坑——左边</tspan><tspan x="598" dy="17">别放数字，0 会被渲染出来</tspan></text>
+  <rect class="box" x="252" y="352" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="375" text-anchor="middle"><tspan x="366">if 守卫提前返回</tspan></text>
+  <text class="s" x="366" y="391" text-anchor="middle"><tspan x="366">多分支与边界先行：Loading 与空态</tspan><tspan x="366" dy="17">先接住，两关都过再渲染主列表</tspan></text>
+  <rect class="box" x="20" y="186" width="228" height="76" rx="6"/>
+  <text class="hb" x="134" y="209" text-anchor="middle"><tspan x="134">嵌套组合</tspan></text>
+  <text class="s" x="134" y="225" text-anchor="middle"><tspan x="134">嵌套三元与多段 &amp;&amp; 等价但「看着吓</tspan><tspan x="134" dy="17">人」——分支多时优先守卫</tspan></text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="224" viewBox="0 0 450 224" role="img" aria-labelledby="t-git-reset-three-levels d-git-reset-three-levels">
+  <title id="t-git-reset-three-levels">reset 三档：每深一档多动一层</title>
+  <desc id="d-git-reset-three-levels">三步流程图。第一步「--soft」：只移 HEAD——改动全部留在暂存区，官方类比「更强大的 amend」：回退多个提交、把改动合成一个新提交。第二步「默认档」：再重置暂存区——改动退回工作目录未暂存状态，文件内容还在；拆分提交的手法就靠它。第三步「--hard」：再覆盖工作目录——三层全动，未提交的改动直接冲掉，属可能毁数据的破坏性命令。图下说明：reset 的完整流程是三步——移 HEAD、用新指向更新暂存区、覆盖工作目录；标志位决定做到第几步停。--hard 之前必须确切知道为什么用它，团队共享仓库里还要让同事知情。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="55" text-anchor="middle"><tspan x="75">--soft</tspan></text>
+  <text class="s" x="75" y="60" text-anchor="middle"><tspan x="75">只移 HEAD——</tspan><tspan x="75" dy="15">改动留在暂</tspan><tspan x="75" dy="15">存区</tspan></text>
+  <rect class="box" x="176" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="55" text-anchor="middle"><tspan x="225">默认档</tspan></text>
+  <text class="s" x="225" y="60" text-anchor="middle"><tspan x="225">+ 重置暂存区</tspan><tspan x="225" dy="15">——改动退回</tspan><tspan x="225" dy="15">未暂存</tspan></text>
+  <path class="edge" d="M124,57 L169,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="326" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="375" y="55" text-anchor="middle"><tspan x="375">--hard</tspan></text>
+  <text class="s" x="375" y="60" text-anchor="middle"><tspan x="375">+ 覆盖工作目</tspan><tspan x="375" dy="15">录——三层全动</tspan><tspan x="375" dy="15">· 破坏性</tspan></text>
+  <path class="edge" d="M274,57 L319,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="398" height="104" rx="6"/>
+  <text class="s" x="225" y="116" text-anchor="middle"><tspan x="225">reset 的完整流程是三步：移 HEAD、用新指向更新暂存区、覆盖</tspan><tspan x="225" dy="18">工作目录——标志位决定做到第几步停。--soft 是「更强大的</tspan><tspan x="225" dy="18">amend」（回退多个提交、改动合成新提交）；默认档是拆分提交的</tspan><tspan x="225" dy="18">原理（改动回到未暂存、分别再提交）；--hard 可能毁数据——用</tspan><tspan x="225" dy="18">之前必须确切知道为什么，共享仓库里还要让同事知情。</tspan></text>
+</svg>

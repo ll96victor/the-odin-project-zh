@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-aria-attributes-map d-aria-attributes-map">
+  <title id="t-aria-attributes-map">四个 aria-* 属性各改无障碍树的哪里</title>
+  <desc id="d-aria-attributes-map">中心辐射图。中心是「无障碍树」，副题注明 ARIA 只改这棵树——外观、行为、可聚焦、键盘事件都改不了。四个卫星节点：aria-label——改「名称」属性，字符串覆盖原生标签，对 div/span 等无角色元素无效，别当注音用；aria-labelledby——也改「名称」，优先级最高，拼接多个 id 引用、可自引用，引用目标可以视觉隐藏；aria-describedby——改「描述」属性，在名称之外追加播报补充说明（如密码格式要求）；aria-hidden 为 true——把整个节点移出树，视觉保留，子元素连坐且 false 救不回，可聚焦元素禁用。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,197 L366,113"/>
+  <path class="spoke" d="M456,242 L484,242"/>
+  <path class="spoke" d="M366,286 L366,379"/>
+  <path class="spoke" d="M276,242 L248,242"/>
+  <rect class="accentbox" x="276" y="197" width="180" height="89" rx="10"/>
+  <text class="hb" x="366" y="231" text-anchor="middle"><tspan x="366">无障碍树</tspan></text>
+  <text class="s" x="366" y="247" text-anchor="middle"><tspan x="366">ARIA 只改这棵树——外观、行为、可聚</tspan><tspan x="366" dy="16">焦、键盘事件都改不了</tspan></text>
+  <rect class="box" x="252" y="20" width="228" height="93" rx="6"/>
+  <text class="hb" x="366" y="43" text-anchor="middle"><tspan x="366">aria-label</tspan></text>
+  <text class="s" x="366" y="59" text-anchor="middle"><tspan x="366">改「名称」：字符串覆盖原生标签；</tspan><tspan x="366" dy="17">对 div/span 等无角色元素无效；</tspan><tspan x="366" dy="17">别当注音用</tspan></text>
+  <rect class="box" x="484" y="195" width="228" height="93" rx="6"/>
+  <text class="hb" x="598" y="218" text-anchor="middle"><tspan x="598">aria-labelledby</tspan></text>
+  <text class="s" x="598" y="234" text-anchor="middle"><tspan x="598">改「名称」：优先级最高；拼接多个</tspan><tspan x="598" dy="17">id 引用、可自引用；引用目标可视</tspan><tspan x="598" dy="17">觉隐藏</tspan></text>
+  <rect class="box" x="252" y="379" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="401" text-anchor="middle"><tspan x="366">aria-describedby</tspan></text>
+  <text class="s" x="366" y="417" text-anchor="middle"><tspan x="366">改「描述」：名称之外追加播报补充</tspan><tspan x="366" dy="17">说明（如密码格式要求）</tspan></text>
+  <rect class="box" x="20" y="195" width="228" height="93" rx="6"/>
+  <text class="hb" x="134" y="218" text-anchor="middle"><tspan x="134">aria-hidden="true"</tspan></text>
+  <text class="s" x="134" y="234" text-anchor="middle"><tspan x="134">整节点移出树：视觉保留；子元素连</tspan><tspan x="134" dy="17">坐且 false</tspan><tspan x="134" dy="17">救不回；可聚焦元素禁 用</tspan></text>
+</svg>

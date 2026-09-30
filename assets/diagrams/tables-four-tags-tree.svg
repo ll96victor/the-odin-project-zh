@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="807" height="304" viewBox="0 0 807 304" role="img" aria-labelledby="t-tables-four-tags-tree d-tables-four-tags-tree">
+  <title id="t-tables-four-tags-tree">最小表格的骨架：四个标签的嵌套关系</title>
+  <desc id="d-tables-four-tags-tree">层级树。根节点 table（整张表）。它有两个子节点：tr（第 1 行：表头行）与 tr（第 2 行：数据行）。表头行下有两个子节点：th（表头单元格，默认加粗居中）与 th（列标签，如「姓名」）；数据行下有两个子节点：td（数据单元格）与 td（数据，如「地球」）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M404,67 L404,95 L231,95 L231,117" marker-end="url(#arr)"/>
+  <path class="spoke" d="M404,67 L404,95 L609,95 L609,117" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="341" y="26" width="125" height="41" rx="6"/>
+  <text class="hb" x="404" y="51" text-anchor="middle"><tspan x="404">table（整张表）</tspan></text>
+  <path class="spoke" d="M231,164 L231,192 L129,192 L129,214" marker-end="url(#arr)"/>
+  <path class="spoke" d="M231,164 L231,192 L334,192 L334,214" marker-end="url(#arr)"/>
+  <rect class="box" x="149" y="123" width="164" height="41" rx="6"/>
+  <text class="b" x="231" y="148" text-anchor="middle"><tspan x="231">tr（第 1 行：表头行）</tspan></text>
+  <rect class="box" x="38" y="220" width="181" height="58" rx="6"/>
+  <text class="b" x="129" y="245" text-anchor="middle"><tspan x="129">th（表头单元格，默认加粗</tspan><tspan x="129" dy="18">居中）</tspan></text>
+  <rect class="box" x="243" y="220" width="181" height="41" rx="6"/>
+  <text class="b" x="334" y="245" text-anchor="middle"><tspan x="334">th（列标签，如「姓名」）</tspan></text>
+  <path class="spoke" d="M609,164 L609,192 L513,192 L513,214" marker-end="url(#arr)"/>
+  <path class="spoke" d="M609,164 L609,192 L685,192 L685,214" marker-end="url(#arr)"/>
+  <rect class="box" x="527" y="123" width="164" height="41" rx="6"/>
+  <text class="b" x="609" y="148" text-anchor="middle"><tspan x="609">tr（第 2 行：数据行）</tspan></text>
+  <rect class="box" x="448" y="220" width="129" height="41" rx="6"/>
+  <text class="b" x="513" y="245" text-anchor="middle"><tspan x="513">td（数据单元格）</tspan></text>
+  <rect class="box" x="601" y="220" width="168" height="41" rx="6"/>
+  <text class="b" x="685" y="245" text-anchor="middle"><tspan x="685">td（数据，如「地球」）</tspan></text>
+</svg>

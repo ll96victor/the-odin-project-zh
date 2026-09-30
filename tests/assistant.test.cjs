@@ -17,7 +17,14 @@ const vm = require('node:vm');
 
 const root = path.resolve(__dirname, '..');
 const sandbox = { window: {} };
+/* 路径课试点批次 3：装载走汇总层（lessons.js + courses/*.js + lesson-sources.js），
+ * lessons 是全站课程（Foundations 46 + 已开放路径课），「已开放 N 课」类断言
+ * 用全站口径，与 stale-claims R2 的事实源一致。 */
 vm.runInNewContext(fs.readFileSync(path.join(root, 'lessons.js'), 'utf8'), sandbox);
+for (const f of fs.readdirSync(path.join(root, 'courses')).filter(f => f.endsWith('.js'))) {
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'courses', f), 'utf8'), sandbox);
+}
+vm.runInNewContext(fs.readFileSync(path.join(root, 'lesson-sources.js'), 'utf8'), sandbox);
 vm.runInNewContext(fs.readFileSync(path.join(root, 'progress.js'), 'utf8'), sandbox);
 
 const progress = sandbox.window.ODIN_PROGRESS;
@@ -93,7 +100,7 @@ const exerciseReview = state => {
   assert.equal(item.latestAchievement, null, check('没解锁任何成就时最近解锁为 null'));
   assert.equal(item.needsReviewCount, 0, check('空档案需要复习为 0'));
   assert.equal(item.completedCount, 0, check('空档案完成数为 0'));
-  assert.equal(item.totalLessons, lessons.length, check('已开放课程数等于 lessons.js 的课程数'));
+  assert.equal(item.totalLessons, lessons.length, check('已开放课程数等于汇总层合并后的全站课程数（lessons.js + courses/*.js，见文件头装载说明）'));
   assert.equal(item.catalogTotal, null, check('没传官方目录总数时 catalogTotal 为 null，不虚构 46 分母'));
   assert.ok(local(Logic.ASSISTANT_TIP_KINDS).includes(item.tip.kind), check('提示 kind 在允许的枚举里'));
   assert.ok(item.tip.text.trim().length > 0, check('提示文字非空'));
@@ -225,18 +232,18 @@ const exerciseReview = state => {
   Logic.evaluateAchievements(state, lessons, AT, DAY);
   /* 刻意让今天为 0 秒：如果优先级写错，就会给出“再学 10 分钟”的荒谬提示 */
   const item = brief(state, { currentLessonId: lessons[0].id });
-  assert.equal(item.completedCount, lessons.length, check('46 课全部完成'));
+  assert.equal(item.completedCount, lessons.length, check('197 课全部完成（Foundations 46 + World 2 四个章节 22 课 + World 3 javascript 全八章 41 课 + World 4 三章节 16 课——收组 + World 5 react 八章节 25 课——收组 + World 6 databases 3 课——收组 + World 7 nodejs 全八章节 30 课——收组 + World 8 getting-hired 两章节 14 课——收组，全站 197 课全部开放）'));
   assert.equal(item.percent, 100, check('完成百分比为 100'));
   assert.equal(item.todaySeconds, 0, check('今天 0 秒'));
   assert.equal(item.tip.kind, 'all-done', check('全部完成时 all-done 优先于 today-short'));
   assert.equal(item.tip.text, '当前开放课程已全部完成，后续课程尚未开放。', check('终局提示文字与 §10 一致'));
   /* §6.4：完成数不得超过已开放数。v4.11.20 第九批（46/46 全开）重表述：原「完成数不会是
    * 46」的前提（开放数 < 46）已消失——全完成时完成数 = 已开放数 = 46 是合法的。 */
-  assert.equal(item.totalLessons, 46, check('分母是已开放的 46 课'));
+  assert.equal(item.totalLessons, 197, check('分母是已开放的全部 197 课'));
   assert.ok(item.completedCount <= item.totalLessons, check('完成数不会超过已开放数'));
   const withCatalog = brief(state, { catalogTotal: 46 });
   assert.equal(withCatalog.catalogTotal, 46, check('官方总数单独作为 catalogTotal 回传'));
-  assert.equal(withCatalog.completedCount, 46, check('完成数仍然只统计已开放课程'));
+  assert.equal(withCatalog.completedCount, 197, check('完成数仍然只统计已开放课程'));
 }
 
 /* ===================== 8. 最近学习 / 推荐继续 ===================== */

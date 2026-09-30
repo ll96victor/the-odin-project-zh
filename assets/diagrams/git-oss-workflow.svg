@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="331" viewBox="0 0 612 331" role="img" aria-labelledby="t-git-oss-workflow d-git-oss-workflow">
+  <title id="t-git-oss-workflow">开源贡献工作流：三角关系的完整环路</title>
+  <desc id="d-git-oss-workflow">五步流程图。第一步「Upstream 原仓库」：你没有写权限——local 只能从它 fetch、不能 push。第二步「本地 main」：git fetch upstream 加 merge upstream/main 保持同步基线。第三步「功能分支」：开发在功能分支；发 PR 前先把 main 合进这条脏分支、在自己这边消化冲突。第四步「你的 fork（origin）」：git push origin 功能分支推回自己的副本。第五步「Pull Request」：GitHub 界面向 upstream 的 main 发 PR；维护者评审合并——环路回到起点。图下说明：本站图按官方正文 mermaid 工作流图同一结构绘制（Upstream → fetch → Local main → checkout 功能分支 → push origin → Fork → Create PR → 维护者 Merge → 回 Upstream）。官方红线：没有被指派的 issue 就停在 push 这一步——测试或练习性质的 PR 会被视为 spam、不经评审直接关闭。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="55" text-anchor="middle"><tspan x="102">Upstream 原仓库</tspan></text>
+  <text class="s" x="102" y="68" text-anchor="middle"><tspan x="102">只读：local 只能</tspan><tspan x="102" dy="15">fetch 不能 push</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="55" text-anchor="middle"><tspan x="306">本地 main</tspan></text>
+  <text class="s" x="306" y="68" text-anchor="middle"><tspan x="306">fetch upstream +</tspan><tspan x="306" dy="15">merge 同步基线</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="55" text-anchor="middle"><tspan x="510">功能分支</tspan></text>
+  <text class="s" x="510" y="68" text-anchor="middle"><tspan x="510">先把 main 合进脏分支</tspan><tspan x="510" dy="15">消化冲突</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="179" text-anchor="middle"><tspan x="102">你的 fork（origin）</tspan></text>
+  <text class="s" x="102" y="199" text-anchor="middle"><tspan x="102">push origin 功能分支</tspan></text>
+  <rect class="accentbox" x="230" y="150" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="179" text-anchor="middle"><tspan x="306">Pull Request</tspan></text>
+  <text class="s" x="306" y="192" text-anchor="middle"><tspan x="306">维护者评审合并——环路</tspan><tspan x="306" dy="15">回起点</tspan></text>
+  <path class="edge" d="M178,181 L223,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M510,88 L510,119 L102,119 L102,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="560" height="87" rx="6"/>
+  <text class="s" x="306" y="240" text-anchor="middle"><tspan x="306">按官方正文 mermaid 工作流图同一结构绘制：Upstream → fetch → Local main →</tspan><tspan x="306" dy="18">checkout 功能分支 → push origin → Fork → Create PR → 维护者 Merge → 回 Upstream。</tspan><tspan x="306" dy="18">官方红线：没有被指派的 issue 就停在 push——测试/练习 PR 会被视为 spam、不经评审直接</tspan><tspan x="306" dy="18">关闭。fetch + merge 与 pull 完全等价，官方拆开写是为了显式走过每一步。</tspan></text>
+</svg>

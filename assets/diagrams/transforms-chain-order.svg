@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="267" viewBox="0 0 740 267" role="img" aria-labelledby="t-transforms-chain-order d-transforms-chain-order">
+  <title id="t-transforms-chain-order">链式变换：顺序即语义</title>
+  <desc id="d-transforms-chain-order">两列对比图。左列「先转后移：rotate(45deg) translate(200%)」（红盒）：第一步旋转 45 度——元素自己的 X 轴与 Y 轴跟着一起斜掉；第二步沿已经斜掉的 X 轴平移 200%——盒子斜着滑出去，落在右下方。右列「先移后转：translate(200%) rotate(45deg)」（蓝盒）：第一步沿原始 X 轴平移 200%——水平走到正右方；第二步原地旋转 45 度——盒子在新位置自转。两个盒子起点相同、函数组合相同，只是顺序不同，终点就完全不同。图下说明：链式变换从左到右依次生效——后一个函数作用在「前一个变换之后」的坐标系上，就像流水线上每道工序都接手上一道改过的工件。顺序的唯一例外是 perspective：与多个函数同写时必须放最前（最左），否则三维效果不成立。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">先转后移 · rotate(45deg) translate(200%)</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">① 旋转 45 度——自己的 X/Y 轴跟着斜掉</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">② 沿斜掉的 X 轴平移 200%</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">终点：斜着滑出去，落在右下方</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">先移后转 · translate(200%) rotate(45deg)</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">① 沿原始 X 轴平移 200%——水平走到正右方</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">② 在新位置原地旋转 45 度</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">终点：直走再自转，停在正右方</tspan></text>
+  <rect class="note" x="22" y="176" width="696" height="69" rx="6"/>
+  <text class="s" x="370" y="198" text-anchor="middle"><tspan x="370">两个盒子起点相同、函数组合相同，只是顺序不同，终点就完全不同——链式变换从左到右依次生效，后一个函数作用在「</tspan><tspan x="370" dy="18">前一个变换之后」的坐标系上。顺序的唯一例外是 perspective：与多个函数同写时必须放最前（最左），否则三维效果</tspan><tspan x="370" dy="18">不成立。</tspan></text>
+</svg>

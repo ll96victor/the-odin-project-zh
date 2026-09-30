@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="331" viewBox="0 0 450 331" role="img" aria-labelledby="t-tdd-red-green-refactor d-tdd-red-green-refactor">
+  <title id="t-tdd-red-green-refactor">TDD 工作循环：测试先行，实现跟上</title>
+  <desc id="d-tdd-red-green-refactor">五步流程图。第一步「写测试」：测试先失败——功能还不存在。第二步「写实现」：写让测试通过的最小代码。第三步「重构」：在测试保护下整理代码、行为不变。第四步「下一个功能」：循环重复、测试永远走在实现前面。第五步「回归保障」：每次改动后全量跑测试，旧功能被改坏会当场变红。图下说明：官方的 TDD 核心思想是「先写自动化测试，再写被测代码」；测试先失败一次证明它真的在测东西；先写测试逼你先想清楚接口与边界——这是「TDD 鼓励更好的程序架构」的机制，循环理念由 Assignment 的两篇存档文章展开。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="55" text-anchor="middle"><tspan x="75">写测试</tspan></text>
+  <text class="s" x="75" y="68" text-anchor="middle"><tspan x="75">测试先失败——</tspan><tspan x="75" dy="15">功能还不存在</tspan></text>
+  <rect class="box" x="176" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="55" text-anchor="middle"><tspan x="225">写实现</tspan></text>
+  <text class="s" x="225" y="68" text-anchor="middle"><tspan x="225">让测试通过的</tspan><tspan x="225" dy="15">最小代码</tspan></text>
+  <path class="edge" d="M124,57 L169,57" marker-end="url(#arr)"/>
+  <rect class="box" x="326" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="375" y="55" text-anchor="middle"><tspan x="375">重构</tspan></text>
+  <text class="s" x="375" y="60" text-anchor="middle"><tspan x="375">测试保护下整</tspan><tspan x="375" dy="15">理 ·</tspan><tspan x="375" dy="15">行为不 变</tspan></text>
+  <path class="edge" d="M274,57 L319,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="179" text-anchor="middle"><tspan x="75">下一个功能</tspan></text>
+  <text class="s" x="75" y="192" text-anchor="middle"><tspan x="75">循环重复——测</tspan><tspan x="75" dy="15">试永远先行</tspan></text>
+  <rect class="accentbox" x="176" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="179" text-anchor="middle"><tspan x="225">回归保障</tspan></text>
+  <text class="s" x="225" y="184" text-anchor="middle"><tspan x="225">全量跑测试 ·</tspan><tspan x="225" dy="15">旧行为破坏</tspan><tspan x="225" dy="15">当场红</tspan></text>
+  <path class="edge" d="M124,181 L169,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M375,88 L375,119 L75,119 L75,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="398" height="87" rx="6"/>
+  <text class="s" x="225" y="240" text-anchor="middle"><tspan x="225">官方核心思想：先写自动化测试，再写被测代码（TDD）。测试先失</tspan><tspan x="225" dy="18">败一次，证明它真的在测东西；先写测试逼你先想清楚接口与边界</tspan><tspan x="225" dy="18">——这是「TDD 鼓励更好的程序架构」的机制（more-testing 课展</tspan><tspan x="225" dy="18">开）。循环理念由 Assignment 的两篇存档文章展开。</tspan></text>
+</svg>

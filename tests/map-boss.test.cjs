@@ -42,6 +42,60 @@ let checks = 0;
 const check = label => { checks += 1; return label; };
 const lessonById = id => lessons.find(lesson => lesson.id === id);
 
+/* World 2 第三批（2026-09-26）：路径课章节 Boss 的校验数据。
+ * 刻意用**独立沙箱**只加载 courses/* 与 curriculum.js，不把 lesson-sources.js 塞进上面那个
+ * 沙箱——上面那份是 Foundations 口径（map.js / progress.js 都按 catalog 46 课推导），
+ * 混入汇总层会让本文件里与 Boss 无关的节点状态、计数断言全部改变口径（那是 dom-mount /
+ * lesson-sources / content 三个文件的职责）。这里只需要两件事实：
+ *   ① 路径课已开放课的 id 集合（courses/*.js 只放已开放课，是文件头写明的约定）；
+ *   ② curriculum.js 里各官方章节（section）的 id 与 slug 清单，用来判定「本章是否全开放」。
+ * 批次 4（2026-09-26）起 courses/ 目录动态枚举（不再写死单个文件名）——World 3 起
+ * 每个 World 一个课程文件，本测试对新文件零迁移。 */
+const courseFiles = fs.readdirSync(path.join(root, 'courses')).filter(name => name.endsWith('.js')).sort();
+assert.ok(courseFiles.length >= 1, 'courses/ 至少有一个课程文件');
+const pathSandbox = { window: {} };
+pathSandbox.window = pathSandbox;
+const pathCourses = [];
+for (const name of courseFiles) {
+  const before = new Set(Object.keys(pathSandbox.window));
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'courses', name), 'utf8'), pathSandbox, { filename: `courses/${name}` });
+  const added = Object.keys(pathSandbox.window).filter(key => !before.has(key));
+  assert.equal(added.length, 1, `courses/${name}: 恰好暴露一个新全局（课程文件单全局约定）`);
+  pathCourses.push(pathSandbox.window[added[0]]);
+}
+vm.runInNewContext(fs.readFileSync(path.join(root, 'curriculum.js'), 'utf8'), pathSandbox, { filename: 'curriculum.js' });
+const pathCurriculum = pathSandbox.window.ODIN_CURRICULUM;
+/* 已开放的路径课 id（含中文课名等正文数据，用于「来源课程存在且已开放」断言） */
+const pathLessons = pathCourses.flatMap(course => course.lessons);
+const pathOpenIds = new Set(pathLessons.map(l => l.id));
+const pathLessonById = id => pathLessons.find(l => l.id === id);
+/* curriculum 里的官方章节表（批次 4 起按**带前缀键** `<courseId>/<sectionId>` 建，
+ * 与路径课 Boss unitId 同形）：裸 section id 建表会让 javascript 与 react 的同名
+ * introduction 互相覆盖——那是真实存在的跨 World 撞名，见下方 SECTION_ID_OCCURRENCES
+ * 与 §3 的「已知撞名钉住」断言。 */
+const SECTION_BY_UNIT = new Map();
+const SECTION_ID_OCCURRENCES = new Map();
+pathCurriculum.courses.forEach(course => {
+  (course.sections || []).forEach(sec => {
+    SECTION_BY_UNIT.set(`${course.id}/${sec.id}`, {
+      courseId: course.id,
+      courseOrder: course.order,
+      zh: sec.zh,
+      slugs: sec.lessons.map(l => l.slug),
+      /* 非 Project 课（可出题课）清单：Boss 题目来源只能落在知识课上——
+       * Project 课不出题（任务型课不考实现），来源覆盖上限受此约束（阶段 3 迁移） */
+      knowledgeSlugs: sec.lessons.filter(l => l.type !== 'project').map(l => l.slug),
+      /* Foundations 的章节不在这张表里（它走 catalog 口径），所以这里只可能是路径课 */
+      fullyOpen: sec.lessons.length > 0 && sec.lessons.every(l => pathOpenIds.has(l.slug))
+    });
+    const owners = SECTION_ID_OCCURRENCES.get(sec.id) || [];
+    owners.push(course.id);
+    SECTION_ID_OCCURRENCES.set(sec.id, owners);
+  });
+});
+/* Foundations 的单元 id 集合（= catalog 的 group id）——用来把 Boss 分成两类分别校验 */
+const FOUNDATION_UNIT_IDS = new Set(catalog.groups.map(g => g.id));
+
 /* ===================== 1. 节点状态五阶推导（交接 E2） ===================== */
 {
   const status = opts => mapModule.lessonNodeStatus(opts);
@@ -152,9 +206,56 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
 
 /* ===================== 3. Boss 题库质量（交接 E3） ===================== */
 {
-  assert.equal(bossesModule.BOSSES.length, 7, check('7 个已开放单元各一个 Boss（v4.11.20 第九批 javascript-basics 收组后含全栈试炼；conclusion 单课组不配）'));
+  /* World 2 第三批（2026-09-26）：Boss 分两类校验，粒度都是「官方章节」。
+   * Foundations 侧 unitId = catalog 的 group id（8 组里 conclusion 单课组刻意不配 → 7 个）；
+   * 路径课侧 unitId（批次 4 命名约定变更后）= `<courseId>/<sectionId>`——斜杠是两类
+   * unitId 的形态分界：Foundations 分组 id 不含斜杠且原样保留（已写进用户真实档案），
+   * 路径课带 course 前缀（裸 section id 已实测跨命名空间撞名：javascript 的
+   * introduction 与 Foundations 分组 id 同名、又与 react 的 section id 同名，
+   * state.bosses 以 unitId 单键存纪录，撞名会串档）。
+   * **必要条件（双向钉死）**：路径课 Boss 只允许挂在「已全部开放的章节」上——题目只能来自
+   * 站内已讲知识，半开章节配 Boss 必然超纲，这条断言就是防它。
+   * 反向（「全开放的章节就必须配 Boss」）仍**不作为普遍规则钉死**：单课章节知识点不足
+   * 不配 Boss 的先例（conclusion 单课组）依然有效。但 World 2 的四个已开放章节按
+   * 2026-09-26 用户拍板已全部配齐（含补配的 intermediate-html-concepts 与 forms），
+   * 该拍板结果由 §6b 的具名断言钉住——四个章节任何一个的 Boss 被删都会红。 */
+  const foundBosses = bossesModule.BOSSES.filter(b => !b.unitId.includes('/'));
+  const pathBosses = bossesModule.BOSSES.filter(b => b.unitId.includes('/'));
+  assert.equal(foundBosses.length, 7, check('Foundations 侧 7 个已开放单元各一个 Boss（8 组减去刻意不配的 conclusion 单课组）'));
+  assert.equal(bossesModule.BOSSES.length, foundBosses.length + pathBosses.length, check('BOSSES 里 unitId 只有两种形态：不带斜杠 = Foundations 分组 id，带斜杠 = 路径课 <courseId>/<sectionId>，不存在第三种'));
+  for (const boss of foundBosses) {
+    assert.ok(FOUNDATION_UNIT_IDS.has(boss.unitId), check(`Foundations 侧 Boss ${boss.unitId}: unitId 是 catalog.js 的真实分组 id（方案 B 承诺：Foundations 侧分组 id 原样保留不加前缀）`));
+  }
+  /* 方案 C 断言 ①（2026-09-26 批次 4）：全局唯一。撞名修复的根因就是同名键，
+   * 唯一性是防回归的硬断言——任何两个 Boss 共用 unitId（含 Foundations 与路径课
+   * 之间）都会让 state.bosses 串档，这里先红。 */
+  const allUnitIds = bossesModule.BOSSES.map(b => b.unitId);
+  assert.equal(new Set(allUnitIds).size, allUnitIds.length, check('BOSSES 全部 unitId 全局唯一（方案 C：state.bosses 单键存储，撞名 = 档案串档）'));
+  /* 方案 C 断言 ②：路径课 unitId 的前缀必须是 curriculum.courses 里真实存在的
+   * course id，后缀必须是该 course 里真实存在的 section id——前缀写错会让 Boss
+   * 挂到不存在的章节上（地图入口永远不渲染，题库成孤儿）。 */
+  for (const boss of pathBosses) {
+    const segments = boss.unitId.split('/');
+    assert.equal(segments.length, 2, check(`路径课 Boss ${boss.unitId}: unitId 恰好一个斜杠（<courseId>/<sectionId>，经 bosses.js pathBossUnitId 约定构造）`));
+    assert.ok(pathCurriculum.courses.some(c => c.id === segments[0]), check(`路径课 Boss ${boss.unitId}: 前缀是 curriculum.js 里真实存在的 course id`));
+    const sec = SECTION_BY_UNIT.get(boss.unitId);
+    assert.ok(sec, check(`路径课 Boss ${boss.unitId}: 后缀是该 course 里真实官方章节的既有 id（批次 4 命名约定：不新造章节名，只在既有 id 前加 course 前缀隔离命名空间）`));
+    assert.ok(sec.fullyOpen, check(`路径课 Boss ${boss.unitId}（${sec ? sec.zh : '?'}）: 该章节已全部开放才允许配 Boss（题目只能来自站内已讲知识，共 ${sec ? sec.slugs.length : 0} 课）`));
+  }
+  /* 方案 C 断言 ③（钉住事实、不修数据）：curriculum 全 section 的裸 id 跨 World
+   * 重复清单。现存撞名实测恰有一组——javascript × react 的 introduction（前缀方案
+   * 的动因之一）；本批不改 curriculum 数据（超出范围），等 World 5 开工前再定处置。
+   * 断言钉成精确清单：出现**新**撞名立即红；该撞名若被修复同样红（届时更新清单
+   * 并登记理由）。SECTION_BY_UNIT 按带前缀键建表，正是为了不被这组撞名覆盖。 */
+  const duplicateSectionIds = [...SECTION_ID_OCCURRENCES.entries()]
+    .filter(([, owners]) => owners.length > 1)
+    .map(([id, owners]) => ({ id, owners: [...owners].sort() }))
+    .sort((a, b) => (a.id < b.id ? -1 : 1));
+  assert.deepEqual(local(duplicateSectionIds), [{ id: 'introduction', owners: ['javascript', 'react'] }],
+    check('curriculum 跨 World 重复的裸 section id 已知清单恰为 introduction（javascript × react）——只钉住事实不修数据，新增撞名或修复本条都要同步改这里'));
   const catalogById = Object.fromEntries(catalog.lessons.map(entry => [entry.slug, entry]));
   for (const boss of bossesModule.BOSSES) {
+    const isPath = boss.unitId.includes('/');
     assert.ok(boss.unitId && boss.zh && boss.desc, check(`${boss.unitId}: 元信息齐全`));
     assert.ok(boss.questions.length >= 5 && boss.questions.length <= 8, check(`${boss.unitId}: 题量 5–8（综合自测不是题库轰炸）`));
     for (const [index, question] of boss.questions.entries()) {
@@ -162,17 +263,29 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
       assert.equal(question.options.length, 4, check(`${boss.unitId}#${index}: 四个选项`));
       assert.ok(Number.isInteger(question.answer) && question.answer >= 0 && question.answer < 4, check(`${boss.unitId}#${index}: 答案下标合法`));
       assert.ok(question.explain && question.explain.length > 5, check(`${boss.unitId}#${index}: 有解析`));
-      /* 题目必须来自当前站内已讲知识：来源课程存在、已开放、且属于本单元 */
-      const source = lessonById(question.lessonId);
-      assert.ok(source, check(`${boss.unitId}#${index}: 来源课程在 lessons.js 里（题目来自站内已讲知识）`));
-      const catalogEntry = catalogById[question.lessonId];
-      assert.ok(catalogEntry && catalogEntry.available === true, check(`${boss.unitId}#${index}: 来源课程已开放`));
-      assert.equal(catalogEntry.group, boss.unitId, check(`${boss.unitId}#${index}: 来源课程属于本单元`));
+      /* 题目必须来自当前站内已讲知识：来源课程存在、已开放、且属于本单元——
+       * 两条路径各自的「存在/已开放/属于本单元」判据不同，但三条保护一条不少。 */
+      if (isPath) {
+        const source = pathLessonById(question.lessonId);
+        assert.ok(source, check(`${boss.unitId}#${index}: 来源课程在 courses/*.js 里（题目来自站内已讲知识）`));
+        assert.ok(pathOpenIds.has(question.lessonId), check(`${boss.unitId}#${index}: 来源课程已开放（路径课正文在 courses 文件里即已开放）`));
+        assert.ok(SECTION_BY_UNIT.get(boss.unitId).slugs.includes(question.lessonId), check(`${boss.unitId}#${index}: 来源课程属于本章节（curriculum.js 的 section 成员）`));
+      } else {
+        const source = lessonById(question.lessonId);
+        assert.ok(source, check(`${boss.unitId}#${index}: 来源课程在 lessons.js 里（题目来自站内已讲知识）`));
+        const catalogEntry = catalogById[question.lessonId];
+        assert.ok(catalogEntry && catalogEntry.available === true, check(`${boss.unitId}#${index}: 来源课程已开放`));
+        assert.equal(catalogEntry.group, boss.unitId, check(`${boss.unitId}#${index}: 来源课程属于本单元`));
+      }
       assert.ok(question.options.every(option => typeof option === 'string' && option.length > 0), check(`${boss.unitId}#${index}: 选项文本齐全`));
     }
     /* 每题来源课程尽量分散：覆盖课数达到 min(3, 本单元开放课数, 题数)
-     * （git-basics 单元本站只开放 2 课，来源最多 2 课） */
-    const unitOpenLessons = catalog.lessons.filter(entry => entry.group === boss.unitId && entry.available).length;
+     * （git-basics 单元本站只开放 2 课，来源最多 2 课；路径课单元按**非 Project 的
+     * 开放课数**计——Project 课不出题，来源覆盖不可能超过知识课数：阶段 3 的
+     * javascript/testing-javascript 章节 3 课全开但含 1 门 Project，来源上限 2） */
+    const unitOpenLessons = isPath
+      ? SECTION_BY_UNIT.get(boss.unitId).knowledgeSlugs.filter(slug => pathOpenIds.has(slug)).length
+      : catalog.lessons.filter(entry => entry.group === boss.unitId && entry.available).length;
     const sourceIds = new Set(boss.questions.map(question => question.lessonId));
     const wantedSources = Math.min(3, unitOpenLessons, boss.questions.length);
     assert.ok(sourceIds.size >= wantedSources, check(`${boss.unitId}: 题目来源覆盖至少 ${wantedSources} 课（实际 ${sourceIds.size}）`));
@@ -355,6 +468,270 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
   const stored = JSON.parse(storage.getItem('the-odin-project-zh.progress.v1'));
   assert.equal(stored.bosses['introduction'].bestPct, 100, check('Boss 纪录已写入存储'));
   assert.equal(stored.schemaVersion, 4, check('存储档案 schemaVersion 4'));
+
+  /* ---------- 6b. 路径课章节 Boss 走同一条引擎（World 2 第三批新增粒度） ----------
+   * 证明的验收标准：Boss 引擎对 unitId 完全泛化——非 Foundations 的 unitId
+   * （= curriculum.js 的 section id）同样能取题、提交、评分、持久化、进历史、
+   * 参与 tiers 晋升，引擎侧零分支零特例。这一组断言是「Boss 粒度 = 官方章节」
+   * 这个架构决定在数据层的唯一保护：若将来有人给路径课另建一套记录表或
+   * 在 submitBoss 里加 unitId 白名单，这里先红。
+   * 注意：本块刻意放在 tiers 相关断言之后——第三次高评价会把 boss 族推到银阶。 */
+  const pathUnit = 'intermediate-html-and-css/intermediate-css-concepts';
+  const pathBoss = pageBosses.bossForUnit(pathUnit);
+  assert.ok(pathBoss, check('bossForUnit 取得路径课章节 Boss（unitId = <courseId>/<sectionId>，批次 4 前缀约定）'));
+  assert.equal(pathBoss.zh, '精修工坊', check('路径课章节 Boss 中文名'));
+  const pathSubmission = page.submitBoss(
+    pathUnit, pathBoss.questions.map(question => question.answer), true);
+  assert.equal(pathSubmission.ok, true, check('路径课章节 Boss 提交成功（引擎未对 unitId 设白名单）'));
+  assert.equal(pathSubmission.unitId, pathUnit, check('submitBoss 原样回显路径课 unitId'));
+  assert.equal(pathSubmission.result.pct, 100, check('路径课章节 Boss 评分 100%'));
+  assert.equal(pathSubmission.result.rating, 'dominant', check('路径课章节 Boss 评级压倒性优势'));
+  const pathState = page.getState();
+  assert.equal(pathState.bosses[pathUnit].attempts, 1, check('路径课 Boss 记录与 Foundations 同住一张 bosses 表'));
+  assert.equal(pathState.bosses[pathUnit].firstWasPrecheck, true, check('路径课 Boss 预检口径记录'));
+  assert.equal(pathState.bosses[pathUnit].precheckBestPct, 100, check('路径课 Boss 预检最佳 100'));
+  assert.ok(pathState.history.some(event => event.type === 'boss-attempt'
+    && /精修工坊/.test(event.zh || (event.data && event.data.zh) || '')),
+  check('路径课 Boss 挑战记入学习历史（事件文案带 Boss 中文名）'));
+  /* 第三次高评价（introduction / prerequisites / 本章）→ boss 族银阶：
+   * 晋升判定按跨单元计数，同样不认识「路径课」这个概念 */
+  assert.equal(pathState.achievementTiers['boss'], 2, check('boss 族晋升银阶（高评价 3 次，跨 Foundations 与路径课单元累计）'));
+  const pathBrief = page.bossBrief(pathUnit);
+  assert.equal(pathBrief.attempted, true, check('bossBrief 对路径课 unitId 报告已挑战（地图圆点据此换成 ☗）'));
+  assert.equal(pathBrief.record.bestPct, 100, check('bossBrief 带路径课 Boss 历史最佳'));
+  assert.ok(!('questions' in pathBrief), check('bossBrief 不含题目与答案（路径课同样不泄漏）'));
+  const pathStored = JSON.parse(storage.getItem('the-odin-project-zh.progress.v1'));
+  assert.equal(pathStored.bosses[pathUnit].bestPct, 100, check('路径课 Boss 纪录已写入存储（刷新不丢）'));
+  /* World 2 第五批（2026-09-26，v4.11.22）用户拍板落地钉：World 2 四个已开放章节
+   * （中级 HTML 概念 / 中级 CSS 概念 / 表单 / Grid 布局）各配一个章节 Boss——
+   * 补配了此前缓配的 intermediate-html-concepts 与 forms 两章，使四个章节口径一致。
+   * 本断言钉的是**这次拍板的结果**（四个具名章节必须有 Boss），不是普遍规则
+   * 「已全开必须配」——单课章节知识点不足不配 Boss 的先例（conclusion）仍然是
+   * 有效的产品决定，普遍化会与之冲突。批次 4 起具名 id 带 course 前缀。 */
+  for (const unit of ['intermediate-html-and-css/intermediate-html-concepts', 'intermediate-html-and-css/intermediate-css-concepts', 'intermediate-html-and-css/forms', 'intermediate-html-and-css/grid']) {
+    assert.ok(pageBosses.bossForUnit(unit), check(`${unit}: World 2 已开放章节各配一个 Boss（2026-09-26 用户拍板补齐）`));
+  }
+  /* World 3 批次 4 阶段 1（2026-09-26，v4.11.23）：「组织 JavaScript 代码」章节
+   * 14/14 全开即配（javascript/organizing-your-javascript-code「对象熔炉」8 题）；
+   * 引言章节单课不配（conclusion 单课先例），负例清单里保留 javascript/introduction。 */
+  assert.ok(pageBosses.bossForUnit('javascript/organizing-your-javascript-code'),
+    check('javascript/organizing-your-javascript-code: World 3 首个全开章节按「全开即配」口径配有 Boss（批次 4 阶段 1）'));
+  /* World 3 批次 4 阶段 2（2026-09-27，v4.11.24）：「真实世界的 JavaScript」3/3 与
+   * 「异步 JavaScript 与 API」4/4 两章全开即配（「真实世界回廊」5 题 +「异步钟楼」
+   * 7 题；Project 课 weather-app 不出题）。负向验证 NV2 实测：本断言补位前删除
+   * 「异步钟楼」条目 map-boss 不红——缺口由负向验证发现、当轮补齐。 */
+  assert.ok(pageBosses.bossForUnit('javascript/javascript-in-the-real-world'),
+    check('javascript/javascript-in-the-real-world: 阶段 2 全开章节按「全开即配」口径配有 Boss'));
+  assert.ok(pageBosses.bossForUnit('javascript/asynchronous-javascript-and-apis'),
+    check('javascript/asynchronous-javascript-and-apis: 阶段 2 全开章节按「全开即配」口径配有 Boss'));
+  /* World 3 批次 4 阶段 3（2026-09-27，v4.11.25）：「测试 JavaScript」3/3 与
+   * 「一点计算机科学」11/11 两章全开即配（「试炼考馆」5 题 +「算法之塔」8 题；
+   * 6 门 Project 课 testing-practice / recursion / linked-lists / hashmap /
+   * binary-search-trees / knights-travails 不出题）。 */
+  assert.ok(pageBosses.bossForUnit('javascript/testing-javascript'),
+    check('javascript/testing-javascript: 阶段 3 全开章节按「全开即配」口径配有 Boss'));
+  assert.ok(pageBosses.bossForUnit('javascript/a-bit-of-computer-science'),
+    check('javascript/a-bit-of-computer-science: 阶段 3 全开章节按「全开即配」口径配有 Boss'));
+  /* World 3 批次 4 阶段 4（2026-09-27，v4.11.26）：「Git 进阶」3/3 全开即配
+   * （「时间线回廊」6 题）。「JavaScript 收尾」章节全开但**不配**——用户指令口径
+   * 「finishing-up 按知识点判断」：本章 2 课中 battleship 为 Project 课不出题、
+   * conclusion 为约 1.2KB 的结语祝贺信（官方无 Assignment 节、无知识点可考），
+   * 无新增可出题课——与「单课章节不配」（introduction / conclusion 先例）同一
+   * 精神；该章进入下方「未配 Boss 拒绝」负例名单（全站首个「已开放但不配」的
+   * 真实负例）。World 3 全 41 课就此收组。 */
+  assert.ok(bossesModule.bossForUnit('javascript/intermediate-git'),
+    check('javascript/intermediate-git: 阶段 4 全开章节按「全开即配」口径配有 Boss'));
+  /* World 4 批次 5 阶段 1（2026-09-27，v4.11.27）：「动画」章节 3/3 全开即配
+   * （「幻化剧场」7 题，unitId = advanced-html-and-css/animation——World 4 首个
+   * Boss 单元，前缀约定沿用阶段 0 的 pathBossUnitId 构造）。「无障碍」与「响应式
+   * 设计」两章节尚未开放，进入下方负例名单（animation 随本批开放移出）。 */
+  assert.ok(bossesModule.bossForUnit('advanced-html-and-css/animation'),
+    check('advanced-html-and-css/animation: 批次 5 阶段 1 全开章节按「全开即配」口径配有 Boss'));
+  /* World 4 批次 5 阶段 2（2026-09-27，v4.11.28）：「无障碍」章节 8/8 全开即配
+   * （「回音廊道」7 题，unitId = advanced-html-and-css/accessibility，前缀约定
+   * 沿用 pathBossUnitId 构造；auditing 为工具操作课不单独出题、知识点已被前七题
+   * 覆盖）。负例名单随之迁移：accessibility 移出（本批已配）、「响应式设计」
+   * 仍在（未开放章节——批次 5 阶段 3 已配后再次迁出，见下）。 */
+  assert.ok(bossesModule.bossForUnit('advanced-html-and-css/accessibility'),
+    check('advanced-html-and-css/accessibility: 批次 5 阶段 2 全开章节按「全开即配」口径配有 Boss'));
+  /* World 4 批次 5 阶段 3（2026-09-27，v4.11.29，World 4 收组）：「响应式设计」
+   * 章节 5/5 全开即配（「千形台」7 题，unitId = advanced-html-and-css/
+   * responsive-design，前缀约定沿用；homepage 为 Project 课不出题——全站
+   * Project 课不出 Boss 题纪律）。**World 4 全 16 课收组、全站 20 个 Boss 单元
+   * 127 题**。负例名单随之迁移：responsive-design 移出（本批已配），换入
+   * react/introduction（World 5 未开放章节的真实前缀形态）。 */
+  assert.ok(bossesModule.bossForUnit('advanced-html-and-css/responsive-design'),
+    check('advanced-html-and-css/responsive-design: 批次 5 阶段 3 全开章节按「全开即配」口径配有 Boss'));
+  /* World 5 批次 6 阶段 1（2026-09-27，v4.11.30，World 5 开篇）：「引言」3/3 与
+   * 「React 入门」5/5 两章全开即配（「启航栈桥」6 题 +「组件工坊」7 题，unitId =
+   * react/introduction 与 react/getting-started-with-react，前缀约定沿用
+   * pathBossUnitId 构造）。react/introduction 正是上方 duplicateSectionIds 撞名
+   * 清单里的那组——前缀方案隔离后 Foundations 的 introduction Boss 原样保留、
+   * javascript/introduction 仍取不到题（下方负例名单不动）。**全站 22 个 Boss
+   * 单元 140 题**。负例名单随之迁移：react/introduction 移出（本批已配），换入
+   * react/states-and-effects 与 react/class-components（阶段 2 未开放章节）。 */
+  assert.ok(bossesModule.bossForUnit('react/introduction'),
+    check('react/introduction: 批次 6 阶段 1 全开章节按「全开即配」口径配有 Boss（与 Foundations / javascript 的 introduction 三方撞名由前缀隔离）'));
+  assert.ok(bossesModule.bossForUnit('react/getting-started-with-react'),
+    check('react/getting-started-with-react: 批次 6 阶段 1 全开章节按「全开即配」口径配有 Boss'));
+  /* World 5 批次 6 阶段 2（2026-09-28，v4.11.31）：「状态与副作用」5/5 与「类组件」
+   * 2/2 两章全开即配（「潮汐观测所」7 题——cv-application 与 memory-card 两门
+   * Project 课不出题、题源限三门知识课 +「齿轮档案厅」5 题，unitId = react/
+   * states-and-effects 与 react/class-components，前缀约定沿用 pathBossUnitId 构造）。
+   * **class-components 配 Boss 的判据结论（用户指令：按知识点是否足够判断）**：两课
+   * 均为知识课且知识点密度足（类组件语法四步 / this 绑定两方案 / 生命周期四方法
+   * 分工 / useEffect 四行对照），可支撑 5 题下限——与 finishing-up-with-javascript
+   * 不配的先例（2 课中 1 门 Project 不出题 + 1 门结语信无知识点，实际 0 课可出题）
+   * 本质不同，理由全文登记 bosses.js 单元注释与本断言。**全站 24 个 Boss 单元
+   * 152 题**。负例名单随之迁移：states-and-effects 与 class-components 移出
+   * （本批已配），换入 react/react-testing 与 react/the-react-ecosystem
+   * （阶段 3 未开放章节）。 */
+  assert.ok(bossesModule.bossForUnit('react/states-and-effects'),
+    check('react/states-and-effects: 批次 6 阶段 2 全开章节按「全开即配」口径配有 Boss（两门 Project 课不出题）'));
+  assert.ok(bossesModule.bossForUnit('react/class-components'),
+    check('react/class-components: 批次 6 阶段 2 全开章节按知识点判据配有 Boss（两课知识密度足支撑 5 题下限，理由见上）'));
+  /* World 5 批次 6 阶段 3（2026-09-28，v4.11.32，World 5 收组）：「React 测试」2/2、
+   * 「React 生态」4/4、「更多 React 概念」3/3 三章全开即配（「试镜堂」6 题——两课
+   * 均知识课、知识点密度判据沿用阶段 2 class-components 口径 +「百工市集」7 题——
+   * shopping-cart 为 Project 课不出题、题源限三门知识课 +「隐枢阁」7 题，unitId 经
+   * pathBossUnitId 构造前缀约定沿用）。**「结语」章 1/1 全开但不配 Boss**：react 版
+   * conclusion 为祝贺信 + 下一步指引，无实打实可考知识点——与 finishing-up-with-
+   * javascript 不配先例同型（「实际 0 课可出题」），本站第二个「已开放但不配」真实
+   * 负例，理由全文登记 bosses.js 单元注释与本断言、负例名单换入 react/conclusion。
+   * **全站 27 个 Boss 单元 172 题**。负例名单随之迁移：react/react-testing 与
+   * react/the-react-ecosystem 移出（本批已配），换入 react/conclusion。 */
+  assert.ok(bossesModule.bossForUnit('react/react-testing'),
+    check('react/react-testing: 批次 6 阶段 3 全开章节按知识点判据配有 Boss（两课知识密度足支撑 5 题下限，class-components 判据沿用）'));
+  assert.ok(bossesModule.bossForUnit('react/the-react-ecosystem'),
+    check('react/the-react-ecosystem: 批次 6 阶段 3 全开章节按「全开即配」口径配有 Boss（shopping-cart Project 课不出题）'));
+  assert.ok(bossesModule.bossForUnit('react/more-react-concepts'),
+    check('react/more-react-concepts: 批次 6 阶段 3 全开章节按「全开即配」口径配有 Boss'));
+  /* 超长轮批次 7 阶段 1（2026-09-28，v4.11.33，World 6 收组）：databases 课程
+   * 「数据库」章节 3/3 全开即配「万卷地宫」6 题（unitId = databases/databases，
+   * 前缀约定沿用 pathBossUnitId 构造；SQL Zoo 为 Project 课不出题，题源限导论与
+   * 数据库与 SQL 两门知识课）。**World 6 全 3 课就此收组**。databases/databases
+   * 已配故不入负例名单；负例名单维持不变——nodejs/introduction-to-nodejs 是
+   * World 7 未开放章节的真实前缀形态（本批未触及 World 7）。 */
+  assert.ok(bossesModule.bossForUnit('databases/databases'),
+    check('databases/databases: 超长轮批次 7 阶段 1 全开章节按「全开即配」口径配有 Boss（SQL Zoo Project 课不出题）'));
+  /* 超长轮批次 7 阶段 2（2026-09-28，v4.11.34，NodeJS 入门 6 课 + Express 11 课开放）：
+   * nodejs 课程「NodeJS 入门」6/6 全开即配「机枢洞府」6 题（basic-info-site 为
+   * Project 课不出题，题源限 5 门知识课）、「Express」11/11 全开即配「飞马驿城」7 题
+   * （mini-message-board 与 inventory-application 两门 Project 课不出题；
+   * installing-postgresql 为一次性安装操作无综合考点、psql 与 SQL 基础已由万卷地宫
+   * 覆盖——不重复出题按「与已有信息重叠不配」同站口径）。unitId 均经 pathBossUnitId
+   * 构造（nodejs/introduction-to-nodejs、nodejs/express）。**全站 30 个 Boss 单元、
+   * 191 题**。负例名单随之迁移：nodejs/introduction-to-nodejs 移出（阶段 1 登记的
+   * 「World 7 未开放章节真实前缀形态」占位就此转正），换入 nodejs/authentication
+   * （World 7 下一章、本站未开放）。 */
+  assert.ok(bossesModule.bossForUnit('nodejs/introduction-to-nodejs'),
+    check('nodejs/introduction-to-nodejs: 超长轮批次 7 阶段 2 全开章节按「全开即配」口径配有 Boss（basic-info-site Project 课不出题）'));
+  assert.ok(bossesModule.bossForUnit('nodejs/express'),
+    check('nodejs/express: 超长轮批次 7 阶段 2 全开章节按「全开即配」口径配有 Boss（两门 Project 课不出题、installing-postgresql 无综合考点不出题）'));
+  /* 超长续轮批次 7 阶段 3（2026-09-29，v4.11.35，World 7 后六章 13 课收组）：
+   * 配 4 章 Boss——「符印秘阁」6 题（nodejs/authentication，members-only Project
+   * 不出题、题源限 authentication-basics 单知识课但密度极高，databases-and-sql
+   * 单课配 Boss 先例同型）+「铸模工坊」5 题（nodejs/orms，file-uploader Project
+   * 不出题、题源限 prisma-orm 单知识课）+「传信云驿」6 题（nodejs/apis，blog-api
+   * Project 不出题、题源限 api-basics 与 api-security 两知识课）+「验路校场」6 题
+   * （nodejs/testing-express，题源限 testing-routes 与 testing-database 两知识课）。
+   * **全站 34 个 Boss 单元、214 题**。不配 2 章进入负例名单：full-stack-projects
+   * （wheres-waldo + messaging-app 皆 Project，题源为空）与 final-project
+   * （odin-book Project + conclusion 结语祝贺信无可考知识点——finishing-up /
+   * react-conclusion「已开放但不配」先例同型，全站第三个真实负例）。负例名单随之
+   * 迁移：nodejs/authentication 移出（阶段 2 登记的「World 7 下一章未开放」占位
+   * 就此转正配 Boss），换入 nodejs/full-stack-projects、nodejs/final-project 两个
+   * 「已开放但不配」负例 + getting-hired/preparing-for-your-job-search（World 8
+   * 下一章、本站未开放的真实前缀占位）。
+   * 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，World 8 收组、全站收官）负例名单
+   * 再迁移：getting-hired/preparing-for-your-job-search 移出转正（开放即配「秣马营」
+   * 6 题）；getting-hired/applying-to-and-interviewing-for-jobs 同轮直接转正入列
+   * （「折桂台」7 题）。**全站 36 个 Boss 单元、227 题**——8 个 World 全部开放后，
+   * 所有可配章节均已配 Boss；负例名单定格 5 个：javascript/introduction（撞名
+   * 回归钉）+ finishing-up / react-conclusion / nodejs/full-stack-projects /
+   * nodejs/final-project 四个「已开放但不配」（Project 课与结语祝贺信无可考
+   * 知识点）。 */
+  assert.ok(bossesModule.bossForUnit('getting-hired/preparing-for-your-job-search'),
+    check('getting-hired/preparing-for-your-job-search: 阶段 4 全开章节按「全开即配」口径配有 Boss（秣马营 6 题；htcww 导论与 portfolio Project 不出题）'));
+  assert.ok(bossesModule.bossForUnit('getting-hired/applying-to-and-interviewing-for-jobs'),
+    check('getting-hired/applying-to-and-interviewing-for-jobs: 阶段 4 全开章节按「全开即配」口径配有 Boss（折桂台 7 题；resume Project 与 conclusion 结语信不出题）'));
+  assert.ok(bossesModule.bossForUnit('nodejs/authentication'),
+    check('nodejs/authentication: 阶段 3 全开章节按「全开即配」口径配有 Boss（members-only Project 课不出题、题源限 authentication-basics）'));
+  assert.ok(bossesModule.bossForUnit('nodejs/orms'),
+    check('nodejs/orms: 阶段 3 全开章节按「全开即配」口径配有 Boss（file-uploader Project 课不出题、题源限 prisma-orm）'));
+  assert.ok(bossesModule.bossForUnit('nodejs/apis'),
+    check('nodejs/apis: 阶段 3 全开章节按「全开即配」口径配有 Boss（blog-api Project 课不出题、题源限 api-basics 与 api-security）'));
+  assert.ok(bossesModule.bossForUnit('nodejs/testing-express'),
+    check('nodejs/testing-express: 阶段 3 全开章节按「全开即配」口径配有 Boss（题源限 testing-routes 与 testing-database 两知识课）'));
+  /* 未配 Boss 的路径课章节一律拒绝——「全组开放才配」的另一半保护：没配的章节
+   * 不能靠 submitBoss 蒙混出记录。负例用**带前缀**的新约定 id（World 3+ 的真实
+   * 章节，curriculum.js 里存在、本站未开放或未全开、BOSSES 里没有）。
+   * 批次 4 撞名修复的回归钉：javascript/introduction 是曾与 Foundations 分组 id
+   * 撞名的裸 id 的前缀形态——它必须取不到题，而 Foundations 的 introduction Boss
+   * 原样保留（方案 B 承诺 Foundations 侧 8 个分组 id 不动、档案不失联）。 */
+  assert.ok(pageBosses.bossForUnit('introduction'), check('Foundations 分组 id introduction 的 Boss 原样保留（方案 B：Foundations 侧不加前缀、已解锁记录不失联）'));
+  assert.equal(pageBosses.bossForUnit('javascript/introduction'), null, check('javascript/introduction 无题库（前缀隔离后不再与 Foundations 的 introduction 混淆）'));
+  for (const unit of ['javascript/introduction', 'javascript/finishing-up-with-javascript', 'react/conclusion', 'nodejs/full-stack-projects', 'nodejs/final-project']) {
+    assert.equal(pageBosses.bossForUnit(unit), null, check(`${unit}: 未配 Boss 的章节取不到题`));
+    assert.equal(page.submitBoss(unit, [0, 0, 0, 0, 0], false).ok, false, check(`${unit}: 未配 Boss 的章节拒绝提交`));
+  }
+}
+
+/* ===================== 6c. 路径课 Boss 旧键一次性重映射（2026-09-26 批次 4，方案 B 档案兼容） =====================
+ * 证明的验收标准：以旧约定（裸 section id 键）写进 state.bosses 的档案条目，
+ * 读档时搬到 `<courseId>/<sectionId>` 新键、数据一条不丢（防御性处理，不静默丢弃）；
+ * Foundations 键原样保留；新旧键并存时新键优先；带前缀新键能通过读档白名单
+ * （BOSS_UNIT_ID_PATTERN——若仍用 ASSET_ID_PATTERN 的 32 字符上限，新键纪录会
+ * 在每次读档时被整条丢掉，这是本组最重要的回归钉）。 */
+{
+  const rec = (bestPct, attempts) => ({ attempts, passCount: 1, highCount: 1, lastPassDay: DAY, lastHighDay: DAY, bestPct, firstPct: bestPct, lastPct: bestPct, firstWasPrecheck: false, precheckBestPct: null });
+  const load = bosses => Logic.sanitizeState({ schemaVersion: 4, bosses }, [], { lenient: true });
+
+  /* ① 旧 4 键全部搬到新键，纪录逐字段保留；Foundations 键不动 */
+  const legacy = load({
+    'intermediate-html-concepts': rec(60, 1),
+    'intermediate-css-concepts': rec(71, 2),
+    'forms': rec(80, 3),
+    'grid': rec(100, 4),
+    'introduction': rec(57, 5)
+  });
+  assert.equal(legacy.ok, true, check('旧键档案读档成功（宽容模式）'));
+  assert.equal(Object.keys(Logic.LEGACY_PATH_BOSS_UNIT_IDS).length, 4, check('重映射表恰好覆盖 World 2 存量四个路径课 Boss 键（不多不少）'));
+  for (const [oldId, newId] of Object.entries(Logic.LEGACY_PATH_BOSS_UNIT_IDS)) {
+    assert.ok(!Object.prototype.hasOwnProperty.call(legacy.state.bosses, oldId), check(`旧键 ${oldId} 读档后不再存在（一次性搬运）`));
+    assert.ok(legacy.state.bosses[newId], check(`旧键 ${oldId} 的纪录已落到新键 ${newId}`));
+  }
+  assert.equal(legacy.state.bosses['intermediate-html-and-css/grid'].bestPct, 100, check('grid 旧纪录的 bestPct 原样保留（数据不丢）'));
+  assert.equal(legacy.state.bosses['intermediate-html-and-css/grid'].attempts, 4, check('grid 旧纪录的 attempts 原样保留'));
+  assert.equal(legacy.state.bosses['intermediate-html-and-css/forms'].passCount, 1, check('forms 旧纪录的 passCount 原样保留'));
+  assert.equal(legacy.state.bosses['introduction'].bestPct, 57, check('Foundations 键 introduction 原样保留（重映射只动路径课 4 键）'));
+  assert.equal(Object.keys(legacy.state.bosses).length, 5, check('五条纪录一条不多一条不少（无静默丢弃、无重复）'));
+
+  /* ② 新键直接通过读档白名单（BOSS_UNIT_ID_PATTERN 的核心回归）。
+   * World 3 批次 4 迁移：示例键从 organizing-your-javascript-code（阶段 1 起已配
+   * Boss，不再是「未来」）换成 javascript-in-the-real-world（阶段 2 已配 Boss）再换成 javascript/testing-javascript（阶段 3 已配 Boss）再换成 javascript/intermediate-git（阶段 4 章节，仍未配）。 */
+  const modern = load({ 'intermediate-html-and-css/grid': rec(90, 2), 'javascript/intermediate-git': rec(70, 1) });
+  assert.equal(modern.state.bosses['intermediate-html-and-css/grid'].bestPct, 90, check('带前缀新键通过读档白名单（ASSET_ID_PATTERN 的 32 上限装不下，必须走 BOSS_UNIT_ID_PATTERN）'));
+  assert.equal(modern.state.bosses['javascript/intermediate-git'].bestPct, 70, check('未来章节的前缀键同样通过（javascript course id 真实存在于 curriculum）'));
+
+  /* ③ 新旧键并存：新键优先，旧键不覆盖 */
+  const both = load({ 'grid': rec(40, 9), 'intermediate-html-and-css/grid': rec(95, 1) });
+  assert.equal(both.state.bosses['intermediate-html-and-css/grid'].bestPct, 95, check('新旧键并存时新键优先（旧键条目不覆盖新键）'));
+  assert.equal(Object.keys(both.state.bosses).length, 1, check('并存时只落一条（合并到新键，不产生两份）'));
+
+  /* ④ 白名单边界：非法形态照旧丢弃 */
+  const junk = load({ 'GRID': rec(50, 1), 'a/b/c': rec(50, 1), '': rec(50, 1), 'Grid': rec(50, 1) });
+  assert.equal(Object.keys(junk.state.bosses).length, 0, check('大写 / 双斜杠 / 空串等非法 unitId 形态仍被丢弃（白名单没有为前缀放宽字符集）'));
+  /* 重映射表自身的形态钉：值 = `intermediate-html-and-css/` + 键，且全部通过新模式 */
+  for (const [oldId, newId] of Object.entries(Logic.LEGACY_PATH_BOSS_UNIT_IDS)) {
+    assert.equal(newId, `intermediate-html-and-css/${oldId}`, check(`重映射表 ${oldId}: 新键 = course 前缀 + 旧键（World 2 存量四章节）`));
+    assert.ok(Logic.BOSS_UNIT_ID_PATTERN.test(newId), check(`重映射表 ${oldId}: 新键通过 BOSS_UNIT_ID_PATTERN`));
+    assert.ok(!newId.includes('//') && newId.split('/').length === 2, check(`重映射表 ${oldId}: 恰好一个斜杠`));
+  }
+  /* BOSSES 里每个路径课 unitId 都必须通过读档白名单——写得进档案、读得回来 */
+  for (const boss of bossesModule.BOSSES) {
+    assert.ok(Logic.BOSS_UNIT_ID_PATTERN.test(boss.unitId), check(`${boss.unitId}: 通过 BOSS_UNIT_ID_PATTERN（题库 id 与读档白名单不脱节）`));
+  }
 }
 
 /* ===================== 7. goalProgress 的 Boss 指标 ===================== */
@@ -526,4 +903,4 @@ const lessonById = id => lessons.find(lesson => lesson.id === id);
     check('图例色点仍复用节点的同一批 class（修好节点样式，图例两个色点跟着一起可区分）'));
 }
 
-console.log(`通过：Foundations 地图与 Boss 挑战 ${checks} 项断言（节点五阶状态推导、46 节点总地图、Boss 入口只在已开放单元、题库全部来自本站已讲课程、评分四档压线边界、同日幂等防刷、首战基线固定、submitBoss 集成解锁成就与晋升、预检口径、goalProgress 指标、无远程引用，以及「已破甲 / 已击破」两个状态的颜色必须可区分（旧合并规则已拆、击破保留绿底绿描边只把 gap 环换成金环、金对绿底对比度 ≥ 2.2:1、环宽与既有纸环逐字同宽所以几何零改动））。`);
+console.log(`通过：Foundations 地图与 Boss 挑战 ${checks} 项断言（节点五阶状态推导、46 节点总地图、Boss 入口只在已开放单元、题库全部来自本站已讲课程、评分四档压线边界、同日幂等防刷、首战基线固定、submitBoss 集成解锁成就与晋升、预检口径、goalProgress 指标、无远程引用，「已破甲 / 已击破」两个状态的颜色必须可区分（旧合并规则已拆、击破保留绿底绿描边只把 gap 环换成金环、金对绿底对比度 ≥ 2.2:1、环宽与既有纸环逐字同宽所以几何零改动），以及批次 4 撞名修复三钉：BOSSES unitId 全局唯一、路径课 unitId = <courseId>/<sectionId> 且前缀是真实 course id（curriculum 跨 World 裸 section id 撞名清单钉住 introduction × javascript/react 不扩大）、旧键档案一次性重映射且新键通过读档白名单）。`);

@@ -139,9 +139,12 @@ for (const lesson of catalog.lessons.filter(l => !l.available)) {
 
 /* ---------- 6. 与 lessons.js 的双向交叉校验 ---------- */
 const available = catalog.lessons.filter(l => l.available);
-assert.deepEqual(available.map(l => l.slug), guide.lessons.map(l => l.id), '已开放 46 课的 slug 与 lessons.js 的 id 顺序完全一致');
-assert.deepEqual(available.map(l => l.title), guide.lessons.map(l => l.title), '已开放 46 课的英文标题与 lessons.js 逐字一致');
-assert.deepEqual(available.map(l => l.zh), guide.lessons.map(l => l.zh), '已开放 46 课的简体中文标题与 lessons.js 逐字一致（不得有第二种译名）');
+/* 路径课试点批次 3：措辞从「已开放 …N 课」式（N 为具体数）改为「目录 available
+ * 的 46 课」——46 是 Foundations 目录口径（catalog 范围），全站开放数另含路径课
+ * （见本文件头注释），避免 stale-claims R2 的全站口径就近取数误伤。 */
+assert.deepEqual(available.map(l => l.slug), guide.lessons.map(l => l.id), '目录 available 的 46 课 slug 与 lessons.js 的 id 顺序完全一致');
+assert.deepEqual(available.map(l => l.title), guide.lessons.map(l => l.title), '目录 available 的 46 课英文标题与 lessons.js 逐字一致');
+assert.deepEqual(available.map(l => l.zh), guide.lessons.map(l => l.zh), '目录 available 的 46 课简体中文标题与 lessons.js 逐字一致（不得有第二种译名）');
 /* lessons.js 的 group 是分组下标，catalog 的 group 是分组 id，两者必须指同一个分组 */
 guide.lessons.forEach((lesson, index) => {
   const expectedGroupId = catalog.groups[lesson.group].id;

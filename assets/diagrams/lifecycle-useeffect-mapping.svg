@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="316" viewBox="0 0 740 316" role="img" aria-labelledby="t-lifecycle-useeffect-mapping d-lifecycle-useeffect-mapping">
+  <title id="t-lifecycle-useeffect-mapping">类生命周期方法与 useEffect 对照词典</title>
+  <desc id="d-lifecycle-useeffect-mapping">左右两列对照图。左列是类组件生命周期方法：render 方法，唯一必需，挂载与更新都跑，必须纯；componentDidMount，挂载进 DOM 后执行，取数据的家；componentDidUpdate，每次重渲染后执行，内部更新状态必须加 prevProps 条件防无限循环；componentWillUnmount，卸载销毁前执行，取消请求与清定时器的家。右列是 useEffect 的对应形态：执行体在每次渲染后跑，由依赖数组收敛时机；空依赖数组，只在挂载时执行，等价于 componentDidMount；带依赖数组，挂载加依赖变化时执行，等价于 didMount 与带条件的 didUpdate 组合；回调返回的清理函数，重跑前与卸载时执行，等价于 componentWillUnmount。图下注：同一件事两种写法——读旧代码用类方法名思考，写新代码用 effect 形态实现。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="224" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">类组件生命周期方法</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">render()：唯一必需，挂载与更新都跑，必须纯</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">componentDidMount()：挂载进 DOM</tspan><tspan x="52" dy="18">后——取数据 的家</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">componentDidUpdate()：每次重渲染后</tspan><tspan x="52" dy="18">——setState 必须加 prevProps 条件防无限循环</tspan></text>
+  <circle cx="42" cy="208" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="212" text-anchor="start"><tspan x="52">componentWillUnmount()：卸载销毁前——取消请</tspan><tspan x="52" dy="18">求、清定时器的家</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="224" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">useEffect 对应形态</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">执行体每次渲染后跑，由依赖数组收敛时机</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">空依赖数组 []：只挂载时执行 ≙ didMount</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">带依赖 [a, b]：挂载 + 依赖变化时 ≙ didMount</tspan><tspan x="413" dy="18">与带条件 didUpdate</tspan></text>
+  <circle cx="403" cy="190" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="194" text-anchor="start"><tspan x="413">回调返回的清理函数：重跑前与卸载时 ≙</tspan><tspan x="413" dy="18">willUnmount</tspan></text>
+  <rect class="note" x="22" y="260" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="282" text-anchor="middle"><tspan x="370">同一件事两种写法：读旧代码用类方法名思考，写新代码用 effect 形态实现</tspan></text>
+</svg>

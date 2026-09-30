@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="296" viewBox="0 0 450 296" role="img" aria-labelledby="t-router-nested-outlet d-router-nested-outlet">
+  <title id="t-router-nested-outlet">一次嵌套路由访问：URL 怎么变成两层组件</title>
+  <desc id="d-router-nested-outlet">流程图，五步。第一步浏览器地址是 /profile/popeye，Link 点击或手输都算；第二步 router 拿 URL 逐段匹配路由树，path profile 命中父路由、children 里的 popeye 命中子路由；第三步先渲染父组件 Profile，页面骨架与导航就位；第四步父组件模板里的 Outlet 位置被替换成子组件 Popeye——index 路由则是 /profile 不带子段时渲染默认组件；第五步任何一段没匹配上，渲染挂在路由上的 errorElement 错误页兜底。图下注：嵌套路由等于父模板加 Outlet 洞加 children 填充物；动态段 :name 把「匹配」变成「取值」，useParams 读出。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="55" text-anchor="middle"><tspan x="75">undefined</tspan></text>
+  <text class="s" x="75" y="53" text-anchor="middle"><tspan x="75">function</tspan><tspan x="75" dy="15">sub() {</tspan><tspan x="75" dy="15">[native</tspan><tspan x="75" dy="15">code] }</tspan></text>
+  <rect class="box" x="176" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="55" text-anchor="middle"><tspan x="225">undefined</tspan></text>
+  <text class="s" x="225" y="53" text-anchor="middle"><tspan x="225">function</tspan><tspan x="225" dy="15">sub() {</tspan><tspan x="225" dy="15">[native</tspan><tspan x="225" dy="15">code] }</tspan></text>
+  <path class="edge" d="M124,57 L169,57" marker-end="url(#arr)"/>
+  <rect class="box" x="326" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="375" y="55" text-anchor="middle"><tspan x="375">undefined</tspan></text>
+  <text class="s" x="375" y="53" text-anchor="middle"><tspan x="375">function</tspan><tspan x="375" dy="15">sub() {</tspan><tspan x="375" dy="15">[native</tspan><tspan x="375" dy="15">code] }</tspan></text>
+  <path class="edge" d="M274,57 L319,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="179" text-anchor="middle"><tspan x="75">undefined</tspan></text>
+  <text class="s" x="75" y="177" text-anchor="middle"><tspan x="75">function</tspan><tspan x="75" dy="15">sub() {</tspan><tspan x="75" dy="15">[native</tspan><tspan x="75" dy="15">code] }</tspan></text>
+  <rect class="accentbox" x="176" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="179" text-anchor="middle"><tspan x="225">undefined</tspan></text>
+  <text class="s" x="225" y="177" text-anchor="middle"><tspan x="225">function</tspan><tspan x="225" dy="15">sub() {</tspan><tspan x="225" dy="15">[native</tspan><tspan x="225" dy="15">code] }</tspan></text>
+  <path class="edge" d="M124,181 L169,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M375,88 L375,119 L75,119 L75,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="398" height="52" rx="6"/>
+  <text class="s" x="225" y="240" text-anchor="middle"><tspan x="225">嵌套路由 = 父模板 + Outlet 洞 + children 填充物；动态段</tspan><tspan x="225" dy="18">:name 把「匹配」变「取值」，useParams 读出</tspan></text>
+</svg>

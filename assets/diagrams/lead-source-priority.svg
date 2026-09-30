@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="792" height="154" viewBox="0 0 792 154" role="img" aria-labelledby="t-lead-source-priority d-lead-source-priority">
+  <title id="t-lead-source-priority">四级职位来源：概率与质量递减</title>
+  <desc id="d-lead-source-priority">流程图，四个方框一排，箭头依次连接：①你的人脉（含社区认识的人——最高概率/质量）、②直达真人的直接发布（开发者发本公司空缺——另一端是真人）、③直接发布（公司官网招聘页——通常也到具体的人）、④招聘板（pretty much awful——你在羊群里了）。图下注：优先级 = 概率 × 质量递减；每条进表的线索先查 Connections 列——能找到一个真人，就能把第 4 级线索升级成第 2 级通道。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="99" y="55" text-anchor="middle"><tspan x="99">你的人脉</tspan></text>
+  <text class="s" x="99" y="68" text-anchor="middle"><tspan x="99">含社区认识的人——最高</tspan><tspan x="99" dy="15">概率/质量</tspan></text>
+  <rect class="box" x="224" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="297" y="55" text-anchor="middle"><tspan x="297">直达真人的直接发布</tspan></text>
+  <text class="s" x="297" y="68" text-anchor="middle"><tspan x="297">开发者发本公司空缺——</tspan><tspan x="297" dy="15">另一端是真人</tspan></text>
+  <path class="edge" d="M172,57 L217,57" marker-end="url(#arr)"/>
+  <rect class="box" x="422" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="495" y="55" text-anchor="middle"><tspan x="495">直接发布</tspan></text>
+  <text class="s" x="495" y="68" text-anchor="middle"><tspan x="495">公司官网招聘页——通常</tspan><tspan x="495" dy="15">也到具体的人</tspan></text>
+  <path class="edge" d="M370,57 L415,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="620" y="26" width="146" height="62" rx="6"/>
+  <text class="hb" x="693" y="55" text-anchor="middle"><tspan x="693">招聘板</tspan></text>
+  <text class="s" x="693" y="68" text-anchor="middle"><tspan x="693">pretty much</tspan><tspan x="693" dy="15">awful——你在羊群里了</tspan></text>
+  <path class="edge" d="M568,57 L613,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="740" height="34" rx="6"/>
+  <text class="s" x="396" y="116" text-anchor="middle"><tspan x="396">优先级 = 概率 × 质量递减：每条进表的线索先查 Connections 列——能找到一个真人，就能把第 4 级线索升级成第 2 级通道。</tspan></text>
+</svg>

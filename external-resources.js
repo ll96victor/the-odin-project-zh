@@ -102,7 +102,50 @@
  * 开放，新增第 8 分组 Conclusion）。登记 1 条（C 类：Medium 选语言指南 by Carlos Diaz，
  * 命令行 403 受限、真实浏览器核验可达入 verifyLimitedUrls）。官方页面内嵌的 wheeldecide
  * 命运转盘 iframe 按不嵌第三方 iframe 口径剔除、正文转述。本课无 Assignment（官方结构
- * 豁免），任务映射为显式空映射。 */
+ * 豁免），任务映射为显式空映射。
+ * v4.11.20 后批次 3（路径课试点，2026-09-25）：开放 World 2「中级 HTML 与 CSS」第 1 章节
+ * 3 课（lessons 走 courses/intermediate-html-and-css.js，正文见该文件）。登记 11 条：
+ * A 类 ×6（MDN HTML 元素参考 zh-CN 7933 汉字、MDN SVG use / SVG 元素列表 zh-CN、
+ * MDN 表格基础 / 进阶 / 行星数据评估 zh-CN——三条均重定向到 Learn_web_development
+ * 现役路径，逐条核验汉字数）；C 类 ×5（CSS Cheat Sheet、Material icons、Feather icons、
+ * css-tricks SVG 属性与 CSS、Josh Comeau SVG 指南）。剔除：4 条 Wikipedia 名词解释（正文语境引用非学习资料）、Unsplash grunge
+ * 搜索页（401 且为例举非资料）、2 处 CodePen 课内演示与 cpwebassets 嵌入脚本（既有口径）。
+ * v4.11.21 World 2 第二批（2026-09-25）：开放 World 2「中级 CSS 概念」前 5 课
+ * （Default Styles / CSS Units / More Text Styles / More CSS Properties /
+ * Advanced Selectors，正文在 courses/intermediate-html-and-css.js）。登记 53 条：
+ * A 类 ×18（全部为 MDN 官方中文版逐条内容级核验——单位总览 / length 值 / Web fonts /
+ * em 元素 / text-transform / text-shadow / background / border / border-radius /
+ * box-shadow / overflow / opacity / 选择器评估 / 组合器 / 伪类与伪元素一文 / 伪类参考 /
+ * 伪元素参考 / 属性选择器参考，zh-CN 正文汉字数 2164–9573；en-US 的 Learn 旧路径
+ * 301 到 Learn_web_development 现役路径、Web/CSS 旧路径 301 到 Reference 现役路径，
+ * 逐条按重定向后生效地址登记）；C 类 ×35（css-tricks 的 reset 历史与推理 /
+ * Fun with Viewport Units / 系统字体栈 / 省略号截断片段 / 特异性专文，另 almanac
+ * 伪选择器条目 ×16——官方正文为每个伪类/伪元素逐条挂链、全部 200 实测；
+ * mattbrictson 的 normalize 与 reset 对比、Josh Comeau 定制 reset 逐条解释、
+ * codyloyd 的 CSS units（官方给的是 web.archive.org 存档地址，原样登记；curl
+ * 默认 UA 被拒，带浏览器 UA 200 并取得正文）、web.dev 字体最佳实践与排版两篇
+ * （zh 路径 404 实测，无官方中文版）、字体库 Font Library / Font Bunny /
+ * Google Fonts（工具站，首页即选字入口）、thehackernews 的 GDPR 裁定报道、
+ * fileinfo 字体格式清单、CSS Diner 选择器游戏、Shay Howe 复杂选择器详解、
+ * StackOverflow 的 :root 与 html 差异讨论）。403 受限 2 条如实登记并入
+ * verifyLimitedUrls（W3Schools css3_fonts.asp 带浏览器 UA 复核 200；
+ * StackOverflow 带浏览器 UA 仍 403）。剔除：TOP 自有 Intro to CSS 课页（官方
+ * 自有页）、MDN 正则表达式指南（正文类比性前向引用——正则在 JS 路径后面才正式
+ * 教，非本课学习资料）、more_text_styles 正文 2 处 CodePen 课内演示与 cpwebassets
+ * 嵌入脚本（既有口径）。
+ *
+ * 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，World 8 求职 14 课、全站 197 课收官）：
+ * 新增 97 条（总 915）——getting-hired 两章 14 课中 11 课有资料，htcww /
+ * starts-with-you / conclusion 三门零资料课不建键（导论与自评课全文无外链；结语信
+ * 仅 Discord 邀请与反馈表单，均按既有口径剔除）。portfolio 课 Show designs 17 个
+ * 个人作品集站按灵感参考（reference）口径全收（todo-list 先例）；qualify 课
+ * hire-beware 为 TOP 官方指定阅读材料（区别于操作目标剔除口径）予以登记并建任务
+ * 映射。A 类新增 2（leetcode.cn 力扣中文站真实浏览器实测 3288 汉字、visualgo.net/zh
+ * 中文界面 3285 汉字）；受限新增 8（forbes×3 / metafilter / medium pramp /
+ * monster career-advice 双通路不可达 + programmers.SE 迁移后与 leetcode.com/explore
+ * Cloudflare 挑战页）；站点迁移与路径重组事实 15 处如实登记。跨课合并 1 处
+ * （Happy Bear→strategy 首现）、同页合并 1 处（LinkedIn）、带 title 链接人工补抓
+ * 1 处（fs.blog）。 */
 window.ODIN_RESOURCES = {
   verifiedAt: '2026-09-25',
   method: '重新拉取官方 curriculum raw Markdown 并按 SHA-256 比对指纹（首批 19 课于 2026-09-10 核验全部未变；第 20 课于 2026-09-23 抓取登记）→ 程序化提取正文 / Assignment 中的外部链接（2026-09-24 全量重扫：同年 9 月 23 日官方一口气下线了课末的自我检查节，该节原带的链接已一并复核处置，受影响的是课 09 与课 13 各一条，均已从清单移除；同轮新增第 21–23 课共 12 条（课 21 三条 / 课 22 四条 / 课 23 五条，逐条三级核验，跨课去重后与既有 85 条零重复）；同日另一批新增第 24–25 课共 10 条（课 24 四条 / 课 25 六条，逐条三级核验，跨课去重后与既有 97 条零重复，其中 3 条 W3Schools 地址 403 受限、如实登记未凑数，MDN 两条核验出官方中文版登记为 A 类）；2026-09-24 第二批新增第 26–27 课（课 26 官方外链全为课程配图、零资料登记；课 27 新增 3 条，其中 MDN 两条核验出官方简体中文版登记为 A 类，W3C 规范 1 条无中文版登记为 C 类）；同日第三批新增第 28–29 课（课 28 的 MDN flex-direction 核验出官方简体中文版登记为 A 类；课 29 新增 4 条全部 C 类）；同日第四批新增第 30 课的 3 条免费图片素材站（Pexels / Pixabay 403 受限如实登记）；详见 sources.json 与 MAINTENANCE.md）→ 按重定向后的规范化地址去重（含跨课合并）→ 逐条 curl 核验状态码与重定向目标 → 对中文候选做内容级语言核验（统计正文汉字数，不只看 HTTP 200）→ 视频另用 YouTube oEmbed 公开接口核验可用性与真实标题。各条资料的核验日期以条目 verifiedAt 为准。',
@@ -113,7 +156,7 @@ window.ODIN_RESOURCES = {
     subtitleClaim: '没有可靠证据证明存在中文字幕的视频，一律不声称有中文字幕。',
     fallback: '无法确认版权许可时，默认只做中文摘要 / 导读加原始链接。'
   },
-  stats: { total: 193, withZh: 71, guideOnly: 122, verifyLimited: 16, withTranslation: 14 },
+  stats: { total: 915, withZh: 245, guideOnly: 670, verifyLimited: 49, withTranslation: 14 },
   audit: {
     perLesson: {
       'how-this-course-will-work': 2, 'introduction-to-web-development': 5, 'motivation-and-mindset': 6,
@@ -128,7 +171,216 @@ window.ODIN_RESOURCES = {
       'rock-paper-scissors': 4, 'clean-code': 4, 'loops-and-arrays': 6,
       'dom-manipulation-and-events': 14, 'revisiting-rock-paper-scissors': 1,
       'etch-a-sketch': 1, 'object-basics': 5, calculator: 3,
-      'choose-your-path-forward': 1
+      'choose-your-path-forward': 1,
+      'node-path-intermediate-html-and-css-introduction': 2, 'node-path-intermediate-html-and-css-svg': 6,
+      'node-path-intermediate-html-and-css-tables': 3,
+      'node-path-intermediate-html-and-css-default-styles': 3,
+      'node-path-intermediate-html-and-css-css-units': 4,
+      'node-path-intermediate-html-and-css-more-text-styles': 14,
+      'node-path-intermediate-html-and-css-more-css-properties': 6,
+      'node-path-intermediate-html-and-css-advanced-selectors': 26,
+      /* World 2 第三批（2026-09-26）：「中级 CSS 概念」章节后 5 课，该章节 10/10 全开 */
+      'node-path-intermediate-html-and-css-positioning': 4,
+      'node-path-intermediate-html-and-css-css-functions': 2,
+      'node-path-intermediate-html-and-css-custom-properties': 3,
+      'node-path-intermediate-html-and-css-browser-compatibility': 4,
+      'node-path-intermediate-html-and-css-frameworks-and-preprocessors': 4,
+      'node-path-intermediate-html-and-css-form-basics': 8,
+      'node-path-intermediate-html-and-css-form-validation': 6,
+      'node-path-intermediate-html-and-css-sign-up-form': 2,
+      /* World 2 第五批（2026-09-26，v4.11.22）：「Grid 布局」章节 6 课，该章节 6/6 全开、
+       * World 2 22/22 收组。introduction-to-grid 为本站第三个零外部资料课（官方 Assignment
+       * 为「Surprise! No assignment!」无作业声明，正文外链全为 TOP 自有课页 / CodePen 演示 /
+       * 练习配图），不建 perLesson 条目（与课 26 introduction-to-flexbox、课 32
+       * installing-node-js 同一处理）。 */
+      'node-path-intermediate-html-and-css-creating-a-grid': 3,
+      'node-path-intermediate-html-and-css-positioning-grid-elements': 2,
+      'node-path-intermediate-html-and-css-advanced-grid-properties': 2,
+      'node-path-intermediate-html-and-css-using-flexbox-and-grid': 3,
+      'node-path-intermediate-html-and-css-admin-dashboard': 1,
+      /* World 3 批次 4 阶段 1（2026-09-26，v4.11.23）：javascript 课程「引言」+「组织
+       * JavaScript 代码」两章节 15 课开放，新增 52 条。organizing-code-with-objects 为本站
+       * 第四个零外部资料课（官方 Assignment 明文「No assignment for this particular
+       * lesson!」无作业声明；正文唯一外链是 TOP 自有的 Foundations Object Basics 课页，
+       * 按既有口径剔除不凑数），不建 perLesson 条目（与课 26、课 32、
+       * introduction-to-grid 同一处理）。 */
+      'node-path-javascript-how-this-course-will-work': 1,
+      'node-path-javascript-object-constructors': 6,
+      'node-path-javascript-library': 3,
+      'node-path-javascript-factory-functions-and-the-module-pattern': 6,
+      'node-path-javascript-tic-tac-toe': 1,
+      'node-path-javascript-classes': 6,
+      'javascript-es6-modules': 3,
+      'node-path-javascript-npm': 5,
+      'javascript-webpack': 5,
+      'node-path-javascript-restaurant-page': 1,
+      'node-path-javascript-revisiting-webpack': 1,
+      'node-path-javascript-json': 4,
+      'node-path-javascript-oop-principles': 4,
+      'node-path-javascript-todo-list': 6,
+      /* 批次 4 阶段 2（2026-09-27，v4.11.24）：真实世界 JS 3 课 + 异步与 API 4 课，+50 条 */
+      'node-path-javascript-linting': 14,
+      'node-path-javascript-form-validation-with-javascript': 3,
+      'node-path-javascript-ecmascript': 3,
+      'node-path-javascript-asynchronous-code': 9,
+      'node-path-javascript-working-with-apis': 15,
+      'node-path-javascript-async-and-await': 4,
+      'node-path-javascript-weather-app': 2,
+      /* World 3 批次 4 阶段 3（2026-09-27，v4.11.25）：「测试 JavaScript」3 课 +
+       * 「一点计算机科学」11 课，+68 条（A 类 13 / C 类 55；跨课同址合并 5 处：
+       * bigocheatsheet×3 归 time-complexity、mycodeschool 两支×2 归 common-ds、
+       * 维基 D&C 双引用点去锚点合并 1 条；剔除：TOP 站内回链 3、statically 配图 3、
+       * javascript-exercises 练习操作目标 1——按 odin-recipes 先例） */
+      'node-path-javascript-testing-basics': 9,
+      'node-path-javascript-testing-practice': 1,
+      'node-path-javascript-more-testing': 5,
+      'javascript-a-very-brief-intro-to-cs': 5,
+      'javascript-recursive-methods': 5,
+      'javascript-recursion': 8,
+      'javascript-time-complexity': 4,
+      'javascript-space-complexity': 4,
+      'javascript-common-data-structures-and-algorithms': 8,
+      'javascript-linked-lists': 4,
+      'javascript-hashmap-data-structure': 6,
+      'javascript-hashmap': 1,
+      'javascript-binary-search-trees': 6,
+      'javascript-knights-travails': 2,
+      /* World 3 批次 4 阶段 4（2026-09-27，v4.11.26）：「Git 进阶」3 课 +
+       * 「JavaScript 收尾」2 课——World 3 全 41 课收组，+10 条（A 类 7 / C 类 3；
+       * 剔除：TOP 站内回链 8（按链接计）、curriculum 自有仓库 3（repo 首页 / CONTRIBUTING /
+       * issues——练习操作目标与 TOP 自有双重口径）、conclusion 的 Google 反馈表 1
+       * （行政表单，Admin Dashboard 先例）；跨课合并 0 处；本批无新增受限条目） */
+      'javascript-a-deeper-look-at-git': 3,
+      'javascript-working-with-remotes': 3,
+      'javascript-using-git-in-the-real-world': 1,
+      'node-path-javascript-battleship': 2,
+      'node-path-javascript-conclusion': 1,
+      /* World 4 批次 5 阶段 1（2026-09-27，v4.11.27）：「动画」章节 3 课开放
+       * （该章节 3/3 全开），+20 条（A 类 7 / C 类 13；剔除：CodePen 课内演示 10 处
+       * 与 cpwebassets 嵌入脚本——transforms 7 / transitions 1 / keyframes 2；
+       * 跨课合并 1 处：CSS Triggers 存档表归 transforms 首现课，transitions
+       * Assignment 第 4 条同址引用不重复登记；同页合并 1 处：MDN 过渡教程与其
+       * Defining transitions 小节锚点链接。本批无新增受限条目——全部候选命令行
+       * 默认通道可达；scaleZ / scale3d 两函数页 zh-CN 实测 404 为「无官方中文版」
+       * 而非受限，如实 C 类） */
+      'node-path-advanced-html-and-css-transforms': 11,
+      'node-path-advanced-html-and-css-transitions': 5,
+      'node-path-advanced-html-and-css-keyframes': 4,
+      /* 批次 5 阶段 2（v4.11.28）：accessibility「无障碍」章节 8 课 +28 条
+       * （accessible-colors 官方无 Assignment 节，其 1 条为正文点名工具） */
+      'node-path-advanced-html-and-css-introduction-to-web-accessibility': 2,
+      'node-path-advanced-html-and-css-the-web-content-accessibility-guidelines-wcag': 2,
+      'node-path-advanced-html-and-css-semantic-html': 7,
+      'node-path-advanced-html-and-css-accessible-colors': 1,
+      'node-path-advanced-html-and-css-keyboard-navigation': 3,
+      'node-path-advanced-html-and-css-meaningful-text': 2,
+      'node-path-advanced-html-and-css-wai-aria': 4,
+      'node-path-advanced-html-and-css-accessibility-auditing': 7,
+      /* 批次 5 阶段 3（v4.11.29，World 4 收组）：responsive-design「响应式设计」章节 5 课 +11 条
+       * （homepage 的 pexels 与 materialdesignicons 为跨课合并条目、归属 landing-page 与
+       * admin-dashboard 首现课，不建本课 perLesson 计数） */
+      'node-path-advanced-html-and-css-introduction-to-responsive-design': 1,
+      'node-path-advanced-html-and-css-natural-responsiveness': 3,
+      'node-path-advanced-html-and-css-responsive-images': 5,
+      'node-path-advanced-html-and-css-media-queries': 1,
+      'node-path-advanced-html-and-css-homepage': 1,
+      /* 批次 6 阶段 1（v4.11.30）：react 课程「引言」+「React 入门」两章 8 课 +23 条
+       * （how-this-course-will-work 零资料课——官方无 Assignment 节、正文两链均 TOP 自有；
+       * react-components 零条目——唯一外链 MDN export 跨课合并归属 javascript es6-modules 课；
+       * introduction-to-react 的 react.dev 官网与 passing-data 的 MDN 解构亦为跨课合并条目，
+       * 不建本课 perLesson 计数；两门零条目课按 introduction-to-grid 先例不建键） */
+      'node-path-react-new-introduction-to-react': 4,
+      'node-path-react-new-setting-up-a-react-environment': 7,
+      'node-path-react-new-what-is-jsx': 5,
+      'node-path-react-new-passing-data-between-components': 2,
+      'node-path-react-new-rendering-techniques': 3,
+      'node-path-react-new-keys-in-react': 2,
+      /* 批次 6 阶段 2（v4.11.31）：react 课程「状态与副作用」5 课 +「类组件」2 课 +28 条
+       * （class-based-components 的 react-examples 仓库根链接与 introduction-to-state 条目
+       * 同址——跨课合并归属首现课不建计数；memory-card 的 Giphy 与 javascript 异步 API 课
+       * 既有条目同址——跨课合并不建计数；how-to-deal-with-side-effects 的 StrictMode #strictmode
+       * 锚点与 cv-application 条目整页同页——同页合并归属首现课不建计数；
+       * 7 课全部有条目，本批无零条目课） */
+      'node-path-react-new-introduction-to-state': 5,
+      'node-path-react-new-more-on-state': 4,
+      'node-path-react-new-cv-application': 11,
+      'node-path-react-new-how-to-deal-with-side-effects': 3,
+      'node-path-react-new-memory-card': 2,
+      'node-path-react-new-class-based-components': 1,
+      'node-path-react-new-component-lifecycle-methods': 2,
+      /* 批次 6 阶段 3（v4.11.32，World 5 收组）：react 课程「React 测试」2 课 +
+       * 「React 生态」4 课 +「更多 React 概念」3 课 +「结语」1 课 +63 条
+       * （introduction-to-react-testing 正文的 jestjs.io 与 vitejs.dev 裸首页跨课
+       * 合并归属首现课不建计数；fetching-data 与 refs-and-memoization 正文的
+       * react-examples 仓库根、context-api 正文的 sharing-state-between-components、
+       * reducing-state 正文的 MDN Object/is 均为跨课合并不建计数；10 课全部有条目，
+       * 本批无零条目课——conclusion 的 Assignment 表单剔除后正文仍有 4 条外链） */
+      'node-path-react-new-introduction-to-react-testing': 13,
+      'node-path-react-new-mocking-callbacks-and-components': 6,
+      'node-path-react-new-react-router': 9,
+      'node-path-react-new-fetching-data-in-react': 2,
+      'node-path-react-new-styling-react-applications': 10,
+      'node-path-react-new-shopping-cart': 4,
+      'node-path-react-new-managing-state-with-the-context-api': 5,
+      'node-path-react-new-reducing-state': 2,
+      'node-path-react-new-refs-and-memoization': 8,
+      'node-path-react-conclusion': 4,
+      /* 超长轮批次 7 阶段 1（2026-09-28，v4.11.33，World 6 收组）：databases 课程 3 课 +10 条
+       * （课 1 数据库导论 4 条 / 课 2 数据库与 SQL 5 条 / 课 3 SQL Zoo 项目 1 条；本批全 C 类——
+       * Khan welcome-to-sql 中文站实测「页面未翻译」、W3Schools 仅第三方翻译站非官方中文版） */
+      'node-path-databases': 4,
+      'node-path-databases-databases-and-sql': 5,
+      'node-path-databases-sql-zoo': 1,
+      /* 超长轮批次 7 阶段 2（2026-09-28，v4.11.34，NodeJS 入门 6 课 + Express 11 课开放）：
+       * nodejs 课程 14 课 +80 条（课 1 后端入门 3 / 课 2 什么是 NodeJS 5 / 课 3 Node 入门 11 /
+       * 课 4 调试 2 / 课 6 环境变量 4 / 课 7 框架简介 3 / 课 8 Express 入门 7 / 课 9 路由 4 /
+       * 课 10 控制器 3 / 课 11 视图 3 / 课 13 部署 13 / 课 14 表单 10 / 课 15 安装 PostgreSQL 4 /
+       * 课 16 使用 PostgreSQL 8）；三门 Project 课（5 basic-info-site / 12 mini-message-board /
+       * 17 inventory-application）官方外链全剔除或为零，零资料不建键（htcww 先例同型）。
+       * 跨课合并 2 处不建计数：what-is-nodejs 的 dev.to Understanding Callbacks 归首现课
+       * dom-manipulation-and-events、routes 的 MDN HTTP request methods 归首现课
+       * form-basics（既有 A 类条目含同一 zhUrl，无信息损失）——react-components 先例。
+       * 本批 A 类 10 条：nodejs.org 中文站站点页 1（Learn/API 区无中文维持 C——中文覆盖按分区，
+       * CF 产品分区先例同型）/ MDN zh-CN 3（Learn 区 301→Learn_web_development/Extensions、
+       * HTTP 区 301→Reference/ 路径迁移新事实）/ expressjs.com zh-cn guide 区 3（routing 1899 汉字 /
+       * using-middleware 1890 / using-template-engines 1005——**部分翻译、中英混排**，A 类判定按
+       * 「正文有实质中文内容」口径，api 区界面中文正文英文维持 C（jestjs.io 先例）；待用户拍板）/
+       * 中文维基 3（localhost、跨站脚本、SQL注入——中文条目名与英文不同形，Post/Redirect/Get
+       * 中文维基无现行条目维持 C 不凑数）。受限 +4（33→37）。域名/路径迁移新事实：railway.app→
+       * railway.com、neon.tech→neon.com（宣传语已变）、medium.freecodecamp.org→freecodecamp.org/news、
+       * codecademy articles→article、expressjs guide .html→无后缀、node-postgres.com 站点 GitHub 化
+       * （title「GitHub」）、presidentbeef 官方原链日期段连字符 404→斜杠现役 200（devfactor 先例）。 */
+      'nodejs-introduction-to-the-back-end': 3,
+      'nodejs-introduction-what-is-nodejs': 5,
+      'nodejs-getting-started': 11,
+      'nodejs-debugging-node': 2,
+      'nodejs-environment-variables': 4,
+      'nodejs-introduction-to-frameworks': 3,
+      'node-path-nodejs-introduction-to-express': 7,
+      'nodejs-routes': 4,
+      'nodejs-controllers': 3,
+      'nodejs-views': 3,
+      'node-path-nodejs-deployment': 13,
+      'nodejs-forms-and-data-handling': 10,
+      'nodejs-installing-postgresql': 4,
+      'nodejs-using-postgresql': 8,
+      /* 超长续轮批次 7 阶段 3（2026-09-29，v4.11.35）World 7 后六章 13 课：11 课有资料、2 门 Project 零资料（members-only 跨课合并后零条目、messaging-app 官方全文无外链）不建键 */
+      'node-path-nodejs-authentication-basics': 12, 'nodejs-prisma-orm': 15, 'nodejs-file-uploader': 5, 'nodejs-api-basics': 11, 'nodejs-api-security': 5, 'node-path-nodejs-blog-api': 3, 'nodejs-testing-routes-and-controllers': 2, 'node-path-nodejs-testing-database-operations': 4, 'nodejs-where-s-waldo-a-photo-tagging-app': 1, 'node-path-nodejs-odin-book': 4, 'nodejs-conclusion': 12,
+      /* 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，World 8 收组、全站 197 课收官）：
+       * getting-hired 14 课中 11 课有资料；3 门零资料课不建键——how-this-course-will-work
+       * （导论课官方全文无外链）、it-starts-with-you（自评课全文无外链）、conclusion
+       * （结语信仅 Discord 邀请与课程反馈表两链接，均按既有口径剔除——全站第十二门零资料课）。
+       * 跨课合并 1 处（Happy Bear 存档 interview 正文引用→strategy 首现课）；
+       * 同页合并 1 处（networking 的 LinkedIn Assignment 两处引用）；
+       * 剔除 4 类：github.com/TheOdinProject org 根（操作目标）、join-the-odin-community
+       * TOP 课页回链、discord.gg/fbFCkYabZB 邀请链接、Getting Hired 课程反馈 Google 表单（行政表单）。 */
+      'node-path-getting-hired-professional-networking': 9, 'node-path-getting-hired-strategy': 4,
+      'node-path-getting-hired-what-companies-want': 7, 'node-path-getting-hired-what-you-can-do-to-prepare': 10,
+      'node-path-getting-hired-building-your-personal-website': 19, 'node-path-getting-hired-collecting-job-leads': 9,
+      'node-path-getting-hired-qualifying-job-leads': 1, 'node-path-getting-hired-building-your-resume': 5,
+      'node-path-getting-hired-applying-for-web-development-jobs': 1,
+      'node-path-getting-hired-preparing-to-interview-and-interviewing': 30,
+      'node-path-getting-hired-handling-a-job-offer': 2
     },
     /* 完整性复查记录：初次程序化提取共得到 118 条链接。第一阶段剔除 20 条非第三方学习资料
      * （5 条 TOP 自有课程页、13 条 TOP 官方安装指引、2 条课程演示素材，即 CodePen 演示笔与
@@ -141,10 +393,12 @@ window.ODIN_RESOURCES = {
      * 已补入并完成同样的核验，成为 83 条。课 09 的 The Unix Shell 课程主页与其 Download files
      * 小节在规范化去重后本会合并为一条，但官方 Assignment 把 Download files 列为独立一项并给了
      * 独立指示（只需照该节说明做、不必安装软件），因此按官方任务结构保留为两条。合计 84 条。 */
-    completenessRecheck: '已对 19 份官方 Markdown 全量重扫链接并与本清单逐条比对；除 Vim 条目（已补入）外无其他遗漏。2026-09-23 的 Project: Recipes 那一批对官方 project_recipes.md 做同样的全量扫描：去重后共提取 9 个地址，其中 4 个 TOP 自有课程页（Introduction to Git / Git Basics / Setting up Git 的 SSH 小节 / Commit Messages）与 1 个课程配图（statically CDN）按阶段一剔除；discord.gg/fbFCkYabZB 邀请链接与课 05 既有条目规范化后同址，跨课合并登记在课 05；其余 3 条（Allrecipes、TOP Discord 求助频道、dev.to Learning Code 文章）已收录并完成同样的三级核验。',
+    completenessRecheck: '已对 19 份官方 Markdown 全量重扫链接并与本清单逐条比对；除 Vim 条目（已补入）外无其他遗漏。2026-09-23 的 Project: Recipes 那一批对官方 project_recipes.md 做同样的全量扫描：去重后共提取 9 个地址，其中 4 个 TOP 自有课程页（Introduction to Git / Git Basics / Setting up Git 的 SSH 小节 / Commit Messages）与 1 个课程配图（statically CDN）按阶段一剔除；discord.gg/fbFCkYabZB 邀请链接与课 05 既有条目规范化后同址，跨课合并登记在课 05；其余 3 条（Allrecipes、TOP Discord 求助频道、dev.to Learning Code 文章）已收录并完成同样的三级核验。2026-09-29 超长续轮批次 7 阶段 3（World 7 后六章 13 课）对 13 份官方 Markdown 全量重扫链接、与现有 744 条逐条比对：跨课合并 7 处（netlify→react-cv-application、expressjs res.json/send/render 三锚点→introduction-to-express、expressjs 首页→introduction-to-express、TOP curriculum 仓库→introduction-to-git、postman→nodejs-routes、express-validator customizing→nodejs-forms-and-data-handling、supabase storage→file-uploader 首现）；同仓合并 1 处（supertest visionmedia 旧组织地址 301→forwardemail 现仓库，登记现址记旧址事实）；TOP 自有课页/行政 Discord 按既有口径处理（conclusion 的 Assignment Discord 按社区板块登记、非行政剔除）；新增 74 条（11 课有资料，members-only 与 messaging-app 两门 Project 零资料不建键）。2026-09-29 超长续轮批次 7 阶段 4（World 8 求职 14 课，全站收官）对 14 份官方 Markdown 全量重扫链接（含带 title 属性链接的人工复核补抓——fs.blog《人性的弱点》摘要为唯一一处正则漏抓）、与现有 818 条逐条比对：跨课合并 1 处（Happy Bear 存档归 strategy 首现，interview 正文引用不重建）；同页合并 1 处（LinkedIn 首页 networking 两处引用）；剔除 4 条（github org 根 / TOP 课页回链 / discord.gg 邀请 / Google 反馈表单）；新增 97 条（11 课有资料，htcww / starts-with-you / conclusion 三门零资料课不建键）。',
     deliberateSplit: ['command-line-basics: The Unix Shell 主页与 Download files 小节按官方 Assignment 的分项结构保留为两条'],
     verifyLimitedUrls: [
-      'https://www.pexels.com/（403，站点反爬拦截非浏览器请求）',
+      /* 批次 6 阶段 0（2026-09-27，用户拍板）：pexels 条目升级 A 类后移出本清单
+       * （真实浏览器直连 /zh-cn/ 实测 responseStatus 200、全中文界面——命令行双 UA
+       * 403 属站点反爬，双通路事实记在该条目 originalUrlStatus），受限 29 → 28。 */
       'https://pixabay.com/（403，站点反爬拦截非浏览器请求）',
       'https://github.com/join（403，GitHub 反爬拦截，重定向到 github.com/signup）',
       'https://codepen.io（403，站点反爬拦截）',
@@ -159,9 +413,55 @@ window.ODIN_RESOURCES = {
       'https://www.reddit.com/r/programming/comments/p1j1c/tabs_vs_spaces_vs_both/（403，站点反爬拦截非浏览器请求）',
       'https://onextrapixel.com/10-principles-for-keeping-your-programming-code-clean/（000，两次自动核验均未取得响应）',
       'https://stackoverflow.com/questions/4599857/are-eval-and-new-function-the-same-thing（403，站点反爬拦截非浏览器请求）',
-      'https://medium.com/@bycdiaz/choosing-the-right-language-a-short-guide-on-how-not-to-ruin-your-career-2b353be1371（403，站点反爬拦截非浏览器请求；真实浏览器核验可达）'
+      'https://medium.com/@bycdiaz/choosing-the-right-language-a-short-guide-on-how-not-to-ruin-your-career-2b353be1371（403，站点反爬拦截非浏览器请求；真实浏览器核验可达）',
+      'https://www.w3schools.com/css/css3_fonts.asp（403，站点反爬拦截非浏览器请求，带浏览器 UA 复核为 200）',
+      'https://stackoverflow.com/questions/15899615/whats-the-difference-between-css3s-root-pseudo-class-and-html（403，站点反爬拦截非浏览器请求，带浏览器 UA 仍 403）',
+      'https://medium.com/html-all-the-things/what-is-a-css-framework-f758ef0b1a11（403，站点反爬拦截非浏览器请求，带浏览器 UA 仍 403；真实浏览器核验可达并取得标题与 h1，页面含会员墙标记）',
+      'https://threadreaderapp.com/thread/1400388896136040454.html（000，命令行带浏览器 UA 连续两次连接超时；真实浏览器导航亦 ERR_CONNECTION_TIMED_OUT，两条通路均无法确认内容）',
+      'https://unsplash.com/photos/25xggax4bSA（401，站点反爬重定向到 .within.website 挑战地址；真实浏览器核验可达并取得标题、h1 与作者名）',
+      'https://www.npmjs.com/package/npm（403，浏览器 UA / 默认 UA / Googlebot UA 三种均被站点反爬拦截；真实浏览器访问停在 Cloudflare 人机验证页，两条通路都无法取得页面内容）',
+      'https://duncan-mcardle.medium.com/solid-principle-1-single-responsibility-javascript-5d9ce2c6f4a5（403，Medium 反爬拦截，浏览器 UA 与带 Referer 均被拒；真实浏览器核验可达并取得 h1「SOLID principle #1: Single responsibility (JavaScript)」）',
+      /* World 3 批次 4 阶段 3（2026-09-27）新增 6 条 */
+      'https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c（403，Medium 反爬拦截非浏览器请求；真实浏览器核验可达并取得标题与 h1）',
+      'https://qr.ae/py3NAc（403，Quora 短链服务反爬拦截；真实浏览器核验跳转至 quora.com 回答页可达并取得标题）',
+      'https://cs.stackexchange.com/questions/127933/analyzing-space-complexity-of-passing-data-to-function-by-reference（403，Stack Exchange 反爬拦截；真实浏览器核验可达并取得标题与回答数 3）',
+      'https://stackoverflow.com/questions/299304/why-does-javas-hashcode-in-string-use-31-as-a-multiplier/299748（403，反爬拦截、初访为 Cloudflare 挑战页；真实浏览器核验挑战自动通过后可达并取得标题与回答数 13）',
+      'https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs（命令行返回 200 但内容为 Client Challenge 反爬挑战页，无法确认正文；真实浏览器核验可达并取得标题与 h1「Describing graphs」）',
+      'https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs（命令行返回 200 但内容为 Client Challenge 反爬挑战页，无法确认正文；真实浏览器核验可达并取得标题与 h1「Representing graphs」）',
+      /* World 5 批次 6 阶段 1（2026-09-27）新增 1 条（同轮阶段 0 pexels 移出 1 条，29 → 28 → 29） */
+      'https://iamtapan.medium.com/this-is-how-long-the-life-cycle-of-a-javascript-framework-lasts-d21b29320512（403，Medium 反爬拦截非浏览器请求；真实浏览器核验挑战自动通过后可达并取得标题与 h1）',
+      /* World 5 批次 6 阶段 3（2026-09-28）新增 1 条（29 → 30） */
+      'https://medium.com/@taylormclean15/jest-testing-mocking-child-components-to-make-your-unit-tests-more-concise-18691ef6a0c2（403，Medium 反爬拦截非浏览器请求；真实浏览器核验可达并取得标题与 h1，无登录墙拦截正文——官方 Markdown 注明可能需要注册，如实转达）',
+      /* 超长轮批次 7 阶段 1（2026-09-28，World 6 收组）新增 3 条（30 → 33） */
+      'https://www.khanacademy.org/computing/hour-of-code/hour-of-sql/v/welcome-to-sql（命令行返回 200 但内容为 Client Challenge 反爬挑战页，无法确认正文；真实浏览器核验可达并取得标题与 h1「Welcome to SQL」）',
+      'https://www.w3schools.com/sql/sql_join.asp（403，站点反爬拦截非浏览器请求，带浏览器 UA 复核为 200）',
+      'https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_groupby（403，站点反爬拦截非浏览器请求，带浏览器 UA 复核为 200）',
+      /* 超长轮批次 7 阶段 2（2026-09-28，NodeJS 17 课）新增 4 条（33 → 37） */
+      'https://www.npmjs.com/package/dotenv（403，Cloudflare 人机验证拦截命令行请求，带浏览器 UA 复核仍 403——npm 包页既有受限形态；真实浏览器核验可达并取得标题「dotenv - npm」与 h1「dotenv」）',
+      'https://www.npmjs.com/package/nodemon（403，同上 npm 包页受限形态，真实浏览器核验可达并取得标题「nodemon - npm」与 h1「nodemon」；官方原文为含双斜杠的 package//nodemon，登记规范化单斜杠地址）',
+      'https://medium.com/@viral_shah/express-middlewares-demystified-f0c2c37ea6a1（403，Cloudflare「Attention Required」拦截命令行请求，带浏览器 UA 复核仍 403——Medium 既有受限形态；真实浏览器核验可达并取得标题与 h1「Express Middlewares, Demystified」）',
+      'https://stackoverflow.com/a/36433748（403，Cloudflare「Just a moment...」人机验证拦截命令行请求，带浏览器 UA 复核仍 403——StackOverflow 既有受限形态；真实浏览器核验可达并取得标题「node.js - How to add a custom script to package.json that runs a javascript file」）',
+      /* 超长续轮批次 7 阶段 3（v4.11.35）新增 4 条受限：npmjs connect-pg-simple、Medium paul.allies、StackOverflow 55300741、gravatar——命令行受限；收尾真实浏览器复核：前三条可达并取得标题/h1，gravatar 真实浏览器亦 ERR_CONNECTION_TIMED_OUT（双通路不可达，按验证受限如实登记） */
+      'https://www.npmjs.com/package/connect-pg-simple（403，Cloudflare 人机验证拦截命令行请求，带浏览器 UA 复核仍 403——npmjs 既有受限形态；官方批注指定它替代 connect-mongo 存 PostgreSQL 会话）',
+      'https://medium.com/@paul.allies/stateless-auth-with-express-passport-jwt-7a55ffae0a5c（403，Cloudflare「Attention Required」拦截命令行请求，带浏览器 UA 复核仍 403——Medium 既有受限形态；官方 AR 指定的更精炼 Express+JWT 指南）',
+      'https://stackoverflow.com/a/55300741/1882858（403，Cloudflare「Just a moment...」人机验证拦截命令行请求，带浏览器 UA 复核仍 403——StackOverflow 既有受限形态；官方警告框指定的 Serial/Identity 差异简述回答）',
+      'https://www.gravatar.com/（000，命令行 curl 连接失败——gravatar.com 对命令行/数据中心请求连接受限；Requirements 第 9 条头像兜底服务，收尾真实浏览器复核亦 ERR_CONNECTION_TIMED_OUT，双通路不可达如实登记）',
+      /* 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，World 8 求职 14 课）新增 8 条受限（41 → 49）：
+       * forbes×3 与 metafilter 与 medium pramp 与 monster career-advice 为双通路不可达
+       * （gravatar 先例口径）；programmers.SE（站点迁移后）与 leetcode.com/explore 为
+       * Cloudflare 挑战页（可汗先例口径）。同轮命令行受限但真实浏览器可达的 4 条不入清单
+       * （comparably 403 / workatastartup 406 / insights.dice 2013 与 2014 301→000——
+       * 浏览器均 200 取得标题，jsbin 先例口径）。 */
+      'https://www.forbes.com/sites/dianatsai/2017-10-02/80-of-jobs-are-not-on-job-boards-heres-how-to-find-them/?sh=29ada3fcd455（000，命令行 curl 连接失败；真实浏览器导航 ERR_CONNECTION_TIMED_OUT——双通路不可达，如实登记）',
+      'http://www.forbes.com/sites/anthonykosner/2012-10-20/software-engineers-are-in-demand-and-github-is-how-you-find-them/（000，命令行连接失败；forbes.com 域真实浏览器导航亦 ERR_CONNECTION_TIMED_OUT——双通路不可达，如实登记）',
+      'http://www.forbes.com/sites/jacquelynsmith/2013-04-26/why-every-job-seeker-should-have-a-personal-website-and-what-it-should-include/（000，命令行连接失败；forbes.com 域真实浏览器导航亦 ERR_CONNECTION_TIMED_OUT——双通路不可达，如实登记）',
+      'http://ask.metafilter.com/226621/How-do-I-get-a-software-internship（000，命令行 curl 连接失败；真实浏览器导航 ERR_CONNECTION_TIMED_OUT——双通路不可达，如实登记）',
+      'http://programmers.stackexchange.com/questions/143673/how-important-is-it-for-a-programmer-to-have-an-online-presence（301 站点迁移至 softwareengineering.stackexchange.com 同问题路径后 403；真实浏览器为 Cloudflare 安全验证挑战页——站点迁移 + 受限双事实，如实登记）',
+      'https://medium.com/pramp/how-to-build-your-digital-presence-as-a-software-developer-cb61c4c1aab（403，Medium 反爬拦截命令行请求；真实浏览器导航 ERR_CERT_AUTHORITY_INVALID——本轮网络通路证书异常，双通路不可达，如实登记）',
+      'http://career-advice.monster.com/job-interview/interview-preparation/mastering-the-phone-interview/article.aspx（301 至 https://career-advice.monster.com:443/… 显式端口形态后命令行 000；真实浏览器导航 ERR_CERT_AUTHORITY_INVALID——本轮网络通路证书异常，双通路不可达，如实登记）',
+      'https://leetcode.com/explore/（403，命令行反爬；真实浏览器为 Cloudflare 安全验证挑战页——受限如实登记；中文站 leetcode.cn 另行 A 类登记见 LeetCode 条目 zhUrl）'
     ],
-    verifyLimitedNote: '以上 16 条无法用命令行自动确认可达性，均已在对应条目的 note 字段中如实记录，未声称为“已验证可访问”。它们的地址都直接取自官方 Markdown 原文，本站未做替换。'
+    verifyLimitedNote: '以上各条（条数以 verifyLimitedUrls 数组为准）无法用命令行自动确认可达性，均已在对应条目的 note 字段中如实记录，未声称为“已验证可访问”。它们的地址都直接取自官方 Markdown 原文，本站未做替换。'
   },
   resources: [
   /* ===== 01 How This Course Will Work ===== */
@@ -4115,16 +4415,29 @@ window.ODIN_RESOURCES = {
     zone: '正文（A note about images on the web）',
     originalUrl: 'https://www.pexels.com/',
     sourceDomain: 'pexels.com',
-    originalUrlStatus: '403（站点反爬拦截非浏览器请求）',
-    zhUrl: null,
-    zhType: null,
+    originalUrlStatus: '403（命令行默认 UA 与浏览器 UA 均被站点反爬拦截；**真实浏览器实测可达**——导航后自动重定向到 /zh-cn/ 官方中文版；按 jsbin / codeburst 先例双通路事实如实登记、不入受限清单）',
+    /* 批次 6 阶段 0（2026-09-27，不升版本，用户拍板）：升级 A 类。判据链——
+     * ① 分类先例：项目对「界面中文、正文英文」按资源类型分流——文档类（正文是
+     *    本体）C 类（jestjs.io 先例）；工具/网站类（界面即本体）A 类（Learn Git
+     *    Branching ?locale=zh_CN 官方多语言界面、Todoist 官方简体中文站点先例）。
+     *    pexels 是 type:'素材'（图库）——资源本体是图片与站点界面、不是散文正文，
+     *    与后两条同类，按 A 类处置有直接先例。
+     * ② 直连实测（2026-09-27 真实浏览器，非只看首页自动重定向）：
+     *    https://www.pexels.com/zh-cn/ 直连 responseStatus 200、location 保持
+     *    /zh-cn/ 无重定向依赖、标题「免费素材图片」、h1「才华横溢的摄影作者在这里
+     *    免费分享最精彩的素材图片和视频。」、导航（探索/许可证/上传/主页/视频/
+     *    热门作者排行榜/挑战赛/获胜者荣誉墙/摄影系列）与正文全中文、可见汉字 339。
+     * ③ 命令行双 UA 403 属站点反爬（与既有登记一致），双通路事实记
+     *    originalUrlStatus；条目移出 verifyLimitedUrls，受限计数 29 → 28。 */
+    zhUrl: 'https://www.pexels.com/zh-cn/',
+    zhType: 'Pexels 官方简体中文站点（/zh-cn/ 路径形态；真实浏览器直连实测 responseStatus 200、标题「免费素材图片」、h1 与导航全中文、可见汉字 339——图库站点界面即本体，按 Learn Git Branching / Todoist 工具与网站类 A 类先例登记）',
     zhGuide: {
-      overview: '官方在项目课里提醒图片版权后推荐的三个免费图库之一：Pexels 的图片可免费使用（具体以每张图的许可说明为准），站内搜索量大、人物与实景照片多。给落地页的占位图找真实图片时，从这里下载并按官方建议把作者署名写进仓库 README。403 是站点拦截命令行请求，浏览器打开正常。',
+      overview: '官方在项目课里提醒图片版权后推荐的三个免费图库之一：Pexels 的图片可免费使用（具体以每张图的许可说明为准），站内搜索量大、人物与实景照片多。站点有官方简体中文版（/zh-cn/），界面导航与图片描述全中文，中文使用者可直接检索下载。给落地页的占位图找真实图片时，从这里下载并按官方建议把作者署名写进仓库 README。403 是站点拦截命令行请求，浏览器打开正常。',
       why: '官方正文推荐的可自由使用图片来源之一。',
       points: [
         '免费可商用图库，下载前确认单张图的许可说明。',
         '官方建议：把图片作者的名字与联系方式写进项目 README 署名。',
-        '命令行核验 403 属站点反爬，浏览器访问正常。'
+        '官方简体中文站在 /zh-cn/ 路径，界面与描述全中文；命令行核验 403 属站点反爬，浏览器访问正常。'
       ],
       terms: [
         'free-to-use image（可自由使用的图片）',
@@ -4135,8 +4448,8 @@ window.ODIN_RESOURCES = {
     },
     license: 'Pexels 站点内容按其自身许可条款提供（免费使用、署名规则以站内说明为准）；本站只提供链接与本站原创导读，不搬运图片。',
     handling: 'link-only',
-    verifiedAt: '2026-09-24',
-    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求），本站未声称为"已验证可访问"，也未替换官方给出的地址。'
+    verifiedAt: '2026-09-27',
+    note: '该地址无法用命令行自动确认可达（403，站点反爬拦截非浏览器请求——默认 UA 与浏览器 UA 均如此），命令行事实如实登记，本站未替换官方给出的地址。2026-09-27 批次 5 阶段 3（homepage 课再次引用该站）真实浏览器复核：可达，且自动重定向到 /zh-cn/ 官方中文版（标题「免费素材图片」、导航与描述全中文）。2026-09-27 批次 6 阶段 0 经用户拍板升级 A 类：真实浏览器实测 /zh-cn/ **直连可达**（responseStatus 200、无重定向依赖、标题「免费素材图片」、h1 与导航全中文、可见汉字 339）——图库站点界面即本体，按 Learn Git Branching / Todoist 工具与网站类 A 类先例登记 zhUrl，并移出 verifyLimitedUrls（受限清单随之 29 → 28）。'
   },
   {
     lessonId: 'landing-page',
@@ -6555,6 +6868,17481 @@ window.ODIN_RESOURCES = {
       verifiedAt: '2026-09-25',
       note: '403 受限：Medium 拦截非浏览器请求，命令行无法自动确认；已用真实浏览器核验可达（by Carlos Diaz），地址直接取自官方 Markdown 原文，本站未做替换。'
     },
+    /* ===== World 2 · 中级 HTML 与 CSS · 1 中级 HTML 概念 ===== */
+    /* 路径课试点批次 3（2026-09-25）：以下 11 条为 World 2 第 1 章节 3 课的第三方资料。
+     * 正文在 courses/intermediate-html-and-css.js，本清单只管外部资料。
+     * 剔除口径见文件头注释（4 条 Wikipedia 名词解释 / Unsplash 401 / CodePen 嵌入）。 */
+    {
+      lessonId: 'node-path-intermediate-html-and-css-introduction',
+      title: 'HTML elements reference - HTML: HyperText Markup Language | MDN',
+      titleZh: 'HTML 元素参考（MDN）',
+      type: '参考手册',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/HTML/Reference/Elements）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「HTML 元素参考」，简体中文，全文 7933 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：通读 HTML 元素参考，对「还有哪些元素可用」建立全貌感。官方原话 No need to commit this to memory——不要求记住，后面的课会讲到重要部分，现在扫一眼是为了让之后的内容更容易挂住。',
+      why: '官方任务指定阅读（浏览型，官方明确不要求记忆）。',
+      points: [
+        '这是「剩余地图」：先知道有 table、form、svg 这些家伙存在即可。',
+        '官方明确：不背、不学具体内容，混个眼熟就是完成。'
+      ],
+      terms: [
+        'element reference（元素参考）'
+      ],
+      focus: '滚动扫一遍元素名与一句话描述，感受数量级即可。',
+      takeaway: '后面讲到表单、表格时，你会想起来「在参考里见过它」。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-introduction',
+      title: 'CSS Cheat Sheet',
+      titleZh: 'CSS 速查表（htmlcheatsheet.com）',
+      type: '速查表',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://htmlcheatsheet.com/css/',
+      sourceDomain: 'htmlcheatsheet.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：Take a glance——瞄一眼这张「看起来有点吓人」的 CSS 速查表。官方原话：不要求学或记住任何具体内容，只用它感受「还剩多少要学」。',
+      why: '官方任务指定浏览（与第 1 条同为「混个眼熟」型）。',
+      points: [
+        '密密麻麻是预期内的——它的作用就是展示 CSS 的剩余范围。',
+        '无中文版；交互式速查表，本身按属性分类可点开看示例。'
+      ],
+      terms: [
+        'cheat sheet（速查表）'
+      ],
+      focus: '只看分类标题的覆盖面（box / flex / grid / animation…），不用展开记。',
+      takeaway: '等课程讲到变量、函数、阴影、Grid 时，回来查这张表会越来越顺手。',
+      },
+      license: 'htmlcheatsheet.com 的速查表版权归原作者所有；本站只做链接与原创导读，不搬运。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-svg',
+      title: 'Material Icons',
+      titleZh: 'Material 图标库（Google Fonts）',
+      type: '素材库',
+      requirement: 'reference',
+      zone: '正文 Anatomy of an SVG',
+      originalUrl: 'https://fonts.google.com/icons',
+      sourceDomain: 'fonts.google.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在「SVG 解剖」一节点名的流行 SVG 图标库之一：实践中你通常不会从零手写 SVG，而是从这类站点下载或复制代码。Google 的 Material Icons 支持按图标名搜索、下载 SVG 文件。',
+      why: '官方正文推荐的图标来源（素材语境，非任务要求）。',
+      points: [
+        '可搜索、可下载单个 SVG 文件或复制内联代码。',
+        '与 Feather icons 同为官方举例的两家图标库。'
+      ],
+      terms: [
+        'icon library（图标库）'
+      ],
+      focus: '感受「下载—微调」的工作流：找一个图标，看它给的 SVG 代码长什么样。',
+      takeaway: '以后做项目图标，先来图标库找，别手画。',
+      },
+      license: 'Material Icons 采用 Apache 2.0 许可；本站只链接，不搬运图标资源。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-svg',
+      title: 'Feather Icons',
+      titleZh: 'Feather 图标库',
+      type: '素材库',
+      requirement: 'reference',
+      zone: '正文 Anatomy of an SVG',
+      originalUrl: 'https://feathericons.com/',
+      sourceDomain: 'feathericons.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方点名的另一个流行 SVG 图标库：280+ 个开源线条风格图标，点击即复制 SVG 代码——是「下载后想微调」场景的最短路径示例。',
+      why: '官方正文推荐的图标来源（素材语境，非任务要求）。',
+      points: [
+        '纯 SVG 图标，点开即得可复制的源码——正好练解剖课学到的 viewBox / class 识别。',
+        'MIT 许可，可免费商用。'
+      ],
+      terms: [
+        'open source icons（开源图标）'
+      ],
+      focus: '随便点一个图标看源码：能认出 xmlns、viewBox、path 吗？',
+      takeaway: '解剖课的知识马上能用——这就是「下载后微调」的真实场景。',
+      },
+      license: 'Feather Icons 采用 MIT 许可；本站只链接，不搬运图标资源。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-svg',
+      title: '<use> - SVG: Scalable Vector Graphics | MDN',
+      titleZh: 'SVG use 元素（MDN）',
+      type: '参考手册',
+      requirement: 'reference',
+      zone: '正文 Anatomy of an SVG 第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/SVG/Reference/Element/use）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/SVG/Reference/Element/use',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「<use> - SVG：可缩放矢量图形」，简体中文，2022 个汉字）',
+      zhGuide: {
+      overview: '官方在讲 class / id 属性时附带的链接：SVG 的 use 元素可以通过引用复用另一个元素——就像 CSS class 复用样式那样复用图形。',
+      why: '官方解剖清单第 3 条的延伸阅读（参考语境，非任务要求）。',
+      points: [
+        'use + href 引用带 id 的元素，复制一份图形出来。',
+        '图标系统（icon sprite）的经典底层原理。'
+      ],
+      terms: [
+        'use element（use 元素）',
+        'reuse（复用）'
+      ],
+      focus: '看示例代码里 defs + use 的组合方式即可。',
+      takeaway: '「写一次、用多次」——图形复用的最小机制。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-svg',
+      title: 'SVG element reference - SVG: Scalable Vector Graphics | MDN',
+      titleZh: 'SVG 元素参考（MDN）',
+      type: '参考手册',
+      requirement: 'reference',
+      zone: '正文 Anatomy of an SVG 第 4 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/SVG/Reference/Element）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/SVG/Reference/Element',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「SVG 元素参考」，简体中文，1536 个汉字）',
+      zhGuide: {
+      overview: '官方在讲基础元素（circle / rect / path / text）时附带的完整清单链接：SVG 命名空间定义的全部元素。官方说——极复杂的图像也大多由十几个基础元素拼成。',
+      why: '官方解剖清单第 4 条的延伸阅读（参考语境，非任务要求）。',
+      points: [
+        '基础元素就十几个：circle、rect、path、text、line、polygon……',
+        'path 是万能但最难的那个——本课不深入，知道它存在即可。'
+      ],
+      terms: [
+        'SVG namespace（SVG 命名空间）'
+      ],
+      focus: '扫一眼元素名清单，重点认 circle / rect / path / text 四个。',
+      takeaway: '复杂图像 = 基础元素的组合——不用怕那张「完整列表」。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-svg',
+      title: 'SVG properties and CSS | CSS-Tricks',
+      titleZh: 'SVG 属性与 CSS（CSS-Tricks）',
+      type: '教程文章',
+      requirement: 'reference',
+      zone: '正文 Anatomy of an SVG 第 5 条',
+      originalUrl: 'https://css-tricks.com/svg-properties-and-css/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在讲「fill、stroke 等很多 SVG 属性可以在 CSS 里改」时附带的专文链接：哪些 SVG 属性能被 CSS 控制、怎么写选择器——本站概念图随主题换色用的就是这套机制。',
+      why: '官方解剖清单第 5 条的延伸阅读（参考语境，非任务要求）。',
+      points: [
+        'SVG 属性分两类：可CSS化的（fill、stroke）与只能写在元素上的。',
+        '内联 SVG 才能被页面 CSS 命中——链接的 SVG 内部不可见。'
+      ],
+      terms: [
+        'fill（填充）',
+        'stroke（描边）'
+      ],
+      focus: '看「哪些属性能用 CSS 改」那张表就行，细则以后用到再查。',
+      takeaway: 'SVG 的样式也是 CSS——你已有的技能直接迁移过来。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-svg',
+      title: "A Friendly Introduction to SVG | Josh Comeau",
+      titleZh: 'SVG 友好入门（Josh Comeau）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/',
+      sourceDomain: 'www.joshwcomeau.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 唯一一条：读 Josh Comeau 的 SVG 友好入门——带交互演示的形状与缩放指南。官方明确指示：读到动画（animation）一节就停，动画在课程体系更后面。',
+      why: '官方任务指定阅读（Assignment，required）。',
+      points: [
+        '交互式演示：拖滑块看 viewBox、坐标怎么实时影响图形。',
+        '读到动画一节就停——官方划的边界，动画属于后面的课程。'
+      ],
+      terms: [
+        'interactive demo（交互演示）'
+      ],
+      focus: '把每个交互演示都玩一遍——「公式定义图像」这件事，动手比读字直观一百倍。',
+      takeaway: '玩完交互演示回头看本课的解剖清单，每个零件都眼熟了。',
+      },
+      license: 'Josh Comeau 的博客文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-tables',
+      title: 'HTML table basics - Learn web development | MDN',
+      titleZh: 'HTML 表格基础（MDN 入门教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Structuring_content/HTML_table_basics）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「HTML 表格基础」，简体中文，6634 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条的前半：MDN 表格基础教程——行 / 列 / 表头 / 单元格的完整语法。官方原话 Make sure to code along——务必边读边敲，不是干读。',
+      why: '官方任务指定阅读（教程型，官方要求跟做）。',
+      points: [
+        'table / tr / th / td 骨架 + caption / 表头行 th 的 scope 属性。',
+        '官方原话：It\'s pretty straightforward. Make sure to code along!'
+      ],
+      terms: [
+        'table row（表格行）',
+        'header cell（表头单元格）'
+      ],
+      focus: '每段示例都在自己的 HTML 文件里敲一遍——本课知识的真正载体是这两篇教程。',
+      takeaway: '表格骨架语法到手，进阶教程在此基础上加结构与跨行列。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-tables',
+      title: 'HTML table advanced features and accessibility - Learn web development | MDN',
+      titleZh: 'HTML 表格进阶特性与无障碍（MDN 进阶教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Structuring_content/Table_accessibility；MDN 重构后官方课所链的「Tables Advanced」现役页面标题已改为 Table accessibility，内容覆盖进阶特性与无障碍表格）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Table_accessibility',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「HTML 表格进阶特性和无障碍」，简体中文，5701 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条的后半：MDN 进阶教程——跨行跨列（rowspan / colspan）、语义分区（thead / tbody / tfoot）、caption 与无障碍表格（为屏幕阅读器正确关联表头）。同样要求 code along。',
+      why: '官方任务指定阅读（教程型，官方要求跟做）。',
+      points: [
+        'rowspan / colspan 让单元格跨行列——官方预告过的 tricky 部分。',
+        'thead / tbody / tfoot 语义分区 + 表头关联，是无障碍的关键。'
+      ],
+      terms: [
+        'rowspan / colspan（跨行 / 跨列）',
+        'thead / tbody / tfoot（表格语义分区）'
+      ],
+      focus: '跟着敲 colspan / rowspan 的例子——行列对齐错了表格会错乱，敲一遍才有手感。',
+      takeaway: '进阶语法到手——下一步用行星数据评估检验。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: 'MDN 站点重构：官方课所链地址 /docs/Learn/HTML/Tables/Advanced 现役重定向到 Table_accessibility（标题「HTML 表格进阶特性和无障碍」）。内容仍覆盖原 Advanced 教程的跨行跨列与语义分区主题；地址直接取自官方 Markdown 原文，本站未做替换。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-tables',
+      title: 'Planet data table - Learn web development | MDN',
+      titleZh: '结构化行星数据（MDN 表格评估练习）',
+      type: '评估练习',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Structuring_planet_data',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Structuring_content/Planet_data_table）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Planet_data_table',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「挑战：构建行星数据表」，简体中文，3069 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：MDN 的表格评估练习——把一组真实太阳系行星数据装进结构正确的表格（含跨行列与语义分区），是本课技能的实战检验。官方原话：It\'s good to put your newly learned skills to practice!',
+      why: '官方任务指定练习（评估型，非可选）。',
+      points: [
+        '给定原始数据，要求自己搭出完整表格结构。',
+        '需要用到进阶教程的 colspan / rowspan / 语义分区——两篇教程的联合测验。'
+      ],
+      terms: [
+        'assessment（评估练习）'
+      ],
+      focus: '先自己搭，卡住了再看提示——评估的价值在于暴露「以为会了」的缝。',
+      takeaway: '做出来就是本课的实战毕业证——表格单元全部完成。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    /* ===== World 2 · 中级 HTML 与 CSS · 2 中级 CSS 概念（前 5 课，v4.11.21） ===== */
+    /* World 2 第二批（2026-09-25）：以下 53 条为「中级 CSS 概念」前 5 课的第三方资料。
+     * 正文在 courses/intermediate-html-and-css.js，本清单只管外部资料。
+     * A 类 ×18（全部 MDN 官方中文版，内容级核验汉字数）；C 类 ×35（含 almanac 伪选择器
+     * 条目 ×16——官方正文为每个伪类/伪元素逐条挂链）。剔除口径见文件头注释
+     * （TOP 自有课页 / MDN 正则前向引用 / CodePen 课内演示与 cpwebassets 嵌入脚本）。 */
+    {
+      lessonId: 'node-path-intermediate-html-and-css-default-styles',
+      title: 'Reboot, Resets, and Reasoning | CSS-Tricks',
+      titleZh: 'Reboot、Reset 与背后推理（CSS-Tricks）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://css-tricks.com/reboot-resets-reasoning/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：一篇讲 reset 历史的优秀文章——reset 从何而来、reboot / normalize / reset 各自是什么，以及「一个 reset 是有观点的」到底意味着什么。',
+      why: '官方任务指定阅读（reset 的历史与哲学）。',
+      points: [
+        '梳理 normalize / reset / reboot 三种「处理浏览器默认样式」思路的差异与历史脉络。',
+        '核心观点与正文呼应：每份 reset 都是制作者取舍的体现——理解它为什么这样选，比直接抄更重要。'
+      ],
+      terms: [
+        'reset（重置样式表）',
+        'normalize（归一化样式表）'
+      ],
+      focus: '读时对照正文的两条路（自己覆盖 vs 上 reset），想清楚你现有项目属于哪种情况。',
+      takeaway: '之后选 reset 方案时，你能说出每种方案「重置了什么、保留了什么、为什么」。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-default-styles',
+      title: 'Making the case for CSS normalize and reset stylesheets in 2023',
+      titleZh: '2023 年为何仍值得用 normalize 与 reset（Matt Brictson）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://mattbrictson.com/blog/css-normalize-and-reset',
+      sourceDomain: 'mattbrictson.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：把各种 normalize / reset 样式表的差异与「为什么你会选它」讨论得很清楚的一篇现代对比文（2023 年视角）。',
+      why: '官方任务指定阅读（各方案横向对比与选择理由）。',
+      points: [
+        '对比现代主流方案（normalize.css、各类 reset、reboot 等）的实际差异。',
+        '给出「什么情况下选哪种」的推理框架——呼应正文「reset 是有观点的」论断。'
+      ],
+      terms: [
+        'normalize.css（归一化样式表）'
+      ],
+      focus: '重点看各方案对 margin/padding、字体、表单控件默认值的处理差异。',
+      takeaway: '为自己的项目挑 reset 时有一套可复述的判断标准，而不是随手抄一份。',
+      },
+      license: 'Matt Brictson 的博客文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-default-styles',
+      title: 'A Modern CSS Reset • Josh W. Comeau',
+      titleZh: 'Josh Comeau 的定制 CSS reset（逐条解释）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.joshwcomeau.com/css/custom-css-reset/',
+      sourceDomain: 'joshwcomeau.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：Josh Comeau 对他自定义 reset 里每条规则的思考过程做了很棒的拆解——官方说它能让你学会「怎么为这些决定做推理」。',
+      why: '官方任务指定阅读（一份现代 reset 的逐条推理示范）。',
+      points: [
+        '逐条解释他的 reset 里每条规则解决什么问题（盒模型、图片、表单字体继承等）。',
+        '示范了「有观点的 reset」的完整推理过程——每条都是设计决定，不是仪式。'
+      ],
+      terms: [
+        'box-sizing: border-box（盒模型计算方式）'
+      ],
+      focus: '别只看代码块——读每条规则后面的「为什么」，那才是官方让你学的推理方式。',
+      takeaway: '能写出（或改出）一份自己说得出每条理由的 reset。',
+      },
+      license: 'Josh Comeau 的博客文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-css-units',
+      title: 'CSS values and units - Learn web development | MDN',
+      titleZh: 'CSS 值和单位（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Styling_basics/Values_and_units）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Values_and_units',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「CSS 值和单位」，简体中文，全文 8205 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：覆盖全部可用单位的 MDN 教程——本课正文只讲了最重要的几个（px / em / rem / vh / vw / %），这里是完整版图。',
+      why: '官方任务指定阅读（单位总览）。',
+      points: [
+        '系统过一遍长度、百分比、视口、字号相对单位与各类函数值。',
+        '与正文的「参照物地图」对照读：每个单位挂的是什么参照物，这里都有权威定义。'
+      ],
+      terms: [
+        'length（长度值）',
+        'viewport（视口）'
+      ],
+      focus: '有官方中文版；重点读长度与视口单位两节，其余混个眼熟即可。',
+      takeaway: '遇到没见过的单位（如 ch、dvh）知道来这里查定义与语法。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-css-units',
+      title: 'CSS units: em, rem, and px – Cody Loyd',
+      titleZh: 'CSS 单位：em、rem 与 px（Cody Loyd，存档快照）',
+      type: '文章（存档）',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://web.archive.org/web/20251130034321/https://codyloyd.com/2021/css-units/',
+      sourceDomain: 'web.archive.org',
+      originalUrlStatus: '200（官方原文即给 web.archive.org 存档快照地址，本站原样登记未做替换；curl 默认 UA 被拒（SSL 错误/超时），带浏览器 UA 核验为 200 并取得正文标题「CSS units: em, rem, and px – Cody Loyd」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：深入讲 em / rem / px 各自该在什么时候用的一篇文章。官方课程里给的就是 web.archive.org 存档地址（2025-11-30 快照），本站原样登记。',
+      why: '官方任务指定阅读（em / rem / px 的深入对比）。',
+      points: [
+        '把正文「优先 rem」的经验法则展开成具体场景推理。',
+        '读的是官方指定的存档快照——即 codyloyd.com 2021 年原文的存档版本。'
+      ],
+      terms: [
+        'em（本地字号倍数）',
+        'rem（根字号倍数）'
+      ],
+      focus: '对照正文的 em 陷阱（上下文一变尺寸就漂）读它的场景分析。',
+      takeaway: '写尺寸时对 px / rem / em 的选择有明确理由，不再凭手感。',
+      },
+      license: 'Cody Loyd 的文章版权归原作者；本站只链接官方给出的 web.archive.org 存档地址与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '存档地址：curl 默认 UA 连接被拒，带浏览器 UA 核验 200 并取得正文；地址直接取自官方 Markdown 原文，本站未做替换。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-css-units',
+      title: 'Fun with Viewport Units | CSS-Tricks',
+      titleZh: '视口单位的趣味玩法（CSS-Tricks）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://css-tricks.com/fun-viewport-units/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：演示 vh / vw 能做出的一些有趣效果——全高区块、随视口缩放的排版等。',
+      why: '官方任务指定浏览（视口单位应用示范）。',
+      points: [
+        '正文只给了 vh/vw 的定义（视口高/宽的 1%），这篇展示它们的实战花样。',
+        '每个技巧都附代码——挑用得上的记住思路即可，不必全收。'
+      ],
+      terms: [
+        'vh / vw（视口高度/宽度百分比单位）'
+      ],
+      focus: '重点看「全高区块」与「视口比例尺寸」两类——与正文的两个官方用例直接对应。',
+      takeaway: '想做「跟着浏览器窗口走」的尺寸时，知道 vw/vh 有哪些成熟套路。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-css-units',
+      title: '<length> CSS type - CSS | MDN',
+      titleZh: '<length> 长度值参考（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 So many units 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/length',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「<length>」，简体中文，全文 9573 个汉字）',
+      zhGuide: {
+      overview: '正文「单位这么多」一节的佐证链接：光是 CSS 的长度单位就有绝对与相对一大把（官方原话 absolutely loads）——这页是完整清单与定义。',
+      why: '官方正文引用（长度单位全集，佐证「多到背不完」）。',
+      points: [
+        'px、em、rem、vh、vw、ch、ex 等全部长度单位的权威定义与换算关系。',
+        '官方让你看到的是数量级：别背，用到哪个查哪个。'
+      ],
+      terms: [
+        'absolute length（绝对长度）',
+        'relative length（相对长度）'
+      ],
+      focus: '扫一遍单位名单感受数量级；本课四个主角（px / rem / em / vw、vh）的定义值得细读。',
+      takeaway: '这页就是你的「单位字典」——正文的思维方式（先想参照物）+ 这页查询 = 官方设计的完整闭环。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Web fonts - Learn web development | MDN',
+      titleZh: 'Web 字体（MDN 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Text_styling/Web_fonts）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Text_styling/Web_fonts',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「Web 字体」，简体中文，全文 5527 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：MDN 的 Web 字体教程，官方明确要求 and do the exercises——边读边做文中练习，不是浏览型任务。',
+      why: '官方任务指定阅读并做练习。',
+      points: [
+        '把正文的字体库 / @font-face 两条路展开成完整教程：字体格式、许可、引入方式。',
+        '官方原话要求做练习——动手引入一款字体并配 fallback。'
+      ],
+      terms: [
+        '@font-face（自托管字体声明规则）',
+        'WOFF（Web 开放字体格式）'
+      ],
+      focus: '跟着做练习，体会正文反复强调的「fallback 永远要配」。',
+      takeaway: '能独立完成「选字体 → 引入 → fallback → 格式选择」全流程。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Best practices for fonts  |  Articles  |  web.dev',
+      titleZh: '字体最佳实践（web.dev）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://web.dev/articles/font-best-practices',
+      sourceDomain: 'web.dev',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：理解引入字体的性能考量与缓解手段——正文说「引入文件的性能问题在阅读材料里细讲」，指的就是这篇。',
+      why: '官方任务指定阅读（Web 字体的性能账）。',
+      points: [
+        '解释引入字体为什么影响渲染，以及 font-display、预加载等缓解工具。',
+        '无官方中文版（zh 路径 404 实测）——英文原文配合本导读阅读。'
+      ],
+      terms: [
+        'font-display（字体加载期的显示策略）'
+      ],
+      focus: '重点读「字体加载与首屏渲染」的关系——它决定你该不该为一款字体付性能税。',
+      takeaway: '之后上 Web 字体时知道怎么把性能代价压低（也更有底气按正文建议优先用字体栈）。',
+      },
+      license: 'web.dev 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Typography  |  web.dev',
+      titleZh: '排版（web.dev 设计课）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://web.dev/learn/design/typography',
+      sourceDomain: 'web.dev',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：排版方面对开发者重要的一些考量——行高、行长、字号层级等可读性基本功。',
+      why: '官方任务指定阅读（排版通识）。',
+      points: [
+        '把正文 line-height「加一点提升可读性」展开成系统的排版原则。',
+        '无官方中文版（zh 路径 404 实测）——英文原文配合本导读阅读。'
+      ],
+      terms: [
+        'typography（排版）',
+        'line length（行长）'
+      ],
+      focus: '结合本课六个文本属性读——每个属性在排版原则里都有自己的位置。',
+      takeaway: '调文字样式时背后有一套「为什么」，而不只是抄好看的数值。',
+      },
+      license: 'web.dev 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'System Font Stack | CSS-Tricks',
+      titleZh: '系统字体栈片段（CSS-Tricks）',
+      type: '代码片段',
+      requirement: 'reference',
+      zone: '正文 The system font stack 段',
+      originalUrl: 'https://css-tricks.com/snippets/css/system-font-stack/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文引用的那份流行系统字体栈的出处页：body { font-family: system-ui, "Segoe UI", Roboto, … } 附各平台字体说明。',
+      why: '官方正文引用（系统字体栈的原始出处）。',
+      points: [
+        '可直接复制的 font-family 声明与「为什么是这个顺序」的说明。',
+        '与正文的 system-ui 思路互补：这页给出各操作系统实际命中的字体。'
+      ],
+      terms: [
+        'system-ui（系统 UI 字体关键字）'
+      ],
+      focus: '抄走片段前读一遍列表顺序的逻辑：按平台覆盖度排 fallback。',
+      takeaway: '项目想要「中性、零加载成本」的字体时，这就是标准答案。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Font Library',
+      titleZh: 'Font Library（免费字体库）',
+      type: '素材库',
+      requirement: 'reference',
+      zone: '正文 Online font libraries 段',
+      originalUrl: 'https://fontlibrary.org/',
+      sourceDomain: 'fontlibrary.org',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文列举的在线字体库之一：免费字体的浏览与引入，和 Google Fonts 同类的选择。',
+      why: '官方正文列举（在线字体库选项）。',
+      points: [
+        '浏览、搜索免费字体并提供引入代码。',
+        '每款字体的许可不同——下载自托管前看清许可条款。'
+      ],
+      terms: [
+        'font library（字体库）'
+      ],
+      focus: '作为 Google Fonts 之外的备选认识一下即可。',
+      takeaway: '找字体时多一个来源；在意隐私合规时（正文 GDPR 一节）这类库也是选项。',
+      },
+      license: 'Font Library 的字体由各自作者以多种许可发布；本站只链接站点与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Bunny Fonts | Explore Faster & GDPR friendly Fonts',
+      titleZh: 'Bunny Fonts（GDPR 友好的字体库）',
+      type: '素材库',
+      requirement: 'reference',
+      zone: '正文 Online font libraries 段',
+      originalUrl: 'https://fonts.bunny.net/',
+      sourceDomain: 'fonts.bunny.net',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文列举的在线字体库之一：主打更快与「GDPR 友好」——正是正文隐私一节那个合规顾虑的现成解法。',
+      why: '官方正文列举（在线字体库选项）。',
+      points: [
+        'Google Fonts 的隐私友好替代：用法与 Google Fonts 几乎相同。',
+        '与正文 GDPR 裁定一节对照读——它存在的理由就是那个裁定。'
+      ],
+      terms: [
+        'GDPR（欧盟通用数据保护条例）'
+      ],
+      focus: '如果你在意 Google Fonts API 的 IP 传输问题，这是最省事的替换。',
+      takeaway: '合规场景下不必退回自托管——先知道有 GDPR 友好的托管库。',
+      },
+      license: 'Bunny Fonts 的字体各自采用开源许可（以站点说明为准）；本站只链接站点与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Browse Fonts - Google Fonts',
+      titleZh: 'Google Fonts（字体库）',
+      type: '素材库',
+      requirement: 'reference',
+      zone: '正文 Online font libraries 段',
+      originalUrl: 'https://fonts.google.com/',
+      sourceDomain: 'fonts.google.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文列举的在线字体库之一，也是三者里最流行的：选字体 → 复制 link / @import 代码引入。注意正文的隐私提醒：德国法院裁定用其 API 违反 GDPR。',
+      why: '官方正文列举（在线字体库选项，附合规提醒）。',
+      points: [
+        '最大的免费字体库——正文的引入代码示例（Roboto）即出自这里的用法。',
+        'API 方式会把访客 IP 传给 Google：在意合规就下载自托管，或用 GDPR 友好镜像。'
+      ],
+      terms: [
+        'Google Fonts API（字体引入接口）'
+      ],
+      focus: '会用「选字体 → 拿代码」流程；同时记住合规边界（正文第 3 节）。',
+      takeaway: '默认选项之一，但在合规敏感项目里要三思引入方式。',
+      },
+      license: 'Google Fonts 站点与各字体的许可见其页面说明（字体多为开源许可）；本站只链接站点与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'German Court Rules Websites Embedding Google Fonts Violates GDPR',
+      titleZh: '德国法院裁定：网站嵌入 Google Fonts 违反 GDPR（The Hacker News）',
+      type: '新闻报道',
+      requirement: 'reference',
+      zone: '正文 Online font libraries 段（GDPR）',
+      originalUrl: 'https://thehackernews.com/2022/01/german-court-rules-websites-embedding.html',
+      sourceDomain: 'thehackernews.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文隐私论断的新闻来源：2022 年德国法院裁定，通过 Google Fonts API 引入字体把访客 IP 传给了 Google、违反 GDPR。',
+      why: '官方正文引用（GDPR 论断的事实依据）。',
+      points: [
+        '裁定的核心逻辑：字体 API 请求携带访客 IP = 未经同意的个人数据传输。',
+        '实务结论与正文一致：在意合规就下载字体自托管（或用 GDPR 友好镜像）。'
+      ],
+      terms: [
+        'GDPR（欧盟通用数据保护条例）'
+      ],
+      focus: '读判决理由，理解「为什么一个字体链接也算数据传输」。',
+      takeaway: '一个 <link> 标签也可能构成个人数据传输——这类合规判断以后自己做得出。',
+      },
+      license: 'The Hacker News 的新闻报道版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Font File Formats',
+      titleZh: '字体文件格式清单（Fileinfo.com）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Self hosted fonts 段',
+      originalUrl: 'https://fileinfo.com/filetypes/font',
+      sourceDomain: 'fileinfo.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文自托管字体一节的引用：字体文件格式有多种（woff、woff2、ttf、otf 等），这页是格式大全与逐个说明。',
+      why: '官方正文引用（字体格式科普）。',
+      points: [
+        '每种字体格式的用途与来历一页看全。',
+        '配合正文提醒使用：有些格式并非所有浏览器都支持——选格式前先查对照表。'
+      ],
+      terms: [
+        'WOFF2（压缩率最高的 Web 字体格式）'
+      ],
+      focus: '认识 woff2 / woff 这两个 Web 场景的主流格式即可，其余混个眼熟。',
+      takeaway: '下载自托管字体时知道选哪种格式、为什么。',
+      },
+      license: 'Fileinfo.com 的页面版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'CSS Custom Fonts',
+      titleZh: 'CSS Web 字体浏览器支持表（W3Schools）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Self hosted fonts 段',
+      originalUrl: 'https://www.w3schools.com/css/css3_fonts.asp',
+      sourceDomain: 'w3schools.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求，带浏览器 UA 复核为 200，页面标题 CSS Custom Fonts）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文自托管字体一节的引用：浏览器 × 字体格式的支持对照——「有些格式并非所有浏览器都支持」的具体依据。',
+      why: '官方正文引用（浏览器支持对照表）。',
+      points: [
+        '各字体格式在主流浏览器里的支持情况一表看清。',
+        '命令行核验 403（站点反爬拦截），带浏览器 UA 复核为 200——受限情况如实登记。'
+      ],
+      terms: [
+        'browser support（浏览器支持）'
+      ],
+      focus: '选格式前扫一眼：woff2 / woff 支持面最广，老格式参差。',
+      takeaway: '格式选择的兼容性依据在这里，不靠猜。',
+      },
+      license: 'W3Schools 页面版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '403 受限：W3Schools 拦截非浏览器请求；已带浏览器 UA 复核可达（200）并入 verifyLimitedUrls。地址直接取自官方 Markdown 原文。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: '<em> HTML emphasis element - HTML | MDN',
+      titleZh: '<em> 强调元素（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 font-style 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/HTML/Reference/Elements/em）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/em',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「<em>：强调元素」，简体中文，全文 2164 个汉字）',
+      zhGuide: {
+      overview: '正文 font-style 一节的引用：MDN 的 em 元素文档——它强调的正是正文那条分工原则（语义强调用 em，纯视觉斜体用 CSS）。',
+      why: '官方正文引用（em 与 font-style 分工的权威依据）。',
+      points: [
+        'em 的语义（强调）与默认呈现（斜体）是两件事——文档分得很清楚。',
+        '与 i 元素的区别、可访问性含义也在其中——比正文更完整。'
+      ],
+      terms: [
+        'emphasis（语义强调）'
+      ],
+      focus: '读「语义 vs 呈现」的辨析——这是正文「样式归 CSS、语义归 HTML」的官方展开。',
+      takeaway: '以后写斜体前先问：这是样式还是强调？答案决定用 font-style 还是 em。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'text-transform CSS property - CSS | MDN',
+      titleZh: 'text-transform（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 text-transform 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/text-transform）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/text-transform',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「text-transform」，简体中文，全文 8265 个汉字）',
+      zhGuide: {
+      overview: '正文说 text-transform 的用法「见 MDN 文档里的清晰示例」——这页就是那个文档（有官方中文版）：uppercase / capitalize / lowercase 等全值与示例。',
+      why: '官方正文指定示例来源。',
+      points: [
+        '全部取值与活示例：大小写转换一目了然。',
+        '中文页面示例完整，可直接对照着调自己的标题样式。'
+      ],
+      terms: [
+        'text-transform（大小写转换属性）'
+      ],
+      focus: '扫一遍取值表；注意它对不同文字体系的边界行为。',
+      takeaway: '标题全大写之类的效果不用手改文案——一条属性解决。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'text-shadow CSS property - CSS | MDN',
+      titleZh: 'text-shadow（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 text-shadow 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/text-shadow）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/text-shadow',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「text-shadow」，简体中文，全文 6546 个汉字）',
+      zhGuide: {
+      overview: '正文说 text-shadow 的用法「见 MDN 参考页的示例」——这页就是（有官方中文版）：偏移、模糊、颜色与多重阴影的完整语法。',
+      why: '官方正文指定示例来源。',
+      points: [
+        '语法要素（水平偏移 / 垂直偏移 / 模糊 / 颜色）与多重阴影写法。',
+        '示例覆盖正文的用途定位：标题等展示性文字的点睛效果。'
+      ],
+      terms: [
+        'text-shadow（文字阴影）'
+      ],
+      focus: '看示例找「轻」的感觉——正文叮嘱省着用，示例里挑克制的学。',
+      takeaway: '需要给标题加层次时知道语法与分寸。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-text-styles',
+      title: 'Truncate String with Ellipsis | CSS-Tricks',
+      titleZh: '单行省略号截断片段（CSS-Tricks）',
+      type: '代码片段',
+      requirement: 'reference',
+      zone: '正文 ellipsis 段',
+      originalUrl: 'https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文省略号一节的引用：三件套片段（nowrap + hidden + ellipsis）的出处页——官方还打趣「做好准备每次想用都得回来查它」。',
+      why: '官方正文引用（省略号片段的原始出处）。',
+      points: [
+        '可直接复制的完整片段与适用条件说明。',
+        '与正文一致：text-overflow 单写不生效——三件缺一不可。'
+      ],
+      terms: [
+        'text-overflow（溢出文本处理）',
+        'ellipsis（省略号）'
+      ],
+      focus: '把片段收进自己的速查库——官方都说了你会反复回来查。',
+      takeaway: '卡片标题截断这类高频需求，10 秒解决。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-css-properties',
+      title: 'background CSS property - CSS | MDN',
+      titleZh: 'background（MDN）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/background',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/background）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/background',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「background」，简体中文，全文 6344 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 点名的 6 个属性文档之一：background 简写与全部子属性——正文说它的 Formal Syntax「crazy」，别怕，知道存在与用途即可。',
+      why: '官方任务指定浏览（属性文档 1/6）。',
+      points: [
+        '简写语法与子属性（color / image / position / size / repeat / attachment / origin / clip）全集。',
+        '正文的两个论断在这里验证：子属性可单独用；Formal Syntax 确实复杂但不必背。'
+      ],
+      terms: [
+        'background shorthand（背景简写）'
+      ],
+      focus: '看 Examples 区找感觉；语法细节用到再回来查（官方明说不必记）。',
+      takeaway: '背景图定位、多层背景这些需求知道去哪查、大概怎么写。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-css-properties',
+      title: 'border CSS property - CSS | MDN',
+      titleZh: 'border（MDN）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/border',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/border）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/border',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「border」，简体中文，全文 6408 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 点名的 6 个属性文档之一：border 简写——正文说它比 background 简单得多，尺寸 + 样式 + 颜色三样定完。',
+      why: '官方任务指定浏览（属性文档 2/6）。',
+      points: [
+        '简写三要素与 width / style / color 子属性。',
+        'style 的可选值（solid / dashed / dotted 等）在示例里一目了然。'
+      ],
+      terms: [
+        'border-style（边框线型）'
+      ],
+      focus: '扫一遍 style 取值示例即可——日常就是 solid 加偶尔 dashed。',
+      takeaway: '边框一条简写搞定，特殊需求知道拆子属性。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-css-properties',
+      title: 'border-radius CSS property - CSS | MDN',
+      titleZh: 'border-radius（MDN）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/border-radius）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/border-radius',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「border-radius」，简体中文，全文 6613 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 点名的 6 个属性文档之一：圆角——正文说逐角定制的花式玩法很少有用，归入「需要时再查」。',
+      why: '官方任务指定浏览（属性文档 3/6）。',
+      points: [
+        '日常用法就一个值（四角同半径）；逐角与椭圆角语法备查。',
+        '对图片、按钮、卡片的圆角示例齐全。'
+      ],
+      terms: [
+        'border-radius（圆角半径）'
+      ],
+      focus: '记住日常形态；花式语法知道存在就行（正文原话 rarely useful）。',
+      takeaway: '圆角不再靠试数——知道取值范围与常见档位。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-css-properties',
+      title: 'box-shadow CSS property - CSS | MDN',
+      titleZh: 'box-shadow（MDN）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/box-shadow）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/box-shadow',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「box-shadow」，简体中文，全文 7437 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 点名的 6 个属性文档之一：阴影——配合正文的克制口径（省着用、用轻的）看示例，学「轻」怎么写。',
+      why: '官方任务指定浏览（属性文档 4/6）。',
+      points: [
+        '偏移 / 模糊 / 扩散 / 颜色与 inset、多重阴影语法。',
+        '示例里有轻有重——按正文口径挑克制的学。'
+      ],
+      terms: [
+        'box-shadow（盒阴影）',
+        'spread（阴影扩散半径）'
+      ],
+      focus: '重点看模糊值大、透明度低的组合——那就是「几乎看不见但有层次」的配方。',
+      takeaway: '卡片悬浮感一条属性搞定，且知道分寸在哪。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-css-properties',
+      title: 'overflow CSS property - CSS | MDN',
+      titleZh: 'overflow（MDN）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/overflow',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/overflow）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/overflow',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「overflow」，简体中文，全文 6982 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 点名的 6 个属性文档之一：内容装不下时的行为——visible / hidden / scroll / auto 各档，正文最常见用法是滚动容器。',
+      why: '官方任务指定浏览（属性文档 5/6）。',
+      points: [
+        '各取值的差异：hidden 裁剪、scroll 恒有滚动条、auto 按需出现。',
+        '与省略号三件套（上一课）的关系：那边 overflow: hidden 正是三件之一。'
+      ],
+      terms: [
+        'overflow（溢出处理）'
+      ],
+      focus: '对照 auto 与 scroll 的体验差异；记住 hidden 会裁掉溢出内容。',
+      takeaway: '定高滚动卡片、裁剪溢出——两种高频需求都归它管。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-more-css-properties',
+      title: 'opacity CSS property - CSS | MDN',
+      titleZh: 'opacity（MDN）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/opacity',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/opacity）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/opacity',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「opacity」，简体中文，全文 6354 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 点名的 6 个属性文档之一：透明度——正文两个用途（hover 效果、元素叠放）的取值与行为细节都在这里。',
+      why: '官方任务指定浏览（属性文档 6/6）。',
+      points: [
+        '0–1 取值与「整个元素（含子元素）一起变透明」的特性。',
+        '与 rgba 背景透明的区别：opacity 作用于元素全体。'
+      ],
+      terms: [
+        'opacity（不透明度）'
+      ],
+      focus: '注意子元素一起变透明这点——只想要半透明背景时该用 rgba 背景色。',
+      takeaway: 'hover 反馈与叠层的轻量工具，用对场景。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'CSS Diner - Where we feast on CSS Selectors!',
+      titleZh: 'CSS Diner（选择器通关游戏）',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://flukeout.github.io/',
+      sourceDomain: 'flukeout.github.io',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：用选择器「点菜」的通关游戏——官方说前几关你应该已熟悉，但练习和复习总没坏处，别忘了读右侧的示例与解释。',
+      why: '官方任务指定通关（选择器练习）。',
+      points: [
+        '关卡从基础到属性选择器递进——正好覆盖本课四大家族。',
+        '右侧实时解释每关的选择器语法——官方提醒别跳过。'
+      ],
+      terms: [
+        'selector（选择器）'
+      ],
+      focus: '把本课学的 > + ~、伪类、[attr^=] 在对应关卡里亲手用出来。',
+      takeaway: '选择器语法从「看懂」变成「手熟」。',
+      },
+      license: 'CSS Diner 由 flukeout 制作；本站只链接游戏入口与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Complex Selectors - Learn to Code Advanced HTML & CSS',
+      titleZh: '复杂选择器（Shay Howe 教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://learn.shayhowe.com/advanced-html-css/complex-selectors/',
+      sourceDomain: 'learn.shayhowe.com',
+      originalUrlStatus: '200（首轮命令行核验一次超时，重试为 200 并取得页面标题）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：比本课更细地覆盖大部分内容的教程文章。官方专门提醒：文中有时用单冒号写伪元素——记住双冒号才是现行标准。',
+      why: '官方任务指定阅读（本课内容的加深版）。',
+      points: [
+        '组合器、伪类、伪元素的系统讲解与更多示例。',
+        '带着官方的提醒读：见到 :before 这类单冒号写法，心里换成 ::before。'
+      ],
+      terms: [
+        'complex selectors（复杂选择器）'
+      ],
+      focus: '对照本课正文补细节；单 / 双冒号的历史差异读明白。',
+      takeaway: '本课框架 + 这篇细节 = 选择器知识面的完整拼图。',
+      },
+      license: 'Shay Howe 的教程文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Test your skills: Selectors - Learn web development | MDN',
+      titleZh: '技能测试：选择器（MDN 评估练习）',
+      type: '评估练习',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors/Selectors_Tasks',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 地址 301 重定向到现役 /Test_your_skills/Selectors 路径）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Selectors',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「技能测试：选择器」，简体中文，全文 3408 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：MDN 的选择器评估练习——官方原话：帮你把新学的选择器知识付诸实践。',
+      why: '官方任务指定完成（动手评估）。',
+      points: [
+        '数道实操题：按要求在可编辑代码里写出目标选择器。',
+        '有官方中文版；每题附解答可对照。'
+      ],
+      terms: [
+        'assessment（评估练习）'
+      ],
+      focus: '先自己写再看解答——评估的价值在做不在看。',
+      takeaway: '四大家族都亲手用过一遍，本课才算真正落地。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Combinators - Learn web development | MDN',
+      titleZh: '关系选择器（MDN 教程）',
+      type: '教程文章',
+      requirement: 'reference',
+      zone: '正文 Child and sibling combinators 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Styling_basics/Combinators）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Combinators',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「关系选择器」，简体中文，全文 3206 个汉字）',
+      zhGuide: {
+      overview: '正文组合器一节的深入总览（官方原话 provides a good overview）：后代、子代、相邻兄弟、通用兄弟四种关系选择器的系统讲解。',
+      why: '官方正文引用（组合器总览）。',
+      points: [
+        '四种组合器的定义、示例与用法辨析。',
+        '与正文的示例标记对照读，各自的命中集合一验便知。'
+      ],
+      terms: [
+        'combinator（组合器 / 关系选择器）'
+      ],
+      focus: '重点读 + 与 ~ 的差异示例——正文说「只向后看」，这里有更完整的演示。',
+      takeaway: '组合器的权威参考页，忘了命中范围就来这。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Pseudo-classes and pseudo-elements - Learn web development | MDN',
+      titleZh: '伪类和伪元素（MDN 教程）',
+      type: '教程文章',
+      requirement: 'reference',
+      zone: '正文 Pseudo-selectors 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「伪类和伪元素」，简体中文，全文 4367 个汉字）',
+      zhGuide: {
+      overview: '正文「一个冒号和两个冒号」一节的出处：伪类与伪元素之分的 MDN 专文——概念、语法与两族清单的入口。',
+      why: '官方正文引用（伪类 / 伪元素概念辨析）。',
+      points: [
+        '两族的定义边界与单 / 双冒号语法。',
+        '从这里可跳转到每个伪类 / 伪元素的独立文档。'
+      ],
+      terms: [
+        'pseudo-class（伪类）',
+        'pseudo-element（伪元素）'
+      ],
+      focus: '把「已存在元素的状态 / 位置 vs 标记里不存在的部分」这条分界线读扎实。',
+      takeaway: '见到任何 :x 或 ::x 都能立刻归族并推断特异性。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Specifics on CSS Specificity | CSS-Tricks',
+      titleZh: 'CSS 特异性详解（CSS-Tricks）',
+      type: '教程文章',
+      requirement: 'reference',
+      zone: '正文 Pseudo-classes 提示框',
+      originalUrl: 'https://css-tricks.com/specifics-on-css-specificity/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文提示框的引用：(0,0,1,0) 这串特异性记法怎么算——官方点名看它的「Calculating CSS Specificity Value」一节。',
+      why: '官方正文提示框引用（特异性记法的算法）。',
+      points: [
+        '特异性记法与各类选择器的得分规则。',
+        '与 Foundations 第 22 课 The Cascade 的层叠知识衔接——那边讲优先级链条，这边给计分方法。'
+      ],
+      terms: [
+        'specificity（特异性）'
+      ],
+      focus: '只读官方点名的计算一节也够；全篇更系统。',
+      takeaway: '伪类=类=(0,0,1,0)、伪元素=元素=(0,0,0,1) 两串数字从「背」变成「会算」。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '登记地址为去锚点的页面地址（官方链接带 #aa-calculating-css-specificity-value 锚点，指向页内「Calculating CSS Specificity Value」一节）。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Pseudo-classes - CSS | MDN',
+      titleZh: '伪类参考总表（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-classes 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Selectors/Pseudo-classes）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/Pseudo-classes',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「伪类」，简体中文，全文 8589 个汉字）',
+      zhGuide: {
+      overview: '正文说「别忘了查 MDN 的伪类文档看全貌」——这页就是全貌：全部伪类的清单与各自文档入口。',
+      why: '官方正文引用（伪类完整清单）。',
+      points: [
+        '本课只讲了最常用的一撮；这页是完整名单。',
+        '每个伪类链到独立文档——按需深入。'
+      ],
+      terms: [
+        'structural pseudo-class（结构伪类）'
+      ],
+      focus: '扫清单混个眼熟，知道「还有这些」——用到再点进去。',
+      takeaway: '想选「某种状态 / 位置」的元素时，先来这查有没有现成伪类。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'What\'s the difference between CSS3\'s :root pseudo-class and html? - Stack Overflow',
+      titleZh: ':root 与 html 有什么区别（Stack Overflow 讨论）',
+      type: '社区讨论',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://stackoverflow.com/questions/15899615/whats-the-difference-between-css3s-root-pseudo-class-and-html',
+      sourceDomain: 'stackoverflow.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求，带浏览器 UA 仍 403，命令行无法自动确认；地址直接取自官方 Markdown 原文）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文 :root 一节的引用：「:root 在 Web 里基本等价于 html，但有细微差别」——差别到底是什么，官方把这个讨论页作为展开处。',
+      why: '官方正文引用（:root 与 html 的细微差别）。',
+      points: [
+        '正文只说「有细微差别」没展开——这个讨论页就是官方给的展开处。',
+        '命令行核验 403 受限（带浏览器 UA 仍 403）——浏览器打开正常，受限情况如实登记。'
+      ],
+      terms: [
+        ':root（根伪类）'
+      ],
+      focus: '看高票答案即可；日常「全局规则放 :root」的惯例不受影响。',
+      takeaway: '知道两者不等价的边界在哪——被问到时不虚。',
+      },
+      license: 'Stack Overflow 问答采用 CC BY-SA 许可；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: '403 受限：Stack Overflow 拦截非浏览器请求（带浏览器 UA 仍 403），命令行无法自动确认内容；地址直接取自官方 Markdown 原文，本站未做替换，已入 verifyLimitedUrls。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Pseudo-elements - CSS | MDN',
+      titleZh: '伪元素参考总表（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-elements 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Selectors/Pseudo-elements）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/Pseudo-elements',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「伪元素」，简体中文，全文 6103 个汉字）',
+      zhGuide: {
+      overview: '正文结尾说「还有很多！浏览伪元素文档看完整清单」——这页就是清单：全部伪元素与各自文档入口。',
+      why: '官方正文引用（伪元素完整清单）。',
+      points: [
+        '本课讲了 6 个常用的；这页是全集（::placeholder、::backdrop 等都在）。',
+        '每个伪元素链到独立文档——::before / ::after 的值得点进去细看。'
+      ],
+      terms: [
+        'pseudo-element（伪元素）'
+      ],
+      focus: '扫一遍名单感受覆盖面，知道「还有这些」。',
+      takeaway: '想「用 CSS 加内容 / 操作局部」时先来查有没有现成伪元素。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: 'Attribute selectors - CSS | MDN',
+      titleZh: '属性选择器（MDN）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Attribute selectors 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Selectors/Attribute_selectors）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/Attribute_selectors',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「属性选择器」，简体中文，全文 6762 个汉字）',
+      zhGuide: {
+      overview: '正文结尾指路：属性选择器还能做更多——大小写不敏感匹配、按连字符分词的子串匹配等，都在这页（有官方中文版）。',
+      why: '官方正文引用（属性选择器的进阶玩法）。',
+      points: [
+        '正文六种写法之外的进阶匹配：~=、|= 与大小写敏感控制（i 标志）。',
+        '每种的语法与示例齐全。'
+      ],
+      terms: [
+        'attribute selector（属性选择器）'
+      ],
+      focus: '基础六式已在正文；这页重点看 i 标志与 ~= / |= 两个新面孔。',
+      takeaway: '属性匹配的全部火力都在这一页——按需取用。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':focus | CSS-Tricks',
+      titleZh: ':focus 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Dynamic and user action pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/f/focus/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :focus 挂的 CSS-Tricks Almanac 条目。官方定位：元素正被用户选中——鼠标点选或键盘导航都算。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：标记「当前被选中」的元素——表单与键盘导航场景的主角。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':focus（焦点伪类）'
+      ],
+      focus: '与 :hover 对比记：一个跟点选 / 键盘状态，一个跟鼠标位置。',
+      takeaway: '做键盘可达的交互样式时，它是第一选择器。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':hover | CSS-Tricks',
+      titleZh: ':hover 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Dynamic and user action pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/h/hover/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :hover 挂的 Almanac 条目。官方定位：作用于鼠标指针底下的一切——给按钮和链接加「可交互」的劲头、或触发下拉菜单。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：交互暗示（按钮 / 链接）与悬停触发的界面（下拉菜单）。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':hover（悬停伪类）'
+      ],
+      focus: '注意触屏设备没有真正的「悬停」——依赖 hover 的功能要有替代路径。',
+      takeaway: '最常用的交互伪类，配 transition 做状态反馈。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':active | CSS-Tricks',
+      titleZh: ':active 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Dynamic and user action pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/a/active/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :active 挂的 Almanac 条目。官方定位：正被点击的元素——给用户「动作生效了」的反馈，给按钮加「触感」。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：点击瞬间的按压反馈——按钮「触感」的来源。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':active（激活伪类）'
+      ],
+      focus: '与 :hover、:focus 连用记：悬停 → 聚焦 → 按下是三种不同状态。',
+      takeaway: '按钮的三态样式（常态 / 悬停 / 按下）从此配得齐。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':link | CSS-Tricks',
+      titleZh: ':link 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Dynamic and user action pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/l/link/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :link 挂的 Almanac 条目。官方定位：未访问的链接——链接默认蓝色的来源；与 :visited 成对接管链接配色。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方解释「链接为什么天生蓝色」：浏览器默认样式用 :link / :visited 实现。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':link（未访问链接伪类）'
+      ],
+      focus: '与 :visited 成对记；自定义链接样式时两个都要写。',
+      takeaway: '接管链接配色不再是玄学——知道默认蓝 / 紫是谁画的。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':visited | CSS-Tricks',
+      titleZh: ':visited 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Dynamic and user action pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/v/visited/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :visited 挂的 Almanac 条目。官方定位：用户点过的链接——默认紫色的来源，与 :link 成对使用。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方例子：a:visited { color: purple; } 就是浏览器默认行为的简化版。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':visited（已访问链接伪类）'
+      ],
+      focus: '与 :link 成对记；改链接配色时两个状态都要覆盖。',
+      takeaway: '链接的「来过 / 没来过」两态从此自己说了算。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':root | CSS-Tricks',
+      titleZh: ':root 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/r/root/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :root 挂的 Almanac 条目。官方定位：文档最顶层、唯一没有父元素的元素——全局规则（CSS 变量、box-sizing）的惯例安放处。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：放「想全站可用」的全局规则——自定义属性 / CSS 变量、box-sizing。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）；与 html 的细微差别另有 StackOverflow 讨论条目。'
+      ],
+      terms: [
+        ':root（根伪类）'
+      ],
+      focus: '本站的 tokens.css 主题变量就住在 :root——对照自己的项目找同款。',
+      takeaway: '见到 :root { --xxx } 就知道那是全站变量库；自己的全局规则也放这。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':first-child | CSS-Tricks',
+      titleZh: ':first-child 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/f/first-child/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :first-child 挂的 Almanac 条目。官方定位：匹配是第一个兄弟的元素——「首个特殊处理」的标准工具。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：一组同类元素里单独处理第一个（如去掉列表首项的上边距）。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':first-child（首个子元素伪类）'
+      ],
+      focus: '记准语义：它是「父元素的第一个孩子」，不是「这类元素的第一个」。',
+      takeaway: '首尾特殊样式不再需要给 HTML 加 first/last 类。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':last-child | CSS-Tricks',
+      titleZh: ':last-child 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/l/last-child/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :last-child 挂的 Almanac 条目。官方定位：匹配是最后一个兄弟的元素——与 :first-child 成对。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：一组元素的末项特殊处理（如去掉末项的下边框）。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':last-child（末个子元素伪类）'
+      ],
+      focus: '与 :first-child 成对记；两者都是「位置」判断，与类名无关。',
+      takeaway: '列表 / 卡片的末项样式一条选择器解决。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':empty | CSS-Tricks',
+      titleZh: ':empty 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/e/empty/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :empty 挂的 Almanac 条目。官方定位：匹配完全没有子节点的元素。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：给「空着」的元素兜底样式（或隐藏它们）。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':empty（空元素伪类）'
+      ],
+      focus: '注意「完全无子节点」的严格性——一个空格文本节点的边界行为读条目确认。',
+      takeaway: '空状态兜底不用 JS 判断——CSS 直接命中。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':only-child | CSS-Tricks',
+      titleZh: ':only-child 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/o/only-child/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :only-child 挂的 Almanac 条目。官方定位：匹配没有任何兄弟的元素——「独生子」判断。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方用途：只有一个子元素时的特殊布局 / 样式（如唯一卡片占满整行）。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':only-child（独子伪类）'
+      ],
+      focus: '语义 = :first-child 与 :last-child 同时成立——用这个等价关系记。',
+      takeaway: '「列表只有一项时」的样式分支不用加类名。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: ':nth-child | CSS-Tricks',
+      titleZh: ':nth-child 伪类条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Structural pseudo-classes 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/n/nth-child/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 :nth-child 挂的 Almanac 条目。官方定位：更动态的结构选择——正文给了 (5) / (3n) / (3n+3) / (even) 四种写法示例。',
+      why: '官方正文逐项引用（该伪类的参考条目）。',
+      points: [
+        '官方示例四式：定数、an 周期、an+b 偏移、even/odd 奇偶。',
+        'Almanac 条目含完整语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        ':nth-child（第 n 个子元素伪类）',
+        'an+b（周期与偏移语法）'
+      ],
+      focus: '把 an+b 的 a（周期）与 b（偏移）分开理解——表格斑马纹就是 (even)/(odd)。',
+      takeaway: '隔行变色、每三个换行、首尾之外全选中——全是它的活。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: '::marker | CSS-Tricks',
+      titleZh: '::marker 伪元素条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-elements 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/m/marker/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 ::marker 挂的 Almanac 条目。官方定位：定制 li 元素的项目符号或编号样式。',
+      why: '官方正文逐项引用（该伪元素的参考条目）。',
+      points: [
+        '官方用途：改列表符号的颜色 / 大小 / 内容——不用再 list-style 三板斧。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        '::marker（列表标记伪元素）'
+      ],
+      focus: '对照 Foundations 第 17 课 lists 学过的 list-style——::marker 是更直接的手术刀。',
+      takeaway: '列表符号定制从「绕路」变成「直改」。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: '::first-letter | CSS-Tricks',
+      titleZh: '::first-letter 伪元素条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-elements 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/f/first-letter/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 ::first-letter 挂的 Almanac 条目。官方定位：给一段文字的首字母特殊样式——杂志式首字下沉的标准工具。',
+      why: '官方正文逐项引用（该伪元素的参考条目）。',
+      points: [
+        '官方用途：首字母放大 / 换色等排版效果（drop cap）。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        '::first-letter（首字母伪元素）'
+      ],
+      focus: '注意它只作用于块级容器的第一行首字母。',
+      takeaway: '排版质感的小心机，一条规则就有。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: '::first-line | CSS-Tricks',
+      titleZh: '::first-line 伪元素条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-elements 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/f/first-line/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 ::first-line 挂的 Almanac 条目。官方定位：给一段文字的第一行特殊样式——「第一行」随容器宽度动态变化。',
+      why: '官方正文逐项引用（该伪元素的参考条目）。',
+      points: [
+        '官方用途：首行加重 / 变色等排版效果。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        '::first-line（首行伪元素）'
+      ],
+      focus: '理解「行」是渲染结果不是 HTML 结构——窗口一变，首行内容就变。',
+      takeaway: '与 ::first-letter 组合就是杂志排版的基础两件。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: '::selection | CSS-Tricks',
+      titleZh: '::selection 伪元素条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-elements 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/s/selection/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 ::selection 挂的 Almanac 条目。官方定位：改用户选中页面文字时的高亮样式。',
+      why: '官方正文逐项引用（该伪元素的参考条目）。',
+      points: [
+        '官方用途：自定义「划选文字」的底色 / 字色——品牌细节常用位。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）。'
+      ],
+      terms: [
+        '::selection（选区伪元素）'
+      ],
+      focus: '注意可读性底线：选区配色对比度不够会让用户找不到自己选到哪了。',
+      takeaway: '一个低成本高感知的品牌化细节。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-selectors',
+      title: '::before / ::after | CSS-Tricks',
+      titleZh: '::before 与 ::after 伪元素条目（CSS-Tricks Almanac）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Pseudo-elements 段',
+      originalUrl: 'https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '正文为 ::before / ::after 挂的 Almanac 条目。官方定位：用 CSS 而不是 HTML 往页面加元素——常见用途是给文字做各种装饰，正文的 emojify 示例就是它。',
+      why: '官方正文逐项引用（该伪元素的参考条目）。',
+      points: [
+        '官方用途：配 content 属性凭空加内容——装饰、图标、前缀后缀文字。',
+        'Almanac 条目含语法与示例（页面 200 实测可达）；本站首页的环境氛围层（body::before）也是同一家族的应用。'
+      ],
+      terms: [
+        '::before / ::after（前后插入伪元素）',
+        'content（伪元素内容属性）'
+      ],
+      focus: '记牢：没有 content 声明它们不渲染；生成内容不进 DOM 树（选不中、读屏语义有限）。',
+      takeaway: '装饰性内容交给 CSS——HTML 保持语义干净，这是两伪元素的核心价值。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-25',
+      note: ''
+    },
+    /* ===== World 2 第三批（2026-09-26）：「中级 CSS 概念」章节后 5 课，+17 条 =====
+     * 逐条三级核验真跑（状态码 → 重定向 → 内容级语言核验；视频走 oEmbed）。
+     * A 类 5 条（MDN zh-CN ×4 + 中文维基 ×1，均按现役生效路径登记）；C 类 12 条。
+     * 受限 +1（Medium 403，真实浏览器核验可达）入 verifyLimitedUrls；
+     * lambdatest 跨域重定向到 testmuai.com（同主题、品牌更名）如实记 note。
+     * 按既有口径剔除：5 个 CodePen 演示笔（positioning sticky 例 / css_functions 三例 /
+     * custom_properties 两例）与 cpwebassets 嵌入脚本、w3.org 裸站点首页、
+     * custom_properties Assignment 第 4 条「打开本页检查器」（无链接的自有页面操作）、
+     * frameworks 正文点名的 7 个框架/预处理器官网首页（Bootstrap / Tailwind / Bulma /
+     * Foundation / SASS / LESS / Stylus，均为裸站点首页、正文只提名字未指向特定内容）。 */
+    {
+      lessonId: 'node-path-intermediate-html-and-css-positioning',
+      title: 'Learn CSS Position In 9 Minutes',
+      titleZh: '9 分钟学会 CSS 定位（Web Dev Simplified 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.youtube.com/watch?v=jx5jmI0UlXU',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 Learn CSS Position In 9 Minutes，作者 Web Dev Simplified）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方指定的入门视频：9 分钟把 static / relative / absolute / fixed / sticky 五种定位模式过一遍。官方原话是「节奏很快，但对不同定位行为给了很好的可视化呈现」——它的价值在于让你**看见**每种模式下元素相对谁移动、是否还占位，这比读文字更快建立直觉。本站已用 oEmbed 核验标题与作者；观看需要 YouTube 访问权限。',
+        why: '官方 Assignment 第 1 条指定观看。',
+        points: [
+          '五种定位模式的可视化对比：谁相对谁定位、谁脱离文档流。',
+          '节奏偏快，官方建议看完后再读 MDN 补概念细节。',
+          '需要 YouTube 访问权限才能观看。'
+        ],
+        terms: [
+          'position（定位）',
+          'normal flow（正常文档流）'
+        ],
+        focus: '重点看 relative 与 absolute 的对比片段：一个仍占位、一个脱流，这是最容易混的一对。',
+        takeaway: '看完能一眼说出每种模式「相对谁定位」，这一课的主要目标就达成了。'
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-positioning',
+      title: 'position CSS property - CSS | MDN',
+      titleZh: 'position 属性（MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/position',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Properties/position）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/position',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「position - CSS：层叠样式表 | MDN」，正文 4547 个汉字）',
+      zhGuide: {
+        overview: '官方说这一页「覆盖了定位相关的全部概念细节」。它是 position 属性的参考页：五个取值逐个讲清行为，还有包含块（containing block）到底是谁、绝对定位的参照祖先怎么确定、sticky 的阈值与滚动容器关系等正文没展开的部分。有官方简体中文版，本站按现役 zh-CN 路径登记。',
+        why: '官方 Assignment 第 2 条指定阅读（定位的全部概念细节）。',
+        points: [
+          '五个取值 static / relative / absolute / fixed / sticky 的准确定义与行为差异。',
+          '绝对定位的参照物规则：最近的「已定位」祖先，没有则回落到初始包含块。',
+          'sticky 的生效条件与滚动容器、阈值的关系。'
+        ],
+        terms: [
+          'containing block（包含块）',
+          'positioned ancestor（已定位祖先）'
+        ],
+        focus: '本站正文讲了「相对谁定位、是否脱流」，这一页补的是「参照物究竟怎么被确定」——绝对定位跑偏时答案都在这里。',
+        takeaway: '把这一页当查询手册用：遇到定位怪现象，先来这里对一遍规则。'
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-positioning',
+      title: 'Absolute, Relative, Fixed Positioning: How Do They Differ? | CSS-Tricks',
+      titleZh: '绝对、相对、固定定位：它们有何不同（CSS-Tricks）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200（零重定向；注意官方给的地址里 positioining 是原站既有拼写，非本站笔误）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方说这篇会给你「关于这个主题的另一种视角」。它把 relative / absolute / fixed 三者放在一起对比讲，配可交互的演示，重点在于「参照物」这件事：relative 参照自己原本的位置，absolute 参照最近的已定位祖先，fixed 参照视口。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 3 条指定阅读（换视角巩固三种定位的差别）。',
+        points: [
+          '三种定位的参照物对比，配演示可自己拖动看效果。',
+          '强调 absolute 需要一个「已定位」的祖先作为参照，否则一路往外找。',
+          '与官方正文互补：正文给分类与用途，这篇给参照物的心智模型。'
+        ],
+        terms: [
+          'relative / absolute / fixed（相对 / 绝对 / 固定定位）',
+          'offset properties（top / right / bottom / left 偏移属性）'
+        ],
+        focus: '读的时候盯住「参照物是谁」这一条线——三种模式的差别几乎全在这里。',
+        takeaway: '读完能自己解释：为什么给 absolute 子元素的父容器加 position: relative 是常见配套写法。'
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '官方 Markdown 给出的地址即含 positioining 拼写，本站原样登记未做替换（实测 200、零重定向）。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-positioning',
+      title: 'Position fixed vs position sticky',
+      titleZh: 'fixed 与 sticky 的区别（Kevin Powell）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条',
+      originalUrl: 'https://www.kevinpowell.co/article/positition-fixed-vs-sticky/',
+      sourceDomain: 'kevinpowell.co',
+      originalUrlStatus: '200（零重定向；注意官方给的地址里 positition 是原站既有拼写，非本站笔误）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方说这是「想更好地理解两者差别的一篇很好读物」。fixed 与 sticky 是最容易混的一对：两者都会在滚动时「钉住」，但 fixed 从一开始就脱离文档流、相对视口定位，sticky 不脱流、滚过它之后才开始表现 like fixed。这篇专讲这条分界线，并给出各自适用的场景。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 4 条指定阅读（fixed 与 sticky 的专文对比）。',
+        points: [
+          'fixed：脱流 + 相对视口，永远钉在同一位置——导航栏、悬浮按钮。',
+          'sticky：不脱流，滚到之前是普通元素，滚过之后才吸住——分区标题、表头。',
+          'sticky 需要至少一个方向的阈值（top 等），否则与普通元素无异。'
+        ],
+        terms: [
+          'fixed（固定定位）',
+          'sticky（粘性定位）',
+          'threshold（阈值，top / bottom 等）'
+        ],
+        focus: '记住判据：需不需要「先正常排布、滚到才吸住」——需要就是 sticky，一开始就要钉住就是 fixed。',
+        takeaway: '读完能解释官方那个商店分类吸顶的例子为什么用 sticky 而不是 fixed。'
+      },
+      license: 'Kevin Powell 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '官方 Markdown 给出的地址即含 positition 拼写，本站原样登记未做替换（实测 200、零重定向）。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-css-functions',
+      title: 'CSS value functions - CSS | MDN',
+      titleZh: 'CSS 值函数完整清单（MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Values/Functions）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/Functions',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「CSS 值函数 - CSS：层叠样式表 | MDN」，正文 3605 个汉字）',
+      zhGuide: {
+        overview: '官方让你看这一页的目的是「对有哪些可能性有个概念」——它是 CSS 值函数的完整清单：颜色类（rgb / hsl / color-mix）、渐变类、数学类（calc / min / max / clamp）、变换与滤镜类等。不是要你逐个记住，而是知道这门语言自带了哪些「预制函数」（CSS 不允许自定义函数，所以这份清单就是全部可能性）。有官方简体中文版，本站按现役 zh-CN 路径登记。',
+        why: '官方 Assignment 第 1 条指定浏览（建立「有哪些可能性」的概念）。',
+        points: [
+          'CSS 内置函数的分类总览与各自用途。',
+          '与本课四个函数（calc / min / max / clamp）同族的其他数学函数。',
+          '每个函数都链到自己的参考页，需要时再深入。'
+        ],
+        terms: [
+          'CSS value function（CSS 值函数）',
+          'color-mix() / calc() / clamp()（常见内置函数）'
+        ],
+        focus: '按「浏览」而不是「精读」的方式用这一页：扫一遍分类，记住名字，用到时再点进去。',
+        takeaway: '知道 CSS 不能自定义函数、但内置了这一整套——需要某个能力时先来这里查有没有现成的。'
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-css-functions',
+      title: 'CSS min(), max(), and clamp() | Articles | web.dev',
+      titleZh: 'CSS 的 min()、max() 与 clamp()（web.dev）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://web.dev/min-max-clamp/',
+      sourceDomain: 'web.dev',
+      originalUrlStatus: '200（站内路径重组，301 重定向到现役 /articles/min-max-clamp）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方让你「更深入地看这三个函数在实战中的表现」。相比正文的定义式讲解，这篇给的是真实响应式场景里的用法：用 clamp() 做流体字号与间距、用 min() 给容器宽度封顶、用 max() 保住可点击区域与可读行宽的下限，并解释为什么这类写法能减少媒体查询断点。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 2 条指定阅读（min / max / clamp 的实战深入）。',
+        points: [
+          'clamp() 做流体排版：最小值保底、缩放值跟随视口、最大值封顶。',
+          'min() / max() 在宽度与间距上的封顶与保底用法。',
+          '三者都能减少「一堆媒体查询断点」的写法，让尺寸连续变化。'
+        ],
+        terms: [
+          'fluid type（流体字号）',
+          'clamp(min, preferred, max)（三值钳制）'
+        ],
+        focus: '留意 clamp() 中间那个「缩放值」怎么选（vw / % / ch），这决定了缩放的快慢。',
+        takeaway: '读完能把一个写死字号 + 两三个断点的标题，改写成一行 clamp()。'
+      },
+      license: 'web.dev 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-custom-properties',
+      title: 'CSS Variables - An introduction to CSS custom properties',
+      titleZh: 'CSS 变量：自定义属性入门（Kevin Powell 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.youtube.com/watch?v=PHO6TBq_auI',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 CSS Variables - An introduction to CSS custom properties，作者 Kevin Powell）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方说这是「一个很好的入门」视频。它从零讲自定义属性：怎么用双横线声明、怎么用 var() 读取、作用域怎么随选择器走、以及为什么声明在 :root 上就能全局可用——正好对应本站正文的前半部分，看一遍能把文字变成画面。本站已用 oEmbed 核验标题与作者；观看需要 YouTube 访问权限。',
+        why: '官方 Assignment 第 1 条指定观看（自定义属性入门）。',
+        points: [
+          '声明（--name）与读取（var(--name)）的基本写法。',
+          '作用域与继承：为什么后代能用、兄弟元素不能用。',
+          ':root 作为「全局变量」的常用落点。'
+        ],
+        terms: [
+          'custom property（自定义属性）',
+          'var()（读取函数）'
+        ],
+        focus: '注意视频里演示作用域的那一段——它与 JavaScript 的作用域直觉相似，但边界由选择器决定。',
+        takeaway: '看完能独立写出「:root 存配色、组件里 var() 引用」的基本结构。'
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-custom-properties',
+      title: 'Using CSS custom properties (variables) - CSS | MDN',
+      titleZh: '使用 CSS 自定义属性（变量）（MDN，有官方中文版）',
+      type: '文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「使用 CSS 自定义属性（变量） - CSS：层叠样式表 | MDN」，正文 2995 个汉字）',
+      zhGuide: {
+        overview: '官方指定「从『自定义属性的继承』这一节开始读」——注意这个起点，前面的基础声明与读取本站正文已经讲过，官方要你补的是**继承**这一层：自定义属性会像普通可继承属性一样传给后代，因此可以在某个子树上重新定义、只影响那一支（这正是「组件级主题」的实现基础）。有官方简体中文版，本站按现役 zh-CN 路径登记。',
+        why: '官方 Assignment 第 2 条指定阅读（从「自定义属性的继承」一节开始）。',
+        points: [
+          '自定义属性的继承行为：声明在祖先上，后代都能取到。',
+          '在子树上重新定义同一变量，即可局部覆盖而不影响其他分支。',
+          '与级联、优先级的关系（:root 比 html 优先级更高的原因）。'
+        ],
+        terms: [
+          'inheritance（继承）',
+          'cascade（层叠）'
+        ],
+        focus: '从官方指定的那一节读起，别从头重读——前面的声明语法本站正文已覆盖。',
+        takeaway: '理解「继承 + 可在上下文重定义」之后，主题切换（切 class 或 data-theme）为什么能一行搞定就清楚了。'
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-custom-properties',
+      title: 'Using CSS custom properties like this is a waste',
+      titleZh: '这样用 CSS 自定义属性是浪费（Kevin Powell 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.youtube.com/watch?v=_2LwjfYc1x8',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 Using CSS custom properties like this is a waste，作者 Kevin Powell）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方说这个视频「展示了自定义属性的一些巧妙用法」。标题就是它的论点：把变量当成「到处替换的常量」是一种浪费——真正的威力在于**利用作用域与继承**，在不同上下文里给同一个变量名不同的值，从而让同一套组件规则自动适应局部环境（例如卡片内部的间距、配色随容器变化）。本站已用 oEmbed 核验标题与作者；观看需要 YouTube 访问权限。',
+        why: '官方 Assignment 第 3 条指定观看（自定义属性的巧妙用法）。',
+        points: [
+          '把变量当常量用是最常见也最浅的用法。',
+          '利用作用域在不同子树上重定义同名变量，实现局部适配。',
+          '组件级主题、按容器变化的间距与配色都靠这一招。'
+        ],
+        terms: [
+          'scope（作用域）',
+          'component-level theming（组件级主题）'
+        ],
+        focus: '听它怎么论证「浪费」——判据是你有没有用到作用域与继承，而不只是有没有用 var()。',
+        takeaway: '下次写变量时先问一句：这个值需不需要在不同上下文里有不同取值？需要就把它设计成可被覆盖的。'
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-browser-compatibility',
+      title: 'Can I use... Support tables for HTML5, CSS3, etc',
+      titleZh: 'Can I use：HTML5 / CSS3 等特性支持表',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://caniuse.com/',
+      sourceDomain: 'caniuse.com',
+      originalUrlStatus: '200（零重定向）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '这一课的核心工具，官方让你去「复习」它并回答一个问题：你到目前为止遇到的所有技术都被流行浏览器支持吗？用法是搜一个特性名，页面给出各浏览器各平台的支持矩阵与**起始版本**，还能看到已知差异与需要前缀的情况。判断「这个新特性能不能现在上生产」就靠它。无官方中文版（界面为英文，但内容以表格与版本号为主，可读性门槛低）。',
+        why: '官方 Assignment 第 1 条指定使用（核对你学过的技术的支持情况）。',
+        points: [
+          '按特性查各浏览器、各平台的支持情况与起始版本。',
+          '给出已知实现差异、是否需要前缀、以及部分支持的说明。',
+          '配合上一课的判据：等大多数常见浏览器支持了再用。'
+        ],
+        terms: [
+          'feature support matrix（特性支持矩阵）',
+          'partial support（部分支持）'
+        ],
+        focus: '别只看「绿色一片」——展开看 partial support 的说明与版本起点，坑通常在那里。',
+        takeaway: '把「用新特性前先查 Can I Use」变成肌肉记忆，这是这一课要养成的习惯。'
+      },
+      license: 'Can I Use 站点数据与内容版权归原作者；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-browser-compatibility',
+      title: 'Adactio: Journal—Web browsers on iOS',
+      titleZh: 'iOS 上的网页浏览器（Jeremy Keith / Adactio）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://adactio.com/journal/17428',
+      sourceDomain: 'adactio.com',
+      originalUrlStatus: '200（零重定向）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方指定的这篇讲的是本课那条最反直觉的事实：在 iOS 上你装的 Chrome、Firefox 并不是完整的浏览器，它们必须使用系统提供的 WebKit 引擎——所以「iOS 上的 Chrome」与桌面 Chrome 不是一回事。作者 Jeremy Keith 是资深 Web 开发者，文章同时讲清这条限制的来龙去脉与它对开发者的实际含义。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 2 条指定阅读（关于 iOS 上浏览器的文章）。',
+        points: [
+          'iOS / iPadOS 上所有浏览器实际都跑 WebKit 引擎。',
+          '因此面向 Apple 移动用户，要保证的是 WebKit 可用，而不是逐个适配那些「壳」。',
+          '桌面版与移动版不是一一对应，桌面能跑不代表移动能跑。'
+        ],
+        terms: [
+          'WebKit（Safari 与 iOS 上所有浏览器的渲染引擎）',
+          'engine constraint（引擎限制）'
+        ],
+        focus: '抓住因果：平台政策 → 单一引擎 → 你的适配目标其实是 WebKit。',
+        takeaway: '读完不会再为「iOS 上的 Chrome」单独做适配，也不会把模拟器结论当真机结论。'
+      },
+      license: 'Adactio 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-browser-compatibility',
+      title: 'Most Popular Web Browsers 1993 - 2020',
+      titleZh: '1993–2020 最流行的网页浏览器（数据动画视频）',
+      type: '视频',
+      requirement: 'reference',
+      zone: '正文 Browser history 段',
+      originalUrl: 'https://www.youtube.com/watch?v=W4wWdmfOibY',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题 Most Popular Web Browsers 1993 - 2020，作者 Captain Gizmo）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方在讲浏览器简史时挂的这个视频，用数据动画把 1993 到 2020 年各浏览器的市占变化跑了一遍——Netscape 的崛起、IE 一度超过 90%、Firefox 与 Safari 的出现、Chrome 在 2008 年后迅速主导。看完你会对正文那条时间线有直观印象，也更容易理解「为什么绝大多数应用是照 Chromium 顺跑设计的」。本站已用 oEmbed 核验标题与作者。',
+        why: '官方正文引用（浏览器竞争的可视化数据）。',
+        points: [
+          '按年份展示各浏览器市占率的变化。',
+          '直观印证正文的时间线：IE 主导期、Mozilla/Safari/Chrome 的入场。',
+          '解释了「Chrome 主导 → 其他浏览器退居次要」这一现实的市场基础。'
+        ],
+        terms: [
+          'market share（市场份额）',
+          'browser wars（浏览器大战）'
+        ],
+        focus: '看趋势而不是记数字：重点是主导权换了几次手，以及现在谁在主导。',
+        takeaway: '理解了市场结构，就理解了为什么「在 Chrome 里能跑」不等于「在所有浏览器里能跑」。'
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-browser-compatibility',
+      title: 'Chromium (web browser) - Wikipedia',
+      titleZh: 'Chromium（网页浏览器）维基百科条目（有官方简体中文版）',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文 Browser history 段',
+      originalUrl: 'https://en.wikipedia.org/wiki/Chromium_(web_browser)',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200（零重定向）',
+      zhUrl: 'https://zh.wikipedia.org/zh-cn/Chromium',
+      zhType: '维基百科官方简体中文版（已核验页面标题「Chromium - 维基百科，自由的百科全书」与 h1「Chromium」，正文 7241 个汉字；中文条目名不带英文的消歧义括号，故与英文地址不同形）',
+      zhGuide: {
+        overview: '官方在讲「Chrome 与 Chromium 是市场主导者」时挂了这个条目。Chromium 是 Google 主导的开源浏览器项目，Chrome 是在它之上加了专有组件的发行版；更重要的是，**Blink 引擎与整个 Chromium 项目是 Edge、Brave、Opera 等一大批浏览器的共同底座**——这就是「在 Chrome 里能跑，其他 Chromium 系通常也能跑」的技术原因。有官方简体中文版（条目名不带括号）。',
+        why: '官方正文引用（解释 Chrome 与 Chromium 的关系）。',
+        points: [
+          'Chromium 是开源项目，Chrome 是它的发行版之一。',
+          'Blink 引擎与 Chromium 是众多浏览器的共同底座。',
+          '这解释了为什么测一个 Chrome 大致能覆盖整个 Chromium 系。'
+        ],
+        terms: [
+          'Chromium（开源浏览器项目）',
+          'Blink（渲染引擎）'
+        ],
+        focus: '只需建立「项目 vs 发行版」与「共同底座」两个概念，不必读完整条目。',
+        takeaway: '知道 Chrome / Edge / Brave / Opera 同源，你的测试矩阵就不必逐个覆盖它们。'
+      },
+      license: '维基百科条目采用 CC BY-SA 许可；本站只链接官方简体中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '中文版地址与英文版不同形：zh.wikipedia.org 上该条目名为「Chromium」（不带消歧义括号），带括号的 zh-cn 地址实测 404。已按不带括号的现役地址登记并做内容级核验（7241 个汉字，确为浏览器主题条目）。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-frameworks-and-preprocessors',
+      title: 'What is a CSS Framework? | by Matt Lawrence | HTML All The Things | Medium',
+      titleZh: '什么是 CSS 框架（HTML All The Things / Medium）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://medium.com/html-all-the-things/what-is-a-css-framework-f758ef0b1a11',
+      sourceDomain: 'medium.com',
+      originalUrlStatus: '403（站点反爬拦截非浏览器请求，带浏览器 UA 仍 403；真实浏览器核验可达并取得标题「What is a CSS Framework?. Bootstrap, Tailwind CSS, Materialize… | by Matt Lawrence | HTML All The Things | Medium」与 h1「What is a CSS Framework?」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方指定的一篇 CSS 框架简要概览：框架是什么、它替你做了什么、常见的几个（Bootstrap、Tailwind、Materialize 等）各自走什么路线。与本站正文的口径一致——框架归根结底是一捆现成 CSS，你按它约定的结构与 class 名来用。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 1 条指定阅读（CSS 框架简介）。',
+        points: [
+          '框架的定义与它替你打包好的东西（常用样式、组件、有时还有图标与交互）。',
+          '几个常见框架的路线差异。',
+          '用框架前需要理解它期望的结构与 class 约定。'
+        ],
+        terms: [
+          'CSS framework（CSS 框架）',
+          'prebuilt components（预制组件）'
+        ],
+        focus: '对照本站正文的「两条路线」读：打包一切（Bootstrap 型）vs 改变写法（Tailwind 型）。',
+        takeaway: '读完能向别人解释清楚「框架到底给了你什么、要你付出什么」。'
+      },
+      license: 'Medium 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '403 受限：命令行带浏览器 UA 仍被拦截，无法自动确认；已用真实浏览器打开核验可达，并取得页面标题与 h1。页面含 Medium 会员墙标记，完整阅读可能需要登录或会员。地址直接取自官方 Markdown 原文，本站未做替换。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-frameworks-and-preprocessors',
+      title: 'Comprehensive CSS Preprocessor Comparison: Sass vs LESS vs Stylus',
+      titleZh: 'CSS 预处理器全面对比：Sass vs LESS vs Stylus（LambdaTest）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.lambdatest.com/blog/css-preprocessors-sass-vs-less-vs-stylus-with-examples/',
+      sourceDomain: 'lambdatest.com',
+      originalUrlStatus: '200（**跨域重定向**：lambdatest.com → www.testmuai.com 同路径，主题一致，为站点品牌更名；重定向后页面标题「Comprehensive CSS Preprocessor Comparison: Sass vs LESS vs Stylus」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方让你「略读」（skim）这篇：它把 SASS、LESS、Stylus 三个主流预处理器放在一起对比——语法差异、变量与嵌套的写法、mixin、编译方式与生态。按官方意图，读它不是为了选一个来学，而是为了**认识这三个名字、知道它们的差别大概在哪**，等真需要时再深入。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 2 条指定略读（三个预处理器的概览）。',
+        points: [
+          'SASS / LESS / Stylus 三者的语法风格差异（如缩进式与花括号式）。',
+          '变量、嵌套、mixin 等共性能力在三者中的写法。',
+          '各自需要的编译步骤与工具链。'
+        ],
+        terms: [
+          'Sass / LESS / Stylus（三个主流预处理器）',
+          'mixin（可复用样式块）'
+        ],
+        focus: '略读即可——重点是记住名字与「它们都要先编译成原生 CSS」这件事。',
+        takeaway: '对照本站正文：它们最吸引人的变量与嵌套，原生 CSS 已经有了。'
+      },
+      license: 'LambdaTest / TestMu 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '跨域重定向如实登记：官方给的 lambdatest.com 地址 301 跳到 www.testmuai.com 的同一篇（站点品牌更名），重定向后主题与链接文字一致（仍是 Sass vs LESS vs Stylus 对比），故按可接受处理、保留官方原地址不替换。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-frameworks-and-preprocessors',
+      title: 'The disadvantages of CSS preprocessors – Adam Silver',
+      titleZh: 'CSS 预处理器的缺点（Adam Silver）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://adamsilver.io/blog/the-disadvantages-of-css-preprocessors/',
+      sourceDomain: 'adamsilver.io',
+      originalUrlStatus: '200（零重定向）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+        overview: '官方让你读这篇讲预处理器缺点的文章，并**特别提示**：自那篇文章写成以来，CSS 已经有了嵌套，以及通过自定义属性实现的变量——所以读的时候要自己核对：哪些批评已经被原生 CSS 解决，哪些仍然成立（例如额外构建步骤、抽象泄漏、团队协作时的耦合）。这与本站正文的判断一致：除非确实需要那些还没进原生 CSS 的能力，否则引入预处理器可能不值得那份成本。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+        why: '官方 Assignment 第 3 条指定阅读（预处理器的缺点，并附「部分批评已被原生 CSS 解决」的提示）。',
+        points: [
+          '预处理器带来的额外构建步骤与工具链成本。',
+          '抽象可能泄漏：产物仍是 CSS，问题最终还要在 CSS 层面解决。',
+          '官方提示：变量与嵌套已进入原生 CSS，文章的部分前提已过时。'
+        ],
+        terms: [
+          'build step（构建步骤）',
+          'leaky abstraction（泄漏的抽象）'
+        ],
+        focus: '带着官方的提示读：逐条问「这一条今天还成立吗」，比全盘接受更有价值。',
+        takeaway: '能区分「已被原生 CSS 吸收的能力」与「仍然只有预处理器能做的事」，判断就有了依据。'
+      },
+      license: 'Adam Silver 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-frameworks-and-preprocessors',
+      title: 'Using CSS nesting - CSS | MDN',
+      titleZh: '使用 CSS 嵌套（MDN，有官方中文版）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文 Preprocessors overview 段',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（en-US 旧路径 301 重定向到现役 /docs/Web/CSS/Guides/Nesting/Using）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Nesting/Using',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「使用 CSS 嵌套 - CSS：层叠样式表 | MDN」，正文 2884 个汉字）',
+      zhGuide: {
+        overview: '官方在讲「预处理器的优势正在被原生 CSS 吸收」时挂的就是这一页：CSS 嵌套曾是某些预处理器的常见卖点，现在已经进入原生 CSS，并且最近开始获得更多浏览器支持。这一页讲原生嵌套的写法（& 与省略 & 的形式）、能用在哪、以及与预处理器嵌套的行为差异。有官方简体中文版，本站按现役 zh-CN 路径登记。用之前请按上一课的方法在 Can I Use 上确认目标浏览器的支持版本。',
+        why: '官方正文引用（原生 CSS 嵌套——预处理器优势被吸收的实例）。',
+        points: [
+          '原生嵌套的语法与 & 的用法。',
+          '与预处理器嵌套的行为差异（选择器解析规则不同）。',
+          '支持情况仍在推进，使用前需查 Can I Use。'
+        ],
+        terms: [
+          'CSS nesting（CSS 嵌套）',
+          'nesting selector &（嵌套选择器 &）'
+        ],
+        focus: '注意原生嵌套与 Sass 嵌套在选择器解析上的差别——照搬旧习惯可能得到不同结果。',
+        takeaway: '这一页是「预处理器不再必需」这个论断的直接证据之一（另一个是自定义属性）。'
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+  /* ===== World 2 第四批：表单 3 课（form-basics 8 / form-validation 6 / sign-up-form 2）===== */
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "HTTP request methods - HTTP | MDN",
+      "titleZh": "HTTP 请求方法（MDN，有官方中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文 The form element 段",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（en-US 旧路径重定向到现役 /docs/Web/HTTP/Reference/Methods；页面标题「HTTP request methods - HTTP | MDN」，h1「HTTP request methods」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Methods",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「HTTP 请求方法 - HTTP | MDN」，正文 812 个汉字）",
+      "zhGuide": {
+    "overview": "官方在讲 form 的 method 属性时挂的就是这一页：HTTP 有一组请求方法，每个方法表达「这次请求想对资源做什么」。表单最常用的是 GET（取数据）与 POST（改数据），这一页把各方法的语义、是否带请求主体、是否安全 / 幂等讲清楚。有官方简体中文版，本站按现役 zh-CN 路径登记。",
+    "why": "官方正文引用（method 属性告诉浏览器该用哪种 HTTP 请求方法）。",
+    "points": [
+      "GET 与 POST 的语义差别：取回数据 vs 改变服务器上的状态。",
+      "每个方法是否带请求主体、是否安全（safe）、是否幂等（idempotent）。",
+      "表单提交时浏览器实际发出的请求长什么样（方法 + 数据放在哪）。"
+    ],
+    "terms": [
+      "HTTP method（HTTP 请求方法）",
+      "idempotent（幂等：同样的请求做一次与做多次，服务器状态结果相同）"
+    ],
+    "focus": "先只记牢 GET 与 POST 的分工；PUT / DELETE / PATCH 等留到接后端时再细看。",
+    "takeaway": "能解释为什么搜索用 GET、而注册与付款用 POST。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "httpbin.org",
+      "titleZh": "httpbin：把收到的请求原样回显给你的测试服务",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文 The name attribute 段（官方建议把表单提交到这里看回显）",
+      "originalUrl": "http://httpbin.org/",
+      "sourceDomain": "httpbin.org",
+      "originalUrlStatus": "200（官方正文给的就是 http:// 形式的地址，实测可达；页面标题「httpbin.org」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方用它来演示 name 属性的作用：把表单提交到 httpbin，它会把收到的数据原样回显，你能在返回内容的 \"form\" 对象里看到每个 name 对应的值。官方的练习是改掉某几个输入框的 name、或干脆删掉 name，再提交一次，看回显怎么变——删掉的那个字段会直接消失。无官方中文版，本站提供原创导读要点与原地址。",
+    "why": "官方正文推荐的动手实验（理解 name 属性与提交回显）。",
+    "points": [
+      "提交后看返回内容里的 \"form\" 对象，逐个核对 name 与值。",
+      "把某个输入的 name 删掉再提交，观察该字段从回显里消失。",
+      "顺带能看出 method 用 GET 与 POST 时，数据分别出现在请求的哪个位置。"
+    ],
+    "terms": [
+      "name attribute（name 属性：提交时数据的标识）",
+      "echo（回显：服务把收到的内容原样返回）"
+    ],
+    "focus": "只做官方那一个实验就够，不必研究这个服务的其他端点。",
+    "takeaway": "亲眼看到「漏 name = 数据静默消失」，比读十遍规则记得牢。"
+      },
+      "license": "httpbin 服务版权归原作者所有；本站只做链接与原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "Pure CSS Custom Checkbox Style | Modern CSS Solutions",
+      "titleZh": "纯 CSS 自定义复选框样式（Modern CSS Solutions）",
+      "type": "教程文章",
+      "requirement": "reference",
+      "zone": "正文 Tricky and downright impossible to style form controls 段",
+      "originalUrl": "https://moderncss.dev/pure-css-custom-checkbox-style",
+      "sourceDomain": "moderncss.dev",
+      "originalUrlStatus": "200（生效地址带尾斜杠 /pure-css-custom-checkbox-style/；页面标题与 h1 均为「Pure CSS Custom Checkbox Style」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方在说「radio 与 checkbox 的自定义样式比较棘手、但网上有很多现成指南」时给的就是这一篇：不依赖 JavaScript、只用 CSS 把复选框改成你想要的外观，同时保留键盘与读屏软件可用的无障碍语义。无官方中文版，本站提供原创导读要点 + 英文原文链接。",
+    "why": "官方正文引用（自定义复选框样式的现成指南）。",
+    "points": [
+      "为什么原生 checkbox 难样式化，以及「视觉上替换、语义上保留」的思路。",
+      "怎么保证键盘操作与读屏软件仍然可用（这是这类改造最容易丢掉的东西）。",
+      "勾选状态、聚焦状态各自怎么画。"
+    ],
+    "terms": [
+      "custom checkbox（自定义复选框）",
+      "accessible（无障碍可用：换外观但不丢语义与键盘操作）"
+    ],
+    "focus": "先看它的无障碍处理方式，再看视觉实现——顺序反了容易抄出一个好看但没法用的控件。",
+    "takeaway": "知道「难样式化的控件」有成熟做法，不必自己硬试；同时知道近年还有 accent-color 这条更省力的路。"
+      },
+      "license": "文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "accent-color CSS property - CSS | MDN",
+      "titleZh": "CSS 属性 accent-color（MDN，有官方中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文 Tricky and downright impossible to style form controls 段（近年新增的 CSS 属性）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（en-US 旧路径重定向到现役 /docs/Web/CSS/Reference/Properties/accent-color；页面标题「accent-color CSS property - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/accent-color",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「accent-color - CSS：层叠样式表 | MDN」，正文 1675 个汉字）",
+      "zhGuide": {
+    "overview": "官方提到「近年新增了一些 CSS 属性，让 radio 与 checkbox 的样式化简单很多」，指的就是 accent-color：给控件设一个强调色，浏览器用它来画复选框的勾选、单选的圆点、进度条与范围滑块，不必再去 hack 外观。有官方简体中文版，本站按现役 zh-CN 路径登记。",
+    "why": "官方正文引用（让 radio 与 checkbox 着色变简单的新属性）。",
+    "points": [
+      "accent-color 作用于哪些控件（checkbox、radio、progress、range 等）。",
+      "它与「完全自定义外观」的取舍：一行改色 vs 彻底重画。",
+      "浏览器支持情况（用之前按上一课的方法在 Can I Use 上确认目标浏览器版本）。"
+    ],
+    "terms": [
+      "accent-color（强调色属性）",
+      "form control theming（表单控件着色）"
+    ],
+    "focus": "需求只是「换个颜色」时用 accent-color；要改形状与尺寸才需要上一篇文章那种自定义做法。",
+    "takeaway": "知道有一条一行代码的省力路径，不必默认上 hack。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "Web forms - Learn web development | MDN",
+      "titleZh": "Web 表单构建块 · 入门指南（MDN，有官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条（Form basics 组）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Learn/Forms#introductory_tutorials",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（官方给的 /docs/Learn/Forms 旧路径重定向到现役 /docs/Learn_web_development/Extensions/Forms，英文锚点 introductory_tutorials 在生效页上实测存在；页面标题「Web forms - Learn web development | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Forms#入门指南",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「Web 表单构建块 - 学习 Web 开发 | MDN」，正文 2978 个汉字）",
+      "zhGuide": {
+    "overview": "官方 Assignment 的第一条：读并跟着做 MDN 表单学习区的「入门教程」那一组。这一组从零讲表单是什么、怎么构造一个表单、原生表单控件有哪些，与本站这一课的零件清单一一对应，适合边读边敲。有官方简体中文版，本站按现役 zh-CN 路径登记，并把官方英文锚点换成中文版实测存在的对应锚点。",
+    "why": "官方 Assignment 第 1 条指定阅读（MDN 表单入门教程组）。",
+    "points": [
+      "表单的用途与一次提交的完整过程。",
+      "怎么构造一个表单：结构、控件、标签与按钮。",
+      "原生控件清单，以及每个控件适合收集哪类数据。"
+    ],
+    "terms": [
+      "form control（表单控件）",
+      "fallback（回退：浏览器不支持某控件时的替代表现）"
+    ],
+    "focus": "与本站正文对照着读：MDN 讲得更全，本站讲得更贴近官方这一课的顺序。",
+    "takeaway": "能不查资料写出一个带 label、name 与提交按钮的最小可用表单。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": "锚点订正（本批新发现的坑）：官方给的英文锚点（#introductory_tutorials）在**中文版页面上不存在**——MDN 的 zh-CN 页面把标题 id 也本地化了（实测该页 h2 的 id 依次是「前提 / 入门指南 / 不同的表单控件 / 表单样式指南 / 验证和提交表单数据 / 高级文章 / 参见」）。直接搬英文锚点会落到页面顶部，所以本站中文链接改用实测存在的中文锚点；英文原地址保留官方原文形式不动。"
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "Web forms - Learn web development | MDN",
+      "titleZh": "Web 表单构建块 · 不同的表单控件（MDN，有官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条（Form basics 组）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Learn/Forms#the_different_form_controls",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（同页不同小节：旧路径重定向到现役 /docs/Learn_web_development/Extensions/Forms，英文锚点 the_different_form_controls 在生效页上实测存在）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Forms#不同的表单控件",
+      "zhType": "MDN 官方简体中文版（同一页，已核验标题「Web 表单构建块 - 学习 Web 开发 | MDN」，正文 2978 个汉字；中文锚点按实测的中文版标题 id 填写）",
+      "zhGuide": {
+    "overview": "官方 Assignment 的第二条：读并跟着做「不同的表单控件」那组指南。它按控件类型逐个展开——文本类、选择类、按钮、以及日期 / 颜色 / 文件这些特化类型，比本站正文更全，适合作为写表单时的查阅手册。有官方简体中文版。",
+    "why": "官方 Assignment 第 2 条指定阅读（MDN「不同的表单控件」指南组）。",
+    "points": [
+      "每类控件的写法、可用属性与适用场景。",
+      "哪些控件在不同浏览器上表现差异大（要提前查支持情况）。",
+      "控件与 label 的关联方式（含把控件包在 label 里这种写法）。"
+    ],
+    "terms": [
+      "input type（输入类型）",
+      "fieldset / legend（字段集与图例）"
+    ],
+    "focus": "当手册用：真要写某个控件时再翻对应小节，不必一次读完。",
+    "takeaway": "遇到「这类数据该用什么控件」时知道去哪查、按什么标准选。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": "同页不同小节，与「入门指南」条目共用一份中文页面；中文锚点按实测的中文版标题 id 填写（详见同页「入门指南」条目的锚点订正说明）。"
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "Web forms - Learn web development | MDN",
+      "titleZh": "Web 表单构建块 · 表单样式指南（MDN，有官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条（Styling forms 组）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Learn/Forms#form_styling_tutorials",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（同页不同小节：旧路径重定向到现役 /docs/Learn_web_development/Extensions/Forms，英文锚点 form_styling_tutorials 在生效页上实测存在）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Forms#表单样式指南",
+      "zhType": "MDN 官方简体中文版（同一页，已核验标题「Web 表单构建块 - 学习 Web 开发 | MDN」，正文 2978 个汉字；中文锚点按实测的中文版标题 id 填写）",
+      "zhGuide": {
+    "overview": "官方 Assignment 的第三条：读并跟着做表单样式那组教程，正好接上本站正文最后讲的两个困难（浏览器默认样式各不相同、部分控件难或无法样式化）。**官方同时说明其中「Customizable select elements」与「Customizable select listbox」两篇可以跳过**——它们依赖很新的 CSS 特性，很多浏览器还不支持。有官方简体中文版。",
+    "why": "官方 Assignment 第 3 条指定阅读（MDN 表单样式教程组，含明确的可跳过范围）。",
+    "points": [
+      "怎么覆盖浏览器对表单控件的默认样式，做到跨浏览器一致。",
+      "哪些控件容易样式化（文本类）、哪些麻烦（radio / checkbox）、哪些基本改不动（日期选择器）。",
+      "官方的跳过范围：可自定义 select 的两篇依赖很新的特性，支持还不广。"
+    ],
+    "terms": [
+      "default styles（浏览器默认样式）",
+      "appearance（控件外观：与「改不动」直接相关的属性）"
+    ],
+    "focus": "先建立「哪些能改、哪些别硬改」的地图，再去抠具体样式。",
+    "takeaway": "遇到某个控件改不动时知道那是平台限制，不是自己写错了。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": "同页不同小节；官方明确说这组里的「Customizable select elements」与「Customizable select listbox」两篇可跳过（依赖很新的 CSS 特性、浏览器支持还不广），本站照原文转述，未替读者删减范围。"
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-basics",
+      "title": "HTML Forms Tutorial | HTML & CSS Is Hard",
+      "titleZh": "HTML 表单教程（HTML & CSS Is Hard）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条（Styling forms 组）",
+      "originalUrl": "https://internetingishard.netlify.app/html-and-css/forms/index.html",
+      "sourceDomain": "internetingishard.netlify.app",
+      "originalUrlStatus": "200（页面标题「HTML Forms Tutorial | HTML & CSS Is Hard」，h1「HTML Forms」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方 Assignment 里 Styling forms 组的第二篇：一套完整的图文教程，从表单结构一路讲到怎么把它排整齐、看着舒服——正好补上本站正文只点出困难、没展开做法的那部分。无官方中文版，本站提供原创导读要点 + 英文原文链接。",
+    "why": "官方 Assignment 第 4 条指定阅读（表单图文教程，含样式部分）。",
+    "points": [
+      "表单的结构与语义：form / label / input / button 各自的角色。",
+      "怎么把一堆控件排成对齐、易扫读的布局。",
+      "常见控件（含 radio 组与 checkbox）的样式处理思路。"
+    ],
+    "terms": [
+      "form layout（表单排版）",
+      "text input（文本输入框）"
+    ],
+    "focus": "重点看它的排版与对齐做法——那是 MDN 样式教程里讲得比较少的部分。",
+    "takeaway": "能做出一个不只「能用」而且「看着整齐」的表单。"
+      },
+      "license": "教程版权归原作者所有；本站只做链接与原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-validation",
+      "title": "minlength HTML attribute - HTML | MDN",
+      "titleZh": "HTML 属性 minlength（MDN，有官方中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文 minlength doesn't imply required 提示块",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/minlength",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（页面标题「minlength HTML attribute - HTML | MDN」，h1 同）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/minlength",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「HTML 属性：minlength - HTML（超文本标记语言） | MDN」，正文 858 个汉字）",
+      "zhGuide": {
+    "overview": "官方那条 tip 的依据就在这里：MDN 明确写着「约束校验只在用户改动过值时才应用」（Constraint validation is only applied when the value is changed by the user），所以 minlength **不隐含** required——什么都不填也能提交成功。这一页还给出该属性适用于哪些元素、取值怎么写。有官方简体中文版，本站按现役 zh-CN 路径登记。",
+    "why": "官方正文提示块引用（解释 minlength 为什么不等于必填）。",
+    "points": [
+      "关键性质：约束校验只在用户改动过值时才应用，所以空值不触发 minlength。",
+      "该属性适用于哪些元素、取值必须是什么形式。",
+      "与 required 的组合写法：要「必须填且不少于 N 字」两个都要写。"
+    ],
+    "terms": [
+      "constraint validation（约束校验）",
+      "minlength（最小长度属性）"
+    ],
+    "focus": "只记住那条性质就够解释本课最反直觉的现象；其余是查阅用。",
+    "takeaway": "能解释「写了 minlength 却还能空着提交」不是 bug 而是规范行为。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-validation",
+      "title": "max HTML attribute - HTML | MDN",
+      "titleZh": "HTML 属性 max · 语法（支持哪些元素）（MDN，有官方中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文 Number range validations 段（官方让查「支持元素完整清单」处）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/max#syntax",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（en-US 旧路径重定向到现役 /docs/Web/HTML/Reference/Attributes/max，英文锚点 syntax 在生效页上实测存在；页面标题「max HTML attribute - HTML | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/max#语法",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「HTML 属性：max - HTML（超文本标记语言） | MDN」，正文 993 个汉字；中文锚点「语法」为该页 h2 的实测 id）",
+      "zhGuide": {
+    "overview": "官方在讲 min / max 时明确说：这两个属性只对数值类控件有效，完整的支持元素清单看 MDN 的 max 属性文档（并给了 #syntax 小节）。这一页列出 max 能用在哪些 input 类型上、取值怎么随类型变化（数字、日期、时间各有写法）。有官方简体中文版，本站把官方英文锚点换成中文版实测存在的「#语法」。",
+    "why": "官方正文引用（min / max 支持元素的完整清单）。",
+    "points": [
+      "max 与 min 各自适用哪些 input 类型（number、date、time、range 等）。",
+      "取值格式随类型变化：数字直接写，日期 / 时间要按对应格式。",
+      "为什么给文本框写 min / max 不会生效——管文本长度的是 minlength / maxlength。"
+    ],
+    "terms": [
+      "max / min（最大值 / 最小值属性）",
+      "numeric input types（数值类输入类型）"
+    ],
+    "focus": "先确认「我要限的这个控件在不在支持清单里」，再写属性。",
+    "takeaway": "不会把两套属性用串（数值范围 vs 文本长度）。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": "锚点订正：官方英文锚点 #syntax 在中文版页面上不存在（该页中文版 h2 的 id 是「语法 / 无障碍考虑 / 规范 / 浏览器兼容性 / 参见」），本站中文链接改用实测存在的 #语法；英文原地址保留官方原文形式。"
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-validation",
+      "title": "Regular expressions - JavaScript | MDN",
+      "titleZh": "正则表达式（MDN，有官方中文版）",
+      "type": "教程文章",
+      "requirement": "reference",
+      "zone": "正文 Pattern validations 段（pattern 的取值是正则）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（生效路径的大小写与官方原文不同：/Guide/Regular_Expressions → /Guide/Regular_expressions；页面标题「Regular expressions - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「正则表达式 - JavaScript | MDN」，正文 6922 个汉字）",
+      "zhGuide": {
+    "overview": "pattern 属性的取值就是一个正则表达式，官方在这一段挂的是 MDN 的正则指南。配合官方那条建议读最合适：**不必为此深挖正则**——正则本身能很复杂，而且写在 HTML 属性里、写在 JS 字符串里、写成 JS 正则字面量时语法还有差别，实践中更好的做法是搜一个已被验证的现成正则来用。有官方简体中文版。",
+    "why": "官方正文引用（pattern 属性的取值是正则表达式）。",
+    "points": [
+      "正则的基本构成：字符类、量词、分组与转义。",
+      "在 HTML 的 pattern 属性里写正则与在 JS 里写的差别（属性值不需要斜杠包裹等）。",
+      "怎么读一个别人写好的正则——官方建议的实际用法。"
+    ],
+    "terms": [
+      "regular expression / regex（正则表达式）",
+      "character class（字符类，如 [0-9]）"
+    ],
+    "focus": "以「能看懂、能改一个现成的」为目标，不要以「能从零写出复杂正则」为目标。",
+    "takeaway": "需要格式校验时先找现成正则，再用这一页确认自己看懂了它。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-validation",
+      "title": "Client-side form validation - Learn web development | MDN",
+      "titleZh": "表单数据校验（客户端）（MDN，有官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（官方给的 /docs/Learn/Forms/Form_validation 旧路径重定向到现役 /docs/Learn_web_development/Extensions/Forms/Form_validation；页面标题「Client-side form validation - Learn web development | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Forms/Form_validation",
+      "zhType": "MDN 官方简体中文版（已核验页面标题「表单数据校验 - 学习 Web 开发 | MDN」，正文 7324 个汉字）",
+      "zhGuide": {
+    "overview": "官方 Assignment 第 1 条：读并跟着做 MDN 的客户端表单校验指南。**官方明确说其中「用 JavaScript 校验表单」那一节可以跳过**（后面的课会讲），本站照原文转述这个范围。这一页把内置校验属性、约束校验 API 与样式化校验状态讲成一条线，与本站正文互补。有官方简体中文版，本站按现役 zh-CN 路径登记。",
+    "why": "官方 Assignment 第 1 条指定阅读（客户端表单校验指南，含明确的跳过范围）。",
+    "points": [
+      "内置校验属性总览：required / minlength / maxlength / min / max / pattern / type 自带的校验。",
+      "校验状态在 CSS 里怎么表达（含 :user-valid / :user-invalid 这类只在交互后命中的伪类）。",
+      "为什么客户端校验不能替代服务端校验。"
+    ],
+    "terms": [
+      "client-side validation（客户端校验）",
+      "constraint validation API（约束校验 API：本站这一课不要求掌握）"
+    ],
+    "focus": "按官方的范围读：跳过「用 JavaScript 校验表单」一节，其余通读并跟着敲。",
+    "takeaway": "能把「该用哪个属性、什么时候生效、怎么给状态上色」串成一条完整的判断链。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-validation",
+      "title": "The Complete Guide to HTML Forms and Constraint Validation — SitePoint",
+      "titleZh": "HTML 表单与约束校验完全指南（SitePoint）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://www.sitepoint.com/html-forms-constraint-validation-complete-guide/",
+      "sourceDomain": "www.sitepoint.com",
+      "originalUrlStatus": "200（页面标题与 h1 均为「The Complete Guide to HTML Forms and Constraint Validation」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方 Assignment 第 2 条：通读 SitePoint 这篇 HTML 表单与约束校验的完全指南。**官方明确说其中「JavaScript 与 Constraint Validation API」和「创建自定义表单校验器」两节可以跳过**，本站照原文转述这个范围。剩下的部分把表单结构与各校验属性讲得比 MDN 更连贯，适合作为通读材料。无官方中文版，本站提供原创导读要点 + 英文原文链接。",
+    "why": "官方 Assignment 第 2 条指定阅读（含明确的两节跳过范围）。",
+    "points": [
+      "表单结构与各控件的写法回顾。",
+      "约束校验属性逐个讲：required、长度、数值范围、pattern、type 自带校验。",
+      "校验反馈怎么呈现给用户（提示时机与措辞）。"
+    ],
+    "terms": [
+      "constraint validation（约束校验）",
+      "form field（表单字段）"
+    ],
+    "focus": "按官方的范围读：跳过 JS 与 Constraint Validation API、自建校验器两节。",
+    "takeaway": "对「内置校验能覆盖到哪、边界在哪」有一份完整的地图。"
+      },
+      "license": "文章版权归 SitePoint 与作者所有；本站只做链接与原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-form-validation",
+      "title": "do’s and don’ts for form validation UX",
+      "titleZh": "表单校验用户体验的该做与不该做（X 讨论串，官方给的是 threadreaderapp 展开镜像）",
+      "type": "社区讨论",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://threadreaderapp.com/thread/1400388896136040454.html",
+      "sourceDomain": "threadreaderapp.com",
+      "originalUrlStatus": "000（自动核验无法连通：curl 带浏览器 UA 连续两次均连接超时（各约 21 秒，curl 错误码 28）；真实浏览器导航亦失败，报 net::ERR_CONNECTION_TIMED_OUT）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方 Assignment 第 3 条：看这条关于表单校验 UX 该做与不该做的讨论串。官方给的是 X（原 Twitter）讨论串在 threadreaderapp 上的展开镜像地址。它谈的不是属性怎么写，而是**反馈怎么给**：什么时候提示、措辞怎么写、要不要在用户还没填完时就报错——与本站正文讲的 :user-invalid「等一次完整交互再变色」是同一个思路。无官方中文版，本站提供原创导读要点 + 官方给的原地址。",
+    "why": "官方 Assignment 第 3 条指定阅读（表单校验的用户体验要点）。",
+    "points": [
+      "提示的时机：别在用户还没填完时就报错（这正是 :user-invalid 与 :invalid 的差别所服务的目标）。",
+      "提示的措辞：说清哪里不对、该怎么改，而不是只说「格式错误」。",
+      "必填字段的标明方式（星号 + 说明），与错误状态的可见性（不能只靠颜色）。"
+    ],
+    "terms": [
+      "validation UX（校验体验）",
+      "inline error message（就地错误提示）"
+    ],
+    "focus": "把它与本站正文的「pattern 默认提示没用、要配 placeholder 给示范」对照着看——两处说的是同一件事：反馈要可执行。",
+    "takeaway": "记住「提示要能指导修复」这一条，比记住任何具体属性都耐用。"
+      },
+      "license": "讨论串内容版权归原作者；本站只做链接与原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": "自动核验受限：命令行带浏览器 UA 连续两次连接超时（curl 错误码 28，各约 21 秒），改用真实浏览器导航同样超时（net::ERR_CONNECTION_TIMED_OUT），**两条通路都无法确认页面内容与标题**，已如实入 verifyLimitedUrls；本条目的 `title` 因此取自官方 Markdown 里的链接文字（与课 39 onextrapixel 那条「两次无响应」条目同一处置口径），不是从页面抓来的。地址直接取自官方 Markdown 原文（官方给的就是 threadreaderapp 镜像，不是 X 原址），本站未替换、未改写，也不声称已验证其内容；导读要点按官方对该条的描述与本站正文口径撰写，未引用该页任何具体文字。"
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-sign-up-form",
+      "title": "Green leaf plant in close up photography - Free Photo on Unsplash",
+      "titleZh": "设计稿里那张背景图（Unsplash 免费图片，作者 Halie West）",
+      "type": "图片素材",
+      "requirement": "reference",
+      "zone": "Assignment Step 2 第 1 条（设计里的大幅背景图）",
+      "originalUrl": "https://unsplash.com/photos/25xggax4bSA",
+      "sourceDomain": "unsplash.com",
+      "originalUrlStatus": "401（站点反爬：命令行带浏览器 UA 被重定向到 unsplash.com/.within.website?redir=%2Fphotos%2F25xggax4bSA 的挑战地址；真实浏览器核验可达，页面标题「Green leaf plant in close up photography - Free Photo on Unsplash」、h1「green leaf plant in close up photography」、作者 Halie West，生效地址为该图的规范 slug 形式）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方在这个项目里说：设计图里有一张大幅背景图，你可以用它给的这一张（Unsplash 上的免费图片），也完全可以自选——但**务必给你用的图片的作者署名**。这张是绿色植物的特写。无官方中文版，本站提供原创导读要点 + 官方给的原地址。",
+    "why": "官方 Assignment Step 2 第 1 条给出的素材来源（设计稿里的那张背景图）。",
+    "points": [
+      "这张图是官方设计稿里用的那一张，作者为 Halie West。",
+      "官方允许自选图片，但署名要求对两种选择都成立。",
+      "选图时留意文件体积：它会占据左栏整块，几 MB 的图会明显拖慢本地打开速度。"
+    ],
+    "terms": [
+      "background-image（背景图像）",
+      "credit the creator（给图片作者署名）"
+    ],
+    "focus": "别把时间花在挑图上——挑一张色调能压住白色表单区的就行，重点在结构与状态样式。",
+    "takeaway": "记住「用了别人的图就要署名」，这条在后面的项目里一直适用。"
+      },
+      "license": "图片版权归原作者所有（Unsplash 上的免费图片，作者 Halie West）；本站只链接官方给出的地址，不镜像、不转存、不搬运。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": "401 受限：命令行带浏览器 UA 被站点的反爬机制重定向到挑战地址（.within.website），无法自动确认；已用真实浏览器打开核验可达，并取得页面标题、h1 与作者名（与上一批 Medium 条目同一处置口径）。地址直接取自官方 Markdown 原文，本站未替换。按官方要求，使用该图需给作者署名。"
+    },
+    {
+      "lessonId": "node-path-intermediate-html-and-css-sign-up-form",
+      "title": "Norse | Joël Carrouché",
+      "titleZh": "Norse Bold 字体下载页（Joël Carrouché）",
+      "type": "素材库",
+      "requirement": "reference",
+      "zone": "Assignment Step 2 第 2 条（logo 区用的外部字体）",
+      "originalUrl": "https://www.joelcarrouche.com/fonts/norse",
+      "sourceDomain": "www.joelcarrouche.com",
+      "originalUrlStatus": "200（页面标题「Norse | Joël Carrouché」，h1「About this family」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+    "overview": "官方说：给 logo 区挑一款外部字体，「我们用的是 Norse Bold，但你可以用任何你喜欢的字体」。这一页就是 Norse 这个字体家族的介绍与下载页。无官方中文版，本站提供原创导读要点 + 官方给的原地址。",
+    "why": "官方 Assignment Step 2 第 2 条给出的字体来源（设计稿 logo 区用的那款）。",
+    "points": [
+      "这是官方设计稿里 logo 用的字体家族页，可下载 Norse Bold。",
+      "官方明确允许换成任何你喜欢的字体——不必非用这一款。",
+      "引入外部字体的常规做法（本站正文不展开，属项目实现范围）。"
+    ],
+    "terms": [
+      "external font（外部字体：不是系统自带、需要引入的字体）",
+      "font family（字体家族）"
+    ],
+    "focus": "字体只是还原设计稿的一环，别在这里花太多时间。",
+    "takeaway": "知道去哪拿官方那款字体，也知道可以自选。"
+      },
+      "license": "字体版权归原作者 Joël Carrouché 所有；本站只链接官方给出的地址，不镜像、不转存、不搬运。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-26",
+      "note": ""
+    },
+    /* ===== World 2 第五批（2026-09-26，v4.11.22，通宵轮批次 3）：「Grid 布局」章节 6 课，+11 条 =====
+     * 该章节 6/6 全开，World 2「中级 HTML 与 CSS」22 课就此全部开放（四章节收组）。
+     * 逐条三级核验真跑（状态码 → 重定向 → 内容级语言核验；2 条视频走 oEmbed）。
+     * 按课分布：introduction-to-grid 0（**本站第三个零外部资料课**，见下）/ creating-a-grid 3 /
+     * positioning-grid-elements 2 / advanced-grid-properties 2 / using-flexbox-and-grid 3 /
+     * admin-dashboard 1。A 类 2 条（MDN 基于线的定位 / MDN min-content，均按重定向后的现役
+     * zh-CN 路径登记并逐条内容级核验）；C 类 9 条（含 2 条视频，一律不声称有中文字幕）。
+     * introduction-to-grid 零资料理由：官方 Assignment 是「Surprise! No assignment!」无作业
+     * 声明；正文外链全部为 TOP 自有课页（4 条 Flexbox 复习课）、课内 CodePen 演示笔与
+     * cpwebassets 嵌入脚本（3 处）、练习结果配图（i.postimg.cc，链向 TOP 自有 css-exercises
+     * 仓库）——按既有口径全部剔除，不凑数（与课 26 / 课 32 同一机制）。
+     * 跨课合并 2 处：CSS-Tricks Grid 指南（creating_a_grid Assignment 1 首现，
+     * advanced_grid_properties Assignment 1 指定同指南另外三节，同页合并登记在首现课）；
+     * CSS Grid Garden（positioning Assignment 2 首现 1–17 关，advanced Assignment 2 的
+     * 18–28 关同址合并）。因此 advanced-grid-properties 的两条 Assignment 映射按
+     * 「资源归属课」纪律不建条目（详见 lesson-task-links.js 该课注释）。
+     * 本批核验的新坑（如实记录）：w3.org 对**伪装浏览器 UA** 的请求返回 403、对默认 curl UA
+     * 反而 200——与此前多数站点「默认 UA 被拦、浏览器 UA 放行」的方向相反；W3C Grid 规范
+     * 已用默认 UA 完成核验（200、标题与 #auto-repeat 锚点实测存在），不入受限清单。
+     * developer.chrome.com 的 /zh/ 路径实测仍返回英文内容（与课 34 的 6 条 chrome dev docs
+     * 同一处置：无可靠中文版，C 类）。css-tricks.com/css-grid-layout-guide/ 已 301 到
+     * complete-guide-css-grid-layout/（页面更名 A Complete Guide to CSS Grid Layout），
+     * 按官方给出的原地址登记、重定向事实记入 originalUrlStatus（同 MDN 旧路径处置口径）。
+     * 按既有口径剔除：CodePen 课内演示笔 19 处与 cpwebassets 嵌入脚本（creating 8 /
+     * positioning 5 / advanced 4 / using-flexbox 2，全部为 @TheOdinProjectExamples 演示）、
+     * i.postimg.cc 练习配图、cdn.statically.io 设计图（admin-dashboard 正文与 Step 1 同一
+     * 地址）、TOP 自有课页 6 条（flexbox 复习 4 + css-functions 回链 + more-text-styles 回链）、
+     * css-exercises 仓库 2 条（练习操作目标，按 javascript-exercises 先例不计入资料清单）、
+     * Google Fonts（admin-dashboard 正文仅文字提及、无链接，且 more-text-styles 已登记主站）、
+     * **课程反馈 Google 表单 1 条**（admin-dashboard Step 6——TOP 官方课程行政反馈表，
+     * 非学习资料，本站按「TOP 自有页」口径不收，官方任务区如实转达入口文字；这是该形态
+     * 首次出现，处置理由记录于此）。 */
+    {
+      lessonId: 'node-path-intermediate-html-and-css-creating-a-grid',
+      title: 'A Complete Guide to CSS Grid Layout | CSS-Tricks',
+      titleZh: 'CSS Grid 布局完全指南（CSS-Tricks）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（Introduction 与 Key Terms 两节）；advanced-grid-properties 的 Assignment 第 1 条指定同一指南的另外三节（跨课合并登记在本课）',
+      originalUrl: 'https://css-tricks.com/css-grid-layout-guide/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200（官方给的地址 301 重定向到现役 /complete-guide-css-grid-layout/，页面已更名，真实标题「A Complete Guide to CSS Grid Layout | CSS-Tricks」、h1「A Complete CSS Grid Layout Guide」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'CSS-Tricks 的 Grid 完全指南——这一课与下一课（高级网格属性）的官方阅读都指向它：本课读「Introduction」与「Key Terms」两节建立术语地图（容器 / 项目 / 轨道 / 线 / 单元格 / 区域），高级属性课再回来读「CSS Grid Properties」「Special Units, Values, & Functions」与「Subgrid」三节。它是查阅型参考手册，不必一次读完，跟着课程进度分两次读正好。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+      why: '官方 Assignment 第 1 条指定阅读（Introduction 与 Key Terms 两节）；同指南的另外三节是高级网格属性课的 Assignment 第 1 条。',
+      points: [
+        'Key Terms 一节与本站正文术语完全对齐：track / line / cell / area 的英文定义在这里最权威。',
+        '指南按「容器属性 → 项目属性」组织——查某个属性时按这个分区找最快。',
+        '页面已更名为 A Complete Guide to CSS Grid Layout，旧地址自动跳转，收藏新地址即可。'
+      ],
+      terms: [
+        'grid container / grid item（容器与项目）',
+        'grid line / grid track / grid cell / grid area（线、轨道、单元格、区域）'
+      ],
+      focus: '本课阶段只读 Introduction 与 Key Terms；属性大全部分留到高级网格属性课再回来。',
+      takeaway: '手边有一份术语与属性的权威速查——写 Grid 时不必靠记忆。',
+      },
+      license: 'CSS-Tricks 指南版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '跨课合并：advanced_grid_properties 的 Assignment 第 1 条指定同一指南的「CSS Grid Properties」「Special Units, Values, & Functions」「Subgrid」三节，规范化后同址，按既有口径登记在首现课（本课），该课任务映射按「资源归属课」纪律不另建条目。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-creating-a-grid',
+      title: 'CSS GRID: Implicit vs Explicit Tracks — 5 of 25',
+      titleZh: '隐式与显式轨道（Wes Bos CSS Grid 课程短视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=8_153Zz4YI8&ab_channel=WesBos',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「CSS GRID: Implicit vs Explicit Tracks — 5 of 25」，作者 Wes Bos）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：Wes Bos 的 CSS Grid 课程里讲「隐式 vs 显式轨道」的一段短视频——正好对应本课最核心的概念：grid-template-* 定义的是显式轨道，内容超出时 Grid 自动补的是隐式轨道。视频为英文讲授，看之前先把本站正文的「显式网格 vs 隐式网格」一节读过，带着结论去看演示会轻松很多。',
+      why: '官方 Assignment 第 2 条指定观看（隐式与显式轨道的演示）。',
+      points: [
+        '显式轨道：你用 grid-template-columns / rows 明确定义的部分。',
+        '隐式轨道：项目超出显式定义时 Grid 自动创建的轨道；尺寸默认由内容撑开。',
+        'grid-auto-rows / grid-auto-columns 给隐式轨道定尺寸——视频演示的正是这个行为。'
+      ],
+      terms: [
+        'implicit track（隐式轨道）',
+        'explicit track（显式轨道）'
+      ],
+      focus: '盯着「多出来的项目落到哪、行高怎么定」这两个问题看。',
+      takeaway: '对「第五个项目去哪了」形成肌肉记忆级的答案。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者 Wes Bos 所有；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-creating-a-grid',
+      title: 'Inspect CSS grid layouts | Chrome DevTools | Chrome for Developers',
+      titleZh: '在 Chrome DevTools 里检查 CSS Grid（Chrome 官方文档）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://developer.chrome.com/docs/devtools/css/grid/',
+      sourceDomain: 'developer.chrome.com',
+      originalUrlStatus: '200（页面标题「Inspect CSS grid layouts | Chrome DevTools | Chrome for Developers」，h1「Inspect CSS grid layouts」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：翻一遍 Chrome DevTools 检查 CSS Grid 的文档。它教的正是本课「看不见的线与轨道」一节的落地操作：Elements 面板里网格元素旁的 grid 徽标、Layout 面板的 overlay 开关（显示线号、轨道尺寸、区域名）。文档站的 /zh/ 路径实测返回的仍是英文内容（与课 34 的 Chrome 文档同一情况），无可靠中文版；按图操作的部分英文门槛很低。',
+      why: '官方 Assignment 第 3 条指定浏览（开发者工具的 Grid 检查功能文档）。',
+      points: [
+        'grid 徽标在哪：Elements 面板里网格容器的标签旁。',
+        'Grid overlay 能显示什么：线号、轨道尺寸、区域名，都可单独开关。',
+        '与本课正文的「Layout 选项」描述互为印证——一个讲概念、一个讲操作入口。'
+      ],
+      terms: [
+        'Grid overlay（网格叠加层）',
+        'Layout pane（布局面板）'
+      ],
+      focus: '照着开一次 overlay、看一眼线号即可，不必精读全文。',
+      takeaway: '调试 Grid 布局时知道去哪把「看不见的线」打开。',
+      },
+      license: 'Chrome DevTools 文档版权归 Google 所有；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '无可靠中文版：developer.chrome.com 的 /zh/ 路径实测重定向回英文页（汉字数 22，仅导航残留），与课 34 的 6 条 chrome dev docs 同一处置口径。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-positioning-grid-elements',
+      title: 'Grid layout using line-based placement - CSS | MDN',
+      titleZh: 'CSS 网格中基于线的定位（MDN，有官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（官方给的旧路径 301 重定向到现役 /docs/Web/CSS/Guides/Grid_layout/Line-based_placement；页面标题「Grid layout using line-based placement - CSS | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout/Line-based_placement',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「CSS 网格中基于线的定位 - CSS：层叠样式表 | MDN」、h1「CSS 网格中基于线的定位」，正文 8310 个汉字）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：读 MDN 的「基于线的定位」一文——正是本课主体的系统版：网格线怎么编号（含负数线与 span 关键字）、grid-column / grid-row 的起止线写法、以及跨轨道摆放的更多细节。本站正文用公寓户型图讲了直觉，这篇补全参考细节。有官方简体中文版，按现役 zh-CN 路径直达。',
+      why: '官方 Assignment 第 1 条指定阅读（基于线的网格定位）。',
+      points: [
+        '线号坐标系的标准定义：n 条轨道对应 n+1 条线，负数线从另一端倒数。',
+        'span 关键字：grid-column: span 2 表示「跨两条轨道」，不必算结束线号——本课收尾预告的术语在这里展开。',
+        'start / end 属性与 grid-column / grid-row / grid-area 简写的完整对照。'
+      ],
+      terms: [
+        'line-based placement（基于线的定位）',
+        'span（跨轨道关键字）'
+      ],
+      focus: '重点读 span 与负数线号两节——正好补上本课「收尾」一节留的两个预告。',
+      takeaway: '定位属性从「会用四值」升级到「会用 span 与负数线偷懒」。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-positioning-grid-elements',
+      title: 'Grid Garden - A game for learning CSS grid layout',
+      titleZh: 'Grid Garden（网格花园通关游戏）',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条（第 1–17 关；advanced-grid-properties 的 Assignment 第 2 条为同一游戏的 18–28 关，跨课合并登记在本课）',
+      originalUrl: 'https://cssgridgarden.com/',
+      sourceDomain: 'cssgridgarden.com',
+      originalUrlStatus: '200（页面标题「Grid Garden - A game for learning CSS grid layout」，h1「Grid Garden」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：用「给胡萝卜田浇水」的通关游戏练 Grid 定位——每关要你写一条真实的 Grid 属性把水浇到指定位置，第 1–17 关覆盖本课的线号定位（grid-column / grid-row / grid-area），18–28 关留给下一课（高级网格属性）的 Assignment。官方提醒：17 关之后的内容超出本课范围，先不必做。游戏界面为英文，但关卡说明短、属性名通用，语言门槛低。无官方中文版。',
+      why: '官方 Assignment 第 2 条指定通关（第 1–17 关；后 11 关属下一课任务）。',
+      points: [
+        '每关一条声明：grid-column-start、grid-column: 起 / 止、grid-area 四值都会练到。',
+        '右侧实时解释你写的属性——与 CSS Diner（选择器游戏）同一制作思路。',
+        '官方划界：本课只做 1–17 关，18–28 关（span、repeat 等）是高级网格属性课的任务。'
+      ],
+      terms: [
+        'grid-column-start / grid-row-start（起止线属性）',
+        'grid-area（四值简写）'
+      ],
+      focus: '卡关时回看本站「grid-area 四值」一节的顺序口诀：行起 / 列起 / 行止 / 列止。',
+      takeaway: '线号定位从「看懂」变成「手熟」。',
+      },
+      license: 'Grid Garden 版权归原作者；本站只链接游戏入口与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '跨课合并：advanced_grid_properties 的 Assignment 第 2 条（第 18–28 关）与本条同址，按既有口径登记在首现课（本课），该课任务映射按「资源归属课」纪律不另建条目。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-grid-properties',
+      title: 'min-content CSS keyword - CSS | MDN',
+      titleZh: 'CSS 关键字 min-content（MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Fractional units 一节（官方注明「非常有用但超出本课范围，想深挖看这里」）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/CSS/min-content',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（官方给的旧路径 301 重定向到现役 /docs/Web/CSS/Reference/Values/min-content；页面标题「min-content CSS keyword - CSS | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/min-content',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「min-content - CSS：层叠样式表 | MDN」、h1「min-content」，正文 6173 个汉字）',
+      zhGuide: {
+      overview: '本课正文讲到「网格缩到最小时有个底线」：项目不会无限缩小，极限是内容的 min-content 值——官方明说这个关键字非常有用、但展开超出本课范围，想深挖看这一页。它讲清 min-content 的定义（内容不溢出所需的最小尺寸）、能用在哪些属性上、与 max-content 的关系。有官方简体中文版，按现役 zh-CN 路径直达；本课阶段知道它存在即可，不必深读。',
+      why: '官方正文引用（min-content 关键字的深入文档，标注超出本课范围）。',
+      points: [
+        'min-content 的含义：把内容压到不溢出所需的最小宽度（最长不可断词决定下限）。',
+        '它是长度值关键字，可用于 width、grid 轨道尺寸等接受长度的位置。',
+        '与 max-content、fit-content 的对照关系（同族关键字）。'
+      ],
+      terms: [
+        'min-content（最小内容尺寸）',
+        'intrinsic sizing（内在尺寸：由内容决定的尺寸族）'
+      ],
+      focus: '本课只需回答一个问题：「网格为什么缩不到零」——答案就在这个关键字。',
+      takeaway: '知道缩小的底线叫什么、去哪查，够用了。',
+      },
+      license: 'MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-advanced-grid-properties',
+      title: 'CSS Grid Layout Module Level 1（§7.1 auto-repeat）',
+      titleZh: 'W3C CSS Grid 规范：auto-repeat 一节（auto-fit / auto-fill 的定义出处）',
+      type: '规范',
+      requirement: 'reference',
+      zone: '正文 auto-fit and auto-fill 一节（官方引用其对「最大可能正整数」的定义）',
+      originalUrl: 'https://www.w3.org/TR/css-grid-1/#auto-repeat',
+      sourceDomain: 'w3.org',
+      originalUrlStatus: '200（页面标题与 h1 均为「CSS Grid Layout Module Level 1」，#auto-repeat 锚点实测存在。核验方法如实记录：该站点对伪装浏览器 UA 的请求返回 403，对默认 curl UA 返回 200——与此前多数站点方向相反，已用默认 UA 完成核验）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方在讲 auto-fit / auto-fill 时引用的规范出处：W3C CSS Grid Level 1 的 auto-repeat 一节。「返回不让项目溢出容器的最大可能正整数」（the largest possible positive integer）这句定义就出自这里，auto-fill 与 auto-fit 在规范里的行为差异（空轨道保留与否）也在此正式定义。规范语言比教程干硬，本课阶段只需对照读那一段；W3C 规范无官方中文版，本站只提供链接与导读（与课 28 的 flexbox 规范条目同一口径）。',
+      why: '官方正文引用（auto-fit / auto-fill 行为的规范定义出处）。',
+      points: [
+        '「最大可能正整数」的正式定义：repeat(auto-*, ...) 计算重复次数的规则。',
+        'auto-fill 与 auto-fit 的规范级差异：fit 会把空轨道折叠掉（项目拉伸占满），fill 保留空轨道。',
+        '本课正文的「三步计算」拆解与规范定义一一对应，可互为印证。'
+      ],
+      terms: [
+        'auto-repeat（自动重复）',
+        'the largest possible positive integer（最大可能正整数）'
+      ],
+      focus: '只读 §7.1（auto-repeat）一节即可，全文很长不必通读。',
+      takeaway: '知道「魔法行」的行为有规范背书，遇到边界疑问知道去哪仲裁。',
+      },
+      license: 'W3C 规范文档按 W3C 文档许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '核验方法备注：w3.org 当前对伪装浏览器 UA 的请求返回 403、对默认 curl UA 返回 200（与多数站点方向相反）；本条用默认 UA 核验成功，不属自动核验受限。'
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-using-flexbox-and-grid',
+      title: 'Does CSS Grid Replace Flexbox? | CSS-Tricks',
+      titleZh: 'CSS Grid 会取代 Flexbox 吗（CSS-Tricks）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://css-tricks.com/css-grid-replace-flexbox/',
+      sourceDomain: 'css-tricks.com',
+      originalUrlStatus: '200（页面标题「Does CSS Grid Replace Flexbox? | CSS-Tricks」，h1「Does CSS Grid Replace Flexbox?」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：标题就是本课结论的反问式表达——「Grid 取代 Flexbox 了吗？」文章从两者的一维 / 两维分工、内容驱动 / 布局驱动的差异展开，与本站正文的判断口径同向。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+      why: '官方 Assignment 第 1 条指定阅读（Grid 与 Flexbox 的关系辨析）。',
+      points: [
+        '一维 vs 两维：两者的主场划分与本课正文一致。',
+        '「取代论」为什么站不住：真实项目里两者是嵌套配合关系。',
+        '给「什么时候选哪个」提供了与官方口径互补的第三方视角。'
+      ],
+      terms: [
+        'one-dimensional / two-dimensional（一维 / 两维布局）',
+        'nesting（嵌套：外 Grid 内 Flex 的组合）'
+      ],
+      focus: '带着本课的「内容优先 / 布局优先」口径读，对照两文的结论异同。',
+      takeaway: '对「谁取代谁」的争论免疫，选择只看任务形状。',
+      },
+      license: 'CSS-Tricks 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-using-flexbox-and-grid',
+      title: 'Flexbox or grid - How to decide?',
+      titleZh: 'Flexbox 还是 Grid——怎么决定？（Kevin Powell 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=3elGSZSWTbM',
+      sourceDomain: 'youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「Flexbox or grid - How to decide?」，作者 Kevin Powell）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：Kevin Powell 演示 Grid 与 Flexbox 在真实世界里的用例——怎么选、怎么配。视频为英文讲授，看之前先读完本站正文的判断口径（内容优先 / 布局优先），带着口径看演示，注意他在哪些场景下切换工具。',
+      why: '官方 Assignment 第 2 条指定观看（真实世界的 Grid 与 Flexbox 用例）。',
+      points: [
+        '真实布局里两者的分工与切换时机。',
+        '嵌套组合的实际形态（外层结构 + 内层内容流）。',
+        '与本课正文口径互为印证：没有唯一正确答案，按任务形状选。'
+      ],
+      terms: [
+        'use cases（用例）',
+        'layout decisions（布局决策）'
+      ],
+      focus: '记录他每次「换工具」的瞬间和理由——那正是判断口径的实战版。',
+      takeaway: '判断口径从文字变成可模仿的决策过程。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者 Kevin Powell 所有；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-using-flexbox-and-grid',
+      title: 'CSS Grid vs. Flexbox: Which Should You Use and When? | Envato Tuts+',
+      titleZh: 'CSS Grid 对比 Flexbox：该用哪个、何时用（Envato Tuts+）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://webdesign.tutsplus.com/flexbox-vs-css-grid-which-should-you-use--cms-30184a',
+      sourceDomain: 'webdesign.tutsplus.com',
+      originalUrlStatus: '200（页面标题「CSS Grid vs. Flexbox: Which Should You Use and When? | Envato Tuts+」，h1「CSS Grid vs. Flexbox: Which should you use and when?」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：Tuts+ 系统讨论「何时用 Grid、何时用 Flexbox、为什么」——比本课正文更展开的第三方长文，覆盖对齐能力、内容行为、浏览器支持历史等维度。无官方中文版，本站提供原创导读要点 + 英文原文链接。',
+      why: '官方 Assignment 第 3 条指定阅读（何时用 Grid 或 Flexbox 及原因）。',
+      points: [
+        '按「内容行为 vs 版面结构」划分两者主场——与本课口径同源。',
+        '对齐与分布能力的逐项对比表。',
+        '何时两者嵌套配合的实例分析。'
+      ],
+      terms: [
+        'content-driven vs layout-driven（内容驱动 vs 布局驱动）',
+        'alignment（对齐）'
+      ],
+      focus: '读它的对比表就值回时间；结论部分与本站正文对照。',
+      takeaway: '手边多一份「选择依据」清单，写布局前 30 秒能定工具。',
+      },
+      license: '文章版权归 Envato Tuts+ 与作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-intermediate-html-and-css-admin-dashboard',
+      title: 'Material Design Icons - Icon Library - Pictogrammers',
+      titleZh: 'Material Design Icons 图标库（Pictogrammers）',
+      type: '素材库',
+      requirement: 'reference',
+      zone: 'Assignment Step 4 第 2 条（仪表盘全部图标的下载来源）',
+      originalUrl: 'https://pictogrammers.com/library/mdi/',
+      sourceDomain: 'pictogrammers.com',
+      originalUrlStatus: '200（页面标题「Material Design Icons - Icon Library - Pictogrammers」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Step 4 指定：仪表盘需要的全部图标（以及更多）都能从这个站点下载为 SVG——按名搜索（如 home、magnify、bell），选中后可直接下载 SVG 文件或复制代码。注意这是 Pictogrammers 社区维护的 Material Design Icons（MDI），与 SVG 一课登记过的 Google Fonts 上的 Material Icons（fonts.google.com/icons）是**两个不同的图标库**，图标名与风格相近但不通用。无官方中文版（站点界面为英文，搜索用英文图标名）。',
+      why: '官方 Assignment Step 4 第 2 条给出的图标来源。',
+      points: [
+        '按英文名搜索图标，逐个下载 SVG——仪表盘侧栏与顶栏的图标都从这里取。',
+        '与 Google 的 Material Icons 是两个库：本站 SVG 一课登记过后者，别搜混。',
+        '下载的是 SVG 文件——正好用上「SVG」一课学的嵌入方式（链接或内联）。'
+      ],
+      terms: [
+        'icon library（图标库）',
+        'SVG download（SVG 下载）'
+      ],
+      focus: '先把设计图里出现的图标列个名字清单，再一次性搜完下载——别边布局边找图。',
+      takeaway: '知道去哪拿图标、拿什么格式，Step 4 就不会拖节奏。',
+      },
+      license: 'Material Design Icons 按 Pictogrammers 站点的开源许可发布（图标本体多为 Apache 2.0 / Pictogrammers 免费许可）；本站只链接官方给出的地址，不镜像、不转存。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    /* ===== World 3 批次 4 阶段 1（2026-09-26，v4.11.23，通宵轮）：javascript 课程「引言」+
+     * 「组织 JavaScript 代码」两章节 15 课，+52 条 =====
+     * 逐条三级核验真跑（状态码 → 重定向 → 内容级语言核验；2 条视频走 oEmbed，播放列表亦经
+     * oEmbed 取得真实标题——该形态首次出现）。按课分布：how-this-course-will-work 1 /
+     * organizing-code-with-objects 0（**本站第四个零外部资料课**，见下）/ object-constructors 6 /
+     * library 3 / factory-functions 6 / tic-tac-toe 1 / classes 6 / es6-modules 3 / npm 5 /
+     * webpack 5 / restaurant-page 1 / revisiting-webpack 1 / json 4 / oop-principles 4 /
+     * todo-list 6。A 类 24 条（MDN zh-CN ×20、zh.javascript.info ×3、Todoist 官网中文版 ×1，
+     * 全部按重定向后的现役 zh-CN 路径登记并逐条内容级核验、汉字数入 overview）；
+     * C 类 28 条（含 2 条视频与 1 个播放列表，一律不声称有中文字幕）。
+     * organizing-code-with-objects 零资料理由：官方 Assignment 明文「No assignment for this
+     * particular lesson!」无作业声明；正文唯一外链是 TOP 自有的 Foundations Object Basics
+     * 课页——按既有口径剔除不凑数（与课 26 / 课 32 / introduction-to-grid 同一机制）。
+     * 跨课/同页合并 3 处：① MDN import 文档——es6-modules Assignment 与正文「路径不能用
+     * 模板字符串」锚点（#module-name）同页合并登记在 es6-modules；webpack 正文的「副作用
+     * 导入」锚点（#import_a_module_for_its_side_effects_only）也并入该条（zone 记三处来源）。
+     * ② MDN 解构文档——factory-functions 正文提示块首现登记，es6-modules 警告块的
+     * #object_destructuring 锚点同页跨课合并（按「资源归属课」纪律登记在首现课）。
+     * ③ webpack Asset Management 指南——Assignment 第 2 条与正文 #loading-images 锚点同页
+     * 合并。TOP 自有课页剔除 5 条（object-constructors 无、organizing 回链 Object Basics、
+     * classes 的 Library 项目页与 RPS 课页、restaurant-page 的 npm 课页、webpack 的
+     * Installing Node.js 课页）；statically CDN 配图 1 张剔除（object_constructors/imgs/）。
+     * 本批核验新事实（如实记录）：① MDN import 的 zh-CN 页锚点分化——#module-name 在中文版
+     * 原样存在（实测），而「副作用导入」小节在中文版没有独立锚点（内容住在 #语法 节内），
+     * 中文链接按批次 2 纪律改挂实测存在的 #语法；② MDN Learn/Language 区路径再迁移 3 处：
+     * dialog 旧路径 301 到 Web/HTML/Reference/Elements/dialog、data attributes 301 到
+     * Web/HTML/How_to/Use_data_attributes、解构 301 到 Operators/Destructuring（去 _assignment
+     * 后缀）、Private_class_fields 301 到 Classes/Private_elements、JSON 教程 301 到
+     * Learn_web_development/Core/Scripting/JSON——一律按现役 zh-CN 路径登记；③ W3Schools
+     * 两页（JSON.parse / JSON.stringify）本次带浏览器 UA 实测 200 并取得标题——与既有 7 条
+     * w3s 受限条目不同批不同页，不入受限清单；④ zh.wikipedia 无 Minification 对应条目
+     * （实测 404），英文版登记 C 类；⑤ Todoist 官网有官方中文版（www.todoist.com/zh-CN
+     * 直连 200、实测汉字 1576）——en.todoist.com 按 Accept-Language 自动跳转，zhUrl 登记
+     * 直连地址；⑥ ayweb.dev 是 SPA：命令行 200 但只取得站点级标题，文章标题与正文经真实
+     * 浏览器核验（h1「Building A House From The Inside Out」，Alex Younger，2022-03-01）；
+     * ⑦ npmjs.com 的 npm 包页对三种 UA 全部 403，真实浏览器亦停在 Cloudflare 人机验证页
+     * （「正在进行安全验证」），两条通路都无法取得内容——入受限清单；⑧ Medium 的 SOLID 文
+     * 带浏览器 UA 与 Referer 仍 403，真实浏览器核验可达并取得 h1（与批次 3 Medium 先例同一
+     * 处置）——入受限清单。YouTube 播放列表 oEmbed 可用（返回列表标题「SOLID Design
+     * Principles | Web Dev Simplified」），单视频 oEmbed 照常。 */
+    {
+      lessonId: 'node-path-javascript-how-this-course-will-work',
+      title: 'Memorization and Learning to Code',
+      titleZh: '记忆与学编程（dev.to）',
+      type: '文章',
+      requirement: 'reference',
+      zone: '正文「The journey」节（官方：提醒自己「你不需要记住学过的每件事」处链接）',
+      originalUrl: 'https://dev.to/theodinproject/memorization-and-learning-to-code-1b6h',
+      sourceDomain: 'dev.to',
+      originalUrlStatus: '200（页面标题「Memorization and learning to code - DEV Community」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文在「你会不断遗忘」处链接的 dev.to 文章（TOP 官方账号发布）：讲「学编程不需要靠记忆」——忘了就查，重复接触自然记住。与本课「旅程预期」一节直接配套：把官方的定心丸展开成方法。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方正文链接：支撑「你不需要记住学过的每件事」这个旅程预期的展开阅读。',
+      points: [
+        '核心观点：编程是「查得到就不用背」的工作，记忆靠重复使用自然形成。',
+        '与本课正文的遗忘预期直接配套——读它把「安慰」变成「方法」。',
+        'TOP 官方账号发布的文章，口径与课程一致。'
+      ],
+      terms: [
+        'memorization（记忆/背诵）',
+        'learning to code（学编程）'
+      ],
+      focus: '带着「我最近忘了什么」的具体例子读，对照它给的应对方式。',
+      takeaway: '把「忘了就查」内化为学习方法，不再用遗忘否定自己。',
+      },
+      license: 'dev.to 文章版权归原作者与 TOP 官方账号所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    /* --- organizing-code-with-objects：零外部资料课（第四个）。官方 Assignment 为
+     * 「No assignment for this particular lesson!」无作业声明；正文唯一外链是 TOP 自有的
+     * Foundations Object Basics 课页（回链复习），按既有口径剔除不凑数——不建 perLesson
+     * 条目（与课 26 / 课 32 / introduction-to-grid 同一处理）。 --- */
+    {
+      lessonId: 'node-path-javascript-object-constructors',
+      title: 'Object.getPrototypeOf() - JavaScript | MDN',
+      titleZh: 'Object.getPrototypeOf()（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「Accessing an object\'s [[Prototype]]」小节',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '读取对象 [[Prototype]] 的标准方法——本课「怎么看到一个对象的原型」的权威文档。MDN 官方简体中文版已做内容级核验（正文汉字 1156 个，与英文版同一篇文章），直接读中文版即可。',
+      why: '正文用它查看实例的原型：Object.getPrototypeOf(player1) === Player.prototype。',
+      points: [
+        '返回值 = 该对象的 [[Prototype]]；构造器实例的原型正是 Constructor.prototype。',
+        '与 .prototype 的分工：这个是「读对象的原型」，那个是「函数上决定实例原型挂谁」的属性。',
+        '对应的写入方法是 Object.setPrototypeOf（本课继承一节用到）。'
+      ],
+      terms: [
+        '[[Prototype]]（内部原型链接）',
+        'prototype chain（原型链）'
+      ],
+      focus: '对照本课「原型三句话」一节读，把 getPrototypeOf 的返回值与三句话对上。',
+      takeaway: '查看任何对象原型的标准姿势，控制台排查必备。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-object-constructors',
+      title: 'Object.prototype.__proto__ - JavaScript | MDN',
+      titleZh: 'Object.prototype.__proto__（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「.__proto__」提示块（非标准已废弃写法的说明链接）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/proto',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方提示块链接的 MDN 文档：.__proto__ 是非标准且已废弃的原型读写方式（历史原因存在于多数浏览器）。MDN 官方简体中文版已做内容级核验（正文汉字 1717 个）。读它是为了在旧代码里认出这个写法并知道该换成 Object.getPrototypeOf / setPrototypeOf——不是学着用。',
+      why: '正文提示块：旧文档与旧代码里的 .__proto__ 为什么不推荐使用。',
+      points: [
+        '__proto__ 是非标准、已废弃的历史遗留——读写原型一律用 Object.getPrototypeOf() / Object.setPrototypeOf()。',
+        'Assignment 里 JavaScript.info 的文章大量使用它（官方自己提醒学概念别学写法）——读那篇前先看完这页。',
+        '在旧代码库见到 __proto__ 能认出它等价于什么，就够了。'
+      ],
+      terms: [
+        'deprecated（已废弃）',
+        'non-standard（非标准）'
+      ],
+      focus: '只看「为什么废弃、替代是什么」，别抄它的用法。',
+      takeaway: '见到 __proto__ 知道是旧写法，自己代码里不用。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-object-constructors',
+      title: 'Object.prototype.hasOwnProperty() - JavaScript | MDN',
+      titleZh: 'Object.prototype.hasOwnProperty()（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「原型链」小节（判断属性是自己的还是继承的）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '判断属性是对象「自己的」还是「原型链上继承的」——本课用它证明 valueOf 住在 Object.prototype 上（player1.hasOwnProperty("valueOf") 为 false）。MDN 官方简体中文版已做内容级核验（正文汉字 1872 个）。',
+      why: '正文原型链一节的实证工具：区分自有属性与继承属性。',
+      points: [
+        'hasOwnProperty 本身也是继承来的（它就定义在 Object.prototype 上）——官方正文用这个「自举」演示了原型链。',
+        '遍历对象时常用它过滤掉继承属性（for...in 会遍历到原型链）。',
+        '现代代码里也可用 Object.hasOwn()（同一功能的静态方法写法）。'
+      ],
+      terms: [
+        'own property（自有属性）',
+        'inherited property（继承属性）'
+      ],
+      focus: '对照本课 valueOf 的三级查找过程读，每一步都能用 hasOwnProperty 验证。',
+      takeaway: '「这个属性到底在哪一级」从此可以实证，不靠猜。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-object-constructors',
+      title: 'Understanding Prototypes and Inheritance in JavaScript | DigitalOcean',
+      titleZh: '理解 JavaScript 的原型与继承（DigitalOcean）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1.1 条',
+      originalUrl: 'https://www.digitalocean.com/community/tutorials/understanding-prototypes-and-inheritance-in-javascript',
+      sourceDomain: 'www.digitalocean.com',
+      originalUrlStatus: '200（页面标题「Understanding Prototypes and Inheritance in JavaScript | DigitalOcean」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1.1 条：原型继承与构造器函数的复习文章，带例子。定位是「复习」——本站正文与下一篇文章（JavaScript.info）已经讲透机制，这篇用不同的例子再过一遍，帮你确认自己真的懂了。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：原型与继承的第一遍复习。',
+      points: [
+        '用另一组例子重讲原型链与构造器——与本站正文对照读，检验理解。',
+        '官方评价：a good review（好的复习材料），不是新知识来源。',
+        '读完能独立复述「实例 → Constructor.prototype → Object.prototype → null」这条链。'
+      ],
+      terms: [
+        'prototypal inheritance（原型继承）',
+        'constructor function（构造器函数）'
+      ],
+      focus: '当复习材料读：每个例子先自己预判输出再往下看。',
+      takeaway: '同一机制换一套例子仍然认得出来——这才叫懂了。',
+      },
+      license: 'DigitalOcean 社区教程按其站点许可发布（多为 CC BY-NC-SA）；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-object-constructors',
+      title: 'Prototypal Inheritance — JavaScript.info',
+      titleZh: '原型继承（JavaScript.info 官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1.2 条',
+      originalUrl: 'http://javascript.info/prototype-inheritance',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/prototype-inheritance',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1.2 条：把原型链与继承再挖深一层的精读材料（官方原话：文末练习不要跳过）。站内有官方中文版（zh.javascript.info，已内容级核验，正文汉字 3214 个，标题「原型继承」）。**官方特别警告**：该文大量使用已废弃的 __proto__ 写法——学概念、别学写法，设置原型的推荐方法是本课正文的 Object.setPrototypeOf。',
+      why: '官方 Assignment 指定精读：链与继承的深挖 + 必做练习。',
+      points: [
+        '比本课正文更细的边界情形：原型链上的读写分离、this 的指向、for...in 与继承属性。',
+        '文末练习官方明说 Don\'t skip them——做完才算消化。',
+        '__proto__ 在该文里只是教学载体：概念照单全收，写法换成 getPrototypeOf/setPrototypeOf。'
+      ],
+      terms: [
+        'prototype chain（原型链）',
+        'setter/getter 与原型（该文深挖部分）'
+      ],
+      focus: '带着「哪些是概念、哪些是过时写法」的滤镜读；练习全做。',
+      takeaway: '原型机制的边界情形心里有底，读旧代码不被 __proto__ 吓住。',
+      },
+      license: 'JavaScript.info 教程按 CC BY-NC-SA 4.0 发布；本站只链接官方中文站，不复制教程内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-object-constructors',
+      title: 'Demystifying JavaScript this Keyword with Practical Examples',
+      titleZh: '用实例讲透 JavaScript 的 this 关键字（JavaScript Tutorial）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.javascripttutorial.net/javascript-this/',
+      sourceDomain: 'www.javascripttutorial.net',
+      originalUrlStatus: '200（页面标题「Demystifying JavaScript this Keyword with Practical Examples」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：this 在各种情形下如何变化的专文——官方特意叮嘱「每节提到的坑要特别留意」。本课的构造器与原型方法里到处都是 this（方法里的 this 指向调用它的对象），而箭头函数、单独调用、事件回调里 this 各有不同规则。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：this 的系统梳理（构造器与原型方法的前置知识）。',
+      points: [
+        '逐情形讲 this：对象方法里、单独函数调用里、箭头函数里、事件处理器里。',
+        '官方点名看每节的 pitfalls（坑）——那些正是「this 怎么不是我以为的对象」的答案。',
+        '与工厂函数课的箭头函数警告呼应：箭头函数里的 this 不按调用方绑定。'
+      ],
+      terms: [
+        'this binding（this 绑定）',
+        'call site（调用位置：this 由「怎么调用」决定）'
+      ],
+      focus: '每节先自己判断 this 是谁再看答案；把坑逐条抄进笔记。',
+      takeaway: '看到 this 能立刻说出它指向谁、为什么。',
+      },
+      license: 'JavaScript Tutorial 站点文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-library',
+      title: 'The dialog element - Learn web development | MDN',
+      titleZh: '<dialog>：对话框元素（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条（「New Book」表单的展示方式选项之一）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN HTML 参考区路径重组，站内重定向到现役地址）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/dialog',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方任务 4 点名的探索方向：用 <dialog> 标签做「New Book」弹窗表单（另一个选项是侧栏）。MDN 官方简体中文版已做内容级核验（正文汉字 2533 个，标题「<dialog>：对话框元素」，按重定向后的现役 zh-CN 路径登记）。 showModal() / close() 两个方法与 ::backdrop 伪元素是做出可用弹窗的全部所需。',
+      why: '官方 Assignment 第 4 条给出的表单展示选项之一的权威文档。',
+      points: [
+        '<dialog> 是 HTML 原生对话框：showModal() 打开（自带遮罩与焦点管理）、close() 关闭。',
+        '表单可以直接住在 dialog 里，用 form 的 method="dialog" 让提交即关闭。',
+        '不用它做侧栏也完全可以——官方原话「怎么展示由你决定」。'
+      ],
+      terms: [
+        'modal（模态：挡住页面其余部分的对话框）',
+        '::backdrop（对话框背后的遮罩层伪元素）'
+      ],
+      focus: '只看 element 页的示例部分就能上手；无障碍细节可后读。',
+      takeaway: '会用原生 dialog 做弹窗表单，不再需要手搭遮罩层。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-library',
+      title: 'Event: preventDefault() method - Web APIs | MDN',
+      titleZh: 'Event：preventDefault() 方法（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条（表单提交刷新页面问题的官方指定解法文档）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（zh-CN 页标题「Event：preventDefault() 方法 - Web API | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方任务 4 预警的坑（submit 默认把数据发给服务器导致页面刷新）的指定解法文档。MDN 官方简体中文版已做内容级核验（正文汉字 1657 个）。一句话用法：在表单 submit 事件处理函数的开头调用 event.preventDefault()，默认行为被取消，后续由你的 JS 接管。',
+      why: '官方 Assignment 第 4 条点名：表单不按预期工作时的解法文档。',
+      points: [
+        '取消事件的默认行为（表单提交刷新页面、链接跳转、复选框切换等）——事件本身仍会传播。',
+        '在 submit 处理器第一行调用，然后读表单值、入库、重新渲染。',
+        'Foundations 第 41 课学过的事件老朋友，表单场景的第一次实战。'
+      ],
+      terms: [
+        'default action（默认行为）',
+        'submit event（表单提交事件）'
+      ],
+      focus: '看语法与示例即可；「passive 监听器里不能调用」的细节本页用不到。',
+      takeaway: '表单提交不再刷新页面，数据由你的代码接管。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-library',
+      title: 'Use data attributes - Learn web development | MDN',
+      titleZh: '使用数据属性（MDN 官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 5 条（DOM 元素与书对象关联的官方推荐解法文档）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes',
+      originalUrlEffective: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/How_to/Use_data_attributes',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 学习区路径重组，站内重定向到现役地址 Web/HTML/How_to/Use_data_attributes）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/How_to/Use_data_attributes',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方任务 5 的关联解法文档：给 DOM 元素挂 data-* 自定义属性（如 data-id 存书的唯一 id），点击删除时读出 id 去数组里找书。MDN 官方简体中文版已做内容级核验（正文汉字 2419 个，标题「使用数据属性」，按重定向后的现役 zh-CN 路径登记）。JS 侧用 element.dataset.id 读取。',
+      why: '官方 Assignment 第 5 条子弹块给出的 data-attribute 方案文档。',
+      points: [
+        'HTML 侧：data-id="..." 挂在书的卡片/行上；JS 侧：el.dataset.id 直接读。',
+        '它是「DOM 元素 ↔ 数据对象」的标准桥：crypto.randomUUID() 发的 id 在这里兑现价值。',
+        'dataset 读出来的永远是字符串——与数组里的对象比对时注意类型。'
+      ],
+      terms: [
+        'data-* attribute（自定义数据属性）',
+        'dataset（元素上的 data 属性集合对象）'
+      ],
+      focus: '看「HTML 侧怎么写 + JS 侧 dataset 怎么读」两节就够本项目用。',
+      takeaway: '删除按钮从此知道「我是哪本书的删除按钮」。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-factory-functions-and-the-module-pattern',
+      title: 'Date() constructor - JavaScript | MDN',
+      titleZh: 'Date() 构造函数（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「构造器的两个历史槽点」节（带不带 new 行为不同的官方例子）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（zh-CN 页标题「Date() 构造函数 - JavaScript | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/Date',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '正文讲「构造器不带 new 调用也『能跑』」时给的官方例子：Date() 带 new 返回 Date 对象、不带 new 返回当前时间的字符串——同一个函数两种行为，是「构造器没有自动防误用保险」的活标本。MDN 官方简体中文版已做内容级核验（正文汉字 2442 个）。',
+      why: '正文引用：Date() 是「带不带 new 返回不同东西」的官方例证。',
+      points: [
+        'new Date() → Date 实例；Date() → 字符串（当前时间）——行为由调用方式决定。',
+        '这种双行为是刻意设计，但多数构造器没有这种待遇——漏写 new 就是事故。',
+        '与上一课 new.target 防护对照读：保险要自己加。'
+      ],
+      terms: [
+        'Date instance（Date 实例）',
+        'calling without new（不带 new 调用）'
+      ],
+      focus: '只看「调用形式与返回类型」的对照，日期 API 细节以后用到再查。',
+      takeaway: '理解「构造器漏写 new 为什么危险」的最好反例。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-factory-functions-and-the-module-pattern',
+      title: 'Destructuring assignment - JavaScript | MDN',
+      titleZh: '解构赋值（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「对象简写与解构」提示块（官方：例子很好、值得一读）；es6-modules 课警告块的 #object_destructuring 锚点同页跨课合并（登记在首现课）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（站内重定向到现役地址 Operators/Destructuring，去 _assignment 后缀）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '解构的权威文档：对象解构（const { a, b } = obj）与数组解构（const [x, y] = arr）的完整语法与例子——官方评价「例子很好，值得一读」。MDN 官方简体中文版已做内容级核验（正文汉字 4223 个，标题「解构」，按重定向后的现役路径登记）。本课组合一节（从 createUser 的产物里解构出需要的函数）与 es6-modules 课的「花括号不是解构」警告都以这页为语法事实源。',
+      why: '正文提示块指定阅读；组合与模块两课的高频语法。',
+      points: [
+        '对象解构按属性名拆包、数组解构按位置拆包——两种花括号/方括号语义不同。',
+        'es6-modules 课的警告块反向引用了本页：import { x } 的花括号**不是**解构——先学懂真解构，才分得清假解构。',
+        '默认值、重命名（as / 冒号）、嵌套解构都在本页——组合挑拣时常用。'
+      ],
+      terms: [
+        'object destructuring（对象解构）',
+        'array destructuring（数组解构）'
+      ],
+      focus: '精读对象解构一节（组合写法的基础）；数组解构浏览即可。',
+      takeaway: '解构成为肌肉记忆，读工厂组合与 import 语句不再卡顿。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-factory-functions-and-the-module-pattern',
+      title: 'Object.assign() - JavaScript | MDN',
+      titleZh: 'Object.assign()（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「组合」节（多来源合并的官方指定工具）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '正文组合一节的工具文档：Object.assign({}, user, { getLevel, increaseLevel })——把多个来源对象的属性合并进一个新对象（第一个参数是目标）。MDN 官方简体中文版已做内容级核验（正文汉字 2035 个）。注意它是浅合并：只复制属性值本身。',
+      why: '正文组合写法二用到的合并工具的权威文档。',
+      points: [
+        'Object.assign(target, ...sources)：把各来源的可枚举属性拷进 target 并返回它。',
+        '组合场景传空对象 {} 当 target——不污染任何来源对象。',
+        '浅拷贝语义：属性值是引用时拷的是引用（对象基础的引用概念在这里复用）。'
+      ],
+      terms: [
+        'shallow copy（浅拷贝）',
+        'target / sources（目标对象 / 来源对象）'
+      ],
+      focus: '看语法与「合并多个对象」示例；属性描述符细节可跳过。',
+      takeaway: '组合的多来源合并有一件顺手工具，且知道它是浅的。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-factory-functions-and-the-module-pattern',
+      title: 'Scope - JavaScript Module Courses - Wes Bos',
+      titleZh: '作用域（Wes Bos）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://wesbos.com/javascript/03-the-tricky-bits/scope',
+      sourceDomain: 'wesbos.com',
+      originalUrlStatus: '200（页面标题「Scope - Wes Bos」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：知名 JS 讲师 Wes Bos 的作用域专文——全局/函数/块级作用域的系统复习，与本站正文「Scoopfuls of scopes」一节同题互证。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：作用域的第二遍讲解。',
+      points: [
+        '与正文同一套概念（global / function / block scope），换一位作者的例子再过一遍。',
+        '作用域是闭包的地图——这篇读顺了，下一篇 Closures 才立得住。',
+        '作者的课程页面带目录，可顺藤摸到 closures 篇（就是 Assignment 第 2 条）。'
+      ],
+      terms: [
+        'scope（作用域）',
+        'block scope（块级作用域）'
+      ],
+      focus: '对照本站正文的作用域一节读，两篇的例子互补。',
+      takeaway: '「变量住在哪对花括号里」成为条件反射。',
+      },
+      license: 'Wes Bos 课程文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-factory-functions-and-the-module-pattern',
+      title: 'Closures - JavaScript Module Courses - Wes Bos',
+      titleZh: '闭包（Wes Bos）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://wesbos.com/javascript/03-the-tricky-bits/closures',
+      sourceDomain: 'wesbos.com',
+      originalUrlStatus: '200（页面标题「Closures - Wes Bos」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：Wes Bos 的闭包专文——闭包的第二遍讲解（不同例子、同一结论）。与正文 makeAddingFunction 与下一篇 MDN 指南构成「三视角学闭包」：本站正文给机制、Wes Bos 给直觉、MDN 给权威定义。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：闭包的第二遍讲解。',
+      points: [
+        '闭包的直觉版解释：函数「记住」了出生地的变量。',
+        '例子与正文的 makeAddingFunction 不同——换例子仍认得出机制，才算真懂。',
+        '与 Assignment 第 3 条 MDN 闭包指南（有中文版）配合：先直觉后权威。'
+      ],
+      terms: [
+        'closure（闭包）',
+        'lexical environment（词法环境）'
+      ],
+      focus: '读完合上页面，用自己的话给「add5 为什么记得 5」写一段解释。',
+      takeaway: '闭包从「背定义」变成「能讲给别人听」。',
+      },
+      license: 'Wes Bos 课程文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-factory-functions-and-the-module-pattern',
+      title: 'Closures - JavaScript | MDN',
+      titleZh: '闭包（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（zh-CN 页标题「闭包 - JavaScript | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：闭包的权威指南。MDN 官方简体中文版已做内容级核验（正文汉字 4734 个，标题「闭包」）。官方叮嘱：先忽略其中的 ES6 modules 部分（本站后面有专课）。这篇比正文更长更深（闭包与循环、用闭包模拟私有方法的完整推导），是三视角里的权威定调。',
+      why: '官方 Assignment 指定阅读：闭包的权威文档。',
+      points: [
+        '闭包的正式定义与完整例子链——与本站正文、Wes Bos 篇构成三视角。',
+        '官方叮嘱忽略 ES6 modules 部分——那是 es6-modules 课的内容。',
+        '「用闭包模拟私有」一节正是工厂函数私有变量的机制根源。'
+      ],
+      terms: [
+        'closure（闭包）',
+        'private method（私有方法：闭包模拟的经典用例）'
+      ],
+      focus: '精读定义与示例；ES6 modules 节跳过（官方明文）。',
+      takeaway: '闭包的定义、机制、用途三层全部对齐权威口径。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-tic-tac-toe',
+      title: 'Building A House From The Inside Out',
+      titleZh: '从内而外盖房子（ayweb.dev，作者 Alex Younger）',
+      type: '文章',
+      requirement: 'reference',
+      zone: 'Assignment 第 2 条子弹块（游戏逻辑与 DOM 分开的思维模型）',
+      originalUrl: 'https://www.ayweb.dev/blog/building-a-house-from-the-inside-out',
+      sourceDomain: 'www.ayweb.dev',
+      originalUrlStatus: '200（站点为 SPA：命令行只取得站点级标题「Alex Younger - Web Developer」，文章标题 h1「Building A House From The Inside Out」与发布日期 2022-03-01 经真实浏览器核验取得）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方任务子弹块引用的思维模型文章：把写井字棋比作盖房子——先盖内部结构（游戏逻辑：谁赢了、能不能落子），再考虑外立面（DOM：画棋盘、绑按钮）。逻辑层完全不知道 DOM 存在，才能单独测试、单独替换。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定的「逻辑与界面分离」思维模型阅读。',
+      points: [
+        '核心比喻：house inside-out——先把内部（逻辑）盖好，外墙（DOM）最后砌。',
+        '与官方任务 4「模块拆分」直接对应：gameboard / player 逻辑模块 vs DOM 渲染模块。',
+        'SPA 站点：标题与内容经真实浏览器核验（h1 与 2022-03-01 发布日期）。'
+      ],
+      terms: [
+        'separation of concerns（关注点分离）',
+        'DOM module（DOM 模块：只负责画与绑事件）'
+      ],
+      focus: '读时不断自问：我的井字棋里哪些函数属于「屋内」、哪些属于「外墙」。',
+      takeaway: '动手前就有清晰的逻辑/界面分界线。',
+      },
+      license: 'ayweb.dev 博客文章版权归原作者 Alex Younger 所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-classes',
+      title: 'Property getters and setters — JavaScript.info',
+      titleZh: '属性的 getter 和 setter（JavaScript.info 官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'http://javascript.info/property-accessors',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/property-accessors',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：getter/setter 访问器的系统教程——本站正文只讲了类里的 get/set 语法，这篇把访问器从对象字面量讲到类（含 defineProperty 的底层视角）。站内有官方中文版（zh.javascript.info，已内容级核验，正文汉字 1349 个，标题「属性的 getter 和 setter」）。',
+      why: '官方 Assignment 指定阅读：访问器的完整教程。',
+      points: [
+        '访问器属性 vs 数据属性：get/set 让「读 obj.x」背后可以跑一段逻辑。',
+        '类里的 get name() 就是本课正文的语法糖背后的机制。',
+        '常见用途：校验（setter 里挡非法值）、派生值（getter 里现算 fullName）。'
+      ],
+      terms: [
+        'accessor property（访问器属性）',
+        'data property（数据属性）'
+      ],
+      focus: '精读「类中的 getter/setter」一节；defineProperty 底层节浏览即可。',
+      takeaway: '知道 get/set 不只是类语法，而是属性访问的通用机制。',
+      },
+      license: 'JavaScript.info 教程按 CC BY-NC-SA 4.0 发布；本站只链接官方中文站，不复制教程内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-classes',
+      title: 'Class basic syntax — JavaScript.info',
+      titleZh: 'Class 基本语法（JavaScript.info 官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'http://javascript.info/class',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200',
+      zhUrl: 'https://zh.javascript.info/class',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：类的基本语法精读——本站正文的第二遍讲解，例子更全（含类表达式、computed 方法名、静态属性等边界）。站内有官方中文版（zh.javascript.info，已内容级核验，正文汉字 2301 个，标题「Class 基本语法」）。文末练习照例别跳过。',
+      why: '官方 Assignment 指定精读：类语法的第一复习材料。',
+      points: [
+        '「类是语法糖」的实证：文中把 class 逐步还原成构造器 + prototype——与本课正文的糖衣论证互为印证。',
+        '类表达式（把类存进变量/当参数传）是正文没展开的形态。',
+        '文末练习含「重写方法」「延迟执行」等小题——做完才算消化。'
+      ],
+      terms: [
+        'class expression（类表达式）',
+        'syntactic sugar（语法糖）'
+      ],
+      focus: '对照本站正文的「糖衣」论证读；练习全做。',
+      takeaway: '类语法与它背后的原型机制在脑中完全打通。',
+      },
+      license: 'JavaScript.info 教程按 CC BY-NC-SA 4.0 发布；本站只链接官方中文站，不复制教程内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-classes',
+      title: 'Classes - JavaScript | MDN',
+      titleZh: '类（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条（主文档；extends / static / 私有元素三处子弹块链接见各自条目）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：类语法的权威总览文档（官方原话「浏览即可」，其下三处子弹块链接再精读）。MDN 官方简体中文版已做内容级核验（正文汉字 3719 个，标题「类」）。它是整页地图：构造函数、方法、静态成员、继承、私有字段各自的小节与示例都从这里展开。',
+      why: '官方 Assignment 指定浏览：类语法的权威地图页。',
+      points: [
+        '官方定位是 skim（浏览）——先建立全貌，细节进三处子弹块链接。',
+        '本页含「类与原型」的官方对照——糖衣论证的权威版本。',
+        '类字段（field）初始化与 constructor 赋值的差别在本页有正式定义。'
+      ],
+      terms: [
+        'class declaration（类声明）',
+        'class field（类字段）'
+      ],
+      focus: '按官方口径浏览全页；三个子弹块小节标记出来留给精读条目。',
+      takeaway: '类语法的全貌地图在脑子里立起来。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-classes',
+      title: 'extends - JavaScript | MDN',
+      titleZh: 'extends（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条子弹块（类继承）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/extends',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条子弹块之一：extends 关键字的权威文档——类继承（以及继承普通函数）的语法与语义。MDN 官方简体中文版已做内容级核验（正文汉字 3989 个）。与本课正文「类只是原型继承的新写法」直接对应：extends 背后就是原型链接管。',
+      why: '官方 Assignment 子弹块指定精读：类继承语法。',
+      points: [
+        'class B extends A：B.prototype 的 [[Prototype]] 指向 A.prototype——继承的类版本。',
+        'extends 也能继承普通函数（任何 [[Construct]] 的对象）——语法糖的又一实证。',
+        '子类 constructor 里必须先 super() 才能用 this——正文继承一节的官方出处。'
+      ],
+      terms: [
+        'super class / sub class（父类 / 子类）',
+        'super()（父类构造函数调用）'
+      ],
+      focus: '看「继承普通函数」示例——它最能说明 extends 只是原型机制的马甲。',
+      takeaway: 'extends 的语义与限制（super 先行）有权威依据。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-classes',
+      title: 'static - JavaScript | MDN',
+      titleZh: 'static（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条子弹块（静态方法与静态字段）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/static',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条子弹块之一：static 关键字的权威文档——静态方法挂在构造函数本身上（ClassName.method()），不属于任何实例。MDN 官方简体中文版已做内容级核验（正文汉字 2812 个）。与上一课「Player.instances / playerCount」的手写静态属性对照读：static 就是那件事的正式语法。',
+      why: '官方 Assignment 子弹块指定精读：静态成员语法。',
+      points: [
+        '静态方法里的 this 指向类本身，不是实例——调用方式决定。',
+        '静态字段（static x = 1）在类定义时求值一次——全体共享的类级数据。',
+        '对应上一课手写 Player.instances 的动机：类级计数/工具不配拥有实例。'
+      ],
+      terms: [
+        'static method（静态方法）',
+        'static field（静态字段）'
+      ],
+      focus: '看「什么时候用静态」的说明与示例，对照上一课的 instances 写法。',
+      takeaway: '类级成员从此用 static 正式表达，不再手挂属性。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-classes',
+      title: 'Private class features - JavaScript | MDN',
+      titleZh: '私有元素（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条子弹块（# 私有字段）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_elements',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（站内重定向到现役地址 Classes/Private_elements，旧地址收编为别名）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_elements',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条子弹块之一：# 井号私有字段的权威文档——真私有（外部访问直接抛错），与工厂函数闭包私有变量殊途同归。MDN 官方简体中文版已做内容级核验（正文汉字 3611 个，标题「私有元素」，按重定向后的现役 zh-CN 路径登记）。',
+      why: '官方 Assignment 子弹块指定精读：类版本的「真私有」。',
+      points: [
+        '#field 是语言级私有：实例外部读它直接 TypeError——比闭包私有更「硬」。',
+        '私有方法、私有 getter/setter 同样支持（页面「私有元素」全覆盖）。',
+        '与工厂函数课的闭包私有对照：两种私有化路线，类这条不需要包一层函数。'
+      ],
+      terms: [
+        'private field（私有字段，# 前缀）',
+        'brand check（#x in obj：判断对象是否属于该类）'
+      ],
+      focus: '看私有字段与私有方法两节；brand check 是加分项。',
+      takeaway: '类的封装能力补齐：该藏的字段语言层面就藏得住。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-es6-modules',
+      title: 'export - JavaScript | MDN',
+      titleZh: 'export（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1.1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1.1 条：export 语句的权威文档——命名导出与 default 导出两种形态。MDN 官方简体中文版已做内容级核验（正文汉字 2905 个）。本课正文已讲「为什么需要导出」，这篇补全「导出的全部写法」：export const / export { a, b } / export default 的取舍与限制（模块顶层才能导出）。',
+      why: '官方 Assignment 指定精读：导出语法权威文档。',
+      points: [
+        '命名导出可以一个模块多个；default 导出每模块最多一个——混用时的导入语法差异是常见坑。',
+        'export 只能出现在模块顶层——函数内部导出是语法错误。',
+        'export { x as y } 重命名导出——接口命名自由度的来源。'
+      ],
+      terms: [
+        'named export（命名导出）',
+        'default export（默认导出）'
+      ],
+      focus: '命名导出与默认导出两节对照读，记住导入侧语法的差别。',
+      takeaway: '模块的「出口」写法全部在手。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-es6-modules',
+      title: 'import - JavaScript | MDN',
+      titleZh: 'import（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1.2 条；正文「模块路径是字面量」警告块（#module-name 锚点，实测中文版存在）；webpack 课正文「副作用导入」（英文锚点 #import_a_module_for_its_side_effects_only 在中文版不存在，中文链接按实测改挂 #语法——同页跨课合并登记在首现课）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1.2 条：import 语句的权威文档——命名导入、默认导入、命名空间导入（import * as）、副作用导入（import "mod"）全形态。MDN 官方简体中文版已做内容级核验（正文汉字 3177 个）。本课正文两处引用同一页：「模块路径必须字面量、不能模板字符串/拼接」（#module-name 锚点）与 webpack 课的副作用导入（中文版无独立锚点，内容在 #语法 节内——中文链接按批次 2 纪律挂实测存在的锚点）。',
+      why: '官方 Assignment 指定精读；正文路径限制与 webpack 副作用导入的同页事实源。',
+      points: [
+        'import 的路径必须是字符串字面量——不能模板字符串、不能变量拼接（#module-name 节明文）。',
+        'import "mod"（无绑定导入）只执行模块的副作用——webpack 导 CSS 就靠这个形态。',
+        'import * as name 打包整个模块命名空间——重命名导入 as 也在这页。'
+      ],
+      terms: [
+        'module specifier（模块路径：必须字面量）',
+        'side effect import（副作用导入）'
+      ],
+      focus: '语法一节按形态过一遍；「路径限制」警告块精读。',
+      takeaway: '导入的全部形态与两条硬限制（顶层、字面量路径）记牢。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-es6-modules',
+      title: 'Live Preview - Visual Studio Marketplace',
+      titleZh: 'Live Preview（VS Code 扩展）',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文「入口点与 script type=module」节（官方推荐的本地预览方案之一）与 Assignment 第 2 条（配一个本地服务器方案）',
+      originalUrl: 'https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server',
+      sourceDomain: 'marketplace.visualstudio.com',
+      originalUrlStatus: '200（页面标题「Live Preview - Visual Studio Marketplace」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文与任务都点名的 VS Code 官方扩展：编辑器内嵌本地预览服务器——ES6 模块因 CORS 限制必须走 http:// 打开（file:// 直接白屏），这个扩展是最省事的解法之一（另一条路是 npx serve，webpack 课会再遇）。Marketplace 页面为英文，扩展界面随 VS Code 语言；本站提供原创导读 + 原链接。',
+      why: '官方正文/Assignment 点名的本地服务器方案：模块课的前置工具。',
+      points: [
+        '装好后右键 HTML「Show Preview」即在编辑器内起本地服务器——file:// 的 CORS 报错从此绕开。',
+        '自动刷新：改代码保存即重载，与本课练习配套。',
+        'Microsoft 官方扩展（ms-vscode.live-server）——非第三方小作坊。'
+      ],
+      terms: [
+        'CORS（跨源限制：file:// 加载模块被拒的根源）',
+        'local server（本地服务器）'
+      ],
+      focus: '装上、用它打开本课练习页面，确认不再见 CORS 报错即可。',
+      takeaway: '模块开发的本地预览环境一次配好，后面各课通用。',
+      },
+      license: 'Live Preview 扩展由 Microsoft 按 MIT 许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-npm',
+      title: 'npm | Home',
+      titleZh: 'npm 包主页（npmjs.com，验证受限条目）',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文「npm 不是缩写」冷知识处（官方链接到 npm 自己的包页看「它真的不是缩写」）',
+      originalUrl: 'https://www.npmjs.com/package/npm',
+      sourceDomain: 'www.npmjs.com',
+      originalUrlStatus: '403（浏览器 UA、默认 UA、Googlebot UA 三种均被站点反爬拦截；真实浏览器访问停在 Cloudflare 人机验证页「正在进行安全验证」，两条通路都无法取得页面内容——如实登记为验证受限）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文冷知识的出处链接：npm 自己的包页——页面文案写着 npm「不是缩写」（历史上曾是 Node Package Manager 的缩写，现在官方口径就是 npm 三个字母）。本条核验受限：命令行三种 UA 全部 403，真实浏览器也停在 Cloudflare 人机验证，无法确认当前页面内容；官方链接意图（npm 不是缩写）以课程正文转述为准。',
+      why: '官方正文冷知识链接：「npm 不是缩写」的原始出处。',
+      points: [
+        'npm 官方口径：就是 npm 三个字母，不是 Node Package Manager 的缩写。',
+        '包页还承载 npm 自身的版本历史——npm 也是用 npm 安装更新的。',
+        '本条为验证受限条目：链接意图按官方正文转述登记，页面现状未能核验。'
+      ],
+      terms: [
+        'npm（包管理器名称本身）'
+      ],
+      focus: '知道「不是缩写」这个事实即可，页面可开可不看。',
+      takeaway: 'npm 的名字来历有官方出处，虽然本站没能打开它。',
+      },
+      license: 'npmjs.com 页面版权属 npm, Inc.（GitHub）；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '验证受限：403×3 UA + 真实浏览器 Cloudflare 人机验证未过；已入 verifyLimitedUrls'
+    },
+    {
+      lessonId: 'node-path-javascript-npm',
+      title: 'Downloading and installing packages locally | npm Docs',
+      titleZh: '在本地下载与安装包（npm 官方文档）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1.1 条',
+      originalUrl: 'https://docs.npmjs.com/downloading-and-installing-packages-locally',
+      originalUrlEffective: 'https://docs.npmjs.com/downloading-and-installing-packages-locally/',
+      sourceDomain: 'docs.npmjs.com',
+      originalUrlStatus: '200（站内重定向补尾斜杠）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1.1 条：npm 官方文档的本地安装指南——npm install <包名> 到底做了什么（下载到当前项目的 node_modules、写入 package.json、生成 package-lock.json）。npm 官方文档无中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：npm install 机制的第一手文档。',
+      points: [
+        '本地安装 vs 全局安装：默认装进项目 node_modules/——这就是「项目依赖跟着仓库走」的原因。',
+        'install 同时维护 package.json 与 lock 文件——两份文件的分工下文有专条。',
+        '「装了什么去哪看」：node_modules 目录 + npm ls 命令。'
+      ],
+      terms: [
+        'local install（本地安装）',
+        'node_modules（本地包目录）'
+      ],
+      focus: '跟着做一遍 npm install lodash（本课 Assignment 正是这个），对照文档看三个产物。',
+      takeaway: 'npm install 的每一步产物都叫得出名字。',
+      },
+      license: 'npm Docs 由 npm, Inc. 发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-npm',
+      title: 'Creating a package.json file | npm Docs',
+      titleZh: '创建 package.json 文件（npm 官方文档）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1.2 条',
+      originalUrl: 'https://docs.npmjs.com/creating-a-package-json-file',
+      originalUrlEffective: 'https://docs.npmjs.com/creating-a-package-json-file/',
+      sourceDomain: 'docs.npmjs.com',
+      originalUrlStatus: '200（站内重定向补尾斜杠）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1.2 条：npm 官方文档的 package.json 指南——项目「身份证 + 依赖清单」的创建（npm init）与字段含义。npm 官方文档无中文版，本站提供原创导读 + 英文原文链接。与下一课 webpack 的 package.json 用法衔接：这里是「它是什么」，那里是「脚本怎么跑」。',
+      why: '官方 Assignment 指定阅读：package.json 的第一手文档。',
+      points: [
+        'npm init 逐步问答生成；npm init -y 全默认一把梭——练习项目用后者足够。',
+        'name / version / dependencies 是最小骨架——dependencies 由 npm install 自动维护，别手改。',
+        'package-lock.json 是它的伴生文件：锁精确版本树，保证队友装出一样的依赖。'
+      ],
+      terms: [
+        'package.json（项目清单）',
+        'package-lock.json（版本锁文件）'
+      ],
+      focus: '在练习项目里跑一遍 npm init -y，打开 package.json 对照字段。',
+      takeaway: '每个 JS 项目的「户口本」长什么样、谁在维护它。',
+      },
+      license: 'npm Docs 由 npm, Inc. 发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-npm',
+      title: 'Demystifying devDependencies and dependencies',
+      titleZh: '讲透 devDependencies 与 dependencies（dev.to）',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1.3 条',
+      originalUrl: 'https://dev.to/mshertzberg/demystifying-devdependencies-and-dependencies-5ege',
+      sourceDomain: 'dev.to',
+      originalUrlStatus: '200（页面标题「Demystifying `devDependencies` and `dependencies` - DEV Community」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1.3 条：两类依赖的分界专文——dependencies 是产品运行时真正需要的包，devDependencies 是只在开发/构建期用的工具（webpack、eslint、测试框架都在这边）。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：--save-dev 与 --save 的分界。',
+      points: [
+        'npm install --save-dev（或 -D）写进 devDependencies；不带则进 dependencies。',
+        '分界的实际意义：生产部署只装 dependencies（npm ci --omit=dev），构建工具不上线。',
+        '下一课 webpack 会大量用 -D 装——先读这篇，装的时候心里有数。'
+      ],
+      terms: [
+        'dependencies（运行时依赖）',
+        'devDependencies（开发期依赖）'
+      ],
+      focus: '记住判断句：「用户浏览器里要跑它吗？」要→dependencies，不要→devDependencies。',
+      takeaway: '装包时知道该不该带 -D，package.json 两个区块不再乱。',
+      },
+      license: 'dev.to 文章版权归原作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-npm',
+      title: 'Modern JavaScript Explained For Dinosaurs',
+      titleZh: '给恐龙看的现代 JavaScript 工具链讲解（Peter Jang）',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://peterxjang.com/blog/modern-javascript-explained-for-dinosaurs.html',
+      sourceDomain: 'peterxjang.com',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条的名文（可选加读，官方原话「不是必须的，但很有帮助」）：从「手写 script 标签」一步步推导出「为什么需要 npm、模块、打包器」——把整条现代工具链的因果链讲透，正是本课 + 下两课 webpack 的总纲。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：工具链全景的因果推导。',
+      points: [
+        '从 index.html + 多个 script 标签的痛点出发，逐步引出模块、npm、打包——每一步都回答「上一步哪里不够用」。',
+        '与本课程结构完全同构：es6-modules 课→npm 课→webpack 课正是它推导的顺序。',
+        '官方定性 optional but helpful——读它是给三课装「为什么」的地图。'
+      ],
+      terms: [
+        'build tool（构建工具）',
+        'bundler（打包器：webpack 的角色名）'
+      ],
+      focus: '通读全文；到 webpack 课再回来对照「推导终点」一节。',
+      takeaway: '工具链不是魔法堆砌，是问题驱动的必然演化。',
+      },
+      license: '博客文章版权归原作者 Peter Jang 所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-webpack',
+      title: 'Minification (programming) - Wikipedia',
+      titleZh: '代码压缩（维基百科英文版；zh.wikipedia 无对应条目，实测 404）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「Webpack 不只是打包」节（minification 概念处）',
+      originalUrl: 'https://en.wikipedia.org/wiki/Minification_(programming)',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200（zh.wikipedia.org/wiki/Minification 实测 404——中文维基无对应条目，按批次既有口径登记英文版）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文提到 minification 处链接的维基百科条目：压缩（去空格、缩短变量名、删注释）让产物更小、加载更快。中文维基没有对应条目（实测 404），登记英文版；概念本身在下一课「再探 Webpack」的生产构建里实战。',
+      why: '官方正文链接：minification 概念的百科出处。',
+      points: [
+        '压缩不改行为，只改体积：空白/注释删除 + 标识符缩短。',
+        '与「树摇」互补：树摇删没用到的代码，压缩把留下的变小。',
+        '生产环境标配——开发模式不压缩是为了可读与排错。'
+      ],
+      terms: [
+        'minification（压缩/最小化）',
+        'mangling（标识符缩短）'
+      ],
+      focus: '读定义与示例即可；工具历史部分可跳过。',
+      takeaway: '知道「压缩」压缩的是什么、为什么生产环境才做。',
+      },
+      license: '维基百科条目按 CC BY-SA 4.0 发布；本站只做链接与原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-webpack',
+      title: 'Tree shaking - MDN Web Docs Glossary',
+      titleZh: '摇树优化（MDN 官方中文版术语表）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「Webpack 不只是打包」节（dead code elimination 处）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Glossary/Tree_shaking',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方正文 dead code elimination 处链接的 MDN 术语页：摇树优化——打包时把「导出了但没人 import」的死代码从产物里摇掉。MDN 官方简体中文版已做内容级核验（正文汉字 2440 个，标题「摇树优化」）。依赖 ES6 模块的静态结构（import/export 编译期可分析）——这就是打包器偏爱 ESM 的原因。',
+      why: '官方正文链接：树摇概念的权威术语页。',
+      points: [
+        '摇树 = 死代码消除在打包器里的名字：没人用的导出在产物中消失。',
+        '前提是静态可分析的模块语法——动态 require 摇不动。',
+        '与压缩互补：摇树砍整段无用代码，压缩瘦身留下的代码。'
+      ],
+      terms: [
+        'tree shaking（摇树优化）',
+        'dead code（死代码）'
+      ],
+      focus: '术语页很短，通读；对照 webpack production 模式的默认行为。',
+      takeaway: '「打包顺带删死代码」的机制与前提说得清。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-webpack',
+      title: 'Devtool | webpack',
+      titleZh: 'devtool 配置项（webpack 官方文档）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文「开发工具：source map」节（官方文档 devtool 选项处）',
+      originalUrl: 'https://webpack.js.org/configuration/devtool/',
+      sourceDomain: 'webpack.js.org',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'webpack 官方文档的 devtool 配置页：source map 的几十种生成策略（inline-source-map / source-map / eval-* …）各自的取舍——速度、精度、是否暴露源码。webpack 文档无官方中文版（社区译文不完整且滞后，按既有口径不登记），本站提供原创导读 + 英文原文链接。本课只需记住「开发用哪个、生产用哪个」两条结论。',
+      why: '官方正文 source map 一节的文档出处：devtool 取值大全。',
+      points: [
+        'source map 是「压缩产物 ↔ 原始源码」的映射表——报错行号从此能对上你写的代码。',
+        '取值前缀的含义：inline-（塞进 bundle）、eval-（每模块包裹，重建最快）、无前缀（独立 .map 文件）。',
+        '常规选择：开发 inline-source-map（或 eval-source-map），生产 source-map 或干脆关掉。'
+      ],
+      terms: [
+        'source map（源码映射）',
+        'devtool（webpack 配置项名）'
+      ],
+      focus: '看「qualifiers 含义」一节建立读法，再挑本课练习用的那一个值。',
+      takeaway: 'devtool 取值不再靠抄，知道每个词缀在买什么。',
+      },
+      license: 'webpack 文档按 CC BY 4.0 发布；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-webpack',
+      title: 'Concepts | webpack',
+      titleZh: '核心概念（webpack 官方文档）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://webpack.js.org/concepts/',
+      sourceDomain: 'webpack.js.org',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：webpack 官方文档的五大核心概念页——Entry（入口）、Output（出口）、Loaders（加载器）、Plugins（插件）、Mode（模式）。这是读懂一切 webpack 配置文件的钥匙：每个配置字段都归属这五者之一。webpack 文档无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：webpack 概念地图。',
+      points: [
+        'Entry/Output：从哪开始打包、打到哪去——本站正文 webpack.config.js 逐行对应的就是它。',
+        'Loaders：webpack 只懂 JS，其他资源（CSS/图片）靠 loader 翻译——下两课的 css-loader 属于这类。',
+        'Plugins：打包过程的增强钩子——HtmlWebpackPlugin 属于这类。'
+      ],
+      terms: [
+        'entry / output（入口 / 出口）',
+        'loader / plugin（加载器 / 插件）'
+      ],
+      focus: '五个概念各读一遍定义与最小示例；对照自己项目的配置文件逐个认领。',
+      takeaway: 'webpack.config.js 每一行都能说出属于哪个概念。',
+      },
+      license: 'webpack 文档按 CC BY 4.0 发布；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'javascript-webpack',
+      title: 'Asset Management | webpack',
+      titleZh: '资源管理（webpack 官方指南）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条；正文「加载 CSS/图片」小节（#loading-images 锚点同页合并）',
+      originalUrl: 'https://webpack.js.org/guides/asset-management/',
+      sourceDomain: 'webpack.js.org',
+      originalUrlStatus: '200（#loading-images 锚点实测存在）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条（正文 #loading-images 同页合并）：webpack 官方指南的资源管理章——CSS（css-loader + style-loader）、图片（asset modules）、字体怎么进打包流程。这是 webpack 课「只会打 JS」到「能打包整个网站」的跨越指南。webpack 文档无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：非 JS 资源的打包指南。',
+      points: [
+        'CSS 两件套：css-loader 解析 import 的 CSS、style-loader 把它注入页面——顺序不能反。',
+        '图片走 asset modules（webpack 5 内置，替代旧 file-loader/url-loader）。',
+        '每加一类资源 = 配置里加一条 module.rules——loader 概念的实战形态。'
+      ],
+      terms: [
+        'css-loader / style-loader（CSS 处理两件套）',
+        'asset modules（webpack 5 的资源模块）'
+      ],
+      focus: '跟着 Loading CSS 与 Loading images 两节在练习项目里各做一遍。',
+      takeaway: 'CSS 和图片从此走打包流水线，不再手写 link/script 标签。',
+      },
+      license: 'webpack 文档按 CC BY 4.0 发布；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-restaurant-page',
+      title: "Beary's Breakfast Bar（Internet Archive 存档）",
+      titleZh: 'Beary 的早餐吧（往届学生作品存档，页签交互视觉参考）',
+      type: '网站',
+      requirement: 'required',
+      zone: 'Assignment 第 7 条（官方原话「Look at the behavior of this student\'s live preview site for visual inspiration」）',
+      originalUrl: 'https://web.archive.org/web/20221024060550/https://eckben.github.io/bearysBreakfastBar/',
+      sourceDomain: 'web.archive.org',
+      originalUrlStatus: '200（Internet Archive 2022-10-24 存档快照；原站 eckben.github.io 已下线，官方即给存档地址）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方任务 7 点名的往届学生作品：一个「早餐吧」页签切换站点——点 Menu / Contact 页签，内容区整体换血但页面不刷新。这是「tab 切换 = 按状态重渲染内容区」的活样本：看它的交互行为，对照自己餐厅页面的页签设计。存档页面与内容为英文/纯视觉，无需语言版本；本站提供原创导读 + 存档链接。',
+      why: '官方 Assignment 第 7 条指定观摩：页签交互的视觉参考。',
+      points: [
+        '观摩重点是「行为」：页签点击后内容区怎么换、导航高亮怎么跟。',
+        '它证明了单页面 + 模块渲染就够做「多页面感」——restaurant-page 课的核心目标。',
+        'Internet Archive 存档：原站已下线，快照即官方给出的现役形态。'
+      ],
+      terms: [
+        'tab navigation（页签导航）',
+        'single page（单页应用雏形）'
+      ],
+      focus: '把两个页签各点几遍，再想自己的餐厅页要不要加第三个页签。',
+      takeaway: '页签切换的交互基准心里有了实物参照。',
+      },
+      license: 'Internet Archive 存档页面，原站版权归作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-revisiting-webpack',
+      title: 'Production | webpack',
+      titleZh: '生产环境构建（webpack 官方指南）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（开发/生产双配置的官方指南）',
+      originalUrl: 'https://webpack.js.org/guides/production/',
+      sourceDomain: 'webpack.js.org',
+      originalUrlStatus: '200',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：webpack 官方指南的生产环境章——mode 的 development/production 两态、公共配置抽取（webpack.common.js + webpack-merge）、source map 的生产策略、压缩与树摇的默认开启。本课「一份配置拆三份」的全部依据都在这页。webpack 文档无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：双环境配置的权威指南。',
+      points: [
+        'mode: production 一开，压缩与树摇默认全开——上一课的 devtool 结论在这里兑现。',
+        'webpack-merge 把公共配置与环境专属配置合并——本课三文件结构的标准做法。',
+        'npm scripts 里 webpack --config 指向不同配置——dev/build 两条命令的由来。'
+      ],
+      terms: [
+        'development / production mode（开发 / 生产模式）',
+        'webpack-merge（配置合并工具）'
+      ],
+      focus: '跟着指南把自己项目的配置拆成 common/dev/prod 三份——这就是本课作业本体。',
+      takeaway: '开发与生产各用各的构建策略，且共享一份公共配置。',
+      },
+      license: 'webpack 文档按 CC BY 4.0 发布；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-json',
+      title: 'Working with JSON - Learn web development | MDN',
+      titleZh: '使用 JSON（MDN 官方中文版教程）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 学习区路径重组，站内重定向到现役地址）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/JSON',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：MDN 学习区的 JSON 完整教程——JSON 是什么、字符串与对象互转（parse/stringify）、数据结构与注意事项（无注释、键必须双引号、尾逗号非法）。MDN 官方简体中文版已做内容级核验（正文汉字 4996 个，标题「使用 JSON」，按重定向后的现役 zh-CN 路径登记）。是本课体量最大的精读材料。',
+      why: '官方 Assignment 指定精读：JSON 的权威教程。',
+      points: [
+        'JSON 是「长得像 JS 对象字面量的字符串」——数据格式，不是代码。',
+        'JSON.parse 字符串→对象；JSON.stringify 对象→字符串——本课全部操作就这两个动词。',
+        '常见坑：单引号/尾逗号/注释都非法；undefined 与函数在 stringify 时被丢弃。'
+      ],
+      terms: [
+        'JSON string（JSON 字符串）',
+        'serialization（序列化：对象变字符串的过程名）'
+      ],
+      focus: '通读全文并亲手做文末练习；「注意事项」一节逐条对照自己踩过的坑。',
+      takeaway: 'JSON 的语法规则与两个 API 的边界全部清楚。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-json',
+      title: 'JavaScript JSON.parse()',
+      titleZh: 'JSON.parse() 方法（W3Schools）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条（两篇之一）',
+      originalUrl: 'https://www.w3schools.com/js/js_json_parse.asp',
+      sourceDomain: 'www.w3schools.com',
+      originalUrlStatus: '200（带浏览器 UA 实测，页面标题「JavaScript JSON.parse()」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条两篇之一：W3Schools 的 JSON.parse 速查页——从 JSON 字符串解析出 JS 值，含日期字符串复活（parse 第二参数 reviver）等实用片段。W3Schools 有中文站（w3school.com.cn）但与英文站内容不同步、且该页无对应中文版本，按既有口径登记英文版；本站提供原创导读。',
+      why: '官方 Assignment 指定阅读：parse 的速查与示例。',
+      points: [
+        'JSON.parse(text) 把字符串变回对象/数组/值——服务器响应、localStorage 取数都靠它。',
+        'reviver 参数可在解析时逐键加工——日期字符串转 Date 对象的标准手法。',
+        '解析失败抛 SyntaxError——外部数据要 try/catch。'
+      ],
+      terms: [
+        'reviver（解析加工函数）',
+        'SyntaxError（JSON 非法时的异常）'
+      ],
+      focus: '看示例与「Parsing Dates」一节；语法表格扫一眼即可。',
+      takeaway: 'parse 的常用形态与两个坑（日期、异常）在手。',
+      },
+      license: 'W3Schools 内容版权属 Refsnes Data；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-json',
+      title: 'JavaScript JSON.stringify()',
+      titleZh: 'JSON.stringify() 方法（W3Schools）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条（两篇之二）',
+      originalUrl: 'https://www.w3schools.com/js/js_json_stringify.asp',
+      sourceDomain: 'www.w3schools.com',
+      originalUrlStatus: '200（带浏览器 UA 实测，页面标题「JavaScript JSON.stringify()」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条两篇之二：W3Schools 的 JSON.stringify 速查页——对象/数组转 JSON 字符串，含数组里的 Date 自动转字符串、格式化缩进参数等实用片段。与 parse 页配对：一个存、一个取。W3Schools 中文站无该页对应版本，按既有口径登记英文版；本站提供原创导读。',
+      why: '官方 Assignment 指定阅读：stringify 的速查与示例。',
+      points: [
+        'JSON.stringify(value) 把数据变成可传输/可存储的字符串——localStorage 存对象全靠它。',
+        '数组里的 Date 对象会被自动转成 ISO 字符串——存得进去，取出来要自己复活。',
+        '第三参数缩进（如 2）让输出可读——调试与配置文件常用。'
+      ],
+      terms: [
+        'indentation（缩进参数）',
+        'ISO string（Date 的字符串形态）'
+      ],
+      focus: '看「Stringify a JavaScript Array」与日期两节；与 parse 页的 reviver 呼应读。',
+      takeaway: '存取一对 API 的完整心智图：存时丢什么、取时补什么。',
+      },
+      license: 'W3Schools 内容版权属 Refsnes Data；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-json',
+      title: 'JSON Formatter & Validator',
+      titleZh: 'JSON 格式化与校验器（在线工具）',
+      type: '工具',
+      requirement: 'reference',
+      zone: 'Assignment 第 3 条（官方：用它在 JSON 里「作弊」，直接构造出你要的数据）',
+      originalUrl: 'https://jsonformatter.curiousconcept.com/',
+      sourceDomain: 'jsonformatter.curiousconcept.com',
+      originalUrlStatus: '200（页面标题「JSON Formatter & Validator」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条点名的在线工具：粘贴 JSON 字符串即可格式化（美化缩进）与校验（指出语法错误位置）——官方建议用它「作弊」：先把数据在工具里构造好，再塞回代码。界面为英文但操作是纯按钮/粘贴，无语言障碍；本站提供原创导读 + 工具链接。',
+      why: '官方 Assignment 点名工具：JSON 的可视化构造与排错。',
+      points: [
+        '校验模式逐字符指出 JSON 语法错误（单引号、尾逗号、缺引号键名）。',
+        '格式化模式把压成一行的 JSON 展开成缩进可读形态——调试 localStorage 存的数据时最有用。',
+        '官方玩法：在工具里把目标数据构造正确，再复制进代码——先保证数据对，再写逻辑。'
+      ],
+      terms: [
+        'pretty print（美化打印/格式化）',
+        'validation（语法校验）'
+      ],
+      focus: '把自己项目里一段 stringify 输出贴进去格式化一次，体验排错流程。',
+      takeaway: 'JSON 出语法错时不再肉眼找逗号。',
+      },
+      license: '在线工具由 curiousconcept 提供；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-oop-principles',
+      title: 'SOLID principle #1: Single responsibility (JavaScript)',
+      titleZh: 'SOLID 第 1 原则：单一职责（JavaScript 示例，Medium，验证受限条目）',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1.1 条',
+      originalUrl: 'https://duncan-mcardle.medium.com/solid-principle-1-single-responsibility-javascript-5d9ce2c6f4a5',
+      sourceDomain: 'duncan-mcardle.medium.com',
+      originalUrlStatus: '403（Medium 反爬：浏览器 UA 与带 Referer 均被拒；真实浏览器核验可达，取得 h1「SOLID principle #1: Single responsibility (JavaScript)」——内容级核验受站点反爬限制，如实登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1.1 条：SOLID 五原则之「单一职责」的专文（Duncan McCardle，Medium）——一个类只该有一个变化的理由，配 JavaScript 代码示例。标题与可达性经真实浏览器核验（h1「SOLID principle #1: Single responsibility (JavaScript)」）；Medium 反爬导致命令行通路无法取得正文，页面内容以浏览器核验为准。无官方中文版，本站提供原创导读 + 英文原文链接。',
+      why: '官方 Assignment 指定阅读：单一职责原则的代码级讲解。',
+      points: [
+        '单一职责：每个类/函数只为一个「变化的理由」负责——改需求时只动一处。',
+        '文中的反例是「什么都管的 God class」——与本课正文的耦合讨论直接衔接。',
+        'SOLID 其余四原则在同一作者的系列文里（官方只点名这一篇，其余按兴趣自取）。'
+      ],
+      terms: [
+        'single responsibility（单一职责）',
+        'SOLID（五条 OOP 设计原则的首字母缩写）'
+      ],
+      focus: '读完给自己的图书库/井字棋代码各找一个「职责过多」的嫌疑对象。',
+      takeaway: '「这个类该不该拆」有了第一条可操作的判据。',
+      },
+      license: 'Medium 文章版权归原作者 Duncan McCardle 所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: '验证受限：Medium 反爬 403（两种 UA 组合）；真实浏览器可达并取得 h1；已入 verifyLimitedUrls（按批次 3 Medium 先例）'
+    },
+    {
+      lessonId: 'node-path-javascript-oop-principles',
+      title: 'SOLID Design Principles（播放列表）- Web Dev Simplified',
+      titleZh: 'SOLID 设计原则（Web Dev Simplified 播放列表）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 1.2 条（官方：有几集偏抽象，可自定节奏看其余各集）',
+      originalUrl: 'https://www.youtube.com/playlist?list=PLZlA0Gpn_vH9kocFX7R7BAe_CvvOCO_p9',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（播放列表经 oEmbed 核验：列表标题「SOLID Design Principles」，作者 Web Dev Simplified）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1.2 条：Web Dev Simplified 的 SOLID 五原则视频播放列表（英文讲解）——五集各讲一条原则，风格是「最小代码示例 + 一句大白话」。官方叮嘱：有几集偏抽象，不必硬啃，可按自己节奏看。本站提供原创导读与播放列表链接。',
+      why: '官方 Assignment 指定观看：SOLID 五原则的视频版。',
+      points: [
+        '播放列表共五集：单一职责、开闭、里氏替换、接口隔离、依赖倒置各一集。',
+        '官方口径：抽象的先放过——S 与 O 两集与本课正文关系最直接，优先看。',
+        'Web Dev Simplified 频道以「短小 + 例子驱动」著称，单集体量友好。'
+      ],
+      terms: [
+        'open/closed principle（开闭原则）',
+        'dependency inversion（依赖倒置）'
+      ],
+      focus: '先看 S、O 两集；其余三集标记「待回头」，不阻塞本课作业。',
+      takeaway: 'SOLID 五字母各自对应一句话判据。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-oop-principles',
+      title: 'How to Write Highly Scalable and Maintainable JavaScript: Coupling（Internet Archive 存档）',
+      titleZh: '如何写高可扩展、可维护的 JavaScript：耦合篇（存档）',
+      type: '文章（存档）',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://web.archive.org/web/20170215102316/http://www.innoarchitech.com:80/scalable-maintainable-javascript-coupling',
+      sourceDomain: 'web.archive.org',
+      originalUrlStatus: '200（Internet Archive 2017-02-15 存档快照；原站 innoarchitech.com 已下线，官方即给存档地址）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：讲「耦合」的经典文章（innoarchitech 系列第 4 篇，原站已下线、走 Internet Archive 存档）——对象之间知道彼此太多细节就是耦合，改一处崩一片；解耦的方向是接口收窄、依赖显式。与本课正文的松耦合讨论、上一篇单一职责构成同一主题三角。无官方中文版，本站提供原创导读 + 存档链接。',
+      why: '官方 Assignment 指定阅读：耦合概念的专文。',
+      points: [
+        '耦合的定义与分级：对象 A 直接摸 B 的内部数据/方法越多，耦合越紧。',
+        '紧耦合的代价：局部修改引发全局连锁——「牵一发动全身」的机制解释。',
+        '解耦手法：通过参数/接口交互，而不是直接引用具体对象内部。'
+      ],
+      terms: [
+        'coupling（耦合）',
+        'maintainability（可维护性）'
+      ],
+      focus: '读时给自己的项目找一条「A 直接摸 B 内部」的依赖，想怎么改窄。',
+      takeaway: '「松耦合」从口号变成能指认的代码形态。',
+      },
+      license: 'Internet Archive 存档页面，原站版权归作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-oop-principles',
+      title: 'Composition over Inheritance - Fun Fun Function',
+      titleZh: '组合优于继承（Fun Fun Function / mpj）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.youtube.com/watch?v=wfMtDGfHWpA',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：视频标题「Composition over Inheritance」，作者 Fun Fun Function）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：mpj（Fun Fun Function 频道）的经典视频——用「鸟/狗/杀手机器人」例子演示为什么组合（把行为当函数装配）常比继承（is-a 树）更灵活。与工厂函数课的「组合挑拣」首尾呼应：那时学的机制，现在给出设计层理由。视频为英文讲解；本站提供原创导读与视频链接。',
+      why: '官方 Assignment 指定观看：组合 vs 继承的设计讨论。',
+      points: [
+        '继承树的痛：层级越深，「这个行为放哪一层」越纠结；多行为组合时类爆炸。',
+        '组合的爽：行为是独立小函数，要什么装什么——工厂函数模式的动机篇。',
+        '视频结尾回到实用建议：不是禁止继承，是默认先想组合。'
+      ],
+      terms: [
+        'composition（组合）',
+        'inheritance（继承）'
+      ],
+      focus: '看的时候在脑中把「装配行为」翻译成你工厂函数课写过的代码。',
+      takeaway: '设计新对象时第一反应从「它继承谁」变成「它需要哪些行为」。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-todo-list',
+      title: 'Todoist | 管理您工作和生活的 To Do List',
+      titleZh: 'Todoist（官方中文版网站）',
+      type: '网站',
+      requirement: 'reference',
+      zone: 'Assignment 第 6.1 条（官方：看截图、看介绍视频，找灵感）',
+      originalUrl: 'https://en.todoist.com/',
+      originalUrlEffective: 'https://www.todoist.com/zh-CN',
+      sourceDomain: 'en.todoist.com',
+      originalUrlStatus: '200（en.todoist.com 按 Accept-Language 自动跳转到 www.todoist.com/zh-CN）',
+      zhUrl: 'https://www.todoist.com/zh-CN',
+      zhType: 'Todoist 官网中文版（官方提供的简体中文站点 www.todoist.com/zh-CN，已核验正文为简体中文）',
+      zhGuide: {
+      overview: '官方 Assignment 第 6 条灵感清单第一款：Todoist——成熟待办应用的标杆（项目分组、优先级、到期日、快速添加）。官方有简体中文站（www.todoist.com/zh-CN，已内容级核验，正文汉字 1576 个），语言无障碍；en 地址按浏览器语言自动跳转，中文链接给直连地址。对照本课必做属性（title/description/dueDate/priority）看它怎么组织同样的信息。',
+      why: '官方 Assignment 第 6 条灵感来源之一：成熟待办应用观摩。',
+      points: [
+        '它的「项目 → 任务」两层结构正是官方任务 3 要求的 projects/todos 分层。',
+        '优先级的颜色编码、到期日的展示方式——UI 细节直接可借鉴。',
+        '官网中文站可完整浏览产品截图与功能介绍，无需注册。'
+      ],
+      terms: [
+        'project（项目：任务的分组容器）',
+        'due date（到期日）'
+      ],
+      focus: '只看官网的功能展示与截图，对照自己应用的四个必做属性。',
+      takeaway: '成熟产品的信息组织方式成为自己设计的参照系。',
+      },
+      license: 'Todoist 官网内容版权属 Doist Inc.；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-todo-list',
+      title: 'Things - To-Do List App for Mac & iOS',
+      titleZh: 'Things（Mac/iOS 待办应用官网）',
+      type: '网站',
+      requirement: 'reference',
+      zone: 'Assignment 第 6.2 条（官方灵感清单之二）',
+      originalUrl: 'https://culturedcode.com/things/',
+      sourceDomain: 'culturedcode.com',
+      originalUrlStatus: '200（页面标题「Things - To-Do List App for Mac & iOS」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 6 条灵感清单第二款：Things——以设计精致著称的 Apple 平台待办应用（官网英文，但观摩对象是截图与交互演示，语言门槛低）。重点看它的「区域/项目/待办」层级与当日视图。本站提供原创导读 + 官网链接。',
+      why: '官方 Assignment 第 6 条灵感来源之二：设计标杆观摩。',
+      points: [
+        'Things 的层级（Area → Project → Todo）是官方「projects 或分列表」要求的一种成熟答案。',
+        '官网截图与动画展示了勾选、拖拽、当日视图的微交互——UI 灵感主产地。',
+        '与 Todoist 对照：同一需求（分层待办）的两种设计语言。'
+      ],
+      terms: [
+        'area（区域：项目之上的分组层）',
+        'today view（当日视图）'
+      ],
+      focus: '浏览官网的界面截图与功能演示，记下两三个想搬进自己应用的设计点。',
+      takeaway: '待办应用的交互上限长什么样，心里有图。',
+      },
+      license: 'Things 官网内容版权属 Cultured Code；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-todo-list',
+      title: 'any.do - A simple to do list for you and your team',
+      titleZh: 'any.do（待办应用官网）',
+      type: '网站',
+      requirement: 'reference',
+      zone: 'Assignment 第 6.3 条（官方灵感清单之三）',
+      originalUrl: 'https://www.any.do/',
+      sourceDomain: 'www.any.do',
+      originalUrlStatus: '200（页面标题「A simple to do list for you and your team」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 6 条灵感清单第三款：any.do——主打「简单」的跨平台待办应用（官网英文，观摩对象为截图与产品演示）。与 Todoist 的「功能全」、Things 的「设计精」构成三种产品性格：你的待办应用想站哪一头，观摩完再定。本站提供原创导读 + 官网链接。',
+      why: '官方 Assignment 第 6 条灵感来源之三：三种产品性格的最后一角。',
+      points: [
+        'any.do 的核心卖点是极简与自然语言输入——「少即是多」路线的代表。',
+        '三家对照后回答：我的应用第一版砍掉什么、保留什么。',
+        '官网演示视频展示了列表切换与完成任务的动效。'
+      ],
+      terms: [
+        'minimalism（极简设计取向）',
+        'task list（任务列表）'
+      ],
+      focus: '快速浏览截图，重点想「三家各砍掉了什么」而不是「各有什么」。',
+      takeaway: '自己的待办应用有了明确的产品性格定位。',
+      },
+      license: 'any.do 官网内容版权属 Any.do Inc.；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-todo-list',
+      title: 'date-fns: Modern JavaScript date utility library（GitHub）',
+      titleZh: 'date-fns（现代 JavaScript 日期工具库，GitHub 仓库）',
+      type: '工具',
+      requirement: 'reference',
+      zone: 'Assignment 第 7 条（官方：用了 webpack，从 npm 加外部库轻而易举——你可以考虑用这个库）',
+      originalUrl: 'https://github.com/date-fns/date-fns',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（页面标题「GitHub - date-fns/date-fns: ⏳ Modern JavaScript date utility library ⌛️」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 7 条推荐的日期工具库：date-fns——200+ 个独立日期函数（格式化、比较、加减），按需 import、树摇友好（这正是前两课 webpack + ES6 模块的用武之地）。GitHub 仓库 README 为英文；官网 date-fns.org 的文档亦为英文，本站提供原创导读 + 仓库链接。官方口径是「可以考虑用」——用不用都算完成任务。',
+      why: '官方 Assignment 第 7 条推荐库：到期日格式化与操作的现成轮子。',
+      points: [
+        'npm install date-fns 后按函数 import（import { format } from "date-fns"）——ES6 模块 + 树摇的标准消费者。',
+        'dueDate 的显示（format）、逾期判断（isPast/isBefore）都有现成函数——原生 Date 的痛点全绕开。',
+        '官方定性「可以考虑」：自己用原生 Date 手写格式化同样合格。'
+      ],
+      terms: [
+        'date utility（日期工具函数）',
+        'tree-shakeable（可按需摇树：每函数独立模块）'
+      ],
+      focus: '读 README 的安装与最小示例；具体函数用到哪个查哪个。',
+      takeaway: '到期日处理有成熟轮子，且用法正好串联前三课所学。',
+      },
+      license: 'date-fns 按 MIT 许可开源；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-todo-list',
+      title: 'Using the Web Storage API - Web APIs | MDN',
+      titleZh: '使用 Web Storage API（MDN 官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 8 条（持久化的官方指定文档；正文内联链接）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方 Assignment 第 8 条的指定文档：localStorage 的权威指南——setItem/getItem/removeItem 三个方法、键值都是字符串、数据只在创建它的电脑上可见。官方任务原文的三条小贴士（取不到数据别崩、DevTools Application 面板可看、存取都是 JSON）都以这页为事实源。MDN 官方简体中文版已做内容级核验（正文汉字 2659 个，标题「使用 Web Storage API」）。',
+      why: '官方 Assignment 第 8 条指定文档：待办持久化的实现依据。',
+      points: [
+        'localStorage.setItem(key, string) / getItem(key)——只认字符串，所以对象要先 JSON.stringify。',
+        '数据留在本机本浏览器：换设备不同步、清浏览器数据即失——官方明说的局限。',
+        'DevTools → Application → Local Storage 可实时查看应用存了什么——调试持久化的第一现场。'
+      ],
+      terms: [
+        'localStorage（本地持久存储）',
+        'sessionStorage（会话级存储：关标签页即清，本页一并讲解）'
+      ],
+      focus: '精读「基本用法」与「存取对象需序列化」两段；对照官方三条小贴士逐条落实。',
+      takeaway: '刷新不丢数据的完整实现路径与它的边界都清楚。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-todo-list',
+      title: 'JSON - JavaScript | MDN',
+      titleZh: 'JSON（MDN 官方中文版参考文档）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: 'Assignment 第 8 条小贴士③（localStorage 用 JSON 存取、函数存不进 JSON 的官方出处）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON',
+      zhType: 'MDN 官方简体中文版（同一篇文章的 zh-CN 语言版本）',
+      zhGuide: {
+      overview: '官方第 8 条小贴士③内联链接的 JSON 对象参考页：parse/stringify 两个方法的签名与限制——重点是官方原文那句「函数存不进 JSON」的出处：stringify 时函数与 undefined 属性被直接丢弃，取回来要自己把方法装回对象（工厂函数在这里二次登场）。MDN 官方简体中文版已做内容级核验（正文汉字 1657 个）。上一课学过 JSON 本体，这页是它在持久化场景的权威补充。',
+      why: '官方小贴士③内联链接：「JSON 存不了函数」的事实源。',
+      points: [
+        'JSON.stringify 丢弃函数与 undefined——todo 对象的方法在存取往返中消失。',
+        '取回纯数据后重建行为：把数据喂回工厂函数/类——上一课「方法装回」警告的实战。',
+        '本页与 JSON 课的教程页（学习区）互补：那边讲用法，这边是 API 签名参考。'
+      ],
+      terms: [
+        'JSON.parse / JSON.stringify（两个静态方法）',
+        'replacer / space（stringify 的加工与缩进参数）'
+      ],
+      focus: '看「描述」与 stringify 的丢弃行为说明；其余按需查。',
+      takeaway: '持久化 todo 的存取往返里，哪一步丢东西、哪一步补回来。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-26',
+      note: ''
+    },
+    /* ===== World 3 批次 4 阶段 2（2026-09-27，v4.11.24，通宵轮）：javascript 课程
+     * 「真实世界的 JavaScript」+「异步 JavaScript 与 API」两章节 7 课，+50 条 =====
+     * 逐条三级核验真跑（状态码 → 重定向 → 内容级语言核验；7 条视频全部走 oEmbed 取得
+     * 真实标题与作者）。按课分布：linting 14 / form-validation-with-javascript 3 /
+     * ecmascript 3 / asynchronous-code 9 / working-with-apis 15 / async-and-await 4 /
+     * weather-app 2。A 类 10 条（MDN zh-CN ×7、zh.javascript.info ×2、zh.wikipedia ×1，
+     * 全部按重定向后的现役路径登记并逐条内容级核验、汉字数入 overview）；C 类 40 条
+     * （含视频 7、存档 1）。本批无新增受限条目（verifyLimited 维持 23）：jsbin 与
+     * codeburst 命令行 403 但真实浏览器实测可达（按批次 3 Medium 先例不入受限，核验
+     * 方式如实写入 originalUrlStatus）。
+     * 本批核验新事实（如实记录）：① 官方 working_with_apis 正文引用的 devfactor
+     * 「2375 美元亚马逊 EC2 事故」web.archive.org 存档链接把原路径写错——官方写
+     * 2014-12-30（连字符日期），真实存档为 2014/12/30（斜杠日期）：官方原链接实测
+     * 404（浏览器实测 Wayback 明说「has not archived that URL」），经 CDX 索引找到
+     * 同 timestamp（20150102022540）的真存档，实测 200、标题「My $2375 Amazon EC2
+     * Mistake」——originalUrl 原样登记官方链接、originalUrlEffective 登记修正地址；
+     * ② MDN Form validation 教程 zh-CN 页锚点再分化：en 页 #validating_forms_using_javascript
+     * 实测存在，zh-CN 页标题已本地化（章节 id 为「使用_javascript_校验表单」）——中文
+     * 链接按批次 2 纪律挂实测存在的本地化锚点；③ en.wikipedia 的 ECMAScript_version_history
+     * 为独立分叉条目，zh.wikipedia 无对应分叉条目、版本史内容住在主条目「ECMAScript」
+     * 的「版本」章节（实测章节在位）——zhUrl 登记主条目并在 zhType 如实说明形态差异；
+     * ④ 三个 GitHub 仓库迁移：maxogden/art-of-node → max-mapper、mzabriskie/axios →
+     * axios/axios、visionmedia/superagent → forwardemail/superagent（官方链接 301 后
+     * 200，迁移事实入 originalUrlStatus）；⑤ visualcrossing 两页路径迁移：
+     * weather-data-editions → weather-data-pricing、weather/weather-data-services →
+     * weather-query-builder（301 后 200）；⑥ MDN Learn/Forms/Form_validation 301 到
+     * Learn_web_development/Extensions/Forms/Form_validation（学习区 Extensions 分节，
+     * 与批次 1 的 Core/Scripting 迁移不同区）、Web/HTML/Constraint_validation 301 到
+     * Web/HTML/Guides/Constraint_validation、Web/HTML/Element/form 301 到
+     * Web/HTML/Reference/Elements/form——一律按现役 zh-CN 路径登记；⑦ jsbin（canofar）
+     * 命令行 403（反爬）、真实浏览器实测 bin 在位（HTML 面板含 giphy 演示文档）；
+     * ⑧ codeburst.io 文命令行 403（Medium 系反爬）、真实浏览器实测 h1「JavaScript ES
+     * 2017: Learn Async/Await by Example」（Brandon Morelli）在位。
+     * 剔除清单：TOP 自有课页 2 条（linting 正文 tip 的 revisiting-webpack#template-repositories
+     * 回链、form-validation 引言的 World 2 form-validation 课页与练习第 2 条的
+     * foundations revisiting-rock-paper-scissors 课页——计 3 处回链）+ statically CDN
+     * 配图 1 张（working_with_apis 正文的响应钻取截图，官方 CDN 路径为旧目录
+     * javascript/async-apis/APIs/imgs/）。跨课合并 0 处；同页多锚点合并 1 处
+     * （giphy docs #quick-start-guide 与 endpoint#translate 为不同页面路径，分列两条）。 */
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'airbnb/javascript (Airbnb JavaScript Style Guide)',
+      titleZh: 'Airbnb JavaScript 风格指南（GitHub 仓库）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Style guides 节第 1 例',
+      originalUrl: 'https://github.com/airbnb/javascript',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（零重定向；页面标题「GitHub - airbnb/javascript: JavaScript Style Guide」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的风格指南第 1 例：Airbnb 的 JavaScript 风格指南，官方原话「最流行的之一」。仓库 README 就是一份超细的规则清单——从箭头函数体怎么写到对象换行怎么排，细到让你意识到「风格」有多少可统一的维度。无官方中文版（社区翻译版存在但非官方，按纪律不登记）。',
+      why: '官方正文引用：感受一套流行风格指南的细度。',
+      points: [
+        '规则覆盖面：类型、引用、对象、数组、函数、箭头函数、类、模块、变量、比较运算符……逐节成文。',
+        '每条规则带正反代码对照——不需要认同，需要感受「一致性」长什么样。'
+      ],
+      terms: [
+        'style guide（风格指南）'
+      ],
+      focus: '浏览目录与任意两三节即可——本课的目的不是背规则，是理解「强制某种一致性」的价值。',
+      takeaway: '风格指南没有对错，只有「选一套并坚持」。',
+      },
+      license: '仓库内容按 Airbnb 的开源许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Google JavaScript Style Guide',
+      titleZh: 'Google JavaScript 风格指南',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Style guides 节第 2 例',
+      originalUrl: 'https://google.github.io/styleguide/jsguide.html',
+      sourceDomain: 'google.github.io',
+      originalUrlStatus: '200（零重定向；页面标题「Google JavaScript Style Guide」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的风格指南第 2 例：Google 内部使用的 JavaScript 风格指南公开版。与 Airbnb 版对照着看最有意思：两套指南在很多细节上取向不同（官方正文原话：它们强制的内容常常不同）——这正是「风格指南无对错、重点是一致性」的活教材。无官方中文版。',
+      why: '官方正文引用：第二套流行风格指南样本。',
+      points: [
+        '单页长文形态：从源文件结构到命名、语句、空白逐节成文。',
+        '与 Airbnb 版对照读，能直观看到「不同团队的不同取舍」。'
+      ],
+      terms: [
+        'style guide（风格指南）'
+      ],
+      focus: '扫一眼章节结构、挑一两节与 Airbnb 版对照即可。',
+      takeaway: '两套流行指南互相矛盾之处，恰是「没有唯一正确答案」的证明。',
+      },
+      license: '指南由 Google 发布（CC BY 4.0）；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'JavaScript Standard Style (Rules)',
+      titleZh: 'JavaScript Standard Style 规则页',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Style guides 节第 3 例',
+      originalUrl: 'https://standardjs.com/rules.html',
+      sourceDomain: 'standardjs.com',
+      originalUrlStatus: '200（零重定向；页面标题「JavaScript Standard Style」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的风格指南第 3 例：JavaScript Standard Style 的规则页。它走「零配置」路线——规则不给配置项，装了就是这一套（比如不写分号）。规则页每条配一行示例代码，是三套指南里最「短平快」的一份。无官方中文版。',
+      why: '官方正文引用：第三套流行风格指南样本（零配置流派）。',
+      points: [
+        '规则以「一行示例」呈现：该怎么做直接看代码。',
+        '零配置哲学：不给纠结的机会——与 Prettier 的「高度有观点」异曲同工。'
+      ],
+      terms: [
+        'Standard Style（标准风格）'
+      ],
+      focus: '看开头的规则速览即可，感受「零配置」流派的态度。',
+      takeaway: '风格指南的第三种形态：不给选项，直接用默认。',
+      },
+      license: 'standardjs.com 内容由 Standard JS 项目发布；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'ESLint (official site)',
+      titleZh: 'ESLint 官网',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文 Linting 节（官方点名「最常用」的 linter）',
+      originalUrl: 'https://eslint.org/',
+      sourceDomain: 'eslint.org',
+      originalUrlStatus: '200（零重定向；页面标题「Find and fix problems in your JavaScript code - ESLint」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名：JavaScript 的 linter 有很多，但最常用的是 ESLint——这是它的官网。首页即自我定位「Find and fix problems in your JavaScript code」：可插拔的 lint 工具，规则集可配置，生态覆盖编辑器、CI 与构建链。无官方中文版。',
+      why: '官方正文引用：本课主角工具的官网入口。',
+      points: [
+        '「可插拔（Pluggable）」是它的核心设计：规则、配置、生态都是插件化的。',
+        '官网同时是文档入口：Getting Started 与配置文档都在 /docs 下。'
+      ],
+      terms: [
+        'ESLint',
+        'pluggable（可插拔）'
+      ],
+      focus: '认个门——安装与配置从下面两条文档入口走。',
+      takeaway: 'JS 世界事实标准的 linter 就是它。',
+      },
+      license: 'ESLint 文档由 OpenJS Foundation 的 ESLint 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Getting Started with ESLint',
+      titleZh: 'ESLint 入门指南（官方文档）',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文 Linting 节（官方推荐起点：覆盖安装与基本配置）',
+      originalUrl: 'https://eslint.org/docs/user-guide/getting-started',
+      sourceDomain: 'eslint.org',
+      originalUrlStatus: '200（官方给的旧路径 301 重定向到现役 /docs/latest/use/getting-started，页面标题「Getting Started with ESLint」）',
+      originalUrlEffective: 'https://eslint.org/docs/latest/use/getting-started',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文推荐的起点文档：覆盖 ESLint 的安装与基本配置——npm 安装、eslint --init 交互式生成配置、跑第一次检查。官方原话：默认规则集已用合理的默认设置覆盖了最常见的场景。无官方中文版。',
+      why: '官方正文引用：上手 ESLint 的第一步文档。',
+      points: [
+        '安装为 devDependency + npx eslint 跑检查的完整流程。',
+        '默认规则集覆盖常见场景——起步不用自己攒规则。'
+      ],
+      terms: [
+        'eslint --init（交互式初始化配置）',
+        'default rule set（默认规则集）'
+      ],
+      focus: '跟着走一遍安装与第一次 npx eslint 即可。',
+      takeaway: 'ESLint 的起步成本比想象中低：装包、init、跑。',
+      },
+      license: 'ESLint 文档由 OpenJS Foundation 的 ESLint 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Configure ESLint',
+      titleZh: '配置 ESLint（官方文档）',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文 Linting 节（官方点名：可改选项的清单）',
+      originalUrl: 'https://eslint.org/docs/latest/use/configure/',
+      sourceDomain: 'eslint.org',
+      originalUrlStatus: '200（零重定向；页面标题「Configure ESLint」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的配置文档：列出可改的选项——包含/排除特定文件夹或文件、调整具体规则等。想在默认规则集之上做定制时来这里查。无官方中文版。',
+      why: '官方正文引用：默认集不够用时的定制入口。',
+      points: [
+        '配置文件的结构：规则、忽略范围、语言选项。',
+        '每条规则可单独开关与调级别（off / warn / error）。'
+      ],
+      terms: [
+        'configuration file（配置文件）',
+        'rule severity（规则级别）'
+      ],
+      focus: '起步阶段扫一眼结构即可，用到再回来查。',
+      takeaway: '默认集先跑起来，定制是第二天的事。',
+      },
+      license: 'ESLint 文档由 OpenJS Foundation 的 ESLint 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Prettier (official site)',
+      titleZh: 'Prettier 官网（有观点的代码格式化工具）',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文 Formatters 节（官方点名的最流行 formatter）',
+      originalUrl: 'https://prettier.io/',
+      sourceDomain: 'prettier.io',
+      originalUrlStatus: '200（零重定向；页面标题「Prettier · Opinionated Code Formatter」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的 formatter 主角：Prettier 官网——首页的自我定位就是「Opinionated Code Formatter」（有观点的代码格式化工具）。它把「代码长什么样」的决定权从人手里拿走：你写逻辑，它管排版。无官方中文版。',
+      why: '官方正文引用：本课另一位主角工具的官网入口。',
+      points: [
+        '「有观点」= 大多数排版决定不可定制——官方把这当卖点。',
+        '支持的不只 JS：CSS/HTML/JSON/Markdown 等一并接管。'
+      ],
+      terms: [
+        'opinionated（有观点的）',
+        'formatter（格式化工具）'
+      ],
+      focus: '认个门——安装与配置从下面两条文档入口走，试驾去 playground。',
+      takeaway: '把格式争论外包给工具，是它存在的全部意义。',
+      },
+      license: 'Prettier 文档由 Prettier 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Install Prettier',
+      titleZh: '安装 Prettier（官方指南）',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文 Formatters 节（官方点名：装成 devDependency 的说明）',
+      originalUrl: 'https://prettier.io/docs/en/install.html',
+      sourceDomain: 'prettier.io',
+      originalUrlStatus: '200（官方给的旧路径 301 重定向到现役 /docs/install.html，页面标题「Install · Prettier」）',
+      originalUrlEffective: 'https://prettier.io/docs/install.html',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的安装指南：Prettier 与 ESLint 一样装成项目的 devDependency——安装命令、编辑器集成入口都在这一页。无官方中文版。',
+      why: '官方正文引用：Prettier 上手第一步。',
+      points: [
+        'npm 安装为 devDependency 的命令与编辑器扩展入口。',
+        '与 ESLint 共存时的注意项也在文档体系内（默认推荐规则集下无冲突，见本课正文）。'
+      ],
+      terms: [
+        'devDependency（开发依赖）'
+      ],
+      focus: '照命令装、照页面配编辑器即可。',
+      takeaway: 'Prettier 和 ESLint 一样住在项目里，不是全局软件。',
+      },
+      license: 'Prettier 文档由 Prettier 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Prettier Configuration File',
+      titleZh: 'Prettier 配置文件（官方文档）',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文 Formatters 节（官方点名：默认之外可改的设置）',
+      originalUrl: 'https://prettier.io/docs/configuration',
+      sourceDomain: 'prettier.io',
+      originalUrlStatus: '200（零重定向；页面标题「Configuration File · Prettier」；https://prettier.io/docs/configuration 为官方正文原链接）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名：Prettier 平时用默认规则跑，但你可以改配置文件里的设置——这是配置文档入口。可改的就是「少数几个选项」（缩进宽度、引号风格、行宽等），其余排版决定它自己拿。无官方中文版。',
+      why: '官方正文引用：想动那几个可定制选项时来这。',
+      points: [
+        '配置文件的形态与放置位置（.prettierrc 等）。',
+        '可选项清单：短——这正是「高度有观点」的体现。'
+      ],
+      terms: [
+        'configuration file（配置文件）'
+      ],
+      focus: '知道有哪几个选项可动即可，别陷进去调参。',
+      takeaway: '能配置的少，是特性不是缺陷。',
+      },
+      license: 'Prettier 文档由 Prettier 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'ESLint - Visual Studio Marketplace (VSCode extension)',
+      titleZh: 'VSCode 的 ESLint 扩展（Marketplace 页）',
+      type: '工具扩展',
+      requirement: 'reference',
+      zone: '正文 IDE extensions 节（官方点名的扩展）',
+      originalUrl: 'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
+      sourceDomain: 'marketplace.visualstudio.com',
+      originalUrlStatus: '200（零重定向；页面标题「ESLint - Visual Studio Marketplace」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的 VSCode ESLint 扩展：装上后打开的文件里直接出现彩色波浪线的警告与错误、给出违反的具体规则详情——不用去命令行跑 ESLint。官方同时提醒：扩展是便利层，项目里的包与配置才是事实源。无官方中文版。',
+      why: '官方正文引用：编辑器内实时 lint 的便利层。',
+      points: [
+        '波浪线 + 规则详情：错误在写下的当下就可见。',
+        '检测到项目内的 ESLint 包与配置时使用项目规则与版本。'
+      ],
+      terms: [
+        'IDE extension（IDE 扩展）'
+      ],
+      focus: '装上、确认它读的是项目配置。',
+      takeaway: '扩展提供便利，项目提供真相。',
+      },
+      license: '扩展由 Dirk Baeumer 发布、版权归作者所有；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Prettier - Code formatter - Visual Studio Marketplace (VSCode extension)',
+      titleZh: 'VSCode 的 Prettier 扩展（Marketplace 页）',
+      type: '工具扩展',
+      requirement: 'reference',
+      zone: '正文 IDE extensions 节（官方点名的扩展）',
+      originalUrl: 'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
+      sourceDomain: 'marketplace.visualstudio.com',
+      originalUrlStatus: '200（零重定向；页面标题「Prettier - Code formatter - Visual Studio Marketplace」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的 VSCode Prettier 扩展：一个 IDE 命令或自定义快捷键就格式化当前文件——不用开终端。通常配「保存即格式化」使用，从此缩进分号不再进入你的注意力。无官方中文版。',
+      why: '官方正文引用：一键格式化的便利层。',
+      points: [
+        '命令/快捷键格式化当前文件，可配保存时自动执行。',
+        '同样遵循「项目配置优先」：检测到项目内 Prettier 就用项目规则。'
+      ],
+      terms: [
+        'format on save（保存即格式化）'
+      ],
+      focus: '装上、开 format on save、忘掉排版这件事。',
+      takeaway: '格式化变成肌肉记忆后，手写排版的时间全省下来。',
+      },
+      license: '扩展由 Esben Petersen 发布、版权归作者所有；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'What Are Linters? (+ Why Your Team Should Use Them)',
+      titleZh: '什么是 Linter（以及你的团队为什么该用）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://blog.codacy.com/what-is-a-linter',
+      sourceDomain: 'blog.codacy.com',
+      originalUrlStatus: '200（零重定向；页面标题「What Are Linters? (+ Why Your Team Should Use Them)」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：Codacy 博客深入讲 linter 的价值与工作原理——为什么代码检查该进团队流程、linter 在 CI 里扮演什么角色。比本课正文多一层「团队视角」。无官方中文版。',
+      why: '官方指定阅读：linter 的价值与工作原理。',
+      points: [
+        'linter 抓的问题类型：风格违规、可疑写法、潜在 bug。',
+        '团队视角：统一的 lint 规则如何降低协作摩擦。'
+      ],
+      terms: [
+        'static analysis（静态分析）'
+      ],
+      focus: '读「价值」与「工作原理」两部分即可。',
+      takeaway: 'linter 不只是个人洁癖工具，是团队质量的第一道闸。',
+      },
+      license: '博客文章版权归 Codacy 所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'A Prettier Printer - React Conf 2017 (James Long, YouTube)',
+      titleZh: 'Prettier 作者的介绍演讲（React Conf 2017，YouTube）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=hkfBvpEfWdA',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「⚡️ - James Long - A Prettier Printer (plus bonus clip!) - React Conf 2017」，作者 Meta Developers——与官方「by its creator」表述一致：James Long 即 Prettier 创始人）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：Prettier 创始人 James Long 在 React Conf 2017 的短演讲——Prettier 的来龙去脉与设计哲学（为什么要「有观点」、为什么放弃可配置性）。经 oEmbed 核验真实标题与作者。',
+      why: '官方指定观看：从作者本人处理解 Prettier 的设计动机。',
+      points: [
+        'Prettier 诞生的痛点：无休止的格式争论。',
+        '「有观点」的设计哲学：确定性输出比可配置更重要。'
+      ],
+      terms: [
+        'deterministic output（确定性输出）'
+      ],
+      focus: '短演讲，完整看完——设计动机比用法更值得听作者亲口讲。',
+      takeaway: 'Prettier 的「霸道」是对格式内卷的釜底抽薪。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（Meta Developers / React Conf）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-linting',
+      title: 'Prettier Playground',
+      titleZh: 'Prettier 在线 playground',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://prettier.io/playground',
+      sourceDomain: 'prettier.io',
+      originalUrlStatus: '200（零重定向；页面标题「Prettier」——SPA 应用页）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：Prettier 的在线 playground——把你以前写的 JavaScript 代码复制粘贴进去，当场看它被重排成什么样。零安装成本体验「有观点的格式化」到底动了你的哪些代码。无官方中文版。',
+      why: '官方指定实操：亲手体验 Prettier 的格式化结果。',
+      points: [
+        '左边贴代码、右边即时看格式化输出。',
+        '选项面板可玩那几个「少数可定制项」（缩进、引号、行宽）。'
+      ],
+      terms: [
+        'playground（在线试验场）'
+      ],
+      focus: '贴一段自己的旧代码进去——看它改了哪些地方最直观。',
+      takeaway: '第一次看到自己代码被 Prettier 重排，才算真认识它。',
+      },
+      license: '在线工具由 Prettier 项目提供；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-form-validation-with-javascript',
+      title: 'Client-side form validation - Learn web development | MDN',
+      titleZh: '客户端表单数据校验（MDN 教程，有官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（官方链接带 #validating_forms_using_javascript 锚点）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 学习区路径重组，en-US 旧路径 301 到现役 /docs/Learn_web_development/Extensions/Forms/Form_validation；官方给的 #validating_forms_using_javascript 锚点在 en 页实测存在）',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Forms/Form_validation#使用_javascript_校验表单',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「表单数据校验 - 学习 Web 开发 | MDN」，正文汉字 8485；zh-CN 页章节 id 已本地化，英文锚点在中文页不存在——中文链接按批次 2 纪律挂实测存在的本地化锚点「#使用_javascript_校验表单」）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：MDN 的表单校验教程——本课知识本体所在（官方正文只有引言与 overview，讲解全部委托给这份教程）。「用 JavaScript 校验表单」一节覆盖 Constraint Validation API 的实操：checkValidity / validity / setCustomValidity 的用法与完整示例。中文版实测正文汉字 8485，教程从 HTML 内置校验讲起、以 JS 校验收尾——与你在 World 2 表单校验课学的部分正好首尾相接。',
+      why: '官方指定跟做：本课的核心教程。',
+      points: [
+        '内置校验回顾：required / minlength / pattern 等约束的浏览器行为。',
+        'JS 校验主体：Constraint Validation API 的接口与典型用法（含密码确认类跨字段示例）。',
+        '校验的样式化与用户体验：什么时候校验、错误怎么呈现。'
+      ],
+      terms: [
+        'Constraint Validation API（约束校验 API）',
+        'setCustomValidity()（自定义错误消息）'
+      ],
+      focus: '重点读「使用 JavaScript 校验表单」一节（官方锚点所指），其余节可作复习快读。',
+      takeaway: 'HTML 管标准约束、JS 管跨字段逻辑与文案——两层配合才是完整方案。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-form-validation-with-javascript',
+      title: 'Using HTML form validation and the Constraint Validation API - HTML | MDN',
+      titleZh: '约束验证（MDN 指南，有官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 目录重组，en-US 旧路径 301 到现役 /docs/Web/HTML/Guides/Constraint_validation，页面标题「Using HTML form validation and the Constraint Validation API」）',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Guides/Constraint_validation',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「约束验证 - HTML（超文本标记语言） | MDN」，正文汉字 4361）',
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：Constraint Validation API 的专门文档——官方原话「过一遍它会很有收益」。比教程更「参考书」形态：哪些元素与属性参与约束、ValidityState 每个属性什么含义、相关方法与事件（invalid / submit 拦截）的完整清单。中文版实测正文汉字 4361。',
+      why: '官方指定阅读：API 的参考书形态，把教程里的接口逐个钉牢。',
+      points: [
+        '参与约束校验的元素与属性总表（input/select/textarea + required/minlength/pattern…）。',
+        'ValidityState 各属性含义：valueMissing / typeMismatch / tooShort / patternMismatch…',
+        '相关接口与事件：checkValidity / reportValidity / setCustomValidity / invalid 事件。'
+      ],
+      terms: [
+        'ValidityState（有效性状态对象）',
+        'reportValidity()（报告有效性）'
+      ],
+      focus: '把 ValidityState 的属性表通读一遍——写校验分支时它就是你的判断依据清单。',
+      takeaway: '「为什么无效」不用猜：validity 对象里每个原因都有名字。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-form-validation-with-javascript',
+      title: '<form>: The Form element (novalidate) - HTML | MDN',
+      titleZh: 'form 元素文档（含 novalidate 属性，MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment「再来一点练习」第 1 条（官方点名 novalidate 属性）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（MDN 参考区路径调整，en-US 旧路径 301 到现役 /docs/Web/HTML/Reference/Elements/form；官方给的 #novalidate 锚点在 zh-CN 页实测存在）',
+      originalUrlEffective: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/form#novalidate',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「<form>：表单元素 - HTML | MDN」，正文汉字 2779；#novalidate 锚点实测存在）',
+      zhGuide: {
+      overview: '官方练习点名的属性文档：form 元素的 novalidate——加上它，浏览器内置的校验拦截与提示气泡全部关闭，校验大权完全移交你的 JavaScript（官方练习的硬性要求）。中文版实测正文汉字 2779、#novalidate 锚点实测存在。注意 novalidate 只是关掉「浏览器自动执行」，required 等属性设置的标准约束仍在、validity 状态照常可查。',
+      why: '官方练习指定：全 JS 校验模式的前提属性。',
+      points: [
+        'novalidate 的确切语义：关闭内置校验 UI 与提交拦截。',
+        '对照 form 的其他属性（action / method / accept-charset）建立完整认知。'
+      ],
+      terms: [
+        'novalidate（禁用内置校验）'
+      ],
+      focus: '读 novalidate 小节即可——语义边界（关 UI 不关状态）是练习的关键前提。',
+      takeaway: 'novalidate 不是「取消校验」，是「校验改由我全权负责」。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-ecmascript',
+      title: 'Babel (official site)',
+      titleZh: 'Babel 官网（JavaScript 编译器/转译器）',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文 Babel 节（官方点名：转译现代 JS 的工具）',
+      originalUrl: 'http://babeljs.io/',
+      sourceDomain: 'babeljs.io',
+      originalUrlStatus: '200（官方给的 http 地址自动升级为 https；页面标题「Babel」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的工具：Babel——把你的现代 JavaScript 转译（transpile）成老浏览器能理解的代码。可按 targets（如各浏览器最低版本）配置转译目标。官方对本课的定位是「知道它存在、知道真实世界需要它」，课程项目不必架它的流水线。无官方中文版。',
+      why: '官方正文引用：浏览器支持问题的标准解法。',
+      points: [
+        'transpile（转译）：同语言、不同语法水平的等价转换。',
+        'targets 配置：转译到哪一档由产品受众决定。'
+      ],
+      terms: [
+        'transpile（转译）',
+        'targets（转译目标）'
+      ],
+      focus: '认识名词与定位即可——配置实操不是本课要求。',
+      takeaway: '新语法能不能直接用，取决于「Babel 在不在你的流水线里」。',
+      },
+      license: 'Babel 文档由 Babel 项目发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-ecmascript',
+      title: 'lukehoban/es6features (Overview of ECMAScript 6 features)',
+      titleZh: 'ES6 特性总览（GitHub 仓库）',
+      type: '代码仓库视图',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://github.com/lukehoban/es6features',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（零重定向；页面标题「GitHub - lukehoban/es6features: Overview of ECMAScript 6 features」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条（满足好奇心向）：ES6 全部新特性的总览仓库——箭头函数、模板字符串、解构、Promise、模块……每项配最小代码示例。官方特别注明：其中很多你已经在用；有几项课程还没专门讲，**现在不需要去探索**。无官方中文版。',
+      why: '官方指定浏览：把你「已经在用的东西」拼成一张全景图。',
+      points: [
+        '按特性组织的目录：每项一小节 + 示例代码。',
+        '对照自查：哪些你天天在写、哪些名字都没见过——后者官方说先放着。'
+      ],
+      terms: [
+        'ES6 features（ES6 特性）'
+      ],
+      focus: '通读目录、细看已学特性的示例——没见过的跳过（官方明文不需要探索）。',
+      takeaway: '你写的「现代 JS」具体是哪一批特性，这里有一张清单。',
+      },
+      license: '仓库内容按其开源许可（MIT）发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-ecmascript',
+      title: 'ECMAScript version history - Wikipedia',
+      titleZh: 'ECMAScript 版本历史（维基百科，中文维基有对应条目）',
+      type: '百科条目',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条（官方链接带 #14th_Edition_–_ECMAScript_2023 锚点，原样登记）',
+      originalUrl: 'https://en.wikipedia.org/wiki/ECMAScript_version_history',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200（零重定向；页面标题「ECMAScript version history - Wikipedia」）',
+      zhUrl: 'https://zh.wikipedia.org/wiki/ECMAScript',
+      zhType: '维基百科中文版「ECMAScript」条目（实测正文汉字 7507；英文原文是独立的 version_history 分叉条目，中文版无对应分叉条目——版本史内容住在主条目的「历史」与「版本」章节，两章节实测在位；形态差异如实登记）',
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条：ECMAScript 各版本发布时间线——从 ES1 到最新的年度版本，ES6 之后每版都有小摘要。官方注明：有些你已经用过，有些你不认识、也不需要现在探索。中文版为维基百科「ECMAScript」主条目（英文的 version history 是独立分叉条目，中文版未分叉——版本史在其「历史/版本」章节内，实测在位）。',
+      why: '官方指定浏览：把「每年一版」的时间线走一遍。',
+      points: [
+        'ES6/ES2015 的分水岭位置：之前攒大招、之后年年小步。',
+        '各年度版本的代表性特性摘要——认识的会心一笑，不认识的先路过。'
+      ],
+      terms: [
+        'ECMAScript version history（版本历史）'
+      ],
+      focus: '看时间线结构与 ES2015 前后的节奏变化即可。',
+      takeaway: '「ES 几」与「ES 哪年」从此在你脑内是同一条时间线。',
+      },
+      license: '维基百科条目按 CC BY-SA 4.0 发布；本站只做链接与原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'Callback function - Glossary | MDN',
+      titleZh: '回调函数（MDN 术语表，有官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Callbacks 节（官方给出的定义出处）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Glossary/Callback_function',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（零重定向；页面标题「Callback function - Glossary | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Glossary/Callback_function',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「回调函数 - MDN Web 文档术语表 | MDN」，正文汉字 2677）',
+      zhGuide: {
+      overview: '官方正文给回调下定义时引用的术语表页：回调函数是作为参数传进另一个函数、在外层函数内部被调用以完成某种例程或动作的函数。短页，顺带区分了同步回调（立即执行，如 map 的比较函数）与异步回调（延后执行，如事件处理与网络响应）。中文版实测正文汉字 2677。',
+      why: '官方正文引用：回调的权威定义出处。',
+      points: [
+        '定义本体：传入-被调用-完成例程。',
+        '同步回调与异步回调的区分——本课语境里的主角是后者。'
+      ],
+      terms: [
+        'callback function（回调函数）'
+      ],
+      focus: '两分钟的短页，通读即可。',
+      takeaway: '「把函数当参数交出去、时机到了被叫回来」就是回调的全部。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'What to understand about Callback and Callback Hell in JavaScript - GeeksforGeeks',
+      titleZh: '理解 JavaScript 的回调与回调地狱（GeeksforGeeks）',
+      type: '教程文章',
+      requirement: 'reference',
+      zone: '正文 Callbacks 节（官方点名 callback hell 的出处链接）',
+      originalUrl: 'https://www.geeksforgeeks.org/javascript/what-to-understand-callback-and-callback-hell-in-javascript/',
+      sourceDomain: 'www.geeksforgeeks.org',
+      originalUrlStatus: '200（零重定向；页面标题「Understanding Callbacks and Callback Hell in JavaScript - GeeksforGeeks」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名「callback hell」时给的链接：讲回调嵌套失控的形态与成因——多个异步操作按顺序串联时，每步嵌进上一步的回调体，代码向右下方长成金字塔，难读难改难排错。文章同时给了缓解思路（正是本课后半段 Promise 要解决的）。无官方中文版。',
+      why: '官方正文引用：「回调地狱」这个名词的形象出处。',
+      points: [
+        '回调地狱的视觉形态：层层嵌套的金字塔缩进。',
+        '成因：顺序依赖的异步操作各自要求一个回调。'
+      ],
+      terms: [
+        'callback hell / pyramid of doom（回调地狱/厄运金字塔）'
+      ],
+      focus: '看一眼「地狱形态」的示例代码——认得它，才会在自己写出第三层嵌套时警觉。',
+      takeaway: '回调地狱不是回调的错，是「嵌套」这个结构的错——Promise 用链式把它拉平。',
+      },
+      license: '文章版权归 GeeksforGeeks 所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'art-of-node — Callbacks section',
+      titleZh: 'Node 的艺术——callbacks 一节（GitHub 仓库）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（官方链接带 #callbacks 锚点）',
+      originalUrl: 'https://github.com/maxogden/art-of-node#callbacks',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（官方给的 maxogden/art-of-node 已 301 迁移到 max-mapper/art-of-node，页面标题「GitHub - max-mapper/art-of-node: a short introduction to node.js」；#callbacks 对应 README 的 Callbacks 标题，GitHub 自动生成锚点）',
+      originalUrlEffective: 'https://github.com/max-mapper/art-of-node#callbacks',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条：art-of-node 的 callbacks 节——用 Node 语境讲回调如何处理异步操作（ fs.readFile 的 error-first 回调约定：第一个参数永远是错误、第二个才是数据）。虽然例子是 Node 的，「回调接异步结果」的模式与浏览器端完全同源。无官方中文版（社区中译本非官方，按纪律不登记）。',
+      why: '官方指定阅读：回调处理异步操作的经典短文。',
+      points: [
+        'error-first 回调约定：先查错误、再用数据。',
+        '异步回调的执行时机：调用发生 ≠ 执行发生。'
+      ],
+      terms: [
+        'error-first callback（错误优先回调）'
+      ],
+      focus: '只读 #callbacks 一节（官方划定范围）——后面的模块章节是 Node 课的事。',
+      takeaway: '回调的第一课：结果不是「返回」的，是「稍后被送进你的函数」的。',
+      },
+      license: '仓库内容按 CC0/开源许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'JavaScript Promises (David Walsh)',
+      titleZh: 'JavaScript Promises（David Walsh 博客）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://davidwalsh.name/promises',
+      sourceDomain: 'davidwalsh.name',
+      originalUrlStatus: '200（零重定向；页面标题「JavaScript Promises」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条（官方评价：好的起点，短小、切题）：David Walsh 的 Promises 入门——从 API 形态讲 promise 的创建、then 链与错误处理，篇幅克制。正文建立的直觉（「未来某个时刻可能产出一个值的对象」）在这里落到具体 API。无官方中文版。',
+      why: '官方指定阅读：短小切题的 Promise 起点文。',
+      points: [
+        'Promise 的三种状态与状态迁移的不可逆。',
+        'then 链的返回值语义：回调返回什么，下一环就接到什么。'
+      ],
+      terms: [
+        'pending / fulfilled / rejected（三种状态）'
+      ],
+      focus: '短文，通读——重点在 then 链的数据流向。',
+      takeaway: 'Promise 把「值」变成「将来会到的值」，then 是接货口。',
+      },
+      license: '博客文章版权归原作者 David Walsh 所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'JavaScript Promises In 10 Minutes (Web Dev Simplified, YouTube)',
+      titleZh: '十分钟搞懂 JavaScript Promises（YouTube）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://youtu.be/DHvZLI7Db8E',
+      sourceDomain: 'youtu.be',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「JavaScript Promises In 10 Minutes」，作者 Web Dev Simplified；官方给的是 youtu.be 短链形态）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条：感受 promise 在实战里怎么用的短视频——十分钟走完 new Promise、resolve/reject、then/catch 的完整闭环。经 oEmbed 核验真实标题与作者。',
+      why: '官方指定观看：Promise 的实战手感。',
+      points: [
+        'executor 函数里 resolve/reject 的触发时机。',
+        'then/catch 链的最小完整示例。'
+      ],
+      terms: [
+        'resolve / reject'
+      ],
+      focus: '十分钟完整看——比读文字更快建立手感。',
+      takeaway: 'Promise 的骨架就三件事：造、决、接。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（Web Dev Simplified）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'What the heck is the event loop anyway? | Philip Roberts | JSConf EU (YouTube)',
+      titleZh: '事件循环到底是什么（Philip Roberts，JSConf EU 演讲，YouTube）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条',
+      originalUrl: 'https://www.youtube.com/watch?v=8aGhZQkoFbQ',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「What the heck is the event loop anyway? | Philip Roberts | JSConf EU」，作者 JSConf）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 4 条：理解 JS 异步代码工作机制的经典演讲——Philip Roberts 用自制的 loupe 工具把调用栈、Web APIs、任务队列与事件循环逐帧可视化，是「单线程怎么跑异步」这个问题流传最广的答案。经 oEmbed 核验真实标题与作者。',
+      why: '官方指定观看：事件循环的殿堂级入门演讲。',
+      points: [
+        '调用栈（call stack）：单线程的执行现场。',
+        'Web APIs 与任务队列：慢操作在栈外完成、回调排队等栈空。',
+        '事件循环：栈空了就送队列头进栈——「后台进行、其余代码照常」的实现机制。'
+      ],
+      terms: [
+        'call stack（调用栈）',
+        'event loop（事件循环）',
+        'task queue（任务队列）'
+      ],
+      focus: '完整看，配合 loupe 演示在脑中过一遍 console.log 顺序谜题。',
+      takeaway: 'JS 不是「多线程」，是「单线程 + 会排队的回调」。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（JSConf / Philip Roberts）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'JavaScript Visualized - Event Loop, Web APIs, (Micro)task Queue (Lydia Hallie, YouTube)',
+      titleZh: 'JavaScript 可视化——事件循环、Web APIs 与（微）任务队列（YouTube）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 5 条',
+      originalUrl: 'https://www.youtube.com/watch?v=eiC58R16hb8',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「JavaScript Visualized - Event Loop, Web APIs, (Micro)task Queue」，作者 Lydia Hallie）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 5 条（进一步理解 Event Loop）：Lydia Hallie 的可视化系列——比 Philip Roberts 演讲更进一步，把微任务队列（microtask queue，Promise 回调住的地方）与宏任务队列的优先级差异也画了出来。经 oEmbed 核验真实标题与作者。',
+      why: '官方指定观看：事件循环的第二遍、带微任务细节。',
+      points: [
+        '微任务 vs 宏任务：Promise 回调为什么「插队」setTimeout。',
+        '逐帧动画：一条代码从栈到队列再回栈的完整旅程。'
+      ],
+      terms: [
+        'microtask queue（微任务队列）'
+      ],
+      focus: '看完上一支演讲再看这支——顺序别反，微任务概念以事件循环认知为前提。',
+      takeaway: 'then 回调比 setTimeout 先跑，不是玄学，是队列优先级。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（Lydia Hallie）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'JavaScript Visualized - Promise Execution (Lydia Hallie, YouTube)',
+      titleZh: 'JavaScript 可视化——Promise 执行（YouTube）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 6 条',
+      originalUrl: 'https://www.youtube.com/watch?v=Xs1EMmBLpn4',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「JavaScript Visualized - Promise Execution」，作者 Lydia Hallie）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 6 条：理解 Promise 在 JS 里的执行过程——同系列的 Promise 专题：new Promise 的 executor 什么时候跑、then 回调什么时候进微任务队列、多个 then 的顺序怎么定，全部逐帧可视化。经 oEmbed 核验真实标题与作者。',
+      why: '官方指定观看：Promise 执行时序的可视化。',
+      points: [
+        'executor 是同步执行的——new Promise 当下就跑。',
+        'then 回调进微任务队列：resolve 之后的下一个「栈空时刻」执行。'
+      ],
+      terms: [
+        'executor（执行器函数）'
+      ],
+      focus: '盯住「什么时候进队列、什么时候出队列」两个时刻。',
+      takeaway: 'Promise 的执行顺序 = 事件循环规则的直接推论——两支视频在这里合流。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（Lydia Hallie）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-asynchronous-code',
+      title: 'Promise (javascript.info)',
+      titleZh: 'Promise（JavaScript.info 教程 promise basics，有官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 7 条（官方评价：对初学者极好的资源）',
+      originalUrl: 'https://javascript.info/promise-basics',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200（零重定向；页面标题「Promise」）',
+      zhUrl: 'https://zh.javascript.info/promise-basics',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文，实测汉字 3381）',
+      zhGuide: {
+      overview: '官方 Assignment 第 7 条（官方评价：对初学者极好的资源）：javascript.info 的 promise basics——Promise 语法本体的权威教程：构造、executor、resolve/reject、then/catch/finally 链、状态不可逆。官方正文说「具体语法留给接下来要读的文章」，指的就是它。有官方中文版（实测正文汉字 3381），页尾带练习题。',
+      why: '官方指定阅读：本课的语法本体——正文只管直觉，细节全在这里。',
+      points: [
+        'new Promise(executor) 的完整语义：executor 同步跑、resolve/reject 定终身。',
+        'then/catch/finally 的链式行为与返回值规则。',
+        '状态一次性：pending → fulfilled/rejected 之后不可再变。'
+      ],
+      terms: [
+        'executor（执行器）',
+        'thenable（可 then 对象）'
+      ],
+      focus: '读中文版全文并做页尾练习——下一课 fetch 的每个 .then() 都以这篇为语法地基。',
+      takeaway: 'Promise 三件事：一个状态、一次性决议、一条 then 链。',
+      },
+      license: 'JavaScript.info 教程按 CC BY-NC-SA 4.0 发布；本站只链接官方中文站，不复制教程内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'What is an API? (in 3 minutes) — MuleSoft Videos (YouTube)',
+      titleZh: '什么是 API（三分钟版，YouTube）',
+      type: '视频',
+      requirement: 'reference',
+      zone: '正文 APIs 节（官方给 API 全称配的链接）',
+      originalUrl: 'https://www.youtube.com/watch?v=s7wmiS2mSXY',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「What is an API? (in 3 minutes)」，作者 MuleSoft Videos）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文给「Application Programming Interfaces」这个全称配的三分钟科普视频：用餐厅点餐的类比讲 API 是什么（你是顾客、厨房是服务器、服务员是 API）。经 oEmbed 核验真实标题与作者。',
+      why: '官方正文引用：API 概念的最短入门。',
+      points: [
+        '餐厅类比：请求 → 转达 → 响应的角色分工。',
+        'API 作为「约定好的接口」：双方不需要知道对方内部实现。'
+      ],
+      terms: [
+        'API（应用程序编程接口）'
+      ],
+      focus: '三分钟，看个类比即可——正文的 Visual Crossing 实例才是重点。',
+      takeaway: 'API 是服务器的「服务员」：你按菜单点，它按约定送。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（MuleSoft Videos）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'Visual Crossing Weather API',
+      titleZh: 'Visual Crossing 天气 API（服务主页）',
+      type: '网站',
+      requirement: 'reference',
+      zone: '正文 APIs 节（官方演示用的天气 API 服务）',
+      originalUrl: 'https://www.visualcrossing.com/weather-api',
+      sourceDomain: 'www.visualcrossing.com',
+      originalUrlStatus: '200（站内重定向补尾斜杠；页面标题「Global Weather API for Forecast & Historical Data | Visual Crossing」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文全程演示用的天气数据服务：预报与历史天气数据 API——课程与天气应用项目的数据源。免费档每天 1000 次调用（官方正文明文「个人项目足够」）。无官方中文版。',
+      why: '官方正文引用：本课与天气应用项目的 API 服务本体。',
+      points: [
+        'timeline endpoint：城市名进、逐日天气 JSON 出。',
+        '免费档限额与付费层级（官方正文给了数字）。'
+      ],
+      terms: [
+        'weather data API（天气数据 API）'
+      ],
+      focus: '认识服务与免费档边界即可——查询细节看文档条目。',
+      takeaway: '天气应用的数据从这来：注册 → 拿 key → 查 timeline。',
+      },
+      license: '网站内容版权属 Visual Crossing；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'Timeline Weather API Documentation | Visual Crossing',
+      titleZh: 'Visual Crossing Timeline Weather API 文档',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 APIs 节（官方点名：API 细节写在服务文档里）',
+      originalUrl: 'https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/',
+      sourceDomain: 'www.visualcrossing.com',
+      originalUrlStatus: '200（零重定向；页面标题「Weather API Documentation | Visual Crossing」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的服务文档：timeline endpoint 的参数与返回字段全清单（unitGroup 单位组、includeSections、days 数组各字段含义……）。官方在这里顺带教了通用技能：**任何 API 的用法细节通常都写在服务的文档里**——学会读第三方 API 文档本身就是这一课的一部分。无官方中文版。',
+      why: '官方正文引用：读 API 文档的实操样本。',
+      points: [
+        'URL 构造：路径里的 location + query string 参数（key、unitGroup 等）。',
+        '响应结构：顶层元数据 + days 数组——天气应用「处理函数」的字段就从这里挑。'
+      ],
+      terms: [
+        'timeline endpoint',
+        'unitGroup（单位组参数）'
+      ],
+      focus: '对照官方正文贴的 JSON 响应读字段说明——冰山的全貌在这份文档里。',
+      takeaway: 'API 文档就是该服务的「说明书」——参数、返回、限额三件套。',
+      },
+      license: '文档版权属 Visual Crossing；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'Weather Data & Weather API Pricing & Plans | Visual Crossing',
+      titleZh: 'Visual Crossing 定价页（免费档与付费层级）',
+      type: '官方页面',
+      requirement: 'reference',
+      zone: '正文 APIs 节（官方点名：定价细节 curious 者自查）',
+      originalUrl: 'https://www.visualcrossing.com/weather-data-editions',
+      sourceDomain: 'www.visualcrossing.com',
+      originalUrlStatus: '200（官方给的旧路径 301 重定向到现役 /weather-data-pricing/，页面标题「Weather Data & Weather API Pricing & Plans」）',
+      originalUrlEffective: 'https://www.visualcrossing.com/weather-data-pricing/',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的定价页：免费档（每天 1000 次、信息有限）到企业档（无限调用 + 能源/海事数据，最高 150 美元/月）的层级对照——「API 服务靠分层定价回收服务器成本」这条正文论据的数字出处。无官方中文版。',
+      why: '官方正文引用：免费/付费层级细节。',
+      points: [
+        '各档的调用限额与数据范围对照表。',
+        '从免费档到企业档的功能爬坡——正文说的「bells and whistles」在这。'
+      ],
+      terms: [
+        'free tier / paid tier（免费档/付费档）'
+      ],
+      focus: '扫一眼层级表——课程项目用免费档，知道天花板在哪即可。',
+      takeaway: 'API 是生意：免费档是试用装，限额与数据范围都是价签。',
+      },
+      license: '页面版权属 Visual Crossing；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'My $2375 Amazon EC2 Mistake (devfactor.net, archived)',
+      titleZh: '我的 2375 美元亚马逊 EC2 事故（存档）',
+      type: '文章（存档）',
+      requirement: 'reference',
+      zone: '正文 APIs 节 key 安全段（官方引用：坏人用你付费的服务与数据的实例）',
+      originalUrl: 'https://web.archive.org/web/20150102022540/http://www.devfactor.net/2014-12-30/2375-amazon-mistake/',
+      sourceDomain: 'web.archive.org',
+      originalUrlStatus: '404 → 修正后 200（**官方给的存档链接原路径写错**：官方写 2014-12-30 连字符日期，该地址实测 404——浏览器里 Wayback 明说「has not archived that URL」；经 CDX 索引查证，同 timestamp 20150102022540 的真实存档是斜杠日期路径 2014/12/30/2375-amazon-mistake/，实测 200、标题「My $2375 Amazon EC2 Mistake」——官方原链接原样登记、修正地址记 originalUrlEffective）',
+      originalUrlEffective: 'https://web.archive.org/web/20150102022540/http://www.devfactor.net:80/2014/12/30/2375-amazon-mistake/',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文 key 安全段引用的著名事故文（2014）：作者把 AWS key 硬编码进了公开的 GitHub 仓库，被机器人扫到后拿去开 EC2 实例挖矿，几天烧掉 2375 美元——「有机器人专扫 GitHub 找硬编码 key」这句话的最有名注脚。原站已下线，官方给的是 Internet Archive 存档地址（其中原路径有笔误，本站已按 CDX 索引修正并实测可达）。无中文版。',
+      why: '官方正文引用：key 泄露真金白银代价的第一手记录。',
+      points: [
+        '事故链：key 进公开仓库 → 机器人扫到 → 盗用计费资源 → 账单爆炸。',
+        '教训与正文一致：客户端/公开仓库里的 key 等于没有 key 保护。'
+      ],
+      terms: [
+        'hardcoded API key（硬编码密钥）'
+      ],
+      focus: '读事故过程与账单细节——天气应用课「GitHub 会警告你」那段的前传。',
+      takeaway: '「课程项目的免费 key 无所谓」的边界，就是这篇 2375 美元的反面教材。',
+      },
+      license: 'Internet Archive 存档页面，原文版权归 devfactor.net 作者所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'Visual Crossing Sign Up',
+      titleZh: 'Visual Crossing 注册页（获取免费 API key 入口）',
+      type: '操作入口',
+      requirement: 'reference',
+      zone: '正文 APIs 节（官方指引：注册免费账号拿 key）',
+      originalUrl: 'https://www.visualcrossing.com/sign-up',
+      sourceDomain: 'www.visualcrossing.com',
+      originalUrlStatus: '200（站内重定向补尾斜杠；页面标题「Sign up | Visual Crossing」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文指路的注册入口：创建免费 Visual Crossing 账号——key 在注册后的账号 profile 页里找。天气应用项目开工前的准备动作。无官方中文版。',
+      why: '官方正文引用：拿 key 的第一步操作入口。',
+      points: [
+        '注册免费账号 → profile 页取 API key。',
+        '拿到 key 后按正文示例拼一条带 key 的请求验证。'
+      ],
+      terms: [
+        'API key（账号 profile 页获取）'
+      ],
+      focus: '注册、拿 key、按正文试一条请求——恭喜完成第一个 API 请求。',
+      takeaway: 'key 到手，API 世界才算对你开门。',
+      },
+      license: '网站内容版权属 Visual Crossing；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'Visual Crossing Weather Query Builder',
+      titleZh: 'Visual Crossing 查询构造器',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文 lesson-note（官方点名：不会构造查询用它）',
+      originalUrl: 'https://www.visualcrossing.com/weather/weather-data-services',
+      sourceDomain: 'www.visualcrossing.com',
+      originalUrlStatus: '200（官方给的旧路径 301 重定向到现役 /weather-query-builder/，页面标题「Weather Query Builder | Visual Crossing」）',
+      originalUrlEffective: 'https://www.visualcrossing.com/weather-query-builder/',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文 note 点名的工具：只输入地区就帮你搭好查询——输出默认在 Grid 标签（表格形态），点 API 标签能看到这个表格背后的查询 URL 是怎么构造的（官方原话：Neat, isn\'t it?）。学「怎么拼参数」的反向教材。无官方中文版。',
+      why: '官方正文引用：查询构造的可视化工具。',
+      points: [
+        'Grid 标签：查询结果表格预览。',
+        'API 标签：同一查询的 URL 构造——参数怎么拼一目了然。'
+      ],
+      terms: [
+        'query builder（查询构造器）'
+      ],
+      focus: '搭一个你关心的城市、切到 API 标签读 URL——比背文档快。',
+      takeaway: '不会拼查询就让工具拼给你看，然后照着学。',
+      },
+      license: '在线工具由 Visual Crossing 提供；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'axios/axios (GitHub)',
+      titleZh: 'axios（第三方 HTTP 库，GitHub 仓库）',
+      type: '代码仓库视图',
+      requirement: 'reference',
+      zone: '正文 Fetching data 节（官方点名的流行第三方库之一）',
+      originalUrl: 'https://github.com/mzabriskie/axios',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（官方给的旧仓库地址 301 迁移到现役 axios/axios，页面标题「GitHub - axios/axios: Promise based HTTP client for the browser and node.js」）',
+      originalUrlEffective: 'https://github.com/axios/axios',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的第三方请求库（历史脉络中的角色）：XHR 太痛苦，开发者写了第三方库接管——axios 是较流行的一个（基于 Promise 的浏览器/Node HTTP 客户端），官方评价「各有长短」。本课路线是用原生 fetch，axios 认识即可。无官方中文版。',
+      why: '官方正文引用：取数工具演进史的中间站。',
+      points: [
+        '定位：Promise based HTTP client——fetch 流行前后的主流选择。',
+        '官方对本课的定调：我们用原生 fetch，并「坚持用它」。'
+      ],
+      terms: [
+        'HTTP client library（HTTP 客户端库）'
+      ],
+      focus: '认识名字与定位——老项目里见到它知道是什么即可。',
+      takeaway: '第三方库解决过的痛点，后来被浏览器原生 fetch 接管了。',
+      },
+      license: '仓库按 MIT 许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'forwardemail/superagent (GitHub)',
+      titleZh: 'superagent（第三方 HTTP 库，GitHub 仓库）',
+      type: '代码仓库视图',
+      requirement: 'reference',
+      zone: '正文 Fetching data 节（官方点名的流行第三方库之一）',
+      originalUrl: 'https://github.com/visionmedia/superagent',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（官方给的旧仓库地址 301 迁移到现役 forwardemail/superagent，页面标题「GitHub - forwardemail/superagent: Ajax for Node.js and browsers」）',
+      originalUrlEffective: 'https://github.com/forwardemail/superagent',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的另一个第三方请求库：superagent（Node 与浏览器的小而全 Ajax 客户端）——与 axios 并列被官方提及、「各有长短」。同为演进史中间站，认识即可。无官方中文版。',
+      why: '官方正文引用：第三方请求库的第二个样本。',
+      points: [
+        '链式调用风格的请求构造。',
+        '与 axios 的取舍是生态话题——本课主线是原生 fetch。'
+      ],
+      terms: [
+        'Ajax client（Ajax 客户端库）'
+      ],
+      focus: '认识名字即可。',
+      takeaway: '「流行库有好几个、原生标准最终胜出」——Web 平台的经典剧本。',
+      },
+      license: '仓库按 MIT 许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'GIPHY',
+      titleZh: 'GIPHY（GIF 搜索平台）',
+      type: '网站',
+      requirement: 'reference',
+      zone: '正文 Fetching data 节（官方实战演示用的 GIF 服务）',
+      originalUrl: 'https://giphy.com/',
+      sourceDomain: 'giphy.com',
+      originalUrlStatus: '200（零重定向；页面标题「GIPHY - Be Animated」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文实战演示用的 GIF 平台：本课的「把随机猫 gif 弄上网页」与天气应用项目的可选装饰（应景天气 gif）都从它的 API 取数。注册即得免费 key。无官方中文版。',
+      why: '官方正文引用：实战演示的 GIF 数据源。',
+      points: [
+        '海量 GIF 的搜索与随机服务。',
+        '免费 API key：注册开发者账号即得。'
+      ],
+      terms: [
+        'GIF search API'
+      ],
+      focus: '认识平台即可——API 细节看下面两条开发者文档。',
+      takeaway: '猫 gif 是第一代 API 练习的保留曲目（官方原话：of course we\'re searching for cats）。',
+      },
+      license: '网站内容版权属 GIPHY；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'GIPHY API — Quick Start Guide',
+      titleZh: 'GIPHY API 快速入门（开发者文档）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Fetching data 节（官方点名：注册与免费 key 指南）',
+      originalUrl: 'https://developers.giphy.com/docs/api/#quick-start-guide',
+      sourceDomain: 'developers.giphy.com',
+      originalUrlStatus: '200（零重定向；页面标题「Docs | GIPHY Developers」——SPA 文档站，#quick-start-guide 为站内路由锚点）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的 Giphy 开发者文档入口（quick-start 节）：注册开发者账号、创建应用、拿免费 API key 的流程——正文实战（translate endpoint）的前置步骤都在这页。SPA 文档站，锚点为站内路由。无官方中文版。',
+      why: '官方正文引用：Giphy key 的申请流程。',
+      points: [
+        '注册 → 建应用 → 取 key 的流程。',
+        'key 的用法：每个请求带 api_key 参数。'
+      ],
+      terms: [
+        'developer account（开发者账号）'
+      ],
+      focus: '照流程拿到 key——实战代码在课页正文里。',
+      takeaway: '免费 key 的申请流程大同小异：注册、建应用、复制。',
+      },
+      license: '文档版权属 GIPHY；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'GIPHY API — translate endpoint',
+      titleZh: 'GIPHY translate endpoint 文档',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Fetching data 节（官方点名：translate endpoint 的参数说明）',
+      originalUrl: 'https://developers.giphy.com/docs/api/endpoint#translate',
+      sourceDomain: 'developers.giphy.com',
+      originalUrlStatus: '200（站内重定向到 /branch/master/docs/api/endpoint/，页面标题「Docs | GIPHY Developers」——SPA 文档站，#translate 为站内路由锚点）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文点名的 endpoint 文档：translate 是 Giphy 多个搜图方法里「对我们目的而言最简单的」——必填两个参数（api_key、搜索词 s），可选参数缩小结果（如 rating 按内容敏感度过滤）。正文实战的 URL 就是照这页拼的。无官方中文版。',
+      why: '官方正文引用：实战 URL 的参数出处。',
+      points: [
+        'translate endpoint：一个搜索词换一条最匹配的 GIF。',
+        'rating 等可选参数的过滤语义。'
+      ],
+      terms: [
+        'translate endpoint',
+        'rating parameter（内容分级参数）'
+      ],
+      focus: '对照正文的最终 URL 读参数表——每个 query 参数都能在这页找到定义。',
+      takeaway: '读 endpoint 文档 = 认参数表：必填的拼上、可选的按需。',
+      },
+      license: '文档版权属 GIPHY；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'JS Bin — giphy fetch demo (canofar)',
+      titleZh: 'JS Bin 在线演示：giphy fetch 项目（canofar）',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文 Let\'s do this 节（官方点名：迷路了对照它）',
+      originalUrl: 'http://jsbin.com/canofar/edit?html,output',
+      sourceDomain: 'jsbin.com',
+      originalUrlStatus: '403（命令行两种 UA 均被站点反爬拦截；**真实浏览器实测可达**：编辑器正常加载，HTML 面板含官方演示文档内容——bin 在位；按批次 3 先例不入受限清单，核验方式如实登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方正文给迷路者的对照品：jsbin 上的 giphy fetch 演示 bin（canofar）——官方原话「除了华丽的样式，你的版本应该长这样」。在线编辑器形态，HTML/JS/输出三面板同屏。命令行访问被站点反爬拦截（403），真实浏览器实测 bin 在位、内容可加载。无官方中文版。',
+      why: '官方正文引用：五步演进的完整参考答案。',
+      points: [
+        '单文件形态：HTML + script 内联——与正文的「全部放一个 HTML 文件」一致。',
+        '对照排错：你的版本与它的差异一眼可见。'
+      ],
+      terms: [
+        'JS Bin（在线代码沙箱）'
+      ],
+      focus: '自己写完再对照——先跑通自己的版本。',
+      takeaway: '官方留了参考答案，但价值在你自己走一遍五步。',
+      },
+      license: '在线沙箱由 JS Bin 提供、bin 内容版权属原作者；本站只做链接与原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'n0shake/Public-APIs (GitHub)',
+      titleZh: '公共 API 大全清单（GitHub 仓库）',
+      type: '代码仓库视图',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://github.com/n0shake/Public-APIs',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（零重定向；页面标题「GitHub - n0shake/Public-APIs: A public list of APIs from round the web」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条（官方原话：让你的想象力野起来）：按主题分类的公共 API 大全——动物、游戏、金融、天气、地理……练手项目的数据源宝库。翻一遍目录，挑一个你真想做的东西。无官方中文版。',
+      why: '官方指定浏览：为自由练习挑数据源。',
+      points: [
+        '按主题分类的免费/开放 API 索引。',
+        '每个条目带一句用途说明——挑感兴趣的即可。'
+      ],
+      terms: [
+        'public API（公共 API）'
+      ],
+      focus: '带着「想做什么应用」的问题去翻——比无目的浏览有效率得多。',
+      takeaway: 'API 生态比你想象的大：几乎任何数据都有人开了口子。',
+      },
+      license: '仓库内容按其开源许可发布；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-working-with-apis',
+      title: 'Response - Web APIs | MDN',
+      titleZh: 'Response 对象（MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条（官方点名：手动检查非 2XX 响应的属性都在这）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Response',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（零重定向；页面标题「Response - Web APIs | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/API/Response',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「Response - Web API | MDN」，正文汉字 1650）',
+      zhGuide: {
+      overview: '官方 Assignment 第 3 条点名的文档：fetch 成功 resolve 出来的 Response 对象——ok（是否 2XX 的布尔）、status（状态码）、statusText、headers、json() 等属性与方法。「404 也是有效响应、要在 .then() 里手动检查」的判据全在这里。中文版实测正文汉字 1650。',
+      why: '官方指定查阅：非 2XX 手动处理的属性清单。',
+      points: [
+        'ok / status：条件化处理非预期响应的两个判据。',
+        'json() / text()：响应体解析方法（返回 Promise）。'
+      ],
+      terms: [
+        'Response.ok（2XX 布尔）',
+        'Response.status（状态码）'
+      ],
+      focus: '记住 ok 与 status 两个属性——错误处理分支靠它们。',
+      takeaway: 'fetch 的 resolve 只代表「往返完成」；「业务成功」要自己查 Response。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-async-and-await',
+      title: 'try...catch - JavaScript | MDN',
+      titleZh: 'try...catch 语句（MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 Error handling 节（官方点名：the mighty try...catch）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（零重定向；页面标题「try...catch - JavaScript | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/try...catch',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「try...catch - JavaScript | MDN」，正文汉字 3360）',
+      zhGuide: {
+      overview: '官方正文点名（原话 the mighty try...catch）：try 块抛错就跑 catch 块——错误处理语句的权威文档。官方注明它同步代码也能用；在 async 函数里配 await，它就是「函数体内就地接错」的那条路（与调用处链 .catch() 并列的两个选项）。中文版实测正文汉字 3360。',
+      why: '官方正文引用：async 函数内错误处理的语句本体。',
+      points: [
+        'try / catch / finally 三块的执行语义。',
+        'catch 的 error 对象：拿错误信息的入口。'
+      ],
+      terms: [
+        'try...catch（异常处理语句）',
+        'finally（终执行块）'
+      ],
+      focus: '读语法与「抛出-捕获」流程——async 语境下的用法课页正文已给示例。',
+      takeaway: 'try...catch 不是 async 专属——它是 JS 通用的「就地接错」机制。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-async-and-await',
+      title: 'Async/await (javascript.info)',
+      titleZh: 'Async/await（JavaScript.info 教程，有官方中文版）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（官方评价：扎实的入门）',
+      originalUrl: 'https://javascript.info/async-await',
+      sourceDomain: 'javascript.info',
+      originalUrlStatus: '200（零重定向；页面标题「Async/await」）',
+      zhUrl: 'https://zh.javascript.info/async-await',
+      zhType: 'JavaScript.info 官方中文版（zh.javascript.info，同一教程的简体中文翻译站，已核验正文为简体中文，实测汉字 2414）',
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条（官方评价：扎实的 async/await 入门）：javascript.info 的 async/await 教程——async 函数的返回语义、await 的暂停语义、try...catch 错误处理、async 类方法与 promise 本质的完整覆盖，配练习题。有官方中文版（实测正文汉字 2414）。与上一课 promise-basics 同站同风格，语法细节以它为准。',
+      why: '官方指定阅读：async/await 的语法本体教程。',
+      points: [
+        'async 函数自动包 promise、await 就地取值的行为细节。',
+        '错误处理与「await 一串 promise」的进阶形态（含 Promise.all 配合）。'
+      ],
+      terms: [
+        'async function（异步函数）',
+        'await（等待表达式）'
+      ],
+      focus: '读中文版全文并做页尾练习——天气应用项目的 async/await 版就靠这篇打底。',
+      takeaway: '糖衣细节也有讲究：await 能接什么、async 类方法怎么写，这里都有。',
+      },
+      license: 'JavaScript.info 教程按 CC BY-NC-SA 4.0 发布；本站只链接官方中文站，不复制教程内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-async-and-await',
+      title: 'JavaScript ES 2017: Learn Async/Await by Example (codeburst)',
+      titleZh: '用示例学 Async/Await（codeburst，Brandon Morelli）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条附带（官方评价：好的用例集）',
+      originalUrl: 'https://codeburst.io/javascript-es-2017-learn-async-await-by-example-48acc58bad65',
+      sourceDomain: 'codeburst.io',
+      originalUrlStatus: '403（Medium 系站点反爬：命令行带浏览器 UA 与默认 UA 均被拒；**真实浏览器核验可达**，取得页面标题「JavaScript ES 2017: Learn Async/Await by Example | by Brandon Morelli | codeburst」与 h1——按批次 3 Medium 先例不入受限清单，核验方式如实登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条附带（官方评价：也有不错的用例）：Brandon Morelli 的 async/await 示例集——用一个「天气 API 请求」的完整例子从回调/Promise 形态一路重构成 async/await（与本课 Practice 的 Giphy 重构同一套路，例子换成天气恰好衔接天气应用项目）。无官方中文版。',
+      why: '官方指定阅读：示例驱动的第二视角。',
+      points: [
+        '同一需求的三种写法对照：callback → promise → async/await。',
+        '真实 API 请求场景（天气）的错误处理形态。'
+      ],
+      terms: [
+        'async/await refactor（重构）'
+      ],
+      focus: '盯住「三种写法做同一件事」的对照——重构感就是从对照里来的。',
+      takeaway: 'async/await 版的代码行数更少、错误处理更集中——例子比口号有说服力。',
+      },
+      license: '博客文章版权归原作者 Brandon Morelli / codeburst（Medium）所有；本站只做链接与原创导读，不搬运内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-async-and-await',
+      title: 'dotJS 2017 - Wes Bos - Async + Await (YouTube)',
+      titleZh: 'Wes Bos 的 Async + Await 演讲（dotJS 2017，YouTube）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条（官方评价：好概览 + 特别技巧）',
+      originalUrl: 'https://www.youtube.com/watch?v=9YkUCxvaLEk',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「dotJS 2017 - Wes Bos - Async + Await」，作者 dotconferences）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条（官方评价：对 async/await 与其目的的好概览，还带一个特别技巧）：Wes Bos 在 dotJS 2017 的演讲——从真实场景（并发请求、错误处理、UI 反馈）讲 async/await 的取舍，末尾的「特别技巧」是 for...of 循环里 await 串行请求的形态。经 oEmbed 核验真实标题与作者。',
+      why: '官方指定观看：实战视角的 async/await 概览。',
+      points: [
+        '真实场景取舍：什么时候串行 await、什么时候 Promise.all 并发。',
+        '错误处理的实战形态与「特别技巧」。'
+      ],
+      terms: [
+        'async/await in practice（实战形态）'
+      ],
+      focus: '完整看——演讲形态比文档更能传递「什么时候该用哪个」的手感。',
+      takeaway: 'async/await 不是替代 Promise，是让它好读——并发场景仍要 Promise.all。',
+      },
+      license: '第三方 YouTube 视频，版权归原作者（dotconferences / Wes Bos）；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-weather-app',
+      title: 'import() operator - JavaScript | MDN',
+      titleZh: 'import() 运算符（动态导入，MDN，有官方中文版）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 5 步子项（官方点名：天气图标多时用 dynamic imports）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '200（零重定向；页面标题「import() - JavaScript | MDN」）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/import',
+      zhType: 'MDN 官方简体中文版（已核验页面标题「import() - JavaScript | MDN」，正文汉字 3377）',
+      zhGuide: {
+      overview: '官方 Assignment 第 5 步子项点名的文档：import() 运算符（动态导入）——运行时按需加载模块，返回 Promise。天气图标几十张时不必逐个静态 import：按 API 返回的天气状况动态导入对应图标模块。中文版实测正文汉字 3377。与 ES6 Modules 课学的静态 import 语句是两个东西（一个语句一个表达式），文档开头就辨析了这点。',
+      why: '官方指定查阅：图标按需加载的语法本体。',
+      points: [
+        'import() 返回 Promise——与 await 天然搭配。',
+        '动态导入 vs 静态 import 语句的分工。'
+      ],
+      terms: [
+        'dynamic import（动态导入）',
+        'import() operator（import 运算符）'
+      ],
+      focus: '读「动态导入」的使用场景节——配合下一条 Webpack 文档看打包行为。',
+      takeaway: '静态 import 管「必然要用」，import() 管「看情况才用」——图标按天气挑就是看情况。',
+      },
+      license: 'MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-javascript-weather-app',
+      title: 'Module Methods | webpack (Dynamic expressions in import)',
+      titleZh: 'Webpack 模块方法（import 中的动态表达式）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 5 步子项（官方点名：Webpack 能读懂动态导入并照样打包）',
+      originalUrl: 'https://webpack.js.org/api/module-methods/#dynamic-expressions-in-import',
+      sourceDomain: 'webpack.js.org',
+      originalUrlStatus: '200（零重定向；页面标题「Module Methods | webpack」；官方给的 #dynamic-expressions-in-import 锚点对应该页小节）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 5 步子项点名的 webpack 文档小节：import() 里放动态表达式（如模板字符串拼模块路径）时，webpack 如何分析并打包「可能用到的一批模块」。官方正文的对比点：与不带 import 的纯模板字符串拼接不同——那种 webpack 看不见、资源不会进包；动态导入它读得懂、照样打包相关资源。webpack 文档无官方中文版，沿用既有 C 类口径（本站原创导读 + 英文原文链接）。',
+      why: '官方指定查阅：动态导入在打包器里的行为。',
+      points: [
+        'dynamic expressions in import：webpack 对模板字符串路径的分析边界。',
+        '对照：纯字符串拼接路径（无 import()）webpack 无法静态分析。'
+      ],
+      terms: [
+        'dynamic expressions（动态表达式）',
+        'context module（上下文模块）'
+      ],
+      focus: '读 Dynamic expressions in import 小节——天气图标的路径拼法要落在它能分析的形态里。',
+      takeaway: '动态导入不是甩开打包器，是和打包器约定好「这一批都要带上」。',
+      },
+      license: 'webpack 文档按 CC BY 4.0 发布；本站只做链接与原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-27',
+      note: ''
+    },
+    /* ===== World 3 批次 4 阶段 3（2026-09-27，v4.11.25，通宵轮）：javascript 课程
+     * 「测试 JavaScript」3 课 + 「一点计算机科学」11 课，68 条（A 类 13 / C 类 55） ===== */
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "Mocha",
+      "titleZh": "Mocha（测试框架主页）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文测试运行系统点名清单",
+      "originalUrl": "https://mochajs.org/",
+      "sourceDomain": "mochajs.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Mocha | Classic, reliable, trusted. ☕」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文盘点 JavaScript 测试运行系统时点名的四个框架之一。官方口径：各家基本语法几乎相同、用哪个都不要紧——课程围绕 Jest 展开，Mocha 只是让你知道生态里还有谁。无官方中文版。",
+        "why": "官方正文点名：测试运行系统生态认知。",
+        "points": [
+          "与 Jasmine、Tape、Jest 并列被官方点名——基本语法几乎相同。",
+          "本课程不需要装它：认识名字即可。"
+        ],
+        "terms": [
+          "test runner（测试运行系统）"
+        ],
+        "focus": "扫一眼主页知道它长什么样即可，不必深读。",
+        "takeaway": "测试框架生态多样，语法互通——选型不是学习障碍。"
+      },
+      "license": "Mocha 为开源项目（MIT）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "Jasmine Documentation",
+      "titleZh": "Jasmine（测试框架文档主页）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文测试运行系统点名清单",
+      "originalUrl": "https://jasmine.github.io/",
+      "sourceDomain": "jasmine.github.io",
+      "originalUrlStatus": "200（零重定向；页面标题「Jasmine Documentation」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方点名的四个测试运行系统之二：行为驱动测试框架 Jasmine（describe/it 风格语法的流行推手，Jest 的很多约定源自它）。课程不需要装它——认识名字即可。无官方中文版。",
+        "why": "官方正文点名：测试运行系统生态认知。",
+        "points": [
+          "describe/it 组织风格的代表——你在 Jest 里用的同款结构。",
+          "本课程围绕 Jest，Jasmine 仅作生态认知。"
+        ],
+        "terms": [
+          "BDD（行为驱动开发）"
+        ],
+        "focus": "扫一眼即可。",
+        "takeaway": "Jest 的语法约定有 Jasmine 血统——学会一家等于摸到了一族。"
+      },
+      "license": "Jasmine 为开源项目（MIT）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "tape: tap-producing test harness for node and browsers",
+      "titleZh": "Tape（极简测试工具仓库）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文测试运行系统点名清单",
+      "originalUrl": "https://github.com/substack/tape",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（301 至 github.com/tape-testing/tape——仓库已迁移到 tape-testing 组织；页面标题「GitHub - tape-testing/tape: tap-producing test harness for node and browsers」）",
+      "originalUrlEffective": "https://github.com/tape-testing/tape",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方点名的四个测试运行系统之三：substack 的极简测试工具 tape（输出 TAP 格式）。官方给的仓库地址已迁移到 tape-testing 组织（实测 301 后可达）——迁移后地址已登记。课程不需要装它。",
+        "why": "官方正文点名：测试运行系统生态认知。",
+        "points": [
+          "极简哲学：没有 describe 层级、没有运行器配置——一个函数一路 assert。",
+          "官方原仓库 substack/tape 已迁移至 tape-testing/tape。"
+        ],
+        "terms": [
+          "TAP（Test Anything Protocol，通用测试输出协议）"
+        ],
+        "focus": "认识名字与迁移事实即可。",
+        "takeaway": "测试工具可以极简——复杂的是哲学不是框架。"
+      },
+      "license": "tape 为开源项目（MIT）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "GitHub 仓库迁移：官方原链接 substack/tape 实测 301 至 tape-testing/tape，迁移后地址登记在 originalUrlEffective。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "Jest · Delightful JavaScript Testing",
+      "titleZh": "Jest（本课程选定测试框架主页）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文测试运行系统点名清单（课程围绕它展开）",
+      "originalUrl": "https://jestjs.io/",
+      "sourceDomain": "jestjs.io",
+      "originalUrlStatus": "200（零重定向；页面标题「Jest · 🃏 Delightful JavaScript Testing」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方点名的四个测试运行系统之四，也是本课程选定的框架：官方看中它有数一数二的 JavaScript 测试讲解资源与极佳的文档。jestjs.io 提供 zh-Hans 界面（导航与页脚为中文），但文档正文各页实测仍为英文——按无可靠中文版登记，中文读者可直接用本站各课导读配合英文文档。",
+        "why": "官方正文点名：本课程围绕 Jest 展开。",
+        "points": [
+          "官方选型理由：讲解资源与文档质量。",
+          "zh-Hans 界面存在但正文未翻译——沿用 developer.chrome.com /zh/ 先例按 C 类登记。"
+        ],
+        "terms": [
+          "Jest",
+          "zero-config（零配置测试）"
+        ],
+        "focus": "从主页进 Docs——Getting Started 是 Assignment 第 3 条。",
+        "takeaway": "选 Jest 不是因为它唯一，而是因为它的学习资料最好。"
+      },
+      "license": "Jest 为开源项目（MIT）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "jestjs.io/zh-Hans/ 实测：站点界面（导航/页脚）为中文、文档正文为英文（各页汉字数约 150–240，全部来自界面元素）——按无可靠中文版登记 C 类。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "The importance of Test Driven Development – Godswill Okwara",
+      "titleZh": "测试驱动开发的重要性（存档文章）",
+      "type": "文章（存档）",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://web.archive.org/web/20211123190134/http://godswillokwara.com/index.php/2016/09/09/the-importance-of-test-driven-development/",
+      "sourceDomain": "web.archive.org",
+      "originalUrlStatus": "200（存档页实测可达；页面标题「The importance of Test Driven Development – Godswill Okwara Here」——官方给的就是 web.archive.org 存档地址，原样登记）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条：TDD 的基本过程与收益。官方给的就是 web.archive.org 存档地址（原站文章已不可依赖）——实测存档页可达、标题与官方描述相符。文章讲 TDD 的工作循环（写测试 → 看它失败 → 写实现 → 变绿 → 重构）与它带来的收益，是建立「为什么」的第一份资料。",
+        "why": "官方 Assignment 指定阅读：TDD 基本过程与收益。",
+        "points": [
+          "TDD 循环：红（失败测试）→ 绿（最小实现）→ 重构。",
+          "收益清单：回归保护、设计倒逼、文档化测试意图。"
+        ],
+        "terms": [
+          "TDD cycle（TDD 循环）",
+          "regression（回归）"
+        ],
+        "focus": "读它对「先写测试为什么反而更快」的论证。",
+        "takeaway": "TDD 的收益不止抓 bug——它改变你设计代码的顺序。"
+      },
+      "license": "存档的第三方博客文章，版权归原作者；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文即给 web.archive.org 存档地址（2021-11-23 快照），原样登记、未做替换。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "Unit testing in Javascript（播放列表）- Fun Fun Function",
+      "titleZh": "JavaScript 单元测试（Fun Fun Function 播放列表）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条（官方：至少看前 3 支）",
+      "originalUrl": "https://www.youtube.com/playlist?list=PL0zVEGEvSaeF_zoW9o66wa_UCNE3a7BEr",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（播放列表经 oEmbed 核验：列表标题「Unit testing in Javascript」，作者 Fun Fun Function）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条：Fun Fun Function 的 JavaScript 单元测试系列——官方要求至少看前 3 支。这个系列以「从零搭一个测试」的动手节奏著称：先不用框架、手写断言，再引 Jest——正好把「测试到底是什么」拆给你看。本站提供原创导读与播放列表链接。",
+        "why": "官方 Assignment 指定观看（至少前 3 支）。",
+        "points": [
+          "官方底线是前 3 支——后面各集想看随意。",
+          "系列从「手写测试」讲起，框架只是工具不是概念。"
+        ],
+        "terms": [
+          "assertion（断言）",
+          "test suite（测试套件）"
+        ],
+        "focus": "看前 3 支时留意：测试的最小骨架就是「调用 + 断言 + 报告」。",
+        "takeaway": "框架会换，断言思维不会——先懂测试是什么，再学 Jest 怎么写。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方要求「至少前 3 支」，zone 与导读均按此登记。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "Getting Started · Jest",
+      "titleZh": "Jest 入门教程（Getting Started）",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条（官方：跟做到 Additional Configuration 一节为止）",
+      "originalUrl": "https://jestjs.io/docs/getting-started",
+      "sourceDomain": "jestjs.io",
+      "originalUrlStatus": "200（零重定向；页面标题「Getting Started · Jest」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 3 条：Jest 官方入门教程——安装、写第一个测试、跑起来。官方划了边界：跟做到「Additional Configuration」一节为止即可。同页还有官方 Tip 提到的「Using ESLint」节（test/expect 全局量要显式 import 的原因与做法）。zh-Hans 界面为中文、正文实测为英文，按无可靠中文版登记。",
+        "why": "官方 Assignment 指定跟做：让 Jest 跑起来。",
+        "points": [
+          "官方边界：到 Additional Configuration 为止。",
+          "ESLint 用户看同页「Using ESLint」节——显式 import test/expect 防 linting 报错。",
+          "配合课程正文的官方 Tip（Babel + ESM）一起完成环境。"
+        ],
+        "terms": [
+          "npm init / install（初始化与安装）",
+          "babel-jest（Babel 转换集成）"
+        ],
+        "focus": "动手跟做——这一条是环境搭建，不是阅读材料。",
+        "takeaway": "npx jest 跑绿第一个测试，环境关就过了。"
+      },
+      "license": "Jest 文档按 MIT/CC 许可发布（见站点页脚）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh-Hans 路径实测正文为英文（界面中文）——按 C 类登记。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "Using Matchers · Jest",
+      "titleZh": "Jest 匹配器文档（Using Matchers）",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条",
+      "originalUrl": "https://jestjs.io/docs/using-matchers",
+      "sourceDomain": "jestjs.io",
+      "originalUrlStatus": "200（零重定向；页面标题「Using Matchers · Jest」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 4 条：Jest 匹配器（matcher）文档——toBe/toEqual/toContain/truthiness/异常/数字比较等断言函数全家福。官方说它「演示了测试里可用的一些其他有用函数」。下一课测试练习项目的每条断言都从这里选工具。zh-Hans 界面为中文、正文实测英文，按无可靠中文版登记。",
+        "why": "官方 Assignment 指定阅读并跟做：断言函数库。",
+        "points": [
+          "toBe 是 Object.is 严格相等；对象数组要用 toEqual 深比较。",
+          "truthiness（toBeTruthy/falsy）、toThrow、数值比较各有专节。"
+        ],
+        "terms": [
+          "matcher（匹配器）",
+          "deep equality（深比较相等）"
+        ],
+        "focus": "重点读 toBe vs toEqual 的分界——测试练习项目第一天就会撞上。",
+        "takeaway": "断言选对匹配器，测试才有判别力。"
+      },
+      "license": "Jest 文档按 MIT/CC 许可发布（见站点页脚）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh-Hans 路径实测正文为英文（界面中文）——按 C 类登记。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-basics",
+      "title": "One weird trick that will change the way you code forever: JavaScript TDD",
+      "titleZh": "改变你写代码方式的一个怪招：JavaScript TDD（存档文章）",
+      "type": "文章（存档）",
+      "requirement": "required",
+      "zone": "Assignment 第 5 条",
+      "originalUrl": "https://web.archive.org/web/20260824053151/https://jrsinclair.com/articles/2016/one-weird-trick-that-will-change-the-way-you-code-forever-javascript-tdd/",
+      "sourceDomain": "web.archive.org",
+      "originalUrlStatus": "200（存档页实测可达；页面标题「One weird trick that will change the way you code forever: JavaScript TDD」——官方给的就是 web.archive.org 存档地址，原样登记）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 5 条：jrsinclair 的 TDD 名文——讲 TDD 的 why/how 与其背后的价值，官方评价「包含如何应用 TDD 的很棒的示例」。官方给的就是 web.archive.org 存档地址（2026-08-24 快照），实测可达、标题相符。与第 1 条存档文互补：那篇讲过程与收益，这篇讲思维方式与实战示例。",
+        "why": "官方 Assignment 指定阅读：TDD 的 why/how 与价值。",
+        "points": [
+          "官方评价：含很好的 TDD 应用示例。",
+          "与第 1 条存档文配对读：过程收益 + 思维示例。"
+        ],
+        "terms": [
+          "TDD philosophy（TDD 哲学）"
+        ],
+        "focus": "读它怎么论证「测试先行改变设计顺序」。",
+        "takeaway": "TDD 的「怪招」其实是顺序：先想清楚要什么，再写代码。"
+      },
+      "license": "存档的第三方博客文章，版权归原作者；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文即给 web.archive.org 存档地址（2026-08-24 快照），原样登记、未做替换。"
+    },
+    {
+      "lessonId": "node-path-javascript-testing-practice",
+      "title": "Caesar Shift Cipher - Crypto Corner",
+      "titleZh": "凯撒位移密码（Crypto Corner 交互讲解）",
+      "type": "教程文章",
+      "requirement": "reference",
+      "zone": "Assignment 第 4 条（caesarCipher 的原理参考资料）",
+      "originalUrl": "https://crypto.interactive-maths.com/caesar-shift-cipher.html",
+      "sourceDomain": "crypto.interactive-maths.com",
+      "originalUrlStatus": "200（零重定向；页面标题「Caesar Shift Cipher - Crypto Corner」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方在 caesarCipher 练习里给的原理参考：凯撒位移密码怎么工作——每个字母按固定位数位移替换（位移 3 就是 a→d）。做练习前先读它，四条子要求（回绕/大小写/标点）的边界从何而来就清楚了。无官方中文版。",
+        "why": "官方指定参考：凯撒密码工作原理。",
+        "points": [
+          "位移替换：字母表循环移位——z 之后回绕到 a 是「回绕」用例的由来。",
+          "只动字母：非字母字符不参与位移——「标点不变」用例的由来。"
+        ],
+        "terms": [
+          "Caesar cipher（凯撒密码）",
+          "shift factor（位移因子）"
+        ],
+        "focus": "读位移规则与字母表回绕——对应练习的测试用例设计。",
+        "takeaway": "密码学入门题就是字符运算 + 边界处理的基本功测验。"
+      },
+      "license": "第三方教学站点内容，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-javascript-more-testing",
+      "title": "JavaScript: What Are Pure Functions And Why Use Them?",
+      "titleZh": "JavaScript：什么是纯函数、为什么要用它们？（Medium）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c",
+      "sourceDomain": "medium.com",
+      "originalUrlStatus": "403（Medium 反爬拦截非浏览器请求）；真实浏览器实测可达：标题「JavaScript: What Are Pure Functions And Why Use Them? | by James Jeffery | Medium」、h1 在位",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条：纯函数价值的快读文章（James Jeffery）——给「纯」下定义：相同输入永远相同输出、没有副作用。与正文 evaluateGuess 重构对照读：那就是把不纯函数改纯的现场。命令行访问被 Medium 反爬拦截，真实浏览器实测可达并取得标题与 h1（按既有 Medium 先例如实登记核验方式）。",
+        "why": "官方 Assignment 指定阅读：纯函数的价值。",
+        "points": [
+          "纯函数两条件：输出只由输入决定 + 无副作用。",
+          "纯函数好测、好缓存、好并行——TDD 鼓励写它的原因。"
+        ],
+        "terms": [
+          "pure function（纯函数）",
+          "side effect（副作用）"
+        ],
+        "focus": "读完回头给 evaluateGuess 下判断：它为什么是纯的。",
+        "takeaway": "「纯」不是学术洁癖——是可测试性的前提。"
+      },
+      "license": "Medium 上的作者原创文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：命令行 403（Medium 反爬）；真实浏览器核验可达并取得标题与 h1「JavaScript: What Are Pure Functions And Why Use Them?」（James Jeffery）；已入 verifyLimitedUrls（按既有 Medium 先例）。"
+    },
+    {
+      "lessonId": "node-path-javascript-more-testing",
+      "title": "Jest Crash Course - Learn How to Test your JavaScript Application",
+      "titleZh": "Jest 速成课——学会测试你的 JavaScript 应用",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条（官方链接带 t=3024s 起播点）",
+      "originalUrl": "https://www.youtube.com/watch?v=ajiAl5UNzBU&t=3024s",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Jest Crash Course - Learn How to Test your JavaScript Application」，作者 Laiture）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条：关于测试中 mocks 的视频——oEmbed 核验的真实标题是「Jest Crash Course」（作者 Laiture），官方链接带 t=3024s 起播参数、直接跳到 mocks 段落（官方原样登记，未改播放位置）。看点：mock 函数怎么造、怎么断言「被调用过/调用参数」。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：mocking 实战。",
+        "points": [
+          "官方链接从 50 分钟处起播——正对 mocks 主题。",
+          "配合正文「DOM input 假函数」例子看：mock 就是把那个假版本工具化。"
+        ],
+        "terms": [
+          "mock function（模拟函数）",
+          "jest.fn()（Jest 的 mock 工厂）"
+        ],
+        "focus": "看它怎么断言 mock 的调用行为——不只是返回值。",
+        "takeaway": "mock 的价值：把「外部世界」变成可编排、可断言的剧本。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方链接带 t=3024s 起播参数，按同一视频归并登记、未改动播放位置（沿用既有先例）。oEmbed 真实标题与官方 label「video about mocks in testing」不同形，如实登记真实标题。"
+    },
+    {
+      "lessonId": "node-path-javascript-more-testing",
+      "title": "Setup and Teardown · Jest",
+      "titleZh": "Jest 的建立与拆除（Setup and Teardown）文档",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://jestjs.io/docs/setup-teardown",
+      "sourceDomain": "jestjs.io",
+      "originalUrlStatus": "200（零重定向；页面标题「Setup and Teardown · Jest」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 3 条：Jest 的 Setup and Teardown 文档——beforeEach/afterEach/beforeAll/afterAll 四件套，测试前的准备与测试后的清理。官方说：现在你有了 TDD 的练习与语境，这一节应该会很有感觉。它是「隔离」的配套工具：每条测试前重置现场，测试之间互不污染。zh-Hans 界面为中文、正文实测英文，按无可靠中文版登记。",
+        "why": "官方 Assignment 指定阅读：测试的准备与清理机制。",
+        "points": [
+          "beforeEach 每条测试前跑——重置共享状态的标准位。",
+          "作用域规则：describe 块内外的 setup 生效范围不同。"
+        ],
+        "terms": [
+          "setup / teardown（建立与拆除）",
+          "test isolation（测试隔离）"
+        ],
+        "focus": "读「Scoping」一节——嵌套 describe 里 setup 的执行顺序。",
+        "takeaway": "隔离不只靠拆纯函数，还靠每条测试前的现场重置。"
+      },
+      "license": "Jest 文档按 MIT/CC 许可发布（见站点页脚）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh-Hans 路径实测正文为英文（界面中文）——按 C 类登记。"
+    },
+    {
+      "lessonId": "node-path-javascript-more-testing",
+      "title": "Mock Functions · Jest",
+      "titleZh": "Jest 模拟函数（Mock Functions）文档",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条（官方评价 really handy）",
+      "originalUrl": "https://jestjs.io/docs/mock-functions",
+      "sourceDomain": "jestjs.io",
+      "originalUrlStatus": "200（零重定向；页面标题「Mock Functions · Jest」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 4 条：Jest 的 Mock Functions 文档——官方评价「非常好用」。mocking 的工具箱本体：jest.fn() 造替身、mockReturnValue 定剧本、断言调用次数与参数。正文「假版本取输入函数」的例子在这一页全部工具化。zh-Hans 界面为中文、正文实测英文，按无可靠中文版登记。",
+        "why": "官方 Assignment 指定阅读：mocking 的工具箱。",
+        "points": [
+          "jest.fn() + mockReturnValue：造一个「总返回特定值」的假函数。",
+          "mock.calls 断言：被调了几次、每次参数是什么。"
+        ],
+        "terms": [
+          "jest.fn()",
+          "mock implementation（模拟实现）"
+        ],
+        "focus": "把正文 mocking 例子翻译成一页文档里的 API 组合。",
+        "takeaway": "mock 三件事：定返回值、记调用、供断言。"
+      },
+      "license": "Jest 文档按 MIT/CC 许可发布（见站点页脚）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh-Hans 路径实测正文为英文（界面中文）——按 C 类登记。"
+    },
+    {
+      "lessonId": "node-path-javascript-more-testing",
+      "title": "Rails Conf 2013 The Magic Tricks of Testing by Sandi Metz",
+      "titleZh": "Rails Conf 2013：测试的魔法技巧（Sandi Metz 演讲）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 5 条（官方评价 amazing；官方注明讲 Ruby 但概念通用）",
+      "originalUrl": "https://www.youtube.com/watch?v=URSWYvyc42M",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Rails Conf 2013 The Magic Tricks of Testing by Sandi Metz」，作者 Confreaks）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 5 条、评价 amazing 的演讲：代码库里该测什么（what to test）——Sandi Metz 的经典「The Magic Tricks of Testing」。官方特意注明：视频专门讲 Ruby 的测试，但这完全不重要——概念在任何语言都成立，Ruby 足够清晰、跟得上。核心议题与本课同频：测行为不测实现、测消息不测对象内部。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：该测什么的策略课。",
+        "points": [
+          "官方预防针：讲 Ruby——概念通用，语言不是障碍。",
+          "主题「what to test」与 Testing Basics 的 why/what 定盘星首尾呼应。"
+        ],
+        "terms": [
+          "behavior testing（行为测试）",
+          "message（消息传递视角）"
+        ],
+        "focus": "听它怎么把「该测什么」拆成可执行的判断规则。",
+        "takeaway": "测试策略跨语言通用——测行为，别测实现细节。"
+      },
+      "license": "第三方 YouTube 视频（Confreaks 会议录像），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-a-very-brief-intro-to-cs",
+      "title": "What's an algorithm? - David J. Malan (TED-Ed)",
+      "titleZh": "什么是算法？（David J. Malan，TED-Ed）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://www.youtube.com/watch?v=6hfOvs8pY1k",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「What's an algorithm? - David J. Malan」，作者 TED-Ed）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条：TED-Ed 上 David Malan（哈佛 CS50 主讲）讲「怎么思考算法」——官方 label 写作 Introduction to Algorithms by David Malan，oEmbed 核验的真实标题是「What's an algorithm?」（如实登记）。动画短片，用做三明治的例子把「算法 = 一步一步解决问题的过程」讲透。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：算法思维第一课。",
+        "points": [
+          "真实标题与官方 label 不同形——同一支视频，已按 oEmbed 如实登记。",
+          "TED-Ed 动画风格：短小、例子生活化。"
+        ],
+        "terms": [
+          "algorithm（算法）",
+          "input/output（输入与输出）"
+        ],
+        "focus": "留意它怎么把「步骤的精确性」讲成算法的第一要件。",
+        "takeaway": "算法不神秘：精确的步骤 + 明确的输入输出。"
+      },
+      "license": "第三方 YouTube 视频（TED-Ed），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方 label「Introduction to Algorithms by David Malan」与 oEmbed 真实标题「What's an algorithm? - David J. Malan」不同形，按真实标题登记。"
+    },
+    {
+      "lessonId": "javascript-a-very-brief-intro-to-cs",
+      "title": "What is an Algorithm?",
+      "titleZh": "什么是算法？（Tech Policy Lab, University of Washington）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://youtu.be/e_WfC8HwVB8",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「What is an Algorithm?」，作者 Tech Policy Lab, University of Washington；短链展开为 youtube.com/watch?v=e_WfC8HwVB8）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条：用算法解决问题的更结构化视角——与第 1 条 TED-Ed 的直觉版互补，这支偏「结构」：问题怎么进、步骤怎么组织、结果怎么出。短链官方原文如此，oEmbed 核验展开为 watch?v=e_WfC8HwVB8。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：算法的结构化视角。",
+        "points": [
+          "与 TED-Ed 那支配对看：一个讲直觉、一个讲结构。",
+          "官方 label 与真实标题一致（What is an Algorithm?）。"
+        ],
+        "terms": [
+          "problem solving（问题求解）"
+        ],
+        "focus": "看它怎么给「算法」下结构化定义。",
+        "takeaway": "算法 = 明确步骤的问题求解过程——两个视频从两面夹出这个定义。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方给的是 youtu.be 短链（带 si 跟踪参数），按官方原文登记；oEmbed 以短链核验成功。"
+    },
+    {
+      "lessonId": "javascript-a-very-brief-intro-to-cs",
+      "title": "John Kurlak's answer to What is the importance of algorithms in web development?",
+      "titleZh": "算法对 web 开发的重要性（Quora 回答，John Kurlak）",
+      "type": "问答",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://qr.ae/py3NAc",
+      "sourceDomain": "qr.ae",
+      "originalUrlStatus": "403（Quora 短链服务反爬拦截非浏览器请求）；真实浏览器实测：短链跳转至 quora.com 的 John Kurlak 回答页「What is the importance of algorithms in web development?」，内容在位",
+      "originalUrlEffective": "https://www.quora.com/What-is-the-importance-of-algorithms-in-web-development/answer/John-Kurlak",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 3 条：Quora 上「算法对 web 开发的重要性」回答（John Kurlak）——为「我们为什么要过这些东西」补行业语境。官方给的是 qr.ae 短链（命令行 403 反爬），真实浏览器实测跳转到 Quora 回答页、内容在位；跳转后的干净地址已登记。无官方中文版。",
+        "why": "官方 Assignment 指定阅读：为什么 web 开发者要在乎算法。",
+        "points": [
+          "回答者视角：web 开发里算法在哪些地方真实出现。",
+          "与正文「面试会直接问到」的动机互为印证。"
+        ],
+        "terms": [
+          "algorithms in web development（web 开发中的算法）"
+        ],
+        "focus": "读它对「前端也要懂算法吗」的回答思路。",
+        "takeaway": "算法不是刷题装饰——数据一多，处处是它。"
+      },
+      "license": "Quora 上的作者原创回答，许可未明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：qr.ae 短链命令行 403（反爬）；真实浏览器实测跳转 quora.com 回答页可达并取得标题（John Kurlak's answer）；跳转后地址（去跟踪参数）登记在 originalUrlEffective；已入 verifyLimitedUrls。"
+    },
+    {
+      "lessonId": "javascript-a-very-brief-intro-to-cs",
+      "title": "What Is Pseudocode?",
+      "titleZh": "什么是伪代码？（Heidi Gentry）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条",
+      "originalUrl": "https://www.youtube.com/watch?v=Rg-fO7rDsds",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「What Is Pseudocode?」，作者 Heidi Gentry）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 4 条：把 lesson overview 第二条「什么是伪代码」落实——伪代码是用接近自然语言的方式写解题步骤、不绑定任何编程语言的语法。后面二叉搜索树项目官方明说「你应该能理解到写出自己的伪代码」——这支视频就是那个要求的入门。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：伪代码入门（overview 第二条）。",
+        "points": [
+          "伪代码：给人读的解题步骤——语法自由、逻辑精确。",
+          "BST 项目的官方资料要求「理解到能写伪代码」——本课打底。"
+        ],
+        "terms": [
+          "pseudocode（伪代码）"
+        ],
+        "focus": "看它怎么在「自然语言」与「代码」之间取中间态。",
+        "takeaway": "先写伪代码再写真代码——设计错误在最便宜的时候暴露。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-a-very-brief-intro-to-cs",
+      "title": "What are Data Structures? (Telusko)",
+      "titleZh": "什么是数据结构？（Telusko DSA 概览）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 5 条",
+      "originalUrl": "https://youtu.be/iZmDcfTtcNg?si=7t1q8GxYJjkYH9d4",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「What are Data Structures?」，作者 Telusko；短链展开为 youtube.com/watch?v=iZmDcfTtcNg）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 5 条：Telusko 的数据结构与算法（DSA）快速概览——官方说它顺带回答「公司为什么可能有兴趣雇佣熟悉 DSA 的候选人」。真实标题「What are Data Structures?」比官方 label 窄一点（重点在数据结构侧），如实登记。短链带 si 跟踪参数按官方原文登记。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：DSA 全景 + 雇佣语境。",
+        "points": [
+          "DSA 全景速览：本章后半程四个项目的地图。",
+          "官方点名它还讲「公司为什么要 DSA」——求职语境。"
+        ],
+        "terms": [
+          "DSA（Data Structures and Algorithms，数据结构与算法）"
+        ],
+        "focus": "把视频里点到的结构名与本章项目清单一一对上。",
+        "takeaway": "DSA 是行业通用语——本章学的每样东西都有行业名字。"
+      },
+      "license": "第三方 YouTube 视频（Telusko），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方给的是 youtu.be 短链（带 si 跟踪参数），按官方原文登记；oEmbed 真实标题与官方 label「Telusko's video on data structures and algorithms」不同形，如实登记。"
+    },
+    {
+      "lessonId": "javascript-recursive-methods",
+      "title": "Divide and conquer algorithm - Wikipedia",
+      "titleZh": "分治法（维基百科）",
+      "type": "百科条目",
+      "requirement": "required",
+      "zone": "正文引文出处 + Assignment 第 5 条（Implementation Issues 节）",
+      "originalUrl": "http://en.wikipedia.org/wiki/Divide_and_conquer_algorithm",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（页面标题「Divide and conquer algorithm - Wikipedia」；官方原文给的是 http:// 地址，实测直接可达）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E5%88%86%E6%B2%BB%E6%B3%95",
+      "zhType": "原网站官方中文版（同一维基媒体项目，已用 zh-cn variant 强制简体并核验标题「分治法」、正文汉字 7732；官方 Assignment 指向的「Implementation Issues」节在中文版对应「实现」章节，实测章节 id「实现」在位）",
+      "zhGuide": {
+        "overview": "这一条目在本课出现两次：正文引用了它对分而治之（D&C）的定义（基于多分支递归的算法设计范式：拆子问题 → 直接解 → 组合），Assignment 第 5 条又指定读它的「Implementation Issues」节（递归的局限面：栈深度、内存代价等）。中文维基已核验存在对应条目「分治法」（zh-cn 简体变体），官方指向的英文 Implementation Issues 节在中文版对应「实现」章节（实测章节锚点在位）。两条引用点合并登记为一条（去锚点后同址）。",
+        "why": "正文 D&C 定义的出处 + Assignment 第 5 条指定章节。",
+        "points": [
+          "开头定义段 = 正文引用的 D&C 范式三步骤。",
+          "Implementation issues 节（中文「实现」章节）= 递归局限的总览。"
+        ],
+        "terms": [
+          "divide and conquer（分而治之）",
+          "multi-branched recursion（多分支递归）"
+        ],
+        "focus": "Assignment 只要求 Implementation Issues 一节——不必通读全条目。",
+        "takeaway": "D&C 的定义与局限在同一页面：定义给力量，局限给分寸。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方两处引用（正文 http 链接 + Assignment 第 5 条 #Implementation_issues 锚点链接）去锚点后同址，按规范化同址先例合并登记一条；两处引用点分别在 zone 与导读说明。zhUrl 挂条目本体不带锚点（中文版章节 id「实现」实测存在，锚点形态留给读者按章节名定位）。"
+    },
+    {
+      "lessonId": "javascript-recursive-methods",
+      "title": "Recursion and stack - javascript.info",
+      "titleZh": "递归和堆栈（javascript.info 官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条（官方注明文末练习不必完成）",
+      "originalUrl": "https://javascript.info/recursion",
+      "sourceDomain": "javascript.info",
+      "originalUrlStatus": "200（零重定向；页面标题「Recursion and stack」）",
+      "zhUrl": "https://zh.javascript.info/recursion",
+      "zhType": "原网站官方中文版（zh.javascript.info，已核验页面标题「递归和堆栈」、正文汉字 6180）",
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条、也是本课概念展开的主资料：javascript.info 的递归入门——lesson overview 里的「递归深度」「stack overflow（概念）」两个词条都由它讲透（调用栈怎么一层层叠、叠爆了会怎样）。有官方中文版（zh.javascript.info「递归和堆栈」，实测在位）。官方注明：文末练习不必完成——动力量留给第 6 条的官方练习仓库。",
+        "why": "官方 Assignment 指定阅读：递归概念的核心展开。",
+        "points": [
+          "递归深度与调用栈：overview 后三条词条的正文来源。",
+          "官方注明文末练习不做——读文即可。"
+        ],
+        "terms": [
+          "call stack（调用栈）",
+          "recursion depth（递归深度）",
+          "stack overflow（栈溢出）"
+        ],
+        "focus": "重点读「递归的执行」与调用栈图示——配合调试器的 Call Stack 面板看。",
+        "takeaway": "每层递归占一帧栈——深度即开销，栈溢出是深度失控的终点。"
+      },
+      "license": "javascript.info 内容以 CC BY-NC-SA 4.0 发布；本站只链接官方中文版，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文注明「You do not need to complete the exercises at the end of the article」，已录课程页 official.optional。"
+    },
+    {
+      "lessonId": "javascript-recursive-methods",
+      "title": "What Is Recursion - In Depth (Web Dev Simplified)",
+      "titleZh": "什么是递归——深入讲解（Web Dev Simplified）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://www.youtube.com/watch?v=6oDQaB2one8",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「What Is Recursion - In Depth」，作者 Web Dev Simplified）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条：Web Dev Simplified 的递归深入讲解——直觉版：递归怎么下潜、怎么触底、怎么上浮，配 JS 例子。与第 1 条 javascript.info 文章互补（一文一视频、同一概念两个讲法）。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：递归直觉建立。",
+        "points": [
+          "Web Dev Simplified 风格：短小、例子驱动。",
+          "与 javascript.info 递归文配对看效果最好。"
+        ],
+        "terms": [
+          "base case（触底情形）",
+          "recursive case（递归情形）"
+        ],
+        "focus": "看它怎么把「函数调用自己」拆成下潜与上浮两个方向。",
+        "takeaway": "递归 = 触底条件 + 相信下一层——两件事想清楚，递归就不玄。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-recursive-methods",
+      "title": "5 Simple Steps for Solving Any Recursive Problem (Reducible)",
+      "titleZh": "解决任何递归问题的 5 个简单步骤（Reducible）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://www.youtube.com/watch?v=ngCos392W4w",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「5 Simple Steps for Solving Any Recursive Problem」，作者 Reducible）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 3 条：Reducible 的方法论视频——把「写递归」拆成可重复的五个步骤（识别递归情形、定义触底、缩小问题、组合、相信递归）。下一课 Project: Recursion 的官方 Tips（想清楚 base case、把重复行为委托给函数自己）就是这套方法论的浓缩。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：写递归的方法论。",
+        "points": [
+          "五步法与下一课项目 Tips 一一对应。",
+          "Reducible 频道以高质量算法动画著称。"
+        ],
+        "terms": [
+          "recursive problem solving（递归问题求解五步法）"
+        ],
+        "focus": "把五个步骤抄下来——写 fibsRec 与 mergeSort 时逐步对照。",
+        "takeaway": "递归有章法：五步走完，「想不出来」变成「按步骤填空」。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-recursive-methods",
+      "title": "Recursion - CS50 Shorts",
+      "titleZh": "递归（CS50 短片）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条",
+      "originalUrl": "https://www.youtube.com/watch?v=mz6tAJMVmfM",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Recursion - CS50 Shorts」，作者 CS50）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 4 条：哈佛 CS50 的递归短片——学院派视角的第三个讲法（前两个：javascript.info 文章、Web Dev Simplified 视频）。CS50 系列的特色是把调用栈与触底条件画得非常直白。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：学院派递归讲解。",
+        "points": [
+          "CS50 Shorts 系列：短小、板书式讲解。",
+          "三个资料视角互补——挑最合拍的那个反复看。"
+        ],
+        "terms": [
+          "base case（触底情形）",
+          "call stack（调用栈）"
+        ],
+        "focus": "看它的调用栈图示——与 javascript.info 文章的图对照。",
+        "takeaway": "同一概念三种讲法都过一遍，递归直觉才算焊牢。"
+      },
+      "license": "第三方 YouTube 视频（CS50），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "Fibonacci number - Wikipedia",
+      "titleZh": "斐波那契数（维基百科）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文 Fibonacci 小节的序列定义出处",
+      "originalUrl": "http://en.wikipedia.org/wiki/Fibonacci_number",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（页面标题「Fibonacci number - Wikipedia」；官方原文给的是 http:// 地址，实测直接可达）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0",
+      "zhType": "原网站官方中文版（同一维基媒体项目，已用 zh-cn variant 强制简体并核验标题「斐波那契数」、正文汉字 7702）",
+      "zhGuide": {
+        "overview": "官方正文给 Fibonacci 序列定义挂的参考条目：每个数是前两个数之和（0, 1, 1, 2, 3, 5, 8, 13…）。中文维基已核验存在对应条目「斐波那契数」（zh-cn 简体变体）——做项目前扫一眼定义与性质即可，不必深读数学部分。",
+        "why": "正文序列定义的出处参考。",
+        "points": [
+          "定义与前几项 = 项目 fibs 的验收依据（输入 8 → [0,1,1,2,3,5,8,13]）。",
+          "数学性质（黄金比等）本项目用不到——扫定义即可。"
+        ],
+        "terms": [
+          "Fibonacci sequence（斐波那契序列）"
+        ],
+        "focus": "只读开头定义段——确认序列起点（官方项目从 0 开始）。",
+        "takeaway": "序列定义自我参照——这正是它适合递归教学的原因。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "Stepping Through Recursive Fibonacci Function (Khan Academy)",
+      "titleZh": "逐步走一遍递归 Fibonacci 函数（Khan Academy）",
+      "type": "视频",
+      "requirement": "reference",
+      "zone": "正文 Fibonacci 小节（官方：看它进一步理解）",
+      "originalUrl": "https://www.youtube.com/watch?v=zg-ddPbzcKM",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Stepping Through Recursive Fibonacci Function」，作者 Khan Academy）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方在 Fibonacci 小节给的资料：Khan Academy 逐步走一遍递归 Fibonacci 函数——官方口径「看它进一步理解」。看点是调用树的展开：fib(5) 怎么拆成 fib(4)+fib(3)、又怎么一路拆到触底、再一路返回。这个展开过程也预示了朴素递归的调用爆炸（Test it out 的打印计数会亲眼见到）。本站提供原创导读与链接。",
+        "why": "官方正文指定资料：递归 Fibonacci 的逐步演示。",
+        "points": [
+          "调用树展开：每层两个子调用——O(2ⁿ) 的直觉前身。",
+          "与 Test it out 的 console.log 计数对照看。"
+        ],
+        "terms": [
+          "call tree（调用树）"
+        ],
+        "focus": "数一数视频里 fib(n) 总共被调用了多少次——体会「调用爆炸」。",
+        "takeaway": "朴素递归 Fibonacci 的重复计算是指数级的——time-complexity 课会正式算这笔账。"
+      },
+      "license": "第三方 YouTube 视频（Khan Academy），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "Merge Sort - CS50 Shorts",
+      "titleZh": "归并排序（CS50 短片）",
+      "type": "视频",
+      "requirement": "reference",
+      "zone": "正文 Merge sort 小节资料第 1 条",
+      "originalUrl": "https://youtu.be/Ns7tGNbtvV4",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Merge Sort - CS50 Shorts」，作者 CS50；短链展开为 youtube.com/watch?v=Ns7tGNbtvV4）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 merge sort 资料第 1 条：CS50 短片的归并排序入门——把「对半拆 → 单元素有序 → 两两按序合并」的整个过程动画化。动手写 mergeSort 之前先看它，拆与并的画面感就有了。本站提供原创导读与链接。",
+        "why": "官方正文指定资料：merge sort 入门演示。",
+        "points": [
+          "CS50 Shorts 风格：几分钟讲透一个算法。",
+          "看「合并两个有序半区」的动作——实现时最难的就是这一步。"
+        ],
+        "terms": [
+          "merge sort（归并排序）",
+          "merge step（合并步骤）"
+        ],
+        "focus": "盯住合并动作：两个有序半区怎么变成一个有序整区。",
+        "takeaway": "merge sort 的聪明处：合并有序序列是简单线性操作——复杂度全被拆解结构消化。"
+      },
+      "license": "第三方 YouTube 视频（CS50），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方给的是 youtu.be 短链，按官方原文登记。"
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "CS50x 2025 - Lecture 3 - Algorithms（merge sort 段落）",
+      "titleZh": "CS50x 2025 第 3 讲：算法（merge sort 段落）",
+      "type": "视频",
+      "requirement": "reference",
+      "zone": "正文 Merge sort 小节资料第 2 条（官方注明只看至 2:04:05）",
+      "originalUrl": "https://www.youtube.com/live/iCx3zwK8Ms8?si=t7z6bEv_ZXIJDoHU&t=6550",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「CS50x 2025 - Lecture 3 - Algorithms」，作者 CS50；官方链接带 t=6550 起播参数）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 merge sort 资料第 2 条：哈佛 CS50x 讲座里讲 merge sort 工作原理的段落——官方注明**只看至 2:04:05**（链接带 t=6550 即约 1:49:10 起播，正对 merge sort 段）。整场讲座三个多小时，官方只要求那一段——按链接起播点进、看到 2:04:05 收。本站提供原创导读与链接。",
+        "why": "官方正文指定资料：merge sort 原理的讲座版讲解。",
+        "points": [
+          "官方边界：只看至 2:04:05——其余是讲座其他主题。",
+          "t=6550 起播参数官方原样给——点进去正对 merge sort 段。"
+        ],
+        "terms": [
+          "merge sort（归并排序）"
+        ],
+        "focus": "讲座里「拆半 → 排序 → 合并」的板书推演。",
+        "takeaway": "看哈佛怎么给零基础讲分治——讲得清楚是因为拆得足够慢。"
+      },
+      "license": "第三方 YouTube 视频（CS50），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方链接为直播回放地址（/live/ 形态）带 si 与 t=6550 参数，按官方原文登记、未改动播放位置；官方明文「watch only until 2:04:05」已录 zone 与课程页 tasks。"
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "2.7.1 Two Way MergeSort - Iterative method (Abdul Bari)",
+      "titleZh": "两路归并排序——迭代方法（Abdul Bari）",
+      "type": "视频",
+      "requirement": "reference",
+      "zone": "正文 Merge sort 小节资料第 3 条之一（官方：还不清楚的话再看）",
+      "originalUrl": "https://youtu.be/6pV2IF0fgKY",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「2.7.1  Two Way MergeSort - Iterative method」，作者 Abdul Bari；短链展开为 youtube.com/watch?v=6pV2IF0fgKY）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 merge sort 资料第 3 条之一：Abdul Bari 的「合并（merging）」概念正式讲解——官方口径「还不清楚的话，这两支给你更正式的视角」。板书推导风格：从两个有序列表怎么并成一个开始，一步步推。本站提供原创导读与链接。",
+        "why": "官方正文指定资料（补充层）：merging 概念的正式讲解。",
+        "points": [
+          "官方定位是补充：先看 CS50 两支，不清楚再上这两支。",
+          "Abdul Bari 板书风格：慢、全、可暂停跟推。"
+        ],
+        "terms": [
+          "merging（合并）",
+          "two-way merge（两路归并）"
+        ],
+        "focus": "跟推「两个有序半区并成一个」的指针走法。",
+        "takeaway": "合并是 merge sort 唯一需要「新学」的动作——其余都是递归套路。"
+      },
+      "license": "第三方 YouTube 视频（Abdul Bari），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方给的是 youtu.be 短链；官方 label「The concept of merging」与 oEmbed 真实标题不同形，如实登记。"
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "2.7.2. Merge Sort Algorithm (Abdul Bari)",
+      "titleZh": "归并排序算法（Abdul Bari）",
+      "type": "视频",
+      "requirement": "reference",
+      "zone": "正文 Merge sort 小节资料第 3 条之二（官方：还不清楚的话再看）",
+      "originalUrl": "https://youtu.be/mB5HXBb_HY8",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「2.7.2.  Merge Sort Algorithm」，作者 Abdul Bari；短链展开为 youtube.com/watch?v=mB5HXBb_HY8）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 merge sort 资料第 3 条之二：Abdul Bari 的 Merge Sort 完整算法讲解（承接上一支的 merging 概念）——递归拆分 + 合并的完整板书推演，含时间复杂度的推导预告（time-complexity 课会正式讲 O(N log N)）。本站提供原创导读与链接。",
+        "why": "官方正文指定资料（补充层）：merge sort 算法的正式讲解。",
+        "points": [
+          "与上一支连看：先 merging 概念、再完整算法。",
+          "板书里有拆分树——对照你的递归实现看每层在干嘛。"
+        ],
+        "terms": [
+          "merge sort（归并排序）",
+          "divide（拆分）"
+        ],
+        "focus": "看它的拆分树图示——递归每层对应树的一层。",
+        "takeaway": "merge sort = 拆到单元素 + 逐层合并——两步都有画面，代码就有骨架。"
+      },
+      "license": "第三方 YouTube 视频（Abdul Bari），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方给的是 youtu.be 短链；官方 label「Merge Sort -- How it Works part」与 oEmbed 真实标题不同形，如实登记。"
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "Merge Sort Visualizer (HackerEarth)",
+      "titleZh": "归并排序可视化工具（HackerEarth）",
+      "type": "工具",
+      "requirement": "optional",
+      "zone": "正文 Merge sort 小节资料第 4 条（官方标注 Optional）",
+      "originalUrl": "https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/",
+      "sourceDomain": "www.hackerearth.com",
+      "originalUrlStatus": "200（零重定向；页面标题含「Merge Sort」可视化界面）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方标注 (Optional) 的资料：HackerEarth 的 merge sort 可视化工具——动手玩一玩，直观感受排序进行时数组每一层怎么拆、怎么并。写 mergeSort 卡住时开着它对照自己的实现走一遍，比干想快得多。无官方中文版。",
+        "why": "官方可选资料：merge sort 过程的可视化感受。",
+        "points": [
+          "官方标注 Optional——玩不玩不阻塞项目。",
+          "卡住时的调试伴侣：对照可视化检查自己的拆与并。"
+        ],
+        "terms": [
+          "algorithm visualizer（算法可视化工具）"
+        ],
+        "focus": "调几组不同输入（有序/逆序/含重复）看拆并过程。",
+        "takeaway": "看十遍动画不如自己实现一遍——但动画能告诉你实现对不对。"
+      },
+      "license": "第三方在线工具，版权归原作者/平台；本站只做链接与原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文标注 (Optional)，requirement 按 optional 登记；已录课程页 official.optional。"
+    },
+    {
+      "lessonId": "javascript-recursion",
+      "title": "Running JavaScript from the command line (nodejs.dev documentation)",
+      "titleZh": "用命令行运行 JavaScript（Node CLI 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文官方 Tip「Running your project code」",
+      "originalUrl": "https://github.com/nodejs/nodejs.dev/blob/aa4239e87a5adc992fdb709c20aebb5f6da77f86/content/learn/command-line/node-run-cli.en.md",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（GitHub blob 页实测可达；页面标题「nodejs.dev/content/learn/command-line/node-run-cli.en.md at aa4239e…」——官方给的是锁定 commit 的 blob 地址，原样登记）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方环境 Tip 给的参考：怎么用命令行跑 JavaScript 文件——本项目无 GUI，脚本要用 node 命令在终端跑（node 文件名）。官方给的是 nodejs.dev 仓库里锁定 commit 的文档源文件（blob 页）——按官方原文登记。内容就是 Node CLI 的常见用法：跑文件、传参数、REPL。",
+        "why": "官方 Tip 指定参考：命令行运行 JS 的方法。",
+        "points": [
+          "node 文件名 直接跑——console.log 输出在终端。",
+          "官方链接锁定特定 commit 的文档源文件——内容以该快照为准。"
+        ],
+        "terms": [
+          "Node CLI（node 命令行）",
+          "REPL（交互式解释器）"
+        ],
+        "focus": "只看「跑一个 JS 文件」的用法——本项目够用了。",
+        "takeaway": "算法项目离开浏览器：node + console.log 就是你的运行环境。"
+      },
+      "license": "nodejs.dev 文档内容以 MIT/CC 许可发布（见仓库声明）；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方链接为 GitHub blob 形态（锁定 commit aa4239e），非 nodejs.dev 站点地址——按官方原文登记。"
+    },
+    {
+      "lessonId": "javascript-time-complexity",
+      "title": "Cartesian tree - GeeksforGeeks",
+      "titleZh": "笛卡尔树（GeeksforGeeks）",
+      "type": "参考文档",
+      "requirement": "optional",
+      "zone": "正文 O(N log N) 节（官方：敏锐的你可以偷看一眼）",
+      "originalUrl": "https://www.geeksforgeeks.org/cartesian-tree/",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（零重定向；页面标题含「Cartesian Tree」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方在 O(N log N) 节给的特例参考：Cartesian tree（笛卡尔树）——一种天生就是 O(N log N) 的算法形态，内部没有 O(N) 或 O(log N) 的小部件嵌套复合。官方口径：「敏锐的你们也许想偷看一眼这个算法怎么工作」——纯兴趣延伸，不看完全不影响本课。无官方中文版。",
+        "why": "官方正文提及（兴趣延伸）：O(N log N) 的非嵌套来源特例。",
+        "points": [
+          "官方定位是 keen 者的偷看材料——非必读。",
+          "存在意义：说明嵌套复合不是达到 O(N log N) 的唯一方式。"
+        ],
+        "terms": [
+          "Cartesian tree（笛卡尔树）"
+        ],
+        "focus": "若读：看它怎么在一次遍历里同时达成 log 级的结构。",
+        "takeaway": "复杂度记号描述增长形状，不描述达成路径。"
+      },
+      "license": "GeeksforGeeks 文章内容许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方用语「The keen amongst you may wish to have a peek」——requirement 按 optional 登记。"
+    },
+    {
+      "lessonId": "javascript-time-complexity",
+      "title": "Big O Notation in JavaScript by Doable Danny",
+      "titleZh": "JavaScript 中的 Big O 记号（Doable Danny）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://www.doabledanny.com/big-o-notation-in-javascript",
+      "sourceDomain": "www.doabledanny.com",
+      "originalUrlStatus": "200（零重定向；页面标题含「Big O Notation in JavaScript」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条：Doable Danny 的 Big O 图解文——官方评价「覆盖常见复杂度、配图表与示例」。JS 语境的复杂度入门：每个记号配 JS 代码例子与增长曲线图，把正文的八个记号再刷一遍视觉记忆。无官方中文版。",
+        "why": "官方 Assignment 指定阅读：常见复杂度的图表示例版。",
+        "points": [
+          "每个复杂度配 JS 例子 + 曲线图——与正文八个记号一一对应。",
+          "适合做正文读完后的第一轮巩固。"
+        ],
+        "terms": [
+          "growth curve（增长曲线）"
+        ],
+        "focus": "对着曲线图记形状：O(1) 平线、O(log N) 躺平、O(N) 斜线、O(n²) 抛物线、O(2ⁿ) 起飞。",
+        "takeaway": "记号的本质是形状——曲线图比符号更好记。"
+      },
+      "license": "第三方博客文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-time-complexity",
+      "title": "Big-O Cheat Sheet",
+      "titleZh": "Big-O 速查表",
+      "type": "速查表",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条（另被空间复杂度课正文与二叉搜索树项目 insert 步骤回看引用——跨课同址合并登记在本课）",
+      "originalUrl": "https://www.bigocheatsheet.com/",
+      "sourceDomain": "www.bigocheatsheet.com",
+      "originalUrlStatus": "200（零重定向；页面为复杂度对照速查表）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条、评价 amazing resource 的速查表：常见算法与数据结构的时间/空间复杂度对照——复杂度曲线图 + 数据结构操作复杂度表 + 排序算法复杂度表。官方在本章三次让你回来看它：本课 Assignment、空间复杂度课正文（「再看你会有更深的欣赏」——滚到数据结构与排序区看空间列）、二叉搜索树项目 insert 步骤（BST 插删 O(log n) 的出处）。建议加入书签常驻。无官方中文版（表格以符号为主、语言门槛低）。",
+        "why": "官方 Assignment 指定 + 后续两课回看：复杂度查询的事实标准页。",
+        "points": [
+          "三块内容：曲线对照图、数据结构操作复杂度、排序算法复杂度。",
+          "空间复杂度课会再点名：注意多少数据结构是 O(N) 空间、多少排序是 O(1)。",
+          "BST 项目的官方 Note 引用它证明「树上插删 O(log n) 比数组显著快」。"
+        ],
+        "terms": [
+          "complexity chart（复杂度对照图）"
+        ],
+        "focus": "先看懂曲线区，再把数据结构表当字典用。",
+        "takeaway": "一页纸装下全章的账本——复杂度讨论的最终裁判。"
+      },
+      "license": "速查表内容见站点声明；本站只做链接与原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "跨课同址合并登记（discord.gg 先例）：time-complexity Assignment 第 2 条、space-complexity 正文「Other complexities」节、binary-search-trees 项目 insert 步骤 Note 三处引用同一地址，登记在首现课 time-complexity，不在另两课重复收录。"
+    },
+    {
+      "lessonId": "javascript-time-complexity",
+      "title": "Step-by-step Big O Complexity Analysis Guide, using JavaScript",
+      "titleZh": "分步 Big O 复杂度分析指南（JavaScript 版）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条（官方注明末尾空间复杂度节可先跳过）",
+      "originalUrl": "https://www.sahinarslan.tech/posts/step-by-step-big-o-complexity-analysis-guide-using-javascript",
+      "sourceDomain": "www.sahinarslan.tech",
+      "originalUrlStatus": "200（零重定向；页面标题含「Step-by-step Big O Complexity Analysis Guide」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 3 条：分步复杂度分析指南（JS 语境）——教你拿到一段代码怎么一步步数出它的 Big O（循环层数、递归分支、 Dominant term 取舍）。官方注明：它末尾有一节讲空间复杂度，现在可以先跳过（下一课正讲它）。无官方中文版。",
+        "why": "官方 Assignment 指定阅读：从「认识记号」到「会分析代码」的桥。",
+        "points": [
+          "分步方法：数循环嵌套、看递归形状、取增长最快项。",
+          "官方注明末尾 Space Complexity 节可跳过——下一课再回来。"
+        ],
+        "terms": [
+          "dominant term（主导项）",
+          "complexity analysis（复杂度分析）"
+        ],
+        "focus": "拿自己写过的代码练分步法——比如 testing-practice 的 caesarCipher。",
+        "takeaway": "会背记号不算会复杂度——能对着自家代码说出 O 才算。"
+      },
+      "license": "第三方博客文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文注明「It has a section on Space Complexity at the end which you can skip for now」，已录课程页 tasks。"
+    },
+    {
+      "lessonId": "javascript-space-complexity",
+      "title": "Primary Memory - GeeksforGeeks",
+      "titleZh": "主存储器（GeeksforGeeks）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文引言（官方：想多了解主存可读它）",
+      "originalUrl": "https://www.geeksforgeeks.org/primary-memory/",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（零重定向；页面标题含「Primary Memory」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方引言给主存（primary memory）语义挂的参考：系统执行算法可用的工作内存——本课谈「内存」都指它（不是磁盘、不是缓存层级）。官方口径「想多了解这个话题可以读这篇」。无官方中文版。",
+        "why": "官方正文提及：主存概念的延伸参考。",
+        "points": [
+          "主存 = 工作内存：程序执行时数据真正住的地方。",
+          "空间复杂度度量的就是它——不是磁盘占用。"
+        ],
+        "terms": [
+          "primary memory（主存）",
+          "working memory（工作内存）"
+        ],
+        "focus": "只需建立「主存 vs 磁盘」的区分——细节不影响本课。",
+        "takeaway": "谈空间复杂度时的「内存」有精确语义：主存。"
+      },
+      "license": "GeeksforGeeks 文章内容许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-space-complexity",
+      "title": "Memoization - Wikipedia",
+      "titleZh": "记忆化（维基百科）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文 Wrapping up 节（可读性与效率权衡的例子）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Memoization",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Memoization - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E8%AE%B0%E5%BF%86%E5%8C%96",
+      "zhType": "原网站官方中文版（同一维基媒体项目，已用 zh-cn variant 强制简体并核验标题「记忆化」、正文汉字 1620）",
+      "zhGuide": {
+        "overview": "官方收尾段谈「效率与可读性的权衡」时给的词条：memoization（记忆化）——把算过的结果存起来避免重算，典型的「空间换时间」。官方的问题：为效率引入它之后代码难懂得多，值吗？中文维基已核验存在对应条目「记忆化」。扫定义段即可。",
+        "why": "正文权衡讨论的词条参考：空间换时间的代表技术。",
+        "points": [
+          "记忆化 = 缓存计算结果避免重算——空间换时间。",
+          "官方用它提「可读性代价」的问题——技术本身不是重点。"
+        ],
+        "terms": [
+          "memoization（记忆化）",
+          "space-time tradeoff（空间时间权衡）"
+        ],
+        "focus": "读定义段——理解「用空间买时间」这个交易形状。",
+        "takeaway": "优化的每一分钱都有出处——记忆化付的是内存与可读性。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-space-complexity",
+      "title": "Analyzing space complexity of passing data to function by reference (cs.stackexchange)",
+      "titleZh": "分析按引用传数据给函数的空间复杂度（cs.stackexchange 问答）",
+      "type": "问答",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条（官方：读第一个回答）",
+      "originalUrl": "https://cs.stackexchange.com/questions/127933/analyzing-space-complexity-of-passing-data-to-function-by-reference",
+      "sourceDomain": "cs.stackexchange.com",
+      "originalUrlStatus": "403（Stack Exchange 反爬拦截非浏览器请求）；真实浏览器实测可达：标题「Analyzing space complexity of passing data to function by reference - Computer Science Stack Exchange」、3 个回答在位",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条：cs.stackexchange 上「按引用传数据给函数时怎么分析空间复杂度」的问答——官方指定读**第一个回答**。它正是正文「辅助空间分析」一节的延伸讨论：传入的数据结构算不算函数的空间？不同口径怎么各自成立。命令行访问被反爬拦截，真实浏览器实测可达（3 个回答在位），按既有 Stack Exchange 先例如实登记核验方式。无官方中文版。",
+        "why": "官方 Assignment 指定阅读：空间计数口径的深入讨论。",
+        "points": [
+          "官方指定只读第一个回答——不必通读全部楼层。",
+          "与正文辅助空间分析一节直接呼应：输入算不算的两口径。"
+        ],
+        "terms": [
+          "pass by reference（按引用传递）",
+          "auxiliary space（辅助空间）"
+        ],
+        "focus": "看第一个回答怎么给「算不算输入」划口径边界。",
+        "takeaway": "报空间复杂度前先声明口径——数字才有意义。"
+      },
+      "license": "Stack Exchange 内容以 CC BY-SA 发布；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：命令行 403（反爬）；真实浏览器核验可达并取得标题与回答数（3 个）；已入 verifyLimitedUrls（按既有 StackOverflow/Stack Exchange 先例）。"
+    },
+    {
+      "lessonId": "javascript-space-complexity",
+      "title": "Recursion and Space Complexity - DEV Community",
+      "titleZh": "递归与空间复杂度（dev.to）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://dev.to/elmarshall/recursion-and-space-complexity-13gc",
+      "sourceDomain": "dev.to",
+      "originalUrlStatus": "200（零重定向；页面标题「Recursion and Space Complexity - DEV Community」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条：递归函数与其空间复杂度的文章——给「递归的空间账」补语境：每层调用占一帧栈空间，递归深度就是空间开销（连回 Recursive Methods 课的递归深度与 stack overflow）。上一课刚写完 fibsRec 与 mergeSort，正好拿它们对照读。无官方中文版。",
+        "why": "官方 Assignment 指定阅读：递归的空间视角。",
+        "points": [
+          "递归的空间账：栈帧 × 深度——深度失控先于时间失控。",
+          "对照自家 fibsRec/mergeSort 读最有感觉。"
+        ],
+        "terms": [
+          "stack frame（栈帧）",
+          "recursion depth（递归深度）"
+        ],
+        "focus": "看它怎么把「调用栈深度」折算成空间复杂度。",
+        "takeaway": "递归不只花时间——每层调用都在花内存。"
+      },
+      "license": "dev.to 上的作者原创文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "Data structure - Wikipedia",
+      "titleZh": "数据结构（维基百科）",
+      "type": "百科条目",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条（官方口径：扫一眼，高层总览）",
+      "originalUrl": "http://en.wikipedia.org/wiki/Data_structure",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（页面标题「Data structure - Wikipedia」；官方原文给的是 http:// 地址，实测直接可达）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84",
+      "zhType": "原网站官方中文版（同一维基媒体项目，已用 zh-cn variant 强制简体并核验标题「数据结构」、正文汉字 8552）",
+      "zhGuide": {
+        "overview": "官方 Assignment 第 1 条：维基 Data Structures 条目——官方口径是「扫一眼（glance over），获得高层总览」，不必深读。中文维基已核验存在对应条目「数据结构」（zh-cn 简体变体）：读开头的分类与常见结构清单即可，把名字和「擅长什么」对上号——细节留给后面四个项目。",
+        "why": "官方 Assignment 指定扫读：数据结构高层总览。",
+        "points": [
+          "官方口径 glance over——高层总览，不深读。",
+          "把结构名与擅长场景对上号：数组/链表/栈/队列/树/哈希表。"
+        ],
+        "terms": [
+          "data structure（数据结构）",
+          "linear / non-linear（线性/非线性结构）"
+        ],
+        "focus": "只读分类概览——每个结构记一句「它擅长什么」。",
+        "takeaway": "地图先看轮廓：结构名认全，细节在项目里长。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "coursera - Design and Analysis of Algorithms I - 1.1 Introduction to Algorithms",
+      "titleZh": "为什么要学算法（课程录像片段）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条（官方：只看前 10 分钟，其余更数学向）",
+      "originalUrl": "https://www.youtube.com/watch?v=u2TwK3fED8A",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「coursera - Design and Analysis of Algorithms I - 1.1 Introduction to Algorithms」，作者 André Ribeiro Miranda）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 2 条：「Why Study Algorithms」——官方注明**只看前 10 分钟**，其余更数学向、感兴趣再看。oEmbed 核验的真实标题显示它是 coursera「算法设计与分析」课程的 Introduction to Algorithms 段录像（转载者 André Ribeiro Miranda）——与官方 label「Why Study Algorithms」不同形，如实登记；前 10 分钟内容正是「为什么要学算法」的动机论证。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看（前 10 分钟）：学算法的动机。",
+        "points": [
+          "官方边界：前 10 分钟——后面数学向内容随意。",
+          "真实标题与官方 label 不同形（课程录像段）——同一视频，如实登记。"
+        ],
+        "terms": [
+          "algorithm analysis（算法分析）"
+        ],
+        "focus": "听前 10 分钟对「为什么值得学」的论证——与本课引言互证。",
+        "takeaway": "学算法的理由和你写代码的理由相同：让问题解决得更好。"
+      },
+      "license": "第三方 YouTube 视频（课程录像转载），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方 label「Why Study Algorithms」与 oEmbed 真实标题不同形，按真实标题登记；官方注明只看前 10 分钟，已录课程页 official.optional。"
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "CS50 2018 - Lecture 0 - Phone Book（binary search 段落）",
+      "titleZh": "CS50 2018 第 0 讲：电话簿（二分查找段落）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://www.youtube.com/watch?v=DSffdCT5Cx4",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「CS50 2018 - Lecture 0 - Phone Book」，作者 CS50）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 3 条：从哈佛 CS50 学「二分查找怎么工作」——oEmbed 真实标题是整讲录像「Lecture 0 - Phone Book」（电话簿找人是二分查找的经典引入场景），官方 label「how binary search works」指的是其中的查找算法段落，如实登记。与 time-complexity 课 O(log N) 的二分推演互证：每步砍半。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：二分查找的工作方式。",
+        "points": [
+          "真实标题为整讲录像——二分查找段是官方意图所在。",
+          "与 time-complexity 课的 O(log N) 推演（10 元素找 7）配对看。"
+        ],
+        "terms": [
+          "binary search（二分查找）",
+          "sorted array（有序数组）"
+        ],
+        "focus": "盯住「每步排除一半」的动作——这就是 log 的来源。",
+        "takeaway": "有序是二分查找的门票——每步砍半是它的红利。"
+      },
+      "license": "第三方 YouTube 视频（CS50），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方 label「how binary search works」与 oEmbed 真实标题（整讲录像）不同形，如实登记；观看意图为其中的二分查找段落。"
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "How to Construct a Binary Search Tree (edutechional)",
+      "titleZh": "怎么构造一棵二叉搜索树（edutechional）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条",
+      "originalUrl": "https://www.youtube.com/watch?v=FvdPo8PBQtc",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「How to Construct a Binary Search Tree」，作者 edutechional）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 4 条：一棵二叉搜索树怎么从无序数组构造出来——为二叉搜索树项目（buildTree）打前站。看点：逐个插入时「左小右大」的下行走法，与项目里「排序 + 对半取中」的平衡构造是两条路线——先看插入式构造，项目时再对比平衡式构造。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：BST 构造入门。",
+        "points": [
+          "插入式构造：逐元素按左小右大下行落位。",
+          "与 BST 项目的平衡构造（排序+对半取中）对照——构造顺序决定树形。"
+        ],
+        "terms": [
+          "binary search tree（二叉搜索树）",
+          "insertion walk（插入下行）"
+        ],
+        "focus": "留意插入顺序怎么影响树的平衡——这正是项目「先排序再构造」的原因。",
+        "takeaway": "同一组数、不同插入顺序 = 不同树形——平衡是要设计出来的。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "Stacks and queues: the basics (CSHelene)",
+      "titleZh": "栈与队列：基础（CSHelene）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 5 条（官方点名：分别是 DFS 与 BFS 使用的概念）",
+      "originalUrl": "https://www.youtube.com/watch?v=6QS_Cup1YoI",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Stacks and queues: the basics」，作者 CSHelene）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 5 条：栈与队列的原理——官方点名它们是**深度优先搜索与广度优先搜索分别使用的概念**（队列→BFS、栈→DFS）。LIFO 与 FIFO 两种出队秩序决定两种搜索形状。骑士之旅项目的选型思考题（BFS 还是 DFS）建立在这一支上。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：BFS/DFS 的概念底座。",
+        "points": [
+          "队列 FIFO：先发现先处理 → 一层层扫（BFS）。",
+          "栈 LIFO：后发现先处理 → 一条路到底（DFS）。"
+        ],
+        "terms": [
+          "stack（栈，LIFO）",
+          "queue（队列，FIFO）"
+        ],
+        "focus": "把两种出队秩序与两种搜索形状在脑子里焊在一起。",
+        "takeaway": "搜索算法的形状由容器决定——换容器就换算法。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "Binary tree traversal - breadth-first and depth-first strategies (mycodeschool)",
+      "titleZh": "二叉树遍历——广度优先与深度优先策略（mycodeschool）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 6 条三部曲之一",
+      "originalUrl": "https://www.youtube.com/watch?v=9RHO6jU--GU",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Binary tree traversal - breadth-first and depth-first strategies」，作者 mycodeschool）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 6 条三部曲之一：二叉树遍历的两大策略总览（广度优先 vs 深度优先）——mycodeschool 数据结构和算法经典系列。它是后两支（层序、前中后序）的总起：先分清「按层扫」与「沿枝走」两种大方向。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：树遍历两大策略总览。",
+        "points": [
+          "BFS = 按层扫（level order）；DFS = 沿枝走（pre/in/post）。",
+          "mycodeschool 系列：板书清晰、节奏适合打基础。"
+        ],
+        "terms": [
+          "tree traversal（树遍历）",
+          "BFS / DFS"
+        ],
+        "focus": "先建立两大方向的画面——细节留给后两支。",
+        "takeaway": "遍历策略就两大类——分清方向，四种具体顺序都是变体。"
+      },
+      "license": "第三方 YouTube 视频（mycodeschool），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "Binary tree: Level Order Traversal (mycodeschool)",
+      "titleZh": "二叉树：层序遍历（mycodeschool）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 6 条三部曲之二（另被二叉搜索树项目 levelOrderForEach 步骤 Tip 引用——跨课同址合并登记在本课）",
+      "originalUrl": "https://www.youtube.com/watch?v=86g8jAQug04",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Binary tree: Level Order Traversal」，作者 mycodeschool）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 6 条三部曲之二：层序遍历（BFS 在树上的形态）——用队列一层层扫。二叉搜索树项目的 levelOrderForEach 官方 Tip 再次点名它（「需要可视化的话看 mycodeschool 这支」）——两处引用合并登记在本课。看点：数组当队列的具体走法（出队一个、孩子入队）。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看 + BST 项目回看：层序遍历的实现演示。",
+        "points": [
+          "队列走法：出队一个节点 → 处理 → 它的孩子入队。",
+          "BST 项目 levelOrderForEach 的官方指定可视化资料。"
+        ],
+        "terms": [
+          "level order traversal（层序遍历）",
+          "queue as BFS frontier（队列作 BFS 前沿）"
+        ],
+        "focus": "盯住队列内容的变化——它就是「下一层待办清单」。",
+        "takeaway": "BFS 的全部秘密：一个队列 + 出队时把孩子入队。"
+      },
+      "license": "第三方 YouTube 视频（mycodeschool），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "跨课同址合并登记：common-data-structures Assignment 第 6 条与 binary-search-trees 项目 levelOrderForEach Tip 两处引用，登记在首现课。"
+    },
+    {
+      "lessonId": "javascript-common-data-structures-and-algorithms",
+      "title": "Binary tree traversal: Preorder, Inorder, Postorder (mycodeschool)",
+      "titleZh": "二叉树遍历：前序、中序、后序（mycodeschool）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 第 6 条三部曲之三（另被二叉搜索树项目三个 ForEach 步骤引用——跨课同址合并登记在本课）",
+      "originalUrl": "https://www.youtube.com/watch?v=gm8DUJJhmY4",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Binary tree traversal: Preorder, Inorder, Postorder」，作者 mycodeschool）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 第 6 条三部曲之三：三种深度优先顺序（前序/中序/后序）——区别只在「访问当前节点的时机」相对左右子树的位置。二叉搜索树项目的 inOrder/preOrder/postOrderForEach 三个方法官方再次点名它——两处引用合并登记在本课。重点记：中序遍历 BST 产出升序序列（rebalance 的取数路线）。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看 + BST 项目回看：三种 DFS 顺序。",
+        "points": [
+          "pre = 根左右、in = 左根右、post = 左右根——只差访问时机。",
+          "BST 的中序 = 升序序列——项目 rebalance 靠它取数。"
+        ],
+        "terms": [
+          "preorder / inorder / postorder（前序/中序/后序）"
+        ],
+        "focus": "用同一棵小树手动走三种顺序各一遍——时机差异立刻显形。",
+        "takeaway": "三种顺序是同一段递归的三种「打印位置」——理解一个就理解全部。"
+      },
+      "license": "第三方 YouTube 视频（mycodeschool），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "跨课同址合并登记：common-data-structures Assignment 第 6 条与 binary-search-trees 项目三个 DFS ForEach 步骤两处引用，登记在首现课。"
+    },
+    {
+      "lessonId": "javascript-linked-lists",
+      "title": "linked list in plain english (John Runchey)",
+      "titleZh": "大白话讲链表（John Runchey）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "正文 Structure of a linked list 节资料第 1 条",
+      "originalUrl": "https://www.youtube.com/watch?v=oiW79L8VYXk",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「linked list in plain english」，作者 John Runchey）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文结构讲解节的资料第 1 条：大白话讲链表——节点、指针、head/tail 的直觉版讲解。动手写 LinkedList 类之前先看它，把「一串节点靠 nextNode 手拉手」的画面建起来。本站提供原创导读与链接。",
+        "why": "官方正文指定资料：链表直觉建立。",
+        "points": [
+          "大白话风格：零基础友好。",
+          "看它怎么画 head → node → node → tail → null 的链。"
+        ],
+        "terms": [
+          "node（节点）",
+          "pointer / next（指针）"
+        ],
+        "focus": "把视频里的画面与官方文字示意 [NODE(head)] -> … -> null 对上。",
+        "takeaway": "链表 = 节点 + 指向下一个节点的引用——就这两样东西。"
+      },
+      "license": "第三方 YouTube 视频，版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方 label「Linked Lists in Plain English」与 oEmbed 真实标题（小写形态）大小写不同形，如实登记。"
+    },
+    {
+      "lessonId": "javascript-linked-lists",
+      "title": "What's a Linked List, Anyway? [Part 1]",
+      "titleZh": "链表到底是什么？（第 1 部分，dev.to）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "正文 Structure of a linked list 节资料第 2 条",
+      "originalUrl": "https://dev.to/vaidehijoshi/whats-a-linked-list-anyway",
+      "sourceDomain": "dev.to",
+      "originalUrlStatus": "200（零重定向；页面标题「What's a Linked List, Anyway? [Part 1] - DEV Community」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文资料第 2 条：dev.to 经典系列「What's a Linked List, Anyway?」（Vaidehi Joshi 的 basecs 系列第 1 部分）——比视频更细的图文讲解：节点结构、线性集合、与数组的内存布局差异（连续 vs 散点靠指针串联）。无官方中文版。",
+        "why": "官方正文指定资料：链表图文详解。",
+        "points": [
+          "basecs 系列名文：图文节奏适合自学者。",
+          "内存布局对比（数组连续/链表散点）解释了插删为什么不用重新分配。"
+        ],
+        "terms": [
+          "linear collection（线性集合）",
+          "memory layout（内存布局）"
+        ],
+        "focus": "读内存布局对比——那是「插删容易」的物理原因。",
+        "takeaway": "链表用「散点 + 指针」换来了插删的自由。"
+      },
+      "license": "dev.to 上的作者原创文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-linked-lists",
+      "title": "Linked Lists (CMU 15-121 lecture notes, archived)",
+      "titleZh": "链表（CMU 15-121 课程讲义，存档）",
+      "type": "文章（存档）",
+      "requirement": "required",
+      "zone": "正文 Structure of a linked list 节资料第 3 条",
+      "originalUrl": "https://web.archive.org/web/20200217010131/http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html",
+      "sourceDomain": "web.archive.org",
+      "originalUrlStatus": "200（存档页实测可达；页面标题「LinkedLists」——官方给的就是 web.archive.org 存档地址，原样登记）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文资料第 3 条：CMU 15-121 课程的链表讲义——官方评价「更详细的解释、大量图示」。学院派图解：单链表/双链表/循环链表的操作逐帧画图。官方给的就是 web.archive.org 存档地址（原 CMU 页面已不在原址），实测存档可达。",
+        "why": "官方正文指定资料：带大量图示的详细讲解。",
+        "points": [
+          "图示密度高：插删时指针怎么改，一帧帧画给你看。",
+          "学院派口径：顺带覆盖双向链表等变体（本项目只做单向）。"
+        ],
+        "terms": [
+          "singly / doubly linked list（单向/双向链表）"
+        ],
+        "focus": "看插入与删除的指针重接图——Extra credit 的 insertAt/removeAt 全靠这个画面。",
+        "takeaway": "链表操作的本质是改指针——图看够了，代码就不会接错线。"
+      },
+      "license": "存档的大学课程讲义，版权归原作者；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文即给 web.archive.org 存档地址（2020-02-17 快照），原样登记、未做替换。"
+    },
+    {
+      "lessonId": "javascript-linked-lists",
+      "title": "Are Linked Lists necessary?",
+      "titleZh": "链表有必要吗？（dev.to）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "正文 Structure of a linked list 节资料第 4 条",
+      "originalUrl": "https://dev.to/karimdevelops/are-linked-lists-necessary-2ckl",
+      "sourceDomain": "dev.to",
+      "originalUrlStatus": "200（零重定向；页面标题「Are Linked Lists necessary? - DEV Community」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文资料第 4 条：「链表有必要吗」——正好接着官方引言的诚实设问（JS 数组没有大小限制，链表真的必要吗？短答案 it depends）往下聊：什么时候链表是对的工具、什么时候数组就够。读它把「学习价值」与「工程选型」分开看。无官方中文版。",
+        "why": "官方正文指定资料：链表必要性的讨论。",
+        "points": [
+          "与官方引言的 it depends 呼应：学习价值与日常选型是两回事。",
+          "帮你回答面试软题「JS 里为什么还要学链表」。"
+        ],
+        "terms": [
+          "trade-off（权衡）"
+        ],
+        "focus": "看它列的「链表真正占优的场景」——频繁头部插删、不需要随机访问。",
+        "takeaway": "造链表是为了懂结构，不是为了替代数组。"
+      },
+      "license": "dev.to 上的作者原创文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-hashmap-data-structure",
+      "title": "Set - JavaScript | MDN",
+      "titleZh": "Set（MDN 官方简体中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文引言（用过 Set 就用过基于 hash table 的结构）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Set - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set",
+      "zhType": "MDN 官方简体中文版（已核验 zh-CN 页面在位，正文汉字 3256）",
+      "zhGuide": {
+        "overview": "官方引言拉近距离时点名的 JS 内建对象之一：Set——只有键没有值的 hash table 系结构（正文 Buckets 节还会用它讲「同键覆盖」原理：这就是 Set 里只能有唯一值的机制）。zh-CN 官方中文版实测在位。读「描述」与基本操作即可，内部机制正是本课正文要讲的。",
+        "why": "官方正文点名：你早就在用的 hash table 系结构。",
+        "points": [
+          "Set = 只存键的 hash map（正文官方双关：key difference）。",
+          "唯一性机制 = 同键覆盖——正文 Buckets 节展开。"
+        ],
+        "terms": [
+          "Set（集合对象）",
+          "unique values（唯一值）"
+        ],
+        "focus": "读描述节——再回正文看「Set 的节点只有键没有值」。",
+        "takeaway": "你用过 Set 的每次 add/has，底下都是散列 + 桶。"
+      },
+      "license": "MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-hashmap-data-structure",
+      "title": "Map - JavaScript | MDN",
+      "titleZh": "Map（MDN 官方简体中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文引言 + Insertion order is not maintained 节（Map 是保序实现）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Map - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map",
+      "zhType": "MDN 官方简体中文版（已核验 zh-CN 页面在位，正文汉字 3699）",
+      "zhGuide": {
+        "overview": "官方两处点名 Map：引言（用过 Map 就用过基于 hash table 的结构）与「插入顺序不保证」节（**有些库实现 hash map 时顾及插入顺序，比如 JavaScript 自己的 Map**——而下一课项目要造的是无序版）。zh-CN 官方中文版实测在位。读描述节时注意 MDN 明说 Map 按插入顺序迭代——那就是官方说的保序实现。",
+        "why": "官方正文两处点名：hash table 系结构 + 保序实现的代表。",
+        "points": [
+          "Map 保插入顺序（迭代按插入序）——本课无序 hash map 的对照组。",
+          "Map 的键可以是任意类型——下一课项目只收字符串键（官方：保持简单）。"
+        ],
+        "terms": [
+          "Map（映射对象）",
+          "insertion order（插入顺序）"
+        ],
+        "focus": "对照读：Map 的保序承诺 vs 本课 hash map 的无序事实。",
+        "takeaway": "同样是键值对，保不保序是实现选择——用之前要知道你拿到的是哪种。"
+      },
+      "license": "MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-hashmap-data-structure",
+      "title": "CS50 2019 - Lecture 5 - Hash Table（hash maps using buckets 段落）",
+      "titleZh": "CS50 2019 第 5 讲：哈希表（用桶讲 hash map 的段落）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "Assignment 唯一一条",
+      "originalUrl": "https://www.youtube.com/watch?v=btT4bCOvqjs",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「CS50 2019 - Lecture 5 - Hash Table」，作者 CS50）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "本课 Assignment 唯一一条：CS50 讲「用桶实现 hash map」概念的视频——oEmbed 真实标题是整讲「Lecture 5 - Hash Table」，官方 label 指的是其中用桶讲 hash map 的段落，如实登记。CS50 的讲法与正文互补：正文推公式（散列 → 取模 → 桶），视频给画面（电话簿、桶、冲突）。本站提供原创导读与链接。",
+        "why": "官方 Assignment 指定观看：桶机制的动态演示。",
+        "points": [
+          "真实标题为整讲录像——hash map 用桶的段是官方意图所在。",
+          "与正文的 Fred/385 三步存取示范对照看。"
+        ],
+        "terms": [
+          "bucket（桶）",
+          "hash table（哈希表）"
+        ],
+        "focus": "看它怎么演示「键 → 散列码 → 桶」的一跳到位。",
+        "takeaway": "hash map 的快，快在「算出位置」代替「挨个找」。"
+      },
+      "license": "第三方 YouTube 视频（CS50），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方 label「hash maps using buckets」与 oEmbed 真实标题（整讲录像）不同形，如实登记。"
+    },
+    {
+      "lessonId": "javascript-hashmap-data-structure",
+      "title": "Why does Java's hashCode() in String use 31 as a multiplier? (Stack Overflow)",
+      "titleZh": "Java 的 String hashCode() 为什么用 31 当乘数？（Stack Overflow 讨论）",
+      "type": "问答",
+      "requirement": "optional",
+      "zone": "Additional resources 第 1 条（官方：想深挖质数用法的讨论）",
+      "originalUrl": "https://stackoverflow.com/questions/299304/why-does-javas-hashcode-in-string-use-31-as-a-multiplier/299748",
+      "sourceDomain": "stackoverflow.com",
+      "originalUrlStatus": "403（Stack Overflow 反爬拦截非浏览器请求，初访为 Cloudflare 挑战页）；真实浏览器实测挑战自动通过后取得标题「Why does Java's hashCode() in String use 31 as a multiplier? - Stack Overflow」、13 个回答在位",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Additional resources 第 1 条：质数在散列函数中用法的经典讨论——正文质数 31 的 Tip（乘质数降低被桶长度整除的可能）想深挖就来这里：为什么是 31、质数到底好在哪、有哪些反例争论。命令行被反爬拦截（Cloudflare 挑战），真实浏览器实测挑战自动通过、13 个回答在位——按既有 Stack Overflow 先例如实登记核验方式。无官方中文版。",
+        "why": "官方 Additional resources：质数乘数的深入讨论。",
+        "points": [
+          "31 的经典论证：质数 + 奇数 + 可被 JVM 优化成位运算。",
+          "高赞回答之外还有争论楼——兼听。"
+        ],
+        "terms": [
+          "prime multiplier（质数乘数）",
+          "hash distribution（散列分布）"
+        ],
+        "focus": "读最高赞回答的论证链——正好覆盖正文 Tip 的「为什么」。",
+        "takeaway": "质数乘数是经验 + 数学的合成品——31 只是最著名的那个。"
+      },
+      "license": "Stack Overflow 内容以 CC BY-SA 发布；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：命令行 403（反爬，初访 Cloudflare 挑战页）；真实浏览器核验等待挑战自动通过后可达并取得标题与回答数（13 个）；已入 verifyLimitedUrls（按既有 Stack Overflow 先例）。Additional resources 节官方明言「isn't required, consider it supplemental」，requirement 按 optional 登记。"
+    },
+    {
+      "lessonId": "javascript-hashmap-data-structure",
+      "title": "Pigeonhole principle - Wikipedia",
+      "titleZh": "鸽巢原理（维基百科）",
+      "type": "百科条目",
+      "requirement": "optional",
+      "zone": "Additional resources 第 2 条（官方：节点多于盒子必然冲突的数学保证）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Pigeonhole_principle",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Pigeonhole principle - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E9%B8%BD%E5%B7%A2%E5%8E%9F%E7%90%86",
+      "zhType": "原网站官方中文版（同一维基媒体项目，已用 zh-cn variant 强制简体并核验标题「鸽巢原理」、正文汉字 3754）",
+      "zhGuide": {
+        "overview": "官方 Additional resources 第 2 条、也是正文 Growth 节埋的「好奇为什么的话看这里」：鸽巢原理——n+1 只鸽子进 n 个巢必有一巢住两只；对应到 hash map：**节点数超过桶数，必然有桶住多个节点（冲突必然发生）**。中文维基已核验存在对应条目「鸽巢原理」。读开头陈述即可。",
+        "why": "官方 Additional resources：冲突必然性的数学保证。",
+        "points": [
+          "鸽巢原理 = 冲突无法根除的数学证明。",
+          "它也解释了增长机制的必要性：桶不够就必然撞。"
+        ],
+        "terms": [
+          "pigeonhole principle（鸽巢原理）"
+        ],
+        "focus": "只读陈述段——把它翻译成「节点 > 桶 ⇒ 必冲突」。",
+        "takeaway": "冲突不是散列函数的失败，是有限桶数的数学必然。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "Additional resources 节官方明言 supplemental，requirement 按 optional 登记。"
+    },
+    {
+      "lessonId": "javascript-hashmap-data-structure",
+      "title": "Hashing (samwho.dev)",
+      "titleZh": "散列（samwho.dev 交互讲解）",
+      "type": "文章",
+      "requirement": "optional",
+      "zone": "Additional resources 第 3 条",
+      "originalUrl": "https://samwho.dev/hashing/",
+      "sourceDomain": "samwho.dev",
+      "originalUrlStatus": "200（零重定向；页面标题「Hashing」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Additional resources 第 3 条：想对散列函数有更好的基础理解就看它——samwho.dev 的交互长文：散列的性质（确定性、均匀分布、雪崩效应）、常见散列函数、以及为什么「好散列」难写。正文的质数 31 在这里会获得更大的地图。无官方中文版。",
+        "why": "官方 Additional resources：散列函数的基础理解。",
+        "points": [
+          "交互可视化：改一个字符看散列值怎么变。",
+          "覆盖正文没展开的性质：均匀分布与雪崩效应。"
+        ],
+        "terms": [
+          "avalanche effect（雪崩效应）",
+          "hash distribution（散列分布）"
+        ],
+        "focus": "玩它的交互演示——把「输入微变、输出剧变」看出手感。",
+        "takeaway": "好散列 = 均匀 + 敏感——质数乘只是达成手段之一。"
+      },
+      "license": "第三方博客文章，许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "Additional resources 节官方明言 supplemental，requirement 按 optional 登记。"
+    },
+    {
+      "lessonId": "javascript-hashmap",
+      "title": "Number.MAX_SAFE_INTEGER - JavaScript | MDN",
+      "titleZh": "Number.MAX_SAFE_INTEGER（MDN 官方简体中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "Assignment hash(key) 条目的边界情形说明（长键超安全整数）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Number.MAX_SAFE_INTEGER - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER",
+      "zhType": "MDN 官方简体中文版（已核验 zh-CN 页面在位，正文汉字 1154）",
+      "zhGuide": {
+        "overview": "官方在 hash(key) 规格里点名的边界情形参考：最大安全整数（2^53 − 1）——质数 31 连乘的散列码超过它之后计算开始不准（精度丢失），这正是官方建议「循环内每次迭代都对 capacity 取模」的原因。zh-CN 官方中文版实测在位。读定义与「描述」节即可。",
+        "why": "官方规格点名：长键散列的精度边界。",
+        "points": [
+          "MAX_SAFE_INTEGER = 2^53 − 1：超出后整数运算不保证精确。",
+          "对策在官方规格里：迭代内取模，把数字永远压小。"
+        ],
+        "terms": [
+          "safe integer（安全整数）",
+          "precision loss（精度丢失）"
+        ],
+        "focus": "看「描述」节对「超出后会发生什么」的说明——对应官方警告的机制。",
+        "takeaway": "JS 数字不是无限精确的——散列连乘要主动防溢出。"
+      },
+      "license": "MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-binary-search-trees",
+      "title": "Binary search tree - Wikipedia",
+      "titleZh": "二叉搜索树（维基百科）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文引言（BST 概念复习的出处）",
+      "originalUrl": "http://en.wikipedia.org/wiki/Binary_search_tree",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（页面标题「Binary search tree - Wikipedia」；官方原文给的是 http:// 地址，实测直接可达）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E4%BA%8C%E5%8F%89%E6%90%9C%E5%B0%8B%E6%A0%91",
+      "zhType": "原网站官方中文版（同一维基媒体项目，已用 zh-cn variant 强制简体并核验标题「二叉搜索树」、正文汉字 8475）",
+      "zhGuide": {
+        "overview": "官方引言给 BST 概念复习挂的条目：左小右大、根节点、叶节点、查找/插入/删除的基本走法。中文维基已核验存在对应条目「二叉搜索树」（zh-cn 简体变体）。项目动手前用它复习定义与性质；「平衡」相关小节与项目的 isBalanced/rebalance 直接相关。",
+        "why": "正文引言的概念复习出处。",
+        "points": [
+          "定义与性质段 = 官方引言复习内容的完整版。",
+          "平衡树小节预告了项目后半程的主题。"
+        ],
+        "terms": [
+          "binary search tree（二叉搜索树）",
+          "root / leaf（根/叶节点）"
+        ],
+        "focus": "复习「左小右大」与三种基本操作的走法。",
+        "takeaway": "BST 的一切效率都建立在「有序性约束」上——破坏它（重复值/不排序）就失去 O(log n)。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接官方中文版，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-binary-search-trees",
+      "title": "Sorted Array to Balanced BST - GeeksforGeeks",
+      "titleZh": "有序数组建平衡 BST（GeeksforGeeks）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "正文引言（官方指定：读文章 + 看视频，理解到能写伪代码）",
+      "originalUrl": "https://www.geeksforgeeks.org/sorted-array-to-balanced-bst/",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（零重定向；页面标题「Sorted Array to Balanced BST - GeeksforGeeks」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方引言指定的文章：怎么把有序数组构造成平衡 BST——正是项目 buildTree(array) 的算法本体（排序后对半取中当根、两半递归）。文章带 C/Java 等语言实现，官方说视频不用 JavaScript 但你应该能理解到写出自己的伪代码——文章同理：读算法步骤，别抄语言细节。无官方中文版。",
+        "why": "官方正文指定：buildTree 的算法来源。",
+        "points": [
+          "核心递推：取中点为根 → 左半建左子树 → 右半建右子树。",
+          "官方期望的消化程度：能写出自己的伪代码。"
+        ],
+        "terms": [
+          "balanced BST construction（平衡 BST 构造）",
+          "middle element as root（取中为根）"
+        ],
+        "focus": "把递归步骤翻译成伪代码——buildTree 的实现就是它的 JS 化。",
+        "takeaway": "「排序 + 对半取中」天然产出平衡树——构造顺序就是平衡保证。"
+      },
+      "license": "GeeksforGeeks 文章内容许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-binary-search-trees",
+      "title": "Create a balanced Binary Search Tree (BST) from a sorted array (IDeserve)",
+      "titleZh": "从有序数组创建平衡二叉搜索树（IDeserve 视频）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "正文引言（官方指定的配套视频；注明不用 JavaScript）",
+      "originalUrl": "https://youtu.be/VCTP81Ij-EM",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（oEmbed 核验：真实标题「Create a balanced Binary Search Tree (BST) from a sorted array」，作者 IDeserve；短链展开为 youtube.com/watch?v=VCTP81Ij-EM）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方引言指定的视频（与上一篇 GeeksforGeeks 文章配套）：从有序数组建平衡 BST 的动画演示。官方注明：虽然不用 JavaScript，但你应该能理解到**写出自己的伪代码**的程度。动画版比文字更直观地展示「对半取中」的递归展开。本站提供原创导读与链接。",
+        "why": "官方正文指定：平衡构造的动画演示。",
+        "points": [
+          "官方预期：看懂到能写伪代码——不是抄它的语言。",
+          "与 GeeksforGeeks 文章配对：一个给步骤、一个给画面。"
+        ],
+        "terms": [
+          "sorted array to BST（有序数组建树）"
+        ],
+        "focus": "看递归展开的顺序——每层取中、两半下沉。",
+        "takeaway": "动画看一遍，伪代码写一遍，buildTree 就不难了。"
+      },
+      "license": "第三方 YouTube 视频（IDeserve），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方给的是 youtu.be 短链，按官方原文登记。"
+    },
+    {
+      "lessonId": "javascript-binary-search-trees",
+      "title": "Insertion in Binary Search Tree - GeeksforGeeks",
+      "titleZh": "二叉搜索树的插入（GeeksforGeeks）",
+      "type": "教程文章",
+      "requirement": "reference",
+      "zone": "Assignment insert(value) 步骤（官方：需要更多资源就看它）",
+      "originalUrl": "https://www.geeksforgeeks.org/insertion-in-binary-search-tree/?ref=lbp",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（零重定向；页面标题含「Insertion in Binary Search Tree」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方在 insert(value) 步骤给的补充资源：BST 插入的标准走法——从根下行、左小右大、落到第一个空位。配合官方 Note「避免使用原始输入数组」（要遍历树、操纵节点连接）读：文章里的指针操作就是「操纵节点连接」的具体形态。无官方中文版。",
+        "why": "官方步骤指定的补充资源：插入算法。",
+        "points": [
+          "插入 = 下行找空位 + 挂新节点——O(树高)。",
+          "对照官方 Note：在树上走，不是在数组里找。"
+        ],
+        "terms": [
+          "BST insertion（BST 插入）"
+        ],
+        "focus": "看递归版与迭代版两种写法——选一种实现即可。",
+        "takeaway": "插入保持左小右大，树的有序性约束才不破。"
+      },
+      "license": "GeeksforGeeks 文章内容许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方链接带 ?ref=lbp 参数，按官方原文登记。"
+    },
+    {
+      "lessonId": "javascript-binary-search-trees",
+      "title": "Delete from Binary Search Tree - GeeksforGeeks",
+      "titleZh": "二叉搜索树的删除（GeeksforGeeks）",
+      "type": "教程文章",
+      "requirement": "reference",
+      "zone": "Assignment deleteItem(value) 步骤（官方：需要更多资源就看它）",
+      "originalUrl": "https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/?ref=lbp",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（零重定向；页面标题含「Delete from Binary Search Tree」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方在 deleteItem(value) 步骤给的补充资源：BST 删除的三种情况——目标节点是叶（直接摘）、有一个孩子（孩子顶替）、有两个孩子（用右子树最小值或左子树最大值顶替后再删那个值）。官方提示「按目标节点有几个孩子处理多种情况」的展开就在这里。无官方中文版。",
+        "why": "官方步骤指定的补充资源：删除算法的多情况处理。",
+        "points": [
+          "三种情况里「两个孩子」是难点——顶替值来自子树极值。",
+          "删除后仍要满足左小右大——顶替值的选择保证这一点。"
+        ],
+        "terms": [
+          "BST deletion（BST 删除）",
+          "inorder successor（中序后继）"
+        ],
+        "focus": "重点读「两个孩子」情况的图示——面试与项目都考它。",
+        "takeaway": "删除的难度全在维持有序性——顶替值必须来自子树极值。"
+      },
+      "license": "GeeksforGeeks 文章内容许可未在该页明确标注；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方链接带 ?ref=lbp 参数，按官方原文登记。"
+    },
+    {
+      "lessonId": "javascript-binary-search-trees",
+      "title": "throw statement - JavaScript | MDN",
+      "titleZh": "throw 语句（MDN 官方简体中文版）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "Assignment levelOrderForEach 步骤（官方：无回调时 throw an Error）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（零重定向；页面标题「throw - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/throw",
+      "zhType": "MDN 官方简体中文版（已核验 zh-CN 页面在位，正文汉字 2057）",
+      "zhGuide": {
+        "overview": "官方在四个 ForEach 方法的规格里点名：未提供回调函数时 **throw an Error** 报告「需要回调」——throw 语句的语法与语义就在这页。zh-CN 官方中文版实测在位。这也是链表项目 RangeError 规格的延续：调用方错误在第一现场显形，不静默吞掉。",
+        "why": "官方规格点名：无回调时抛错的语法本体。",
+        "points": [
+          "throw new Error('...')：项目四个 ForEach 的入参检查用。",
+          "与链表项目 RangeError 同一哲学：错误要显形。"
+        ],
+        "terms": [
+          "throw（抛出）",
+          "Error（错误对象）"
+        ],
+        "focus": "读语法节与「自定义错误类型」段——RangeError/Error 的选择依据。",
+        "takeaway": "防御性规格的实现工具就一个 throw——用对位置比用对类型更重要。"
+      },
+      "license": "MDN 内容采用 CC-BY-SA 2.5；本站只链接官方中文版，不复制文章内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "javascript-knights-travails",
+      "title": "Describing graphs (article) | Khan Academy",
+      "titleZh": "描述图（可汗学院官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "正文引言（官方：什么是图的好引言）",
+      "originalUrl": "https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs",
+      "sourceDomain": "www.khanacademy.org",
+      "originalUrlStatus": "命令行返回 200 但内容为反爬挑战页（标题「Client Challenge」），自动核验无法确认正文；真实浏览器实测可达：标题「Describing graphs (article) | Algorithms | Khan Academy」、h1「Describing graphs」在位",
+      "zhUrl": "https://zh.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs",
+      "zhType": "原网站官方中文版（可汗学院中文站，真实浏览器实测：标题「描述图 (文章) | 图表示 | 可汗学院」、h1「描述图」、正文汉字 1660）",
+      "zhGuide": {
+        "overview": "官方引言给图概念挂的第一份资料：Khan Academy「描述图」——顶点、边、有向/无向、加权等图的基本词汇。中文站官方译版「描述图」实测在位（可汗学院中文站）。读它把「棋盘 = 图」的翻译词汇备齐：格子是顶点、马步是边——项目规格里的 Vertices and edges 节就是这套词汇的应用。",
+        "why": "官方正文指定：图概念的入门引言。",
+        "points": [
+          "图的基本词汇：顶点/边/有向性——项目规格的词汇表。",
+          "官方中文站在位——可直接读「描述图」中文版。"
+        ],
+        "terms": [
+          "vertex / edge（顶点/边）",
+          "directed graph（有向图）"
+        ],
+        "focus": "读定义与例子——把词汇对上棋盘（格子=顶点、马步=边）。",
+        "takeaway": "会「描述图」才会「把问题翻译成图」——骑士之旅的第一步就是翻译。"
+      },
+      "license": "Khan Academy 内容以 CC BY-NC-SA 发布；本站只链接官方中文版，不复制文章内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：命令行访问返回 200 但内容为反爬挑战页（Client Challenge），无法自动确认正文；真实浏览器核验可达并取得标题与 h1；已入 verifyLimitedUrls。中文版经真实浏览器核验（命令行同样被挑战页拦截）。"
+    },
+    {
+      "lessonId": "javascript-knights-travails",
+      "title": "Representing graphs (article) | Khan Academy",
+      "titleZh": "表示图（可汗学院官方中文版）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "正文引言（官方：它应该给你在代码里实现图的好想法）",
+      "originalUrl": "https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs",
+      "sourceDomain": "www.khanacademy.org",
+      "originalUrlStatus": "命令行返回 200 但内容为反爬挑战页（标题「Client Challenge」），自动核验无法确认正文；真实浏览器实测可达：标题「Representing graphs (article) | Algorithms | Khan Academy」、h1「Representing graphs」在位",
+      "zhUrl": "https://zh.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs",
+      "zhType": "原网站官方中文版（可汗学院中文站，真实浏览器实测：标题「表示图 (文章) | 图表示 | 可汗学院」、h1「表示图」、正文汉字 1701）",
+      "zhGuide": {
+        "overview": "官方引言给的第二份资料、并点名「它应该给你在代码里实际实现图的好想法」：Khan Academy「表示图」——邻接矩阵、邻接表、对象/Map 表示等落地形态与各自取舍。中文站官方译版「表示图」实测在位。与官方 Graph representation 节的「隐式图」口径对照读：骑士之旅不需要显式建这些结构（从当前格动态生成合法移动即可）——但知道显式表示长什么样，才懂「隐式」省掉了什么。",
+        "why": "官方正文指定：图的代码表示形态。",
+        "points": [
+          "显式表示三形态：邻接矩阵/邻接表/对象映射——各有内存与查询取舍。",
+          "官方项目口径是隐式图：动态生成移动，不预建结构——对照读才知道省了什么。"
+        ],
+        "terms": [
+          "adjacency matrix（邻接矩阵）",
+          "adjacency list（邻接表）",
+          "implicit graph（隐式图）"
+        ],
+        "focus": "读完回答自己：骑士之旅如果显式建图，64 个顶点要存多少条边？——这就是隐式的动机。",
+        "takeaway": "表示法是取舍：显式换查询快，隐式换构建省——按需选。"
+      },
+      "license": "Khan Academy 内容以 CC BY-NC-SA 发布；本站只链接官方中文版，不复制文章内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：命令行访问返回 200 但内容为反爬挑战页（Client Challenge），无法自动确认正文；真实浏览器核验可达并取得标题与 h1；已入 verifyLimitedUrls。中文版经真实浏览器核验（命令行同样被挑战页拦截）。"
+    },
+    {
+      "lessonId": "javascript-a-deeper-look-at-git",
+      "title": "Pro Git: Basic Branching and Merging",
+      "titleZh": "Pro Git：分支的新建与合并",
+      "type": "书籍章节",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+      "sourceDomain": "git-scm.com",
+      "originalUrlStatus": "200（零重定向；Pro Git 英文书 Git Branching 章的 Basic Branching and Merging 节，标题实测「Git - Basic Branching and Merging」）",
+      "zhUrl": "https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6",
+      "zhType": "Pro Git 官方中文版（git-scm.com 的 zh 语言版本，章节 slug 本身为中文「分支-分支的新建与合并」，标题实测「Git - 分支的新建与合并」、正文汉字 3069）",
+      "zhGuide": {
+        "overview": "Pro Git 书第三章「Git 分支」的核心小节：分支的新建与合并。官方课程让你在使用分支一段时间后来复习它——从「会用」到「知道每一步在提交图上发生了什么」。",
+        "why": "这一节用提交图逐步演示 checkout / branch / merge 的指针行为——正是本课「分支是指针」模型的图解版：新建分支 = 新指针，切换 = 移动 HEAD，合并 = fast-forward 或三方合并生成新提交。",
+        "points": [
+          "分支创建只是新建一个指向当前提交的指针——零成本",
+          "合并的两种形态：fast-forward（指针直移）与三方合并（生成合并提交）",
+          "冲突的产生条件与解决流程",
+          "长期分支与话题分支的协作形态"
+        ],
+        "terms": ["fast-forward", "three-way merge", "topic branch"],
+        "focus": "配合本课指针模型读：每个操作都问「哪个指针动了、HEAD 在哪」。",
+        "takeaway": "分支操作 = 指针操作——复习完这一节，上一课的指针模型就有了完整的操作手册。"
+      },
+      "license": "Pro Git 书籍内容采用 CC BY-NC-SA 3.0 许可；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方中文版章节名与英文不同形：英文 Basic Branching and Merging 对应中文章节「分支的新建与合并」（实测 200、汉字 3069）；中文 URL 为百分号编码形态。"
+    },
+    {
+      "lessonId": "javascript-a-deeper-look-at-git",
+      "title": "Pro Git: Rebasing",
+      "titleZh": "Pro Git：变基",
+      "type": "书籍章节",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://git-scm.com/book/en/v2/Git-Branching-Rebasing",
+      "sourceDomain": "git-scm.com",
+      "originalUrlStatus": "200（零重定向；Pro Git 英文书 Git Branching 章的 Rebasing 节，标题实测「Git - Rebasing」）",
+      "zhUrl": "https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA",
+      "zhType": "Pro Git 官方中文版（章节 slug 为中文「分支-变基」，标题实测「Git - 变基」、正文汉字 3993）",
+      "zhGuide": {
+        "overview": "Pro Git 的变基（rebase）专章：rebase 的基本用法、与 merge 的对比、变基的风险（「不要对共享仓库变基」的经典论述就出自这一章）以及交互式变基。",
+        "why": "官方课程让你读它「对 rebase 做更深入的钻研」——本课只教了 rebase -i 的改史用法，这一章补全它的另一面：把分支的基底挪到别处（线性历史的来源）与它的协作风险。",
+        "points": [
+          "rebase 的本质：把一串提交在新基底上重放",
+          "merge 与 rebase 的历史形态对比（合并提交 vs 线性）",
+          "变基的黄金法则：不对共享分支变基——与本课军规互为印证",
+          "交互式 rebase 整理提交（squash / reword / edit）"
+        ],
+        "terms": ["rebase", "linear history", "the perils of rebasing"],
+        "focus": "重点读「变基的风险」一节——它和本课「共享仓库 rebase 要有充分理由」是同一条纪律的两种讲法。",
+        "takeaway": "rebase 给你干净的线性历史，代价是改写了提交——什么时候值得，这一章讲透了。"
+      },
+      "license": "Pro Git 书籍内容采用 CC BY-NC-SA 3.0 许可；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方中文版章节名与英文同名同形（变基），实测 200、汉字 3993。"
+    },
+    {
+      "lessonId": "javascript-a-deeper-look-at-git",
+      "title": "Pro Git: Reset Demystified",
+      "titleZh": "Pro Git：重置揭密",
+      "type": "书籍章节",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified",
+      "sourceDomain": "git-scm.com",
+      "originalUrlStatus": "200（零重定向；Pro Git 英文书 Git Tools 章的 Reset Demystified 节，标题实测「Git - Reset Demystified」）",
+      "zhUrl": "https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E7%BD%AE%E6%8F%AD%E5%AF%86",
+      "zhType": "Pro Git 官方中文版（章节 slug 为中文「工具-重置揭密」——官方中译本用「揭密」而非「揭秘」，标题实测「Git - 重置揭密」、正文汉字 3895）",
+      "zhGuide": {
+        "overview": "Pro Git 的 reset 专章：用「三棵树」模型（HEAD / Index / Working Directory）把 reset 的 --soft、--mixed（默认）、--hard 三档讲成同一套流程里停在不同步骤——本课三档记忆的完整版。",
+        "why": "官方课程让你读它「深入理解 git reset」——本课给了三档的行为结论，这一章给你推导过程：reset 就是按顺序做三步（移 HEAD、重置暂存区、覆盖工作目录），标志位决定做到第几步停。",
+        "points": [
+          "三棵树模型：HEAD（当前提交的指针）、Index（暂存区）、Working Directory（工作目录）",
+          "--soft 停在第一步、默认档停在第二步、--hard 三步全做",
+          "reset 与 checkout/revert 的区别（移动的是分支指针还是 HEAD）",
+          "用 reset 拆分提交的操作细节（本课手法四的原理篇）"
+        ],
+        "terms": ["the three trees", "--soft / --mixed / --hard", "HEAD"],
+        "focus": "带着本课的三档结论去读——看它怎么用三棵树把结论推出来，记忆会从「背规则」升级成「懂机制」。",
+        "takeaway": "reset 三档 = 三步流程停在第几步——三棵树模型让 --hard 的危险一目了然。"
+      },
+      "license": "Pro Git 书籍内容采用 CC BY-NC-SA 3.0 许可；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方中文版章节名用字为「重置揭密」（实测目录页与标题一致，非「揭秘」）；英文 Reset Demystified 与中文不同形。"
+    },
+    {
+      "lessonId": "javascript-working-with-remotes",
+      "title": "Git Revert vs Git Reset (YouTube, Boot dev)",
+      "titleZh": "Git Revert 与 Git Reset 对比（YouTube 视频）",
+      "type": "视频",
+      "requirement": "reference",
+      "zone": "正文「撤销已推送的提交」节",
+      "originalUrl": "https://www.youtube.com/watch?v=iIaM7j3tMuk",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（视频可用性经公开接口确认：真实标题「Git Revert vs Git Reset」，作者 Boot dev）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方在讲解「协作中撤销已推送的提交该用 revert 而不是 reset+force」时配的视频：两种命令的对比演示。",
+        "why": "revert 与 reset 是 Git 撤销双子星——方向完全相反：revert 只增不改（生成反向新提交）、reset 改写历史。协作场景选错就是事故，视频用演示补足文字。",
+        "points": [
+          "revert：生成反转指定提交的新提交——历史只增不改，可安全推送",
+          "reset：移动分支指针改写历史——已推送的提交禁止 reset",
+          "两者的适用场景分界：历史是否已进入共享空间"
+        ],
+        "terms": ["git revert", "git reset", "rewrite history"],
+        "focus": "配合正文 revert 演示段观看效果最好；revert 与 reset 的分界线：历史发布了吗。",
+        "takeaway": "记住分界线：已发布的历史用 revert 修正，未发布的历史才轮到 reset。"
+      },
+      "license": "第三方 YouTube 视频（Boot dev），版权归原作者；本站只做链接与原创导读，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "真实标题与作者已确认。"
+    },
+    {
+      "lessonId": "javascript-working-with-remotes",
+      "title": "GitHub Docs: About merge conflicts",
+      "titleZh": "GitHub 文档：合并冲突",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts",
+      "sourceDomain": "docs.github.com",
+      "originalUrlStatus": "200（官方给的 en 路径已站内迁移到现行路径 pull-requests/reference/merge-conflicts，标题实测「Merge conflicts - GitHub Docs」）",
+      "zhUrl": "https://docs.github.com/zh/pull-requests/reference/merge-conflicts",
+      "zhType": "GitHub 官方文档简体中文版（同一文档的 /zh/ 语言版本，按现行生效路径登记，标题实测「合并冲突 - GitHub 文档」、正文汉字 1119）",
+      "zhGuide": {
+        "overview": "GitHub 官方对合并冲突的解释文档：冲突是什么、为什么发生，以及两种解决路径——在 GitHub 网页上直接解、在命令行本地解。",
+        "why": "官方课程点名要你看「文档建议的两种不同解决方式」——冲突迟早会来（如果还没来过），把这份文档的来源记在脑子后面，真撞上时不用现搜。",
+        "points": [
+          "冲突成因：两个分支改了同一处、Git 无法自动合并",
+          "解法一：GitHub 网页编辑器里直接解决（简单冲突）",
+          "解法二：命令行本地解决（git merge/rebase 冲突标记的处理流程）",
+          "冲突标记（<<<<<<< / ======= / >>>>>>>）的读法"
+        ],
+        "terms": ["merge conflict", "conflict markers"],
+        "focus": "两种解法都要看——官方特意强调「look at the two different ways」。",
+        "takeaway": "冲突不可怕：要么网页上点着解，要么命令行里改标记——两条路文档都给了。"
+      },
+      "license": "GitHub 文档内容按 GitHub 的许可条款提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文给的 en 地址已站内迁移到现行 reference/merge-conflicts 路径；中文链接按现役生效路径登记（与 MDN 旧路径同一口径）。"
+    },
+    {
+      "lessonId": "javascript-working-with-remotes",
+      "title": "Think Like (a) Git: About This Site",
+      "titleZh": "像 Git 一样思考：关于本站（全站通读入口）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://think-like-a-git.net/sections/about-this-site.html",
+      "sourceDomain": "think-like-a-git.net",
+      "originalUrlStatus": "200（零重定向；标题实测「About This Site // Think Like (a) Git」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 Assignment 要求完整通读的图解 Git 教程站（从这一页进入，所有小节都读）：用图论与可视化方式讲 Git 的内部模型——提交图、指针、分支与合并。",
+        "why": "官方评价它「写得非常好，对巩固你的 Git 理解非常有帮助」——它与本课的指针模型互为印证：你在深入 Git 课学到的「分支是指针、提交是链」，这个站用满屏的图把它画给你看。",
+        "points": [
+          "提交是有向无环图上的节点——Git 历史的图论视角",
+          "分支与 HEAD 的指针语义（可视化演示）",
+          "rebase 与 merge 在提交图上的形态差异",
+          "从「背命令」到「看图想命令」的思维转换"
+        ],
+        "terms": ["commit graph", "pointer", "DAG"],
+        "focus": "官方要求 read the entirety——所有小节都读，别只看首页；英文站、无官方中文版。",
+        "takeaway": "读完它，Git 命令在你脑中都有一张图——这就是站名「像 Git 一样思考」的意思。"
+      },
+      "license": "站点内容版权归原作；本站只链接，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "英文全站（无官方中文版），按 C 类登记本站导读。"
+    },
+    {
+      "lessonId": "javascript-using-git-in-the-real-world",
+      "title": "Conventional Commits v1.0.0",
+      "titleZh": "约定式提交 v1.0.0",
+      "type": "规范",
+      "requirement": "reference",
+      "zone": "正文「协作用的提交信息」节",
+      "originalUrl": "https://www.conventionalcommits.org",
+      "sourceDomain": "www.conventionalcommits.org",
+      "originalUrlStatus": "200（官方正文给的是裸域链接，零重定向；v1.0.0 规范页为 /en/v1.0.0/）",
+      "zhUrl": "https://www.conventionalcommits.org/zh-hans/v1.0.0/",
+      "zhType": "官方网站简体中文版（/zh-hans/ 语言版本，标题实测「约定式提交」、正文汉字 2776）",
+      "zhGuide": {
+        "overview": "约定式提交（Conventional Commits）规范 v1.0.0：一套提交信息的书写约定——类型前缀（feat / fix 等）+ 描述，让提交历史可被人读、也可被工具解析。",
+        "why": "官方在协作课里特别点名它「在协作项目中越来越流行」：清晰的提交信息是给队友的第一份文档；很多团队的 commitlint 钩子直接按这套规范校验，不合规的提交会被拒收。",
+        "points": [
+          "基本格式：type(scope): description——feat 新功能、fix 修 bug 等类型语义",
+          "破坏性变更（BREAKING CHANGE）的标注方式",
+          "规范对工具链的意义：自动生成 changelog、语义化版本推导",
+          "与「好提交信息」基本功的关系：约定是骨架，清晰描述仍是血肉"
+        ],
+        "terms": ["feat / fix", "BREAKING CHANGE", "commitlint"],
+        "focus": "读规范正文即可（一页）；中文版与英文版内容同步。",
+        "takeaway": "从下一个提交开始用类型前缀——git log 会从此变成一份可读的变更史。"
+      },
+      "license": "规范文本按站点声明的许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方正文链接为裸域（www.conventionalcommits.org）；zhUrl 登记实测有内容的 /zh-hans/v1.0.0/ 规范页（裸域 /zh-hans/ 亦 200）。"
+    },
+    {
+      "lessonId": "node-path-javascript-battleship",
+      "title": "Battleship (game) - Wikipedia",
+      "titleZh": "海战棋 - 维基百科",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文引言节",
+      "originalUrl": "https://en.wikipedia.org/wiki/Battleship_(game)",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（零重定向；标题实测「Battleship (game) - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E6%B5%B7%E6%88%98%E6%A3%8B",
+      "zhType": "同一维基媒体项目的中文条目（用 zh-cn variant 强制简体；中文条目名「海战棋」与英文 Battleship (game) 不同名——内容同为该棋盘游戏规则与历史，标题实测「海战棋 - 维基百科」、正文汉字 2324）",
+      "zhGuide": {
+        "overview": "战斗舰（海战棋）游戏的维基条目：规则、历史与变体。官方给没玩过的你准备的规则补课材料。",
+        "why": "知道游戏怎么玩，才知道对象该怎么设计——10×10 双棋盘、五艘不同长度的船、轮流报坐标、命中/未中/击沉三种反馈：这些规则直接映射成 Gameboard 与 Ship 的方法签名。",
+        "points": [
+          "棋盘与船的标准配置（船的条数与长度随版本略有差异——项目里以官方 Assignment 规格为准）",
+          "回合流程：报坐标 → 对方宣布命中/未中/击沉",
+          "全部舰船被击沉即告负——对应 Gameboard 的全沉报告"
+        ],
+        "terms": ["grid", "salvo", "hit / miss / sunk"],
+        "focus": "规则速览即可；实现细节一切以官方 Assignment 的文字规格为准（维基规则只是背景）。",
+        "takeaway": "游戏规则 = 对象行为清单：读完你就知道 receiveAttack 为什么要返回三态。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "中文条目名「海战棋」与英文条目名 Battleship (game) 不同形——已核验为同一游戏（内容级核验汉字 2324）。"
+    },
+    {
+      "lessonId": "node-path-javascript-battleship",
+      "title": "Battleship Game Online",
+      "titleZh": "战斗舰在线版",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文引言节",
+      "originalUrl": "http://en.battleship-game.org/",
+      "sourceDomain": "en.battleship-game.org",
+      "originalUrlStatus": "200（官方给的就是 http 协议地址，实测 200 零重定向；标题实测「Battleship (free online game for two players)」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方推荐的免费在线战斗舰对战站：开一局就能把规则摸熟（双人或对战电脑）。",
+        "why": "TDD 项目的第零步是当一次用户：亲手玩一局，你对「命中判定、重复坐标、击沉反馈」的理解会从文字变成手感——写测试时这些手感就是用例清单。",
+        "points": [
+          "实际体验回合流程与三种反馈（命中 / 未中 / 击沉）",
+          "观察摆船阶段——你的第 5 步要做同样的系统",
+          "留意重复攻击同一坐标时游戏怎么处理——官方 Assignment 没规定，你自己先写测试拍板"
+        ],
+        "terms": ["gameplay", "turn-based"],
+        "focus": "玩一两局即可；重点是带着「这行为对应哪个对象的哪个方法」的问题去玩。",
+        "takeaway": "先当玩家再当作者——玩过的游戏写起来测试用例都是现成的。"
+      },
+      "license": "第三方在线游戏站；本站只链接，不复制、不嵌入。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "站点为 http 协议（官方原文即 http://en.battleship-game.org/），按官方给出的地址原样登记。"
+    },
+    {
+      "lessonId": "node-path-javascript-conclusion",
+      "title": "React",
+      "titleZh": "React 官方中文文档",
+      "type": "官方文档",
+      "requirement": "reference",
+      "zone": "正文「下一站预告」节",
+      "originalUrl": "https://react.dev/",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（零重定向；标题实测「React」）",
+      "zhUrl": "https://zh-hans.react.dev/",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 子域，标题实测「React 官方中文文档」、正文汉字在位）",
+      "zhGuide": {
+        "overview": "React 官网——结语课预告的下一门大课（World 5）的主角：用于创建用户界面的库。首页即可快速了解它解决的问题。",
+        "why": "官方点名的动机之桥：你已经体验过「数据一变就要手动更新 DOM」的痛苦——React 的声明式 UI 正是为此而生。现在不必深读（课程还没到），知道下一站长什么样即可。",
+        "points": [
+          "声明式 UI：描述「界面应该长什么样」，数据变化时由 React 更新 DOM",
+          "组件模型：界面拆成可复用的组件——与你的工厂/类经验衔接",
+          "它不是魔法：你刚写完的 vanilla JS 项目就是理解 React 的全部前置"
+        ],
+        "terms": ["declarative UI", "component"],
+        "focus": "结语课只需建立印象；系统学习按官方路线在 React 课程展开。",
+        "takeaway": "你手动 render 过的每一行 DOM 更新代码，都是 React 要替你做的事。"
+      },
+      "license": "React 文档按官方许可（CC BY 4.0）提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "全站首例 react.dev 条目；官方中文文档为独立子域 zh-hans.react.dev（实测 200、标题「React 官方中文文档」）。"
+    },
+    /* ===== World 4 批次 5 阶段 1（2026-09-27，v4.11.27，通宵轮）：「动画」章节 3 课
+     * （transforms / transitions / keyframes），+20 条（A 类 7 / C 类 13；本批无新增
+     * 受限条目——全部候选命令行默认通道可达）。剔除：官方正文 10 处 CodePen 课内
+     * 演示与 cpwebassets 嵌入脚本（既有口径——transforms 7 处 / transitions 1 处 /
+     * keyframes 2 处，本站 examples 区给等效代码）；跨课合并 1 处（CSS Triggers
+     * 存档表：transforms 正文首现登记，transitions Assignment 第 4 条同址引用不重复
+     * 登记、其任务条目按「资源归属课」纪律不建映射）；同页合并 1 处（MDN 过渡教程
+     * 的 #defining_transitions 小节链接与文章链接同页）。核验新事实：① MDN CSS
+     * 函数页旧路径 transform-function/<fn>() 全部 301 到 Reference/Values/
+     * transform-function/<fn> 现役路径（不带括号），逐条按生效后地址登记
+     * originalUrlEffective；② scaleZ / scale3d 两函数页 zh-CN 新旧路径均 404——
+     * MDN 中文版未译这两页，如实登记 C 类不凑数；③ MDN 过渡教程 zh-CN 页章节锚点
+     * 已本地化（#defining_transitions 不存在、#定义过渡 实测存在）——中文链接挂
+     * 实测存在的本地化锚点（阶段 2 表单校验教程先例）；④ developers.google.com/
+     * web/fundamentals 已整站并入 web.dev（Pixel Pipeline 一文 301 到 web.dev/
+     * articles/rendering-performance，原节锚点随整站迁移不再保留）；⑤ QHMIT 301
+     * 到 web.qhmit.com 子域、Chrome 商店短形式地址 301 到含名称 slug 的完整地址，
+     * 均记 originalUrlEffective。 ===== */
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "MDN: <transform-function> CSS type",
+      "titleZh": "MDN：CSS transform-function 类型（变换函数总览）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「变换基础」小节",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（零重定向；标题实测「<transform-function> CSS type - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/transform-function",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径，标题实测「transform-function - CSS：层叠样式表 | MDN」、正文汉字 6333）",
+      "zhGuide": {
+        "overview": "MDN 对 CSS transform-function 数据类型的总览页：列出全部变换函数（2D 与 3D）及各自的参数形态，是本课「transform 的值是一个或多个变换函数」这句话的权威注脚。",
+        "why": "官方正文第一句就挂了它——想知道某个变换函数怎么拼、参数是什么类型，来这里查最快。",
+        "points": [
+          "全部变换函数的清单与分类（旋转 / 缩放 / 倾斜 / 平移 / 透视 / 矩阵）",
+          "每个函数的参数类型与取值范围入口",
+          "变换函数可组合（链式）的语法事实"
+        ],
+        "terms": ["transform-function", "CSS data type"],
+        "focus": "当字典用：写链式变换拿不准某个函数的参数顺序时来查。",
+        "takeaway": "transform 的取值世界一页看全——函数清单就是本课四件套的完整版。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "MDN: scaleZ() CSS function",
+      "titleZh": "MDN：scaleZ() 函数",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「三维变换」小节（scale 单轴官方点名「See MDN's 3D cube in action」）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ()",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scaleZ",
+      "originalUrlStatus": "200（301 至 Reference/Values/transform-function/scaleZ 现役路径——MDN CSS 参考区改版，旧函数路径不带括号收编；标题实测「scaleZ() CSS function - CSS | MDN」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "MDN 的 scaleZ() 函数参考页：沿 z 轴缩放元素，官方配了一个可交互的 3D 立方体演示（正文点名要看的正是它）。单独用几乎看不出变化，要与 perspective 配合才有纵深效果。",
+        "why": "官方正文在「三维 scale」小节点名：去看 MDN 用 scaleZ 与 scale3d 做的 3D 立方体演示。",
+        "points": [
+          "scaleZ(数值) 的参数语义：z 轴方向的缩放系数",
+          "页内 3D 立方体交互演示：拖动参数看纵深变化",
+          "与 perspective 的依赖关系"
+        ],
+        "terms": ["scaleZ()", "3D cube demo"],
+        "focus": "重点玩页内立方体演示——比文字更快建立 z 轴直觉。",
+        "takeaway": "z 轴缩放必须配透视才看得见——这正是官方把 perspective 放在 3D 一节的用意。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只提供链接与本站原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh-CN 新旧两种路径均实测 404——MDN 中文版未译该函数页，如实登记无官方中文版。"
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "MDN: scale3d() CSS function",
+      "titleZh": "MDN：scale3d() 函数",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「三维变换」小节（scale 单轴官方点名「See MDN's 3D cube in action」）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale3d()",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scale3d",
+      "originalUrlStatus": "200（301 至 Reference/Values/transform-function/scale3d 现役路径；标题实测「scale3d() CSS function - CSS | MDN」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "MDN 的 scale3d() 函数参考页：一条函数同时给出 x、y、z 三个轴的缩放系数，是 scaleX/scaleY/scaleZ 的合体写法。官方正文与 scaleZ 一起点名了它的 3D 立方体演示。",
+        "why": "官方正文点名要看的第二个 3D 缩放演示——三个轴一次缩放，配合 perspective 看立方体的纵深变化。",
+        "points": [
+          "scale3d(x, y, z) 三参数形态与 scaleX()/scaleY()/scaleZ() 的等价关系",
+          "页内 3D 立方体交互演示",
+          "z 参数同样依赖 perspective 才可见"
+        ],
+        "terms": ["scale3d()"],
+        "focus": "对照 scaleZ 页看：单轴与三轴合体是同一件事的两种写法。",
+        "takeaway": "三轴缩放一条函数搞定——但 z 轴的可见性永远取决于透视。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只提供链接与本站原创导读，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh-CN 新旧两种路径均实测 404——MDN 中文版未译该函数页，如实登记无官方中文版。"
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "web.dev: Rendering performance (The Pixel Pipeline)",
+      "titleZh": "web.dev：渲染性能（含像素管线一节）",
+      "type": "文档",
+      "requirement": "reference",
+      "zone": "正文「transform 的好处」小节",
+      "originalUrl": "https://developers.google.com/web/fundamentals/performance/rendering/#the_pixel_pipeline",
+      "sourceDomain": "developers.google.com",
+      "originalUrlEffective": "https://web.dev/articles/rendering-performance",
+      "originalUrlStatus": "200（301 至 web.dev/articles/rendering-performance——Google Web Fundamentals 已整站并入 web.dev，标题实测「Rendering performance | Articles | web.dev」；官方原链接的节锚点随整站迁移不再保留）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Google 的渲染性能入门文：像素管线（layout → paint → composite）各阶段是什么、哪些 CSS 属性触发哪些阶段。官方正文用它解释「transform 为什么便宜」——它只发生在合成阶段。",
+        "why": "本课性能小节的理论出处：不懂像素管线，「transform 在合成阶段生效」就只是一句要背的结论。",
+        "points": [
+          "像素管线各阶段：布局、绘制、合成的分工",
+          "哪类属性改动触发哪类重算（改几何触发 layout、改颜色触发 paint、transform/opacity 走 composite）",
+          "为什么合成阶段的改动最便宜"
+        ],
+        "terms": ["pixel pipeline", "layout / paint / composite"],
+        "focus": "重点读像素管线一节——正是官方原链接锚点指向的内容。",
+        "takeaway": "「只动 transform 与 opacity」的建议不是玄学，是管线分工的直接推论。"
+      },
+      "license": "web.dev 站点内容按其在页面标注的许可提供；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "web.dev 无官方中文版（正文英文）。"
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "CSS Triggers (archived)",
+      "titleZh": "CSS Triggers 属性触发对照表（存档版）",
+      "type": "文章（存档）",
+      "requirement": "reference",
+      "zone": "正文「transform 的好处」小节；transitions 课 Assignment 第 4 条再次引用——跨课合并登记在首现课",
+      "originalUrl": "https://web.archive.org/web/20220727225220/https://csstriggers.com/",
+      "sourceDomain": "web.archive.org",
+      "originalUrlStatus": "200（官方给的即 web.archive.org 存档地址——csstriggers.com 原站已下线；存档页标题实测「CSS Triggers」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "CSS Triggers 对照表的存档版：逐个 CSS 属性列出它会触发渲染管线的哪些阶段（layout / paint / composite）。官方正文用它佐证「transform 只在合成阶段生效、比多数属性便宜」。",
+        "why": "「哪个属性贵、哪个便宜」不靠感觉——这张表就是逐属性的账本；transitions 课的作业还要求对照 background-color 与 transform 各行。",
+        "points": [
+          "逐属性列出触发的管线阶段",
+          "transform 与 opacity 一行只有 composite",
+          "background-color 等常见属性触发 paint（比 transform 贵的原因）"
+        ],
+        "terms": ["CSS triggers", "compositing"],
+        "focus": "查你常用的属性各触发什么——把性能建议落成自己的清单。",
+        "takeaway": "transform / opacity 是表里最便宜的一档——动画优先用它们的依据就在这。"
+      },
+      "license": "存档的第三方站点，版权归原作者；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方在 transforms 正文与 transitions Assignment 第 4 条给的是同一存档地址，跨课合并登记在本课（首现课）；transitions 课的任务条目按「资源归属课」纪律不建映射。"
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "Wikipedia: Graphics processing unit",
+      "titleZh": "维基百科：图形处理器",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文「transform 的好处」小节（GPU 术语注）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Graphics_processing_unit",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（零重定向；标题实测「Graphics processing unit - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E5%9B%BE%E5%BD%A2%E5%A4%84%E7%90%86%E5%99%A8",
+      "zhType": "中文维基百科条目「图形处理器」（中文条目名与英文 Graphics processing unit 不同形，内容级核验同一事物、正文汉字 11396）",
+      "zhGuide": {
+        "overview": "GPU（图形处理器）的百科条目。官方正文的口径是：不必懂 GPU 怎么工作，但要知道这个词与它意味着什么——transform 可以经它硬件加速。",
+        "why": "「GPU 加速」是 transform 性能优势的第二个来源；花十分钟知道它是什么，性能建议就不再是咒语。",
+        "points": [
+          "GPU 与 CPU 的分工差异（大规模并行计算）",
+          "为什么图形合成类操作适合交给 GPU",
+          "浏览器合成层与硬件加速的关系背景"
+        ],
+        "terms": ["GPU", "hardware acceleration"],
+        "focus": "通读导语与概述即可——官方明说不要求深入原理。",
+        "takeaway": "知道 transform 的便宜一半来自管线阶段、一半来自 GPU 加速，就达到官方要求了。"
+      },
+      "license": "维基百科内容采用 CC BY-SA 4.0；本站只链接，不复制条目内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "MDN: rotate3d() CSS function",
+      "titleZh": "MDN：rotate3d() 函数（含交互演示）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d()",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/rotate3d",
+      "originalUrlStatus": "200（301 至 Reference/Values/transform-function/rotate3d 现役路径；标题实测「rotate3d() CSS function - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/transform-function/rotate3d",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径，标题实测「rotate3d() - CSS：层叠样式表 | MDN」、正文汉字 6436）",
+      "zhGuide": {
+        "overview": "MDN 的 rotate3d() 函数参考页：绕三维空间中的一条轴旋转元素，页内带可交互演示。官方作业第 1 条要求先看演示、再读 QHMIT 的文章。",
+        "why": "rotate3d 是 rotateX/Y/Z 的通用形态（一条轴向量 + 角度）——玩一遍演示，三维旋转的参数直觉就有了。",
+        "points": [
+          "rotate3d(x, y, z, 角度) 四参数形态：前三个定义旋转轴向量",
+          "与 rotateX/Y/Z 的等价关系",
+          "页内交互演示可直接拖参数"
+        ],
+        "terms": ["rotate3d()", "rotation axis"],
+        "focus": "先玩演示再读参数表——官方作业的顺序就是这个意思。",
+        "takeaway": "三维旋转 = 指定一条轴 + 一个角度。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "QHMIT: CSS rotate3d() Function",
+      "titleZh": "QHMIT：CSS rotate3d() 函数教程",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://www.qhmit.com/css/functions/css_rotate3d_function.cfm",
+      "sourceDomain": "www.qhmit.com",
+      "originalUrlEffective": "https://web.qhmit.com/css/functions/css_rotate3d_function.cfm",
+      "originalUrlStatus": "200（301 至 web.qhmit.com 子域同路径；标题实测「CSS rotate3d() Function」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "QHMIT 的 rotate3d() 教程页：语法、参数说明与可试跑的例子，是 MDN 演示之外的第二遍巩固。官方作业第 1 条把它与 MDN 演示并列。",
+        "why": "官方点名要读——同一函数换个讲法再过一遍，参数语义更牢。",
+        "points": [
+          "rotate3d 的语法与四个参数",
+          "页内可编辑试跑的例子——改参数就能看效果",
+          "与 rotateX/Y/Z 的对照说明"
+        ],
+        "terms": ["rotate3d()"],
+        "focus": "跟着例子改参数跑一遍，别只读。",
+        "takeaway": "rotate3d 的参数语义第二遍巩固。"
+      },
+      "license": "qhmit.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "Intro to CSS 3D transforms: Perspective",
+      "titleZh": "CSS 3D 变换入门：perspective 一章（desandro）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://3dtransforms.desandro.com/perspective",
+      "sourceDomain": "3dtransforms.desandro.com",
+      "originalUrlStatus": "200（零重定向；标题实测「Perspective · Intro to CSS 3D transforms」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "desandro 的 CSS 3D 变换入门教程站的 perspective 一章：用成组示例讲透视距离如何影响三维效果的强弱。官方作业第 2 条点名这一章。",
+        "why": "perspective 是三维变换「看得出纵深」的前提，也是链式变换里唯一必须打头的函数——这一章把它讲透。",
+        "points": [
+          "perspective 的距离语义：值越小透视越夸张、越大越平缓",
+          "perspective 与 preserve-3d 的配合",
+          "成组的可交互示例：改透视距离看三维效果强弱"
+        ],
+        "terms": ["perspective", "perspective-origin"],
+        "focus": "对照本课「纵深是算出来的错觉」一节读——官方教程把直觉补全。",
+        "takeaway": "perspective 决定「从多远看舞台」——三维效果的强弱旋钮。"
+      },
+      "license": "3dtransforms.desandro.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "MDN: translate3d() CSS function",
+      "titleZh": "MDN：translate3d() 函数（含交互演示）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate3d()",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/translate3d",
+      "originalUrlStatus": "200（301 至 Reference/Values/transform-function/translate3d 现役路径；标题实测「translate3d() CSS function - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/transform-function/translate3d",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径，标题实测「translate3d() - CSS：层叠样式表 | MDN」、正文汉字 6139）",
+      "zhGuide": {
+        "overview": "MDN 的 translate3d() 函数参考页：沿三个轴同时平移元素，页内带交互演示。官方作业第 3 条称它为「另一个精彩演示」。",
+        "why": "translate3d 是 translateZ 的完整形态——演示里能直观看到 z 轴平移在透视下变成「由远及近」。",
+        "points": [
+          "translate3d(x, y, z) 三参数形态",
+          "z 轴平移与 perspective 的配合效果",
+          "页内交互演示：拖动参数看透视下的 z 轴位移"
+        ],
+        "terms": ["translate3d()"],
+        "focus": "盯着 z 参数变化时元素的缩放感——那就是纵深错觉本身。",
+        "takeaway": "三维平移的完整形态；z 轴的可见性依旧来自透视。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transforms",
+      "title": "The World of CSS Transforms (Josh Comeau)",
+      "titleZh": "CSS 变换的世界（Josh Comeau 长文）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条",
+      "originalUrl": "https://www.joshwcomeau.com/css/transforms/",
+      "sourceDomain": "www.joshwcomeau.com",
+      "originalUrlStatus": "200（零重定向；标题实测「The World of CSS Transforms • Josh W. Comeau」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Josh Comeau 的 CSS 变换全景长文：把本课讲过的函数族放进大量可交互的可视化里过一遍。官方作业第 4 条要求通读（Go through）。",
+        "why": "官方用它给本章开篇课收官——文字建立的坐标系直觉，在交互式可视化里再走一遍会变成手感。",
+        "points": [
+          "各变换函数的交互式可视化",
+          "链式变换与坐标系的演示",
+          "本课概念的可视化复述与延伸"
+        ],
+        "terms": ["interactive visualization"],
+        "focus": "边玩边对照本站讲解的「顺序即语义」一节。",
+        "takeaway": "变换的全景地图——通读一遍，本章地基就打牢了。"
+      },
+      "license": "joshwcomeau.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transitions",
+      "title": "MDN: Using CSS transitions",
+      "titleZh": "MDN：使用 CSS 过渡教程",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条（条目内 Defining transitions 小节链接与文章链接同页，合并登记）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using",
+      "originalUrlStatus": "200（301 至 Guides/Transitions/Using 现役路径——MDN 教程区改版；标题实测「Using CSS transitions - CSS | MDN」；官方条目内另给的 #defining_transitions 小节锚点实测存在于英文版）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Transitions/Using",
+      "zhType": "MDN 官方中文版（标题实测「使用 CSS 过渡 - CSS：层叠样式表 | MDN」、正文汉字 7628；中文版章节锚点已本地化——「Defining transitions」小节的实测存在锚点为 #定义过渡，英文锚点在中文页不存在）",
+      "zhGuide": {
+        "overview": "MDN 的过渡使用教程：哪些属性可过渡、怎么定义过渡、多属性过渡与列表长度不一致时的行为、以及用 JS 触发过渡的完整讲法。官方作业第 1 条要求连文内 Defining transitions 小节的链接一起读、跟着敲例子。",
+        "why": "本课正文只给了过渡的骨架，这篇教程是血肉——可动画属性清单、多过渡的逗号语法、过渡事件都在里面。",
+        "points": [
+          "哪些 CSS 属性可用于过渡（可动画属性清单）",
+          "定义过渡的完整语法与多个过渡的并列写法",
+          "检测过渡的开始与完成（事件）",
+          "JS 增删类触发过渡的配合形态"
+        ],
+        "terms": ["animatable properties", "transitionend"],
+        "focus": "官方明确要求跟着敲例子熟悉语法——别只读。",
+        "takeaway": "过渡的完整手册：从「哪些属性能动」到「动完了怎么知道」。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "本站任务映射的中文链接挂实测存在的本地化锚点 #定义过渡（对应官方条目的 #defining_transitions 小节）。"
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transitions",
+      "title": "What The Heck, z-index?? (Josh Comeau)",
+      "titleZh": "z-index 到底怎么回事？（Josh Comeau 讲层叠上下文）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://www.joshwcomeau.com/css/stacking-contexts/",
+      "sourceDomain": "www.joshwcomeau.com",
+      "originalUrlStatus": "200（零重定向；标题实测「What The Heck, z-index?? • Josh W. Comeau」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Josh Comeau 讲层叠上下文（stacking context）的专文：z-index 为什么不总按你预期工作、层叠上下文如何被创建、元素如何只在同一上下文内比较层级。官方作业第 2 条指定阅读。",
+        "why": "本课性能小节只给了层叠上下文的工程结论——这篇是官方指定的深入阅读，把「z-index 玄学」讲成规则。",
+        "points": [
+          "层叠上下文的创建条件清单",
+          "「只与同一上下文内的元素比较」的层级规则",
+          "常见 z-index 失效场景的解释"
+        ],
+        "terms": ["stacking context", "z-index"],
+        "focus": "对照本课性能一节读——结论背后的完整机制在这篇里。",
+        "takeaway": "z-index 不是全局排行榜，是每个上下文内的局部排名。"
+      },
+      "license": "joshwcomeau.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transitions",
+      "title": "CSS Stacking Context inspector (Chrome extension)",
+      "titleZh": "CSS 层叠上下文检查器（Chrome 扩展）",
+      "type": "工具扩展",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://chromewebstore.google.com/detail/apjeljpachdcjkgnamgppgfkmddadcki?utm_source=item-share-cb",
+      "sourceDomain": "chromewebstore.google.com",
+      "originalUrlEffective": "https://chromewebstore.google.com/detail/css-stacking-context-insp/apjeljpachdcjkgnamgppgfkmddadcki?utm_source=item-share-cb",
+      "originalUrlStatus": "200（301 至含名称 slug 的完整地址；标题实测「CSS Stacking Context inspector - Chrome Web Store」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Chrome 扩展：在任意页面上可视化层叠上下文——探索页面上有哪些上下文、查看它们的层级结构、排查布局与重绘问题。官方作业第 3 条要求试用。",
+        "why": "层叠上下文是看不见的概念，这个扩展把它画出来——读十遍文章不如在自己项目的页面上看一次。",
+        "points": [
+          "页面上层叠上下文的可视化",
+          "层级结构的浏览：谁创建了上下文、谁在其中",
+          "布局 / 重绘问题的排查辅助"
+        ],
+        "terms": ["stacking context inspector"],
+        "focus": "装好后打开你自己做过的项目页看看——数一数有多少上下文被你无意间创建了。",
+        "takeaway": "看不见的分层，用工具变成看得见的。"
+      },
+      "license": "扩展页面与代码版权归其作者；本站只链接 Chrome 商店页面，不分发扩展。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "商店界面按用户浏览器语言显示；扩展文档与说明为英文。"
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transitions",
+      "title": "An Interactive Guide to CSS Transitions (Josh Comeau)",
+      "titleZh": "CSS 过渡交互指南（Josh Comeau）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 5 条",
+      "originalUrl": "https://www.joshwcomeau.com/animation/css-transitions/",
+      "sourceDomain": "www.joshwcomeau.com",
+      "originalUrlStatus": "200（零重定向；标题实测「An Interactive Guide to CSS Transitions • Josh W. Comeau」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Josh Comeau 的过渡交互指南：四个子属性与速度曲线全部配可拖动的交互演示。官方作业第 5 条指定阅读。",
+        "why": "timing-function 的「手感」用文字最难传达——交互指南里拖一下滑块就懂了。",
+        "points": [
+          "duration / delay / timing-function 的交互演示",
+          "常见速度曲线（ease / ease-out / cubic-bezier）的形状与手感",
+          "过渡触发与状态切换的完整示例"
+        ],
+        "terms": ["timing function", "cubic-bezier"],
+        "focus": "把每个速度曲线都拖一遍，记住「手感」而不只是名字。",
+        "takeaway": "过渡的手感来自速度曲线——这篇让你用手学会它。"
+      },
+      "license": "joshwcomeau.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-transitions",
+      "title": "Debugging layout repaint issues triggered by CSS Transition (Dzhavat Ushev)",
+      "titleZh": "调试由 CSS 过渡触发的布局重绘问题（dzhavat 实录）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "Assignment 第 6 条",
+      "originalUrl": "https://dzhavat.github.io/2021/02/18/debugging-layout-repaint-issues-triggered-by-css-transition.html",
+      "sourceDomain": "dzhavat.github.io",
+      "originalUrlStatus": "200（零重定向；标题实测「Debugging layout repaint issues triggered by CSS Transition | Dzhavat Ushev」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "一篇排查实录：作者的 CSS 过渡引发了布局重绘问题，全文记录了他如何用开发者工具捕捉并定位 repaint。官方作业第 6 条要求学习「如何捕捉并调试 repaint 问题」。",
+        "why": "性能小节的「repaint 连坐」不是抽象警告——这篇真实案例让你看到问题发生时页面卡成什么样、工具里长什么样。",
+        "points": [
+          "用 DevTools 的 Performance / Rendering 面板捕捉重绘",
+          "一个过渡引发整片布局重算的真实案例",
+          "定位问题与修复它的完整思路"
+        ],
+        "terms": ["repaint", "DevTools Performance panel"],
+        "focus": "跟着作者的步骤在自己浏览器里开一遍同样的面板。",
+        "takeaway": "「动画卡」从玄学变成可以打开面板查证的事。"
+      },
+      "license": "dzhavat.github.io 博客自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyframes",
+      "title": "MDN: Using CSS animations",
+      "titleZh": "MDN：使用 CSS 动画教程",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 1 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using",
+      "originalUrlStatus": "200（301 至 Guides/Animations/Using 现役路径——MDN 教程区改版；标题实测「Using CSS animations - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Animations/Using",
+      "zhType": "MDN 官方中文版（标题实测「使用 CSS 动画 - CSS：层叠样式表 | MDN」、正文汉字 7624）",
+      "zhGuide": {
+        "overview": "MDN 的动画使用教程：@keyframes 的完整语法、animation 全部子属性、多动画并列与动画事件。官方作业第 1 条要求跟着敲（Code along）。",
+        "why": "本课正文覆盖了配置四属性与关键帧基础，这篇教程补全其余子属性（fill-mode / play-state / delay 等）与事件——动画的完整手册。",
+        "points": [
+          "@keyframes 与 animation 子属性的完整清单",
+          "多个动画并列到一个元素的写法",
+          "动画事件（开始 / 结束 / 循环）的监听"
+        ],
+        "terms": ["animation-fill-mode", "animation-play-state", "animationend"],
+        "focus": "官方明说 Code along——每个例子都敲一遍。",
+        "takeaway": "从「会写变色球」到「能编排任何时间轴」的完整参考。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyframes",
+      "title": "MDN: @keyframes at-rule reference",
+      "titleZh": "MDN：@keyframes 规则参考",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "Assignment 第 2 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes",
+      "originalUrlStatus": "200（301 至 Reference/At-rules/@keyframes 现役路径；标题实测「@keyframes CSS at-rule - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@keyframes",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径，标题实测「@keyframes - CSS：层叠样式表 | MDN」、正文汉字 6847）",
+      "zhGuide": {
+        "overview": "MDN 的 @keyframes at 规则参考：语法定义、百分比帧的规则细节、与 !important 的相互作用等实现层事实。官方作业第 2 条要求深读以理解关键帧的实现机制。",
+        "why": "教程讲用法、参考讲规则边界——「中间帧只能百分比」「from/to 是别名」这些事实的权威出处就是它。",
+        "points": [
+          "@keyframes 的正式语法定义",
+          "百分比关键帧的规则与帧内属性覆盖行为",
+          "动画声明与 !important 的关系（参考页的实现细节）"
+        ],
+        "terms": ["at-rule", "keyframe selector"],
+        "focus": "读语法定义与帧选择器两节即可，其余当字典。",
+        "takeaway": "关键帧的每条语法规则都能在这里找到出处。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyframes",
+      "title": "An Interactive Guide to CSS Keyframe Animations (Josh Comeau)",
+      "titleZh": "CSS 关键帧动画交互指南（Josh Comeau）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "Assignment 第 3 条",
+      "originalUrl": "https://www.joshwcomeau.com/animation/keyframe-animations/",
+      "sourceDomain": "www.joshwcomeau.com",
+      "originalUrlStatus": "200（零重定向；标题实测「An Interactive Guide to CSS Keyframe Animations with @keyframes • Josh W. Comeau」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Josh Comeau 的关键帧动画交互指南：@keyframes 的百分比时间轴、direction / fill-mode 等子属性全部配可交互演示。官方作业第 3 条指定阅读。",
+        "why": "「一次 iteration 是单向周期」这类时间轴概念，在可拖动的可视化里最容易建立直觉——这是官方指定它收官的原因。",
+        "points": [
+          "百分比时间轴的交互可视化",
+          "iteration-count 与 direction 组合行为的演示",
+          "关键帧编排的实用模式：从简单状态到多阶段"
+        ],
+        "terms": ["keyframe timeline", "animation-direction"],
+        "focus": "把 alternate / reverse / alternate-reverse 各拖一遍对照本课的周期概念。",
+        "takeaway": "时间轴概念用手学会——本课的官方收官阅读。"
+      },
+      "license": "joshwcomeau.com 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyframes",
+      "title": "css-exercises/advanced-html-css/animation",
+      "titleZh": "本章练习目录（advanced-html-css/animation）",
+      "type": "代码仓库视图",
+      "requirement": "required",
+      "zone": "Assignment 第 4 条",
+      "originalUrl": "https://github.com/TheOdinProject/css-exercises/tree/main/advanced-html-css/animation",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（零重定向；标题实测「css-exercises/advanced-html-css/animation at main · TheOdinProject/css-exercises · GitHub」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方 css-exercises 仓库的 advanced-html-css/animation 目录：本章的三个动手练习 01-button-hover、02-pop-up、03-dropdown-menu 各住一个子目录，说明在各自的 README。官方作业第 4 条要求按顺序完成。",
+        "why": "「动画」章节的动手收官——按钮悬停、弹窗、下拉菜单正是过渡与关键帧最常见的三个落地场景。",
+        "points": [
+          "01-button-hover：按钮悬停效果（过渡的主场）",
+          "02-pop-up：弹窗入场动画（关键帧 + 自动播放）",
+          "03-dropdown-menu：下拉菜单开合（JS 增删类 + 过渡）",
+          "每个练习先读自己的 README，做完再对照 solution 目录"
+        ],
+        "terms": ["exercise", "solution"],
+        "focus": "按官方给的顺序做：01 → 02 → 03，正好从过渡用到动画。",
+        "takeaway": "三个练习做完，本章的三个概念（变换 / 过渡 / 关键帧）就都落到了手。"
+      },
+      "license": "TOP 官方课程仓库，与本课程同许可（CC BY-NC-SA 4.0）；本站只提供链接与本站原创导读，不复制仓库内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "仓库界面为英文，GitHub 不提供仓库内容的机器翻译版本，故本站不提供中文链接（与 Foundations 各课 css-exercises 条目同一口径）。"
+    },
+    /* ===== World 4 批次 5 阶段 2（2026-09-27，v4.11.28）：accessibility「无障碍」章节 8 课 +28 条
+     * （按课 2 / 2 / 7 / 1 / 3 / 2 / 4 / 7；A 类 7 条——VoiceOver 旁白中文手册 / ChromeVox
+     * hl=zh-Hans / MDN ARIA 实时区域 zh-CN / 中文维基「盲文」/ developer.chrome.com 三条
+     * ?hl=zh-cn 形态（本站首个 hl 参数 A 类——/zh/ 路径形态实测 301 回英文页，两形态并存）；
+     * C 类 21 条含视频 6（全部 oEmbed 核验真实标题，一律不声称有中文字幕）；受限 29 维持
+     * 零新增——W3C 两页均默认 UA 200（浏览器 UA 403 反向坑既有先例）。核验事实：
+     * ① MDN Live Regions 旧路径 ARIA_Live_Regions 301 至 Guides/Live_regions 现役路径；
+     * ② Chrome 商店 chrome.google.com/webstore 301 至 chromewebstore.google.com 整站迁移；
+     * ③ developers.google.com/web/tools/lighthouse 301 至 developer.chrome.com/docs/
+     * lighthouse/overview/（与阶段 1 web.dev 同族迁移但终点不同站）；④ accessible_colors
+     * 官方无 Assignment 节——Contrast Checker 为正文点名工具按 reference 登记；
+     * ⑤ wai-aria 正文内联两条（issue #756 / 维基 Braille）按知识点链接收录 reference；
+     * ⑥ 剔除：课 3 正文 statically CDN 配图 1、TOP 自有课页回链 1（wai-aria 正文的
+     * Semantic HTML 课页）、课 4 正文 GitHub 附件域示意配图 3（既有配图口径）。 ===== */
+    {
+      "lessonId": "node-path-advanced-html-and-css-introduction-to-web-accessibility",
+      "title": "W3C WAI: Diverse Abilities and Barriers",
+      "titleZh": "W3C WAI：多样能力与障碍",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://www.w3.org/WAI/people-use-web/abilities-barriers/",
+      "sourceDomain": "www.w3.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Diverse Abilities and Barriers | Web Accessibility Initiative (WAI) | W3C」；W3C 对浏览器 UA 反而 403——既有反向坑，默认 UA 完成核验）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "W3C WAI 的图解长文：按听觉、视觉、运动、认知、言语等能力维度，逐一展示真实用户遇到的障碍与对应的无障碍特性如何化解——本课「残障类型」框架的案例全集。",
+        "why": "官方 Assignment 第 1 条指定通读，用来把「各类残障用户被不可访问网站影响」的具体图景建立起来。",
+        "points": [
+          "按能力维度组织的障碍案例：听觉（无字幕视频）、视觉（无 alt 的图片）、运动（鼠标依赖）、认知（复杂导航）等",
+          "每个障碍都配了对应的无障碍解法，与本章后续各课一一对应",
+          "强调重叠受益：为某类残障做的设计同时服务情境限制用户"
+        ],
+        "terms": ["abilities and barriers", "inclusive design"],
+        "focus": "读到某个障碍时停下来想：我最近的项目里有没有同款问题。",
+        "takeaway": "本课「残障四类型」框架的真实案例库——后面每一课都能在这里找到动机。"
+      },
+      "license": "W3C 文档版权（W3C Document License）；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-introduction-to-web-accessibility",
+      "title": "W3C WAI: Web Accessibility Perspectives Videos",
+      "titleZh": "W3C WAI：无障碍视角系列视频",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://www.w3.org/WAI/perspective-videos/",
+      "sourceDomain": "www.w3.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Web Accessibility Perspectives Videos: Explore the Impact and Benefits for Everyone | Web Accessibility Initiative (WAI) | W3C」；页面为视频合集入口，含全部单支视频与 YouTube 合集链接）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "W3C 的短视频合集：每支一两分钟，演示一个无障碍特性（字幕、对比度、键盘导航等）对真实用户的影响。官方特别注明每支视频都带音频描述与文字稿——视频本身就是无障碍示范。",
+        "why": "官方 Assignment 第 2 条指定观看，看「哪些用户如何从无障碍特性中受益」。",
+        "points": [
+          "每支视频聚焦一个特性：字幕、文字转语音、对比度、键盘导航、语音输入等",
+          "全部带音频描述（audio descriptions）与文字稿（transcripts），页面另有 YouTube 合集链接",
+          "反复出现的主题：同一特性同时帮到多类用户（残障、老年、情境受限）"
+        ],
+        "terms": ["audio description", "captions/transcripts"],
+        "focus": "视频短小且每支自带音频描述与文字稿，配合文字稿观看效率最高。",
+        "takeaway": "两分钟一支的「为什么」合集——看完你会对电梯比喻有画面感。"
+      },
+      "license": "W3C 视频合集页版权（W3C Document License）；本站只做链接与页面事实核验，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-the-web-content-accessibility-guidelines-wcag",
+      "title": "W3C WAI: WCAG 2 Overview",
+      "titleZh": "W3C WAI：WCAG 2 概览",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      "sourceDomain": "www.w3.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WCAG 2 Overview | Web Accessibility Initiative (WAI) | W3C」；W3C 对浏览器 UA 反而 403 的反向坑同前，默认 UA 完成核验；官方无中文版——/zh-hans/ 与 /zh/ 路径形态均实测 404）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "W3C 官方的 WCAG 2 总入口：WCAG 2.0/2.1/2.2 各版本、四级文档（快速参考、 Understanding 文档、技法库）与「如何引用」的导航页。本课只要求读懂概览、熟悉站点结构。",
+        "why": "官方 Assignment 第 1 条：目标是理解概览并熟悉这个网站——以后需要深查准则时不迷路。",
+        "points": [
+          "WCAG 2 各版本（2.0 / 2.1 / 2.2）的关系与层级文档结构",
+          "四大原则与成功准则的组织方式（本课 POUR 的完整版在这里）",
+          "符合度级别 A/AA/AAA 的官方定义与「如何符合 WCAG」入口"
+        ],
+        "terms": ["WCAG 2.2", "Understanding documents", "techniques"],
+        "focus": "现在不必点进其他链接——混熟首页结构即可，深查是以后的事。",
+        "takeaway": "行业引用无障碍标准时的正主入口——收藏它。"
+      },
+      "license": "W3C 文档版权（W3C Document License）；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-the-web-content-accessibility-guidelines-wcag",
+      "title": "WebAIM: WCAG 2 Checklist",
+      "titleZh": "WebAIM：WCAG 2 检查清单",
+      "type": "速查表",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://webaim.org/standards/wcag/checklist",
+      "sourceDomain": "webaim.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WebAIM: WebAIM's WCAG 2 Checklist」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "WebAIM 把 WCAG 2 全部成功准则整理成一页可勾选清单，每条附通俗解释与常见问题示例。页首有重要免责声明（清单是辅助理解，不替代规范原文）。",
+        "why": "官方 Assignment 第 2 条：现阶段略读混脸熟即可，并加入书签——真正动手做无障碍时拿它当工作清单非常顺手。",
+        "points": [
+          "按 POUR 四原则组织的全部 A/AA/AAA 成功准则",
+          "每条准则配「如何满足」的实操要点与常见失败案例",
+          "页首免责声明：清单为 WebAIM 的辅助整理，规范原文以 W3C 为准"
+        ],
+        "terms": ["success criteria", "checklist"],
+        "focus": "先读免责声明，再按 AA 列扫一遍——现在能看懂几条算几条。",
+        "takeaway": "未来做无障碍整改时的案头清单——官方原话： bookmark it。"
+      },
+      "license": "WebAIM 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "NV Access: Download NVDA",
+      "titleZh": "NV Access：下载 NVDA",
+      "type": "工具",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（Windows 屏幕阅读器选项）",
+      "originalUrl": "https://www.nvaccess.org/download/",
+      "sourceDomain": "www.nvaccess.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「NV Access | Download NVDA」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "NVDA（NonVisual Desktop Access）的官方下载页：Windows 平台最流行的免费开源屏幕阅读器，官方指定给 Windows 用户（含 WSL2）体验屏幕阅读器的入口。",
+        "why": "官方 Assignment 第 1 条：理解屏幕阅读器的最好办法就是用一个——Windows 用户装 NVDA。",
+        "points": [
+          "免费下载，开源（GPL），Windows 专用；WSL2 用户同样适用（跑在 Windows 侧）",
+          "下载页即最新版入口，安装后可用快捷键在浏览器里体验播报",
+          "配合 Chrome/Firefox 使用效果最佳；初次使用建议先看官方快速入门"
+        ],
+        "terms": ["NVDA", "screen reader"],
+        "focus": "装好后先打开你自己的项目页听一遍——被念出来的混乱就是最直观的学习。",
+        "takeaway": "Windows 侧体验屏幕阅读器的零成本入口。"
+      },
+      "license": "NV Access 官网自有版权；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "Apple: VoiceOver User Guide for Mac",
+      "titleZh": "Apple：适用于 Mac 的旁白使用手册",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（macOS 屏幕阅读器选项）",
+      "originalUrl": "https://support.apple.com/en-gb/guide/voiceover/welcome/mac",
+      "sourceDomain": "support.apple.com",
+      "originalUrlStatus": "200（默认 UA；标题实测「VoiceOver User Guide for Mac – Apple Support (UK)」）",
+      "zhUrl": "https://support.apple.com/zh-cn/guide/voiceover/welcome/mac",
+      "zhType": "Apple 官方中文文档（zh-cn 路径实测 200，标题「适用于 Mac 的旁白使用手册 - 官方 Apple 支持 (中国)」、正文汉字 3440——VoiceOver 官方中文名「旁白」）",
+      "zhGuide": {
+        "overview": "macOS 内置屏幕阅读器「旁白」（VoiceOver）的官方使用手册：从开启方式（Cmd+F5）到全套手势与快捷键的完整指南。macOS 用户不必安装任何软件。",
+        "why": "官方 Assignment 第 1 条：macOS 用户体验屏幕阅读器就用内置的旁白。",
+        "points": [
+          "旁白 = VoiceOver 的 Apple 官方中文名；macOS 内置，Cmd+F5 开关",
+          "手册覆盖键盘手势、转子（rotor）导航、网页浏览的完整操作",
+          "与 iOS 的 VoiceOver 同源——在 Mac 上练的手势概念可迁移"
+        ],
+        "terms": ["VoiceOver（旁白）", "rotor"],
+        "focus": "中文用户直接读官方中文版手册——术语与界面完全对应。",
+        "takeaway": "Mac 用户零安装成本的屏幕阅读器入口。"
+      },
+      "license": "Apple 官方文档版权；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "GNOME: Orca Screen Reader Help",
+      "titleZh": "GNOME：Orca 屏幕阅读器帮助",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（Linux 屏幕阅读器选项）",
+      "originalUrl": "https://gnome.pages.gitlab.gnome.org/orca/help/",
+      "sourceDomain": "gnome.pages.gitlab.gnome.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Orca Screen Reader | Orca Help」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "GNOME 桌面内置屏幕阅读器 Orca 的官方帮助文档：键盘命令、鼠标支持、 braille 输出与各类应用的适配说明。",
+        "why": "官方 Assignment 第 1 条：Linux 用户体验屏幕阅读器用内置的 Orca。",
+        "points": [
+          "GNOME 内置（多数发行版随桌面安装），Super+Alt+S 开关",
+          "帮助文档按功能分章：导航命令、表单交互、语音与盲文输出",
+          "与其他屏幕阅读器概念相通——播报角色、按地标跳转的逻辑一致"
+        ],
+        "terms": ["Orca", "GNOME"],
+        "focus": "Linux 用户开 Orca 听一遍自己的项目页，与 NVDA/旁白的体验对照。",
+        "takeaway": "Linux 侧的内置屏幕阅读器——零安装体验入口。"
+      },
+      "license": "GNOME 官方文档（自由文档许可）；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "Google: Use the built-in screen reader on your Chromebook (ChromeVox)",
+      "titleZh": "Google：使用 Chromebook 的内置屏幕阅读器（ChromeVox）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（ChromeOS 屏幕阅读器选项）",
+      "originalUrl": "https://support.google.com/chromebook/answer/7031755",
+      "sourceDomain": "support.google.com",
+      "originalUrlStatus": "200（默认 UA；标题实测「Use the built-in screen reader on your Chromebook - Chromebook Help」）",
+      "zhUrl": "https://support.google.com/chromebook/answer/7031755?hl=zh-Hans",
+      "zhType": "Google 官方帮助中心中文版（?hl=zh-Hans 实测 200，标题「使用 Chromebook 的内置屏幕阅读器 - Chrome 操作系统帮助」、正文汉字 5264——既有 support.google.com hl 参数先例）",
+      "zhGuide": {
+        "overview": "ChromeOS 内置屏幕阅读器 ChromeVox 的官方使用文档：开启方式、键盘命令与浏览网页的操作说明。",
+        "why": "官方 Assignment 第 1 条：ChromeOS 用户体验屏幕阅读器用内置的 ChromeVox。",
+        "points": [
+          "ChromeOS 内置，无需安装；快捷键开关在设置或 Ctrl+Alt+Z（依版本）",
+          "文档覆盖网页浏览、表格导航、表单填写的完整命令集",
+          "基于 Chrome 的生态——与浏览器深度集成，网页播报体验直接"
+        ],
+        "terms": ["ChromeVox"],
+        "focus": "非 ChromeOS 用户也可装 ChromeVox 浏览器扩展体验（能力子集）。",
+        "takeaway": "ChromeOS 侧的内置选项——四个平台就此配齐。"
+      },
+      "license": "Google 帮助中心内容版权；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "tink.uk: How screen readers navigate data tables",
+      "titleZh": "tink.uk：屏幕阅读器如何导航数据表格",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://tink.uk/how-screen-readers-navigate-data-tables/",
+      "sourceDomain": "tink.uk",
+      "originalUrlStatus": "200（默认 UA；标题实测「How screen readers navigate data tables - tink」（Léonie Watson 的个人技术站））",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "无障碍专家 Léonie Watson 的实测文章：主流屏幕阅读器（NVDA/JAWS/VoiceOver 等）各自如何用键盘在数据表格里移动、播报行列表头关联——正规 <table> 提供的上下文远比想象多。",
+        "why": "官方 Assignment 第 3 条（编号 2）：看「一个正规 table 元素到底提供多少上下文」的好例子。",
+        "points": [
+          "逐屏读器实测：表格导航模式、按单元格移动、表头关联播报",
+          "对照结论：语义 table 免费获得全部导航能力，div 表格一无所有",
+          "作者本人是屏幕阅读器用户——第一视角的权威叙述"
+        ],
+        "terms": ["data table", "table navigation mode"],
+        "focus": "重点感受「行 X 列 Y，表头是 Z」这种播报——这就是语义的上下文价值。",
+        "takeaway": "为什么表格数据必须用 <table>——最有说服力的一篇实测。"
+      },
+      "license": "tink.uk（Léonie Watson）站点自有版权；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "YouTube: Introduction to accessible tables and a screen reader demo",
+      "titleZh": "YouTube：无障碍表格入门与屏幕阅读器演示",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条",
+      "originalUrl": "https://youtu.be/ACmYzyN0b3U?si=o5PptrjVGJGj2OT7&t=83",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（官方原文即短链带参形态；oEmbed 核验真实标题「Introduction to accessible tables and a screen reader demo」、作者 Pope Tech）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Pope Tech（WebAIM 母机构 WATC 旗下）的演示视频：屏幕阅读器实际播报数据表格的完整过程——与 tink.uk 文章互为「读」与「看」的两面。",
+        "why": "官方 Assignment 第 3 条：看屏幕阅读器如何播报一个表格。",
+        "points": [
+          "真实屏幕阅读器语音演示：进入表格、单元格移动、表头播报",
+          "对照可访问与不可访问两种表格写法的播报差异",
+          "oEmbed 核验标题与作者；短链与 watch 形式同视频（官方给短链带起始时间参数）"
+        ],
+        "terms": ["table announcement"],
+        "focus": "重点听屏幕阅读器播报的节奏与内容结构。",
+        "takeaway": "表格语义价值的「有声证据」。"
+      },
+      "license": "视频版权归原作者与 YouTube；本站只链接并给 oEmbed 核验事实，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-semantic-html",
+      "title": "YouTube: Why headings and landmarks are so important (A11ycasts #18)",
+      "titleZh": "YouTube：为什么标题与地标如此重要（A11ycasts 第 18 集）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 4 条",
+      "originalUrl": "https://www.youtube.com/watch?v=vAAzdi1xuUY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=19",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验真实标题「Why headings and landmarks are so important -- A11ycasts #18」、作者 Chrome for Developers；官方原文即 watch 带播放列表参数形态）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Chrome for Developers 的 A11ycasts 系列第 18 集：演示屏幕阅读器用户如何靠标题（h1–h6）与地标（nav/main/aside 等）在页面里跳跃导航——全 div 页面与语义化页面的体验天壤之别。",
+        "why": "官方 Assignment 第 4 条：看屏幕阅读器如何与标题、地标元素交互。",
+        "points": [
+          "标题列表与地标列表的实操演示：按 H 键与 rotor 跳转",
+          "层级断裂（h1 直接跳 h4）与地标缺失的实际后果",
+          "A11ycasts 系列短小精悍——本集与键盘导航课的两集同系列"
+        ],
+        "terms": ["heading navigation", "landmark navigation"],
+        "focus": "看完回头数自己页面的 h 层级是否连续、地标是否齐全。",
+        "takeaway": "标题与地标为什么是「页面骨架」——看完这集就懂了。"
+      },
+      "license": "视频版权归原作者与 YouTube；本站只链接并给 oEmbed 核验事实，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessible-colors",
+      "title": "WebAIM: Contrast Checker",
+      "titleZh": "WebAIM：对比度检查器",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「检查工具」小节（官方点名推荐；本课官方无 Assignment 节）",
+      "originalUrl": "https://webaim.org/resources/contrastchecker/",
+      "sourceDomain": "webaim.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WebAIM: Contrast Checker」；页内另含链接对比度检查器入口）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "WebAIM 的在线对比度计算器：输入前景与背景 HEX 码，即刻给出对比度比值与 WCAG 各等级（AA/AAA × 正常/大号文本）通过情况；页面另有「链接对比度检查器」处理无下划线文本链接的专门规则。",
+        "why": "官方正文点名：「WebAIM Contrast Checker 是检查对比度的绝佳工具」——不用背数字、不用手算。",
+        "points": [
+          "输入两个 HEX 码即出比值与四档通过状态（AA/AAA × normal/large）",
+          "支持直接改色值微调，实时看比值变化——调到达标为止",
+          "页内 Link Contrast Checker 入口：无下划线链接的对比度另有一套要求"
+        ],
+        "terms": ["contrast ratio", "HEX"],
+        "focus": "每次定稿配色前把组合丢进去过一遍——十秒钟的习惯。",
+        "takeaway": "4.5:1 与 3:1 不用背——工具替你算。"
+      },
+      "license": "WebAIM 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyboard-navigation",
+      "title": "YouTube: What is Focus? (A11ycasts #03)",
+      "titleZh": "YouTube：什么是焦点（A11ycasts 第 3 集）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（前半）",
+      "originalUrl": "https://www.youtube.com/watch?v=EFv9ubbZLKw&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=3",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验真实标题「What is Focus? -- A11ycasts #03」、作者 Chrome for Developers）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "A11ycasts 系列第 3 集：解释「焦点」到底是什么、焦点管理出问题时键盘用户遇到什么——含试图改变 Tab 顺序引发的真实混乱演示。",
+        "why": "官方 Assignment 第 1 条前半：看改 Tab 顺序会发生的典型问题。",
+        "points": [
+          "焦点的浏览器语义：同一时刻只有一个元素持有焦点",
+          "DOM 顺序与 tabindex 正数值混用制造的焦点迷宫实拍",
+          "与下一集（tabindex 控制）连看构成完整单元"
+        ],
+        "terms": ["focus", "focus management"],
+        "focus": "注意视频里焦点「消失」的那一刻——那就是键盘用户的日常。",
+        "takeaway": "焦点管理的反面教材合集——看完就知道为什么别动 Tab 顺序。"
+      },
+      "license": "视频版权归原作者与 YouTube；本站只链接并给 oEmbed 核验事实，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyboard-navigation",
+      "title": "YouTube: Controlling focus with tabindex (A11ycasts #04)",
+      "titleZh": "YouTube：用 tabindex 控制焦点（A11ycasts 第 4 集）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（后半）",
+      "originalUrl": "https://www.youtube.com/watch?v=Pe0Ce1WtnUM&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=4",
+      "sourceDomain": "www.youtube.com",
+      "originalUrlStatus": "200（oEmbed 核验真实标题「Controlling focus with tabindex -- A11ycasts #04」、作者 Chrome for Developers）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "A11ycasts 系列第 4 集：tabindex 三个取值（0 / -1 / 正数）各自如何影响 Tab 顺序，以及为什么正数是灾难、-1 适合程序化聚焦场景。",
+        "why": "官方 Assignment 第 1 条后半：看 tabindex 属性如何影响 Tab 顺序。",
+        "points": [
+          "tabindex=0：按 DOM 顺序加入 Tab 序列（div 补可聚焦的标准做法）",
+          "tabindex=-1：移出 Tab 序列但可被 JS focus()——模态框场景",
+          "正数 tabindex：插队到自然序之前，多值混用即焦点迷宫——避免使用"
+        ],
+        "terms": ["tabindex"],
+        "focus": "把三档语义与本课正文的隐藏内容一节对读。",
+        "takeaway": "tabindex 三档语义的权威短片。"
+      },
+      "license": "视频版权归原作者与 YouTube；本站只链接并给 oEmbed 核验事实，不搬运视频、不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-keyboard-navigation",
+      "title": "WebAIM: Skip Navigation Links",
+      "titleZh": "WebAIM：跳转导航链接（Skip Links）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://webaim.org/techniques/skipnav/",
+      "sourceDomain": "webaim.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WebAIM: Skip Navigation Links」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "WebAIM 的 skip link 教程：在页面顶部放一个（通常视觉隐藏、聚焦时出现的）「跳到主内容」链接，让键盘用户一键跳过每页重复的导航区——对逐 Tab 费力的用户尤其重要。",
+        "why": "官方 Assignment 第 2 条：键盘无障碍的另一种形态，了解 skip links。",
+        "points": [
+          "skip link 的标准实现：页首锚链接 + 聚焦时才可见的样式",
+          "为什么需要：每页重复的长导航对键盘用户是纯消耗",
+          "与地标（main）配合：现代屏幕阅读器可按地标跳转，skip link 服务更广的键盘用户"
+        ],
+        "terms": ["skip link", "main content"],
+        "focus": "实现要点在「聚焦才可见」——既服务键盘用户又不打扰视觉设计。",
+        "takeaway": "一个链接省掉每页几十次 Tab——键盘用户的快速通道。"
+      },
+      "license": "WebAIM 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-meaningful-text",
+      "title": "WebAIM: Alternative Text",
+      "titleZh": "WebAIM：替代文本",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://webaim.org/techniques/alttext",
+      "sourceDomain": "webaim.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WebAIM: Alternative Text」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "alt 文本的完整方法论：按图片的功能（装饰、内容、链接、表单控件、复杂图表）与上下文决定写什么、怎么写、何时写空字符串——本课「两种合法形态」的展开版。",
+        "why": "官方 Assignment 第 1 条：学习按图片功能与上下文决定何时、如何写 alt。",
+        "points": [
+          "决策树：装饰图 alt=''；内容图写等价信息；链接图写去向",
+          "复杂图表的处理：短 alt + 邻近的长描述",
+          "常见失败案例：文件名当 alt、「image of」前缀冗余等"
+        ],
+        "terms": ["alt text", "decorative image"],
+        "focus": "对照你项目里的每张图走一遍决策树——十分钟内能清完欠账。",
+        "takeaway": "alt 写什么不再靠感觉——按功能对号入座。"
+      },
+      "license": "WebAIM 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-meaningful-text",
+      "title": "WebAIM: Usable and Accessible Form Validation and Error Recovery",
+      "titleZh": "WebAIM：可用且无障碍的表单校验与错误恢复",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://webaim.org/techniques/formvalidation/",
+      "sourceDomain": "webaim.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WebAIM: Usable and Accessible Form Validation and Error Recovery」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "表单报错呈现方式大全与各自利弊：页内报错 vs alert、报错位置、聚焦管理、aria-describedby 与 aria-live 的配合——本课「报错三级进化」的工程化展开。",
+        "why": "官方 Assignment 第 2 条：了解向用户呈现错误的不同方式与利弊。",
+        "points": [
+          "报错呈现的多种模式：就近内联、顶部汇总、弹窗——各自的可访问性代价",
+          "提交失败后的焦点管理：焦点该去哪里、屏幕阅读器如何被通知",
+          "与 ARIA 的配合预告：describedby 挂报错、live region 主动播报"
+        ],
+        "terms": ["form validation", "error recovery"],
+        "focus": "重点读「焦点管理」部分——多数项目报错后焦点原地不动，屏幕阅读器用户根本不知道出了错。",
+        "takeaway": "报错不只是文案问题，还是焦点与播报的工程问题。"
+      },
+      "license": "WebAIM 站点自有版权；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-wai-aria",
+      "title": "W3C: ARIA in HTML (Sections 1-5)",
+      "titleZh": "W3C：HTML 中的 ARIA（第 1–5 节）",
+      "type": "规范",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://www.w3.org/TR/html-aria/",
+      "sourceDomain": "www.w3.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「ARIA in HTML」；W3C 浏览器 UA 403 反向坑同前，默认 UA 完成核验；无官方中文版）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "W3C 规范：每个 HTML 元素的隐式 ARIA 角色、允许显式设置哪些 role、哪些属性可用——「原生语义优先」原则的权威对照表。官方只要求读第 1–5 节、得其大意。",
+        "why": "官方 Assignment 第 1 条：通读第 1–5 节；将来前端测试工具用 ARIA 角色选元素时你会常回来查。",
+        "points": [
+          "每个元素的隐式角色表：button 天生 role=button，div 无角色",
+          "各元素允许的显式 role 白名单——防止「改原生语义」的误用",
+          "第 1–5 节覆盖规范主体；不要求背诵，当工具书用"
+        ],
+        "terms": ["implicit role", "allowed roles"],
+        "focus": "拿不准某元素能不能加某 role 时查这张表——比任何教程权威。",
+        "takeaway": "ARIA 五规则第①②条的官方对照表。"
+      },
+      "license": "W3C 文档版权（W3C Document License）；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-wai-aria",
+      "title": "MDN: ARIA live regions",
+      "titleZh": "MDN：ARIA 实时区域",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlEffective": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions",
+      "originalUrlStatus": "200（301 至 Guides/Live_regions 现役路径——MDN ARIA 文档区改版，旧 ARIA_Live_Regions 路径收编；标题实测「ARIA live regions - ARIA | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/Accessibility/ARIA/Guides/Live_regions",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「ARIA 实时区域 - ARIA | MDN」、正文汉字 3371）",
+      "zhGuide": {
+        "overview": "MDN 对 ARIA live regions 的讲解：aria-live（polite/assertive）与 aria-atomic 等属性让页面的动态更新（通知、加载状态、聊天消息）被辅助技术主动播报——不靠用户自己去发现。",
+        "why": "官方 Assignment 第 2 条：另一类非常有用的 ARIA 属性，让动态更新被播报。",
+        "points": [
+          "aria-live=polite：等用户空闲时播报（多数通知的正确选择）",
+          "aria-live=assertive：立即打断播报（仅限真正紧急的信息）",
+          "aria-atomic：播报整个区域还是只播变化部分；role=status/alert 的隐式 live 语义"
+        ],
+        "terms": ["live region", "aria-live", "aria-atomic"],
+        "focus": "中文版即 MDN zh-CN 现役路径——本站中文链接直达。",
+        "takeaway": "动态内容的「主动播报」机制——SPA 时代越来越重要。"
+      },
+      "license": "MDN 文档采用 CC-BY-SA 2.5 及后续许可；本站只链接官方中文版，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-wai-aria",
+      "title": "GitHub w3c/aria issue #756: Clarify use of aria-label on elements with no role",
+      "titleZh": "GitHub w3c/aria issue #756：澄清 aria-label 在无角色元素上的使用",
+      "type": "社区讨论",
+      "requirement": "reference",
+      "zone": "正文「aria-label」小节（官方内联引用——aria-label 对 div/span 无效的事实出处）",
+      "originalUrl": "https://github.com/w3c/aria/issues/756",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（默认 UA；标题实测「Clarify use of aria-label on elements with no role · Issue #756 · w3c/aria · GitHub」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "W3C ARIA 规范仓库的 issue 讨论：aria-label 用在无角色元素（div/span）上到底有没有效——规范组的澄清过程与结论，是正文「aria-label 对部分元素无效」这句话的一手出处。",
+        "why": "官方正文内联引用：aria-label does not have any effect on some HTML elements 的链接出处。",
+        "points": [
+          "讨论核心：无 role 的元素没有「名称」概念，aria-label 无处安放",
+          "规范组结论倾向：多数无角色元素上 aria-label 无效或被忽略",
+          "实践守则：要加 aria-label 的元素先确认它有角色（原生或显式）"
+        ],
+        "terms": ["aria-label", "role"],
+        "focus": "读结论段即可——它解释了为什么「div + aria-label」是无效组合。",
+        "takeaway": "aria-label 无效范围的一手规范讨论。"
+      },
+      "license": "w3c/aria 仓库 issue 为公开讨论内容；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-wai-aria",
+      "title": "Wikipedia: Braille",
+      "titleZh": "维基百科：盲文",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文「aria-label」小节（官方内联引用——别用 aria-label 改发音时提到的盲文显示器背景知识）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Braille",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Braille - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E7%9B%B2%E6%96%87",
+      "zhType": "中文维基百科「盲文」条目（/zh-cn/ 强制简体路径实测 200，标题「盲文 - 维基百科，自由的百科全书」、正文汉字 10646；中文条目名「盲文」与英文 Braille 同义不同形）",
+      "zhGuide": {
+        "overview": "盲文（Braille）的百科条目：路易·布莱尔发明的触觉文字系统、六点单元格结构与各语言变体——理解「盲文显示器把 aria-label 注音字符串原样摸出来」为什么是灾难的背景知识。",
+        "why": "官方正文内联引用：解释别用 aria-label 改发音时链接的背景词条。",
+        "points": [
+          "盲文是触觉文字系统：六点单元格组合表意，经盲文显示器可输出任意文本",
+          "关键推论：盲文显示器输出的是字符串本身，不做「读音」转换——注音式 aria-label 会原样变成乱码点位",
+          "与屏幕阅读器并列为两大输出型辅助技术"
+        ],
+        "terms": ["braille", "refreshable braille display"],
+        "focus": "读开头两段建立概念即可——重点是理解「另一类输出设备」。",
+        "takeaway": "为什么 aria-label 不是注音工具——盲文视角的答案。"
+      },
+      "license": "维基百科条目采用 CC BY-SA 4.0 许可；本站只链接中文条目，不搬运内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "Chrome Web Store: axe DevTools - Web Accessibility Testing",
+      "titleZh": "Chrome 应用商店：axe DevTools——Web 无障碍测试",
+      "type": "工具",
+      "requirement": "required",
+      "zone": "官方 Assignment 前正文「三个工具」之一",
+      "originalUrl": "https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US",
+      "sourceDomain": "chrome.google.com",
+      "originalUrlEffective": "https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US",
+      "originalUrlStatus": "200（301 至 chromewebstore.google.com——Chrome 应用商店整站域名迁移；标题实测「axe DevTools - Web Accessibility Testing - Chrome Web Store」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "axe DevTools 的 Chrome 扩展安装页：基于 Deque axe 引擎的无障碍审计扩展，问题按严重度排序、标出需人工核对项——日常快速审计的首选工具。",
+        "why": "官方正文点名的三个审计工具之一：扩展形态、按严重度排序。",
+        "points": [
+          "安装后在 DevTools 多一个 axe 面板：一键扫描当前页",
+          "问题按严重度（critical/serious/moderate/minor）排序呈现",
+          "免费版覆盖核心规则；另有需人工核对的问题单独列出"
+        ],
+        "terms": ["axe engine", "severity"],
+        "focus": "装好后先扫你最近的项目页——对照本课「只修学过的概念」纪律处理结果。",
+        "takeaway": "三工具中最专注无障碍的一个——日常审计首选。"
+      },
+      "license": "Chrome 应用商店与扩展页版权归 Google 与扩展开发者；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "Chrome for Developers: Introduction to Lighthouse",
+      "titleZh": "Chrome 开发者：Lighthouse 简介",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 前正文「三个工具」之一",
+      "originalUrl": "https://developers.google.com/web/tools/lighthouse",
+      "sourceDomain": "developers.google.com",
+      "originalUrlEffective": "https://developer.chrome.com/docs/lighthouse/overview/",
+      "originalUrlStatus": "200（301 至 developer.chrome.com/docs/lighthouse/overview/——developers.google.com/web 整站迁移的又一例，与批次 5 阶段 1 web.dev 渲染性能文同族但终点不同站；标题实测「Introduction to Lighthouse | Chrome for Developers」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Lighthouse 官方文档：自动化网页审计工具，除无障碍外还覆盖性能、最佳实践、SEO、PWA 五大类；Chrome DevTools 内置（Lighthouse/Auditing 标签页）或命令行运行，输出分类分数的报告。",
+        "why": "官方正文点名的三个审计工具之一：全家桶形态、按类别分组。",
+        "points": [
+          "五大审计类别：Performance / Accessibility / Best Practices / SEO / PWA",
+          "三种运行方式：DevTools 内置面板、命令行（CI 集成）、Node API",
+          "无障碍类用的正是 axe 规则子集——与 axe DevTools 结果同源"
+        ],
+        "terms": ["Lighthouse", "audit categories"],
+        "focus": "上线前体检用全家桶，日常无障碍快查用 axe——分工明确。",
+        "takeaway": "多维体检工具——无障碍只是它的一科。"
+      },
+      "license": "Google/Chrome 官方文档版权；本站只提供链接与本站原创导读，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "WebAIM: WAVE Web Accessibility Evaluation Tools",
+      "titleZh": "WebAIM：WAVE 无障碍评估工具",
+      "type": "工具",
+      "requirement": "required",
+      "zone": "官方 Assignment 前正文「三个工具」之一",
+      "originalUrl": "https://wave.webaim.org/",
+      "sourceDomain": "wave.webaim.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「WAVE Web Accessibility Evaluation Tools」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "WebAIM 的 WAVE：网页版审计工具——输入 URL 即返回页面预览加图标覆盖层，问题分 alerts / warnings / contrast errors 三类；另有浏览器扩展与 API。已知缺点：覆盖图标可能弄乱布局。",
+        "why": "官方正文点名的三个审计工具之一：网页版、图标覆盖层最直观。",
+        "points": [
+          "三类问题：alerts（警报）、warnings（警告）、contrast errors（对比度错误）",
+          "图标直接叠在页面预览上——问题位置一目了然",
+          "网页版免安装；另有 Chrome/Firefox 扩展与 API 选项"
+        ],
+        "terms": ["WAVE", "alerts/warnings/contrast errors"],
+        "focus": "布局被图标弄乱是已知代价——看问题清单，别纠结预览排版。",
+        "takeaway": "最直观的可视化审计——图标落在问题原处。"
+      },
+      "license": "WebAIM 的 WAVE 工具与站点版权；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "Chrome for Developers: Accessibility features reference",
+      "titleZh": "Chrome 开发者：无障碍功能参考",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（从 Accessibility tab 一节读起）",
+      "originalUrl": "https://developer.chrome.com/docs/devtools/accessibility/reference/#tab",
+      "sourceDomain": "developer.chrome.com",
+      "originalUrlStatus": "200（默认 UA；带 #tab 锚点的地址 301 到去尾斜杠规范形、锚点实测存在；标题实测「Accessibility features reference | Chrome DevTools | Chrome for Developers」）",
+      "zhUrl": "https://developer.chrome.com/docs/devtools/accessibility/reference/?hl=zh-cn",
+      "zhType": "Chrome 开发者官方中文版（?hl=zh-cn 参数形态实测 200，标题「无障碍功能参考 | Chrome DevTools | Chrome for Developers」、正文汉字 4252——本站首个 hl 参数形态的 developer.chrome.com A 类；/zh/ 路径形态实测 301 回英文页，两形态并存、hl 参数才有中文内容）",
+      "zhGuide": {
+        "overview": "Chrome DevTools 无障碍功能总参考：Accessibility 面板（名称/角色/属性）、对比度检查、无障碍树视图、Tab 顺序高亮等各功能的入口与用法——本课「DevTools 快速审计」的完整版地图。",
+        "why": "官方 Assignment 第 1 条：从 Accessibility tab 一节读起。",
+        "points": [
+          "Accessibility 面板：选中元素看它的名称、角色与全部无障碍属性",
+          "无障碍树视图：整棵 a11y tree 与 DOM 对照着看",
+          "对比度与强制状态（hover/focus/active）检查的入口说明"
+        ],
+        "terms": ["Accessibility panel", "a11y tree view"],
+        "focus": "中文版经 ?hl=zh-cn 参数直达——界面与正文均中文。",
+        "takeaway": "DevTools 无障碍功能的一站式地图。"
+      },
+      "license": "Chrome 官方文档版权；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "Chrome for Developers: What's New In DevTools (Chrome 83) — Emulate vision deficiencies",
+      "titleZh": "Chrome 开发者：DevTools 新变化（Chrome 83）——模拟视觉缺陷",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（Emulate vision deficiencies 一节）",
+      "originalUrl": "https://developer.chrome.com/blog/new-in-devtools-83/#vision-deficiencies",
+      "sourceDomain": "developer.chrome.com",
+      "originalUrlStatus": "200（默认 UA；带锚点地址 301 到去尾斜杠规范形、#vision-deficiencies 锚点实测存在；标题实测「What's New In DevTools (Chrome 83) | Blog | Chrome for Developers」）",
+      "zhUrl": "https://developer.chrome.com/blog/new-in-devtools-83/?hl=zh-cn",
+      "zhType": "Chrome 开发者官方博客中文版（?hl=zh-cn 实测 200，标题「开发者工具的新变化 (Chrome 83) | Blog | Chrome for Developers」、正文汉字 11788；/zh/ 路径形态实测 301 回英文页——博客同样只认 hl 参数）",
+      "zhGuide": {
+        "overview": "Chrome 83 的 DevTools 更新汇总，官方只要求读 Emulate vision deficiencies（模拟视觉缺陷）一节：Rendering 面板可模拟色盲（protanopia/deuteranopia 等）与模糊视觉——亲眼看到你的页面在受限视觉下的样子。",
+        "why": "官方 Assignment 第 2 条：学会用 DevTools 模拟视觉缺陷。",
+        "points": [
+          "入口：DevTools → Cmd/Ctrl+Shift+P → 输 rendering → Emulate vision deficiencies",
+          "可模拟：红绿色盲、蓝黄色盲、全色盲、视觉模糊等",
+          "与色彩课的「别只靠颜色」呼应——模拟视图下亲自验证你的状态色"
+        ],
+        "terms": ["vision deficiency emulation", "Rendering panel"],
+        "focus": "中文版全文很长——直奔「模拟视觉缺陷」一节即可（官方也只要求这一节）。",
+        "takeaway": "给自己的页面换上色盲的眼睛看一眼。"
+      },
+      "license": "Chrome 官方文档版权；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "Chrome for Developers: Issues tab — Open the Issues tab",
+      "titleZh": "Chrome 开发者：Issues 面板——打开 Issues 面板",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条（只需学会打开面板，非无障碍内容可略过）",
+      "originalUrl": "https://developer.chrome.com/docs/devtools/issues/#open",
+      "sourceDomain": "developer.chrome.com",
+      "originalUrlStatus": "200（默认 UA；带 #open 锚点地址 301 到去尾斜杠规范形、锚点实测存在；标题实测「Issues: Find and fix problems | Chrome DevTools | Chrome for Developers」）",
+      "zhUrl": "https://developer.chrome.com/docs/devtools/issues/?hl=zh-cn",
+      "zhType": "Chrome 开发者官方中文版（?hl=zh-cn 实测 200，标题「问题：查找和解决问题 | Chrome DevTools | Chrome for Developers」、正文汉字 3912）",
+      "zhGuide": {
+        "overview": "Chrome DevTools Issues 面板文档：自动汇总页面的各类问题（含无障碍问题）并给修复指引。官方口径：只要求学会打开这个面板，页内非无障碍内容可略过。",
+        "why": "官方 Assignment 第 3 条：打开 Issues 面板后，a11y 问题会与其他问题一起列出。",
+        "points": [
+          "打开方式：DevTools 顶栏 Issues 标签或 Cmd/Ctrl+Shift+P 输 issues",
+          "问题按类别分组（含 Accessibility），每条附文档链接与修复指引",
+          "官方明确：本页非无障碍内容可略过——目标只是学会打开面板"
+        ],
+        "terms": ["Issues panel"],
+        "focus": "中文版直达；记住打开路径即可，其余内容以后按需读。",
+        "takeaway": "问题汇总收件箱——a11y 问题会自动出现在这里。"
+      },
+      "license": "Chrome 官方文档版权；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-accessibility-auditing",
+      "title": "MDN (Firefox Source Docs): Accessibility Inspector — Features of the Accessibility panel",
+      "titleZh": "MDN（Firefox 源文档）：无障碍检查器——无障碍面板的特性",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 4 条",
+      "originalUrl": "https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#features-of-the-accessibility-panel",
+      "sourceDomain": "firefox-source-docs.mozilla.org",
+      "originalUrlStatus": "200（默认 UA；#features-of-the-accessibility-panel 锚点实测存在；标题实测「Accessibility Inspector — Firefox Source Docs documentation」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Firefox DevTools 无障碍检查器的文档：面板特性一节讲 Firefox 如何呈现 a11y 属性与无障碍树。官方提醒：不同浏览器间存在差异（role 取值、属性呈现方式），但内容对 Chrome 用户同样有用。",
+        "why": "官方 Assignment 第 4 条：跨浏览器对照——虽然更贴 Firefox，对 Chrome 用户也有用。",
+        "points": [
+          "Firefox 的 Accessibility Inspector：开启方式与面板布局",
+          "Features 一节：可访问性属性、对比度检查、全页无障碍树",
+          "跨浏览器差异意识：同一元素在不同 DevTools 里 role 呈现可能不同"
+        ],
+        "terms": ["Accessibility Inspector", "cross-browser differences"],
+        "focus": "读 Features 一节即可——重点是建立「别的浏览器怎么看同一棵树」的对照感。",
+        "takeaway": "Firefox 视角的无障碍面板——跨浏览器对照读物。"
+      },
+      "license": "Mozilla 官方文档（MPL 2.0 文档许可）；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    /* ===== World 4 批次 5 阶段 3（2026-09-27，v4.11.29，World 4 收组）：responsive-design「响应式设计」
+     * 章节 5 课 +11 条（按课 1 / 3 / 5 / 1 / 1；A 类 7 条——Chrome device-mode ?hl=zh-cn
+     * 形态第二批 + MDN zh-CN ×6；C 类 4 条；受限 29 维持零新增）。核验事实：
+     * ① MDN HTML 教程旧页 Viewport_meta_tag 301 至 Reference/Elements/meta/name/viewport
+     *    属性参考现役路径（教程页并入属性参考——新迁移形态）；
+     * ② MDN CSS 属性页旧路径 Web/CSS/<prop> 301 至 Web/CSS/Reference/Properties/<prop>
+     *    （与阶段 1 函数页 → Reference/Values/ 同族的属性页迁移）；
+     * ③ MDN Learn 区 Responsive_images 301 至 Web/HTML/Guides/Responsive_images
+     *    （Learn 并入 Guides 同型又一例）；Media_Queries/Using_media_queries 301 至
+     *    Web/CSS/Guides/Media_queries/Using；
+     * ④ **跨课合并 2 处不重复登记**：homepage Step 2 的 pexels.com 首现课为 landing-page
+     *    （课 30 已登记、受限清单在案）、materialdesignicons.com 实测 301 至
+     *    pictogrammers.com/library/mdi/ 与 admin-dashboard Step 4 既有条目同址——两条
+     *    homepage 任务映射按「资源归属课」纪律不接；
+     * ⑤ pexels 真实浏览器复核新事实：可达且自动落 /zh-cn/ 官方中文版（标题「免费素材图片」、
+     *    导航全中文）——landing-page 旧条目 note 追加复核记录；是否升级 A 类并移出受限
+     *    清单涉及既有条目分类与 verifyLimitedUrls 口径变更，**待用户拍板**，本批不动；
+     * ⑥ 剔除：homepage Step 1 三张 statically CDN 设计稿配图（既有口径，任务文字原样
+     *    转达链接）、Step 4 Google 反馈表（行政表单先例）、三课正文 CodePen 演示 6 处
+     *    （既有口径，examples 区给等效代码）。 */
+    {
+      "lessonId": "node-path-advanced-html-and-css-introduction-to-responsive-design",
+      "title": "Chrome for Developers: Simulate mobile devices with device mode",
+      "titleZh": "Chrome 开发者：在 Device Mode 下模拟移动设备",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://developer.chrome.com/docs/devtools/device-mode/",
+      "sourceDomain": "developer.chrome.com",
+      "originalUrlStatus": "200（默认 UA；标题实测「Simulate mobile devices with device mode | Chrome DevTools | Chrome for Developers」；正文汉字 22——英文页）",
+      "zhUrl": "https://developer.chrome.com/docs/devtools/device-mode/?hl=zh-cn",
+      "zhType": "Chrome 开发者官方中文版（?hl=zh-cn 参数形态实测 200，标题「在 Device Mode 下模拟移动设备 | Chrome DevTools | Chrome for Developers」、正文汉字 4592——阶段 2 确立的 hl 参数形态 A 类第二批；/zh/ 路径形态实测 301 回英文页，两形态并存、以内容级实测为准）",
+      "zhGuide":       {
+          "overview": "Chrome DevTools 的 device mode 完整指南：在桌面浏览器里模拟手机与平板——切换设备预设或自定义视口尺寸、模拟触摸与像素比、限制网速，以及横竖屏与媒体查询断点的实时预览。本课「320px 下限」的动手验证工具就是它。",
+          "why": "官方 Assignment 唯一一条：学会模拟移动设备显示——后面每一课的响应式验证都靠它，也是项目课 320–1920px 验收线的测量工具。",
+          "points": [
+            "设备工具栏：一键切换常见机型预设或自定义宽高",
+            "视口模拟包含触摸事件与设备像素比，不只是改窗口宽度",
+            "响应式模式下拖宽度滑块，能实时看到媒体查询断点切换"
+          ],
+          "terms": [
+            "device mode",
+            "viewport simulation"
+          ],
+          "focus": "中文版经 ?hl=zh-cn 参数直达——界面与正文均中文。",
+          "takeaway": "不用真机也能把 320px 到超宽屏全部过一遍——这是响应式工作流的日常工具。"
+        },
+      "license": "Chrome 官方文档版权；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-natural-responsiveness",
+      "title": "HTML is responsive (demo page)",
+      "titleZh": "纯 HTML 就是响应的（演示页）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「不是所有东西都需要 CSS」一节（官方点名的无 CSS 演示页）",
+      "originalUrl": "https://codyloyd.github.io/responsive-html/",
+      "sourceDomain": "codyloyd.github.io",
+      "originalUrlStatus": "200（默认 UA；标题实测「HTML is responsive」；纯 HTML 页面、无样式）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide":       {
+          "overview": "官方正文点名的演示页：一个完全不带 CSS 的纯 HTML 页面。把浏览器窗口缩到手机大小（或用手机打开）——它工作得完美，甚至能在 Apple Watch 上阅读。这就是「天然响应性」的直观证明：HTML 元素默认随可用空间流动。",
+          "why": "这一课的核心论点「大多数元素天生响应，直到你用 CSS 改掉它」的最直接证据——先亲眼看一次天然响应，再理解后面每条贴士在保护什么。",
+          "points": [
+            "无 CSS 页面在任何宽度下都能正常阅读——文本自动换行、结构自动堆叠",
+            "对照你自己写过样式的页面：是哪些固定尺寸破坏了这种天然弹性",
+            "缩窗口时留意图片——它们是这页里唯一可能出问题的元素（这正是下一课的主题）"
+          ],
+          "terms": [
+            "natural responsiveness（天然响应性）"
+          ],
+          "focus": "把窗口拖到最窄再拖回最宽，全程盯住有没有横向滚动条出现。",
+          "takeaway": "响应式不是「加出来的功能」，而是「别破坏掉默认」。"
+        },
+      "license": "演示页作者为 TOP 课程作者 Cody Loyd；本站只提供链接与本站原创导读，不复制页面内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-natural-responsiveness",
+      "title": "MDN: The viewport meta tag (HTML attribute reference)",
+      "titleZh": "MDN：viewport meta 标记（HTML 属性参考）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "301 → Web/HTML/Reference/Elements/meta/name/viewport 现役路径（HTML 教程旧页并入属性参考——本批核验新形态；终点标题实测「<meta name=\"viewport\"> HTML attribute value - HTML | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/meta/name/viewport",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「viewport meta 标记 - HTML（超文本标记语言）| MDN」、正文汉字 3357）",
+      "zhGuide":       {
+          "overview": "MDN 对 viewport meta 标签的专文：width=device-width 与 initial-scale=1 各自控制什么、移动浏览器「模拟大屏再缩小」的历史由来，以及屏幕分辨率与 CSS 像素的关系细节。比正文一段话更完整的背景补全。",
+          "why": "官方 Assignment 第 1 条：为 viewport meta 标签与屏幕分辨率的本质补充背景和细节。",
+          "points": [
+            "width=device-width：布局视口宽度 = 设备宽度，不再模拟 980px 大屏",
+            "initial-scale=1：初始缩放 100%；与 width 同时写是最稳的组合",
+            "CSS 像素与设备像素的区别——高 DPR 手机上两者不相等"
+          ],
+          "terms": [
+            "layout viewport",
+            "device pixel ratio"
+          ],
+          "focus": "中文版按重定向后的现役属性参考路径直达。",
+          "takeaway": "一行标签背后的浏览器历史——知道它在防什么，就不会在任何项目里漏掉它。"
+        },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-natural-responsiveness",
+      "title": "Using Percentages in CSS (archived)",
+      "titleZh": "在 CSS 中使用百分比（存档版）",
+      "type": "文章（存档）",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://web.archive.org/web/20251116005914/https://codyloyd.com/2021/percentages/",
+      "sourceDomain": "web.archive.org",
+      "originalUrlStatus": "200（官方给的即 web.archive.org 存档地址；标题实测「Using Percentages in CSS – Cody Loyd」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide":       {
+          "overview": "TOP 课程作者 Cody Loyd 讲 CSS 百分比的专文（官方给的存档版）：百分比是相对谁的——宽度百分比相对父容器、高度百分比相对父容器高度的前提条件，以及 margin/padding 百分比的「都以宽度为基准」陷阱。响应式布局里用百分比替代固定值的底层规则。",
+          "why": "官方 Assignment 第 2 条：百分比是另一个常见陷阱的专题——按官方提示，文中 @media 部分不用深究（媒体查询下一课就讲）。",
+          "points": [
+            "width 百分比相对父元素宽度——天然弹性的来源",
+            "height 百分比要求父元素有明确高度，否则不生效——经典陷阱",
+            "margin/padding 的百分比无论方向都以宽度为基准"
+          ],
+          "terms": [
+            "percentage values",
+            "containing block"
+          ],
+          "focus": "只精读百分比规则部分，@media 段落跳过——下一课正式讲。",
+          "takeaway": "百分比是天然响应的燃料，但每个属性的「相对谁」规则不同——用之前先弄清楚。"
+        },
+      "license": "文章作者为 Cody Loyd，版权归原作；本站只做链接（官方自给存档地址）与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-responsive-images",
+      "title": "MDN: background-size CSS property",
+      "titleZh": "MDN：background-size CSS 属性",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（官方一条含三个属性文档链接，此为第 1 个链接）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-size",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "301 → Web/CSS/Reference/Properties/background-size 现役路径（CSS 属性页旧路径并入 Reference/Properties——本批核验新事实，与阶段 1 函数页 → Reference/Values 同族迁移；终点标题实测「background-size CSS property - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/background-size",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「background-size - CSS：层叠样式表 | MDN」、正文汉字 7296）",
+      "zhGuide":       {
+          "overview": "背景图的尺寸控制：cover（填满、少裁）、contain（完整、留边）与具体值/百分比形态的行为差异，页内交互演示直接看效果。",
+          "why": "官方 Assignment 第 1 条给出的三个属性文档之一（第 1 个链接）——页内演示把用法讲清楚。",
+          "points": [
+            "cover：缩放到完全覆盖容器，超出部分裁掉、裁剪最少",
+            "contain：缩放到完整显示，容器多余空间留白",
+            "两值也可组合双轴（如 auto 50%）与百分比形态"
+          ],
+          "terms": [
+            "background-size"
+          ],
+          "focus": "中文版按重定向后的现役 Reference/Properties 路径直达；页内演示逐值切换看行为。",
+          "takeaway": "背景图一族的核心属性——与 object-fit 共享 cover/contain 语义，作用对象是容器的背景图。"
+        },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-responsive-images",
+      "title": "MDN: background-position CSS property",
+      "titleZh": "MDN：background-position CSS 属性",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（官方一条含三个属性文档链接，此为第 2 个链接）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-position",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "301 → Web/CSS/Reference/Properties/background-position 现役路径（CSS 属性页旧路径并入 Reference/Properties——本批核验新事实，与阶段 1 函数页 → Reference/Values 同族迁移；终点标题实测「background-position CSS property - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/background-position",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「background-position - CSS：层叠样式表 | MDN」、正文汉字 7546）",
+      "zhGuide":       {
+          "overview": "背景图在容器内的摆放位置：center 居中、关键字/百分比/长度三种形态，以及图大于容器时 position 决定「露出哪一块」。",
+          "why": "官方 Assignment 第 1 条给出的三个属性文档之一（第 2 个链接）——页内演示把用法讲清楚。",
+          "points": [
+            "center：图永远居中——容器装不下整图时露出中间部分",
+            "百分比形态的对齐语义（0% 左对齐、100% 右对齐）",
+            "与 background-size: cover 搭配是英雄区大图的标准组合"
+          ],
+          "terms": [
+            "background-position"
+          ],
+          "focus": "中文版按重定向后的现役 Reference/Properties 路径直达；页内演示逐值切换看行为。",
+          "takeaway": "与 background-size 成对使用：一个管多大、一个管摆哪。"
+        },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-responsive-images",
+      "title": "MDN: object-fit CSS property",
+      "titleZh": "MDN：object-fit CSS 属性",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（官方一条含三个属性文档链接，此为第 3 个链接）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "301 → Web/CSS/Reference/Properties/object-fit 现役路径（CSS 属性页旧路径并入 Reference/Properties——本批核验新事实，与阶段 1 函数页 → Reference/Values 同族迁移；终点标题实测「object-fit CSS property - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/object-fit",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「object-fit - CSS：层叠样式表 | MDN」、正文汉字 6418）",
+      "zhGuide":       {
+          "overview": "img（及 video 等替换元素）在指定宽高下如何自处：默认 fill 拉伸变形、cover 填满裁边、contain 完整留边，另有 none 与 scale-down。",
+          "why": "官方 Assignment 第 1 条给出的三个属性文档之一（第 3 个链接）——页内演示把用法讲清楚。",
+          "points": [
+            "fill 是默认值——拉伸失真，多数「图变形了」事故的根源",
+            "cover/contain 与背景图一族语义相通",
+            "object-position 调整 cover 裁剪时保留哪部分"
+          ],
+          "terms": [
+            "object-fit"
+          ],
+          "focus": "中文版按重定向后的现役 Reference/Properties 路径直达；页内演示逐值切换看行为。",
+          "takeaway": "img 一族的核心属性——固定框裁图的标准工具，务必显式声明、别吃 fill 默认值。"
+        },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-responsive-images",
+      "title": "MDN: Responsive images (Using responsive images in HTML)",
+      "titleZh": "MDN：响应式图片（在 HTML 中使用响应式图片）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "301 → Web/HTML/Guides/Responsive_images 现役路径（Learn 区旧路径并入 Guides——批次 4 以来 Learn 区迁移同型又一例；终点标题实测「Using responsive images in HTML - HTML | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Guides/Responsive_images",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「响应式图片 - HTML（超文本标记语言）| MDN」、正文汉字 6532）",
+      "zhGuide":       {
+          "overview": "MDN 的响应式图片入门教程：同一图片的分辨率切换（srcset + sizes 的 w/x 描述符）与不同构图的艺术指导（<picture> + <source media>）两条路线，外加浏览器支持与现代图片格式（WebP/AVIF）的注意事项。",
+          "why": "官方 Assignment 第 2 条：在 HTML 里提供响应式图片的入门介绍——正文只提了 <picture>「最灵活」，机制细节在这里。",
+          "points": [
+            "srcset + sizes：同一张图按屏幕分辨率/视口宽度换清晰度",
+            "<picture> + <source media>：按媒体条件换「不同的图」——艺术指导路线",
+            "两条路线的分工：省流量/保清晰用 srcset，改构图用 picture"
+          ],
+          "terms": [
+            "srcset",
+            "sizes",
+            "art direction"
+          ],
+          "focus": "中文版按重定向后的现役 Guides 路径直达；先分清「换清晰度」与「换构图」两类需求再对号入座。",
+          "takeaway": "HTML 原生就有响应式图片机制——<picture> 不是黑魔法，是带回落的 source 条件列表。"
+        },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-responsive-images",
+      "title": "A Guide to the Responsive Images Syntax in HTML",
+      "titleZh": "HTML 响应式图片语法指南",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条",
+      "originalUrl": "https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/",
+      "sourceDomain": "css-tricks.com",
+      "originalUrlStatus": "200（默认 UA；标题实测「HTML Responsive Images Guide | CSS-Tricks」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide":       {
+          "overview": "CSS-Tricks 的响应式图片语法长文：srcset/sizes/picture 的完整语法细节、浏览器怎么选源、常见写法错误与调试思路——比 MDN 教程更贴实战的深入版。",
+          "why": "官方 Assignment 第 3 条：这篇好文更深入地讲响应式图片的实际落地写法。",
+          "points": [
+            "srcset 的 w 描述符与 sizes 的配对关系——浏览器据此算有效分辨率",
+            "picture 的 source 顺序即优先级，img 是最终回落",
+            "常见错误：sizes 缺省、描述符混用、候选图宽度不足"
+          ],
+          "terms": [
+            "srcset w descriptor",
+            "sizes attribute"
+          ],
+          "focus": "对照 MDN 教程读——MDN 建概念，这篇抠语法细节与选源逻辑。",
+          "takeaway": "响应式图片的语法坑集中在 srcset/sizes 的配对上——写之前把选择逻辑弄懂。"
+        },
+      "license": "文章版权归 CSS-Tricks（DigitalOcean）与作者所有；本站只做链接与原创导读，不翻译、不复制。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-media-queries",
+      "title": "MDN: Using media queries",
+      "titleZh": "MDN：使用媒体查询",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "301 → Web/CSS/Guides/Media_queries/Using 现役路径（媒体查询教程并入 CSS Guides 区——本批核验新事实；终点标题实测「Using media queries - CSS | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Media_queries/Using",
+      "zhType": "MDN 官方中文版（zh-CN 现役路径实测 200，标题「使用媒体查询 - CSS：层叠样式表 | MDN」、正文汉字 7951）",
+      "zhGuide":       {
+          "overview": "MDN 的媒体查询完整指南：@media 语法全貌、全部媒体类型与媒体特性（不止 width——orientation、prefers-color-scheme、pointer、resolution 等）、and/or/not 组合与范围语法，以及容器查询的引介。官方说「有几手不常用但值得知道的用法」，指的就是这份特性清单。",
+          "why": "官方 Assignment 唯一一条：把 MDN 的媒体查询指南过一遍，补全课内只讲了 width 一维的盲区。",
+          "points": [
+            "媒体特性远不止宽高：prefers-color-scheme（深色模式）、pointer（触摸精度）等都在用",
+            "范围语法 (600px <= width <= 1200px) 是现代写法，一个查询表达一档区间",
+            "媒体查询列表用逗号分隔、and/or/not 组合条件"
+          ],
+          "terms": [
+            "media feature",
+            "prefers-color-scheme",
+            "range syntax"
+          ],
+          "focus": "中文版按重定向后的现役 Guides 路径直达；重点扫一遍媒体特性清单，记住「不止 width」。",
+          "takeaway": "width 断点只是媒体查询的冰山一角——深色模式适配（本站 30 套主题的同款机制）也走 @media。"
+        },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；本站只链接官方中文版，不复制内容。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-advanced-html-and-css-homepage",
+      "title": "DEVICON: programming language & dev tool icons",
+      "titleZh": "DEVICON 编程语言与开发工具图标库",
+      "type": "素材库",
+      "requirement": "reference",
+      "zone": "官方 Assignment Step 2 第 3 条（GitHub / LinkedIn / X 图标链接的来源）",
+      "originalUrl": "https://devicon.dev/",
+      "sourceDomain": "devicon.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「DEVICON | All programming languages and development tools related icons font」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide":       {
+          "overview": "官方 Step 2 指定的图标来源之一：编程语言与开发工具相关图标的免费库——设计稿里 GitHub、LinkedIn、X（原 Twitter）的图标链接就从这里取。提供 SVG 与字体两种用法，图标可按名搜索。",
+          "why": "官方 Assignment Step 2 第 3 条给出的社交/工具图标来源（自己的站想加什么链接都行，图标从这里找）。",
+          "points": [
+            "按名搜索（github、linkedin、twitter/x），复制 SVG 或图标类名",
+            "与 Material Design Icons 分工：技术品牌图标用 devicon，通用 UI 图标（电话、邮件、外链）用 MDI",
+            "下载的是 SVG——正好用上 SVG 一课学的嵌入方式"
+          ],
+          "terms": [
+            "icon font",
+            "SVG icons"
+          ],
+          "focus": "先把设计稿里出现的品牌图标记下来，一次搜齐；无官方中文版（界面英文，搜索用英文名）。",
+          "takeaway": "品牌图标别手画——devicon 有现成的，风格统一且免费。"
+        },
+      "license": "DEVICON 图标按其站点许可（MIT 系）提供；本站只提供链接与本站原创导读，不搬运图标文件。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    /* ===== World 5 批次 6 阶段 1（2026-09-27，v4.11.30）：react 课程「引言」+「React 入门」
+     * 两章 8 课 +23 条（按课 0 / 4 / 7 / 0 / 5 / 2 / 3 / 2）。三级核验真跑（状态码 →
+     * 生效地址 → 内容级语言核验），视频走 oEmbed。
+     * **15 条核验出官方中文版按 A 类登记**：zh-hans.react.dev ×7（createElement 与
+     * Fragment 两个参考页 + writing-markup / javascript-in-jsx / passing-props /
+     * conditional-rendering / rendering-lists 五个 learn 页——批次 4 阶段 4 全站首例后
+     * 该子域第一次成批入库；**zh-hans 页锚点不本地化**——#logical-and-operator- 与
+     * #keeping-list-items-in-order-with-key 在中英文版均实测在位，与 MDN zh-CN 锚点
+     * 本地化的既有事实相反，中文链接可原样挂英文锚点）；cn.vite.dev ×2（Vite 官网与
+     * Getting Started 指南——**Vite 官方域名迁移新事实**：vitejs.dev 301 到 vite.dev，
+     * 中文站为独立子域 cn.vite.dev（官网语言切换器实测指向它；cn.vitejs.dev 仍可直连
+     * 且内容逐字节相同，登记取官网指向的现役域））；zh.wikipedia ×3（内容分发网络 /
+     * 工具链 / Web应用框架——中文条目名「Web应用框架」与英文 Web framework 不同形，
+     * 按重定向后现役条目路径登记）；MDN zh-CN ×2（String.prototype.startsWith 645 汉字 /
+     * Crypto.randomUUID 471 汉字）；zh.javascript.info ×1（柯里化 currying-partials）。
+     * C 类新增 8 条（RisingStack React 历史时间线 / freeCodeCamp 库与框架辨析——
+     * freeCodeCamp 有官方中文站但本文无官方译本、第三方 CSDN 译文按 B 类口径不采用 /
+     * GeeksforGeeks React 优势 / React Developer Tools 商店页——**chrome.google.com 301
+     * 到 chromewebstore.google.com 整站迁移既有事实第二批**；?hl=zh-cn 商店界面中文但
+     * 列项描述实测英文（meta description 英文、零翻译标记），与 ChromeVox 列项官方
+     * 中文化（A 类）同店不同判、逐列项核验 / DebugBear React DevTools 指南 /
+     * react.new——.new 快捷域 301 到 CodeSandbox 官方 React 模板沙箱，操作工具入口按
+     * jsbin 演示 bin 先例登记（与课内 CodeSandbox 内嵌演示笔的剔除口径相区分）/
+     * Codevolution index-as-key 反模式视频（oEmbed 核验））。
+     * 受限 28 → **29**（+1：iamtapan.medium.com JS 框架生命周期文命令行 403、真实浏览器
+     * Cloudflare 挑战自动通过后可达并取得标题与 h1——按批次 4 阶段 3 Medium 先例入
+     * verifyLimitedUrls 双通路如实登记）。
+     * **跨课合并 3 处不重复登记**：① react.dev 官网首页（introduction-to-react
+     * Assignment 第 1 条）——javascript 结语课既有条目（全站首例 zh-hans.react.dev
+     * 条目）归属首现课；② MDN export 语句文档 #description（react-components
+     * Assignment 子项）——javascript es6-modules 课既有条目同页合并；③ MDN 解构赋值
+     * （passing-data 正文术语链接）——javascript 工厂函数课既有条目同页。三课的任务
+     * 映射按「资源归属课」纪律不接对应条目。
+     * **同页合并 2 处**：conditional-rendering 正文警告块锚点（#logical-and-operator-）
+     * 与 Assignment 第 1 条整页同页归一条；rendering-lists 的 keys 小节锚点为下一课
+     * （keys-in-react）Assignment 第 1 条所引、与本课 Assignment 第 2 条整页同页——
+     * 条目归属首现课 rendering-techniques，keys 课映射不接。
+     * **零条目课 2 门**：how-this-course-will-work（官方无 Assignment 节、正文两链均
+     * TOP 自有课页——全站第五个零资料课）；react-components（唯一外链 MDN export 跨课
+     * 合并归属他课——**全站首个「跨课合并后零条目」课**，NO_RESOURCE_LESSONS 新子案例）。
+     * 剔除：Gatsby / NextJS / CRA / NPM / Yarn / Webpack / Parcel / Babel 八个信息性
+     * 工具示例裸首页（setting-up 正文工具链与配置清单——非要求研读资料，按「裸站点
+     * 首页」口径；其中 babeljs.io 与 webpack 文档另有 javascript 课程既有条目）；
+     * CRA 弃用公告 GitHub PR 引用链接（事实引证非学习资料）；statically CDN 课程
+     * 配图 3 张（setting-up 模板首页截图 / react-components 拆解示例图 / what-is-jsx
+     * console.log 值截图）；TOP 自有课页回链 3 处（JavaScript 课程页 / Todo List 课页 /
+     * 官网导航）；代码示例内的 google.com 与 theodinproject.com（示例值非链接）。 */
+    {
+      "lessonId": "node-path-react-new-introduction-to-react",
+      "title": "This is How Long The Life Cycle of A JavaScript Framework Lasts (Medium)",
+      "titleZh": "一个 JavaScript 框架的生命周期有多长（Medium 文章）",
+      "type": "文章",
+      "requirement": "reference",
+      "zone": "正文「Why cover React?」节（框架格局变化快的引证文章）",
+      "originalUrl": "https://iamtapan.medium.com/this-is-how-long-the-life-cycle-of-a-javascript-framework-lasts-d21b29320512",
+      "sourceDomain": "iamtapan.medium.com",
+      "originalUrlStatus": "403（Medium 反爬拦截非浏览器请求；真实浏览器核验：Cloudflare 挑战自动通过后可达，标题与 h1 实测「This is How Long The Life Cycle of A JavaScript Framework Lasts」（Tapan Patel），正文英文；按既有 Medium 先例双通路如实登记入 verifyLimitedUrls）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文引来做「前端框架格局变化快」论据的短文：作者 Tapan Patel 用时间线视角梳理 JavaScript 框架从诞生到退潮的生命周期，说明「担心选错框架」为什么是普遍焦虑、以及这种焦虑该怎么看待。命令行核验被 Medium 反爬拦截，真实浏览器可正常打开。无官方中文版。",
+        "why": "官方正文引用：佐证「前端框架格局近年变化很大，担心选错可以理解」这一安抚。",
+        "points": [
+          "框架更替是常态——生命周期比多数人想象的短",
+          "但「组件化 + 声明式 UI」的思想跨框架通用，深入学过一个后迁移成本低",
+          "对应课文的结论：与其焦虑选型，不如深入官方替你选好的这一个（React）"
+        ],
+        "terms": [
+          "framework life cycle（框架生命周期）"
+        ],
+        "focus": "扫一眼即可——它服务的是课文「为什么不必焦虑选型」的论点，不是必读技术文。",
+        "takeaway": "框架会老，思想不会——投资在通用思想上，选型焦虑自然消解。"
+      },
+      "license": "文章版权归原作者（Tapan Patel）与 Medium 平台；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "验证受限：命令行 403（Medium 反爬）；真实浏览器核验挑战自动通过后可达并取得标题与 h1（Tapan Patel）；已入 verifyLimitedUrls（按批次 4 阶段 3 Medium 先例）。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react",
+      "title": "The History of React.js on a Timeline (RisingStack)",
+      "titleZh": "React 历史时间线（RisingStack 博客）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://blog.risingstack.com/the-history-of-react-js-on-a-timeline/",
+      "sourceDomain": "blog.risingstack.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「The History of React.js on a Timeline - RisingStack Engineering」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "RisingStack 工程博客的 React 编年史：从 Facebook 内部诞生、2013 年开源发布，到各版本重要节点（ES6 类组件、create-react-app、Fiber 架构、Hooks 时代）的时间线梳理。官方要求「扫一眼」（glance）即可——建立历史脉络感，不是精读材料。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：扫一眼这篇概述 React 历史的文章。",
+        "points": [
+          "React 2013 年开源，由 Facebook（现 Meta）发起并持续维护",
+          "时间线上的大节点：类组件时代 → create-react-app 脚手架 → Fiber 重写 → Hooks（2019）",
+          "本课程教的是 Hooks 时代的函数组件写法；类组件在 World 5 第四章作为旧代码库知识单独讲"
+        ],
+        "terms": [
+          "React history（React 历史）",
+          "Hooks（钩子——2019 年起函数组件管理状态的方式）"
+        ],
+        "focus": "按官方要求扫一眼抓时间线主干即可，细节后面课程自然展开。",
+        "takeaway": "知道 React 从哪来、现在处在哪个时代——读老教程时能分辨「这是 Hooks 前还是 Hooks 后的写法」。"
+      },
+      "license": "文章版权归 RisingStack；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react",
+      "title": "The Difference Between a Framework and a Library (freeCodeCamp)",
+      "titleZh": "框架与库的区别（freeCodeCamp 文章）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条",
+      "originalUrl": "https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/",
+      "sourceDomain": "www.freecodecamp.org",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「The Difference Between a Framework and a Library」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "freeCodeCamp 的短文，回答本课埋下的概念题：库（library）与框架（framework）到底差在哪。核心判据是控制方向——库是你的代码调用它（你掌控流程），框架是它调用你的代码（控制反转，框架掌控流程）。这是四条作业里最需要认真读的一条。无官方中文版。",
+        "why": "官方 Assignment 第 3 条：弄清 JavaScript 库与框架的区别——课文只说「两者常被混用但不是一回事」，展开在这篇。",
+        "points": [
+          "库 = 一组可复用的功能代码，由你的代码按需调用（React、lodash 都是库）",
+          "框架 = 应用骨架 + 控制反转：框架决定架构、在需要处回调你的代码（Angular 是典型框架）",
+          "拿这条判据回头验证 React 的官方定位（library）：它不给你路由/状态管理/构建的骨架，只管 UI 这一层"
+        ],
+        "terms": [
+          "inversion of control（控制反转——区分库与框架的核心判据）"
+        ],
+        "focus": "抓住「谁调用谁」这一条判据，其余例子都是它的展开。",
+        "takeaway": "React 官方说自己是库不是营销话术——它真的只管 UI 层，其余靠生态选型。"
+      },
+      "license": "文章版权归 freeCodeCamp；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "freeCodeCamp 有官方中文站（chinese.freecodecamp.org），但经检索未找到本文的官方中文译本——第三方中文译文（CSDN 博客等）按 B 类口径（非原站官方维护不采用）不登记，按无可靠中文版登记 C 类。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react",
+      "title": "What are the advantages of React.js (GeeksforGeeks)",
+      "titleZh": "React 的主要优势（GeeksforGeeks 文章）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 4 条",
+      "originalUrl": "https://www.geeksforgeeks.org/reactjs/what-are-the-advantages-of-react-js/",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「What are the advantages of React.js ? - GeeksforGeeks」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "GeeksforGeeks 的 React 优势清单：虚拟 DOM 带来的性能、组件化复用、单向数据流的可预测、庞大的生态与社区、以及跨平台能力（React Native）等。官方要求「略读」（skim）——与课文的四条理由互为印证、补充细节。无官方中文版。",
+        "why": "官方 Assignment 第 4 条：略读这篇讲解使用 React 主要优势的文章。",
+        "points": [
+          "与课文四条理由对照读：组件可复用 / 支持好 / 不 opinionated / 学习曲线小",
+          "虚拟 DOM 与高效更新是它补充的重点——为 World 5 最后一课（keys）的 diff 机制埋伏笔",
+          "官方口径是略读，不必逐句啃"
+        ],
+        "terms": [
+          "virtual DOM（虚拟 DOM）"
+        ],
+        "focus": "略读抓清单主干，与课文四条理由互相印证即可。",
+        "takeaway": "优势清单是「为什么是 React」的完整答卷；虚拟 DOM 一条先混脸熟，keys 课正式展开。"
+      },
+      "license": "文章版权归 GeeksforGeeks；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "Content delivery network (Wikipedia)",
+      "titleZh": "内容分发网络（维基百科）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文「Many paths」节（CDN 术语链接）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Content_delivery_network",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Content delivery network - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C",
+      "zhType": "中文维基百科简体条目（实测 200、标题「內容分发网络 - 维基百科」、正文汉字 2181）",
+      "zhGuide": {
+        "overview": "维基百科对 CDN（内容分发网络）的条目：把资源缓存到地理分布的节点上、就近交付以加速访问。课文里它是「最轻量的 React 接入方式」的背景术语——挂一组从 CDN 提供 React 的 script 标签就能用，适合试验、不适合工程项目。",
+        "why": "官方正文术语链接：理解「CDN 挂 script 标签」这条最原始接入路径的背景概念。",
+        "points": [
+          "CDN 的本质：地理分布式缓存节点、就近交付",
+          "对 React 的意义：无需构建工具、一行 script 引入——但拿不到模块化与工程化能力",
+          "本课程走工具链路线（Vite），CDN 方式了解即可"
+        ],
+        "terms": [
+          "CDN（内容分发网络）"
+        ],
+        "focus": "读中文条目首段建立概念即可，不必深入网络工程细节。",
+        "takeaway": "知道 CDN 是什么、以及「script 标签挂 React」为什么只适合试验。"
+      },
+      "license": "维基百科条目按 CC BY-SA 4.0 许可提供；本站只做链接与本站原创导读（条目已有官方中文版，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "Toolchain (Wikipedia)",
+      "titleZh": "工具链（维基百科）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文「Many paths」节（toolchain 术语链接）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Toolchain",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Toolchain - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/%E5%B7%A5%E5%85%B7%E9%93%BE",
+      "zhType": "中文维基百科简体条目（实测 200、标题「工具链 - 维基百科」、正文汉字 747）",
+      "zhGuide": {
+        "overview": "维基百科对工具链（toolchain）的条目：把完成一项复杂工作所需的多个工具串成流水线的集合。前端语境下就是包管理、打包、编译、开发服务器等环节的组合——Vite 之于 React 项目就是一条现成的工具链。",
+        "why": "官方正文术语链接：理解「健壮的工具链」这个说法的背景概念。",
+        "points": [
+          "工具链 = 多工具按序协作的流水线，环环相扣",
+          "前端工具链的典型环节：包管理（NPM/Yarn）→ 编译（Babel）→ 打包（Webpack/Parcel/Vite）→ 开发服务器",
+          "自建工具链「能做但很难」（官方原话）——Vite 把这些环节打包成一条命令"
+        ],
+        "terms": [
+          "toolchain（工具链）"
+        ],
+        "focus": "中文条目很短，两分钟读完建立概念即可。",
+        "takeaway": "下次听到「工具链」，脑中浮现的是流水线，不是某个单一工具。"
+      },
+      "license": "维基百科条目按 CC BY-SA 4.0 许可提供；本站只做链接与本站原创导读（条目已有官方中文版，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "Web framework (Wikipedia)",
+      "titleZh": "Web 应用框架（维基百科）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文「Many paths」节（frameworks 术语链接）",
+      "originalUrl": "https://en.wikipedia.org/wiki/Web_framework",
+      "sourceDomain": "en.wikipedia.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Web framework - Wikipedia」）",
+      "zhUrl": "https://zh.wikipedia.org/zh-cn/Web%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6",
+      "zhType": "中文维基百科简体条目（中文条目名「Web应用框架」与英文 Web framework 不同形——「Web框架」地址实测由维基内部规范化到本条目；实测 200、正文汉字 1906）",
+      "zhGuide": {
+        "overview": "维基百科对 Web 应用框架的条目：为 Web 应用开发提供骨架与通用能力（路由、模板、会话管理等）的框架。课文里它与工具链并列，指 Gatsby、NextJS 这类在 React 之上再包一层完整应用骨架的产品——与「React 是库」形成层级对照。",
+        "why": "官方正文术语链接：理解「工具链与框架」并提时框架指什么。",
+        "points": [
+          "Web 框架提供应用骨架与约定——控制反转的典型（对应 Assignment 第 3 条的库/框架判据）",
+          "React 生态里的框架层：Gatsby、NextJS 在 React 之上加路由/构建/渲染策略",
+          "本课程直接用 React + Vite 工具链，不引入框架层——先学库本身"
+        ],
+        "terms": [
+          "Web framework（Web 应用框架）"
+        ],
+        "focus": "读首段与特性清单即可；与 freeCodeCamp 那篇库/框架辨析文对照着看效果最好。",
+        "takeaway": "工具链解决「怎么把代码跑起来」，框架解决「应用怎么组织」——React 只负责 UI 这一层。"
+      },
+      "license": "维基百科条目按 CC BY-SA 4.0 许可提供；本站只做链接与本站原创导读（条目已有官方中文版，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "Vite (official site)",
+      "titleZh": "Vite 官网",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「Many paths」工具链例（Vite's React Config）与「Simplifying the process」节（本课程脚手架工具官网）",
+      "originalUrl": "https://vitejs.dev/",
+      "sourceDomain": "vitejs.dev",
+      "originalUrlStatus": "301 → https://vite.dev/（Vite 官方域名迁移——本批核验新事实；终点 200，标题实测「Vite | Next Generation Frontend Tooling」）",
+      "originalUrlEffective": "https://vite.dev/",
+      "zhUrl": "https://cn.vite.dev/",
+      "zhType": "Vite 官方中文文档站（独立子域 cn.vite.dev——官网语言切换器实测指向它；cn.vitejs.dev 亦可直连且内容逐字节相同，登记取官网指向的现役域。实测 200、标题「Vite | 下一代的前端工具链」、首页正文汉字 511）",
+      "zhGuide": {
+        "overview": "Vite（法语「快」）官网：下一代前端工具链，即开即用的开发服务器 + 优化的构建。本课起它是整个 React 课程的脚手架与开发服务器——npm create vite@latest 一条命令建项目、npm run dev 起服务。官网有官方中文站（cn.vite.dev），特性介绍与指南全中文。",
+        "why": "官方正文点名的本课程工具链：Vite 的 React 配置是全部课程项目的底座。",
+        "points": [
+          "开发服务器秒起（原生 ES 模块，无需打包等待）、热更新极快",
+          "React 模板一条命令：npm create vite@latest <名字> -- --template react",
+          "官方中文站 cn.vite.dev 与英文站内容同步——读中文版即可"
+        ],
+        "terms": [
+          "Vite（下一代前端工具链）",
+          "dev server（开发服务器）"
+        ],
+        "focus": "首页扫一遍特性即可；系统阅读从 Assignment 第 1 条的 Getting Started 指南开始。",
+        "takeaway": "Vite 是这门课的「发动机舱」——项目创建、开发服务器、构建全是它。"
+      },
+      "license": "Vite 为 MIT 许可开源项目；官网与文档版权属 Vite 团队；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "域名迁移事实：vitejs.dev 全站 301 到 vite.dev（英文）；中文站 cn.vitejs.dev 与 cn.vite.dev 实测内容逐字节相同（md5 一致），官网（vite.dev）语言切换器指向 cn.vite.dev——zhUrl 按官网指向登记现役域。"
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "Vite: Getting Started (official guide)",
+      "titleZh": "Vite 官方指南：开始",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://vitejs.dev/guide/",
+      "sourceDomain": "vitejs.dev",
+      "originalUrlStatus": "301 → https://vite.dev/guide/（域名迁移同上；终点 200，标题实测「Getting Started | Vite」）",
+      "originalUrlEffective": "https://vite.dev/guide/",
+      "zhUrl": "https://cn.vite.dev/guide/",
+      "zhType": "Vite 官方中文文档（实测 200、标题「开始 | Vite 官方中文文档」、正文汉字 1887）",
+      "zhGuide": {
+        "overview": "Vite 官方入门指南：为什么选 Vite（浏览器原生 ESM、no-bundle 开发服务器）、用官方模板建项目（各框架的 create 命令，含 React）、index.html 作为入口的约定、npm scripts（dev/build/preview）。官方 Assignment 要求通读它来复习本课材料——有官方中文版，读中文即可。",
+        "why": "官方 Assignment 第 1 条：通过阅读 Vite 的 Getting Started 页面复习这些材料。",
+        "points": [
+          "「Scaffolding Your First Vite Project」节就是本课命令的官方完整版",
+          "index.html 是应用入口（不是配置项）——理解 main.jsx 被谁加载的关键",
+          "npm scripts：dev（开发服务器）/ build(生产构建) / preview（预览构建产物）",
+          "中文版与英文版内容同步，读 cn.vite.dev/guide/ 即可"
+        ],
+        "terms": [
+          "scaffolding（脚手架）",
+          "no-bundle dev server（免打包开发服务器）"
+        ],
+        "focus": "重点读 scaffolding 与 index.html 入口两节；浏览器兼容性等章节现阶段可跳过。",
+        "takeaway": "本课一条命令背后的官方全貌——知道每个环节叫什么、去哪查。"
+      },
+      "license": "Vite 文档为 MIT 许可；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "React Developer Tools (Chrome Web Store)",
+      "titleZh": "React Developer Tools（Chrome 商店扩展页）",
+      "type": "工具扩展",
+      "requirement": "reference",
+      "zone": "正文「Developer tools」节（官方建议尽早安装用熟）",
+      "originalUrl": "https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en",
+      "sourceDomain": "chrome.google.com",
+      "originalUrlStatus": "301 → chromewebstore.google.com 同路径（Chrome 商店整站迁移既有事实第二批——批次 5 阶段 2 axe DevTools 同型；终点 200，标题实测「React Developer Tools - Chrome Web Store」）",
+      "originalUrlEffective": "https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React 官方调试扩展的 Chrome 商店页：安装后浏览器 DevTools 会多出 Components 与 Profiler 两个 React 面板，可查看组件树、每个组件的 props 与状态并实时改值。官方建议尽早安装、尽早用熟——从本课到课程结束它都是标配调试工具。",
+        "why": "官方正文点名推荐安装：项目变大后追踪与实时修改组件内部状态的关键工具。",
+        "points": [
+          "安装后在 DevTools 找 Components / Profiler 两个新面板",
+          "打开任何 React 页面（比如你自己的 my-first-react-app）扩展图标会亮起",
+          "配合 Assignment 第 2 条的 DebugBear 指南入门"
+        ],
+        "terms": [
+          "React Developer Tools（React 开发者工具）"
+        ],
+        "focus": "现在就装上——后面每一课的调试都会用到它。",
+        "takeaway": "React 开发的标配调试器：组件树、props、状态一屏看清。"
+      },
+      "license": "扩展由 Meta（React 团队）发布；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "语言层级实测：?hl=zh-cn 时商店界面（导航/按钮）为中文，但**列项描述本身为英文**（meta description 实测「Adds React debugging tools to the Chrome Developer Tools.」、页面零翻译标记）——与 ChromeVox 商店页（Google 自家列项官方中文化、?hl=zh-Hans 列项即中文、A 类）同店不同判：商店列项逐列项核验、不按商店界面语言归档。本条按无可靠中文版登记 C 类。"
+    },
+    {
+      "lessonId": "node-path-react-new-setting-up-a-react-environment",
+      "title": "Getting Started with React DevTools in Chrome (DebugBear)",
+      "titleZh": "Chrome 里的 React DevTools 入门（DebugBear 指南）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://www.debugbear.com/blog/react-devtools",
+      "sourceDomain": "www.debugbear.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Getting Started with React DevTools in Chrome | DebugBear」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "DebugBear 的 React DevTools 入门指南：怎么安装扩展、Components 面板怎么看组件树与 props/状态、Profiler 面板怎么录制渲染性能。官方特意宽心：有些细节现在看不懂没关系——先建立面板在哪、能看什么的整体印象。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：看这篇指南开始学习怎么用 React Developer Tools（细节看不懂没关系）。",
+        "points": [
+          "安装 → 打开 React 页面 → DevTools 出现 Components / Profiler 面板",
+          "Components 面板：组件树、选中组件看 props 与状态、可实时改值",
+          "官方口径：现阶段混脸熟即可，不要求全部看懂"
+        ],
+        "terms": [
+          "Components panel（组件面板）",
+          "Profiler panel（性能分析面板）"
+        ],
+        "focus": "跟着截图把两个面板各点开一遍，在自己的 my-first-react-app 上找到 App 组件。",
+        "takeaway": "调试 React 的第一站：先在面板里「看见」组件树，再谈改代码。"
+      },
+      "license": "文章版权归 DebugBear；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-what-is-jsx",
+      "title": "createElement (React reference)",
+      "titleZh": "createElement（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「What is JSX?」节（JSX 是它的语法糖——官方点名）",
+      "originalUrl": "https://react.dev/reference/react/createElement",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「createElement – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/createElement",
+      "zhType": "React 官方中文文档（zh-hans.react.dev 独立子域——批次 4 阶段 4 全站首例形态；实测 200、标题「createElement – React 中文文档」、正文汉字 1134）",
+      "zhGuide": {
+        "overview": "React 官方参考文档：createElement 创建 React 元素（一个描述 UI 的普通对象）——JSX 编译后的底层形态就是它的调用。参考页给出完整参数表（type、props、children）与「JSX 等价于 createElement」的对照示例。课文只要求理解「JSX 是 createElement 的语法糖」这层关系，参考页可当字典备查。",
+        "why": "官方正文点名：JSX 本质是 createElement 函数的语法糖——这页是这句话的权威出处。",
+        "points": [
+          "createElement(type, props, ...children) 返回普通对象（React 元素）",
+          "JSX 的 <div className=\"x\">hi</div> 编译后就是 createElement('div', { className: 'x' }, 'hi')",
+          "参考页是字典形态——现阶段读懂「对照示例」一节即可"
+        ],
+        "terms": [
+          "React element（React 元素——描述 UI 的普通对象）"
+        ],
+        "focus": "看官方中文版页首的对照示例：JSX 与 createElement 调用一一对应。",
+        "takeaway": "「JSX 是语法糖、编译后是普通对象」——这句话的证据就在这页。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-what-is-jsx",
+      "title": "<Fragment> (React reference)",
+      "titleZh": "Fragment（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Rules of JSX」规则一（不想加容器时的 <>...</> 官方参考）",
+      "originalUrl": "https://react.dev/reference/react/Fragment",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「<Fragment> (<>...</>) – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/Fragment",
+      "zhType": "React 官方中文文档（zh-hans.react.dev；实测 200、标题「<Fragment> (<>...</>) – React 中文文档」、正文汉字 757）",
+      "zhGuide": {
+        "overview": "React Fragment 的官方参考页：<>...</>（或 <Fragment>）让你把多个元素组合成一组而不往 DOM 里添加额外节点——满足 JSX「单根元素」规则又不产生多余容器。页面含用法示例与「keyed Fragment」（列表里给 Fragment 加 key）的说明。",
+        "why": "官方正文规则一处点名：不想让元素们有个容器时，用 React Fragment。",
+        "points": [
+          "<>...</> 是 <Fragment> 的简写；渲染结果不含任何额外 DOM 节点",
+          "解决「返回单个根元素」规则与「不想加多余 div」的矛盾",
+          "keyed Fragment（<Fragment key=...>）在列表渲染时用——keys 课会再遇到"
+        ],
+        "terms": [
+          "Fragment（片段）"
+        ],
+        "focus": "读参考页首节的两个对照示例（有 Fragment / 无 Fragment 的 DOM 差异）。",
+        "takeaway": "单根规则的标准解法：<>...</> 包起来，DOM 干干净净。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-what-is-jsx",
+      "title": "react.new (quick React sandbox)",
+      "titleZh": "react.new（浏览器秒开 React 沙箱）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「Converting HTML to JSX」节（官方点名：不想开本地环境就用它跟做示例）",
+      "originalUrl": "https://react.new/",
+      "sourceDomain": "react.new",
+      "originalUrlStatus": "301 → codesandbox.io/p/sandbox/react-new?utm_source=dotnew（.new 快捷域跳转到 CodeSandbox 的官方 React 模板沙箱；终点 200）",
+      "originalUrlEffective": "https://codesandbox.io/p/sandbox/react-new",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "官方正文点名的快捷入口：浏览器地址栏敲 react.new，直接在 CodeSandbox 里秒开一个可运行的 React 模板沙箱——跟做课文的 HTML→JSX 转换示例时，不想启动本地项目就用它。无官方中文版（CodeSandbox 界面英文，操作直觉性强）。",
+        "why": "官方正文指名：在本地环境跟做转换示例，或者用 react.new 在浏览器里快速搭起 React 环境。",
+        "points": [
+          "零安装：浏览器打开即用，改代码实时看渲染",
+          "本质是 CodeSandbox 的官方 React 模板（.new 快捷域）",
+          "与官方课文内嵌的 CodeSandbox 演示同源——内嵌演示笔按既有口径不收录，本条是官方点名的操作入口"
+        ],
+        "terms": [
+          "sandbox（沙箱——隔离的在线运行环境）"
+        ],
+        "focus": "跟做转换示例时开一个，把「问题 HTML」贴进去逐个修错。",
+        "takeaway": "试 JSX 想法的最短路径：地址栏敲 react.new 回车。"
+      },
+      "license": "CodeSandbox 平台服务；React 模板由 CodeSandbox 维护；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "登记口径说明：课内 CodeSandbox 内嵌演示笔按既有口径剔除（引言课明示课程用 CodeSandbox 交互示例）；本条不同——它是官方正文点名的**操作工具入口**（学习者自己动手用的环境），按 jsbin 演示 bin 先例（工具类、命令行与浏览器双通路核验）登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-what-is-jsx",
+      "title": "Writing Markup with JSX (React docs)",
+      "titleZh": "使用 JSX 书写标签语言（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://react.dev/learn/writing-markup-with-jsx",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Writing Markup with JSX – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/writing-markup-with-jsx",
+      "zhType": "React 官方中文文档（zh-hans.react.dev；实测 200、标题「使用 JSX 书写标签语言 – React 中文文档」、正文汉字 2047）",
+      "zhGuide": {
+        "overview": "React 官方文档的 JSX 入门页：JSX 是什么、为什么需要它、JSX 的语法规则（单根、闭合、camelCase 等）与转换练习。与本课内容高度重合——官方定位就是「复习本课覆盖的内容」。页末有检验理解的小任务（官方约定：不逐次点名但都要做）。有官方中文版。",
+        "why": "官方 Assignment 第 1 条：通读该页复习本课内容。",
+        "points": [
+          "规则清单与本课一致：单根元素 / 闭合所有标签 / camelCase 大多数东西",
+          "官方文档版示例更丰富（含 HTML 实体字符等边角）",
+          "页末小任务照官方约定做掉——中文版的沙箱同样可交互"
+        ],
+        "terms": [
+          "markup（标记语言写法）"
+        ],
+        "focus": "对照本课三条规则读，把文档里多出的边角案例（实体字符等）补进笔记。",
+        "takeaway": "同一套规则的官方完整版——读中文版，做小任务。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-what-is-jsx",
+      "title": "JavaScript in JSX with Curly Braces (React docs)",
+      "titleZh": "在 JSX 中通过大括号使用 JavaScript（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://react.dev/learn/javascript-in-jsx-with-curly-braces",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「JavaScript in JSX with Curly Braces – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/javascript-in-jsx-with-curly-braces",
+      "zhType": "React 官方中文文档（zh-hans.react.dev；实测 200、标题「在 JSX 中通过大括号使用 JavaScript – React 中文文档」、正文汉字 1462）",
+      "zhGuide": {
+        "overview": "React 官方文档：JSX 里的大括号是「回到 JavaScript」的开关——传字符串以外的值（数字、对象、数组、函数调用、表达式）都靠它；属性值同理（style={{...}} 的双大括号拆解）。这是下一课（渲染技巧）map 表达式渲染列表的直接前置。有官方中文版，页末小任务照官方约定做掉。",
+        "why": "官方 Assignment 第 2 条：开始学习在标记里书写 JavaScript 逻辑、引用动态值。",
+        "points": [
+          "大括号 = 「从这里开始是 JS 表达式」：{2 + 2}、{user.name}、{items.map(...)}",
+          "属性位置同理：className={cls}；对象字面量要双大括号 style={{ color: 'red' }}",
+          "下一课渲染列表的 {animals.map(...)} 全靠这页打底"
+        ],
+        "terms": [
+          "curly braces（大括号——JSX 里的 JS 表达式开关）"
+        ],
+        "focus": "重点做页末小任务——动手插值一次胜过读十遍。",
+        "takeaway": "JSX 不是模板语言：大括号里就是原生 JS，什么表达式都能放。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-passing-data-between-components",
+      "title": "Currying (javascript.info)",
+      "titleZh": "柯里化（javascript.info 教程）",
+      "type": "教程文章",
+      "requirement": "optional",
+      "zone": "正文 lesson-note 提示块（Hint: curried functions——带参回调的另一种实现，官方定位选做拓展）",
+      "originalUrl": "https://javascript.info/currying-partials",
+      "sourceDomain": "javascript.info",
+      "originalUrlStatus": "200（默认 UA；标题实测「Currying」）",
+      "zhUrl": "https://zh.javascript.info/currying-partials",
+      "zhType": "javascript.info 官方中文翻译站（实测 200、标题「柯里化（Currying）」、正文汉字 1424）",
+      "zhGuide": {
+        "overview": "javascript.info 的柯里化专章：把接收多个参数的函数变换成逐个接收参数的函数链（f(a)(b)），以及它与偏函数（partials）的应用。官方在课文提示块里点名它：实现「给事件回调带参数」还有柯里化这条路线——对照本课的匿名函数包装法（() => fn(arg)）读，两种姿势殊途同归。有官方中文版。",
+        "why": "官方正文 Hint：实现函数 props 带参调用行为的另一种方式——柯里化函数（选做拓展）。",
+        "points": [
+          "柯里化：f(a, b) 变换成 f(a)(b)——先收一部分参数、返回等着收剩下参数的新函数",
+          "对照本课写法：handleClick={() => fn(url)} 是现场包一层；柯里化是预先把 fn 加工成 fn(url) 形态",
+          "官方定位是 Hint（选做）——不影响主线，行有余力再读"
+        ],
+        "terms": [
+          "currying（柯里化）",
+          "partial function（偏函数）"
+        ],
+        "focus": "读中文版前两节即可；lodash 的 _.curry 用法节可跳过。",
+        "takeaway": "带参回调不止匿名函数包装一种写法——柯里化是函数式风格的答案。"
+      },
+      "license": "javascript.info 内容按 CC BY-NC-SA 4.0 许可提供；官方中文站已有全文翻译，本站只做链接与本站原创导读，无需精译。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-passing-data-between-components",
+      "title": "Passing Props to a Component (React docs)",
+      "titleZh": "将 Props 传递给组件（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://react.dev/learn/passing-props-to-a-component",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Passing Props to a Component – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/passing-props-to-a-component",
+      "zhType": "React 官方中文文档（zh-hans.react.dev；实测 200、标题「将 Props 传递给组件 – React 中文文档」、正文汉字 2003）",
+      "zhGuide": {
+        "overview": "React 官方文档的 props 专页：怎么传、怎么解构、怎么给默认值、props 的只读性（纯函数视角）、以及 children prop（标签内嵌套内容的特殊 prop）。官方要求「动手改代码示例、试验不同的 prop 值」——中文版页内沙箱同样可交互。比课文多出的重点是「props 是只读的」与 children。",
+        "why": "官方 Assignment 第 1 条：通读并动手改示例、试验不同 prop 值。",
+        "points": [
+          "传参与解构的官方完整版（与课文一致）+ 默认值写法对照",
+          "props 只读：组件不得修改自己收到的 props（纯函数视角）——比课文更明确的纪律",
+          "children prop：<Card><p>hi</p></Card> 的嵌套内容经特殊 prop children 传入",
+          "页末小任务照官方约定做掉"
+        ],
+        "terms": [
+          "children（子内容 prop）",
+          "pure component（纯组件——同样输入永远同样输出）"
+        ],
+        "focus": "按官方要求在页内沙箱改 prop 值看渲染变化——「只读」与 children 两节精读。",
+        "takeaway": "课文教你传，这页教你守规矩：props 只读、改数据走函数回调。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-rendering-techniques",
+      "title": "String.prototype.startsWith() (MDN)",
+      "titleZh": "MDN：String.prototype.startsWith()",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Using the ternary operator」节（术语链接）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「String.prototype.startsWith() - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith",
+      "zhType": "MDN 官方中文版（zh-CN 实测 200、正文汉字 645）",
+      "zhGuide": {
+        "overview": "MDN 对 startsWith 的参考页：判断字符串是否以指定子串开头，返回 true/false；可选第二参数指定起始位置。课文用它做条件渲染的判定（只渲染 L 开头的动物）——返回布尔值的方法与三元/&& 是天然搭档。",
+        "why": "官方正文术语链接：条件渲染示例的判定方法。",
+        "points": [
+          "startsWith(searchString, position?) → 布尔值",
+          "与 endsWith / includes 构成字符串判定三件套",
+          "布尔返回值直接喂给三元或 && ——条件渲染的最短路径"
+        ],
+        "terms": [
+          "startsWith（以……开头判定）"
+        ],
+        "focus": "扫一遍语法与示例即可；重点是「返回布尔」这个与条件渲染的接口关系。",
+        "takeaway": "条件渲染的判定源通常是这类返回布尔的方法——认得它们就认得了一半条件渲染。"
+      },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；官方中文版在位，本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-rendering-techniques",
+      "title": "Conditional Rendering (React docs)",
+      "titleZh": "条件渲染（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（正文「Numbers with Logical AND」警告块链接同一页面的 #logical-and-operator- 锚点——同页合并归一条）",
+      "originalUrl": "https://react.dev/learn/conditional-rendering",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Conditional Rendering – React」；#logical-and-operator- 锚点英文版实测在位）",
+      "zhUrl": "https://zh-hans.react.dev/learn/conditional-rendering",
+      "zhType": "React 官方中文文档（zh-hans.react.dev；实测 200、标题「条件渲染 – React 中文文档」、正文汉字 2315；#logical-and-operator- 锚点中文版实测同在位——React 文档 zh-hans 页锚点不本地化，与 MDN zh-CN 锚点本地化的既有事实相反，中文链接可原样挂英文锚点）",
+      "zhGuide": {
+        "overview": "React 官方文档的条件渲染专页（官方评价「极好的指南」）：if/else、三元、&&、提前 return、以及各写法的取舍与坑。&& 小节的 Pitfall 框就是课文警告块的出处——数字（尤其 0）在 && 左侧会被渲染出来。官方要求通读并把全部示例做一遍；中文版页内沙箱可交互。",
+        "why": "官方 Assignment 第 1 条：通读并做完全部示例；正文警告块（&& 左侧别放数字）也指向本页 Pitfall 框。",
+        "points": [
+          "工具全集：if / 三元 / && / 提前 return（守卫）——课文三套工具的官方完整版",
+          "Pitfall 框：{count && <p>{count}</p>} 在 count 为 0 时渲染「0」——修法与课文自测题一致",
+          "「条件渲染 null」的语义：返回 null = 该组件位置什么都不渲染",
+          "页末小任务照官方约定做掉"
+        ],
+        "terms": [
+          "conditional rendering（条件渲染）",
+          "Pitfall（&& 数字坑）"
+        ],
+        "focus": "精读 && 小节（含 Pitfall 框）与三元小节；示例逐个在沙箱里跑。",
+        "takeaway": "条件渲染的官方权威页——三套工具的取舍与坑一次补齐。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-rendering-techniques",
+      "title": "Rendering Lists (React docs)",
+      "titleZh": "渲染列表（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（官方明示最后 keys 部分不用操心——下一课专讲；下一课 Assignment 第 1 条引用同页 #keeping-list-items-in-order-with-key 锚点，同页跨课引用、条目归属本课）",
+      "originalUrl": "https://react.dev/learn/rendering-lists",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Rendering Lists – React」；#keeping-list-items-in-order-with-key 锚点英文版实测在位）",
+      "zhUrl": "https://zh-hans.react.dev/learn/rendering-lists",
+      "zhType": "React 官方中文文档（zh-hans.react.dev；实测 200、标题「渲染列表 – React 中文文档」、正文汉字 2920；#keeping-list-items-in-order-with-key 锚点中文版实测同在位——zh-hans 页锚点不本地化）",
+      "zhGuide": {
+        "overview": "React 官方文档的列表渲染专页：map 渲染列表、filter 过滤、抽取 ListItem 组件、map 的两种写法（语句体/表达式体）、列表的嵌套与 Fragment，最后是 keys 专节。官方明示：本课阶段读到 keys 前即可（keys 下一课专讲）；中文版页内沙箱可交互，页末小任务照官方约定做掉。",
+        "why": "官方 Assignment 第 2 条：深入探索列表渲染能力（keys 部分下一课再学）。",
+        "points": [
+          "map / filter 组合出「渲染哪些 + 怎么渲染」的完整表达",
+          "抽取 ListItem 组件的官方完整版（课文已带做一遍）",
+          "keys 一节先跳过——下一课（React 中的 key）以它为 Assignment 精读材料"
+        ],
+        "terms": [
+          "list rendering（列表渲染）"
+        ],
+        "focus": "本课阶段精读到「从数组中提取组件」为止；示例在沙箱动手跑。",
+        "takeaway": "列表渲染的官方权威页——与课文互为表里，keys 一节留给下一课。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-keys-in-react",
+      "title": "Crypto: randomUUID() method (MDN)",
+      "titleZh": "MDN：Crypto.randomUUID() 方法",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Using keys」节（术语链接：自定义数据发唯一 id 的推荐工具）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Crypto: randomUUID() method - Web APIs | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/API/Crypto/randomUUID",
+      "zhType": "MDN 官方中文版（zh-CN 实测 200、标题「Crypto.randomUUID() - Web API | MDN」、正文汉字 471）",
+      "zhGuide": {
+        "overview": "MDN 对 crypto.randomUUID() 的参考页：浏览器内置 API，返回一个随机生成的 RFC 4122 版本 4 UUID 字符串——无需任何库。课文推荐用它给自定义数据发唯一 id（在构造数据时发、不是渲染时发——后者是官方点名的反模式）。",
+        "why": "官方正文术语链接：自己定义数据时给每项发唯一 id 的推荐工具。",
+        "points": [
+          "crypto.randomUUID() 是浏览器原生 API，直接调用、零依赖",
+          "生成时机决定对错：构造数据时发 id ✓；写进渲染 JSX 现场生成 ✗（每次渲染都是新值，key 配对失效）",
+          "数据库来源的数据直接用记录 id，不需要它"
+        ],
+        "terms": [
+          "UUID（通用唯一识别码）"
+        ],
+        "focus": "看语法与返回值示例即可；重点在课文强调的「生成时机」。",
+        "takeaway": "发唯一 id 用原生 API 就够——但记住在造数据时发，不在渲染时发。"
+      },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；官方中文版在位，本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-keys-in-react",
+      "title": "ReactJS Tutorial - 19 - Index as Key Anti-pattern (Codevolution, YouTube)",
+      "titleZh": "index 当 key 是反模式（Codevolution 视频）",
+      "type": "视频",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://youtu.be/xlPxnc5uUPQ",
+      "sourceDomain": "youtu.be",
+      "originalUrlStatus": "200（YouTube oEmbed 核验：标题实测「ReactJS Tutorial - 19 - Index as Key Anti-pattern」、作者 Codevolution）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Codevolution 的短视频（oEmbed 实测标题「ReactJS Tutorial - 19 - Index as Key Anti-pattern」）：用一个可交互的输入框列表演示「index 当 key」的翻车现场——删除/插入/重排列表项后，React 按 index 配对导致输入框内容与数据错位。正是课文「不推荐 index 当 key」那段警告的可视化证明。",
+        "why": "官方 Assignment 第 2 条：看这支演示 index-as-key 反模式的短视频。",
+        "points": [
+          "演示形态：三行可输入项 + 头部插入按钮——按 index 配对的错位肉眼可见",
+          "对照本站正文字节：删掉第 2 项后，原第 3 项顶替 index 1，React 以为「那一项内容变了」",
+          "修复：key 换成数据自带的稳定唯一 id"
+        ],
+        "terms": [
+          "index as key anti-pattern（index 当 key 的反模式）"
+        ],
+        "focus": "盯住输入框文字在插入/删除瞬间的错位——那就是 key 配对错位的现场。",
+        "takeaway": "看过一次错位现场，就再也不会随手写 key={index}。"
+      },
+      "license": "视频版权归 Codevolution 与 YouTube 平台；本站只提供链接与本站原创导读，不声称有中文字幕。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+  /* ===== World 5 批次 6 阶段 2（2026-09-28，v4.11.31）：react 课程「状态与副作用」5 课 +
+     * 「类组件」2 课 +28 条（按课 5 / 4 / 11 / 3 / 2 / 1 / 2）。三级核验真跑（状态码 →
+     * 生效地址 → 内容级语言核验）。**12 条核验出官方中文版按 A 类登记**：zh-hans.react.dev ×9
+     * （state-a-components-memory / render-and-commit / state-as-a-snapshot /
+     * choosing-the-state-structure / sharing-state-between-components / StrictMode 参考页 /
+     * lifecycle-of-reactive-effects / you-might-not-need-an-effect / Component 参考页——
+     * 阶段 1「锚点不本地化」事实沿用，#strictmode 锚点中英文版均实测在位）+ MDN zh-CN ×2
+     * （Object.is 789 汉字 / super 2105 汉字）+ cn.vite.dev ×1（静态部署指南 2357 汉字——
+     * 阶段 1 登记的现役中文域首批指南页入库）。C 类新增 16 条：Academind state 预读
+     * （tutorials→articles 路径迁移）/ react-examples 仓库（TOP 自有**练习**仓库，按
+     * css-exercises 练习目录先例登记——与 curriculum 仓「课程本体剔除」口径相区分）/
+     * GFG 调和算法（路径 301 迁移）/ Netlify 三链（主站/文档/导入入口）/ Vercel 三链
+     * （主站宣传语已更新为 Agentic Infrastructure 如实登记/文档/导入入口）/ Cloudflare Pages
+     * 三链（产品页 301 到 www.cloudflare.com/products/pages/ 现役路径 / Pages 文档 /
+     * Vite 部署指南——**CF 开发者文档中文覆盖按产品分区新事实：/zh-cn/ 分区存在但 Pages
+     * 子区实测 404，与已翻译子区并存，内容级核验后 C 类**）/ dmitripavlutin 无限循环文 /
+     * heldersrvio 学生成品演示 / PokéAPI / wojtekmaj 生命周期交互图。**本批无新增受限条目
+     * （29 维持）**——全部候选命令行或浏览器 UA 可达。**跨课合并 3 处不重复登记**：
+     * ① react-examples 仓库根（class-based-components 正文与 introduction-to-state 同址，
+     * 归属首现课）；② Giphy（memory-card Assignment 与 javascript 异步 API 课既有条目同址）；
+     * ③ StrictMode #strictmode 锚点（how-to-deal-with-side-effects 正文与 cv-application
+     * 条目整页同页——同页合并）。**同页合并 1 处**：即 ③。剔除：statically 配图 2 张
+     * （introduction_to_state 的 rerender 图解 / more_on_state 的 console 输出截图）、
+     * TOP Discord 邀请链接（与第 4 课既有条目同址跨课合并）。清单 563 → **591 条**
+     * （A 类旧值 202 已增到 214、C 类旧值 361 已增到 377；required 358 → 376、
+     * reference 192 → 201、optional 13 → 14——MDN super 按官方 Hint 语气登记 optional，
+     * 与柯里化条目同口径），stats 与 audit.perLesson（7 课新键）同步；任务映射 262 →
+     * **272** 条、332 → **348** 链接（本批 +10 条 +16 链接，class-based-components 为
+     * 显式空映射——Assignment 三条全部本地动手，finishing-up 先例同型）。 */
+    {
+      "lessonId": "node-path-react-new-introduction-to-state",
+      "title": "What is State in Programming? (Academind)",
+      "titleZh": "编程中的 State 是什么（Academind 教程）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "正文引言（官方指定的课前预读：Read ... before we get started）",
+      "originalUrl": "https://academind.com/tutorials/what-is-state",
+      "sourceDomain": "academind.com",
+      "originalUrlStatus": "200（默认 UA；官方给的 tutorials 路径 301 到 /articles/what-is-state 现役路径，标题实测「What is State in Programming? | Academind」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Academind 的通用编程概念教程：从「应用为什么需要记住东西」讲起，把 state 定义为随时间变化的应用数据，并区分它与静态数据、UI 渲染的关系。官方把它放在正文最前面作课前预读——先建立通用的 state 直觉，再进 React 的 useState 具体实现。无官方中文版。",
+        "why": "官方正文开篇指定：开始本课之前先读这篇（Read What is State? by Academind before we get started）。",
+        "points": [
+          "state = 应用需要「记住」并会随时间变化的数据——通用编程概念，不是 React 专属",
+          "界面是状态的映射：状态变、界面随之变——这正是 React 声明式渲染的前提直觉",
+          "带着这篇的通用定义再读本站正文的「State is a component's memory」，两句话会互相印证"
+        ],
+        "terms": [
+          "state（状态）"
+        ],
+        "focus": "读概念部分即可；文章里的框架示例不必深究——React 的具体实现看本课正文。",
+        "takeaway": "先有「状态 = 会变的记忆」的通用直觉，useState 只是它在 React 里的落地。"
+      },
+      "license": "文章版权属 Academind；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-state",
+      "title": "The Odin Project react-examples (GitHub repo)",
+      "titleZh": "react-examples 练习仓库（TOP 官方示例库）",
+      "type": "代码仓库视图",
+      "requirement": "required",
+      "zone": "正文「What is state in React?」节（fork + clone 后进 state/ 目录练习）；「基于类的组件」一课正文同址链接（class-components/ 目录）——跨课合并归属本课",
+      "originalUrl": "https://github.com/TheOdinProject/react-examples",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（默认 UA；标题实测「GitHub - TheOdinProject/react-examples」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "TOP 官方的 React 课内示例仓库：按课题分目录（state/ 背景变色应用、class-components/ 函数版与类版并排的 FunctionalInput 与 ClassInput 等），每个目录是独立可跑的小项目。官方指引：fork + clone 后 cd 进对应目录，npm install + npm run dev。与「安装 Node.js」课剔除的 TOP curriculum 仓库不同——这是纯练习素材库，按 css-exercises 练习目录先例登记。",
+        "why": "官方正文指定：去 react-examples 仓库 fork + clone，进 state/ 目录跑起背景变色应用再读 src/App.jsx。",
+        "points": [
+          "state/ 目录：本课的背景变色应用——useState 定义 + 按钮更新的最小完整示例",
+          "class-components/ 目录：「基于类的组件」一课的练习场——同一功能的函数版与类版并排",
+          "跑法固定：cd 进目录 → npm install → npm run dev（Vite 开发服务器）"
+        ],
+        "terms": [
+          "fork / clone（复刻与克隆）"
+        ],
+        "focus": "重点是 state/ 目录的 src/App.jsx：找到 useState 定义处与每个按钮的更新调用。",
+        "takeaway": "官方的动手练习都住这个仓库——本课 state/，类组件课 class-components/。"
+      },
+      "license": "仓库由 The Odin Project 维护（与课程同源许可）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "「基于类的组件」一课正文链接同一仓库根地址（练习目录为 class-components/）——同址跨课合并归属首现课（本课），该课不重复登记、任务映射按「资源归属课」纪律不接。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-state",
+      "title": "State: A Component's Memory (React docs)",
+      "titleZh": "State：组件的记忆（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条第 1 子项",
+      "originalUrl": "https://react.dev/learn/state-a-components-memory",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「State: A Component's Memory – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/state-a-components-memory",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「State：组件的记忆 – React 中文文档」、正文汉字 2707；锚点不本地化事实沿用批次 6 阶段 1）",
+      "zhGuide": {
+        "overview": "React 官方文档「State：组件的记忆」：本课正文「state 是组件的记忆」定义的出处与完整展开——为什么普通变量不够（渲染间不保留、不触发重渲染）、useState 的引入、同一屏幕上的多个组件各自持有独立状态、状态如何驱动两次渲染之间的 UI 更新。页内沙箱可交互，中文版完整。",
+        "why": "官方 Assignment 第 1 条：阅读 React 文档的这篇文章。",
+        "points": [
+          "普通局部变量为什么当不了状态：渲染间不保留 + 改了不触发重渲染",
+          "useState 的两件事：保留渲染间的值 + 值变化时触发重渲染",
+          "状态是组件本地私有的——同屏两个 Counter 各有各的计数"
+        ],
+        "terms": [
+          "state（状态）",
+          "useState"
+        ],
+        "focus": "精读「普通变量不够用」的论证与两次渲染的时序图；页内沙箱动手改一遍。",
+        "takeaway": "状态 = React 帮你跨渲染保管并驱动重渲染的记忆。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-state",
+      "title": "Render and Commit (React docs)",
+      "titleZh": "渲染和提交（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条第 2 子项",
+      "originalUrl": "https://react.dev/learn/render-and-commit",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Render and Commit – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/render-and-commit",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「渲染和提交 – React 中文文档」、正文汉字 1822）",
+      "zhGuide": {
+        "overview": "React 官方文档「渲染和提交」：把一次更新拆成三步——触发渲染（Trigger）、渲染组件（Render，必须是纯计算）、提交到 DOM（Commit）；并澄清「渲染」在 React 语境里指调用组件函数算界面，不等于「画到屏幕上」。本课正文 rerender 机制的官方完整版。",
+        "why": "官方 Assignment 第 1 条：阅读 React 文档的这篇文章。",
+        "points": [
+          "更新三步：触发（初始渲染或 setState）→ 渲染组件函数（纯计算）→ 提交 DOM 变更",
+          "React 语境的 render = 调用组件函数算界面——与「绘制」不是一回事",
+          "渲染必须纯：同样输入同样输出，不做副作用——为副作用课的判据埋线"
+        ],
+        "terms": [
+          "render phase（渲染阶段）",
+          "commit（提交）"
+        ],
+        "focus": "盯住三步时序图与「渲染必须纯」一节；本站正文的 rerender 链条在这里得到官方完整版。",
+        "takeaway": "触发 → 渲染（纯计算）→ 提交：一切状态更新都走这三步。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-state",
+      "title": "ReactJS Reconciliation (GeeksforGeeks)",
+      "titleZh": "React 调和算法（GeeksforGeeks 文章）",
+      "type": "文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://www.geeksforgeeks.org/reactjs-reconciliation/",
+      "sourceDomain": "www.geeksforgeeks.org",
+      "originalUrlStatus": "200（浏览器 UA；官方给的路径 301 到 /reactjs/reactjs-reconciliation/ 现役路径，标题实测「ReactJS Reconciliation - GeeksforGeeks」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "GeeksforGeeks 对 React 调和（reconciliation）算法的专文：虚拟 DOM 的工作方式、新旧树比对、最小变更集计算与启发式策略（不同类型的元素直接换整棵子树、同类型只更新差异属性、列表靠 key 配对——最后一条与本站 key 一课直接呼应）。官方评价：对调和机制的解释很棒。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：读这篇对 React 调和算法的解释（官方原话 for a great explanation）。",
+        "points": [
+          "调和 = 比对新旧虚拟树、算出更新真实 DOM 的最小变更集的算法",
+          "启发式：元素类型变了整棵子树重建；类型相同只更新差异；列表项靠 key 配对",
+          "把本站正文的注释块（reconciliation algorithm）与 key 一课的配对机制串成完整链条"
+        ],
+        "terms": [
+          "reconciliation（调和）",
+          "heuristic（启发式）"
+        ],
+        "focus": "读「比对策略」部分即可；实现细节（fiber 等）超出本课程范围，官方也说别掉进深坑。",
+        "takeaway": "调和算法解释了两件事：React 为什么快（最小变更），key 为什么重要（列表配对）。"
+      },
+      "license": "文章版权属 GeeksforGeeks；本站只提供链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-more-on-state",
+      "title": "Object.is() - JavaScript (MDN)",
+      "titleZh": "MDN：Object.is() 方法",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Objects and arrays in state」tip 块（setState 判断新旧状态是否相同的底层机制）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Object.is() - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is",
+      "zhType": "MDN 官方中文版（zh-CN 实测 200、标题「Object.is() - JavaScript | MDN」、正文汉字 789）",
+      "zhGuide": {
+        "overview": "MDN 对 Object.is() 的参考页：判断两个值是否为「同一个值」的方法——与 === 的差异在处理 NaN 与 ±0。本课引用它的意义：setState 内部就是用 Object.is() 比对新旧状态——传回同一个对象引用会被判「相同」，这就是「必须给新对象」的底层原因。",
+        "why": "正文 tip 块：setState 使用 Object.is() 判断之前的状态是否相同。",
+        "points": [
+          "Object.is(a, b) 判断两值是否同一——引用类型比的是引用本身",
+          "同一对象引用 = 相同 = 不触发重渲染：原地变异再 set 回去不工作的根因",
+          "与 === 的差异（NaN、±0）了解即可，本课用不到"
+        ],
+        "terms": [
+          "same-value equality（同值相等）"
+        ],
+        "focus": "看语法与「描述」一节即可；重点是把它与不可变更新纪律对上号。",
+        "takeaway": "setState 认引用不认内容——所以永远造新对象。"
+      },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；官方中文版在位，本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-more-on-state",
+      "title": "State as a Snapshot (React docs)",
+      "titleZh": "state 如同一张快照（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条子项",
+      "originalUrl": "https://react.dev/learn/state-as-a-snapshot",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「State as a Snapshot – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/state-as-a-snapshot",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「state 如同一张快照 – React 中文文档」、正文汉字 2249）",
+      "zhGuide": {
+        "overview": "React 官方文档「state 如同一张快照」：本课正文「快照」心智模型的官方完整版——setState 不是改变量而是「请求一次新渲染」，每轮渲染的状态值定格不变；用连续点击计数、事件处理器里读旧值等实验把「渲染的快照语义」钉进直觉。",
+        "why": "官方 Assignment 第 1 条：阅读 React 文档这篇文章。",
+        "points": [
+          "setState = 请求新渲染，不是就地改变量——新值在下一轮渲染到位",
+          "每轮渲染里的状态值是定格的快照——事件处理器读到的是「那轮」的值",
+          "页内实验连做：连点按钮、alert 里读旧值——官方沙箱直接跑"
+        ],
+        "terms": [
+          "snapshot（快照）"
+        ],
+        "focus": "把正文三行 console.log 实验的疑问带进去，页内沙箱逐个复现。",
+        "takeaway": "「状态变量不是响应式的，组件才是」——这篇是它的官方出处与完整论证。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-more-on-state",
+      "title": "Choosing the State Structure (React docs)",
+      "titleZh": "选择 State 结构（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条子项",
+      "originalUrl": "https://react.dev/learn/choosing-the-state-structure",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Choosing the State Structure – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/choosing-the-state-structure",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「选择 State 结构 – React 中文文档」、正文汉字 3085）",
+      "zhGuide": {
+        "overview": "React 官方文档「选择 State 结构」：把本课正文一句 rule of thumb（能算出来的别放 state）展开成五条结构化原则——聚合关联状态、避免状态矛盾、去除冗余派生、避免重复状态、深嵌套要扁平——每条配反例与重构示范。CV 项目动手前的方法论必读。",
+        "why": "官方 Assignment 第 1 条：阅读 React 文档这篇文章（正文 rule of thumb 的完整版）。",
+        "points": [
+          "能由现有 state/props 算出的值是派生值——渲染期直接算，不另存",
+          "互相矛盾与重复的状态是 bug 温床——单一事实源原则",
+          "深嵌套结构更新痛苦——扁平化让不可变更新变简单"
+        ],
+        "terms": [
+          "derived value（派生值）",
+          "single source of truth（单一事实源）"
+        ],
+        "focus": "五条原则逐条过反例；读的时候拿 CV 项目的三区块表单当假想对象。",
+        "takeaway": "状态设计的好坏在写第一行更新逻辑之前就决定了。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-more-on-state",
+      "title": "Sharing State Between Components (React docs)",
+      "titleZh": "在组件间共享状态（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条子项",
+      "originalUrl": "https://react.dev/learn/sharing-state-between-components",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Sharing State Between Components – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/sharing-state-between-components",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「在组件间共享状态 – React 中文文档」、正文汉字 2646）",
+      "zhGuide": {
+        "overview": "React 官方文档「在组件间共享状态」：**状态提升（lifting state up）**的官方正篇——两个组件需要同步同一份状态时，把状态搬到它们最近的共同父级、经 props 下发；配完整重构示范。副作用课「不需要 effect 场景④」的正解出处，CV 项目「区块状态放哪」决策的方法论。",
+        "why": "官方 Assignment 第 1 条：阅读 React 文档这篇文章。",
+        "points": [
+          "状态提升三步：状态搬到共同父级 → 父经 props 下发值 → 下发更新函数",
+          "单一事实源：同一份数据只住一个地方，其余组件拿到的是引用",
+          "与 props 单向流一脉相承——数据永远从上往下"
+        ],
+        "terms": [
+          "lifting state up（状态提升）"
+        ],
+        "focus": "跟着官方的重构示范走一遍「状态从子搬上父」的全过程。",
+        "takeaway": "两个组件要同步，别互相喊话——把状态搬到共同父级。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "<StrictMode> (React docs Reference)",
+      "titleZh": "<StrictMode>（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Double rendering」note 块（StrictMode 双渲染说明）；「如何处理副作用」课正文 #strictmode 锚点与本条整页同页——同页合并归属本课",
+      "originalUrl": "https://react.dev/reference/react/StrictMode",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「<StrictMode> – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/StrictMode",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「<StrictMode> – React 中文文档」、正文汉字 2752；锚点不本地化——下一课所引 #strictmode 中英文版均在位）",
+      "zhGuide": {
+        "overview": "React 官方 <StrictMode> 参考页：这个开发期专用组件的完整说明——包裹的组件树在开发环境会被双渲染/双挂载（Double rendering 的官方出处），用来提前暴露不纯的渲染与不干净的副作用；生产构建零影响。CV 项目里 console.log 成双、副作用课 Clock 每秒跳 2，根子都在这页。",
+        "why": "正文 note 块：代码执行两次是 React.StrictMode 所致、是故意行为——官方给了本页链接。",
+        "points": [
+          "只影响开发环境：双渲染/双挂载是「免费体检」，生产构建没有",
+          "暴露的问题类型：渲染不纯、effect 缺 cleanup、废弃 API 使用",
+          "setup 课脚手架生成的 main.jsx 里就包着它——你一直在它的保护下开发"
+        ],
+        "terms": [
+          "double rendering（双渲染）",
+          "development-only check（开发期检查）"
+        ],
+        "focus": "读开头说明与「StrictMode 会做什么」清单即可；下一课 Clock 跳 2 时回来对照。",
+        "takeaway": "见到代码跑两遍不要修 StrictMode——修的是它替你抓出来的问题。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "「如何处理副作用」课正文所引 #strictmode 锚点与本条整页同页——同页合并归属首现课（本课），该课不重复登记、映射按纪律不接。"
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Deploying a Static Site (Vite guide)",
+      "titleZh": "Vite 官方指南：部署静态站点",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "正文「Deploying a React app」节（官方点名：Vite 部署文档过了一遍最流行的托管选项）",
+      "originalUrl": "https://vitejs.dev/guide/static-deploy.html",
+      "sourceDomain": "vitejs.dev",
+      "originalUrlStatus": "200（默认 UA；vitejs.dev 301 到 vite.dev/guide/static-deploy.html 现役域——批次 6 阶段 1 已登记的域名迁移事实，标题实测「Deploying a Static Site | Vite」）",
+      "zhUrl": "https://cn.vite.dev/guide/static-deploy.html",
+      "zhType": "Vite 官方中文站（cn.vite.dev 实测 200、标题「部署静态站点 | Vite 官方中文文档」、正文汉字 2357——阶段 1 登记的现役中文域，指南页首批入库）",
+      "zhGuide": {
+        "overview": "Vite 官方部署指南：把 Vite 构建产物（dist/）发布到各主流平台的具体步骤——GitHub Pages、Netlify、Vercel、Cloudflare Pages 等逐个给配置（构建命令 npm run build、输出目录 dist）。本课正文说「托管选项很多，这份文档过了一遍最流行的」——三平台部署前的通用参考。",
+        "why": "正文部署节官方点名：the Vite hosting docs go over the most popular ones among them。",
+        "points": [
+          "通用两参数：构建命令 npm run build + 输出目录 dist——三平台都填这两个",
+          "GitHub Pages 部署 React 应用要处理 base 路径等 hack——PaaS 更省事的原因",
+          "中文版与英文同路径（cn.vite.dev 子域形态）"
+        ],
+        "terms": [
+          "dist/（构建输出目录）",
+          "base path（基础路径）"
+        ],
+        "focus": "选定部署平台后直接跳对应小节；通用概念看开头的构建命令与输出目录。",
+        "takeaway": "无论哪家平台，认得「构建命令 + 输出目录」两个参数就能配好部署。"
+      },
+      "license": "Vite 文档按 MIT 许可提供；官方中文站在位，本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Netlify",
+      "titleZh": "Netlify 官网",
+      "type": "网站",
+      "requirement": "reference",
+      "zone": "正文「Netlify」部署小节（三选一平台之一的主站）",
+      "originalUrl": "https://www.netlify.com/",
+      "sourceDomain": "www.netlify.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Push your ideas to the web | Netlify」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Netlify 主站：PaaS 部署平台三选一之一——导入 GitHub 仓库、自动构建、deploy on push。免费档足够个人项目。官方给的部署路线：推代码 → app.netlify.com/start 导入 → 选分支 → Deploy site（导入入口与文档另见本资料区两条）。",
+        "why": "正文部署节：Netlify 是官方给的第一种部署方式（有很多种方式部署到 Netlify）。",
+        "points": [
+          "定位：静态与前端框架应用的托管平台，自动构建 + deploy on push",
+          "部署路线四步在导入入口条目里；平台能力总览看主站",
+          "免费档对个人课程项目绰绰有余"
+        ],
+        "terms": [
+          "PaaS（平台即服务）"
+        ],
+        "focus": "浏览产品定位即可；动手部署直接走导入入口条目。",
+        "takeaway": "三平台任选其一——能力对本项目而言等价，选熟悉的即可。"
+      },
+      "license": "站点内容版权属 Netlify；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Netlify Documentation",
+      "titleZh": "Netlify 官方文档",
+      "type": "官方文档",
+      "requirement": "reference",
+      "zone": "正文「Netlify」部署小节（官方括注的文档入口）",
+      "originalUrl": "https://docs.netlify.com/",
+      "sourceDomain": "docs.netlify.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Netlify Documentation | Netlify Docs」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Netlify 官方文档站：部署、构建配置、域名、CLI 等全部平台能力的参考。本项目用到的是「导入 Git 仓库 + 构建设置（build command / publish directory）」部分——Vite 项目填 npm run build 与 dist。无官方中文版。",
+        "why": "正文括注：Netlify documentation——部署遇到问题时的官方参考。",
+        "points": [
+          "构建设置两参数：Build command 填 npm run build、Publish directory 填 dist",
+          "Git 集成：连接仓库后 push 即触发构建部署（deploy on push）",
+          "netlify-cli 与直接上传 dist 是文档里的另外两条部署路线（官方说导入仓库最方便）"
+        ],
+        "terms": [
+          "build command / publish directory"
+        ],
+        "focus": "直接搜 Vite 或看 Frameworks 一节；其余能力用到再查。",
+        "takeaway": "文档在手，部署卡住先查构建设置两参数。"
+      },
+      "license": "文档内容版权属 Netlify；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Import your project to Netlify (app entry)",
+      "titleZh": "Netlify 项目导入入口",
+      "type": "操作入口",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 6 步 Netlify 路线第 2 步（登录后导入仓库）",
+      "originalUrl": "https://app.netlify.com/start",
+      "sourceDomain": "app.netlify.com",
+      "originalUrlStatus": "200（浏览器 UA；SPA 页面标题实测「Netlify」——需登录，未登录跳登录页）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Netlify 的项目导入入口（官方部署步骤第 2 步的直达地址）：登录后选择 Git  provider 授权、挑仓库、确认构建设置（Vite 自动识别或手填 npm run build / dist）、选部署分支（官方说默认 main 就行）、点 Deploy site。",
+        "why": "官方 Netlify 路线第 2 步：Import your project to Netlify by logging in, and selecting your repository。",
+        "points": [
+          "需要 Netlify 账号（GitHub 账号可直接登录）",
+          "选分支：默认从 main 部署即可（官方原话 the default setting works）",
+          "Deploy site 之后每次 push 自动重新部署"
+        ],
+        "terms": [
+          "import project（导入项目）"
+        ],
+        "focus": "照官方四步走：推代码 → 导入 → 选分支 → Deploy site。",
+        "takeaway": "这是 Netlify 路线的动手入口；Vercel / Cloudflare 的对应入口各见其条目。"
+      },
+      "license": "平台服务由 Netlify 提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "需登录的操作入口，命令行核验取到 SPA 外壳（标题 Netlify）；真实浏览器可达性以官方文档与既有平台信誉为准，不声称已登录实测内部页面。"
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Vercel",
+      "titleZh": "Vercel 官网",
+      "type": "网站",
+      "requirement": "reference",
+      "zone": "正文「Vercel」部署小节（三选一平台之一的主站）",
+      "originalUrl": "https://vercel.com/",
+      "sourceDomain": "vercel.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Agentic Infrastructure - Vercel」——平台宣传语已更新，如实登记）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vercel 主站：PaaS 三选一之二——与 Netlify 类似提供多种部署方式，官方路线同样是导入 GitHub 仓库获得 deploy on push。Vercel 是 Next.js 的开发商，对 Vite 项目也有自动检测（官方：Vercel will automatically detect that you are using Vite）。",
+        "why": "正文部署节：Similar to Netlify, Vercel also offers a few ways to deploy。",
+        "points": [
+          "自动检测框架：Vite 项目导入后构建配置零手填",
+          "deploy on push：连接仓库后推代码即部署",
+          "免费 Hobby 档覆盖个人项目"
+        ],
+        "terms": [
+          "framework detection（框架自动检测）"
+        ],
+        "focus": "浏览定位即可；动手走 vercel.com/new 导入入口条目。",
+        "takeaway": "自动检测 Vite 是它对本项目最省心的一点。"
+      },
+      "license": "站点内容版权属 Vercel；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Vercel Documentation",
+      "titleZh": "Vercel 官方文档",
+      "type": "官方文档",
+      "requirement": "reference",
+      "zone": "正文「Vercel」部署小节（官方括注的文档入口）",
+      "originalUrl": "https://vercel.com/docs",
+      "sourceDomain": "vercel.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Vercel Documentation」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vercel 官方文档站：部署、框架指南（含 Vite）、域名与环境变量等平台能力参考。本项目用到的是导入 Git 仓库与框架自动检测部分。无官方中文版。",
+        "why": "正文括注：Vercel documentation——部署遇到问题时的官方参考。",
+        "points": [
+          "Frameworks 一节有 Vite 专页：零配置部署 Vite 项目",
+          "Git 集成与 deploy on push 的行为说明",
+          "CLI（vercel 命令）是文档里的另一条部署路线"
+        ],
+        "terms": [
+          "framework guide（框架指南）"
+        ],
+        "focus": "直接看 Vite 框架指南页；其余用到再查。",
+        "takeaway": "文档定位同 Netlify：卡住先查框架指南。"
+      },
+      "license": "文档内容版权属 Vercel；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Import your project to Vercel (app entry)",
+      "titleZh": "Vercel 项目导入入口",
+      "type": "操作入口",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 6 步 Vercel 路线第 2 步（导入项目）",
+      "originalUrl": "https://vercel.com/new",
+      "sourceDomain": "vercel.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「New Project」——需登录，未登录跳登录页）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vercel 的新项目导入入口（官方部署步骤第 2 步直达地址）：登录 → 选 GitHub 仓库导入 → Vercel 自动检测出 Vite → 随意起项目名 → 点 Deploy。官方路线全程四步，构建配置零手填。",
+        "why": "官方 Vercel 路线第 2 步：Import your project to Vercel。",
+        "points": [
+          "需要 Vercel 账号（GitHub 账号可直接登录）",
+          "自动检测 Vite：构建命令与输出目录不用手填",
+          "Deploy 之后连接仓库，push 即自动重新部署"
+        ],
+        "terms": [
+          "import / deploy（导入与部署）"
+        ],
+        "focus": "照官方三步走：推代码 → vercel.com/new 导入 → 起名 Deploy。",
+        "takeaway": "Vercel 路线的动手入口；自动检测让它成为最省心的选项。"
+      },
+      "license": "平台服务由 Vercel 提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "需登录的操作入口，命令行核验取到页面外壳（标题 New Project）；不声称已登录实测内部流程。"
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Cloudflare Pages",
+      "titleZh": "Cloudflare Pages 产品页",
+      "type": "网站",
+      "requirement": "reference",
+      "zone": "正文「Cloudflare Pages」部署小节（三选一平台之一的主站）",
+      "originalUrl": "https://pages.cloudflare.com/",
+      "sourceDomain": "pages.cloudflare.com",
+      "originalUrlStatus": "200（浏览器 UA；官方给的地址 301 到 www.cloudflare.com/products/pages/ 现役产品页，标题实测「Cloudflare Pages - Serverless Full-Stack Platform」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Cloudflare Pages 产品页：PaaS 三选一之三——官方评价它的流程与收益与前两家类似（导入 GitHub 仓库、设对构建命令与输出目录、deploy on push）。Cloudflare 家的定位是全栈 Serverless 平台，本项目只用它的静态托管能力。",
+        "why": "正文部署节：Cloudflare Pages has a similar process and benefits to the other two options。",
+        "points": [
+          "流程同型：导入仓库 → 构建设置 → Save and Deploy",
+          "官方特别提醒：创建的是 Pages 项目，**不是 Worker**——两个不同产品入口",
+          "免费档对个人课程项目够用，与另两家平台能力等价可互换"
+        ],
+        "terms": [
+          "serverless（无服务器）"
+        ],
+        "focus": "浏览定位即可；动手走 Pages 文档与导入指南条目。",
+        "takeaway": "三平台等价可选；选 Cloudflare 时认准 Pages 别进 Worker。"
+      },
+      "license": "站点内容版权属 Cloudflare；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Cloudflare Pages documentation",
+      "titleZh": "Cloudflare Pages 官方文档",
+      "type": "官方文档",
+      "requirement": "reference",
+      "zone": "正文「Cloudflare Pages」部署小节（官方括注的文档入口）",
+      "originalUrl": "https://developers.cloudflare.com/pages/",
+      "sourceDomain": "developers.cloudflare.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Overview · Cloudflare Pages docs」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Cloudflare Pages 官方文档区：从创建项目、Git 集成、构建配置（Build command / Build output directory）到自定义域名的完整参考。Vite 项目的构建配置：npm run build + dist。**中文覆盖按产品分区**：developers.cloudflare.com 的 /zh-cn/ 分区存在，但 Pages 子区实测 404（未翻译）——按内容级核验如实登记 C 类。",
+        "why": "正文括注：Cloudflare Pages documentation——部署遇到问题时的官方参考。",
+        "points": [
+          "Get started 一节：创建 Pages 项目并连接 Git 仓库的完整步骤",
+          "构建配置两参数与 Netlify/Vercel 同型：npm run build / dist",
+          "zh-cn 分区的 Pages 子区未翻译（实测 404）——英文文档为准"
+        ],
+        "terms": [
+          "build configuration（构建配置）"
+        ],
+        "focus": "看 Get started 与 Build configuration 两节即可。",
+        "takeaway": "CF 文档中文覆盖按产品分区、Pages 暂无中文——这条事实本身值得记住。"
+      },
+      "license": "文档内容版权属 Cloudflare；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "zh 候选 https://developers.cloudflare.com/zh-cn/pages/ 实测 404——CF 开发者文档 zh-cn 分区按产品覆盖，Pages 子区未翻译（与 Workers 等已翻译子区并存），内容级核验后按 C 类登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-cv-application",
+      "title": "Deploy a Vite3 project to Cloudflare Pages (guide)",
+      "titleZh": "Cloudflare Pages 导入指南：部署 Vite 项目",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 6 步 Cloudflare 路线第 2 步（导入项目指南，官方链接带 #:~:text 文本片段定位到「To deploy your site to Pages」段落）",
+      "originalUrl": "https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/",
+      "sourceDomain": "developers.cloudflare.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Deploy a Vite3 project · Cloudflare Pages docs」；官方原文地址带 #:~:text=To%20deploy%20your%20site%20to%20Pages 文本片段，按 qr.ae 先例登记去片段规范地址、片段事实记此）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Cloudflare Pages 的 Vite 项目部署专页：从创建 Pages 应用（**选 Pages 不是 Worker**）、连接 GitHub 仓库、设置构建命令（npm run build）与输出目录（dist）到 Save and Deploy 的逐步指南——官方 Cloudflare 路线第 2 步的直达教程。",
+        "why": "官方 Cloudflare 路线第 2 步：Import your project to Cloudflare Pages（链接直指本页「To deploy your site to Pages」段落）。",
+        "points": [
+          "创建应用时认准 Pages 入口——官方红字级提醒别创建成 Worker",
+          "构建配置：npm run build + dist（Vite 项目通用两参数）",
+          "Save and Deploy 后连接仓库即获得 push 自动部署"
+        ],
+        "terms": [
+          "framework guide（框架指南）"
+        ],
+        "focus": "按页内步骤逐步做；卡住回 Pages 文档总区查。",
+        "takeaway": "Cloudflare 路线的动手指南——认准 Pages、填对两参数。"
+      },
+      "license": "文档内容版权属 Cloudflare；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "官方原文链接带 #:~:text 文本片段（Chrome 文本定位语法）——originalUrl 登记去片段的规范地址（片段在浏览器中仅影响滚动定位，不影响页面本体），与 qr.ae 短链登记 originalUrl 的先例同理。zh-cn 对应路径实测 404（Pages 子区未翻译）。"
+    },
+    {
+      "lessonId": "node-path-react-new-how-to-deal-with-side-effects",
+      "title": "Lifecycle of Reactive Effects (React docs)",
+      "titleZh": "响应式 Effect 的生命周期（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://react.dev/learn/lifecycle-of-reactive-effects",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Lifecycle of Reactive Effects – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/lifecycle-of-reactive-effects",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「响应式 Effect 的生命周期 – React 中文文档」、正文汉字 6053）",
+      "zhGuide": {
+        "overview": "React 官方文档「响应式 Effect 的生命周期」：effect 的完整生命周期——每次渲染的「开始同步 → 清理 → 再同步」循环，与组件生命周期（挂载/更新/卸载）的对应关系；effect 的响应性来自依赖数组：依赖变了才重新同步。本课 Clock 四部曲的机制层官方正篇。",
+        "why": "官方 Assignment 第 1 条：这篇文档讲组件的生命周期、渲染发生的不同阶段，以及 useEffect 在其中的角色。",
+        "points": [
+          "effect 生命周期 = 同步 → （依赖变化或卸载时）清理 → 再同步",
+          "与组件生命周期的关系：挂载同步一次、依赖变化的更新再同步、卸载清理",
+          "「响应式」的含义：effect 对依赖数组里的值保持响应——这正是三形态速记的机制出处"
+        ],
+        "terms": [
+          "synchronization（同步）",
+          "reactive effect（响应式 effect）"
+        ],
+        "focus": "配合本课三形态速记读「effect 的生命周期」一节；下一课（类生命周期）的 useEffect 对照表在这里有机制层解释。",
+        "takeaway": "effect 的一生是「同步-清理」的循环，依赖数组决定循环节奏。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-how-to-deal-with-side-effects",
+      "title": "You Might Not Need an Effect (React docs)",
+      "titleZh": "你可能不需要 Effect（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://react.dev/learn/you-might-not-need-an-effect",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「You Might Not Need an Effect – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/you-might-not-need-an-effect",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「你可能不需要 Effect – React 中文文档」、正文汉字 7189）",
+      "zhGuide": {
+        "overview": "React 官方文档「你可能不需要 Effect」：正文「But do we need the effect?」一节的完整官方展开——派生状态直接渲染期计算、事件逻辑归事件处理器、重置用 key、跨组件用状态提升、数据获取的取舍……每种误用配反例与重构。官方立场鲜明：effect 是逃生舱（escape hatch），用得越少越好。",
+        "why": "官方 Assignment 第 2 条：更多「什么时候不需要 Effect」的示例。",
+        "points": [
+          "能不用就不用：effect 是 React 常规机制之外的逃生舱——官方原话",
+          "四大误用场景逐个配重构方案（正文四段的完整版）",
+          "读完拿自己的项目过一遍：每个 useEffect 都问「这里有外部系统吗」"
+        ],
+        "terms": [
+          "escape hatch（逃生舱）"
+        ],
+        "focus": "四大误用场景逐节精读；这一页是 React 社区引用率最高的文档之一，值得读两遍。",
+        "takeaway": "先问「需不需要 effect」，再问「effect 怎么写」——顺序反了就会写出难维护的代码。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-how-to-deal-with-side-effects",
+      "title": "How to Solve the Infinite Loop in React useEffect (Dmitri Pavlutin)",
+      "titleZh": "useEffect 无限循环怎么解（Dmitri Pavlutin 博客）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条",
+      "originalUrl": "https://dmitripavlutin.com/react-useeffect-infinite-loop/",
+      "sourceDomain": "dmitripavlutin.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「How to Solve the Infinite Loop in React useEffect」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Dmitri Pavlutin 的专文：useEffect 无限循环这个初学者最常见错误的成因与解法——effect 里更新了依赖数组中的状态、每次渲染都变的引用类型依赖（对象/数组/函数字面量）、漏写依赖等场景逐个拆解，配可复现代码与修复对照。无官方中文版。",
+        "why": "官方 Assignment 第 3 条：又一篇解释初学者常犯错误（useEffect 无限循环）的文章。",
+        "points": [
+          "无限循环的通用形状：effect 更新了自己依赖的状态——渲染 → effect → 更新 → 渲染",
+          "引用类型依赖每次渲染都是新对象——依赖比较永远「变了」，用 useMemo/useState 稳住引用",
+          "对照 Clock 四部曲：本课的失控案例是同一族问题的定时器版本"
+        ],
+        "terms": [
+          "infinite loop（无限循环）"
+        ],
+        "focus": "把文中每个循环案例的「依赖 → 更新 → 再触发」链条画出来；对照官方「渲染路径上直接 setState」警告块。",
+        "takeaway": "见到界面卡死 + 控制台刷屏，第一反应查 effect 依赖与其中的 setState。"
+      },
+      "license": "文章版权属 Dmitri Pavlutin；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-memory-card",
+      "title": "Memory Card Game (student solution demo)",
+      "titleZh": "记忆卡片游戏（学生成品演示）",
+      "type": "网站",
+      "requirement": "required",
+      "zone": "正文「How the game works」节（官方指定：去玩这个学生成品，亲身体会游戏规则）",
+      "originalUrl": "https://heldersrvio.github.io/memory-card-game/",
+      "sourceDomain": "heldersrvio.github.io",
+      "originalUrlStatus": "200（浏览器 UA；SPA 页面标题实测「Memory Card」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "一位 TOP 学生完成的记忆卡片游戏成品（GitHub Pages 托管）：卡通角色图案卡片、计分板含 Best Score、每次点击后全体洗牌。官方把它放在正文最前面——动手写之前先玩明白规则：点没点过的得分、点重复的结束、位置每轮都变所以只能记「点过谁」。",
+        "why": "正文 How the game works 节：去玩这个学生成品，亲自弄明白记忆游戏怎么玩。",
+        "points": [
+          "玩的时候盯着两件事：每次点击后卡片顺序全变；Best Score 跨局保留",
+          "示例用卡通角色——官方明说你的游戏用任何图案都行",
+          "玩输三把再动手：规则体感比读十遍文字都准"
+        ],
+        "terms": [
+          "shuffle（洗牌）"
+        ],
+        "focus": "体会「位置不可靠、id 才可靠」——这直接决定你的状态设计。",
+        "takeaway": "先玩后写是官方给的正确打开方式。"
+      },
+      "license": "演示项目版权归原作者（heldersrvio）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-memory-card",
+      "title": "PokéAPI",
+      "titleZh": "PokéAPI（宝可梦数据 API）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "官方 Assignment 第 3 条（卡片图片数据源二选一之一）",
+      "originalUrl": "https://pokeapi.co/",
+      "sourceDomain": "pokeapi.co",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「PokéAPI」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "PokéAPI：宝可梦全数据的免费 REST API——无需密钥、无需注册，文档页带交互式试请求面板。官方给的两个数据源方向之一（另一个是 Giphy，与本站 javascript 课程「异步 JavaScript 与 API」课既有条目同址，归属该课资料区）。取 12 只宝可梦的名字与图片正是本项目的量级。",
+        "why": "官方 Assignment 第 3 条：图片与文字从外部 API 获取——从 Giphy 到 PokéAPI 都可以。",
+        "points": [
+          "零门槛：无 key、无注册，GET 即用（如 /api/v2/pokemon/1）",
+          "返回 JSON 里的 sprites 字段是图片 URL——正好喂给卡片",
+          "javascript 课程 API 一课学过 fetch 消费这类 REST API——直接复用"
+        ],
+        "terms": [
+          "REST API"
+        ],
+        "focus": "先在浏览器直接开一个 pokemon 端点看 JSON 结构，找到名字与图片字段再进代码。",
+        "takeaway": "数据源选型看两点：拿图方不方便、要不要 key——PokéAPI 两项全优。"
+      },
+      "license": "PokéAPI 数据按既有开源许可提供（见其文档）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "同条 Assignment 里的 Giphy（https://giphy.com/）与 javascript 课程「异步 JavaScript 与 API」课既有条目同址——跨课合并归属首现课不重复登记，任务映射按防悬空纪律只接本课清单内的 PokéAPI。"
+    },
+    {
+      "lessonId": "node-path-react-new-class-based-components",
+      "title": "super - JavaScript (MDN)",
+      "titleZh": "MDN：super 关键字",
+      "type": "参考文档",
+      "requirement": "optional",
+      "zone": "正文「constructor 与 props」节（官方 Hint：真好奇 super 做了什么就查 MDN）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「super - JavaScript | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/super",
+      "zhType": "MDN 官方中文版（zh-CN 实测 200、标题「super - JavaScript | MDN」、正文汉字 2105）",
+      "zhGuide": {
+        "overview": "MDN 对 super 关键字的参考页：在类中调用父类构造函数（super(props)）与访问父类属性的语法与语义。本课语境：constructor 里 super(props) 之后 this.props 才可用——World 3「类」一课学过 extends 与 super 的基础，这页是官方 Hint 指的深一层出处。",
+        "why": "正文官方 Hint：如果你真好奇 super 实际做了什么，查 MDN 的 super 关键字文档。",
+        "points": [
+          "constructor 里 this 可用之前必须先调 super——派生类的硬性时序",
+          "super(props) 把 props 交给 React 的 Component 基类构造，this.props 由此就位",
+          "World 3「类」一课的 extends/super 知识在这里落地到 React 场景"
+        ],
+        "terms": [
+          "super",
+          "derived class（派生类）"
+        ],
+        "focus": "官方定位是选读 Hint——看「描述」一节把时序规则弄清即可。",
+        "takeaway": "super(props) 不是样板咒语：它是 this.props 能用的前提。"
+      },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；官方中文版在位，本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": "requirement 按官方 Hint 语气（If you're really curious...）登记 optional——与 passing-data 课 javascript.info 柯里化条目同口径。正文 react-examples 仓库链接与「状态简介」课条目同址，跨课合并归属首现课不重复登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-component-lifecycle-methods",
+      "title": "React lifecycle methods diagram (Wojciech Maj)",
+      "titleZh": "React 生命周期方法图（wojtekmaj 交互图）",
+      "type": "工具",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/",
+      "sourceDomain": "projects.wojtekmaj.pl",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「React lifecycle methods diagram」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Wojciech Maj 做的交互式 React 生命周期全景图（React 社区流传最广的一张图）：mounting / updating / unmounting 三阶段全部方法在时间线上的位置、各方法的典型用途注记、deprecated 方法标记，还能切换「常用方法精简视图」。官方 Assignment 第 1 条指定看图建立可视化认知。界面为英文。",
+        "why": "官方 Assignment 第 1 条：看这张组件生命周期图——生命周期方法的高质量可视化呈现。",
+        "points": [
+          "三阶段泳道：render 阶段（纯计算）与 commit 阶段（碰 DOM）分界清晰",
+          "didMount / didUpdate / willUnmount 三个钩子在时间线上的位置一眼看懂",
+          "带 deprecated 标记视图——正好执行官方「留心已弃用 API」的阅读纪律"
+        ],
+        "terms": [
+          "lifecycle diagram（生命周期图）"
+        ],
+        "focus": "先看精简视图记主干，再切完整视图认 deprecated 方法长什么样。",
+        "takeaway": "一张图把四个方法的时序钉进脑子——比文字表格快得多。"
+      },
+      "license": "图表项目由 Wojciech Maj 维护（开源）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-component-lifecycle-methods",
+      "title": "Component (React docs Reference)",
+      "titleZh": "Component（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（官方指定阅读范围：Reference 区从 constructor(props) 到 componentWillUnmount()，留心 deprecated API）",
+      "originalUrl": "https://react.dev/reference/react/Component",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Component – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/Component",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「Component – React 中文文档」、正文汉字 8902——目前全站最厚的 react.dev 中文参考页）",
+      "zhGuide": {
+        "overview": "React 官方 Component 基类参考页：类组件全部 API 的权威参考——constructor / setState / forceUpdate 与各生命周期方法逐个说明，deprecated 方法有明确标注。官方给的阅读纪律：只精读 Reference 区 constructor(props) 到 componentWillUnmount()，其余当补充信息——整页很长，按范围读不会陷进去。",
+        "why": "官方 Assignment 第 2 条：通读 Component 文档指定范围，留心已弃用的 API。",
+        "points": [
+          "setState 的官方语义与本课正文一致：合并更新、支持更新函数形态",
+          "componentDidUpdate(prevProps, prevState) 签名——条件判断防循环的 prevProps 就从这来",
+          "deprecated 标记的旧方法（componentWillMount 系）认得即可、不学进新代码"
+        ],
+        "terms": [
+          "Component base class（Component 基类）",
+          "deprecated（已弃用）"
+        ],
+        "focus": "严格按官方范围读：constructor(props) → render → setState → 三个 did/will 钩子；读时开着 wojtekmaj 图对照时序。",
+        "takeaway": "类组件的字典页——按范围精读主线四方法，弃用标记看都不多看。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-27",
+      "note": ""
+    },
+  /* ===== World 5 批次 6 阶段 3（2026-09-28，v4.11.32，World 5 收组）：react 课程
+     * 「React 测试」2 课 +「React 生态」4 课 +「更多 React 概念」3 课 +「结语」1 课
+     * +63 条（按课 13 / 6 / 9 / 2 / 10 / 4 / 5 / 2 / 8 / 4）。三级核验真跑（状态码 →
+     * 生效地址 → 内容级语言核验）。**10 条核验出官方中文版按 A 类登记**：MDN zh-CN ×1
+     * （使用历史记录 API 1877 汉字）+ zh-hans.react.dev ×9（passing-data-deeply-with-context
+     * 3415 / extracting-state-logic-into-a-reducer 3213 / useReducer 2847 / Profiler 1011 /
+     * react-developer-tools 664 / memo 3042 / useRef 1880 / manipulating-the-dom-with-refs
+     * 2945 / react-compiler 675 汉字——该子域累计 17 → 26 条）。C 类新增 53 条。
+     * **受限 29 → 30**：Medium mocking child components 命令行 403 + 真实浏览器核验可达
+     * 取得标题与 h1——双通路登记（iamtapan / SOLID 文先例同型）。**六处 301/路径迁移
+     * 新事实**：Netlify redirects → /manage/routing/redirects/overview/、Vercel
+     * frameworks/vite → /docs/frameworks/frontend/vite（#using-vite-to-make-spas 锚点
+     * 事实记 note）、CF serving-pages → /pages/configuration/serving-pages/（**zh-cn 子区
+     * 实测 404——CF 中文覆盖按产品分区事实第二例**）、lucide /guide/packages/lucide-react
+     * → /guide/react、academind tutorials→articles **第二例**（testing-react-apps）、
+     * smashing 老文 http coding. 子域 404 / https 301 → www 子域现役路径（devfactor
+     * 存档先例登记现役地址）。wiki.c2.com 无 title 标签——标题取自官方链接文字
+     * （threadreaderapp 先例同口径）。**跨课合并 5 处不重复登记**：① jestjs.io 裸首页
+     * （intro-to-react-testing 正文 → javascript 测试课既有条目）；② vitejs.dev 裸首页
+     * （→ 阶段 1「搭建 React 环境」课既有条目）；③ react-examples 仓库根 ×2 现
+     * （fetching-data 与 refs-and-memoization 正文 → introduction-to-state 阶段 2 条目）；
+     * ④ react.dev sharing-state-between-components（context-api 正文 → more-on-state
+     * 阶段 2 条目）；⑤ MDN Object/is（reducing-state 正文 → more-on-state 阶段 2 条目）。
+     * **同页合并 3 处**：RTL userEvent intro（mocking 课正文 #writing-tests 锚点归
+     * intro-to-react-testing Assignment 条目——跨课同页）、vitest vi.html（#vi-mock 锚点
+     * 归整页）、RTL render API（#render 锚点归整页）。剔除：statically 配图、TOP 自有
+     * 课页与课程页 7 处（mocking 首页+battleship 课页 / fetching 的 introduction-to-state
+     * 回链 / router 的 dashboard 页 / context-api 的 react-router 回链 / conclusion 的
+     * Databases+Node.js 课程页 ×3）、TOP curriculum issues 链接、conclusion 的 Google
+     * 反馈表单（行政表单口径 sign-up-form 先例）、Picsum API（只出现在代码块字符串、
+     * 非正文链接）。TOP 官网仓库两个源码文件（submissions-list.jsx 与其测试）为官方
+     * 指定阅读的真实世界教材——**theodinproject 主仓（非 curriculum 仓）按「官方指定
+     * 教材」登记**，与 curriculum 仓课程本体剔除口径相区分。清单 591 → **654 条**
+     * （A 类旧值 214 已增到 224、C 类旧值 377 已增到 430；required 376 → 412、
+     * reference 201 → 228、optional 14 维持），stats 与 audit.perLesson（10 课新键）
+     * 同步；任务映射 272 → **296** 条、348 → **378** 链接（本批 +24 条 +30 链接；
+     * **conclusion 显式空映射——Assignment 节唯一条目为行政表单剔除的新形态**（有
+     * Assignment 节但条目全部剔除，与 accessible-colors「官方无 Assignment 节」
+     * hasAssignment:false 不同型）；react-router 第 2 条与 shopping-cart 九条本地动手
+     * 不接）。 ===== */
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Vitest",
+      "titleZh": "Vitest（下一代测试框架）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「Introduction」节（因为项目用 Vite，测试运行器从 Jest 切换到 Vitest）",
+      "originalUrl": "https://vitest.dev/",
+      "sourceDomain": "vitest.dev",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Vitest | Next Generation testing framework」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vitest 官网：与 Vite 原生集成的下一代测试框架——本课起取代 Jest 成为课程测试运行器。API 与 Jest 高度兼容（vi.fn() 对应 jest.fn()、vi.mock() 对应 jest.mock()），快照、监听、覆盖率开箱即用。界面与文档为英文。",
+        "why": "正文：因为我们在用 Vite，测试运行器切换到与 Vite 集成顺滑的 Vitest。",
+        "points": [
+          "与 Vite 共享配置与转换管线——零额外搭建成本",
+          "Jest 兼容 API：迁移旧测试心智负担小",
+          "快照测试（toMatchSnapshot）文档在 /guide/snapshot.html——本课单独登记"
+        ],
+        "terms": [
+          "test runner（测试运行器）"
+        ],
+        "focus": "先逛首页认识定位；跟着 Robin Wieruch 搭建指南（另条）走会顺带装好它。",
+        "takeaway": "Vite 项目配 Vitest 是官方推荐组合。"
+      },
+      "license": "Vitest 为 MIT 许可开源项目；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "React Testing Library intro (Testing Library docs)",
+      "titleZh": "React Testing Library 简介（Testing Library 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Introduction」节（用 RTL 给测试补能力）",
+      "originalUrl": "https://testing-library.com/docs/react-testing-library/intro/",
+      "sourceDomain": "testing-library.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「React Testing Library | Testing Library」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Testing Library 官方简介页：一套以「用户视角」测试 React 组件的轻量工具——核心理念是「你的测试越接近软件的使用方式，它们给你的信心就越大」。render/screen/查询方法/userEvent 全家族的门面文档。无官方中文版。",
+        "why": "正文：我们用 React Testing Library（RTL）给测试增加更多能力。",
+        "points": [
+          "核心理念一句话：测试越贴近真实使用方式，信心越大",
+          "是 DOM Testing Library 的 React 封装——查询 API 全家族通用",
+          "配套包：jest-dom（自定义匹配器）与 user-event（交互模拟）各自有文档"
+        ],
+        "terms": [
+          "React Testing Library (RTL)"
+        ],
+        "focus": "读首页理念段即可建立「用户视角」心智；API 细节看 render 与 queries 两条目。",
+        "takeaway": "RTL 测的是「用户看到与做的事」，不是组件内部实现。"
+      },
+      "license": "Testing Library 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Vitest with React Testing Library (Robin Wieruch)",
+      "titleZh": "Vitest 搭配 React Testing Library 搭建指南（Robin Wieruch）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "正文「Setting up a React testing environment」节（官方指定：Follow along 这篇指南）",
+      "originalUrl": "https://www.robinwieruch.de/vitest-react-testing-library/",
+      "sourceDomain": "robinwieruch.de",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Vitest with React Testing Library - Robin Wieruch」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Robin Wieruch 的搭建教程：在 Vite React 项目里从零装好 Vitest + React Testing Library + jsdom 环境——官方正文直接指定「跟着这篇指南走，装完回来集合」。步骤含依赖安装、vite.config 配置、setup 文件与第一个冒烟测试。无官方中文版。",
+        "why": "正文官方指令：Follow along Robin Wieruch's guide on setting up Vitest with RTL。Once you've completed the setup, let's meet back here.",
+        "points": [
+          "从零到能跑的完整步骤：依赖、配置、setup 文件一次装齐",
+          "装完回官方正文继续——它是本课环境搭建的指定教材",
+          "作者的 React 教程系列口碑 longstanding，行文紧凑"
+        ],
+        "terms": [
+          "test setup（测试环境搭建）"
+        ],
+        "focus": "动手跟做而不是只读——装完跑通第一个测试再回课页。",
+        "takeaway": "环境搭建跟着指定指南走，别自己发明配置。"
+      },
+      "license": "文章版权属 Robin Wieruch；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文「Vitest globals and ESLint」lesson-note 的处置（显式 import 替代 globals: true）已在课页转达。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "testing-library/jest-dom (GitHub)",
+      "titleZh": "jest-dom 自定义匹配器库（GitHub 仓库）",
+      "type": "代码仓库",
+      "requirement": "reference",
+      "zone": "正文「Setting up a React testing environment」节（三个 @testing-library 包分工之一：完整匹配器清单在其 GitHub）",
+      "originalUrl": "https://github.com/testing-library/jest-dom",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「GitHub - testing-library/jest-dom: 🦉 Custom matchers...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "@testing-library/jest-dom 的 GitHub 仓库：给测试提供 toBeInTheDocument、toBeVisible 等一批 DOM 专用自定义匹配器（断言函数）。官方口径：Jest/Vitest 自带匹配器已很多，此包非必装——需要更顺手的 DOM 断言时查这里的完整清单。",
+        "why": "正文：jest-dom 包含 toBeInTheDocument 等方便的自定义匹配器——完整清单在其 GitHub。",
+        "points": [
+          "提供 DOM 专用匹配器：toBeInTheDocument / toBeVisible / toHaveTextContent 等",
+          "官方明说非必装——自带匹配器已覆盖多数场景",
+          "README 就是完整匹配器清单与用法示例"
+        ],
+        "terms": [
+          "custom matcher（自定义匹配器）"
+        ],
+        "focus": "当参考手册用：写断言时想要更顺口的表达就来查清单。",
+        "takeaway": "toBeInTheDocument 比 truthy 检查语义清晰——但装不装随你。"
+      },
+      "license": "jest-dom 按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "React Testing Library API: render (Testing Library docs)",
+      "titleZh": "RTL API：render（Testing Library 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Our first query」节（render 能做什么读这里）",
+      "originalUrl": "https://testing-library.com/docs/react-testing-library/api/#render",
+      "sourceDomain": "testing-library.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「API | Testing Library」；#render 锚点实测在位）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "RTL 的 API 参考页（render 一节）：render 的签名、返回值（container/unmount/rerender 等）与选项。官方正文的锚点级引用——「render 能做什么全在这里」。无官方中文版。",
+        "why": "正文：你可以在这页读全 render 函数的能力。",
+        "points": [
+          "render 返回 container——快照测试从它入手（screen 没有 container）",
+          "unmount/rerender 也在返回值里——高级场景备用",
+          "同页还有 screen 对象的全部查询入口"
+        ],
+        "terms": [
+          "render API"
+        ],
+        "focus": "只精读 render 一节；screen 查询细节看 queries about 条目。",
+        "takeaway": "render 不只渲染——返回值是测试的操作把手。"
+      },
+      "license": "Testing Library 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方原文带 #render 锚点——整页登记、锚点事实记此处（同页合并口径）。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "About Queries (Testing Library docs)",
+      "titleZh": "关于查询（Testing Library 文档）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "正文「Our first query」节（官方指令：Go through 这页，特别注意 Types of Queries 与 Priority 两节）",
+      "originalUrl": "https://testing-library.com/docs/queries/about/",
+      "sourceDomain": "testing-library.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「About Queries | Testing Library」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Testing Library 查询体系的总纲页：三类查询家族（getBy 找不到抛错 / queryBy 找不到返回 null / findBy 异步等待）与查询方式优先级（ByRole 第一，ByText、ByLabelText 等次之，ByTestId 垫底）。官方正文点名两节要特别注意：Types of Queries 与 Priority。无官方中文版。",
+        "why": "正文官方指令：通读这页，特别注意「Types of Queries」与「Priority」两节。",
+        "points": [
+          "三家族按「找不到时行为」分：抛错 / null / 等待",
+          "优先级官方排序：ByRole 首选——贴近用户感知且校验可访问性",
+          "ByTestId 是最后手段——前几种都不可用时才动用"
+        ],
+        "terms": [
+          "query priority（查询优先级）"
+        ],
+        "focus": "精读点名的两节；把优先级表抄成速查卡。",
+        "takeaway": "选查询方法的口诀：先想用户怎么感知这个元素。"
+      },
+      "license": "Testing Library 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Snapshot guide (Vitest docs)",
+      "titleZh": "快照测试指南（Vitest 文档）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "正文「What are snapshots?」节（官方指令：Read all about what can be achieved with snapshots）",
+      "originalUrl": "https://vitest.dev/guide/snapshot.html",
+      "sourceDomain": "vitest.dev",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Snapshot | Guide | Vitest」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vitest 快照测试官方指南：toMatchSnapshot 的工作机制（首次生成快照文件、此后逐次比对）、内联快照、快照更新命令与 CI 里的注意事项。官方正文指定通读——快照能做到什么全在这页。无官方中文版。",
+        "why": "正文官方指令：在 Vitest 快照文档里读全快照能达成的所有事。",
+        "points": [
+          "机制：首次运行生成快照文件，此后每次比对、稍变即挂",
+          "更新快照有专门命令——但更新前先想清楚变化是否有意",
+          "配合本课「两类失真」读：工具能力与使用边界是两回事"
+        ],
+        "terms": [
+          "snapshot file（快照文件）"
+        ],
+        "focus": "通读一遍建全景；重点看「更新快照」一节的纪律。",
+        "takeaway": "快照是变更探测器，不是正确性证明。"
+      },
+      "license": "Vitest 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Testing Implementation Details (Kent C. Dodds)",
+      "titleZh": "测试实现细节（Kent C. Dodds）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://kentcdodds.com/blog/testing-implementation-details",
+      "sourceDomain": "kentcdodds.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Testing Implementation Details」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Kent C. Dodds（Testing Library 作者）的纲领文：什么是「实现细节」（用户看不见也感知不到的内部代码结构）、为什么测它会同时产生假阴性（重构就挂）与假阳性（坏了也不红）、以及用 RTL 的用户视角查询天然规避它。无官方中文版。",
+        "why": "官方 Assignment 第 1 条：这篇文章展示如何通过避免测试实现细节来减少假测试结果与不灵活的测试。",
+        "points": [
+          "实现细节 = 用户感知不到的内部结构——测它就是给重构上枷锁",
+          "两类假结果：实现变了测试挂（假阴性）、实现坏了测试过（假阳性）",
+          "RTL 的 ByRole 优先查询哲学正是为规避它设计"
+        ],
+        "terms": [
+          "implementation details（实现细节）"
+        ],
+        "focus": "读前两节把「实现细节」的定义焊死；后面例子扫一遍即可。",
+        "takeaway": "测试用户行为，不测试代码怎么写。"
+      },
+      "license": "文章版权属 Kent C. Dodds；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Cheatsheet (DOM Testing Library docs)",
+      "titleZh": "查询方法速查表（DOM Testing Library 文档）",
+      "type": "速查表",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://testing-library.com/docs/dom-testing-library/cheatsheet/",
+      "sourceDomain": "testing-library.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Cheatsheet | Testing Library」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Testing Library 全部查询方法的一页速查表：ByRole/ByLabelText/ByPlaceholderText/ByText/ByDisplayValue/ByAltText/ByTitle/ByTestId 八族 × getBy/getAllBy/queryBy/queryAllBy/findBy/findAllBy 的完整矩阵，附每族的优先级注记。官方要求「扫一眼全部方法」——不必都用，但特定查询用特定方法最优。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：扫一眼所有可用查询方法；不必全用，但特定查询配特定方法最优。",
+        "points": [
+          "八族查询方式 × 三家族前缀 = 完整方法矩阵一页看全",
+          "每族带优先级标记——ByRole 居首",
+          "当速查卡用：写测试时想不起方法名就来这页"
+        ],
+        "terms": [
+          "cheatsheet（速查表）"
+        ],
+        "focus": "扫一遍建全景印象即可；收藏备用比背下来值钱。",
+        "takeaway": "方法矩阵一页全——特定查询用特定方法。"
+      },
+      "license": "Testing Library 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "ByTestId (Testing Library docs)",
+      "titleZh": "ByTestId 查询（Testing Library 文档）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（查询方法都不够用时才用 test id）",
+      "originalUrl": "https://testing-library.com/docs/queries/bytestid/",
+      "sourceDomain": "testing-library.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「ByTestId | Testing Library」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "ByTestId 查询的官方文档：data-testid 属性的用法与「最后手段」定位——当元素没有可访问角色、没有文本、没有任何用户可感知的抓手时才用它。文档同时给出自定义 test id 属性名的配置方式。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：如果查询方法都不够用，还有 test id 选项——在这页学它。",
+        "points": [
+          "定位是查询优先级的最后手段——能 ByRole 就别 ByTestId",
+          "data-testid 属性由你手动加进 JSX",
+          "属性名可配置——上一课真实案例里的 data-test-id 就是项目自定义"
+        ],
+        "terms": [
+          "test id"
+        ],
+        "focus": "读「用法」与「什么时候该用」两段；记住它是垫底选项。",
+        "takeaway": "test id 是逃生舱不是常规门。"
+      },
+      "license": "Testing Library 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "user-event intro (Testing Library docs)",
+      "titleZh": "userEvent 简介（Testing Library 文档）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条（正文「Simulating user events」节的 #writing-tests-with-userevent 锚点同页合并归本条）",
+      "originalUrl": "https://testing-library.com/docs/user-event/intro/",
+      "sourceDomain": "testing-library.com",
+      "originalUrlStatus": "200（浏览器 UA；原地址无尾斜杠 301 到带尾斜杠现役形态；标题实测「Introduction | Testing Library」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "@testing-library/user-event 官方简介：userEvent 与 fireEvent 的区别（前者模拟真实用户的完整交互序列——点击包含 pointerdown/mousedown/focus/mouseup/click 等一整套事件）、setup() 的用法与「写测试时用自定义 setup 函数收敛重复代码」的官方推荐。无官方中文版。",
+        "why": "官方 Assignment 第 3 条：读 userEvent API 文档，体会用户模拟怎么做。正文另引 #writing-tests-with-userevent 锚点（setup 函数写法）——同页合并归本条。",
+        "points": [
+          "userEvent 模拟完整用户交互序列，比 fireEvent 更真实",
+          "userEvent.setup() 先于 render 调用（本课正文纪律的出处）",
+          "重复代码用自定义 setup 函数收敛——官方推荐写法就在本页锚点节"
+        ],
+        "terms": [
+          "user simulation（用户模拟）"
+        ],
+        "focus": "读 intro 全页 + writing-tests 锚点节；API 细节用到再查。",
+        "takeaway": "测交互用 userEvent，别用 fireEvent 凑合。"
+      },
+      "license": "Testing Library 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "「模拟回调与组件」课正文的 #writing-tests-with-userevent 链接与本页同址——同页合并归本条不重复登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Pros and cons of Jest snapshot tests (TSH)",
+      "titleZh": "快照测试的利与弊（TSH 博客）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 4 条（两篇之一：深入快照测试的优缺点）",
+      "originalUrl": "https://tsh.io/blog/pros-and-cons-of-jest-snapshot-tests/",
+      "sourceDomain": "tsh.io",
+      "originalUrlStatus": "200（浏览器 UA；原地址带尾斜杠 301 到无尾斜杠现役形态；标题实测「Pros and cons of Jest snapshot testing | TSH」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "TSH（The Software House）的快照测试利弊专文：利——写得快、挡意外回归、diff 直观；弊——假阳性（通过≠正确）、脆（无关改动也挂）、开发者惯性点「更新快照」把坏变化洗白。与本课正文「两类失真」互证。文章用 Jest 写、概念对 Vitest 完全迁移。无官方中文版。",
+        "why": "官方 Assignment 第 4 条：这篇深入探讨快照测试的优缺点。",
+        "points": [
+          "利弊清单与正文「两类失真」互证——读起来会有既视感",
+          "点名「惯性更新快照」的坏味道：更新前先确认变化是有意的",
+          "给出何时该用快照的实操边界"
+        ],
+        "terms": [
+          "snapshot regression（快照回归）"
+        ],
+        "focus": "带着正文的假阳性/假阴性框架读，把两篇的清单合成一张。",
+        "takeaway": "快照适合挡「意外」，不适合证明「正确」。"
+      },
+      "license": "文章版权属 TSH；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方 Assignment 提示：文章用 Jest 写，概念可迁移（Vitest 同理）。"
+    },
+    {
+      "lessonId": "node-path-react-new-introduction-to-react-testing",
+      "title": "Snapshot Testing: Benefits and Drawbacks (SitePen)",
+      "titleZh": "快照测试：收益与代价（SitePen 博客）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 4 条（两篇之二：讲清快照测试对编程的意义）",
+      "originalUrl": "https://www.sitepen.com/blog/snapshot-testing-benefits-and-drawbacks",
+      "sourceDomain": "sitepen.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Snapshot Testing: Benefits and Drawbacks - SitePen」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "SitePen 的快照测试通识文：不局限某个框架，讲快照测试在整个编程语境里是什么、解决什么问题（回归探测的成本压缩）、代价是什么（语义盲——它不知道「对」是什么）。官方评价：对「快照测试之于编程」的解释非常出色。无官方中文版。",
+        "why": "官方 Assignment 第 4 条：这篇把快照测试对一般编程的意义解释得很出色。",
+        "points": [
+          "视角比 TSH 文更高一层：快照测试在测试金字塔里的位置",
+          "核心洞见：快照是「变更探测器」——语义正确性它不懂",
+          "与另一篇对读：一篇讲实操边界、一篇讲概念定位"
+        ],
+        "terms": [
+          "regression detection（回归探测）"
+        ],
+        "focus": "读完用自己的话回答：快照测试到底在断言什么？（答案：与上次一致，仅此而已）",
+        "takeaway": "快照断言的是「没变」，不是「正确」。"
+      },
+      "license": "文章版权属 SitePen；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-mocking-callbacks-and-components",
+      "title": "submissions-list.jsx (The Odin Project website repo, pinned commit)",
+      "titleZh": "TOP 官网 submissions-list.jsx 组件源码（GitHub 固定 commit）",
+      "type": "代码仓库视图",
+      "requirement": "required",
+      "zone": "正文「React testing in the real world」节（官方指定：读并尝试理解这个组件）",
+      "originalUrl": "https://github.com/TheOdinProject/theodinproject/blob/0886578d5b27a967e6bba2b31f212efe284d9413/app/javascript/components/project-submissions/components/submissions-list.jsx",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「theodinproject/app/javascript/components/pro...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "theodinproject.com 官网项目提交列表组件的真实源码（官方钉住的 commit 版本）：React 写的生产组件——props 里一批事件处理器函数、渲染逻辑三分支（userSubmission / hasSubmissions / allSubmissionsPath）。官方任务：读并尝试理解它，明说「不必全懂」。",
+        "why": "正文官方任务：读并尝试理解 submissions-list.jsx 组件——看不懂也没关系，不必全懂也能跟上本课。",
+        "points": [
+          "先看 props：里面的函数推测是事件处理器",
+          "渲染三分支：有 userSubmission 渲染 Submission；hasSubmissions 排序后逐个渲染否则「No Submissions yet」标题；allSubmissionsPath 渲染一个 p",
+          "光读渲染逻辑就能列出该测什么——这是官方教的读法"
+        ],
+        "terms": [
+          "production component（生产组件）"
+        ],
+        "focus": "按官方读法：props → 渲染分支 → 列出测试点；别陷进不认识的导入。",
+        "takeaway": "读生产组件先数渲染分支——分支就是测试清单。"
+      },
+      "license": "源码属 The Odin Project 仓库（开源许可见仓库）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方给的地址钉在 commit 0886578（该组件后来已从官网下线，钉住的版本仍在）——按官方原地址登记。TOP 官网 theodinproject.com 首页裸链接与 Battleship 课页回链按 TOP 自有页面口径剔除。"
+    },
+    {
+      "lessonId": "node-path-react-new-mocking-callbacks-and-components",
+      "title": "submissions-list.test.jsx (The Odin Project website repo, pinned commit)",
+      "titleZh": "TOP 官网 submissions-list 测试文件源码（GitHub 固定 commit）",
+      "type": "代码仓库视图",
+      "requirement": "required",
+      "zone": "正文「submissions-list.jsx」节（官方指定：通读它的测试文件）",
+      "originalUrl": "https://github.com/TheOdinProject/theodinproject/blob/0886578d5b27a967e6bba2b31f212efe284d9413/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「theodinproject/app/javascript/components/pro...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "上一组件对应的真实测试文件：jest.mock 把 Submission 子组件换成带 data-test-id 的最小骨架、外部包 react-flip-move 同样 mock、props 喂假数据与 mock 函数、ProjectSubmissionContext.Provider 作 allSubmissionsPath 的传递通道、三个关注点分三个 describe 套件。本课「mock 子组件」概念的完整生产实例。",
+        "why": "正文官方任务：通读它的测试文件——看不懂全部也没关系，我们马上逐段嚼。",
+        "points": [
+          "jest.mock 骨架：只渲染验证被测组件所需的最小内容",
+          "外部包 react-flip-move 是「外部代码，mock 掉」的判断实例",
+          "三个 describe 对应组件三个渲染分支——保可读性的分组纪律"
+        ],
+        "terms": [
+          "test suite grouping（测试套件分组）"
+        ],
+        "focus": "对照课页讲解逐段读；把 jest.mock 在脑内换成 vi.mock。",
+        "takeaway": "生产测试的形状 = 课上课下同一套：mock、假数据、describe 分组。"
+      },
+      "license": "源码属 The Odin Project 仓库（开源许可见仓库）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "与 submissions-list.jsx 同 commit 钉住。课页注记（data-test-id vs RTL 默认 data-testid、jest.mock vs vi.mock）已转达进正文梳理。"
+    },
+    {
+      "lessonId": "node-path-react-new-mocking-callbacks-and-components",
+      "title": "vi.mock() API (Vitest docs)",
+      "titleZh": "vi.mock() API（Vitest 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Note - Vitest mocks」lesson-note（案例用 jest.mock，Vitest 环境用 vi.mock）",
+      "originalUrl": "https://vitest.dev/api/vi.html",
+      "sourceDomain": "vitest.dev",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Vi | Vitest」；官方原地址带 #vi-mock 锚点）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vitest 的 vi 工具集 API 参考页（vi.mock 一节）：模块级 mock 的完整 API——把整个模块/组件替换成测试用的假实现。官方 lesson-note 指路：案例代码用 jest.mock()，你按本课用 Vitest 搭的环境就换 vi.mock()。无官方中文版。",
+        "why": "正文官方注记：这里的测试用了 jest.mock()——如果你按 Vitest 搭建，可改用 vi.mock()，API 见此。",
+        "points": [
+          "vi.mock(路径, 工厂函数)：工厂返回模块的假实现",
+          "与 jest.mock 同型——迁移只换前缀",
+          "同页还有 vi.fn/vi.spyOn 全家——mock 工具箱一页齐"
+        ],
+        "terms": [
+          "module mock（模块 mock）"
+        ],
+        "focus": "精读 vi.mock 一节；vi.fn 已在课页正文用过、扫一眼签名即可。",
+        "takeaway": "jest.mock → vi.mock：Vitest 迁移的最小差异点。"
+      },
+      "license": "Vitest 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方原文带 #vi-mock 锚点——整页登记、锚点事实记此处（同页合并口径）。"
+    },
+    {
+      "lessonId": "node-path-react-new-mocking-callbacks-and-components",
+      "title": "ArrangeActAssert (C2 Wiki)",
+      "titleZh": "Arrange-Act-Assert 模式（C2 维基词条）",
+      "type": "百科条目",
+      "requirement": "reference",
+      "zone": "正文「Exploring further」节（几乎所有测试都遵循的模式）",
+      "originalUrl": "http://wiki.c2.com/?ArrangeActAssert",
+      "sourceDomain": "wiki.c2.com",
+      "originalUrlStatus": "200（浏览器 UA；页面可达但无 title 标签——标题取自官方链接文字「Arrange-Act-Assert」，与 threadreaderapp 先例同口径）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "C2 维基（最早的程序员 wiki）的 Arrange-Act-Assert 词条：测试三段式模式的原始出处——Arrange 准备数据与对象、Act 执行被测行为、Assert 断言结果。官方正文点名：几乎所有测试都遵循这个模式，早晚采纳它让测试更可读、最终更好。",
+        "why": "正文：它们遵循 Arrange-Act-Assert 模式——早晚采纳这个模式，让你的测试更可读、最终更好。",
+        "points": [
+          "三段式：准备（arrange）→ 执行（act）→ 断言（assert）",
+          "本课全部示例都能切成三段——回头逐条验证",
+          "词条是模式的原始文献，行文古早但定义权威"
+        ],
+        "terms": [
+          "AAA pattern"
+        ],
+        "focus": "读定义段即可；把本课示例逐条标注三段是更有效的内化。",
+        "takeaway": "AAA 是测试的通用骨架——写之前先想三段各是什么。"
+      },
+      "license": "C2 Wiki 内容按既有 wiki 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "wiki.c2.com 页面结构古早、无 title 标签——title 取自官方 Markdown 链接文字（threadreaderapp 先例同口径）。"
+    },
+    {
+      "lessonId": "node-path-react-new-mocking-callbacks-and-components",
+      "title": "Jest testing — mocking child components (Taylor McLean, Medium)",
+      "titleZh": "Jest 测试——mock 子组件让单元测试更简洁（Taylor McLean，Medium）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（官方注明：可能需要注册登录才能读）",
+      "originalUrl": "https://medium.com/@taylormclean15/jest-testing-mocking-child-components-to-make-your-unit-tests-more-concise-18691ef6a0c2",
+      "sourceDomain": "medium.com",
+      "originalUrlStatus": "命令行浏览器 UA 403（Medium 反爬）；真实浏览器实测可达：标题与 h1 均取得「Jest testing — mocking child components to make your unit tests more concise」、无登录墙拦截正文（官方 Markdown 注明可能需要注册——如实转达）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Taylor McLean 的 Medium 专文：mock 子组件的「怎么做」讲得最透的一篇——为什么要 mock（子组件细节与被测单元无关）、jest.mock 的骨架写法、mock 后断言什么。文章用 Jest 写，概念对 Vitest 完全迁移（jest.mock → vi.mock）。无官方中文版。",
+        "why": "官方 Assignment 第 1 条：读这篇讲 mock 子组件的文章——它把「怎么做」讲得很透（可能需要注册登录）。",
+        "points": [
+          "mock 子组件的动机与粒度判断讲得最细",
+          "jest.mock 骨架写法与课页真实案例同型",
+          "官方注明可能需要注册——遇到登录墙按 Medium 常规处理"
+        ],
+        "terms": [
+          "child component mocking"
+        ],
+        "focus": "对照课页 submissions-list.test.jsx 案例读——文章讲法、案例给形状。",
+        "takeaway": "mock 子组件 = 只渲染验证被测组件所需的最小内容。"
+      },
+      "license": "文章版权属 Taylor McLean；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "命令行 403 + 真实浏览器可达取得标题与 h1——按 Medium 双通路先例（iamtapan / SOLID 文）如实登记并入受限清单（verifyLimitedUrls 29 → 30）。"
+    },
+    {
+      "lessonId": "node-path-react-new-mocking-callbacks-and-components",
+      "title": "Testing React Apps (Academind)",
+      "titleZh": "测试 React 应用（Academind 教程）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://academind.com/tutorials/testing-react-apps",
+      "sourceDomain": "academind.com",
+      "originalUrlStatus": "200（浏览器 UA；原地址 301 到 /articles/testing-react-apps 现役路径——tutorials→articles 迁移第二例；标题实测「Testing React.js Apps | Academind」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Academind 的 React 测试总览教程：测试基础、RTL 查询、交互模拟、mock 的全景复习。官方两条提醒：教程里的 userEvent API 是同步旧版（与本站当前的异步 user.click 不同）——用已有知识跟着走即可；工具链照旧可以用 Vite 与 Vitest。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：这篇教程是你所学内容的绝佳总览。",
+        "points": [
+          "全景复习：一篇把测试基础到 mock 串起来",
+          "注意其 userEvent 是同步旧版——异步 API 以本课正文为准",
+          "与「状态简介」课登记的 Academind state 预读同站——tutorials→articles 路径迁移第二例"
+        ],
+        "terms": [
+          "test overview（测试总览）"
+        ],
+        "focus": "当复习地图用：每个小节对照本课与上一课找出对应知识点。",
+        "takeaway": "总览文的价值在串联——细节以官方文档为准。"
+      },
+      "license": "教程版权属 Academind；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "officialUrl 登记官方原地址，301 迁移到 /articles/ 现役路径事实记入 originalUrlStatus（阶段 2 what-is-state 条目同族迁移第二例）。"
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "Working with the History API (MDN)",
+      "titleZh": "MDN：使用历史记录 API",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Introduction」节（浏览器允许客户端 JS 管理导航的底层能力）",
+      "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API",
+      "sourceDomain": "developer.mozilla.org",
+      "originalUrlStatus": "200（默认 UA；标题实测「Working with the History API - Web APIs | MDN」）",
+      "zhUrl": "https://developer.mozilla.org/zh-CN/docs/Web/API/History_API/Working_with_the_History_API",
+      "zhType": "MDN 官方中文版（zh-CN 实测 200、标题「使用历史记录 API - Web API | MDN」、正文汉字 1877）",
+      "zhGuide": {
+        "overview": "MDN 对 History API 的专页：pushState / replaceState / popstate 事件的完整语义——客户端 JS 不刷新页面就能改 URL 与历史栈的底层机制。React Router 的客户端路由正是建在这份能力上：Link 拦截点击、经 History API 改地址、由 router 决定渲染什么。",
+        "why": "正文：浏览器允许客户端 JavaScript 用 History API 管理用户导航的方式——React Router 借力它实现路由。",
+        "points": [
+          "pushState/replaceState 改 URL 不触发页面加载——SPA 路由的物理基础",
+          "popstate 事件监听前进后退——router 靠它同步视图",
+          "读懂这页再看 React Router 文档会明白它在替你管什么"
+        ],
+        "terms": [
+          "History API",
+          "pushState / popstate"
+        ],
+        "focus": "读「pushState 与 replaceState」与「popstate 事件」两节即可；本课不要求手写 History API。",
+        "takeaway": "客户端路由不是魔法——底层就是 History API 三件套。"
+      },
+      "license": "MDN 文档按 CC-BY-SA 2.5 许可提供；官方中文版在位，本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "Link component (React Router docs)",
+      "titleZh": "Link 组件（React Router 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「The link element」节（替代 a 标签走客户端路由）",
+      "originalUrl": "https://reactrouter.com/api/components/Link",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Link | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方 Link 组件参考页：to prop、与 a 标签的行为差异（拦截点击走客户端导航不整页重载）、以及全部 props。正文场景：导航栏的 <a href> 换成 <Link to> 后点击不再刷新。无官方中文版。",
+        "why": "正文：React Router 导出定制的 Link 组件替代普通 a 标签。",
+        "points": [
+          "to prop 指定目标路径——相对路径也可",
+          "点击被 JS 拦截、经 router 切换视图——这是不重载的原因",
+          "props 一览：replace、state、reloadDocument 等进阶项"
+        ],
+        "terms": [
+          "Link component"
+        ],
+        "focus": "读 Overview 与 props 表；站内链接一律 Link 的纪律记住即可。",
+        "takeaway": "Link 之于 a：客户端导航之于整页重载。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "Outlet component (React Router docs)",
+      "titleZh": "Outlet 组件（React Router 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Nested routes, outlets and dynamic segments」节（嵌套路由的子组件渲染口）",
+      "originalUrl": "https://reactrouter.com/api/components/Outlet",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Outlet | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方 Outlet 组件参考页：父路由组件里的子路由渲染口——子路径命中时 Outlet 位置被替换成对应子组件；context prop 可向其渲染的任意深度组件传数据。无官方中文版。",
+        "why": "正文：这让我们经 Outlet 组件把子组件与父组件并排渲染。",
+        "points": [
+          "Outlet 是嵌套路由的落点——父组件模板里的「洞」",
+          "context prop + useOutletContext() 是配套数据通道",
+          "index 路由命中时渲染的也是 Outlet 位置"
+        ],
+        "terms": [
+          "Outlet"
+        ],
+        "focus": "读 Overview；配合课页嵌套路由示例理解「洞被谁填」。",
+        "takeaway": "嵌套路由 = 父模板 + Outlet 洞 + children 填充物。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "useOutletContext (React Router docs)",
+      "titleZh": "useOutletContext（React Router 文档）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "正文「Outlets and state」节（官方指令：Take a look at 这页学习经 outlet 传 context）",
+      "originalUrl": "https://reactrouter.com/api/hooks/useOutletContext",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「useOutletContext | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方 useOutletContext 文档：读取父路由经 <Outlet context={...}> 传入的数据——Outlet 渲染的任意深度组件（含「孙组件」）都可用；传数组/对象可解构。这是 Context API 课之前针对 outlet 场景的局部数据通道。无官方中文版。",
+        "why": "正文官方指令：看 React Router 的 useOutletContext 文档，学习怎么经 outlet 传 context、怎么在子组件里访问。",
+        "points": [
+          "与 <Outlet context> prop 成对使用——一端提供一端读取",
+          "任意深度可达——不必逐层 props",
+          "下一课 Context API 是它的通用化版本"
+        ],
+        "terms": [
+          "outlet context"
+        ],
+        "focus": "读文档示例一段；与 Context API 课对照记「局部 vs 通用」。",
+        "takeaway": "Outlet 自带数据通道——useOutletContext 是读取端。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "useNavigate (React Router docs)",
+      "titleZh": "useNavigate（React Router 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Protected routes and navigation」节（编程式改路由）",
+      "originalUrl": "https://reactrouter.com/api/hooks/useNavigate",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「useNavigate | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方 useNavigate 文档：编程式导航 hook——跳转指定 URL（navigate('/login')）、沿用户历史前进后退（navigate(-1)）。受保护路由「未登录重定向到登录页」就靠它。无官方中文版。",
+        "why": "正文：需要程序化地把用户送到不同 URL 时——用 useNavigate，它能跳 URL 甚至沿历史后退。",
+        "points": [
+          "navigate(路径) 跳转、navigate(-1) 后退——事件处理器里调用",
+          "受保护路由重定向的执行端",
+          "测试注意：用了它的组件必须在路由上下文里渲染（本课测试节）"
+        ],
+        "terms": [
+          "programmatic navigation（编程式导航）"
+        ],
+        "focus": "读签名与示例；与 Link 的分工：声明式导航用 Link、命令式用 useNavigate。",
+        "takeaway": "Link 管「点出来的导航」，useNavigate 管「代码算出来的导航」。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "MemoryRouter (React Router docs)",
+      "titleZh": "MemoryRouter（React Router 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「React Router testing」节（轻量档：包裹只含 Link 的组件）",
+      "originalUrl": "https://reactrouter.com/api/declarative-routers/MemoryRouter",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「MemoryRouter | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方 MemoryRouter 文档：把路由历史存在内存里的声明式 router——URL 不真变、不碰浏览器历史，专为测试与非浏览器环境设计。测试档一：组件只是恰好含 Link、不测导航行为时，包一层 MemoryRouter 就够。无官方中文版。",
+        "why": "正文：测试里渲染含 Link 的组件需要路由上下文——轻量的 MemoryRouter 包一层可能就够。",
+        "points": [
+          "历史存内存——测试不污染浏览器地址与历史栈",
+          "声明式 JSX 用法：<MemoryRouter><Component /></MemoryRouter>",
+          "依赖真路由行为时升级 createMemoryRouter（另一条目）"
+        ],
+        "terms": [
+          "memory history（内存历史）"
+        ],
+        "focus": "读 Overview 与测试示例；记住它是「轻量档」。",
+        "takeaway": "测试包路由上下文：轻量 MemoryRouter、完整 createMemoryRouter。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "createMemoryRouter (React Router docs)",
+      "titleZh": "createMemoryRouter（React Router 文档）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「React Router testing」节（完整档：依赖真路由行为的测试）",
+      "originalUrl": "https://reactrouter.com/api/data-routers/createMemoryRouter",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「createMemoryRouter | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方 createMemoryRouter 文档：吃与 createBrowserRouter 同款路由配置数组、在内存里建完整 data router——outlet context、参数匹配、错误元素、重定向全部可用。测试档二：组件依赖真路由行为时用它复刻 routes.jsx 配置。无官方中文版。",
+        "why": "正文：组件依赖真路由行为（outlet context、参数匹配、错误元素、重定向）时，用 createMemoryRouter 在测试里建同配置 router 更合理。",
+        "points": [
+          "与生产 createBrowserRouter 同配置形状——routes.jsx 直接复用",
+          "完整路由行为可用：params、errorElement、重定向都能测",
+          "配 RouterProvider 渲染——与 main.jsx 同构"
+        ],
+        "terms": [
+          "data router（数据路由）"
+        ],
+        "focus": "读测试示例；把「两档选择」判据写进测试笔记。",
+        "takeaway": "routes.jsx 抽独立文件的红利在这里兑现：测试与生产共享配置。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "Understanding single page apps & client-side routing (Ben Holmes)",
+      "titleZh": "理解单页应用与客户端路由（Ben Holmes）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://bholmes.dev/blog/spas-clientside-routing/",
+      "sourceDomain": "bholmes.dev",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Understanding single page apps & client-side routing」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Ben Holmes 的 SPA 与客户端路由专文：从浏览器导航的默认行为讲起，把 SPA 的路由机制、history 管理与「服务器不认识客户端路由」的部署坑讲得紧凑清楚——与本课正文互补（正文教用法，这篇补原理）。无官方中文版。",
+        "why": "官方 Assignment 第 1 条：这篇讲 SPA 与客户端路由的文章把很多路由概念讲得紧凑。",
+        "points": [
+          "原理层补足：为什么整页重载慢、SPA 怎么绕开它",
+          "history 管理与部署坑（深链接 404）预告了 Shopping Cart 的部署配置",
+          "行文紧凑——官方评价「concisely」"
+        ],
+        "terms": [
+          "single page application (SPA)"
+        ],
+        "focus": "读完对照本课「客户端路由」一节——两篇讲同一件事的两个层面。",
+        "takeaway": "用法在文档、原理在这篇——两层都通了路由就通了。"
+      },
+      "license": "文章版权属 Ben Holmes；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-react-router",
+      "title": "React Router docs home",
+      "titleZh": "React Router 文档首页",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条（浏览文档：把本课概念重读、看看其他特性）",
+      "originalUrl": "https://reactrouter.com/home",
+      "sourceDomain": "reactrouter.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「React Router Home | React Router」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React Router 官方文档首页：全部概念、API 与教程的总入口。官方要求不是通读——把本课讲过的概念（路由配置、Link、嵌套与 Outlet、动态段、测试）在文档里翻一遍重读，再看看其他特性。官方评价：值得常回来查的资源。无官方中文版。",
+        "why": "官方 Assignment 第 3 条：浏览 React Router 文档——不必全读全懂，重读本课概念、看看其他特性；这是值得常回来查的资源。",
+        "points": [
+          "总入口：概念教程与 API 参考的导航枢纽",
+          "官方要求的读法是「浏览」不是「通读」",
+          "正文引用的六个 API 页都住在这个文档站"
+        ],
+        "terms": [
+          "documentation home"
+        ],
+        "focus": "按本课概念清单逐个在文档里找到对应页重读——建立「遇到问题知道去哪查」的索引感。",
+        "takeaway": "文档是常回来查的地图，不是一次读完的教材。"
+      },
+      "license": "React Router 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文的 TOP dashboard 页链接（theodinproject.com/dashboard）为 TOP 自有页面按口径剔除。"
+    },
+    {
+      "lessonId": "node-path-react-new-fetching-data-in-react",
+      "title": "Modern API data-fetching methods in React (LogRocket Blog)",
+      "titleZh": "React 中的现代 API 数据获取方法（LogRocket 博客）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（读到 Axios 一节为止）",
+      "originalUrl": "https://blog.logrocket.com/modern-api-data-fetching-methods-react/",
+      "sourceDomain": "blog.logrocket.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Modern API data-fetching methods in React」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "LogRocket 的取数方法总览：从原生 fetch + useEffect 讲起、梳理各类取数方式的形态与取舍。官方给了明确的阅读范围：读到 Axios 一节为止——正好覆盖本课讨论的内容，后面是延伸。无官方中文版。",
+        "why": "官方 Assignment 第 1 条：读这篇直到 Axios 一节，对本课讨论内容做个简要总览。",
+        "points": [
+          "官方划定阅读范围：读到 Axios 节为止",
+          "fetch + useEffect + 三态的标准形与本课一致——当复习读",
+          "后续章节（Axios 与取数库）是「数据获取库」一节的延伸预告"
+        ],
+        "terms": [
+          "API data fetching"
+        ],
+        "focus": "按官方范围读前半；读到 Axios 标题就可以停。",
+        "takeaway": "总览文按官方划的范围读——不贪多。"
+      },
+      "license": "文章版权属 LogRocket；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-fetching-data-in-react",
+      "title": "How to fetch data in React with performance in mind (developerway)",
+      "titleZh": "如何以性能视角在 React 中取数（developerway）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://www.developerway.com/posts/how-to-fetch-data-in-react",
+      "sourceDomain": "developerway.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「How to fetch data in React with performance in mind」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "developerway（TanStack Query 维护者 TkDodo 的博客）的取数性能专文：请求瀑布、缓存、竞态与「异步状态」管理——正是本课「管理多个 fetch 请求」一节的深化。官方定位：学习在 React 组件里高效处理 fetch 请求。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：读这篇学习怎么在 React 组件里高效处理 fetch 请求。",
+        "points": [
+          "瀑布与并行的取舍讲得比正文更深一层",
+          "作者是 TanStack Query 维护者——「取数库在解决什么」的第一手视角",
+          "配合官方「课程内用原生取数」的立场读：先懂痛再谈库"
+        ],
+        "terms": [
+          "async state（异步状态）"
+        ],
+        "focus": "精读瀑布与竞态两节；缓存部分了解即可（课程项目用不到）。",
+        "takeaway": "高效取数 = 并行发出 + 竞态防护 + 状态三分。"
+      },
+      "license": "文章版权属 developerway（TkDodo）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文的 react-examples 仓库链接为跨课合并条目（归属 introduction-to-state 课）不重复登记；「状态简介」课页回链为 TOP 自有课页剔除；Picsum API 只出现在代码块字符串里、非正文链接不登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "styled-components",
+      "titleZh": "styled-components（CSS-in-JS 代表库）",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "正文「CSS in JS」节 + 官方 Assignment 第 3 条（略读文档）",
+      "originalUrl": "https://styled-components.com/",
+      "sourceDomain": "styled-components.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「styled-components」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "styled-components 官网与文档：React 生态最流行的 CSS-in-JS 方案之一——样式写在 JS 模板字符串里、随组件走、可按 props/状态变化。官方 Assignment 只要求略读（skim）：认出 API 形状、知道它代表 CSS-in-JS 一族即可。无官方中文版。",
+        "why": "正文：React 生态最流行的 CSS-in-JS 方案之一是 styled-components；Assignment 第 3 条：略读其文档。",
+        "points": [
+          "CSS-in-JS 的代表实现：样式与组件同文件",
+          "官方要求只是 skim——认形状不求精通",
+          "课程项目不推荐用它（官方立场：CSS Modules 从零写）"
+        ],
+        "terms": [
+          "CSS-in-JS"
+        ],
+        "focus": "首页 + API 一节扫一遍；别装进课程项目（官方立场）。",
+        "takeaway": "认识 CSS-in-JS 的门面即可——课程内按官方立场用 CSS Modules。"
+      },
+      "license": "styled-components 按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文「CSS in JS」节与 Assignment 第 3 条双现同址——合并登记一条，requirement 按 Assignment 指定（略读）计。"
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "Tailwind CSS",
+      "titleZh": "Tailwind CSS（工具类框架）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「CSS Utility Frameworks」节（当下最流行的工具类框架）",
+      "originalUrl": "https://tailwindcss.com",
+      "sourceDomain": "tailwindcss.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Tailwind CSS - Rapidly build modern websites...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Tailwind CSS 官网：工具类（utility-first）CSS 框架的代表——预定义原子类直接组合进标记，官方正文点名它是当下最流行的选择。课程内按官方立场不使用（学习期用 CSS Modules 从零写）。界面有中文社区翻译但非官方中文版，按 C 类登记。",
+        "why": "正文：CSS 工具类框架是热门选择——Tailwind CSS 是当下最流行的选择。",
+        "points": [
+          "utility-first：原子类直接进 className，不写自定义类名",
+          "官方正文点名「by far the most popular」",
+          "课程立场：学习期避开——认识定位即可"
+        ],
+        "terms": [
+          "utility-first CSS"
+        ],
+        "focus": "逛首页感受原子类思路；不装进课程项目。",
+        "takeaway": "Tailwind 是工具类框架的代名词——知道它是什么就够本课用。"
+      },
+      "license": "Tailwind CSS 按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "Material UI (MUI)",
+      "titleZh": "Material UI（MUI 组件库）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「Component libraries」节（组件库三代表之一）",
+      "originalUrl": "https://mui.com/",
+      "sourceDomain": "mui.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「MUI: The React component library you always wanted」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "MUI 官网：Google Material Design 风格的 React 组件库——官方正文点名谈组件库绕不开的名字之一。组件带样式、行为、可访问性预制。课程内按官方立场不使用。",
+        "why": "正文：谈组件库时 Material UI、Radix 与 Chakra UI 值得一说。",
+        "points": [
+          "Material Design 风格全家桶：按钮到数据网格",
+          "组件库三代表之一（MUI / Radix / Chakra）",
+          "课程立场：学习期避开——认识定位即可"
+        ],
+        "terms": [
+          "component library"
+        ],
+        "focus": "逛组件目录感受「全都替你做好了」的含义。",
+        "takeaway": "MUI = 预制组件全家桶的代表。"
+      },
+      "license": "MUI 核心按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "Radix UI",
+      "titleZh": "Radix UI（无样式组件库）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「Component libraries」节（组件库三代表之一）",
+      "originalUrl": "https://www.radix-ui.com/",
+      "sourceDomain": "radix-ui.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Radix UI」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Radix UI 官网：主打「无样式（unstyled）+ 可访问性内置」的组件原语库——行为与 ARIA 语义它管、外观你的 CSS 说了算。组件库三代表之一，与 MUI 的全预制路线相反。课程内按官方立场不使用。",
+        "why": "正文：谈组件库时 Material UI、Radix 与 Chakra UI 值得一说。",
+        "points": [
+          "unstyled 原语：行为与可访问性预制、样式自由",
+          "与 MUI 路线相反——组件库光谱的两端",
+          "课程立场：学习期避开——认识定位即可"
+        ],
+        "terms": [
+          "unstyled primitives（无样式原语）"
+        ],
+        "focus": "看一两个组件的文档体会「行为预制、样式自理」。",
+        "takeaway": "Radix 代表组件库的另一极：只管行为不管脸。"
+      },
+      "license": "Radix UI 按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "Chakra UI",
+      "titleZh": "Chakra UI（组件库）",
+      "type": "工具",
+      "requirement": "reference",
+      "zone": "正文「Component libraries」节（组件库三代表之一）",
+      "originalUrl": "https://chakra-ui.com/",
+      "sourceDomain": "chakra-ui.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Chakra UI」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Chakra UI 官网：主打可访问性与开发体验的模块化 React 组件库——组件带样式、行为、可访问性三包。组件库三代表之一。课程内按官方立场不使用。",
+        "why": "正文：谈组件库时 Material UI、Radix 与 Chakra UI 值得一说。",
+        "points": [
+          "模块化组件 + 可访问性内置",
+          "三代表之一——与 MUI、Radix 并列被官方点名",
+          "课程立场：学习期避开——认识定位即可"
+        ],
+        "terms": [
+          "accessible components（可访问组件）"
+        ],
+        "focus": "逛首页看它自我定位的关键词：modular、accessible。",
+        "takeaway": "Chakra = 可访问性优先的预制组件库代表。"
+      },
+      "license": "Chakra UI 按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "Lucide for React (lucide-react guide)",
+      "titleZh": "lucide-react 图标组件指南（Lucide）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Component libraries」节（图标组件库也属组件库一族）",
+      "originalUrl": "https://lucide.dev/guide/packages/lucide-react",
+      "sourceDomain": "lucide.dev",
+      "originalUrlStatus": "200（浏览器 UA；官方原地址 /guide/packages/lucide-react 实测 301 到 /guide/react 现役路径；标题实测「Lucide for React – Lucide」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Lucide 的 React 包官方指南：以组件形式引入图标（import { Camera } from 'lucide-react'）——图标组件库的代表。官方警告块的唯一例外正是它这类：课程内图标组件库可以用。无官方中文版。",
+        "why": "正文：图标组件库如 lucide react 让你以组件形式在项目里引入图标。",
+        "points": [
+          "图标即组件：import 单个图标、props 调大小颜色",
+          "官方课程立场的唯一例外：图标组件库可以用",
+          "原地址 301 到现役 /guide/react——登记按现役路径"
+        ],
+        "terms": [
+          "icon component library（图标组件库）"
+        ],
+        "focus": "读安装与用法两段；Shopping Cart 项目要放图标可以用它。",
+        "takeaway": "图标组件库是官方唯一放行的「现成组件」——用起来不违规。"
+      },
+      "license": "Lucide 按 ISC 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方原文地址 /guide/packages/lucide-react 实测 301 迁移到 /guide/react——登记现役地址、迁移事实记此处。"
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "css-modules/css-modules (GitHub documentation)",
+      "titleZh": "CSS Modules 官方文档（GitHub 仓库）",
+      "type": "代码仓库",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（两篇之一）",
+      "originalUrl": "https://github.com/css-modules/css-modules",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「GitHub - css-modules/css-modules: Documenta...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "CSS Modules 的官方文档仓库：局部作用域类名的机制说明——.module.css 的类名编译期加哈希、import styles from 后按对象取用，从根上消灭全局类名冲突。官方课程内推荐方案的正典出处。",
+        "why": "官方 Assignment 第 1 条：读 CSS Modules 文档（与 MakeUseOf 教程配套）。",
+        "points": [
+          "机制：类名编译期局部化——全局冲突从根上消灭",
+          "官方课程立场推荐方案——这份文档是正典",
+          "README 即完整说明：组合、全局例外等细节都有"
+        ],
+        "terms": [
+          "local scope（局部作用域）"
+        ],
+        "focus": "通读 README；然后在 Vite 项目里给一个组件换上 .module.css 实操。",
+        "takeaway": "CSS Modules = 局部作用域的普通 CSS——最小组织成本的防冲突方案。"
+      },
+      "license": "文档按仓库许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "How to Style React Components Using CSS Modules (MakeUseOf)",
+      "titleZh": "如何用 CSS Modules 为 React 组件添加样式（MakeUseOf）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（两篇之二）",
+      "originalUrl": "https://www.makeuseof.com/react-components-css-modules-style/",
+      "sourceDomain": "makeuseof.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「How to Style React Components Using CSS Modu...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "MakeUseOf 的实操教程：在 React 项目里一步步用起 CSS Modules——建 .module.css、import styles、className={styles.xxx}，配真实组件示例。与官方文档仓库互补：文档讲机制、这篇讲上手。无官方中文版。",
+        "why": "官方 Assignment 第 1 条：读 CSS Modules 文档与这篇上手教程。",
+        "points": [
+          "step-by-step 上手路径：从建文件到用类名",
+          "真实组件示例——照着敲一遍就会",
+          "Shopping Cart 项目的样式方案就按这个来"
+        ],
+        "terms": [
+          "CSS Modules in React"
+        ],
+        "focus": "跟着示例在自己的 Vite 项目里实操一遍。",
+        "takeaway": "机制看文档、上手跟这篇——两篇读完 CSS Modules 就能用。"
+      },
+      "license": "文章版权属 MakeUseOf；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "CSS vs. CSS-in-JS: How and why to use each (LogRocket Blog)",
+      "titleZh": "CSS 对比 CSS-in-JS：各自怎么用、为什么用（LogRocket 博客）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（两篇之一）",
+      "originalUrl": "https://blog.logrocket.com/css-vs-css-in-js/",
+      "sourceDomain": "blog.logrocket.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「CSS vs. CSS-in-JS: How and why to use each」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "LogRocket 的两派对比文：普通 CSS（含 Modules）与 CSS-in-JS 各自的优劣、适用场景与取舍论据——不是站队文，是给选型判断力。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：读这篇与 CSS-Tricks 的深度分析（配套两篇）。",
+        "points": [
+          "两派优劣清单对照——选型判断力的原料",
+          "与「取数课」登记的 LogRocket 现代取数文同站不同页",
+          "重点抓「什么场景选什么」的论据而非结论"
+        ],
+        "terms": [
+          "styling trade-offs（样式取舍）"
+        ],
+        "focus": "读对比表与场景段；把论据抄进自己的选型卡。",
+        "takeaway": "样式方案没有赢家——只有场景匹配度。"
+      },
+      "license": "文章版权属 LogRocket；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-styling-react-applications",
+      "title": "A Thorough Analysis of CSS-in-JS (CSS-Tricks)",
+      "titleZh": "CSS-in-JS 深度分析（CSS-Tricks）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（两篇之二）",
+      "originalUrl": "https://css-tricks.com/a-thorough-analysis-of-css-in-js/",
+      "sourceDomain": "css-tricks.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「A Thorough Analysis of CSS-in-JS | CSS-Tricks」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "CSS-Tricks 的 CSS-in-JS 全景分析：各实现的运行时/零运行时分野、性能代价与收益、生态走向——「thorough」名副其实的深度文。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：读这篇 CSS-in-JS 的透彻分析（与 LogRocket 对比文配套）。",
+        "points": [
+          "运行时 vs 零运行时的分野是理解性能取舍的钥匙",
+          "各实现横评——styled-components 只是其中一派",
+          "与 World 2 登记的 CSS-Tricks Grid 指南同站不同页"
+        ],
+        "terms": [
+          "runtime cost（运行时开销）"
+        ],
+        "focus": "读运行时/零运行时分野一节；其余当百科扫。",
+        "takeaway": "CSS-in-JS 的性能账在运行时——这是选型的隐藏维度。"
+      },
+      "license": "文章版权属 CSS-Tricks 及原作者；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-shopping-cart",
+      "title": "FakeStore API",
+      "titleZh": "FakeStore API（假商店数据 API）",
+      "type": "工具",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 8 条（商品数据源：FakeStore API 或同类）",
+      "originalUrl": "https://fakestoreapi.com",
+      "sourceDomain": "fakestoreapi.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Fake Store API」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "FakeStore API：免费的假电商 REST API——商品、购物车、用户等端点，无需 key 直接 GET（如 /products 返回 20 件商品的标题、价格、图片、分类）。官方点名的项目数据源（「或同类」）。文档页带端点清单与在线试请求。",
+        "why": "官方 Assignment 第 8 条：从 FakeStore API（或同类）获取你的商店商品。",
+        "points": [
+          "零门槛：无 key 无注册——直接 GET /products 即用（无需鉴权头）",
+          "返回字段齐活：title/price/image/category——正好喂商品卡片",
+          "与 Memory Card 项目的 PokéAPI 同型：免费假数据 REST API"
+        ],
+        "terms": [
+          "mock e-commerce API"
+        ],
+        "focus": "先在浏览器直接开 /products 看 JSON 结构，再进代码。",
+        "takeaway": "商品数据零成本到手——项目的重心留给路由、状态与测试。"
+      },
+      "license": "FakeStore API 为免费公开服务（见其文档）；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-shopping-cart",
+      "title": "Redirects and rewrites (Netlify Docs)",
+      "titleZh": "Netlify 文档：重定向与重写",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 11 条（Netlify 部署 SPA 的 _redirects 配置详解）",
+      "originalUrl": "https://docs.netlify.com/routing/redirects/",
+      "sourceDomain": "docs.netlify.com",
+      "originalUrlStatus": "200（浏览器 UA；原地址实测 301 到 /manage/routing/redirects/overview/ 现役路径；标题实测「Redirects and rewrites | Netlify Docs」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Netlify 官方文档的重定向与重写专页：_redirects 文件语法（/* /index.html 200 的含义）、重定向规则优先级与 rewrites 机制——SPA 深链接部署配置的正典出处。与阶段 2 登记的 docs.netlify.com 首页是不同页面。无官方中文版。",
+        "why": "官方 Assignment 第 11 条：Netlify 需在 public/ 加 _redirects（/* /index.html 200）——更多读这页。",
+        "points": [
+          "/* /index.html 200 = 所有路径重写到 index、状态码 200",
+          "深链接 /cart 直达不 404 的原理就在这页",
+          "原地址 301 到 /manage/routing/redirects/overview/ 现役路径"
+        ],
+        "terms": [
+          "redirects / rewrites"
+        ],
+        "focus": "读 _redirects 语法节；抄官方给的一行配置即可部署。",
+        "takeaway": "一行配置解决 SPA 深链接——原理在重定向文档。"
+      },
+      "license": "Netlify 文档按 Netlify 官方条款提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方原地址 /routing/redirects/ 实测 301 迁移到 /manage/routing/redirects/overview/——登记原地址、迁移事实记此处；与阶段 2 cv-application 课的 docs.netlify.com 首页条目不同页各自登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-shopping-cart",
+      "title": "Vite on Vercel (SPA rewrites) (Vercel Docs)",
+      "titleZh": "Vercel 文档：Vite 与 SPA 重写配置",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 11 条（Vercel 部署 SPA 的 vercel.json 配置详解）",
+      "originalUrl": "https://vercel.com/docs/frameworks/vite",
+      "sourceDomain": "vercel.com",
+      "originalUrlStatus": "200（浏览器 UA；原地址带 #using-vite-to-make-spas 锚点、实测 301 到 /docs/frameworks/frontend/vite 现役路径；标题实测「Vite on Vercel」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Vercel 官方的 Vite 框架文档：SPA 场景的 vercel.json rewrites 配置（把 /(.*) 重写到 /index.html、交给 react-router 处理）——官方 Assignment 给的 JSON 片段的详解出处。无官方中文版。",
+        "why": "官方 Assignment 第 11 条：Vercel 需在根目录加 vercel.json rewrites——更多信息在这页。",
+        "points": [
+          "rewrites 与 Netlify _redirects 同一思想：一切路径回 index.html",
+          "官方给的 JSON 片段照抄即可",
+          "原地址 301 到 /docs/frameworks/frontend/vite——路径迁移新事实"
+        ],
+        "terms": [
+          "rewrites（重写规则）"
+        ],
+        "focus": "读 SPA 配置节；三平台配置放一起对照记。",
+        "takeaway": "Vercel 版深链接解法：vercel.json 的 rewrites 一条规则。"
+      },
+      "license": "Vercel 文档按 Vercel 官方条款提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方原地址带 #using-vite-to-make-spas 锚点且实测 301 迁移到 /docs/frameworks/frontend/vite——登记去锚点原地址、迁移与锚点事实记此处；与阶段 2 cv-application 课的 vercel.com/docs 首页条目不同页各自登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-shopping-cart",
+      "title": "Serving Pages (Cloudflare Pages docs)",
+      "titleZh": "Cloudflare Pages 文档：服务页面",
+      "type": "官方文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 11 条（Cloudflare Pages 部署 SPA 的默认行为说明）",
+      "originalUrl": "https://developers.cloudflare.com/pages/platform/serving-pages/",
+      "sourceDomain": "developers.cloudflare.com",
+      "originalUrlStatus": "200（浏览器 UA；原地址实测 301 到 /pages/configuration/serving-pages/ 现役路径；标题实测「Serving Pages · Cloudflare Pages docs」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Cloudflare Pages 官方的 serving pages 文档：Pages 的默认路由行为——SPA 场景无需额外配置（默认行为就能让 react-router 正确处理重定向），与 Netlify/Vercel 要手写配置形成对比。zh-cn 子区实测 404（CF 中文覆盖按产品分区事实第二例），按 C 类登记。",
+        "why": "官方 Assignment 第 11 条：Cloudflare Pages 写作时点无需额外步骤——默认行为即可；了解更多读这页。",
+        "points": [
+          "三平台里唯一免配置的——默认行为兜住 SPA 路由",
+          "原地址 301 到 /pages/configuration/serving-pages/ 现役路径",
+          "zh-cn 子区该页实测 404——CF 中文按产品分区事实再现"
+        ],
+        "terms": [
+          "SPA serving（SPA 服务）"
+        ],
+        "focus": "扫一遍默认行为说明；部署时选 CF Pages 就省一步配置。",
+        "takeaway": "CF Pages 默认即 SPA 友好——三平台部署的最省事选项。"
+      },
+      "license": "Cloudflare 文档按 Cloudflare 官方条款提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方原地址 /pages/platform/serving-pages/ 实测 301 迁移到 /pages/configuration/serving-pages/；zh-cn 子区同路径实测 404（阶段 2 CF Pages 文档条目同族事实第二例——中文覆盖按产品分区、Pages 子区无中文）；与阶段 2 developers.cloudflare.com/pages/ 首页条目不同页各自登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-managing-state-with-the-context-api",
+      "title": "Passing Data Deeply with Context (React docs)",
+      "titleZh": "使用 Context 深层传递参数（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（每个示例都要动手试）",
+      "originalUrl": "https://react.dev/learn/passing-data-deeply-with-context",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Passing Data Deeply with Context – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/passing-data-deeply-with-context",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「使用 Context 深层传递参数 – React 中文文档」、正文汉字 3415）",
+      "zhGuide": {
+        "overview": "React 官方 Context 正篇：prop drilling 的问题现场、createContext/Provider/useContext 的完整用法、context 与 reducer 搭档等进阶形态——比本课正文更多引人入胜的示例与可能的优化。官方要求：每个示例都动手试。",
+        "why": "官方 Assignment 第 1 条：React 文档提供更多引人入胜的示例与 Context API 的可能优化——每个示例都要试。",
+        "points": [
+          "与本课正文同构但示例更丰——正篇地位",
+          "「context + reducer」组合形态是下一课的直接预告",
+          "官方中文版在位（3415 汉字）——直接读中文"
+        ],
+        "terms": [
+          "context provider / consumer"
+        ],
+        "focus": "逐示例动手试（官方原话）；把「使用场景与替代方案」一节精读。",
+        "takeaway": "正文给概念、正篇给手感——示例必须动手。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-managing-state-with-the-context-api",
+      "title": "Prop Drilling (Kent C. Dodds)",
+      "titleZh": "Prop Drilling（Kent C. Dodds 短文）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条",
+      "originalUrl": "https://kentcdodds.com/blog/prop-drilling",
+      "sourceDomain": "kentcdodds.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Prop Drilling」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Kent C. Dodds 的短文：prop drilling 的定义、什么时候它其实没问题（层级不深时 props 传递反而更明确）、什么时候该换方案（组件组合、context）。官方评价：易消化的例子把概念讲透。无官方中文版。",
+        "why": "官方 Assignment 第 2 条：读这篇短文——用易消化的例子加深对 prop drilling 的理解。",
+        "points": [
+          "反直觉要点：prop drilling 不总是坏——浅层传递更明确",
+          "组件组合是 context 之外的第一替代方案（呼应正文缓解方案②）",
+          "短文体量——十分钟读完"
+        ],
+        "terms": [
+          "prop drilling"
+        ],
+        "focus": "重点读「什么时候不该用 context」的论证——防止把 context 当万能锤。",
+        "takeaway": "先问「组合能不能解决」，再问「要不要 context」。"
+      },
+      "license": "文章版权属 Kent C. Dodds；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "与「React 测试简介」课的 Testing Implementation Details 同作者同站不同页——各自登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-managing-state-with-the-context-api",
+      "title": "React Component Composition (Robin Wieruch)",
+      "titleZh": "React 组件组合（Robin Wieruch）",
+      "type": "博客文章",
+      "requirement": "reference",
+      "zone": "正文「Potential solutions」节第 2 条（有时组件组合比 Context API 更合适）",
+      "originalUrl": "https://www.robinwieruch.de/react-component-composition/",
+      "sourceDomain": "robinwieruch.de",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「React Component Composition - Robin Wieruch」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Robin Wieruch 的组件组合专文：用 children 与 props 组合组件来传递数据/结构——很多「以为需要 context」的场景其实组合就够。官方正文把它列为 Context API 的替代思路（缓解方案②）。无官方中文版。",
+        "why": "正文缓解方案②：有时 Context API 甚至不是最佳解——看这篇组件组合文。",
+        "points": [
+          "组合模式：把「要传的东西」作为 children/props 直接塞进消费位置",
+          "数据流向显式可见——对比 context 的隐式可达",
+          "与本课 Vitest 搭建指南同作者（Robin Wieruch）不同页"
+        ],
+        "terms": [
+          "component composition（组件组合）"
+        ],
+        "focus": "读示例段：体会「不需要 context 的数据通路」长什么样。",
+        "takeaway": "组合能解决的别上 context——官方缓解方案的底层逻辑。"
+      },
+      "license": "文章版权属 Robin Wieruch；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-managing-state-with-the-context-api",
+      "title": "pmndrs/zustand (GitHub)",
+      "titleZh": "Zustand 状态管理库（GitHub 仓库）",
+      "type": "代码仓库",
+      "requirement": "reference",
+      "zone": "正文「Potential solutions」节第 3 条（外部状态管理系统之一）",
+      "originalUrl": "https://github.com/pmndrs/zustand",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「GitHub - pmndrs/zustand: 🐻 Bear necessities ...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Zustand 的 GitHub 仓库：小巧的 React 状态管理库——「bear necessities（熊之必需）」的自嘲式口号，主打极简 API 与内建优化。官方正文把它与 Redux 并列为外部状态系统选项，同时建议课程内继续用 Context API。",
+        "why": "正文缓解方案③：可以靠 Zustand 与 Redux 一类外部状态系统——功能多有优化但有学习曲线；课程内官方建议继续 Context API。",
+        "points": [
+          "极简 API：一个 create 函数建 store",
+          "内建优化——选择性订阅减少无谓重渲染（对症 context 代价①）",
+          "课程内不要求使用——认识定位即可"
+        ],
+        "terms": [
+          "external state management（外部状态管理）"
+        ],
+        "focus": "读 README 头两屏感受 API 形状；不用装进课程项目。",
+        "takeaway": "Zustand = 轻量派外部状态库代表——课程后选型再深究。"
+      },
+      "license": "Zustand 按 MIT 许可开源；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-managing-state-with-the-context-api",
+      "title": "Redux",
+      "titleZh": "Redux（可预测状态管理库）",
+      "type": "官方文档",
+      "requirement": "reference",
+      "zone": "正文「Potential solutions」节第 3 条（外部状态管理系统之一）",
+      "originalUrl": "https://redux.js.org/",
+      "sourceDomain": "redux.js.org",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Redux - A JS library for predictable and mai...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Redux 官网：可预测、可集中管理的状态容器——action/reducer/dispatch 概念体系的集大成者（下一课 reducing-state 学的正是这套词汇的地基）。官方正文与 Zustand 并列提及：功能丰富、内建优化，但有学习曲线；课程内继续用 Context API。无官方中文版（官网文档为英文）。",
+        "why": "正文缓解方案③：外部状态系统如 Zustand 与 Redux——功能多、优化多，但有学习曲线；官方建议课程内继续 Context API。",
+        "points": [
+          "单一 store + action/reducer/dispatch——可预测状态管理的原型",
+          "下一课的 useReducer 概念与它同源——先小后大的学习路径",
+          "课程内不要求使用——认识定位即可"
+        ],
+        "terms": [
+          "store / action / reducer"
+        ],
+        "focus": "逛首页认概念词汇；深学留到课程之后按需。",
+        "takeaway": "Redux 是外部状态库的重装代表——它的词汇表下一课先学一半。"
+      },
+      "license": "Redux 文档按 MIT 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文的 react.dev「在组件间共享状态」链接与「再谈状态」课既有条目同址——跨课合并归属首现课不重复登记；「React Router 课」回链为 TOP 自有课页剔除；官方配图（statically CDN）按课程素材口径剔除。"
+    },
+    {
+      "lessonId": "node-path-react-new-reducing-state",
+      "title": "Extracting State Logic into a Reducer (React docs)",
+      "titleZh": "迁移状态逻辑至 Reducer 中（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条（别忘做文末挑战题）",
+      "originalUrl": "https://react.dev/learn/extracting-state-logic-into-a-reducer",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Extracting State Logic into a Reducer – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/extracting-state-logic-into-a-reducer",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「迁移状态逻辑至 Reducer 中 – React 中文文档」、正文汉字 3213）",
+      "zhGuide": {
+        "overview": "React 官方 reducer 正篇：从多个 useState 互相纠缠的现场出发，一步步把状态更新逻辑重构成 reducer——action 设计、dispatch 用法、与 useContext 搭档的「reducer + context」形态。文末挑战题官方点名要做。",
+        "why": "官方 Assignment 第 1 条：通读这页学习怎么在 React 里用 reducer、怎么把 useState 重构成 useReducer——别忘做文末挑战题。",
+        "points": [
+          "重构叙事：从 useState 泥潭到 reducer 的完整路径",
+          "「reducer + context」组合是 Context 课代价①的工程解",
+          "官方中文版在位（3213 汉字）——挑战题也要做"
+        ],
+        "terms": [
+          "state logic extraction（状态逻辑抽取）"
+        ],
+        "focus": "跟着重构步骤走一遍；文末挑战题逐题动手（官方原话别忘做）。",
+        "takeaway": "reducer 的价值在「更新逻辑集中一处」——重构叙事比 API 更值得学。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-reducing-state",
+      "title": "useReducer (React docs Reference)",
+      "titleZh": "useReducer（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（特别留心 troubleshooting 一节）",
+      "originalUrl": "https://react.dev/reference/react/useReducer",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「useReducer – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/useReducer",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「useReducer – React 中文文档」、正文汉字 2847）",
+      "zhGuide": {
+        "overview": "React 官方 useReducer 参考页：签名、参数、返回值与全部用法形态的权威参考——官方特别点名 **troubleshooting 一节**：常见坑（dispatch 后状态没变、reducer 不纯、意外多次执行等）逐条有解。",
+        "why": "官方 Assignment 第 2 条：读 useReducer 参考页——特别留心 troubleshooting 一节的常见问题。",
+        "points": [
+          "troubleshooting 节是官方点名的精读区",
+          "与 useState 的对照表回答「什么时候换 reducer」",
+          "官方中文版在位（2847 汉字）"
+        ],
+        "terms": [
+          "dispatch / reducer troubleshooting"
+        ],
+        "focus": "按官方指令精读 troubleshooting；其余当参考手册。",
+        "takeaway": "参考页按官方划的重点读——troubleshooting 是前人踩坑清单。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文的 MDN Object.is 链接与「再谈状态」课既有条目同址——跨课合并归属首现课不重复登记、任务映射按防悬空纪律不接。"
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "<Profiler> (React docs Reference)",
+      "titleZh": "<Profiler>（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「The useMemo hook」节（官方建议所有示例用它测量性能）",
+      "originalUrl": "https://react.dev/reference/react/Profiler",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「<Profiler> – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/Profiler",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「<Profiler> – React 中文文档」、正文汉字 1011）",
+      "zhGuide": {
+        "overview": "React 官方 <Profiler> 组件参考页：测量子树渲染性能的内置组件——onRender 回调给出每次渲染的耗时与原因。官方正文建议所有记忆化示例都用它测量：优化之前先有数据。",
+        "why": "正文官方建议：所有示例用 react 模块提供的 Profiler 组件测量渲染性能。",
+        "points": [
+          "包住被测子树 + onRender 回调拿耗时数据",
+          "「过早优化是万恶之源」的执行工具——先测量",
+          "官方中文版在位（1011 汉字）"
+        ],
+        "terms": [
+          "render profiling（渲染性能分析）"
+        ],
+        "focus": "跑官方示例时把 Profiler 包上——用数据见证 memo 前后差异。",
+        "takeaway": "Profiler 是优化决策的证据来源——别凭感觉包 useMemo。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "React Developer Tools (React docs Learn)",
+      "titleZh": "React 开发者工具（React 官方文档教程页）",
+      "type": "教程文章",
+      "requirement": "reference",
+      "zone": "正文「The useMemo hook」节（Profiler 的交互式替代：DevTools 里的 Profiler 面板）",
+      "originalUrl": "https://react.dev/learn/react-developer-tools",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「React Developer Tools – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/react-developer-tools",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「React 开发者工具 – React 中文文档」、正文汉字 664）",
+      "zhGuide": {
+        "overview": "React 官方开发者工具教程页：浏览器扩展的安装与组件树/Props/State/Profiler 面板用法——正文推荐用它做更交互式的渲染性能测量。官方中文版在位（664 汉字）。",
+        "why": "正文：想要更交互式的替代，用 React Developer Tools 里的 Profiler 测量渲染性能。",
+        "points": [
+          "浏览器扩展：组件树、props/state 实时查看",
+          "内置 Profiler 面板——交互式录制渲染耗时",
+          "与阶段 1 登记的 Chrome 商店列项是不同资源（教程页 vs 商店页）"
+        ],
+        "terms": [
+          "DevTools Profiler panel"
+        ],
+        "focus": "装上扩展、开 Profiler 面板跑一遍本课示例。",
+        "takeaway": "教程页教你装与用；商店页只是下载入口——两条目各司其职。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "与阶段 1「搭建 React 环境」课登记的 Chrome 商店 React Developer Tools 列项（C 类）不同页不同资源——教程页与商店页各自登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "memo (React docs Reference)",
+      "titleZh": "memo（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "reference",
+      "zone": "正文「Referential equality checks」节（props 未变跳过重渲染的包裹函数）",
+      "originalUrl": "https://react.dev/reference/react/memo",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「memo – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/memo",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「memo – React 中文文档」、正文汉字 3042）",
+      "zhGuide": {
+        "overview": "React 官方 memo 参考页：用 memo() 包裹组件、props 未变时跳过重渲染（哪怕父组件重渲染）——判据是 props 的引用相等。官方正文引用它完成「缓存函数引用 + memo 包裹」的两件套演示。",
+        "why": "正文：React 提供 memo 包裹函数——props 未变时跳过组件重渲染（是的，哪怕父组件重渲染了）。",
+        "points": [
+          "跳过重渲染的判据：props 逐项引用相等",
+          "与 useCallback/useMemo 成对使用——裸函数 prop 会让 memo 白包",
+          "官方中文版在位（3042 汉字）"
+        ],
+        "terms": [
+          "memo wrapper（memo 包裹）"
+        ],
+        "focus": "读「跳过重渲染」机制节；对照 react-examples 的 memoization/ 示例实测。",
+        "takeaway": "memo 管组件、useMemo 管值、useCallback 管函数——三件套配套生效。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "正文的 react-examples 仓库链接为跨课合并条目（归属「状态简介」课）不重复登记。"
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "When to useMemo and useCallback (Kent C. Dodds)",
+      "titleZh": "何时用 useMemo 与 useCallback（Kent C. Dodds）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 1 条",
+      "originalUrl": "https://kentcdodds.com/blog/usememo-and-usecallback",
+      "sourceDomain": "kentcdodds.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「When to useMemo and useCallback」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Kent C. Dodds 的选型专文：什么时候值得用 useMemo/useCallback（昂贵计算、引用相等敏感的下游、memo 组件的 props）、什么时候纯属浪费（原始值、无下游敏感点）——把「性能优化」与「优化表演」分开。无官方中文版。",
+        "why": "官方 Assignment 第 1 条：这篇进一步给出更多「什么时候该用、什么时候不值得费心」的例子。",
+        "points": [
+          "该用清单：昂贵计算 / memo 组件 props / 引用敏感依赖",
+          "不值得清单：原始值、无下游敏感点的缓存",
+          "呼应官方警语：过早优化是万恶之源——先测量"
+        ],
+        "terms": [
+          "premature optimization（过早优化）"
+        ],
+        "focus": "把两张清单抄成自己的决策卡；用 Profiler 验证文中的取舍。",
+        "takeaway": "记忆化不是免费——缓存本身有成本，值得才用。"
+      },
+      "license": "文章版权属 Kent C. Dodds；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "useRef (React docs Reference)",
+      "titleZh": "useRef（React 官方文档参考页）",
+      "type": "参考文档",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 2 条（更多用例与谨慎使用的理由）",
+      "originalUrl": "https://react.dev/reference/react/useRef",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「useRef – React」）",
+      "zhUrl": "https://zh-hans.react.dev/reference/react/useRef",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「useRef – React 中文文档」、正文汉字 1880）",
+      "zhGuide": {
+        "overview": "React 官方 useRef 参考页：签名、DOM ref 用法、非 DOM 用途（存定时器 id、上次值等渲染外数据）与「为什么要谨慎」的官方论述——本课只学了基础实现，这页是完整版图。",
+        "why": "官方 Assignment 第 2 条：本课只学了 useRef 基础实现——更多用例与谨慎使用的理由（及其指南里给的链接）看这页。",
+        "points": [
+          "DOM 之外的用途清单：定时器 id、上次值、实例级缓存",
+          "官方的谨慎论述：ref 滥用会让数据流隐身",
+          "官方中文版在位（1880 汉字）"
+        ],
+        "terms": [
+          "ref object（ref 对象）"
+        ],
+        "focus": "精读「用法」与「谨慎」两节；每个用例想一个自己项目里的对应场景。",
+        "takeaway": "useRef 是「渲染外数据」的合法通道——但数据流要留痕。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "Manipulating the DOM with Refs (React docs)",
+      "titleZh": "使用 ref 操作 DOM（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 3 条",
+      "originalUrl": "https://react.dev/learn/manipulating-the-dom-with-refs",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「Manipulating the DOM with Refs – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/manipulating-the-dom-with-refs",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「使用 ref 操作 DOM – React 中文文档」、正文汉字 2945）",
+      "zhGuide": {
+        "overview": "React 官方 DOM ref 教程正篇：ref 挂载时机、focus/scroll/measure 等安全操作的完整示例、以及「哪些 DOM 操作不该做」的官方边界——比本课正文更系统深入的 DOM 操作指南。",
+        "why": "官方 Assignment 第 3 条：深入怎么安全访问与修改 DOM 节点——读这页。",
+        "points": [
+          "安全操作清单：focus、scrollIntoView、测量尺寸",
+          "官方边界：能让 React 管的 DOM 别自己动手",
+          "官方中文版在位（2945 汉字）"
+        ],
+        "terms": [
+          "DOM ref（DOM 引用）"
+        ],
+        "focus": "逐示例动手；把「不该做」清单与本课反例（textContent）对照。",
+        "takeaway": "DOM 操作的正途：非破坏性动作 + React 管渲染。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "Making setInterval Declarative with React Hooks (Dan Abramov, Overreacted)",
+      "titleZh": "用 React Hooks 让 setInterval 变声明式（Dan Abramov，Overreacted）",
+      "type": "博客文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 4 条",
+      "originalUrl": "https://overreacted.io/making-setinterval-declarative-with-react-hooks/",
+      "sourceDomain": "overreacted.io",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Making setInterval Declarative with React Hooks」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Dan Abramov（React 核心团队）的传世名文：从「useInterval 为什么不存在」出发，一步步推导出用 ref 保存回调的声明式 setInterval hook——闭包过期（stale closure）问题的经典教学。官方定位：useRef 在 DOM 操作之外的用武之地。无官方中文版。",
+        "why": "官方 Assignment 第 4 条：useRef 还有 DOM 操作之外的用途——读 Dan Abramov 这篇了解它的用武之地。",
+        "points": [
+          "ref 的非 DOM 用途：保存最新回调、绕过闭包过期",
+          "推导式行文——跟着一步步想比抄代码值钱",
+          "与「如何处理副作用」课的 Clock 定时器场景直接呼应"
+        ],
+        "terms": [
+          "stale closure（过期闭包）"
+        ],
+        "focus": "跟着推导走全程；读完回头看 Clock 四部曲会有新理解。",
+        "takeaway": "ref 是「渲染之间传话」的通道——闭包问题的官方解法之一。"
+      },
+      "license": "文章版权属 Dan Abramov；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-new-refs-and-memoization",
+      "title": "React Compiler (React docs)",
+      "titleZh": "React 编译器（React 官方文档）",
+      "type": "教程文章",
+      "requirement": "required",
+      "zone": "官方 Assignment 第 5 条",
+      "originalUrl": "https://react.dev/learn/react-compiler",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「React Compiler – React」）",
+      "zhUrl": "https://zh-hans.react.dev/learn/react-compiler",
+      "zhType": "React 官方中文文档站（zh-hans.react.dev 实测 200、标题「React 编译器 – React 中文文档」、正文汉字 675）",
+      "zhGuide": {
+        "overview": "React 官方 Compiler 文档：构建期自动记忆化工具的安装、配置与工作机制——自动分析代码、给合适的组件与 hook 加记忆化，主攻更新性能。官方中文版在位（675 汉字）。",
+        "why": "官方 Assignment 第 5 条：通读 React Compiler 文档多了解它、看看怎么在项目里安装配置。",
+        "points": [
+          "自动记忆化——多数场景不再手动 useMemo/useCallback",
+          "安装配置一节按项目类型给了路径",
+          "手动记忆化知识仍必修的三条理由在课页正文"
+        ],
+        "terms": [
+          "build-time optimization（构建期优化）"
+        ],
+        "focus": "读工作机制与安装两节；手动三件套的知识别丢。",
+        "takeaway": "Compiler 是自动挡——手动挡原理仍是驾照考试内容。"
+      },
+      "license": "React 官方文档按 CC BY 4.0 许可提供；本站只做链接与本站原创导读（官方中文版在位，无需精译）。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-conclusion",
+      "title": "reactjs/rfcs (GitHub)",
+      "titleZh": "React RFC 仓库（GitHub）",
+      "type": "代码仓库",
+      "requirement": "reference",
+      "zone": "正文「What's next」节（跟进 React 未来的渠道之一）",
+      "originalUrl": "https://github.com/reactjs/rfcs",
+      "sourceDomain": "github.com",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「GitHub - reactjs/rfcs: RFCs for changes to R...」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React 官方的 RFC（征求意见稿）仓库：新特性与变更在这里提案、讨论、最终接受或拒绝——跟进 React 未来走向的第一现场。官方结语课点名的两个跟进渠道之一。",
+        "why": "正文：关注 React RFC GitHub 仓库可以跟进 React 的未来——新特性在此提案、讨论、接受或拒绝。",
+        "points": [
+          "React 演进的提案现场——比新闻稿早一步",
+          "每个 RFC 的讨论区能看到团队与社区的博弈",
+          "与 react.dev/blog 搭配：一个看过程、一个看结果"
+        ],
+        "terms": [
+          "RFC（Request for Comments）"
+        ],
+        "focus": "挑一个进行中的 RFC 读一遍提案与讨论——感受流程即可。",
+        "takeaway": "RFC 仓库是 React 未来的预告片场。"
+      },
+      "license": "仓库内容按 React 官方许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-conclusion",
+      "title": "React Blog",
+      "titleZh": "React 官方博客",
+      "type": "官方页面",
+      "requirement": "reference",
+      "zone": "正文「What's next」节（跟进 React 未来的渠道之二）",
+      "originalUrl": "https://react.dev/blog",
+      "sourceDomain": "react.dev",
+      "originalUrlStatus": "200（默认 UA；标题实测「React Blog – React」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "React 官方博客：版本发布、新特性（如 Compiler、server components 进展）的第一手解读。官方结语课点名的跟进渠道之二。中文站 zh-hans.react.dev 的博客区翻译覆盖不全，按 C 类登记英文原址。",
+        "why": "正文：你也可能有兴趣读 React 官方博客——它让你跟上最新特性。",
+        "points": [
+          "版本与新特性的官方第一手解读",
+          "与 RFC 仓库互补：那边看过程、这边看定论",
+          "react.dev 首页条目已归属 javascript 结语课——/blog 是不同页面各自登记"
+        ],
+        "terms": [
+          "release notes（发布说明）"
+        ],
+        "focus": "读最新一篇——感受官方叙事的节奏。",
+        "takeaway": "博客是 React 的官方公告栏——订阅它保持跟进。"
+      },
+      "license": "React 官方博客按 CC BY 4.0 许可提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "与 javascript 结语课登记的 react.dev 首页条目（跨课合并归属首现课）不同页面——/blog 独立登记本课。"
+    },
+    {
+      "lessonId": "node-path-react-conclusion",
+      "title": "Patterns.dev",
+      "titleZh": "Patterns.dev（设计模式与架构资源站）",
+      "type": "网站",
+      "requirement": "reference",
+      "zone": "正文「What's next」节（设计模式与架构的学习资源，官方：值得收藏）",
+      "originalUrl": "https://www.patterns.dev/",
+      "sourceDomain": "patterns.dev",
+      "originalUrlStatus": "200（浏览器 UA；标题实测「Patterns.dev」）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Patterns.dev：渲染模式、性能模式与架构模式的可视化教学站——官方结语课评价「借力强大模式建更好 React 应用的绝佳资源，值得收藏」。你已到可以开始学设计模式与架构的阶段。",
+        "why": "正文：patterns.dev 是借力强大模式建更好 React 应用的绝佳资源——值得收藏！",
+        "points": [
+          "渲染/性能/架构模式分门别类、配交互演示",
+          "官方定位：React 之后的下一站学习资源",
+          "收藏即可——按项目需要回来查"
+        ],
+        "terms": [
+          "design patterns（设计模式）"
+        ],
+        "focus": "逛一遍模式分类目录；挑一个当前项目用得上的模式精读。",
+        "takeaway": "从「会写组件」到「会设计应用」——patterns.dev 是这一跳的教材。"
+      },
+      "license": "Patterns.dev 内容按其站点条款提供；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": ""
+    },
+    {
+      "lessonId": "node-path-react-conclusion",
+      "title": "Local Storage And How To Use It On Websites (Smashing Magazine)",
+      "titleZh": "Local Storage 及其在网站上的使用（Smashing Magazine）",
+      "type": "文章（存档）",
+      "requirement": "reference",
+      "zone": "正文「Using a backend」节（不用 Local Storage 应用刷新即忘——但 LS 也不理想的引出链接）",
+      "originalUrl": "https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/",
+      "sourceDomain": "smashingmagazine.com",
+      "originalUrlStatus": "官方原链接（http://coding.smashingmagazine.com/2010-10-11/local-storage-and-how-to-use-it/）http 形态实测 404、https 形态 301 到 www 子域现役路径（200，标题实测「Local Storage And How To Use It On Websites — Smashing Magazine」）——登记按现役地址、迁移事实记此处（devfactor 存档先例同口径）",
+      "zhUrl": null,
+      "zhType": null,
+      "zhGuide": {
+        "overview": "Smashing Magazine 2010 年的 Local Storage 入门经典：API 用法、与 cookie 的对比、容量与同源边界。官方结语课引它说明「LS 虽好但不理想」：数据只存当前设备当前浏览器——跨设备「记住」用户需要真后端（下一门 Databases 课程的主题）。",
+        "why": "正文：除非你用 Local Storage，应用一刷新就「忘掉」用户偏好与一切改动——而 LS 也只存本机，换设备全丢。",
+        "points": [
+          "LS 的边界：单设备单浏览器——跨设备持久化它做不到",
+          "2010 年老文但 API 至今未变——存档价值",
+          "官方引它是为了引出「真后端」的必要性"
+        ],
+        "terms": [
+          "Web Storage / localStorage"
+        ],
+        "focus": "扫一遍 API 与 cookie 对比节；重点体会官方引用它的语境。",
+        "takeaway": "LS 是便签不是仓库——真持久化要后端。"
+      },
+      "license": "文章版权属 Smashing Magazine 及原作者；本站只做链接与本站原创导读。",
+      "handling": "link-only",
+      "verifiedAt": "2026-09-28",
+      "note": "官方 Markdown 给的原链接为 http://coding.smashingmagazine.com/2010-10-11/... 形态：http 实测 404、https 形态 301 到 www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/ 现役路径——按 devfactor 存档先例登记现役地址、原链接与迁移事实记入 originalUrlStatus。TOP 自有课页回链（Databases 与 Node.js 课程页 ×3）与 curriculum issues 链接按口径剔除；Assignment 唯一条目（课程反馈 Google 表单）按行政表单口径剔除（sign-up-form 反馈表先例）。"
+    },
+    {
+      lessonId: 'node-path-databases',
+      title: 'Introduction — SQL (LaunchSchool)',
+      titleZh: 'LaunchSchool SQL 书：引言（结构化数据、SQL 与关系型数据库）',
+      type: '教程文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://launchschool.com/books/sql/read/introduction',
+      sourceDomain: 'launchschool.com',
+      originalUrlStatus: '200（标题实测「Structured data, SQL, and relational databases」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'LaunchSchool 这本免费 SQL 电子书的引言章，标题正是「结构化数据、SQL 与关系型数据库」。它从「为什么需要用结构化的方式存数据」讲起，铺陈关系型数据库的基本世界观——这正是官方本课开篇「数据库替你记住一切」那段的技术展开。官方明确：只需读引言第一页、不必往后深入，作为进入下一课 SQL 语法前的概念热身。',
+      why: '官方 Assignment 第 1 条：用 SQL 组织与管理海量数据的引言。',
+      points: [
+        '从「结构化数据」的动机切入，解释关系型数据库为什么这样组织数据。',
+        '官方限定范围：只读引言第一页即可，是概念热身而非完整教程。'
+      ],
+      terms: [
+        'structured data（结构化数据）',
+        'relational database（关系型数据库）'
+      ],
+      focus: '抓住「为什么用表与关系来组织数据」这条主线，不必纠结后续章节的细节。',
+      takeaway: '先建立关系型数据库的世界观，下一课的表、主键、外键才装得进去。',
+      },
+      license: 'LaunchSchool 内容按其站点条款提供；本站只做链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方注明只需读引言第一页（You do not need to go any further than the first page on introductions），如实转达进任务文案。'
+    },
+    {
+      lessonId: 'node-path-databases',
+      title: 'An Introduction to Relational Databases',
+      titleZh: '关系型数据库简介（视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'http://www.youtube.com/watch?v=z2kbsG8zsLM',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: '200（oEmbed 核验：真实标题「An Introduction to Relational Databases」，作者 EasyPHPWebsites）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条指定的一支短视频，用直观方式介绍关系型数据库为什么有用、并让你多接触一遍后面会反复出现的术语（表、行、列、键）。本站只核验到 oEmbed 元数据事实（标题与作者），不搬运视频内容。',
+      why: '官方 Assignment 第 2 条：感受关系型数据库为什么有用、熟悉术语。',
+      points: [
+        '短视频形态，重在建立直觉与术语熟悉度，不替代文字教程。',
+        '为下一课「数据库与 SQL」的表/键/JOIN 词汇做铺垫。'
+      ],
+      terms: [
+        'relational database（关系型数据库）'
+      ],
+      focus: '留意视频里出现的术语，与本课术语表对照着听。',
+      takeaway: '先看视频建立整体印象，再去下一课抠语法细节。',
+      },
+      license: '第三方 YouTube 视频（EasyPHPWebsites），版权归原作者；本站只做链接与本站原创导读，不搬运视频、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文给 http 形态地址，oEmbed 核验通过；为英文视频。'
+    },
+    {
+      lessonId: 'node-path-databases',
+      title: 'Welcome to SQL (Khan Academy)',
+      titleZh: '欢迎来到 SQL（可汗学院）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.khanacademy.org/computing/hour-of-code/hour-of-sql/v/welcome-to-sql',
+      sourceDomain: 'www.khanacademy.org',
+      originalUrlStatus: '命令行返回 200 但内容为反爬挑战页（标题「Client Challenge」），自动核验无法确认正文；真实浏览器实测可达：标题「Welcome to SQL (video) | Khan Academy」、h1「Welcome to SQL」，最终 URL 自动迁移到含 hour-of-code-lessons 中段的路径',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '可汗学院「SQL 一小时」系列的欢迎与起步视频，官方让你借它感受真正创建与操纵数据库是什么体验。可汗学院的交互式 SQL 课程边讲边练，是动手感受数据库的第一站。中文站（zh.khanacademy.org）同路径实测显示「此页面未翻译成中文（简体中文）」，故无官方中文版、按 C 类登记。',
+      why: '官方 Assignment 第 3 条：感受真正创建与操纵数据库。',
+      points: [
+        '可汗学院交互课程：边看边在浏览器里跑 SQL，动手感受建表与查询。',
+        '中文站该页实测未翻译，只能看英文版。'
+      ],
+      terms: [
+        'SQL（结构化查询语言）'
+      ],
+      focus: '跟着可汗学院的交互提示亲手敲第一条查询，别只看不动手。',
+      takeaway: '在真实环境里跑通第一条 SQL，比读十遍语法更有感觉。',
+      },
+      license: '可汗学院内容以 CC BY-NC-SA 发布；本站只做链接与本站原创导读，不搬运内容、不声称有中文字幕。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '验证受限：命令行访问返回 200 但内容为反爬挑战页（Client Challenge），无法自动确认正文；真实浏览器核验可达并取得标题与 h1「Welcome to SQL」、最终 URL 路径自动迁移到 hour-of-code-lessons 中段；已入 verifyLimitedUrls。中文站 zh.khanacademy.org 同路径真实浏览器实测显示「页面未翻译」，无官方中文版（与既有可汗学院 describing-graphs / representing-graphs 两条 A 类不同——那两页中文站有官方译版，本页没有），按 C 类登记。'
+    },
+    {
+      lessonId: 'node-path-databases',
+      title: 'SQL vs NoSQL databases (CircleCI)',
+      titleZh: 'SQL 与 NoSQL 数据库之别（CircleCI）',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 4 条',
+      originalUrl: 'https://circleci.com/blog/SQL-vs-NoSQL-databases/',
+      sourceDomain: 'circleci.com',
+      originalUrlStatus: '200（重定向到小写路径 /blog/sql-vs-nosql-databases/，标题「SQL vs NoSQL databases - CircleCI」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'CircleCI 博客的对比文：关系型（SQL）数据库与非关系型（NoSQL）数据库在数据模型、扩展方式、查询语言上的差异，以及各自的适用场景。官方在 Assignment 第 4 条点名它——本路线用 SQL，但你需要知道世界不只有 SQL，NoSQL 在近几十年已兴起为另一条主流路线。',
+      why: '官方 Assignment 第 4 条：了解 SQL 与 NoSQL 的差异。',
+      points: [
+        'SQL：表与关系、固定模式、强一致；NoSQL：文档/键值/图等灵活模式、横向扩展。',
+        '不是谁取代谁，而是按数据形态与扩展需求选型。'
+      ],
+      terms: [
+        'NoSQL（非关系型数据库）',
+        'scaling（扩展）'
+      ],
+      focus: '读「什么时候选 SQL、什么时候选 NoSQL」的判断维度，而非记住某个产品名。',
+      takeaway: '本路线学 SQL 是因为它是理解数据建模与 ORM 的最好起点，不是唯一答案。',
+      },
+      license: 'CircleCI 博客文章按其站点条款提供；本站只做链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文给大写路径 /blog/SQL-vs-NoSQL-databases/，实测 301/200 到小写现役路径 /blog/sql-vs-nosql-databases/，按现役地址登记、迁移事实记此处。'
+    },
+    {
+      lessonId: 'node-path-databases-databases-and-sql',
+      title: 'A Visual Explanation of SQL Joins',
+      titleZh: 'SQL Joins 的可视化解释（Coding Horror）',
+      type: '博客文章',
+      requirement: 'reference',
+      zone: '正文「拼表：JOIN 的四种取舍」节',
+      originalUrl: 'http://blog.codinghorror.com/a-visual-explanation-of-sql-joins',
+      sourceDomain: 'blog.codinghorror.com',
+      originalUrlStatus: '200（重定向到 https + 尾斜杠，标题「A Visual Explanation of SQL Joins」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Jeff Atwood（Coding Horror 博客作者、Stack Overflow 联合创始人）的经典图解文：用韦恩图把 INNER JOIN、LEFT/RIGHT OUTER JOIN、FULL OUTER JOIN 各自保留哪些行画得一目了然。本课正文「拼表」节讲完四种 JOIN 的文字定义后，官方特意推荐这篇看图——四种 JOIN 的差异用图比用文字快得多。',
+      why: '正文「拼表」节官方推荐：理解四种 JOIN 各自保留哪些行的好图解。',
+      points: [
+        '韦恩图直观呈现 INNER（交集）与三种 OUTER JOIN（保某一侧全部）的差异。',
+        '与本课正文的四种 JOIN 文字定义对照看，图负责直觉、文字负责精确。'
+      ],
+      terms: [
+        'JOIN（连接）',
+        'INNER / OUTER JOIN'
+      ],
+      focus: '把每张韦恩图与正文「保留哪些行、空格子填 NULL」的描述一一对上。',
+      takeaway: 'JOIN 选哪种，本质是问「我要不要保留没匹配上的那些行」。',
+      },
+      license: 'Coding Horror 博客文章按其站点条款提供；本站只做链接与本站原创导读，不复制文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '与 clean-code 课既有的两篇 codinghorror 注释实践文章同站不同篇，非跨课合并。'
+    },
+    {
+      lessonId: 'node-path-databases-databases-and-sql',
+      title: 'SQL JOIN (W3Schools)',
+      titleZh: 'SQL 连接（W3Schools）',
+      type: '教程文章',
+      requirement: 'reference',
+      zone: '正文「拼表：JOIN 的四种取舍」节',
+      originalUrl: 'https://www.w3schools.com/sql/sql_join.asp',
+      sourceDomain: 'www.w3schools.com',
+      originalUrlStatus: '默认 curl UA 返回 403（站点反爬拦截非浏览器请求），带浏览器 UA 复核为 200（标题「SQL Joins」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'W3Schools 的 SQL JOIN 教程页，官方在正文「拼表」节推荐它作为「更好的讲解」。W3Schools 的风格是极简短说明 + 可直接运行的示例，适合在 codinghorror 的韦恩图建立直觉后，再看一遍带具体表数据的 JOIN 例子巩固。',
+      why: '正文「拼表」节官方推荐：对 JOIN 的更好讲解。',
+      points: [
+        '极简风格 + 可运行示例，巩固四种 JOIN 的语法形态。',
+        '与 codinghorror 图解互补：一个给直觉、一个给可跑的代码。'
+      ],
+      terms: [
+        'JOIN ... ON（连接与拉链列）'
+      ],
+      focus: '对照本页示例的 ON 子句，理解「拉链列」是怎么把两张表对起来的。',
+      takeaway: 'JOIN 的语法记不牢时，跑一遍 W3Schools 的示例比再读定义管用。',
+      },
+      license: 'W3Schools 内容按其站点条款提供；本站只做链接与本站原创导读，不复制内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '验证受限：默认 curl UA 返回 403（站点反爬），带浏览器 UA 复核为 200；已入 verifyLimitedUrls（与既有 W3Schools 多条同口径）。中文版本核验：w3school.com.cn 存在第三方中文翻译站（实测 SQL JOIN 页 725 汉字），但它不是 w3schools.com 的官方中文版（官方 /zh/ 路径实测 404），按既有 W3Schools 先例登记 C 类、不把第三方翻译站当官方中文版。'
+    },
+    {
+      lessonId: 'node-path-databases-databases-and-sql',
+      title: 'SQL Tryit Editor — GROUP BY playground (W3Schools)',
+      titleZh: 'W3Schools 浏览器 SQL 游乐场（GROUP BY 演示）',
+      type: '工具',
+      requirement: 'reference',
+      zone: '正文「聚合：函数、GROUP BY 与 HAVING」节',
+      originalUrl: 'https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_groupby',
+      sourceDomain: 'www.w3schools.com',
+      originalUrlStatus: '默认 curl UA 返回 403（站点反爬拦截非浏览器请求），带浏览器 UA 复核为 200（标题「SQL Tryit Editor v1.6」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'W3Schools 的浏览器内 SQL 游乐场，预载一张 Customers/Orders 示例库，可直接编辑并运行查询。官方在「聚合」节两处点名它：先看 GROUP BY 的交互演示，再亲手把 Customers 与 Orders 表 JOIN 起来、在 GROUP BY 后加 HAVING COUNT(*) > 10 算各国订单数。是动手验证分组聚合与 HAVING 的现成沙盒。',
+      why: '正文「聚合」节官方两处推荐：GROUP BY 交互演示与 HAVING 练习都在这个地址。',
+      points: [
+        '浏览器内即开即用的 SQL 沙盒，预载示例表、可直接改查询跑结果。',
+        '官方指定的 HAVING 练习场地：JOIN Customers 与 Orders、按国家分组、筛订单数 > 10。'
+      ],
+      terms: [
+        'GROUP BY（分组）',
+        'HAVING（聚合条件）'
+      ],
+      focus: '按官方练习把 GROUP BY 与 HAVING 各跑一遍，观察「筛行」与「筛组」的差别。',
+      takeaway: '聚合与 HAVING 抽象，亲手在游乐场跑一次就具体了。',
+      },
+      license: 'W3Schools 在线工具，界面版权归原作者；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '验证受限：默认 curl UA 返回 403（站点反爬），带浏览器 UA 复核为 200；已入 verifyLimitedUrls。正文「聚合」节两处（GROUP BY 演示与 HAVING 练习）引用同一 trysql 地址，按同页合并为一条登记。'
+    },
+    {
+      lessonId: 'node-path-databases-databases-and-sql',
+      title: 'SQL Teaching',
+      titleZh: 'SQL Teaching 交互式教程',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.sqlteaching.com/',
+      sourceDomain: 'www.sqlteaching.com',
+      originalUrlStatus: '200（标题「SQL Teaching - The easiest tutorial to learn SQL」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 1 条指定的交互式 SQL 教程站，自称「最容易上手的 SQL 教程」。它以小步递进的练习带你过一遍 SQL 基础语法——每讲一个概念就让你在浏览器里写查询验证，与本课「最快的半完整讲解」形成「先看懂、再动手」的配套。',
+      why: '官方 Assignment 第 1 条：过一遍交互式 SQL 教程。',
+      points: [
+        '小步交互练习，边学边在浏览器里写 SQL。',
+        '覆盖本课讲过的基础语法，是概念到动手的第一道桥。'
+      ],
+      terms: [
+        'interactive tutorial（交互式教程）'
+      ],
+      focus: '跟着它的进度把 SELECT / WHERE / JOIN 各写一遍，错了看提示再改。',
+      takeaway: '看懂本课讲解只是第一步，动手写出来才算学会。',
+      },
+      license: 'SQL Teaching 在线工具，界面版权归原作者；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-databases-databases-and-sql',
+      title: 'SQLBolt — Learn SQL',
+      titleZh: 'SQLBolt 交互式 SQL 教程',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'http://sqlbolt.com/',
+      sourceDomain: 'sqlbolt.com',
+      originalUrlStatus: '200（重定向到 https，标题「SQLBolt - Learn SQL - Introduction to SQL」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方 Assignment 第 2 条指定的更深入交互式 SQL 教程。SQLBolt 用一系列带真实数据集的渐进式课程，从 SELECT 起步一路覆盖过滤、JOIN、聚合、子查询与表操作，每节都有动手练习与即时反馈。比 SQL Teaching 更系统、更深入，是把本课概念练成肌肉记忆的主场地。',
+      why: '官方 Assignment 第 2 条：过一遍更深入的交互式 SQL 教程。',
+      points: [
+        '渐进式课程 + 真实数据集，覆盖 SELECT 到 JOIN、聚合、子查询。',
+        '比 SQL Teaching 更系统深入，是练熟 SQL 的主力教程。'
+      ],
+      terms: [
+        'SELECT / JOIN / aggregate（查询/连接/聚合）'
+      ],
+      focus: '把每节的练习题真正写出来，卡住时回本课正文找对应概念。',
+      takeaway: 'SQL 是练出来的——SQLBolt 的渐进练习正好接住本课的全部概念。',
+      },
+      license: 'SQLBolt 在线工具，界面版权归原作者；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文给 http 形态地址，实测重定向到 https，按现役 https 地址登记。'
+    },
+    {
+      lessonId: 'node-path-databases-sql-zoo',
+      title: 'SQL Zoo — SQL Tutorial',
+      titleZh: 'SQL Zoo 交互式练习站（SQL 教程区）',
+      type: '工具',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://sqlzoo.net/wiki/SQL_Tutorial',
+      sourceDomain: 'sqlzoo.net',
+      originalUrlStatus: '200（标题「SQLZoo」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '本项目的练习场——SQL Zoo 是线上少有的、真正让你在现成的表上构建并运行查询的资源。官方任务是把 Tutorial Section 下的 Tutorial 0–9（含标 +/- 的那些）连同每个教程末尾的 quizzes 全部做完，第一个教程叫 SELECT basics。难度从很短的查询一路升到真正的挠头题，是把上一课全部概念按进真实执行环境验证的组合练习场。',
+      why: '官方 Assignment 第 1 条：做 SQL Zoo 的 Tutorial 0–9 与各教程末尾 quizzes。',
+      points: [
+        '在真实的表上亲手写并跑查询，每个教程末尾还有 quizzes。',
+        '难度递进：从 SELECT basics 到 Self JOIN，覆盖 World 6 的核心知识圈。'
+      ],
+      terms: [
+        'SELECT basics（Tutorial 0）',
+        'Engine: MySQL（引擎选项）'
+      ],
+      focus: '开局先确认右上角 Engine 为 MySQL；大结果集会被截断，别被显示限制带偏。',
+      takeaway: '读十篇 SQL 文章不如在 SQL Zoo 亲手跑通十条查询。',
+      },
+      license: 'SQL Zoo 在线练习站，界面与内容版权归原作者；本站只做链接与本站原创导读，不翻译网站界面、不提供查询成品答案。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: 'Project 红线课：本站不提供任何查询的成品答案。官方 Assignment 第 2 条为 SQL 课程反馈表（Google 表单），按行政表单口径剔除、不收录链接（sign-up-form 反馈表先例）。'
+    },
+    {
+      lessonId: 'nodejs-introduction-to-the-back-end',
+      title: 'Front-End vs. Back-End: The Complete Guide | Treehouse Blog',
+      titleZh: 'Treehouse 博客：前端 vs 后端（完整指南）',
+      type: '博客文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'http://blog.teamtreehouse.com/i-dont-speak-your-language-frontend-vs-backend',
+      sourceDomain: 'blog.teamtreehouse.com',
+      originalUrlStatus: '200（现行标题实测「Front-End vs. Back-End: The Complete Guide | Treehouse Blog」——官方链接文字为「back-end vs front-end programming」，同文现行标题已改，如实登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Treehouse 博客的前后端分工科普文：用餐厅点餐的比喻讲清「前端是顾客看到的菜单与餐盘、后端是后厨」的分工，与本课官方正文「界面 vs 幕后」的定义互为印证。适合作为三份热身阅读的第一份，把前后端边界这件事在脑子里立起来。',
+      why: '官方 Assignment 第 1 条：快速重温前端与后端的差别。',
+      points: [
+        '用日常比喻讲前后端分工，与本课「界面 / 幕后」定义互补。',
+        '顺带覆盖全栈（full-stack）一词的由来。'
+      ],
+      terms: [
+        'front-end（前端）',
+        'back-end（后端）'
+      ],
+      focus: '只看分工比喻部分即可，后续的职业建议章节与本课无关。',
+      takeaway: '前端管用户看得见的一切，后端管数据与逻辑——浏览器只认发回来的 HTML/CSS/JS。',
+      },
+      license: 'Treehouse 博客内容版权归原作者；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文给的是 http 协议地址，实测直达 200（无 https 强制跳转），按官方原地址登记。'
+    },
+    {
+      lessonId: 'nodejs-introduction-to-the-back-end',
+      title: 'Backend Definition',
+      titleZh: 'TechTerms：Backend（后端）定义条目',
+      type: '百科条目',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://techterms.com/definition/backend',
+      sourceDomain: 'techterms.com',
+      originalUrlStatus: '200（标题实测「Backend Definition」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'TechTerms 技术词典的 backend 条目：一段式给出「后端 = 用户不可见的服务器侧存储与逻辑」的标准定义，并简述它与前端、数据库的关系。官方评价「简短而好的后端概览」——两分钟读完，适合给本课的定义换一个措辞再确认一遍。',
+      why: '官方 Assignment 第 2 条：一份简短而好的后端概览。',
+      points: [
+        '词典式一段定义，与本课官方正文的定义互为对照。',
+        '点出后端与数据库、服务器的关系。'
+      ],
+      terms: [
+        'backend（后端）',
+        'server（服务器）'
+      ],
+      focus: '对照本课「幕后」定义读，注意两种措辞强调的侧面。',
+      takeaway: '后端 = 用户看不见的部分：服务器、存储与业务逻辑。',
+      },
+      license: 'TechTerms 词条按其站点条款提供；本站只做链接与本站原创导读，不翻译条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-to-the-back-end',
+      title: 'What is Back-End Architecture? | Codecademy',
+      titleZh: 'Codecademy：什么是后端架构',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.codecademy.com/articles/back-end-architecture',
+      sourceDomain: 'www.codecademy.com',
+      originalUrlStatus: '301 → https://www.codecademy.com/article/what-is-back-end-architecture（路径迁移：articles 复数 → article 单数且 slug 改写，现行终点实测 200、标题「What is Back-End Architecture? | Codecademy」，主题与官方链接文字一致）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Codecademy 的分步拆解文章：浏览器向服务器发起一个请求之后，后端从接收、路由、处理到响应一步步发生了什么。正是官方对本条的定位——「what happens in the back end when a browser makes a request to a server」。与下一课「一个请求的旅程」形成预热。',
+      why: '官方 Assignment 第 3 条：浏览器请求到达后端的分步拆解。',
+      points: [
+        '按请求生命周期分步讲后端各层（服务器、应用、数据库）的分工。',
+        '为 Express 章的「请求的旅程」与 MVC 分层做概念预热。'
+      ],
+      terms: [
+        'back-end architecture（后端架构）',
+        'request/response cycle（请求-响应循环）'
+      ],
+      focus: '关注「一个请求经过哪些环节」的顺序感，细节名词不必记。',
+      takeaway: '后端不是一坨黑盒：接收 → 路由 → 处理 → 数据 → 响应，环环有分工。',
+      },
+      license: 'Codecademy 文章内容版权归原作者；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-what-is-nodejs',
+      title: 'About Node.js®',
+      titleZh: 'Node.js 官网：关于 Node.js（官方中文版）',
+      type: '官方页面',
+      requirement: 'required',
+      zone: '正文引用（官网定义出处）',
+      originalUrl: 'https://nodejs.org/en/about/',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「About Node.js® | Node.js」——本课正文引用的官方定义“As an asynchronous event driven JavaScript runtime…”即出自此页）',
+      zhUrl: 'https://nodejs.org/zh-cn/about',
+      zhType: 'Node.js 官网官方中文版（实测 /zh-cn/about 200、正文全中文 1160 汉字——「关于 Node.js®」，含事件模型、HTTP 第一类公民、多核 child_process.fork 等段落；nodejs.org 中文覆盖按分区：首页与 about 等站点页有官方中文，Learn 教程区与 API 文档区无中文——zh-cn/learn 各页 301 回英文、zh-cn/api 404，实测新事实）',
+      zhGuide: {
+      overview: 'Node.js 官网的「关于」页——本课那句官方定义（异步事件驱动的 JavaScript 运行时、构建可扩展网络应用）的出处。页面还讲了 Node 的设计渊源（受 Ruby 的 Event Machine 与 Python 的 Twisted 影响）、HTTP 第一类公民、单线程与多核（child_process.fork）等设计要点。有官方中文版。',
+      why: '正文引用：Node.js 官网宣告的定义正是从这一页来的。',
+      points: [
+        '官方定义与设计哲学的原始出处，中文版正文完整。',
+        '事件循环「运行时构造」的表述比本课正文更深一层，学有余力可对照读。'
+      ],
+      terms: [
+        'event loop（事件循环）',
+        'non-blocking I/O（非阻塞 I/O）'
+      ],
+      focus: '找到正文引用的那句定义，对照中文版的译法理解「异步事件驱动」。',
+      takeaway: '官方定义值得读原文：Node 的每个设计决定都围绕「可扩展网络应用」。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: 'nodejs.org 中文覆盖按分区为本站实测新事实（与 Cloudflare 文档中文覆盖按产品分区同型）：站点页（首页/about）有官方中文，Learn 与 API 文档区没有——本课 Assignment 的 nodejs.org 链接全部住 Learn/API 区，故均为 C 类。'
+    },
+    {
+      lessonId: 'nodejs-introduction-what-is-nodejs',
+      title: 'Server-side website programming first steps - Learn web development | MDN',
+      titleZh: 'MDN：服务端网站编程的第一步（官方中文版）',
+      type: '文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（Tutorials 下前两篇）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '301 → https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps（MDN Learn 区整体迁移到 Learn_web_development/Extensions 新路径，现行终点实测 200——本站登记现役路径新事实）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/First_steps',
+      zhType: 'MDN 官方简体中文版（实测 200、标题「服务端网站编程的第一步 - 学习 Web 开发 | MDN」、正文 2973 汉字；官方指定读 Tutorials 下前两篇：Introduction to the server-side 与 Client-Server overview，其子页亦有中文版）',
+      zhGuide: {
+      overview: 'MDN 服务端编程教程区的入口页：下辖「服务器端导论」与「客户端-服务器概览」等文章——官方 Assignment 指定读前两篇。从「服务器端编程是什么」讲到「Web 应用架构里客户端与服务器如何一问一答」，是本课程背景知识的系统化版本。有官方中文版。',
+      why: '官方 Assignment 第 1 条：读 Tutorials 下前两篇——服务器端导论与客户端-服务器概览。',
+      points: [
+        '服务器端编程是什么、能干什么的系统性介绍。',
+        '客户端-服务器一问一答的请求-响应模型——下一课「请求的旅程」的概念底座。'
+      ],
+      terms: [
+        'server-side（服务器端）',
+        'client-server overview（客户端-服务器概览）'
+      ],
+      focus: '按官方要求读前两篇即可；教程区其余文章（Django/Express 详解）用的是别的栈，现阶段不必展开。',
+      takeaway: '把「请求-响应」模型从 MDN 的视角再立一遍，与 Node 官网定义互相印证。',
+      },
+      license: 'MDN 文档按 CC-BY-SA 2.5 提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-what-is-nodejs',
+      title: 'What exactly is Node.js?',
+      titleZh: 'freeCodeCamp：Node.js 究竟是什么？',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5',
+      sourceDomain: 'medium.freecodecamp.org',
+      originalUrlStatus: '301 → https://www.freecodecamp.org/news/what-exactly-is-node-js-ae36e97449f5（freeCodeCamp 文章从 Medium 子域整体迁回自有 news 站，现行终点实测 200、无登录墙）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'freeCodeCamp 的经典长文，专门拆解本课官网定义剩下的部分：Node 到底是什么（不是语言、不是框架，是 JavaScript 运行时）、事件循环如何工作、V8 与 libuv 各管什么。官方特别提示：文末那个关于事件循环的视频「真的很好，务必重看」——你可能在 JavaScript 课程里见过它。',
+      why: '官方 Assignment 第 2 条：对 Node 的本质多一点洞察，把官网定义拆完；文末事件循环视频务必重看。',
+      points: [
+        'Node = 运行时：V8 引擎 + libuv 事件循环的组合。',
+        '事件循环的分阶段模型——比本课正文更深一层的机制讲解。'
+      ],
+      terms: [
+        'V8（JavaScript 引擎）',
+        'libuv（事件循环与异步 I/O 库）'
+      ],
+      focus: '重点读事件循环部分并重看文末视频；其余章节可略读。',
+      takeaway: '「异步事件驱动」不是营销话术——背后是 V8 加 libuv 的明确分工。',
+      },
+      license: 'freeCodeCamp 文章按其站点条款提供；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方给的 medium.freecodecamp.org 子域地址已 301 迁至 freecodecamp.org/news——登记官方原地址与迁移事实，直达无登录墙（与 Medium 主站 403 受限形态不同域不同判）。'
+    },
+    {
+      lessonId: 'nodejs-introduction-what-is-nodejs',
+      title: 'What is Node js? (Programming with Mosh)',
+      titleZh: '什么是 Node js？（Programming with Mosh 视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 3 条',
+      originalUrl: 'https://www.youtube.com/watch?v=uVwtVBpw7RQ',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: 'oEmbed 核验 200（真实标题「What is Node js?」、频道 Programming with Mosh）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Programming with Mosh 的 Node.js 短视频入门：用可视化方式讲「Node 是跑在服务器上的 JavaScript 运行时」与它的基本工作方式。官方评价「很棒的入门」——十分钟级别的时间投入，给本课的文字定义配一个动态版本。',
+      why: '官方 Assignment 第 3 条：这支短视频也是很好的入门。',
+      points: [
+        '运行时概念的可视化讲解。',
+        'Node 与浏览器 JS 的差别速览。'
+      ],
+      terms: [
+        'runtime（运行时）'
+      ],
+      focus: '带着官网定义那句「异步事件驱动」去看，注意视频怎么解释这两组词。',
+      takeaway: '文字定义 + 视频直观，两条通道把「Node 是什么」焊牢。',
+      },
+      license: 'YouTube 视频版权归原作者（Programming with Mosh 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-what-is-nodejs',
+      title: '7 Best Node.js Project Ideas for Beginners | Treehouse Blog',
+      titleZh: 'Treehouse 博客：用 Node.js 能建的 7 件棒东西（初学者项目点子）',
+      type: '博客文章',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://blog.teamtreehouse.com/7-awesome-things-can-build-node-js',
+      sourceDomain: 'blog.teamtreehouse.com',
+      originalUrlStatus: '200（现行标题实测「7 Best Node.js Project Ideas for Beginners | Treehouse Blog」——官方链接文字为「7 awesome things you can build with Node.js」，同文现行标题已改，如实登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Treehouse 博客的项目点子清单：用 Node.js 能做的七类应用（实时聊天、流媒体、API 服务等）。官方把它放在补充资料区——开眼界用，看完你会对「学完这条路线能做什么」有更具体的想象。',
+      why: '官方 Additional resources：开眼界的项目清单。',
+      points: [
+        '七类 Node 应用的形态速览。',
+        '给后续课程的项目练习提供动机参照。'
+      ],
+      terms: [
+        'Node.js project（Node.js 项目）'
+      ],
+      focus: '浏览即可，不必深究实现细节。',
+      takeaway: 'Node 的主场是高并发、实时类应用——记住几个典型形态。',
+      },
+      license: 'Treehouse 博客内容版权归原作者；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Learn Node.js | Node.js Learn',
+      titleZh: 'Node.js 官方 Learn 区（教程总入口）',
+      type: '课程',
+      requirement: 'required',
+      zone: 'Assignment 总述（在 NodeJS.org 文档的各课之间跳转）',
+      originalUrl: 'https://nodejs.org/en/learn',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '301 → https://nodejs.org/learn（en 前缀收敛，现行终点实测 200、标题「Learn Node.js | Node.js Learn」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Node.js 官网 Learn 教程区总入口——本课 Assignment 五站式巡礼的主场：命令行、HTTP、文件系统、URL、事件各站的教程页都从这里分发。官方原话「跳进去，开始看 Node 服务端代码」。（Learn 区无官方中文版：/zh-cn/learn 实测 301 回英文页。）',
+      why: '官方 Assignment 总述：在 NodeJS.org 文档的各课之间跳转、跟着做。',
+      points: [
+        '五站式巡礼的教程页总入口。',
+        '与 API 文档区（/api/）分工：Learn 教概念与用法，API 查精确签名。'
+      ],
+      terms: [
+        'Learn 区（教程）',
+        'API 文档区（参考）'
+      ],
+      focus: '按本课 Assignment 的五站顺序走，不必把 Learn 区全部读完。',
+      takeaway: 'Learn 是教程、API 是词典——学习时两个区反复横跳是常态。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Run Node.js scripts from the command line',
+      titleZh: 'Node.js Learn：从命令行运行 Node.js 脚本',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 1 站（命令行）',
+      originalUrl: 'https://nodejs.org/en/learn/command-line/run-nodejs-scripts-from-the-command-line',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「Run Node.js scripts from the command line | Node.js Learn」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '五站式巡礼第一站：node 命令跑脚本的基本用法与常用旗标。你在 World 3 已经用过 node 跑 JS，这一页把「运行脚本」的命令行细节（参数、环境变量传入等）补齐——后面每一课的服务器都从这里启动。',
+      why: '官方 Assignment 第 1 站：学习如何从终端运行 Node.js 脚本。',
+      points: [
+        'node <file> 的基本形态与常用旗标。',
+        '从命令行给脚本传值的几种方式。'
+      ],
+      terms: [
+        'node 命令',
+        'CLI 旗标'
+      ],
+      focus: '动手跑一个 hello.js，把每种传值方式都试一遍。',
+      takeaway: '命令行是 Node 开发的驾驶舱——服务器启动、脚本灌库都从这里发。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Using the Fetch API with Undici in Node.js',
+      titleZh: 'Node.js Learn：在 Node.js 里用 Fetch API（Undici）发请求',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 2 站（HTTP·发请求）',
+      originalUrl: 'https://nodejs.org/learn/getting-started/fetch',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（官方原文即不带 /en/ 的路径，实测直达、标题「Using the Fetch API with Undici in Node.js | Node.js Learn」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '五站式巡礼第二站之一：Node 里用 fetch 发 HTTP 请求——底层是 Undici 实现。World 3 你在浏览器里用 fetch 调过第三方 API，这一页讲同样的 API 在服务器端怎么用。客户端发请求 + 服务端收请求，HTTP 的两半就都齐了。',
+      why: '官方 Assignment 第 2 站：学习如何用 Node 发 HTTP 请求。',
+      points: [
+        'Node 的 fetch 与浏览器 fetch 同源（Web 标准 API）。',
+        'Undici：Node 官方的 HTTP 客户端实现。'
+      ],
+      terms: [
+        'fetch API',
+        'Undici'
+      ],
+      focus: '对照浏览器里用过的 fetch 读，注意服务器端没有跨域限制这类别。',
+      takeaway: '同一个 fetch，前端后端都能用——JS 全栈的语言红利。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Node.js HTTP 模块 API 文档',
+      titleZh: 'Node.js API 文档：http 模块',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 站（HTTP·建服务器）',
+      originalUrl: 'https://nodejs.org/api/http.html',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「HTTP | Node.js v26.10.0 Documentation」——API 文档随 Node 现行大版本滚动，v26 为实测时点现值）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Node http 模块的 API 参考——官方点名重点看 http.createServer：它创建一个 HTTP 服务器、接受一个处理器函数，每次收到请求就执行它。「起步」项目 Basic Informational Site 的整个服务端骨架就建在这个方法上。API 文档是词典不是教材：带着 createServer 的问题去查，不必通读。',
+      why: '官方 Assignment 第 2 站：看 http 模块文档，特别是 http.createServer。',
+      points: [
+        'http.createServer([options][, requestListener]) 的签名与语义。',
+        'requestListener 拿到的 req/res 两个对象——Express 的 req/res 就是它们的增强版。'
+      ],
+      terms: [
+        'http.createServer',
+        'requestListener（请求监听器）'
+      ],
+      focus: '只深读 createServer 一节；文档里可选参数官方明说「用不用随你」。',
+      takeaway: 'createServer = Node 后端的最小骨架，Express 只是在它上面盖楼。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: 'API 文档区无官方中文版（zh-cn/api 路径实测 404）——nodejs.org 中文覆盖按分区事实的一部分。'
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'nodejs.dev 存档：The Node.js fs module',
+      titleZh: 'nodejs.dev 仓库存档：fs 模块说明（钉住提交）',
+      type: '说明仓库',
+      requirement: 'required',
+      zone: 'Assignment 第 3 站（文件系统·fs 总览）',
+      originalUrl: 'https://github.com/nodejs/nodejs.dev/blob/aa4239e87a5adc992fdb709c20aebb5f6da77f86/content/learn/node-js-modules/node-module-fs.en.md',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（GitHub 文件视图，钉住提交 aa4239e 的 markdown 源文件——官方课程直链此地址）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'fs（文件系统）模块的总览说明：读写文件的核心 API 一览。注意这份文件住在 nodejs.dev 的 GitHub 仓库里、钉住某个提交——官方 lesson-note 解释过原因：NodeJS.dev 团队删除了网站大量内容，课程在找到替代前直接链到仓库里的 markdown 源文件。排版是 GitHub 文件视图的样子，内容完好。',
+      why: '官方 Assignment 第 3 站：先看 fs 模块——Node 里大量用于文件操作。',
+      points: [
+        'fs 模块读写文件的核心方法总览。',
+        'Basic Informational Site 项目读 HTML 文件全靠它。'
+      ],
+      terms: [
+        'fs module（文件系统模块）'
+      ],
+      focus: '配合下一站「写文件」「读文件」两篇教程动手，这一页当地图用。',
+      takeaway: 'GitHub 直链不是坏链接——是官方在内容下架后的刻意安排。',
+      },
+      license: 'nodejs.dev 仓库内容按仓库许可提供；本站只做链接与本站原创导读，不复制文件内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方钉住提交 aa4239e87a5adc992fdb709c20aebb5f6da77f86 直链（TOP 官方指定教材口径，与 curriculum 仓课程本体剔除口径相区分——这是 Assignment 指定的学习资料）。'
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Writing files with Node.js',
+      titleZh: 'Node.js Learn：用 Node.js 写文件',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 3 站（文件系统·写）',
+      originalUrl: 'https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「Writing files with Node.js | Node.js Learn」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '五站式巡礼第三站之二：用 fs 写文件——writeFile 的基本用法、追加模式与常见选项。服务器把数据落盘、生成响应内容都离不开写文件。',
+      why: '官方 Assignment 第 3 站：学用 Node 写文件。',
+      points: [
+        'fs.writeFile 基本形态与回调/同步变体。',
+        '追加与覆盖的选项差别。'
+      ],
+      terms: [
+        'fs.writeFile'
+      ],
+      focus: '跟着页面示例写一个文件再用下一站的读文件验证。',
+      takeaway: '写文件是服务器持久化的最原始形态——数据库出现之前的「存储」。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Reading files with Node.js',
+      titleZh: 'Node.js Learn：用 Node.js 读文件',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 3 站（文件系统·读）',
+      originalUrl: 'https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「Reading files with Node.js | Node.js Learn」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '五站式巡礼第三站之三：用 fs 读文件——readFile 的基本用法与编码参数。Basic Informational Site 项目的核心动作（按 URL 读对应 HTML 文件发回浏览器）就是这一页教的。',
+      why: '官方 Assignment 第 3 站：学用 Node 读文件。',
+      points: [
+        'fs.readFile 基本形态与 utf8 编码参数。',
+        '读文件失败（路径不存在）的错误处理。'
+      ],
+      terms: [
+        'fs.readFile'
+      ],
+      focus: '注意编码参数——不传 encoding 拿到的是 Buffer 不是字符串。',
+      takeaway: '读文件 + 按路径分发 = 你的第一个静态服务器的全部秘密。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Node.js URL 类（WHATWG URL API）文档',
+      titleZh: 'Node.js API 文档：URL 类（WHATWG URL API）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 4 站（URL 类）',
+      originalUrl: 'https://nodejs.org/api/url.html#url_the_whatwg_url_api',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「URL | Node.js v26.10.0 Documentation」，锚点为 WHATWG URL API 一节）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '五站式巡礼第四站：WHATWG URL API 文档——把「https://example.com/about?x=1」这样的地址拆成协议、主机、路径、查询等可读部件。官方要求「动手玩代码样例」。浏览器端你用过 URL/URLSearchParams（World 3），Node 的 URL 类是同一套 Web 标准——Basic Informational Site 的按路径分发就靠解析 req.url。',
+      why: '官方 Assignment 第 4 站：看 URL 类文档，玩代码样例看它怎么工作。',
+      points: [
+        'URL 构造器把地址字符串拆成部件对象。',
+        '与浏览器 URL API 同源（WHATWG 标准）。'
+      ],
+      terms: [
+        'WHATWG URL API',
+        'URL 部件（protocol/host/pathname/search）'
+      ],
+      focus: 'new URL(...) 拆几个真实地址，观察各部件字段；路由分发的判断依据就是 pathname。',
+      takeaway: '解析 URL 是路由的原语——Express 的路径匹配是它的豪华包装。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'The Node.js Event emitter',
+      titleZh: 'Node.js Learn：事件发射器（EventEmitter）',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 5 站（事件·EventEmitter）',
+      originalUrl: 'https://nodejs.org/en/learn/asynchronous-work/the-nodejs-event-emitter',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「The Node.js Event emitter | Node.js Learn」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '五站式巡礼第五站之一：EventEmitter——Node 事件驱动模型的应用层接口。上一课说「Node 坐下来等事件」，这一页教你怎么发射与监听自己的事件：on 监听、emit 触发。浏览器里 addEventListener/dispatchEvent 的服务器端对应物。',
+      why: '官方 Assignment 第 5 站：跟着 Event Emitter 一节做。',
+      points: [
+        'on/addListener 监听事件、emit 触发事件。',
+        '事件名是任意字符串——发布/订阅模式的最小实现。'
+      ],
+      terms: [
+        'EventEmitter',
+        'emit / on'
+      ],
+      focus: '亲手建一个 emitter：emit 一个自定义事件、on 里收到它。',
+      takeaway: '「事件驱动」从概念变成 API——emit 与 on 就是那对动词。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'nodejs.dev 存档：The Node.js events module',
+      titleZh: 'nodejs.dev 仓库存档：events 模块说明（钉住提交）',
+      type: '说明仓库',
+      requirement: 'required',
+      zone: 'Assignment 第 5 站（事件·events 模块）',
+      originalUrl: 'https://github.com/nodejs/nodejs.dev/blob/aa4239e87a5adc992fdb709c20aebb5f6da77f86/content/learn/node-js-modules/node-module-events.en.md',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（GitHub 文件视图，钉住提交 aa4239e 的 markdown 源文件——官方课程直链此地址）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'events 模块的说明文档（nodejs.dev 仓库存档形态，同 fs 模块那份的口径）：EventEmitter 类的完整用法与示例。与上一站 Learn 教程互补——教程讲概念，这份讲模块 API 细节。',
+      why: '官方 Assignment 第 5 站：再看 Node events 模块。',
+      points: [
+        'events 模块与 EventEmitter 的 API 细节。',
+        '与 Learn 教程的概念讲解互补。'
+      ],
+      terms: [
+        'events module（事件模块）'
+      ],
+      focus: 'GitHub 文件视图排版较原始——官方 lesson-note 已预告，内容完好。',
+      takeaway: 'events 是 Node 少数「自己就是完整模式实现」的内置模块。',
+      },
+      license: 'nodejs.dev 仓库内容按仓库许可提供；本站只做链接与本站原创导读，不复制文件内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方钉住提交 aa4239e87a5adc992fdb709c20aebb5f6da77f86 直链（TOP 官方指定教材口径）。'
+    },
+    {
+      lessonId: 'nodejs-getting-started',
+      title: 'Node.js Crash Course Tutorial #1 - Introduction & Setup (Net Ninja 播放列表)',
+      titleZh: 'Net Ninja：Node.js 速成课程（12 集播放列表）',
+      type: '视频',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: 'oEmbed 核验 200（首集真实标题「Node.js Crash Course Tutorial #1 - Introduction & Setup」、频道 Net Ninja；播放列表共 12 集，官方原话「可以全看」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Net Ninja 的 Node.js 速成播放列表（12 集）：从安装讲到建服务器、模板引擎与 Express 入门，节奏轻快、演示充分。官方把它整份推荐为补充资料——文字教程看完想换个通道巩固的话，这是现成的视频版。',
+      why: '官方 Additional resources：很棒的 Node.js 学习资源，12 集可全看。',
+      points: [
+        '覆盖本课五站式巡礼的大部分内容 + Express 预览。',
+        '跟练型视频，适合边看边敲。'
+      ],
+      terms: [
+        'crash course（速成教程）'
+      ],
+      focus: '已按 Assignment 五站动手过的话，挑薄弱的站对应集数看即可。',
+      takeaway: '文字 + 视频双通道，Node 基础想不牢都难。',
+      },
+      license: 'YouTube 视频版权归原作者（Net Ninja 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方给的即含 list 参数的播放列表首集地址，原样登记。'
+    },
+    {
+      lessonId: 'nodejs-debugging-node',
+      title: 'Getting started with Node.js debugging in VS Code (Visual Studio Code)',
+      titleZh: 'VS Code 官方频道：Node.js 调试入门（视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://www.youtube.com/watch?v=2oFKNL7vYV8&ab_channel=VisualStudioCode',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: 'oEmbed 核验 200（真实标题「Getting started with Node.js debugging in VS Code」、频道 Visual Studio Code）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'VS Code 官方频道的 Node.js 调试视频教程：完整走一遍打断点、启动调试、单步执行、查看变量与调用栈的流程。官方让你「亲眼看流程跑一遍」——视频比文档更快建立对调试器工作方式的直觉。',
+      why: '官方 Assignment 第 1 条：看视频教程，见流程实际运行。',
+      points: [
+        '断点、单步、变量查看、调用栈的完整演示。',
+        'VS Code 调试界面的各区域导览。'
+      ],
+      terms: [
+        'breakpoint（断点）',
+        'call stack（调用栈）'
+      ],
+      focus: '跟着视频在自己的机器上同步操作一遍，光看不练记不住界面。',
+      takeaway: '调试器不是高级玩具——它是服务端开发每天的日常工具。',
+      },
+      license: 'YouTube 视频版权归原作者（Visual Studio Code 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方给的即含 ab_channel 参数的地址，原样登记。'
+    },
+    {
+      lessonId: 'nodejs-debugging-node',
+      title: 'Node.js debugging in VS Code',
+      titleZh: 'VS Code 官方文档：Node.js 调试',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://code.visualstudio.com/docs/nodejs/nodejs-debugging',
+      sourceDomain: 'code.visualstudio.com',
+      originalUrlStatus: '200（标题实测「Node.js debugging in VS Code」——VS Code 官方文档无中文版，语言选项仅界面级、文档正文为英文）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'VS Code Node 调试器的官方文档：JavaScript Debug Terminal（官方点名让你留意的最省事入口——这种终端里启动的 Node 进程自动挂调试器）、launch.json 配置、断点与日志点、常见排障配方。视频建立直觉之后，这一页是日常查询的手册。',
+      why: '官方 Assignment 第 2 条：读官方文档，特别留意 JavaScript Debug Terminal。',
+      points: [
+        'JavaScript Debug Terminal：零配置挂上调试器的入口。',
+        'launch.json 的基本结构与常用字段。'
+      ],
+      terms: [
+        'JavaScript Debug Terminal',
+        'launch.json'
+      ],
+      focus: '先找到 JavaScript Debug Terminal 一节亲手试一次，其余当词典备查。',
+      takeaway: '一条命令进调试终端，比配置 launch.json 快得多——官方点名的捷径。',
+      },
+      license: 'VS Code 文档按 CC BY 4.0 提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-environment-variables',
+      title: 'Node.js CLI 文档：--env-file 选项',
+      titleZh: 'Node.js API 文档：CLI 的 --env-file 选项',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（.env 加载方式一）',
+      originalUrl: 'https://nodejs.org/docs/latest-v24.x/api/cli.html#--env-filefile',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（官方原文钉 latest-v24.x 版本路径，实测直达；标题「Command-line options | Node.js v24.x Documentation」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '--env-file CLI 选项的官方参考：node --env-file=.env index.js 的精确语义、文件缺失时的行为（抛错）与相关选项（--env-file-if-exists）。正文「Node 内置 .env 支持」两种加载方式之一的出处。',
+      why: '正文引用：--env-file CLI 选项让 node 启动时加载 .env 文件。',
+      points: [
+        '--env-file=file 的精确语义与抛错行为。',
+        '--env-file-if-exists：文件缺失不抛错的变体（部署贴士的解法之一）。'
+      ],
+      terms: [
+        '--env-file',
+        '--env-file-if-exists'
+      ],
+      focus: '对照正文「加载方式三」读，注意两个选项在文件缺失时的行为差异。',
+      takeaway: '内置方案的开关就一个 CLI 旗标——生产环境记得用 if-exists 变体或平台注入。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-environment-variables',
+      title: 'Node.js process 文档：process.loadEnvFile()',
+      titleZh: 'Node.js API 文档：process.loadEnvFile() 方法',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（.env 加载方式二）',
+      originalUrl: 'https://nodejs.org/docs/latest-v24.x/api/process.html#processloadenvfilepath',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（官方原文钉 latest-v24.x 版本路径，实测直达；标题「Process | Node.js v24.x Documentation」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'process.loadEnvFile() 的官方参考：在 JavaScript 代码里直接加载 .env 文件的方法形态、参数与抛错行为。正文「Node 内置 .env 支持」两种加载方式中「代码内加载」的出处——也是 process.env 本体（环境变量访问入口）所在的文档页。',
+      why: '正文引用：也可以直接在 JavaScript 里用 process.loadEnvFile() 加载 .env。',
+      points: [
+        'process.loadEnvFile([path]) 的签名与抛错行为。',
+        'process.env：环境变量访问的对象本体也在这页文档里。'
+      ],
+      terms: [
+        'process.loadEnvFile()',
+        'process.env'
+      ],
+      focus: '与 --env-file 对比记忆：一个在命令行开、一个在代码里调，文件缺失都抛错。',
+      takeaway: '两种加载方式殊途同归——最终都填进 process.env。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-environment-variables',
+      title: 'dotenv | npm',
+      titleZh: 'npm 包页：dotenv（.env 加载库）',
+      type: '官方页面',
+      requirement: 'reference',
+      zone: '正文引用（历史方案 dotenv）',
+      originalUrl: 'https://www.npmjs.com/package/dotenv',
+      sourceDomain: 'www.npmjs.com',
+      originalUrlStatus: '403（Cloudflare 人机验证拦截命令行请求，带浏览器 UA 复核仍 403——npm 包页既有受限形态，真实浏览器核验可达后如实登记受限清单）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'dotenv 的 npm 包页：Node 内置 .env 支持出现之前野外最流行的加载方案。正文的定位很清楚：原理与内置功能相同，可能提供更复杂的特性，但就 TOP 课程而言用不上——你在旧教程与既有代码库里会不断遇见它，认识即可。',
+      why: '正文引用：野外常见的 dotenv 库——历史方案，原理与内置相同。',
+      points: [
+        'dotenv 的接入方式（require 后 config() 一行）。',
+        '与 Node 内置 --env-file / loadEnvFile 的关系：同原理的前内置时代方案。'
+      ],
+      terms: [
+        'dotenv'
+      ],
+      focus: '不必在本课程项目里引入它——官方明说 TOP 用不上内置之外的方案。',
+      takeaway: '看到旧项目里的 dotenv 不要慌：它就是 .env 加载的前辈。',
+      },
+      license: 'npm 包页内容归包作者与 npm 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '受限条目：命令行双 UA 均 403（Cloudflare 人机验证），真实浏览器核验可达并取得标题「dotenv - npm」与 h1「dotenv」（npm 课 npmjs 包页受限先例同型）。'
+    },
+    {
+      lessonId: 'nodejs-environment-variables',
+      title: 'Environment variables | Node.js v24.x Documentation',
+      titleZh: 'Node.js API 文档：环境变量专章',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://nodejs.org/docs/latest-v24.x/api/environment_variables.html',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（标题实测「Environment variables | Node.js v24.x Documentation」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Node 官方的环境变量专章：.env 文件语法的完整规则（注释、引号、多行值）与相关 CLI 选项的全景。本课正文讲的是概念与常用形态，这一页是「文件语法与 CLI 用法」的权威细节——官方 Assignment 唯一一条就是读它。',
+      why: '官方 Assignment 第 1 条：了解更多文件语法与 CLI 用法。',
+      points: [
+        '.env 文件语法的完整规则。',
+        '环境变量相关 CLI 选项全景（--env-file 家族）。'
+      ],
+      terms: [
+        '.env 文件语法'
+      ],
+      focus: '重点读文件语法节——引号与注释的规则最容易踩坑。',
+      takeaway: '概念在课文里，细节在这一页——遇到 .env 解析怪问题先来查它。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-to-frameworks',
+      title: 'What is a Web Framework, and Why Should You use one? - DEV Community',
+      titleZh: 'DEV 社区：什么是 Web 框架、为什么该用一个',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://dev.to/aspittel/what-is-a-web-framework-and-why-should-i-use-one-38c0',
+      sourceDomain: 'dev.to',
+      originalUrlStatus: '200（标题实测「What is a Web Framework, and Why Should You use one? - DEV Community」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '一篇「框架是什么、为什么用」的简短综述（作者 Ali Spittel）：从不用框架时你要手写的样板代码讲起，说明框架替你打包了哪些重复劳动、又约束了什么。与本课官方正文的「打包回收代码 + 强组织」定义互为展开。',
+      why: '官方 Assignment 第 1 条：读这篇简短的框架介绍。',
+      points: [
+        '不用框架 vs 用框架的代码量对比。',
+        '框架的约束为什么反而是好事（组织性）。'
+      ],
+      terms: [
+        'web framework（Web 框架）',
+        'boilerplate（样板代码）'
+      ],
+      focus: '对照你刚写完的 Basic Informational Site 读——手工路由分发就是文中「不用框架」的样子。',
+      takeaway: '框架 = 别人替你写好的样板 + 一套强加的好组织。',
+      },
+      license: 'DEV Community 文章版权归原作者；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-to-frameworks',
+      title: 'Server-side web frameworks - Learn web development | MDN',
+      titleZh: 'MDN：服务端 web 框架（官方中文版）',
+      type: '文档',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '301 → https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks（MDN Learn 区整体迁移，现行终点实测 200）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks',
+      zhType: 'MDN 官方简体中文版（实测 200、标题「服务端 web 框架 - 学习 Web 开发 | MDN」、正文 8051 汉字——本批汉字数最多的中文页）',
+      zhGuide: {
+      overview: 'MDN 的服务端框架综述：框架解决什么问题、Web 框架的主要特性（路由、模板、数据库访问、安全）、以及挑选框架时的思考维度（生态、学习曲线、雇主需求）。官方让你「浏览」以理解挑框架的思考过程——本课之后你选的框架就是 Express，这一页告诉你这个选择背后的通用坐标系。有官方中文版。',
+      why: '官方 Assignment 第 2 条：浏览 MDN 的后端框架概览，理解挑选框架的思考过程。',
+      points: [
+        'Web 框架的核心特性清单——Express 章每一课都在给其中一项落地。',
+        '挑框架的评估维度（社区、文档、就业市场）。'
+      ],
+      terms: [
+        'server-side framework（服务端框架）',
+        'template engine（模板引擎）'
+      ],
+      focus: '浏览即可（官方用词 glance over）；把特性清单当 Express 章的预告地图。',
+      takeaway: 'Express 的「精简、不持立场」在框架光谱上的位置，读完这页才有参照。',
+      },
+      license: 'MDN 文档按 CC-BY-SA 2.5 提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-introduction-to-frameworks',
+      title: 'Comparison of server-side web frameworks - Wikipedia',
+      titleZh: '维基百科：服务端 Web 框架对比表',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文引用（框架数量之多）',
+      originalUrl: 'http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '301 → https://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks（http→https 协议收敛；现行条目名「Comparison of server-side web frameworks」，实测 200）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '维基百科的服务端框架大对比表：几十个框架按语言、许可、特性逐列对比——官方引用它是为了让你「体会框架数量之多」。正文点名的 Ember、Meteor、Django、Rails、Sinatra、Padrino 都能在表里找到坐标。',
+      why: '正文引用：Wikipedia 的框架全面对比表，足以体会框架之多。',
+      points: [
+        '几十个服务端框架的横向对比矩阵。',
+        '正文点名的各框架在表中的位置。'
+      ],
+      terms: [
+        'framework comparison（框架对比）'
+      ],
+      focus: '浏览表格规模即可，不必逐列研读。',
+      takeaway: '框架多如繁星——「选哪个」是真问题，MDN 概览讲的思考过程因此必要。',
+      },
+      license: 'Wikipedia 条目按 CC BY-SA 4.0 提供；本站只做链接与本站原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文给的是 http 协议 en.wikipedia 地址；中文维基无对应「Web 应用程序框架比较」现行条目（未命中），维持 C 类。'
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: 'Express.js · Node.js web application framework（官网）',
+      titleZh: 'Express 官网（Node.js Web 应用框架）',
+      type: '网站',
+      requirement: 'required',
+      zone: '正文引用（本课程使用的后端框架）',
+      originalUrl: 'https://expressjs.com/',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '200（标题实测「Express.js · Node.js web application framework」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Express 官网首页：自我定位「快速、无立场、极简的 Node.js Web 框架」，首页即给最小示例与文档入口。官网带语言切换器（含简体中文分区）——首页级界面有中文，但 API 参考区正文仍为英文（中文覆盖按分区，详见各文档条目的 zhType）。',
+      why: '正文引用：本课程使用的后端框架 Express 的官网。',
+      points: [
+        '「fast, unopinionated, minimalist」的自我定位——正文 barebones & unopinionated 的出处。',
+        '文档、API、示例的总入口。'
+      ],
+      terms: [
+        'Express',
+        'minimalist framework（极简框架）'
+      ],
+      focus: '把首页的定位语与正文的「刻意精简、不持立场」对上号。',
+      takeaway: '官网定位语就是 Express 的性格说明书。',
+      },
+      license: 'Express 官网内容按官网条款（MIT 生态文档）提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '跨课首现归属本课；后续各课的 Express 文档链接按页分别登记。'
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: 'localhost - Wikipedia (Simple English)',
+      titleZh: '简单英语维基：localhost',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文引用（localhost 是什么）',
+      originalUrl: 'https://simple.wikipedia.org/wiki/Localhost',
+      sourceDomain: 'simple.wikipedia.org',
+      originalUrlStatus: '200（标题实测「localhost - Simple English Wikipedia」）',
+      zhUrl: 'https://zh.wikipedia.org/wiki/Localhost',
+      zhType: '中文维基百科对应条目（实测 200、条目名「localhost」、正文 2378 汉字内容级核验；官方正文引用的是简单英语版，中文读者可对照中文维基同主题条目——跨语言版本对应关系如实登记）',
+      zhGuide: {
+      overview: 'localhost 的百科解释：指向本机的保留主机名，127.0.0.1（IPv4）——你开发时浏览器与服务器在同一台机器上对话用的地址。官方正文在讲 app.listen 时顺手链了简单英语维基版本；中文维基有同主题条目。',
+      why: '正文引用：app.listen 经由 localhost（基本就是计算机的本地连接）监听请求。',
+      points: [
+        'localhost = 本机的保留主机名（回环地址）。',
+        '开发期「浏览器访问自己的服务器」的标准地址。'
+      ],
+      terms: [
+        'localhost',
+        'loopback（回环）'
+      ],
+      focus: '记住 localhost 与 127.0.0.1 的对应关系即可。',
+      takeaway: 'localhost 就是「这台机器自己」——本站学习数据绑定打开地址的原理也在此（不同端口是不同源）。',
+      },
+      license: 'Wikipedia 条目按 CC BY-SA 4.0 提供；本站只做链接与本站原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: 'Request Object · Express.js 5.x API',
+      titleZh: 'Express 5.x API：请求对象（req）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（request 对象）',
+      originalUrl: 'https://expressjs.com/en/5x/api/request',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '301 → https://expressjs.com/en/5x/api/request/（尾斜杠收敛，现行终点实测 200、标题「Request Object · Express.js 5.x」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Express 5.x 的 req 对象 API 参考：params、query、body、headers 等全部属性的精确语义——「请求的旅程」里那个被存进 request 对象的请求，其字段清单全在这页。后续每一课读 req 上的东西都回这页查。zh-cn 对应页存在但正文未翻译（界面中文、正文英文）。',
+      why: '正文引用：Express 把请求存进 request 对象——它的完整属性表在这页。',
+      points: [
+        'req.params / req.query / req.body 的精确语义（Routes 与 Forms 两课的主角）。',
+        'req 是 Node http.IncomingMessage 的增强版。'
+      ],
+      terms: [
+        'req（请求对象）',
+        'req.params / req.query / req.body'
+      ],
+      focus: '现阶段通读属性清单混个脸熟，用到哪个查哪个。',
+      takeaway: 'req 是请求的全部信息袋——路由参数、查询、表单体都住在里面。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: 'expressjs.com 中文覆盖按分区实测事实：zh-cn 的 guide 区部分翻译（见 routing 条目）、api 区正文未翻译（界面中文、正文英文，jestjs.io zh-Hans 先例同判 C 类）。'
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: 'Response · Express.js 5.x API',
+      titleZh: 'Express 5.x API：响应对象（res）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（response 对象与 res.sendFile）',
+      originalUrl: 'https://expressjs.com/en/5x/api/response',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '301 → https://expressjs.com/en/5x/api/response/（尾斜杠收敛，现行终点实测 200、标题「Response · Express.js 5.x」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Express 5.x 的 res 对象 API 参考：send、json、redirect、render、status、sendFile、locals 等全部方法——本课正文的 res.send 与「甚至能发文件」（#ressendfile 锚点）、Controllers 一课的五个响应方法与 status 链式、Views 一课的 res.locals，全部住这一页。同页跨课合并：三条课的五处锚点引用都归本条。zh-cn 对应页正文未翻译（界面中文）。',
+      why: '正文引用：response 对象与 res.sendFile——以及后续两课全部响应方法的参考页。',
+      points: [
+        'res.send / res.json / res.redirect / res.render / res.status 的精确语义。',
+        'res.sendFile 与 res.locals（跨课引用锚点均在同页）。'
+      ],
+      terms: [
+        'res（响应对象）',
+        'res.sendFile / res.locals'
+      ],
+      focus: '本页是 Express 章使用频率最高的参考页——收藏级。',
+      takeaway: 'res 的每个方法都是「结束循环」的一种姿势——API 页通读一遍胜后面翻十次。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '同页合并：正文 #ressendfile 锚点（本课）+ Controllers 课五个 res.* 方法锚点 + Views 课 #reslocals 锚点，六处引用同页、归本条不重复登记。'
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: 'Node.js CLI 文档：--watch 选项',
+      titleZh: 'Node.js API 文档：CLI 的 --watch 选项',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（watch 模式）',
+      originalUrl: 'https://nodejs.org/docs/latest-v20.x/api/cli.html#--watch',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（官方原文钉 latest-v20.x 版本路径，实测直达、标题「Command-line options | Node.js v20.x Documentation」；--watch 锚点在页内）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '--watch 旗标的官方参考：监视入口文件及其依赖、变化即重启的精确行为与相关选项（--watch-path 等）。正文「自动重启」一节的出处——开发服务器的官方内置方案。',
+      why: '正文引用：用 Node 的 watch 模式（--watch 旗标）免掉手动重启。',
+      points: [
+        '--watch 的监视范围（入口 + 最终依赖）。',
+        '--watch 的重启行为与输出信息形态。'
+      ],
+      terms: [
+        '--watch（监视模式）'
+      ],
+      focus: '知道「监视范围含依赖」这点即可——改了 routes/ 里的文件服务器也会重启的原因。',
+      takeaway: 'node --watch app.js 应当成为你开发期的肌肉记忆。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文钉的是 latest-v20.x 文档路径（同页 --env-file 条目钉 v24.x——官方各引用点的版本钉法不一致，均按原文地址原样登记）。'
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: 'nodemon | npm',
+      titleZh: 'npm 包页：nodemon（自动重启工具）',
+      type: '官方页面',
+      requirement: 'reference',
+      zone: '正文引用（Nodemon 是野外常见同类包）',
+      originalUrl: 'https://www.npmjs.com/package/nodemon',
+      sourceDomain: 'www.npmjs.com',
+      originalUrlStatus: '403（Cloudflare 人机验证拦截命令行请求，带浏览器 UA 复核仍 403——npm 包页既有受限形态；官方原文给的是含双斜杠的 package//nodemon 地址，登记规范化单斜杠现行地址并如实记录原文形态）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'nodemon 的 npm 包页：高度可配置的自动重启工具——Node 内置 watch 模式出现之前的野外标准方案。正文的定位：你可能会到处见到它，但官方推荐用内置 --watch（最简单）。认识它、读懂旧项目里的 nodemon 配置即可。',
+      why: '正文引用：野外常见的 Nodemon——内置 watch 之前的同类包。',
+      points: [
+        'nodemon 的配置能力（监视范围、忽略、延迟）。',
+        '与 node --watch 的取舍：官方推荐内置方案。'
+      ],
+      terms: [
+        'nodemon'
+      ],
+      focus: '本课程用 --watch；nodemon 出现在别人的项目里时能看懂即可。',
+      takeaway: '工具会换代（nodemon → 内置 watch），需求不变（改代码自动重启）。',
+      },
+      license: 'npm 包页内容归包作者与 npm 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '受限条目：命令行双 UA 均 403（Cloudflare 人机验证）——真实浏览器核验可达并取得标题「nodemon - npm」与 h1「nodemon」（npm 包页受限先例同型）。'
+    },
+    {
+      lessonId: 'node-path-nodejs-introduction-to-express',
+      title: '5.x API Reference · Express.js',
+      titleZh: 'Express 5.x API 参考（总入口）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（探索 Express 文档）',
+      originalUrl: 'https://expressjs.com/en/api.html',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '301 → https://expressjs.com/en/api/（.html 后缀收敛，现行终点实测 200、标题「5.x API Reference · Express.js」——en/api 与 5x/api 为同版文档的两个入口路径）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Express API 参考总入口：app / req / res / Router 四大对象的完整方法清单。官方 Assignment 让你「花几分钟探索找感觉」——后面每一课都会大量引用这页的子节。zh-cn/api/ 对应页存在但正文未翻译（界面中文）。跨课合并：Routes 课 Assignment 的同地址引用归本条。',
+      why: '官方 Assignment 第 1 条：探索 Express 文档找感觉——后续课程大量引用。',
+      points: [
+        'app / req / res / Router 四大对象的总目录。',
+        'Express 5.x 现行版本的 API 基准。'
+      ],
+      terms: [
+        'API Reference（API 参考）'
+      ],
+      focus: '按官方要求「几分钟探索」即可——建立目录感，细节用到再查。',
+      takeaway: '这页是 Express 章的词典封面——先知道有什么，再学怎么查。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '跨课合并：routes 课 Assignment「reference the Express documentation」同地址，归本课首现条目；routes 课的任务链接按「资源归属课」纪律不接。'
+    },
+    {
+      lessonId: 'nodejs-routes',
+      title: 'Application Object · Express.js 5.x API',
+      titleZh: 'Express 5.x API：应用对象（app，含 app.all）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文引用（app.all 匹配全部动词）',
+      originalUrl: 'https://expressjs.com/en/5x/api/application/#appallpath-callback--callback-',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '200（标题实测「Application Object · Express.js 5.x」，app.all 锚点在页内实测存在）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Express app 对象的 API 参考——正文提到 app.all()（让一条路由匹配所有 HTTP 动词）的出处，也是 app.use / app.listen / app.set 等全部应用级方法的词典页。zh-cn 对应页正文未翻译（界面中文）。',
+      why: '正文引用：每个动词有自己的路由方法，app.all() 匹配全部动词。',
+      points: [
+        'app.all(path, callback) 的精确语义。',
+        'app 对象全方法清单（use/listen/set/get…）。'
+      ],
+      terms: [
+        'app.all()',
+        'application object（应用对象）'
+      ],
+      focus: '查 app.all 一节即可；整页当词典备查。',
+      takeaway: 'app 不只是「服务器」——它也是根路由器（app.use 的本质）。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-routes',
+      title: 'Routing · Express.js（官方 Routing 指南）',
+      titleZh: 'Express 官方指南：Routing（路由）',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（含正文 wildcards 引用）',
+      originalUrl: 'https://expressjs.com/en/guide/routing.html',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '301 → https://expressjs.com/en/guide/routing/（.html 后缀收敛，现行终点实测 200、标题「Routing · Express.js」；正文引用的版本钉路径 https://expressjs.com/en/5x/guide/routing/#wildcards 为同一指南的 5.x 版本入口、实测 200——两路径同文合并登记，wildcards 锚点在页内实测存在）',
+      zhUrl: 'https://expressjs.com/zh-cn/guide/routing/',
+      zhType: 'Express 官网简体中文分区（实测 200、正文 1899 汉字——**部分翻译、中英混排**：开篇与核心段落已译中文（「路由是指应用程序的端点（URI）如何响应客户端的请求」等），部分段落仍为英文原文；Express 新官网的 guide 区多语言分区为社区翻译、完成度不一，如实登记——A 类判定按「正文有实质中文内容」口径，与 api 区「界面中文正文英文判 C」相区分；待用户拍板）',
+      zhGuide: {
+      overview: 'Express 官方的 Routing 指南总览：路由的定义方式、HTTP 方法匹配、路径字符串/正则/通配符、路由参数、Router 模块化——本课全部主题的官方版复述。官方 Assignment 让你通读它做总览，具体方法再查 API 文档。有官方中文分区（部分翻译、中英混排）。',
+      why: '官方 Assignment 第 1 条：通读 Routing primer 总览本课主题；正文 wildcards 纪律（splat 必须带名）也引用本页 5.x 版。',
+      points: [
+        '与本课同构的官方叙述——读完等于把本课再走一遍官方通道。',
+        'Wildcards 一节：Express 5 的 splat 必须带名字的纪律出处。'
+      ],
+      terms: [
+        'routing（路由）',
+        'wildcards（通配符）'
+      ],
+      focus: '对照本课各节读，重点核对 wildcards 与 route parameters 两节的官方措辞。',
+      takeaway: '课程讲「怎么用」，指南讲「官方怎么定义」——两边对齐后路由就没有模糊地带了。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '同文合并：Assignment 的 en/guide/routing.html 与正文的 5x/guide/routing/#wildcards 为同一指南的两个版本入口路径（标题分别为「Routing · Express.js」与「Routing · Express.js 5.x」），归本条登记。**expressjs.com zh-cn guide 区「部分翻译」为本站实测新事实**（A/C 边界形态，待用户拍板；api 区正文未翻译维持 C 类）。'
+    },
+    {
+      lessonId: 'nodejs-routes',
+      title: 'Download Postman | Get Started for Free',
+      titleZh: 'Postman 下载页（API 请求测试工具）',
+      type: '工具',
+      requirement: 'required',
+      zone: '正文引用（测试路由用 Postman）',
+      originalUrl: 'https://www.postman.com/downloads/',
+      sourceDomain: 'www.postman.com',
+      originalUrlStatus: '200（标题实测「Download Postman | Get Started for Free」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Postman 官方下载页：图形化的 HTTP 请求发送工具——浏览器地址栏发不了 POST，测试 POST 路由（以及后面的 API）全靠它。界面本体即工具价值（工具/网站类），无官方中文版界面。',
+      why: '正文引用：测试路由用 Postman——不经浏览器发 GET/POST 请求。',
+      points: [
+        '手动构造任意动词 + 路径 + 头的请求并查看响应。',
+        '浏览器地址栏只能发 GET——POST 路由的测试刚需。'
+      ],
+      terms: [
+        'Postman'
+      ],
+      focus: '装好后先复测本课的 GET /messages 与 POST /messages 两条路由，感受动词匹配。',
+      takeaway: '地址栏测不了 POST——从这一课起 Postman（或同类工具）进入你的日常工具带。',
+      },
+      license: 'Postman 为商业产品（提供免费层）；本站只做链接与本站原创导读，不翻译软件界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-routes',
+      title: 'ExpressJS Routes Tutorial - Separating Routes into Different Files (PedroTech)',
+      titleZh: 'PedroTech：Express 路由教程——把路由拆进不同文件（视频）',
+      type: '视频',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://youtu.be/0Hu27PoloYw?si=LZ8wQkOTP-e50Zvi',
+      sourceDomain: 'youtu.be',
+      originalUrlStatus: 'oEmbed 核验 200（真实标题「ExpressJS Routes Tutorial - Separating Routes into Different Files」、频道 PedroTech；官方给的即 youtu.be 短链形态，原样登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'PedroTech 的 Express 路由视频：对本课主题（尤其是 Routers 分组拆文件一节）的完整实操演示。官方评价「对 Express 路由的全面总览」——文字读完想看动手版的话看这支。',
+      why: '官方 Additional resources：全面讲解 Express 路由的视频。',
+      points: [
+        '路由拆文件的完整实操（对应本课 Routers 节）。',
+        '路由参数与匹配的视频演示。'
+      ],
+      terms: [
+        'routes（路由）'
+      ],
+      focus: '重点看 Router 拆文件部分——与本课图书馆应用例子对照。',
+      takeaway: '看一遍别人怎么拆 routes/ 文件夹，比自己从零摸索快。',
+      },
+      license: 'YouTube 视频版权归原作者（PedroTech 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-controllers',
+      title: 'Express Middlewares, Demystified (Viral Shah)',
+      titleZh: 'Viral Shah：揭秘 Express 中间件',
+      type: '文章',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条',
+      originalUrl: 'https://medium.com/@viral_shah/express-middlewares-demystified-f0c2c37ea6a1',
+      sourceDomain: 'medium.com',
+      originalUrlStatus: '403（Cloudflare「Attention Required」拦截命令行请求，带浏览器 UA 复核仍 403——Medium 既有受限形态；真实浏览器核验可达性收尾轮复核，Medium 文章受限双通路先例同型）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '一篇深入中间件机制的经典文章：从 Express 内部的请求分发讲起，把「中间件链」的执行模型拆开给你看，并鼓励读者直接读 Express 源码（官方说你现在大概读得懂了）。**注意官方立牌纠正的过时点**：文中「Express 不为 await 处理器构建、async 抛错只能 next(err) 传递」的段落在 Express v5 已不成立——v5 原生支持 async 路由处理器、自动捕获抛错。',
+      why: '官方 Assignment 第 1 条：更深地理解中间件如何工作。',
+      points: [
+        '中间件链的内部执行模型。',
+        '官方 note：async 处理器段落已过时——Express v5 原生支持。'
+      ],
+      terms: [
+        'middleware chain（中间件链）'
+      ],
+      focus: '读到 async/next(err) 段落时以官方 note 为准，不要被旧结论带偏。',
+      takeaway: '中间件不是黑魔法——读完这篇你敢去翻 Express 源码了。',
+      },
+      license: 'Medium 文章版权归原作者；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '受限条目：命令行双 UA 均 403（Cloudflare）——真实浏览器核验可达并取得标题与 h1「Express Middlewares, Demystified」（Medium 受限双通路先例）。'
+    },
+    {
+      lessonId: 'nodejs-controllers',
+      title: 'Learn MVC Pattern with ExpressJS and NodeJS - Tutorial Beginner (PedroTech)',
+      titleZh: 'PedroTech：用 ExpressJS 与 NodeJS 学 MVC 模式（视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://www.youtube.com/watch?v=Cgvopu9zg8Y',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: 'oEmbed 核验 200（真实标题「Learn MVC Pattern with ExpressJS and NodeJS - Tutorial Beginner」、频道 PedroTech）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '10 分钟的 MVC 模式视频小教程。官方的定位很坦诚：「没多少新东西，主要是巩固你已知的」——Model-View-Controller 三分你在框架简介课见过定义、在本课的控制器与下一课的视图里见过两分落地，这支视频把三分拼完整。',
+      why: '官方 Assignment 第 2 条：10 分钟 MVC 视频，巩固已知。',
+      points: [
+        'MVC 三分的完整图示与职责划分。',
+        'Express 世界里三者的对应文件形态。'
+      ],
+      terms: [
+        'MVC（模型-视图-控制器）'
+      ],
+      focus: '带着「db.js 是 M、views/ 是 V、controllers/ 是 C」的对应关系看。',
+      takeaway: 'MVC 不是新知识，是给已学的东西起名字——名字让文件夹结构变得可推理。',
+      },
+      license: 'YouTube 视频版权归原作者（PedroTech 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-controllers',
+      title: 'Using middleware · Express.js',
+      titleZh: 'Express 官方指南：使用中间件',
+      type: '官方指南',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://expressjs.com/en/guide/using-middleware.html',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '301 → https://expressjs.com/en/guide/using-middleware/（.html 后缀收敛，现行终点实测 200、标题「Using middleware · Express.js」）',
+      zhUrl: 'https://expressjs.com/zh-cn/guide/using-middleware/',
+      zhType: 'Express 官网简体中文分区（实测 200、正文 1890 汉字——**部分翻译、中英混排**，与 routing 指南同形态；A 类判定按「正文有实质中文内容」口径，待用户拍板）',
+      zhGuide: {
+      overview: 'Express 官方的中间件使用指南：与本课中间件一节信息相同、但可跑的例子更多（官方 AR 原话）。应用级/路由器级/内置/第三方四类中间件的官方分类法与示例代码都在这里。有官方中文分区（部分翻译）。',
+      why: '官方 Additional resources：信息相同但例子更多、可以跟着跑。',
+      points: [
+        '四类中间件（应用级/路由器级/错误处理/内置/第三方）的官方分类。',
+        '可运行的示例代码比课文多。'
+      ],
+      terms: [
+        'middleware（中间件）'
+      ],
+      focus: '把课文的两级中间件对照官方的分类表读一遍，例子挑感兴趣的跑。',
+      takeaway: '课文给概念，指南给例子——中间件的学习闭环。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-views',
+      title: 'EJS -- Embedded JavaScript templates（官网）',
+      titleZh: 'EJS 官网（嵌入式 JavaScript 模板）',
+      type: '网站',
+      requirement: 'required',
+      zone: '正文引用 + Assignment 第 1 条（#docs 文档区）',
+      originalUrl: 'https://ejs.co/',
+      sourceDomain: 'ejs.co',
+      originalUrlStatus: '200（标题实测「EJS -- Embedded JavaScript templates」；Assignment 引用的 #docs 锚点与官网同页——同页合并登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'EJS 官网：标签语法速查（<% %> / <%= / <%- 等全部标签）、API 说明与示例。官网无官方中文版（zh-hans 路径实测 403、主站正文 0 汉字）。正文教的基础语法 + Assignment 要求的通读文档都在这一页的 #docs 区。',
+      why: '正文引用（本课程用 EJS）+ 官方 Assignment 第 1 条：再通读一遍 EJS 文档。',
+      points: [
+        '全部 EJS 标签的语法速查表。',
+        'include、locals 等 API 的官方说明。'
+      ],
+      terms: [
+        'EJS（Embedded JavaScript templates）'
+      ],
+      focus: '把标签速查表过一遍——写模板时它就是你的语法词典。',
+      takeaway: 'EJS 的卖点就是「语法长得像 HTML」——文档也因此很短，通读无压力。',
+      },
+      license: 'EJS 为 MIT 许可开源项目；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '同页合并：Assignment 第 1 条的 ejs.co/#docs 与官网首页同页，归本条。'
+    },
+    {
+      lessonId: 'nodejs-views',
+      title: 'Using template engines with Express · Express.js',
+      titleZh: 'Express 官方指南：配合 Express 使用模板引擎',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 2 条',
+      originalUrl: 'https://expressjs.com/en/guide/using-template-engines.html',
+      sourceDomain: 'expressjs.com',
+      originalUrlStatus: '301 → https://expressjs.com/en/guide/using-template-engines/（.html 后缀收敛，现行终点实测 200、标题「Using template engines with Express · Express.js」）',
+      zhUrl: 'https://expressjs.com/zh-cn/guide/using-template-engines/',
+      zhType: 'Express 官网简体中文分区（实测 200、正文 1005 汉字——**部分翻译、中英混排**，与 routing 指南同形态；A 类判定按「正文有实质中文内容」口径，待用户拍板）',
+      zhGuide: {
+      overview: 'Express 官方的模板引擎指南：app.set(\"views\"/\"view engine\") 的官方叙述、res.render 的工作机制。**注意官方提醒**：本页示例用的是 Pug（另一种模板引擎、语法与 EJS 不同）——但概念与机制同构，官方原话「信息对本课仍是有用的补充」。有官方中文分区（部分翻译）。',
+      why: '官方 Assignment 第 2 条：读 Express 模板引擎资源（示例是 Pug，信息仍有用）。',
+      points: [
+        'app.set 两个属性的官方叙述（与本课 EJS 设置对照）。',
+        'res.render 从模板到 HTML 的官方机制说明。'
+      ],
+      terms: [
+        'template engine（模板引擎）',
+        'Pug'
+      ],
+      focus: '别被 Pug 语法迷惑——你要的是 app.set/res.render 的机制叙述，语法以 EJS 为准。',
+      takeaway: '模板引擎是可插拔件：换引擎只换 app.set 一行与模板文件，机制不变。',
+      },
+      license: 'Express 文档按 MIT/CC 生态条款提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-views',
+      title: 'How to Use EJS to Template Your Node.js Application - LogRocket Blog',
+      titleZh: 'LogRocket 博客：如何用 EJS 给你的 Node.js 应用做模板',
+      type: '文章',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://blog.logrocket.com/how-to-use-ejs-template-node-js-application/',
+      sourceDomain: 'blog.logrocket.com',
+      originalUrlStatus: '200（标题实测「How to use EJS to template your Node.js application - LogRocket Blog」，命令行默认通道直达）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'LogRocket 的 EJS 实战长文：从安装到一个多页面应用的完整模板化过程，含 layouts/partials 的组织方式。比课文多一个真实项目尺度的示范——官方放在补充资料区。',
+      why: '官方 Additional resources：EJS 模板化 Node 应用的实战文。',
+      points: [
+        '项目尺度的 EJS 组织方式（partials/布局）。',
+        '与课文 include 一节的深化对照。'
+      ],
+      terms: [
+        'partials（局部模板）'
+      ],
+      focus: '重点看 partials 组织一节——Forms 课的 errors.ejs partial 就是这种用法。',
+      takeaway: '模板复用从 include 一个 navbar 开始，最终长成一套页面组织体系。',
+      },
+      license: 'LogRocket 博客内容版权归原作者；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Railway | The all-in-one intelligent cloud provider',
+      titleZh: 'Railway（PaaS：服务器 + 数据库）',
+      type: '网站',
+      requirement: 'reference',
+      zone: '正文推荐名单（Railway 主页）',
+      originalUrl: 'https://railway.app/',
+      sourceDomain: 'railway.app',
+      originalUrlStatus: '301 → https://railway.com/（供应商自有域名迁移 railway.app → railway.com，现行终点实测 200、标题「Railway | The all-in-one intelligent cloud provider」——按官方原文地址登记、迁移事实如实记录，css-tricks 更名先例同型）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方推荐 PaaS 之一：可部署服务器与数据库，关联 GitHub 仓库即部署、按用量付费；正文口径 $5/月约托管 4 个应用，免费试用一次性 $5 额度、期间不休眠，用尽后回落受限试用（仅数据库）。',
+      why: '正文推荐名单：Railway——可部署服务器与数据库。',
+      points: [
+        'GitHub 仓库关联部署，按用量付费。',
+        '免费试用一次性 $5、不休眠；到期回落受限试用。'
+      ],
+      terms: [
+        'PaaS（平台即服务）'
+      ],
+      focus: '免费额度与休眠策略以官网现价为准——正文价格信息为官方原文照录、随时间变化。',
+      takeaway: 'Railway 的卖点是部署流程顺 + 试用额度实在——第一次部署的友好选项。',
+      },
+      license: 'Railway 为商业服务（提供免费试用）；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: 'railway.app → railway.com 域名迁移为本站实测新事实（2026-09-28）。'
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Railway Docs',
+      titleZh: 'Railway 官方文档',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文推荐名单（Railway 文档）',
+      originalUrl: 'https://docs.railway.app/',
+      sourceDomain: 'docs.railway.app',
+      originalUrlStatus: '301 → https://docs.railway.com/（随主域名迁移，现行终点实测 200、标题「Railway Docs」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Railway 的官方文档：部署流程、环境变量注入（正文部署贴士说的「平台网页界面设置变量」就在这里）、数据库服务等。选 Railway 部署 Mini Message Board 时的操作手册。',
+      why: '正文推荐名单：Railway documentation。',
+      points: [
+        'GitHub 仓库部署的完整流程。',
+        '平台侧环境变量注入入口——.env 不上生产的官方解法。'
+      ],
+      terms: [
+        'deployment（部署）'
+      ],
+      focus: '部署前通读 getting started 与环境变量两节即可。',
+      takeaway: '部署卡壳先翻平台文档——正文排障一节的「重读部署指南」指的就是这里。',
+      },
+      license: 'Railway 文档内容归 Railway 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Render | The cloud for builders',
+      titleZh: 'Render（PaaS：服务器 + 数据库）',
+      type: '网站',
+      requirement: 'reference',
+      zone: '正文推荐名单（Render 主页）',
+      originalUrl: 'https://render.com/',
+      sourceDomain: 'render.com',
+      originalUrlStatus: '200（标题实测「Render | The cloud for builders」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方推荐 PaaS 之一：Blueprints 关联 GitHub 仓库部署；正文口径每月 750 免费小时（15 分钟不活跃自动休眠，够整月托管几个应用）；数据库单独计费、最低配 $7/个，同时仅一个活跃免费库、创建 30 天过期。',
+      why: '正文推荐名单：Render——可部署服务器与数据库。',
+      points: [
+        '每月 750 免费小时 + 15 分钟不活跃休眠。',
+        '免费库仅一个且 30 天过期——数据库长期用要付费或搭配 Neon/Aiven。'
+      ],
+      terms: [
+        'Blueprints（Render 的仓库关联部署机制）'
+      ],
+      focus: '注意「服务器免费 + 数据库收费」的组合现实——正文 $21/月托管 3 应用即由此而来。',
+      takeaway: 'Render 免费层能跑应用，数据库是它的收费点——组合选型时算清这笔账。',
+      },
+      license: 'Render 为商业服务（提供免费层）；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Docs + Quickstarts | Render',
+      titleZh: 'Render 官方文档',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文推荐名单（Render 文档）',
+      originalUrl: 'https://render.com/docs/',
+      sourceDomain: 'render.com',
+      originalUrlStatus: '301 → https://render.com/docs（尾斜杠收敛，现行终点实测 200、标题「Docs + Quickstarts | Render」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Render 的官方文档与快速入门总入口：部署流程、环境变量、数据库、自定义域名（正文说的「平台有自定义域名的详尽文档」就在这）。',
+      why: '正文推荐名单：Render documentation。',
+      points: [
+        'Quickstarts 按技术栈给的部署速通。',
+        '环境变量与自定义域名文档入口。'
+      ],
+      terms: [
+        'quickstart（快速入门）'
+      ],
+      focus: '配合下一条 Node/Express 专用指南使用。',
+      takeaway: '平台文档的第一入口——排障时「重读部署指南」从这里开始。',
+      },
+      license: 'Render 文档内容归 Render 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Deploy a Node Express App on Render – Render Docs',
+      titleZh: 'Render 官方指南：部署 Node/Express 应用',
+      type: '官方指南',
+      requirement: 'required',
+      zone: '正文推荐名单（Render 的 Node/Express 入门指南）+ Assignment 部署指南之一',
+      originalUrl: 'https://render.com/docs/deploy-node-express-app',
+      sourceDomain: 'render.com',
+      originalUrlStatus: '200（标题实测「Deploy a Node Express App on Render – Render Docs」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Render 官方的 Node/Express 部署专用指南——正文推荐名单里点名的「Official getting started with Node/Express on Render guide」，也是 Assignment「用你所选 PaaS 的部署指南」选 Render 时的操作手册：从仓库关联到环境变量到上线检查的完整流程。',
+      why: '正文点名指南 + Assignment：用所选 PaaS 的部署指南走完流程。',
+      points: [
+        'Node/Express 应用在 Render 的端到端部署流程。',
+        '环境变量注入与启动命令配置。'
+      ],
+      terms: [
+        'web service（Render 的 Web 服务类型）'
+      ],
+      focus: '部署 Mini Message Board 时对照逐步执行——这是官方指定的教材。',
+      takeaway: '第一次部署跟着平台专用指南走，成功率最高。',
+      },
+      license: 'Render 文档内容归 Render 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Neon — Postgres backends for apps and agents',
+      titleZh: 'Neon（仅数据库 PaaS）',
+      type: '网站',
+      requirement: 'reference',
+      zone: '正文推荐名单（Neon 主页）',
+      originalUrl: 'https://neon.tech/',
+      sourceDomain: 'neon.tech',
+      originalUrlStatus: '301 → https://neon.com/（供应商自有域名迁移 neon.tech → neon.com，现行终点实测 200、标题「Neon — Postgres backends for apps and agents」——宣传语已更新为面向应用与 AI agent 的定位，按官方原文地址登记、迁移与新宣传语如实记录）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方推荐 PaaS 之一（仅数据库）：PostgreSQL 托管服务。正文口径免费计划 10 个项目、每项目 0.5GiB 存储、主计算 24/7、另有 20 小时数据库分支与 24 小时时间点恢复、免信用卡。',
+      why: '正文推荐名单：Neon——主库 24/7 的免费 PostgreSQL 托管。',
+      points: [
+        '免费层：10 项目 × 0.5GiB、主计算 24/7、免信用卡。',
+        '数据库分支（branching）与时间点恢复——本地库/生产库思路的托管版。'
+      ],
+      terms: [
+        'database branching（数据库分支）',
+        'point-in-time restore（时间点恢复）'
+      ],
+      focus: '库存项目部署时它是数据库侧的候选——与 Render/Railway 的服务器组合使用。',
+      takeaway: '「服务器一家 + 数据库一家」的组合是免费层的现实解——正文 note 明说分开甚至可能更省。',
+      },
+      license: 'Neon 为商业服务（提供免费层）；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: 'neon.tech → neon.com 域名迁移为本站实测新事实（2026-09-28）；现行宣传语「Postgres backends for apps and agents」与课文时代的产品定位已不同，如实登记（Vercel Agentic Infrastructure 宣传语更新先例同型）。'
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Neon documentation: Introduction',
+      titleZh: 'Neon 官方文档：简介',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文推荐名单（Neon 文档）',
+      originalUrl: 'https://neon.tech/docs/introduction',
+      sourceDomain: 'neon.tech',
+      originalUrlStatus: '301 → https://neon.com/docs/introduction（随主域名迁移，现行终点实测 200）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Neon 官方文档入口：PostgreSQL 托管的核心概念（项目、分支、连接串）与操作指南总目录。',
+      why: '正文推荐名单：Neon documentation。',
+      points: [
+        'Neon 项目与连接串的管理方式。',
+        '数据库分支功能的概念入口。'
+      ],
+      terms: [
+        'database branching（数据库分支）'
+      ],
+      focus: '部署前读连接串获取一节——应用连库就靠它。',
+      takeaway: '托管库的「连接信息」在平台控制台里拿，格式就是 Connection URI。',
+      },
+      license: 'Neon 文档内容归 Neon 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Connect a Node.js application to Neon',
+      titleZh: 'Neon 官方指南：Node.js 应用连接 Neon',
+      type: '官方指南',
+      requirement: 'required',
+      zone: '正文推荐名单（Neon 的 Node 连接指南）+ Assignment 部署指南之一',
+      originalUrl: 'https://neon.tech/docs/guides/node',
+      sourceDomain: 'neon.tech',
+      originalUrlStatus: '301 → https://neon.com/docs/guides/node（随主域名迁移，现行终点实测 200）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Neon 官方的 Node.js 连接指南——正文推荐名单里点名的「Guide: Connect a Node.js application to Neon」：pg 库连 Neon 的连接串获取与环境变量配置，与「使用 PostgreSQL」课的 pool.js 直接衔接。',
+      why: '正文点名指南：Node 应用连接 Neon 的官方教材。',
+      points: [
+        '从 Neon 控制台取 Connection URI。',
+        'pg 连接 Neon 的代码形态（与课文 pool.js 同构）。'
+      ],
+      terms: [
+        'connection string（连接串）'
+      ],
+      focus: '部署库存项目数据库侧时对照执行。',
+      takeaway: '本地 pg 代码几乎原样能连托管库——换的只是连接串。',
+      },
+      license: 'Neon 文档内容归 Neon 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Aiven - Your AI-ready Open Source Data Platform',
+      titleZh: 'Aiven（仅数据库 PaaS）',
+      type: '网站',
+      requirement: 'reference',
+      zone: '正文推荐名单（Aiven 主页）',
+      originalUrl: 'https://aiven.io/',
+      sourceDomain: 'aiven.io',
+      originalUrlStatus: '200（标题实测「Aiven - Your AI-ready Open Source Data Platform」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方推荐 PaaS 之一（仅数据库）：PostgreSQL/MySQL/Redis 等开源数据服务托管。正文口径免费计划 5GiB 存储、全部数据库服务 24/7、每种服务各一个免费库、高可用与自动备份、免信用卡。',
+      why: '正文推荐名单：Aiven——全服务 24/7 的免费数据库托管。',
+      points: [
+        '免费层：5GiB 存储、全服务 24/7、免信用卡。',
+        'PostgreSQL 之外还有 MySQL/Redis——后续课程可能用到。'
+      ],
+      terms: [
+        'open source data platform（开源数据平台）'
+      ],
+      focus: '与 Neon 对比免费层条款选一家即可（正文：组合使用可零成本托管多数项目）。',
+      takeaway: '数据库托管的免费层够学习用——生产级需求再谈付费。',
+      },
+      license: 'Aiven 为商业服务（提供免费层）；本站只做链接与本站原创导读，不翻译网站界面。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Get started with Aiven | Aiven docs',
+      titleZh: 'Aiven 官方文档：入门',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: '正文推荐名单（Aiven 文档）',
+      originalUrl: 'https://aiven.io/docs/get-started',
+      sourceDomain: 'aiven.io',
+      originalUrlStatus: '200（标题实测「Get started with Aiven | Aiven docs」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Aiven 官方文档入门区：从注册账号、创建 PostgreSQL 服务实例，到在控制台取连接信息（service URI）的完整流程总览。与下一条 Node 连接专用指南合起来，构成 Assignment 部署 Aiven 数据库侧的操作教材。',
+      why: '正文推荐名单：Aiven documentation。',
+      points: [
+        '服务创建与控制台导航。',
+        '服务连接信息的获取操作入口。'
+      ],
+      terms: [
+        'service URI（服务 URI）'
+      ],
+      focus: '配合下一条 Node 连接专用指南使用。',
+      takeaway: '平台文档套路相通：创建服务 → 拿连接串 → 配进应用环境变量。',
+      },
+      license: 'Aiven 文档内容归 Aiven 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Connect to Aiven for PostgreSQL® with NodeJS | Aiven docs',
+      titleZh: 'Aiven 官方指南：Node.js 连接 Aiven PostgreSQL',
+      type: '官方指南',
+      requirement: 'required',
+      zone: '正文推荐名单（Aiven 的 Node 连接指南）+ Assignment 部署指南之一',
+      originalUrl: 'https://aiven.io/docs/products/postgresql/howto/connect-node',
+      sourceDomain: 'aiven.io',
+      originalUrlStatus: '200（标题实测「Connect to Aiven for PostgreSQL® with NodeJS | Aiven docs」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Aiven 官方的 Node.js 连接指南——正文推荐名单点名的「Guide: Connect a Node.js application to Aiven」：pg 连 Aiven PostgreSQL 的连接串与 SSL 配置细节。',
+      why: '正文点名指南：Node 应用连接 Aiven 的官方教材。',
+      points: [
+        '连接串获取与 pg 配置（含托管库常见的 SSL 要求）。',
+        '与课文 pool.js 的衔接点。'
+      ],
+      terms: [
+        'SSL 连接（托管数据库的常见要求）'
+      ],
+      focus: '注意托管库与本地库的连接差异（SSL）——本地能跑云上连不上多半是它。',
+      takeaway: '托管库连接串自带 SSL 参数——照抄平台的，别手拼。',
+      },
+      license: 'Aiven 文档内容归 Aiven 所有；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'package.json | npm Docs（engines 字段）',
+      titleZh: 'npm 官方文档：package.json（engines 字段）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文引用（声明兼容的 Node 版本）',
+      originalUrl: 'https://docs.npmjs.com/cli/v10/configuring-npm/package-json#engines',
+      sourceDomain: 'docs.npmjs.com',
+      originalUrlStatus: '301 → https://docs.npmjs.com/cli/v10/configuring-npm/package-json/（尾斜杠收敛，engines 锚点在页内；现行终点实测 200、标题「package.json | npm Docs」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'npm 官方的 package.json 全字段参考——正文排障一节引用的 engines 字段在其中：声明项目兼容的 Node 版本，托管平台据此选择运行时。docs.npmjs.com 文档区与 www.npmjs.com 包页不同站不同判：文档区命令行直达无拦截。',
+      why: '正文引用：可能需要「在 package.json 里指定项目兼容的 Node 版本」。',
+      points: [
+        'engines 字段的写法（node 版本范围）。',
+        'package.json 全字段词典（后续课程还会反复用到）。'
+      ],
+      terms: [
+        'engines 字段'
+      ],
+      focus: '只看 engines 一节；整页当 package.json 的词典收藏。',
+      takeaway: 'engines 一行声明，把「在我机器上能跑」写成合同。',
+      },
+      license: 'npm 文档按 npm 官方条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'node-path-nodejs-deployment',
+      title: 'Free for Developers',
+      titleZh: 'free-for.dev：开发者免费层服务大名录',
+      type: '网站',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://free-for.dev/',
+      sourceDomain: 'free-for.dev',
+      originalUrlStatus: '200（标题实测「Free for Developers」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '开源维护的「带免费开发者层的服务」大名录：SaaS、PaaS、IaaS、数据库、监控等分类齐全——官方 AR 原话「a huge repository of … offerings with free developer tiers」。本课四家推荐之外想找更多免费选项时，这里是总索引。',
+      why: '官方 Additional resources：免费开发者层服务的巨大名录。',
+      points: [
+        '按服务类型分类的免费层清单。',
+        'PaaS 与数据库托管的更多候选。'
+      ],
+      terms: [
+        'SaaS / PaaS / IaaS'
+      ],
+      focus: '当索引用——具体条款仍以各家官网现价为准。',
+      takeaway: '免费层世界比课文四家大得多——但选型逻辑不变：服务器与数据库分开算账。',
+      },
+      license: 'free-for.dev 为开源名录项目；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '正文提及的 AWS/Google Cloud/Azure 与域名注册商 Porkbun/NameSilo/Domainr 为信息性列举（裸首页、非 Assignment 指定教材），按「信息性工具示例裸首页剔除」先例不单独登记，事实转达进本条与相关条目的导读。'
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'Post/Redirect/Get - Wikipedia',
+      titleZh: '维基百科：Post/Redirect/Get 模式',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文引用（PRG 设计模式）',
+      originalUrl: 'https://en.wikipedia.org/wiki/Post/Redirect/Get',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200（标题实测「Post/Redirect/Get - Wikipedia」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'PRG 模式的百科条目：为什么 POST 处理完要重定向而不是直接渲染——不重定向时用户刷新页面会重复提交表单（重复下单、重复留言），PRG 用「POST → 303/302 重定向 → GET」把刷新变成无害的 GET 重放。留言板项目里你已经手写过这个模式，这一页给它理论名字。',
+      why: '正文引用：Post/Redirect/Get 设计模式帮助防止重复 POST 请求。',
+      points: [
+        '重复提交问题的成因（刷新重放上一个请求）。',
+        'PRG 三步的时序图。'
+      ],
+      terms: [
+        'Post/Redirect/Get（PRG）'
+      ],
+      focus: '对照留言板项目 router.post 末尾的 res.redirect(\"/\") 读。',
+      takeaway: 'redirect 不是导航便利，是防重复提交的正确性设计。',
+      },
+      license: 'Wikipedia 条目按 CC BY-SA 4.0 提供；本站只做链接与本站原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '中文维基无对应现行条目（Post/Redirect/Get 与「发布/重定向/获取」两种条目名实测均 404），维持 C 类不凑数。'
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'Cross-site scripting - Wikipedia',
+      titleZh: '维基百科：跨站脚本（XSS）',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文引用（XSS 攻击）',
+      originalUrl: 'https://en.wikipedia.org/wiki/Cross-site_scripting',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200（标题实测「Cross-site scripting - Wikipedia」）',
+      zhUrl: 'https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC',
+      zhType: '中文维基百科对应条目（实测 200、条目名「跨站脚本」、正文 3172 汉字内容级核验——中文条目名与英文不同形）',
+      zhGuide: {
+      overview: 'XSS 的百科条目：攻击原理（把脚本注入到别人会执行的页面）、三种类型（存储型/反射型/DOM 型）与防御总纲。本课正文的「About Me 注入 alert(\'Hacked!\')」就是存储型 XSS 的最小样例；「转义在输出处做」的防御哲学在这里有完整展开。中文维基有对应条目。',
+      why: '正文引用：未转义渲染用户输入就是这种跨站脚本（XSS）攻击。',
+      points: [
+        'XSS 三类型的分类——课文样例属存储型。',
+        '输出转义/编码作为主防线的原理。'
+      ],
+      terms: [
+        'XSS（跨站脚本）',
+        'stored / reflected / DOM-based（存储型/反射型/DOM 型）'
+      ],
+      focus: '读类型分类与防御两节，与课文「危险字符只在使用的上下文里才危险」对照。',
+      takeaway: 'XSS 的本质是「数据被当成指令执行」——转义就是维持数据与指令的边界。',
+      },
+      license: 'Wikipedia 条目按 CC BY-SA 4.0 提供；本站只做链接与本站原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: '400 Bad Request - HTTP | MDN',
+      titleZh: 'MDN：HTTP 400 Bad Request（官方中文版）',
+      type: '文档',
+      requirement: 'reference',
+      zone: '正文引用（校验失败回 400）',
+      originalUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400',
+      sourceDomain: 'developer.mozilla.org',
+      originalUrlStatus: '301 → https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/400（MDN HTTP 状态码页迁移到 Reference/ 下，现行终点实测 200）',
+      zhUrl: 'https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/400',
+      zhType: 'MDN 官方简体中文版（实测 200、标题「400 Bad Request - HTTP | MDN」、正文 3499 汉字）',
+      zhGuide: {
+      overview: '400 状态码的官方参考：语义（服务器无法理解/处理该请求，通常归因于客户端）与常见成因。课文 validationResult 失败分支的 res.status(400) 就是它——「你提交的数据不合格」的标准回答。有官方中文版。',
+      why: '正文引用：校验失败时服务器发送 400 状态码与错误清单。',
+      points: [
+        '400 的官方语义与成因清单。',
+        '与 500 的分工：4xx 客户端的错、5xx 服务端的错。'
+      ],
+      terms: [
+        '400 Bad Request',
+        'client error（4xx 客户端错误）'
+      ],
+      focus: '记住「校验失败 = 400 而不是 500」的语义分工。',
+      takeaway: '状态码是给机器的语义——400 说「你给的不对」，500 说「我坏了」。',
+      },
+      license: 'MDN 文档按 CC-BY-SA 2.5 提供；本站只做链接与本站原创导读，不复制文档内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'express-validator（官方文档总入口）',
+      titleZh: 'express-validator 官方文档',
+      type: '官方文档',
+      requirement: 'reference',
+      zone: 'Further Reading（官方 Assignment 内）',
+      originalUrl: 'https://express-validator.github.io/docs/',
+      sourceDomain: 'express-validator.github.io',
+      originalUrlStatus: '200（标题实测「express-validator」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'express-validator 的官方文档总入口：全部校验器/净化器函数清单与 API 索引。官方 Further Reading 点名它「包含 validator 的完整文档」。课文只用了 body/validationResult/matchedData 三件——完整兵器库在这里。',
+      why: '官方 Further Reading：express-validator 完整文档。',
+      points: [
+        '全部校验链方法的索引。',
+        '课文三件套之外的能力清单（自定义校验、通配字段等）。'
+      ],
+      terms: [
+        'express-validator'
+      ],
+      focus: '当词典用——写库存项目校验时按需查函数。',
+      takeaway: 'isAlpha/isLength 只是冰山一角——几乎所有表单规则都有现成校验器。',
+      },
+      license: 'express-validator 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'Getting Started | express-validator',
+      titleZh: 'express-validator 官方指南：入门',
+      type: '官方指南',
+      requirement: 'reference',
+      zone: 'Further Reading（官方 Assignment 内·重点节一）',
+      originalUrl: 'https://express-validator.github.io/docs/guides/getting-started',
+      sourceDomain: 'express-validator.github.io',
+      originalUrlStatus: '301 → https://express-validator.github.io/docs/guides/getting-started/（尾斜杠收敛，现行终点实测 200、标题「Getting Started | express-validator」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '官方入门指南：安装、第一条校验链、validationResult 的标准用法——与课文同构但更系统的官方版本。官方 Further Reading 点名的重点节之一。',
+      why: '官方 Further Reading 重点节：Getting Started。',
+      points: [
+        '校验-收集错误-分支响应的标准流程。',
+        '与课文示例的对照阅读。'
+      ],
+      terms: [
+        'validationResult()'
+      ],
+      focus: '课文已覆盖主干——这篇用来补细节与官方措辞。',
+      takeaway: '同一套流程读两遍（课文 + 官方），校验的肌肉记忆就成了。',
+      },
+      license: 'express-validator 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'The Validation Chain | express-validator',
+      titleZh: 'express-validator 官方指南：校验链',
+      type: '官方指南',
+      requirement: 'reference',
+      zone: 'Further Reading（官方 Assignment 内·重点节二）',
+      originalUrl: 'https://express-validator.github.io/docs/guides/validation-chain',
+      sourceDomain: 'express-validator.github.io',
+      originalUrlStatus: '301 → https://express-validator.github.io/docs/guides/validation-chain/（尾斜杠收敛，现行终点实测 200、标题「The Validation Chain | express-validator」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '校验链机制的官方专章：body() 返回的链对象怎么执行、校验器与净化器在链上的顺序语义、withMessage 的挂接方式。课文「链式校验」一节的机制深化——官方 Further Reading 点名的重点节之二。',
+      why: '官方 Further Reading 重点节：Validation Chains。',
+      points: [
+        '链上方法的执行顺序与短路语义。',
+        '校验器与净化器混排时的行为。'
+      ],
+      terms: [
+        'validation chain（校验链）'
+      ],
+      focus: '弄清 trim().notEmpty() 的顺序为什么重要（先修剪再判空）。',
+      takeaway: '链不是随意的——顺序决定语义，先净化后校验是常用序。',
+      },
+      license: 'express-validator 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'matchedData | express-validator',
+      titleZh: 'express-validator 官方 API：matchedData',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（matchedData 取净化后数据）',
+      originalUrl: 'https://express-validator.github.io/docs/api/matched-data',
+      sourceDomain: 'express-validator.github.io',
+      originalUrlStatus: '301 → https://express-validator.github.io/docs/api/matched-data/（尾斜杠收敛，现行终点实测 200、标题「matchedData | express-validator」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'matchedData() 的 API 参考：取回「全部通过校验且已净化」的数据——课文点明用它而不是 req.body 的原因（保证含 trim 等净化结果）。参数（includeOptionals、locations 等）细节在这页。',
+      why: '正文引用：我们通过 matchedData() 取回全部校验过的数据，确保包含净化结果。',
+      points: [
+        'matchedData(req) 的返回语义。',
+        'includeOptionals 等可选参数的取舍场景。'
+      ],
+      terms: [
+        'matchedData()'
+      ],
+      focus: '记住「入库前用 matchedData 不用 req.body」这一条纪律即可。',
+      takeaway: 'req.body 是原料，matchedData 是洗过的料——下锅用后者。',
+      },
+      license: 'express-validator 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'Sanitizing, Escaping, and Encoding | Justin’s Blurgh',
+      titleZh: 'Justin 博客：净化、转义与编码（注入防御）',
+      type: '文章',
+      requirement: 'reference',
+      zone: 'Further Reading（官方 Assignment 内）',
+      originalUrl: 'https://blog.presidentbeef.com/blog/2020-01-14/injection-prevention-sanitizing-vs-escaping/',
+      sourceDomain: 'blog.presidentbeef.com',
+      originalUrlStatus: '404（官方原文给的日期段连字符形态 2020-01-14 已失效；博客现役，正确路径为斜杠日期形态 https://blog.presidentbeef.com/blog/2020/01/14/injection-prevention-sanitizing-vs-escaping/ 实测 200、标题「Sanitizing, Escaping, and Encoding | Justin’s Blurgh」——官方链接写错路径，按修正后现役地址登记、原链接与修正地址均如实记录，devfactor 存档链接修正先例同型）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '一篇把 sanitizing / escaping / encoding 三个词掰开讲清的文章：各自防什么、在哪个环节做、为什么「转义在输出处、净化在使用前」是更稳的策略——正是课文「为什么不在收到数据时就 .escape()」的展开论证。官方 Further Reading 第 1 条。',
+      why: '官方 Further Reading：展开讲净化与转义的含义、如何进一步保护 Web 应用。',
+      points: [
+        '三个术语的精确定义与适用环节。',
+        '上下文相关防御（对 HTML 危险的对 SQL 未必）的论证。'
+      ],
+      terms: [
+        'sanitizing（净化）',
+        'escaping / encoding（转义/编码）'
+      ],
+      focus: '与课文「转义与 XSS」一节对照读，把「使用时转义」的理由吃透。',
+      takeaway: '防御要贴着「使用上下文」做——这是贯穿 XSS 与 SQL 注入的总纲。',
+      },
+      license: '博客文章版权归原作者（Justin Collins）；本站只做链接与本站原创导读，不翻译文章内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文链接的日期段用连字符（2020-01-14）实测 404，现行正确路径为斜杠日期（2020/01/14）——现行标题与官方链接文字（「what sanitizing and escaping means…」）不同，均如实登记。originalUrl 保留官方原地址（与官方链接文字对应），修正地址记 originalUrlStatus 供资料卡按钮使用——防悬空断言比对以 effective 现行地址为准（art-of-node 先例）。'
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'Customizing express-validator（实现自定义校验器）',
+      titleZh: 'express-validator 官方指南：自定义（含实现自定义校验器）',
+      type: '官方指南',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://express-validator.github.io/docs/guides/customizing#implementing-a-custom-validator',
+      sourceDomain: 'express-validator.github.io',
+      originalUrlStatus: '301 → https://express-validator.github.io/docs/guides/customizing/（尾斜杠收敛，锚点 #implementing-a-custom-validator 在页内；现行终点实测 200、标题「Customizing express-validator」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'express-validator 的自定义能力专章：内置校验器不够用时（比如库存项目的「Age 必须 18–120」之外的怪规则）如何写自定义校验器与自定义错误消息。官方 AR 评价「好文」。',
+      why: '官方 Additional resources：实现自定义校验器的好文。',
+      points: [
+        'custom() 校验器的写法。',
+        '自定义错误消息与净化器。'
+      ],
+      terms: [
+        'custom validator（自定义校验器）'
+      ],
+      focus: 'Assignment 的 Email/Age/Bio 三字段先用内置校验器做，卡住了再来这页。',
+      takeaway: '内置校验器覆盖八成场景——剩下两成 custom() 兜底。',
+      },
+      license: 'express-validator 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-forms-and-data-handling',
+      title: 'Learn Express JS In 35 Minutes (Web Dev Simplified)',
+      titleZh: 'Web Dev Simplified：35 分钟学 Express JS（视频）',
+      type: '视频',
+      requirement: 'optional',
+      zone: 'Additional resources',
+      originalUrl: 'https://youtu.be/SccSCuHhOw0?si=2dZ5Y4dvxyh7jpcy',
+      sourceDomain: 'youtu.be',
+      originalUrlStatus: 'oEmbed 核验 200（真实标题「Learn Express JS In 35 Minutes」、频道 Web Dev Simplified；官方给的即 youtu.be 短链形态，原样登记）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Web Dev Simplified 的 Express 速成视频：35 分钟从建应用到路由到表单处理的连贯演示——官方 AR 定位「想复习表单提交与解析的话看它」。',
+      why: '官方 Additional resources：Express 表单提交与解析的复习教程。',
+      points: [
+        '表单处理全流程的视频演示。',
+        'Express 基础的一次性串联复习。'
+      ],
+      terms: [
+        'body parsing（请求体解析）'
+      ],
+      focus: '重点看表单提交与 body 解析段——与课文 Putting it together 对照。',
+      takeaway: '文字课 + 35 分钟视频，Express 基本功双通道巩固。',
+      },
+      license: 'YouTube 视频版权归原作者（Web Dev Simplified 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-installing-postgresql',
+      title: 'PostgreSQL: The world\'s most advanced open source database',
+      titleZh: 'PostgreSQL 官网',
+      type: '网站',
+      requirement: 'required',
+      zone: '正文引用（课程选定的数据库）',
+      originalUrl: 'https://www.postgresql.org/',
+      sourceDomain: 'www.postgresql.org',
+      originalUrlStatus: '200（标题实测「PostgreSQL: The world\'s most advanced open source database」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'PostgreSQL 官网：下载入口（各平台安装包）、官方文档总库与社区资源。官网无官方中文版界面（英文站）。本课的安裝指南从这里的下载区出发，下一课的 identity 列文档也住这里。',
+      why: '正文引用：课程选定 PostgreSQL——官网是下载与文档的总入口。',
+      points: [
+        '各操作系统的下载与安装入口。',
+        '官方文档总库（docs/current/ 下按版本组织）。'
+      ],
+      terms: [
+        'PostgreSQL'
+      ],
+      focus: '按 Assignment 的系统指南走安装；官网下载页是指南的原料库。',
+      takeaway: 'PostgreSQL 自称「世界最先进的开源数据库」——本路线的后端数据层全部押在它上面。',
+      },
+      license: 'PostgreSQL 为 PostgreSQL License 开源项目；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-installing-postgresql',
+      title: 'PostgreSQL in 100 Seconds (Fireship)',
+      titleZh: 'Fireship：100 秒了解 PostgreSQL（视频）',
+      type: '视频',
+      requirement: 'required',
+      zone: '正文引用（趣味短视频入门）',
+      originalUrl: 'https://www.youtube.com/watch?v=n2Fluyr3lbc',
+      sourceDomain: 'www.youtube.com',
+      originalUrlStatus: 'oEmbed 核验 200（真实标题「PostgreSQL in 100 Seconds」、频道 Fireship）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'Fireship 的百秒系列 PostgreSQL 篇：极速过一遍 PostgreSQL 是什么、和 MySQL 的差异、核心特性。官方推荐「看这支有趣而简短的入门视频」——100 秒建立产品印象，安装前的心态预热。',
+      why: '正文引用：官方推荐的趣味短视频入门。',
+      points: [
+        'PostgreSQL 的定位与特性速览。',
+        'Fireship 百秒系列的一贯节奏：信息密度极高。'
+      ],
+      terms: [
+        'relational database（关系型数据库）'
+      ],
+      focus: '100 秒看完可以再看一遍——信息密度值得。',
+      takeaway: '装之前先认识它：PostgreSQL 是功能派关系型数据库的代表。',
+      },
+      license: 'YouTube 视频版权归原作者（Fireship 频道）；本站不翻译视频、不声称有中文字幕，只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-installing-postgresql',
+      title: 'PostgreSQL installation for Linux（官方安装指南）',
+      titleZh: 'TOP 官方安装指南：Linux 安装 PostgreSQL',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（Linux 指南）',
+      originalUrl: 'https://github.com/TheOdinProject/curriculum/tree/main/nodeJS/express/installation_guides/postgresql/linux.md',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '301 → https://github.com/TheOdinProject/curriculum/blob/main/nodeJS/express/installation_guides/postgresql/linux.md（GitHub 对 .md 的 tree 链接自动收敛到 blob 视图，现行终点实测 200）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'TOP 官方写的 Linux 安装 PostgreSQL 指南（curriculum 仓内的指定教材）：从包管理器安装到启动 psql 验证的完整步骤。Assignment 原文即按操作系统二选一——Linux（含 WSL2）用户走这份。',
+      why: '官方 Assignment 第 1 条：按你的操作系统跟随对应安装指南（Linux）。',
+      points: [
+        'Linux/WSL2 下的安装与验证步骤。',
+        'psql 可用性的自查方式。'
+      ],
+      terms: [
+        'psql（PostgreSQL 命令行工具）'
+      ],
+      focus: '逐步执行并验证 psql 可进——装完就能进 shell 才算完成。',
+      takeaway: '官方指定教材住在 curriculum 仓里——GitHub 文件视图的排版不是错误。',
+      },
+      license: 'TOP curriculum 仓内容按 CC BY-NC-SA 4.0 提供；本站只做链接与本站原创导读，不复制指南内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '按「官方指定教材」口径登记（TOP 官网 submissions 源码视图与 react-examples 练习仓库先例同源）——curriculum 仓的「课程本体 .md」剔除口径不适用于官方 Assignment 直接指定的安装教材。'
+    },
+    {
+      lessonId: 'nodejs-installing-postgresql',
+      title: 'PostgreSQL installation for macOS（官方安装指南）',
+      titleZh: 'TOP 官方安装指南：macOS 安装 PostgreSQL',
+      type: '官方指南',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（macOS 指南）',
+      originalUrl: 'https://github.com/TheOdinProject/curriculum/tree/main/nodeJS/express/installation_guides/postgresql/macos.md',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '301 → https://github.com/TheOdinProject/curriculum/blob/main/nodeJS/express/installation_guides/postgresql/macos.md（GitHub 对 .md 的 tree 链接自动收敛到 blob 视图，现行终点实测 200）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'TOP 官方写的 macOS 安装 PostgreSQL 指南（curriculum 仓内的指定教材）：Homebrew 安装到启动 psql 验证的完整步骤。macOS 用户走这份。',
+      why: '官方 Assignment 第 1 条：按你的操作系统跟随对应安装指南（macOS）。',
+      points: [
+        'macOS（Homebrew）下的安装与验证步骤。',
+        'psql 可用性的自查方式。'
+      ],
+      terms: [
+        'Homebrew（macOS 包管理器）'
+      ],
+      focus: '逐步执行并验证 psql 可进。',
+      takeaway: '两份指南官方只写了 Linux 与 macOS——Windows 用户的处置见课页「注意」栏（本站补充口径：WSL2 内按 Linux 指南走）。',
+      },
+      license: 'TOP curriculum 仓内容按 CC BY-NC-SA 4.0 提供；本站只做链接与本站原创导读，不复制指南内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '按「官方指定教材」口径登记（同上条）。官方无 Windows 指南为既有事实（Foundations installing-node-js 课同型缺口），本站课页 note 给 WSL2 补充口径并明确标注非官方内容。'
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'PostgreSQL Documentation: CREATE TABLE（GENERATED ... AS IDENTITY 参数）',
+      titleZh: 'PostgreSQL 官方文档：CREATE TABLE（identity 列参数）',
+      type: '参考文档',
+      requirement: 'reference',
+      zone: '正文 note 引用（identity 列）',
+      originalUrl: 'https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-PARMS-GENERATED-IDENTITY',
+      sourceDomain: 'www.postgresql.org',
+      originalUrlStatus: '200（标题实测「PostgreSQL: Documentation: 18: CREATE TABLE」，锚点在页内——docs/current 随 PostgreSQL 现行大版本滚动，18 为实测时点现值）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'CREATE TABLE 的官方全参数参考——正文 identity 列 note 引用的 GENERATED ALWAYS AS IDENTITY 参数定义在其中：自动生成列值的完整语义与 GENERATED BY DEFAULT 变体的差别。',
+      why: '正文 note 引用：identity 列的官方参数文档。',
+      points: [
+        'GENERATED ALWAYS vs BY DEFAULT AS IDENTITY 的语义差别。',
+        'CREATE TABLE 全参数词典。'
+      ],
+      terms: [
+        'identity column（标识列）',
+        'GENERATED ALWAYS AS IDENTITY'
+      ],
+      focus: '只精读 identity 参数一节；整页当 CREATE TABLE 词典。',
+      takeaway: 'ALWAYS 不许手动插值、BY DEFAULT 允许——官方建表用的 ALWAYS 是更严的约定。',
+      },
+      license: 'PostgreSQL 文档按 PostgreSQL License 提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'brianc/node-postgres（pg 官方仓库）',
+      titleZh: 'GitHub：node-postgres（pg）官方仓库',
+      type: '代码仓库',
+      requirement: 'reference',
+      zone: '正文引用（pg 库）',
+      originalUrl: 'https://github.com/brianc/node-postgres',
+      sourceDomain: 'github.com',
+      originalUrlStatus: '200（标题实测「GitHub - brianc/node-postgres: PostgreSQL client for node.js」）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'pg 库的官方 GitHub 仓库：源码、issue 讨论与版本历史。正文把它作为 pg 的身份介绍链接——文档站在 node-postgres.com，仓库在这里。',
+      why: '正文引用：node-postgres（pg）——我们与 PostgreSQL 打交道的接口库。',
+      points: [
+        'pg 的源码与 issue（遇到库层面的怪问题来这里搜）。',
+        'README 里的最小示例。'
+      ],
+      terms: [
+        'node-postgres (pg)'
+      ],
+      focus: '日常用文档站；仓库用于查版本行为与 issue。',
+      takeaway: '库 = 文档站 + 仓库两张脸——排障时两张脸都要会看。',
+      },
+      license: 'node-postgres 按 MIT 许可开源；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'node-postgres 文档：Connecting（Connection URI）',
+      titleZh: 'node-postgres 文档：连接（Connection URI）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: '正文引用（Connection URI 写法）',
+      originalUrl: 'https://node-postgres.com/features/connecting',
+      sourceDomain: 'node-postgres.com',
+      originalUrlStatus: '200（官方原文含 #connection-uri 锚点；站点现由 GitHub Pages 承载、页面 title 实测为「GitHub」——文档内容完好，站点形态变化如实记录）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'pg 连接方式的官方文档：属性对象与 Connection URI 两种写法的完整参数、SSL 选项与连接托管服务的注意事项。正文 pool.js 两种写法的出处——连托管库（Neon/Aiven）时你拿到的就是这里的 connectionString 形态。',
+      why: '正文引用：Connection URI 替代写法的官方文档。',
+      points: [
+        '连接参数全清单（host/user/database/password/port 与 connectionString）。',
+        'SSL 配置——托管库连接的常见差异点。'
+      ],
+      terms: [
+        'Connection URI'
+      ],
+      focus: '精读 connectionString 格式一节——部署时照平台给的值填。',
+      takeaway: 'postgresql://user:pass@host:port/db——一段字符串就是数据库的门牌。',
+      },
+      license: 'node-postgres 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文地址带 #connection-uri 锚点，登记去锚点规范地址、锚点事实记本栏（qr.ae 片段先例口径）。node-postgres.com 全站 title 现为「GitHub」（站点迁移到 GitHub Pages 承载）——内容可达性实测 200 无重定向。'
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'node-postgres 文档：Queries（Parameterized Query）',
+      titleZh: 'node-postgres 文档：查询（参数化查询）',
+      type: '官方文档',
+      requirement: 'required',
+      zone: '正文 note 引用（查询参数化）',
+      originalUrl: 'https://node-postgres.com/features/queries',
+      sourceDomain: 'node-postgres.com',
+      originalUrlStatus: '200（官方原文含 #parameterized-query 锚点；站点 title 实测「GitHub」同 connecting 页形态）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'pg 查询的官方文档：query 方法的返回结构（rows）、$1/$2 参数化查询的机制与多参数用法。正文 SQL 注入 note 里「pg 提供查询参数化来防止它」的出处——$1 占位 + 数组传参的完整语义在这页。',
+      why: '正文 note 引用：查询参数化的官方文档。',
+      points: [
+        '$1 占位符与数组传参的机制。',
+        'query 返回对象的结构（{ rows } 解构的来源）。'
+      ],
+      terms: [
+        'parameterized query（参数化查询）'
+      ],
+      focus: '与正文 SQL 注入 note 对照读——机制懂了，纪律才是自觉的。',
+      takeaway: '参数化 = 数据与指令分离：$1 永远是数据，不可能变成 SQL 的一部分。',
+      },
+      license: 'node-postgres 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '官方原文地址带 #parameterized-query 锚点，登记去锚点规范地址、锚点事实记本栏。'
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'node-postgres 文档（总入口）',
+      titleZh: 'node-postgres 官方文档总入口',
+      type: '官方文档',
+      requirement: 'required',
+      zone: 'Assignment 第 1 条（略读 pg 文档）',
+      originalUrl: 'https://node-postgres.com/',
+      sourceDomain: 'node-postgres.com',
+      originalUrlStatus: '200（站点 title 实测「GitHub」——GitHub Pages 承载形态，内容完好）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'pg 官方文档总入口：API 参考、特性指南（connecting/queries/pooling/transactions）与示例索引。官方 Assignment 的定位：「库本身轻量、文档也轻——不必全读，主要当参考用」。',
+      why: '官方 Assignment 第 1 条：略读 pg 文档，当参考用。',
+      points: [
+        'pg 文档站的全景目录与特性指南导航。',
+        'Pool/Client、事务等特性的指南入口。'
+      ],
+      terms: [
+        'Pool（pg 连接池）'
+      ],
+      focus: '按官方要求「略读」——建立目录感即可，细节用到再查。',
+      takeaway: 'pg 是小而美的库——文档厚度与它的哲学一致。',
+      },
+      license: 'node-postgres 文档按 MIT 生态条款提供；本站只做链接与本站原创导读。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'SQL injection - Wikipedia',
+      titleZh: '维基百科：SQL 注入',
+      type: '百科条目',
+      requirement: 'reference',
+      zone: '正文 note 引用（SQL injection）',
+      originalUrl: 'https://en.wikipedia.org/wiki/SQL_injection',
+      sourceDomain: 'en.wikipedia.org',
+      originalUrlStatus: '200（标题实测「SQL injection - Wikipedia」）',
+      zhUrl: 'https://zh.wikipedia.org/wiki/SQL%E6%B3%A8%E5%85%A5',
+      zhType: '中文维基百科对应条目（实测 200、条目名「SQL注入」、正文 3334 汉字内容级核验——中文条目名不带空格与英文不同形）',
+      zhGuide: {
+      overview: 'SQL 注入的百科条目：攻击原理（输入被拼进 SQL 改变语句语义）、历史著名案例与防御清单。正文 note 里「sike\'); DROP TABLE usernames; --」那记演示的完整背景知识——与 Forms 课的 XSS 条目合成 Web 两大注入攻击的知识对。中文维基有对应条目。',
+      why: '正文 note 引用：这就叫 SQL 注入——百科条目是它的完整档案。',
+      points: [
+        '注入攻击的原理与变体。',
+        '参数化查询作为标准防御的地位。'
+      ],
+      terms: [
+        'SQL injection（SQL 注入）'
+      ],
+      focus: '读原理与防御两节，与 XSS 条目对照——两者同为「数据变指令」事故。',
+      takeaway: 'SQL 注入几十年不绝的真正原因：总有人把用户输入拼进查询字符串。',
+      },
+      license: 'Wikipedia 条目按 CC BY-SA 4.0 提供；本站只做链接与本站原创导读，不复制条目内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'StackOverflow：把 node 脚本加进 package.json scripts',
+      titleZh: 'StackOverflow 回答：package.json 里加自定义 script',
+      type: '问答',
+      requirement: 'reference',
+      zone: '正文引用（种子脚本加进 package.json）',
+      originalUrl: 'https://stackoverflow.com/a/36433748',
+      sourceDomain: 'stackoverflow.com',
+      originalUrlStatus: '403（Cloudflare「Just a moment...」人机验证拦截命令行请求，带浏览器 UA 复核仍 403——StackOverflow 既有受限形态，真实浏览器核验可达后如实登记受限清单）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: '一篇高票 StackOverflow 回答：如何在 package.json 的 scripts 里注册自定义 node 脚本（npm run populate 这类命令的由来）。正文提到种子脚本「可以加进 package.json 的 scripts」时链的就是它。',
+      why: '正文引用：把 populatedb.js 注册成 package.json script 的方法。',
+      points: [
+        'scripts 字段的自定义命令写法。',
+        'npm run <name> 的执行机制。'
+      ],
+      terms: [
+        'npm scripts'
+      ],
+      focus: '学会把 node db/populatedb.js 注册成 npm run populate 的形态。',
+      takeaway: 'scripts 是项目的「命令面板」——灌库、启动、测试都该有个名字。',
+      },
+      license: 'StackOverflow 回答按 CC BY-SA 提供；本站只做链接与本站原创导读，不复制回答内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: '受限条目：命令行双 UA 均 403（Cloudflare 人机验证）——真实浏览器核验可达并取得标题「node.js - How to add a custom script to package.json that runs a javascript file」（StackOverflow 受限先例同型）。'
+    },
+    {
+      lessonId: 'nodejs-using-postgresql',
+      title: 'Node.js process 文档：process.argv',
+      titleZh: 'Node.js API 文档：process.argv（命令行参数）',
+      type: '参考文档',
+      requirement: 'required',
+      zone: '正文引用（脚本参数经 process.argv 访问）',
+      originalUrl: 'https://nodejs.org/docs/latest/api/process.html#processargv',
+      sourceDomain: 'nodejs.org',
+      originalUrlStatus: '200（官方原文用 latest 版本路径，实测直达、标题「Process | Node.js Documentation」，argv 锚点在页内）',
+      zhUrl: null,
+      zhType: null,
+      zhGuide: {
+      overview: 'process.argv 的官方参考：命令行参数数组的精确结构（[node 路径, 脚本路径, ...用户参数]）。正文「把连接信息作为参数传给脚本」方案的机制出处——populatedb.js 读连接串靠它。与环境变量课的 process.env 同页文档、同一个 process 对象。',
+      why: '正文引用：脚本参数经 process.argv 访问。',
+      points: [
+        'argv 数组的结构（前两项是 node 与脚本路径）。',
+        '与 process.env 的分工：一次性参数 vs 环境配置。'
+      ],
+      terms: [
+        'process.argv'
+      ],
+      focus: '注意下标偏移——用户参数从 argv[2] 开始。',
+      takeaway: 'env 管配置、argv 管这一次调用的参数——种子脚本连生产库用后者。',
+      },
+      license: 'Node.js 官网内容按 CC BY 4.0 / 其他开放许可提供；本站只做链接与本站原创导读，不复制页面内容。',
+      handling: 'link-only',
+      verifiedAt: '2026-09-28',
+      note: ''
+    },
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Passport.js（官网）","titleZh":"Passport.js 官网（Express 认证中间件）","type":"网站","requirement":"reference","zone":"正文引用（认证中间件）","originalUrl":"https://www.passportjs.org","sourceDomain":"www.passportjs.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Passport 是 Express 生态最流行的认证中间件官网：首页说明它是什么、Strategies（策略）体系如何工作，文档区给出各策略的配置范式。本课用的 LocalStrategy（用户名+密码）只是它 500+ 策略里最基本的一种。","why":"正文一开场就点名用 passport.js 处理认证与会话，官网是配置时的常查参考。","points":["Passport 用「策略」插件体系解耦认证方式：本体不绑定任何具体登录手段，装哪个策略就支持哪种认证。","官网文档区几乎是配置所需的一切——做项目时要常回来查（官方原话）。"],"terms":["Passport.js","Strategies（策略）"],"focus":"先看首页理解「策略」概念，再进 docs 查 LocalStrategy 的具体配置。","takeaway":"Passport = Express 认证的策略插件框架，LocalStrategy 是其中最基本的一种。"},"license":"Passport 官网内容版权归原作者；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Passport LocalStrategy documentation","titleZh":"Passport 官方文档：Username & Password（LocalStrategy）","type":"官方文档","requirement":"reference","zone":"正文引用（LocalStrategy 文档）","originalUrl":"http://www.passportjs.org/docs/username-password/","sourceDomain":"www.passportjs.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Passport 官方对 LocalStrategy（用户名+密码策略）的文档：怎么安装 passport-local、怎么用 passport.use(new LocalStrategy(...)) 注册、done 回调的三态语义。是本课三个必定义函数里第一个的权威出处。","why":"正文设置 LocalStrategy 时官方直接链到这一页。","points":["LocalStrategy 来自独立的 passport-local 包，回调签名是 (username, password, done)。","done 三态：done(null, user) 成功、done(null, false, {message}) 认证失败、done(err) 异常——与课内代码逐行对应。"],"terms":["LocalStrategy","passport-local","done 回调"],"focus":"对照课内 LocalStrategy 代码读，重点看 done 的三种调用形态。","takeaway":"LocalStrategy 是「查库找人 + 比对密码」的标准封装，done 回调报告成败。"},"license":"Passport 官方文档版权归原作者；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"expressjs/session（GitHub 仓库）","titleZh":"express-session 中间件仓库（Express 官方）","type":"代码仓库","requirement":"reference","zone":"正文引用（express-session 做什么）","originalUrl":"https://github.com/expressjs/session","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"express-session 的官方仓库与 README：解释这个中间件如何为每个访客创建 session、把 session id 通过 cookie（默认 connect.sid）发给浏览器、以及在服务器端存储 session 数据。本课我们并不直接调用它——它是 passport 幕后使用的依赖。","why":"正文说明 express-session 的角色时官方链到这里「看看这个包做什么」。","points":["express-session 负责会话的创建与 cookie 下发（connect.sid），passport.session() 建立在其上。","resave / saveUninitialized / secret 等选项的语义在 README 里有权威说明——课内 session({...}) 的三个参数就来自这里。"],"terms":["express-session","connect.sid","session store"],"focus":"读 README 的 Options 一节理解 secret/resave/saveUninitialized 三个参数的取舍。","takeaway":"express-session 是会话基础设施、passport 的幕后依赖—— connect.sid cookie 由它下发。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Rainbow table (Wikipedia)","titleZh":"彩虹表（维基百科中文条目）","type":"百科条目","requirement":"reference","zone":"正文引用（bcrypt 加盐防御对象）","originalUrl":"https://en.wikipedia.org/wiki/Rainbow_table","sourceDomain":"en.wikipedia.org","originalUrlStatus":"200","zhUrl":"https://zh.wikipedia.org/zh-cn/%E5%BD%A9%E8%99%B9%E8%A1%A8","zhType":"中文维基百科简体中文版（用 zh-cn variant 强制简体，实测 200、标题「彩虹表 - 维基百科，自由的百科全书」，内容级核验同一主题）","zhGuide":{"overview":"彩虹表是一种预计算的「哈希→明文」对照表，用来从存储的密码哈希反查原始密码。加盐（salt）正是为了挫败它：盐让相同密码产生不同哈希，预计算表就失效了。这是本课 bcrypt 加盐要防的第一种攻击。","why":"正文讲 bcrypt 加盐时点名它防彩虹表与字典攻击。","points":["彩虹表用空间换时间：预先算好大量哈希，拖库后直接查表反推明文。","加盐使每个用户的哈希独一无二，预计算表无法覆盖——这正是 bcrypt.hash 第二参数（盐）的意义。"],"terms":["rainbow table（彩虹表）","salt（盐）"],"focus":"理解「为什么加盐能废掉彩虹表」，不必深究表的构造算法。","takeaway":"彩虹表=预计算哈希反查表；加盐让它失效，是 bcrypt 的核心防御目标之一。"},"license":"维基百科内容采用 CC BY-SA 4.0 许可；本站链接官方中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Dictionary attack (Wikipedia)","titleZh":"字典攻击（维基百科中文条目）","type":"百科条目","requirement":"reference","zone":"正文引用（bcrypt 加盐防御对象）","originalUrl":"https://en.wikipedia.org/wiki/Dictionary_attack","sourceDomain":"en.wikipedia.org","originalUrlStatus":"200","zhUrl":"https://zh.wikipedia.org/zh-cn/%E5%AD%97%E5%85%B8%E6%94%BB%E5%87%BB","zhType":"中文维基百科简体中文版（用 zh-cn variant 强制简体，实测 200、标题「字典攻击 - 维基百科，自由的百科全书」，内容级核验同一主题）","zhGuide":{"overview":"字典攻击是用一份常见密码/单词清单逐个尝试（或逐个哈希比对）的破解手段。它与彩虹表并列，是bcrypt 加盐+慢哈希要防的第二种攻击——加盐让「一次哈希比对整本字典」的批量破解失效。","why":"正文讲 bcrypt 加盐时点名它防彩虹表与字典攻击。","points":["字典攻击依赖「很多人用弱密码」——拿常见密码列表批量试。","bcrypt 的慢哈希 + 每用户独立盐，使批量字典比对的代价成倍放大。"],"terms":["dictionary attack（字典攻击）","slow hash（慢哈希）"],"focus":"理解字典攻击与彩虹表的区别（在线试 vs 离线查表），两者都被加盐削弱。","takeaway":"字典攻击=拿常见密码清单批量破解；加盐+慢哈希让批量比对不再划算。"},"license":"维基百科内容采用 CC BY-SA 4.0 许可；本站链接官方中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"YouTube Playlist: Sessions in Express & Local Strategy with Passport.js","titleZh":"YouTube 播放列表：Express 会话与 Passport 本地策略认证","type":"视频","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://www.youtube.com/playlist?list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Assignment 第 1 条指定的播放列表，讲 Express 会话与 Passport 本地策略认证。官方要求看第 1、2、3、5、6 集，并给了四条批注（passport.initialize() 已不需要、MongoDB→PostgreSQL、connect-mongo→connect-pg-simple、会话表不自动建）。","why":"Assignment 第 1 条：看这个列表的第 1/2/3/5/6 集。","points":["视频用 MongoDB 演示——官方批注要求全部替换为 PostgreSQL。","视频里的 app.use(passport.initialize()) 在当前版本 Passport 已不需要写。"],"terms":["Passport local strategy","express-session"],"focus":"带着官方四条批注看，别照抄视频里的过时写法（MongoDB、initialize、connect-mongo）。","takeaway":"这个列表是 LocalStrategy + 会话的可视化补充，但要看批注做时代差修正。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方给的即含 list 参数的播放列表地址，原样登记；oEmbed 核验通过，为英文播放列表。"},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Video 3: Your complete guide to understanding the express-session library","titleZh":"视频 3：完全理解 express-session 库","type":"视频","requirement":"required","zone":"Assignment 第 1 条（播放列表第 3 集）","originalUrl":"https://youtu.be/J1qXK66k1y4?list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK","sourceDomain":"youtu.be","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"播放列表第 3 集，专讲 express-session 库的机制。官方特别批注：本集与第 5 集演示用 connect-mongo 把会话存进 MongoDB 连接，我们用 PostgreSQL 要换成 connect-pg-simple。","why":"Assignment 第 1 条点名要看第 3 集，并给了 connect-mongo→connect-pg-simple 的替换批注。","points":["讲 express-session 如何管理会话与存储后端。","会话持久化到数据库需要一个 store 库：视频用 connect-mongo，PostgreSQL 场景换 connect-pg-simple。"],"terms":["express-session","session store","connect-pg-simple"],"focus":"重点看「会话为什么要落库、store 怎么配」，把 connect-mongo 在心里换成 connect-pg-simple。","takeaway":"express-session 的存储后端可插拔——PostgreSQL 用 connect-pg-simple。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方给的即 youtu.be 短链形态（list 参数指向所属播放列表），原样登记；oEmbed 核验通过，为英文视频。"},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Video 5: Passport Local Configuration (Node + Passport + Express)","titleZh":"视频 5：Passport 本地策略配置（Node + Passport + Express）","type":"视频","requirement":"required","zone":"Assignment 第 1 条（播放列表第 5 集）","originalUrl":"https://youtu.be/xMEOT9J0IvI?list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK","sourceDomain":"youtu.be","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"播放列表第 5 集，演示 Passport 本地策略（LocalStrategy）的完整配置。官方批注同第 3 集：演示用 connect-mongo 存会话，PostgreSQL 场景要换 connect-pg-simple（实现看其 npm 页）。","why":"Assignment 第 1 条点名要看第 5 集，并给了会话存储库的替换批注。","points":["把 LocalStrategy、serializeUser/deserializeUser、passport.authenticate 串成可运行的登录流程。","会话存储从内存/MongoDB 换到 PostgreSQL 是本项目要做的适配。"],"terms":["LocalStrategy","passport.authenticate","connect-pg-simple"],"focus":"跟着视频把三个函数 + authenticate 路由串起来，注意会话 store 的替换。","takeaway":"这一集是 LocalStrategy 配置的完整走查，是课内代码的动态版。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方给的即 youtu.be 短链形态（list 参数指向所属播放列表），原样登记；oEmbed 核验通过，为英文视频。"},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"connect-pg-simple（npm 包页）","titleZh":"connect-pg-simple（PostgreSQL 会话存储，npm 包页）","type":"参考文档","requirement":"required","zone":"Assignment 第 1 条批注（会话存储库）","originalUrl":"https://www.npmjs.com/package/connect-pg-simple","sourceDomain":"www.npmjs.com","originalUrlStatus":"403（Cloudflare 人机验证拦截命令行请求，带浏览器 UA 复核仍 403——npmjs 既有受限形态；真实浏览器核验可达，官方批注指明用它替代 connect-mongo 把 express-session 会话存进 PostgreSQL）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"connect-pg-simple 的 npm 包页：它是 express-session 的 PostgreSQL 会话存储（store）实现。官方批注特别提示——会话存储所需的表默认不会自动创建，务必查 npm 页的可用选项（如 createTableIfMissing）。","why":"Assignment 第 1 条批注：视频用 connect-mongo，我们用 PostgreSQL 要换成它，实现看这个 npm 页。","points":["把 express-session 的会话数据存进 PostgreSQL 而非内存——重启不掉线的生产做法。","官方红线提示：会话表默认不自动建，要查 npm 页选项决定是否让它建表或自己建。"],"terms":["connect-pg-simple","session store","connect-mongo"],"focus":"读它的配置项，特别是建表相关选项——这是官方特意点名「别踩」的地方。","takeaway":"PostgreSQL 场景的会话持久化用 connect-pg-simple，注意会话表创建选项。"},"license":"npm 包页内容版权归发布者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行请求被 npmjs（Cloudflare 人机验证）拦截返回 403，带浏览器 UA 复核仍 403——属 npmjs 既有受限形态；地址直接取自官方 Markdown，未替换。真实浏览器核验可达性留待收尾验证阶段记录。"},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Passport: The Hidden Manual（jwalton/passport-api-docs）","titleZh":"Passport：隐藏手册（jwalton/passport-api-docs 仓库）","type":"说明仓库","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://github.com/jwalton/passport-api-docs","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Assignment 第 2 条指定的仓库：对 Passport 主要函数的更全面解释，帮你深入理解每个函数（authenticate、serializeUser、req.login、req.logout 等）到底完成了什么。是官方文档之外的补充深潜。","why":"Assignment 第 2 条：读它以更全面理解 Passport 主要函数。","points":["逐函数拆解 Passport 的内部行为——比官网文档更细。","适合在读完课、跑通登录后回来深挖「为什么这样配」。"],"terms":["Passport API","req.login / req.logout"],"focus":"把它当 Passport 的「注解版文档」，对着课内三个函数 + authenticate 读。","takeaway":"Hidden Manual 是 Passport 函数的深潜参考，补齐官网文档没讲透的机制。"},"license":"开源仓库（许可见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Video: Different methods to store passwords in databases and possible risks","titleZh":"视频：数据库存储密码的不同方法与可能风险","type":"视频","requirement":"optional","zone":"Additional resources","originalUrl":"https://www.youtube.com/watch?v=8ZtInClXe1Q","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Additional resources 选读视频：宽泛概览数据库里存密码的几种方法与各自风险（明文、简单哈希、加盐哈希等）。是本课 bcrypt 一节的背景延伸。","why":"AR 选读：想更宽地了解密码存储方法与风险再看。","points":["横向对比多种密码存储方案的安全性——凸显加盐哈希为什么是底线。","与课内「明文入库非常糟糕」的警告框呼应。"],"terms":["password storage","hashing"],"focus":"当作 bcrypt 一节的科普补充，非必需。","takeaway":"看完能说出为什么明文/无盐哈希都不合格、加盐哈希才是底线。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过；为英文视频。"},
+    {"lessonId":"node-path-nodejs-authentication-basics","title":"Cryptographic hash function (Wikipedia)","titleZh":"密码散列函数（维基百科中文条目）","type":"百科条目","requirement":"optional","zone":"Additional resources","originalUrl":"https://en.wikipedia.org/wiki/Cryptographic_hash_function","sourceDomain":"en.wikipedia.org","originalUrlStatus":"200","zhUrl":"https://zh.wikipedia.org/zh-cn/%E5%8A%A0%E5%AF%86%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0","zhType":"中文维基百科简体中文版（用 zh-cn variant 强制简体，实测 200、标题「密码散列函数 - 维基百科，自由的百科全书」；中文条目名「密码散列函数」与英文 Cryptographic hash function 同义不同形，内容级核验同一主题）","zhGuide":{"overview":"AR 选读的深潜条目：加密哈希函数的原理——单向性、定长输出、抗碰撞。本课把「哈希如何工作（尤其密码语境）」明确划在范围外，这条给想深挖的人。","why":"AR：想更深了解密码哈希原理再读。","points":["解释「单向哈希」的数学性质：变长输入→定长伪随机输出、不可逆。","课内 bcrypt.hash 的「one-way hash function」措辞的正式出处。"],"terms":["cryptographic hash function（密码散列函数）","one-way（单向性）"],"focus":"课内明说哈希原理超纲——这条纯属兴趣深潜，非必需。","takeaway":"理解单向哈希的性质，就懂了为什么密码存哈希而非明文是不可逆的保护。"},"license":"维基百科内容采用 CC BY-SA 4.0 许可；本站链接官方中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma ORM（产品页）","titleZh":"Prisma ORM 产品页（官网）","type":"网站","requirement":"reference","zone":"正文引用（Prisma ORM 是什么）","originalUrl":"https://www.prisma.io/orm","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Prisma ORM 的官方产品页：介绍它是什么（下一代 Node.js/TypeScript ORM）、由哪几个库组成（Client / Migrate / Schema）、以及它在 Node 生态的定位。本课选它因为流行度与社区支持。","why":"正文引入 Prisma ORM 时官方链到产品页。","points":["Prisma 由多个库组成，可按应用需要用 npm 装其中任何一个或多个。","产品页是「Prisma 是什么」的官方一句话答案，细节在各文档页。"],"terms":["Prisma ORM","Prisma Client / Migrate / Schema"],"focus":"先读产品页建立整体印象，再进 Assignment 的九篇文档。","takeaway":"Prisma 是 Node 生态流行的 ORM，三件套（Schema/Client/Migrate）对应本课三节。"},"license":"Prisma 官方内容版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"PostgreSQL Documentation: Numeric Types（Serial Types）","titleZh":"PostgreSQL 官方文档：数值类型（Serial 类型）","type":"参考文档","requirement":"reference","zone":"正文警告框（Identity vs Serial）","originalUrl":"https://www.postgresql.org/docs/16/datatype-numeric.html#DATATYPE-SERIAL","sourceDomain":"www.postgresql.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"PostgreSQL 官方数值类型文档的 Serial 锚点：解释 SERIAL 伪类型（自增列的 PostgreSQL 特有写法）。本课警告框说 Prisma 不支持 SQL 标准的 Identity 列、会改建 PostgreSQL 特有的 Serial Types——这一页是 Serial 的权威定义。","why":"正文警告框讲 Prisma 局限时链到 Serial Types 定义。","points":["SERIAL 是 PostgreSQL 特有的自增列简写，不是 SQL 标准（标准是 Identity 列）。","Prisma 建自增主键时用 Serial 而非 Identity——多半不影响项目，但要知道差异。"],"terms":["Serial Types","Identity column","autoincrement"],"focus":"只看 Serial 一小节，理解它与上上课 Identity 列的区别。","takeaway":"Serial=PostgreSQL 特有自增写法；Prisma 用它替代 SQL 标准的 Identity 列。"},"license":"PostgreSQL 文档按 PostgreSQL License 提供；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Stack Overflow: Difference between Serial and Identity","titleZh":"Stack Overflow：Serial 与 Identity 列的区别","type":"社区讨论","requirement":"reference","zone":"正文警告框（Serial vs Identity 简述）","originalUrl":"https://stackoverflow.com/a/55300741/1882858","sourceDomain":"stackoverflow.com","originalUrlStatus":"403（Cloudflare「Just a moment...」人机验证拦截命令行请求，带浏览器 UA 复核仍 403——StackOverflow 既有受限形态；真实浏览器核验可达，为官方警告框指定的 Serial/Identity 差异简述回答）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方警告框指定的 Stack Overflow 回答：简短说明 PostgreSQL 的 Serial 与 Identity 列的区别。Identity 是 SQL 标准、更受推荐；Serial 是较老的特有写法——Prisma 目前用后者。","why":"正文警告框：Serial 与 Identity 的差异简述见这个回答。","points":["Identity 列符合 SQL 标准、PostgreSQL 官方更推荐；Serial 是历史遗留的特有简写。","Prisma 选 Serial 是它的已知局限——理解差异后就知道这为何多半不影响项目。"],"terms":["Serial","Identity column"],"focus":"读高票回答的差异对比，不必深究全部讨论。","takeaway":"Identity 是标准、Serial 是旧写法；Prisma 用 Serial 是已知局限、通常无害。"},"license":"Stack Overflow 内容采用 CC BY-SA 许可；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行请求被 StackOverflow（Cloudflare「Just a moment...」挑战）拦截返回 403，带浏览器 UA 复核仍 403——属 StackOverflow 既有受限形态；地址直接取自官方 Markdown，未替换。真实浏览器核验可达性留待收尾验证阶段记录。"},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma（官方 VS Code 扩展，Marketplace 页）","titleZh":"Prisma 官方 VS Code 扩展（Marketplace 页）","type":"工具扩展","requirement":"reference","zone":"正文 tip 框（VS Code 扩展）","originalUrl":"https://marketplace.visualstudio.com/items?itemName=Prisma.prisma","sourceDomain":"marketplace.visualstudio.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Prisma 官方 VS Code 扩展的 Marketplace 页：提供 .prisma 文件的语法高亮、IntelliSense/自动补全、schema linting、模型间导航。正文 tip 框推荐用 VS Code 的人装上它。","why":"正文 tip 框：装官方 Prisma 扩展让 schema 文件的工作更愉快。","points":["给 Prisma Schema Language（PSL）文件加语法高亮与自动补全。","schema linting 与模型间跳转——写 models/relations 时少犯错。"],"terms":["Prisma VS Code extension","schema linting"],"focus":"用 VS Code 就装；扩展页语言以 Marketplace 列项为准（本条按内容判定，界面中文与否不改变工具本体）。","takeaway":"官方 Prisma 扩展让写 .prisma schema 有高亮、补全、lint 与导航。"},"license":"VS Code 扩展版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Quickstart with Prisma v7 ORM and PostgreSQL","titleZh":"Prisma v7 ORM + PostgreSQL 快速开始","type":"官方指南","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://www.prisma.io/docs/v7/prisma-orm/quickstart/postgresql","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 1 条：Prisma v7 + PostgreSQL 的快速开始，覆盖迁移、schema 与 Prisma client。**关键**：Prisma v7 只继续支持 TypeScript，官方给了九步修改表把它改造成 JavaScript 版（跳过 tsc、init 加 --generator-provider prisma-client-js --no-skills、config 改 .js、import 带 .js 扩展名）。","why":"Assignment 第 1 条：过一遍这个 Quickstart（含课内 JS 改造九步）。","points":["跟着做能第一次跑通「schema→migrate→generate→client CRUD」全流程。","必须按课内九步改造表走 JS 版，否则会撞上一堆 TypeScript/模块找不到的错。"],"terms":["Prisma Quickstart","prisma-client-js","prisma7.config.js"],"focus":"一手 Quickstart 一手课内九步改造表对照着做——这是本课唯一的动手任务。","takeaway":"跑通 Quickstart（JS 改造版）就掌握了 Prisma 的初始化到查询全链路。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"Prisma v7 Quickstart 默认面向 TypeScript；官方课文给了把它改造成 JavaScript 的九步修改表（本站已在课内正文完整转达）。"},
+    {"lessonId":"nodejs-prisma-orm","title":"What is Prisma ORM?（Prisma 文档 v7）","titleZh":"什么是 Prisma ORM？（Prisma v7 文档）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 2 条九篇文档之一：Prisma ORM 的总览——它是什么、由哪些部分组成、数据流如何从 schema 到 client 到数据库。是读其余八篇的纲。","why":"Assignment 第 2 条：读这篇并尽量跟着敲代码。","points":["建立 Prisma 的整体心智模型：schema 定义→generate 客户端→client 查询→migrate 迁移。","是九篇文档的入口，读完再看细分主题更顺。"],"terms":["Prisma ORM","data model","Prisma Client"],"focus":"当九篇的总纲读，抓住「schema 是单一事实源」这条主线。","takeaway":"Prisma 的一切从 schema 出发——这篇是理解其余文档的地基。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma schema overview","titleZh":"Prisma schema 总览","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-schema/overview","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之二：Prisma schema 文件的整体结构——datasource（数据源）、generator（生成器）、models（模型）三大块，以及 Prisma Schema Language 的基本语法。","why":"Assignment 第 2 条九篇之一。","points":["schema 文件三块：datasource 连哪个库、generator 生成什么客户端、models 定义表与关系。","PSL 语法入门：字段类型、@id、@default、@relation 等属性。"],"terms":["Prisma schema","datasource","generator","models"],"focus":"对照课内 Message 模型示例，认全 schema 的三大块。","takeaway":"schema 文件 = datasource + generator + models，是 Prisma 的单一事实源。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Data models（Prisma 文档）","titleZh":"数据模型（Prisma 文档）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-schema/data-model/models","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之三：如何定义数据模型（models）——字段、类型、主键、默认值、属性（@id/@default/@db.VarChar 等）。对应课内 Message 模型的每一行。","why":"Assignment 第 2 条九篇之一。","points":["model 的字段语法：类型 + 属性（@id 主键、@default(autoincrement()) 自增、@db.VarChar(255) 列型）。","模型名与生成的 prisma.<model> 客户端 API 一一对应。"],"terms":["data model","@id","@default","@db.VarChar"],"focus":"逐行对照课内 Message 模型，认全每个属性的作用。","takeaway":"会用 PSL 定义一个带主键、默认值、列型的模型。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Relations（Prisma 文档）","titleZh":"关系（Prisma 文档）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-schema/data-model/relations","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之四：模型间关系（relations）——@relation 的 fields/references、一对一/一对多/多对多。对应课内 Message.author → User 的关系定义，也是后续项目（文件上传、博客、Odin-Book）建模的核心。","why":"Assignment 第 2 条九篇之一；关系建模是后面所有项目的地基。","points":["@relation(fields: [authorId], references: [id]) 的语义：本模型的外键指向另一模型的主键。","一对多/多对多的 schema 写法——多对多是 odin-book 关注/点赞的建模基础。"],"terms":["@relation","one-to-many","many-to-many"],"focus":"重点掌握 @relation 的 fields/references 与多对多写法——项目里最常用。","takeaway":"Prisma 用 @relation 在 schema 里声明表间关系，客户端据此生成关联查询。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma Client CRUD","titleZh":"Prisma Client CRUD（增删改查）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-client/queries/crud","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之五：Prisma Client 的 CRUD API——create/findMany/findUnique/update/delete 等。对应课内 prisma.message.create 与 findMany 示例，是替代手写 SQL 查询的主力接口。","why":"Assignment 第 2 条九篇之一；CRUD 是日常用得最多的 API。","points":["create/createMany 建记录、findMany/findUnique 查、update/delete 改删——每个都有 where/data 结构。","替代了 raw SQL 的 INSERT/SELECT/UPDATE/DELETE，且带类型与关系加载。"],"terms":["Prisma Client","create / findMany / update / delete","where / data"],"focus":"把课内 create/findMany 两个调用扩展到完整 CRUD 五法。","takeaway":"Prisma Client 用 create/find/update/delete 方法替代手写 SQL 做 CRUD。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Raw SQL（Prisma Client）","titleZh":"原始 SQL（Prisma Client）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-client/using-raw-sql","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之六：Prisma Client 执行原始 SQL 的接口（$queryRaw/$executeRaw）。对应课内「复杂查询搞不定或更习惯手写时，Prisma 也支持 raw 查询」——World 6 学的 SQL 不作废。","why":"Assignment 第 2 条九篇之一；ORM 不是要废掉你的 SQL。","points":["$queryRaw 用模板字符串跑原始 SELECT，$executeRaw 跑写操作。","ORM 覆盖不了的复杂/性能敏感查询，raw SQL 是逃生舱。"],"terms":["$queryRaw","$executeRaw","raw SQL"],"focus":"知道有这个逃生舱即可——大部分场景用 CRUD API，特殊查询才下 raw。","takeaway":"Prisma 保留 raw SQL 出口，ORM 与手写 SQL 不是二选一。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma Migrate getting started","titleZh":"Prisma Migrate 入门","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-migrate/getting-started","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之七：Prisma Migrate 入门——migrate dev/migrate deploy 命令、migrations 文件夹的作用、如何把 schema 变更应用到数据库。对应课内「改 schema 就跑迁移、变更进 migrations 文件夹」。","why":"Assignment 第 2 条九篇之一；迁移是 schema 演进的工作流。","points":["prisma migrate dev 在开发时创建并应用迁移、生成 migrations/ 下的 SQL 文件。","migrations 文件夹进版本控制——团队协作时数据库变更可追踪、可重放。"],"terms":["prisma migrate","migrations 文件夹","migrate dev / deploy"],"focus":"跑通一次 migrate dev，看 migrations 文件夹里生成了什么。","takeaway":"Migrate 把 schema 变更变成可追踪、可重放的 SQL 迁移文件。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma Migrate mental model","titleZh":"Prisma Migrate 心智模型","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/orm/v7/prisma-migrate/understanding-prisma-migrate/mental-model","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之八：Prisma Migrate 的心智模型——迁移历史、schema drift（漂移）、migrations 与数据库实际状态的关系。帮你理解「迁移为什么这样设计」而非只记命令。","why":"Assignment 第 2 条九篇之一；建立迁移的正确心智模型。","points":["迁移是有序的 SQL 历史，数据库状态 = 依次应用全部迁移的结果。","schema drift（实际库与迁移历史不符）的概念与排查思路。"],"terms":["migration history","schema drift","mental model"],"focus":"理解迁移历史与数据库状态的对应关系，别只当命令背。","takeaway":"把迁移看成有序 SQL 历史，库状态是重放它的结果——这是 Migrate 的心智模型。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Data migrations（Prisma guides）","titleZh":"数据迁移（Prisma 指南）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条（九篇之一）","originalUrl":"https://www.prisma.io/docs/guides/v7/database/data-migration","sourceDomain":"www.prisma.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"九篇之九：数据迁移指南——不只是改表结构（schema migration），还包括迁移数据本身（如给新表灌入既有数据、转换列值）。对应正文痛点三「加新列、给新表灌既有数据」。","why":"Assignment 第 2 条九篇之一；结构迁移之外的数据迁移。","points":["区分 schema migration（改结构）与 data migration（改/搬数据）。","职业场景里数据迁移常与结构迁移同时发生——这篇给官方做法。"],"terms":["data migration","schema migration"],"focus":"理解「改结构」与「搬数据」是两类迁移，别混为一谈。","takeaway":"迁移不止改表结构，还包括搬/改数据——两者要分开规划。"},"license":"Prisma 官方文档版权归 Prisma；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-prisma-orm","title":"Prisma Crash Course（Traversy Media）","titleZh":"Prisma 速成课（Traversy Media 视频）","type":"视频","requirement":"optional","zone":"Additional resources","originalUrl":"https://www.youtube.com/watch?v=CYH04BJzamo","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"AR 选读：Traversy Media 的 Prisma 速成视频，一次性走查 Prisma 的核心工作流。适合看完文档想要一个连贯视频演示的人。","why":"AR：想要视频版速成再看。","points":["Traversy 的 crash course 风格：一个视频串起 schema/client/migrate。","与九篇文档互补——文档查细节、视频建整体感。"],"terms":["Prisma crash course"],"focus":"当文档的可视化补充，非必需。","takeaway":"一个视频快速过一遍 Prisma 全流程，巩固九篇文档所学。"},"license":"YouTube 视频，版权归 Traversy Media；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过；为英文视频。"},
+    {"lessonId":"nodejs-file-uploader","title":"Google Drive","titleZh":"Google Drive（个人云存储）","type":"网站","requirement":"reference","zone":"正文引言（精简版 Google Drive）","originalUrl":"https://www.google.com/drive/","sourceDomain":"www.google.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方引言把本项目定位成「精简版 Google Drive（或任何个人存储服务）」——这是产品参照物，帮你想清楚要建什么：登录、上传、文件夹、下载、分享。不是技术依赖，是需求锚点。","why":"正文引言用 Google Drive 类比本项目形态。","points":["Google Drive 的核心体验：登录用户上传文件、组织进文件夹、下载与分享——正是本项目七步的清单来源。","把它当需求参照，而非要克隆的全部——官方明说「精简版」。"],"terms":["Google Drive","personal storage service"],"focus":"看一眼 Drive 的功能形态，对照 Assignment 七步想清最小可用集。","takeaway":"本项目=精简版个人云存储，Google Drive 是需求参照物。"},"license":"Google Drive 页面版权归 Google；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-file-uploader","title":"kleydon/prisma-session-store（GitHub 仓库）","titleZh":"prisma-session-store（Prisma 会话存储库）","type":"代码仓库","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://github.com/kleydon/prisma-session-store#readme","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 2 条指定的库：把 Passport 会话持久化进 Prisma 管理的数据库（替代默认内存存储）。README 给出安装、schema 里加 Session 模型、接入 express-session 的配置。","why":"Assignment 第 2 条：用 Prisma session store 库把会话持久化到数据库。","points":["会话落库=服务器重启不掉线、多实例共享登录态——生产必需。","与认证课 connect-pg-simple 是同一思想的 Prisma 生态实现。"],"terms":["prisma-session-store","session persistence","Passport"],"focus":"照 README 把 Session 模型加进 Prisma schema 并接入 session 中间件。","takeaway":"用 prisma-session-store 把 Passport 会话存进数据库，替代易失的内存会话。"},"license":"开源仓库（许可见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-file-uploader","title":"expressjs/multer（GitHub 仓库）","titleZh":"multer（Express 文件上传中间件）","type":"代码仓库","requirement":"required","zone":"Assignment 第 3 条","originalUrl":"https://github.com/expressjs/multer","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 3 条指定的中间件：multer 处理 multipart/form-data 的文件上传，把上传文件落到文件系统（或内存），并提供 limits/fileFilter 校验钩子。README 有磁盘存储、文件过滤、大小限制的完整配置。","why":"Assignment 第 3 条：集成 multer 中间件处理上传；第 7 条的文件校验也靠它。","points":["multer 是 Express 生态处理文件上传的事实标准（Express 本体不解析 multipart）。","fileFilter 限类型、limits 限大小——对应 Assignment 第 7 条的两个校验维度。"],"terms":["multer","multipart/form-data","fileFilter / limits"],"focus":"读 README 的 diskStorage 与 limits/fileFilter 段——本项目上传与校验都落在这里。","takeaway":"multer 承接文件上传的落盘与校验，是本项目的核心技术依赖。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-file-uploader","title":"Cloudinary","titleZh":"Cloudinary（媒体云存储与处理）","type":"工具","requirement":"reference","zone":"Assignment 第 6 条（云存储选项）","originalUrl":"https://cloudinary.com/","sourceDomain":"cloudinary.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 6 条点名的云存储选项之一：Cloudinary 托管图片/视频并提供上传 API 与 CDN 分发。本项目上云阶段用它（或 Supabase storage）存文件本体、数据库只存返回的 URL。","why":"Assignment 第 6 条：上云可以用 Cloudinary 或 Supabase storage。","points":["Cloudinary 提供上传 SDK 与托管，上传后拿到文件 URL 存进数据库。","odin-book 的图片帖 Extra credit 也回指它——两课共用同一方案。"],"terms":["Cloudinary","cloud storage","media URL"],"focus":"看它的 Node 上传文档，理解「文件上云、URL 入库」的分工。","takeaway":"Cloudinary 是文件本体的云托管选项，数据库只存它返回的 URL。"},"license":"Cloudinary 官网内容版权归 Cloudinary；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-file-uploader","title":"Supabase Storage（文档）","titleZh":"Supabase Storage（对象存储文档）","type":"官方文档","requirement":"reference","zone":"Assignment 第 6 条（云存储选项）","originalUrl":"https://supabase.com/docs/guides/storage","sourceDomain":"supabase.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 6 条点名的云存储选项之二：Supabase Storage 的对象存储指南——创建 bucket、上传文件、拿到公开/签名 URL。与 Cloudinary 二选一。本课首现，odin-book 的图片方案跨课合并到此。","why":"Assignment 第 6 条：上云可以用 Cloudinary 或 Supabase storage。","points":["Supabase Storage 用 bucket 组织文件，上传后返回可存库的 URL。","odin-book Extra credit 的 Supabase storage 与此同 URL——跨课合并归本课首现。"],"terms":["Supabase Storage","bucket","object storage"],"focus":"看 Storage 指南的上传与 URL 生成，对照 Cloudinary 选一个。","takeaway":"Supabase Storage 是另一个对象存储选项，文件上云、URL 入库。"},"license":"Supabase 官方文档版权归 Supabase；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"本条为 supabase.com/docs/guides/storage 的首现登记（file-uploader 章）；odin-book 章 Extra credit 引用同一 URL，按跨课合并归首现课、不重复登记。"},
+    {"lessonId":"nodejs-api-basics","title":"Heroku","titleZh":"Heroku（云平台 PaaS）","type":"网站","requirement":"reference","zone":"正文引言（后端托管选项）","originalUrl":"https://www.heroku.com/","sourceDomain":"www.heroku.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文引言举的后端托管选项之一：Heroku 这类 PaaS 托管后端与数据库。前后端分离模式里，后端上 Heroku/VPS，前端上静态托管——Jamstack 形态的一半。","why":"正文引言举例后端托管在哪（Heroku 或 DigitalOcean VPS）。","points":["Heroku 是 PaaS：托管后端应用，免去自运维服务器。","与部署课的 PaaS 清单同源——这里作为分离架构的后端落点被提及。"],"terms":["Heroku","PaaS"],"focus":"理解它在「后端上服务器、前端上静态托管」里的角色即可。","takeaway":"Heroku 是前后端分离模式里托管后端的 PaaS 选项之一。"},"license":"Heroku 官网内容版权归 Heroku/Salesforce；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"DigitalOcean","titleZh":"DigitalOcean（VPS 云服务商）","type":"网站","requirement":"reference","zone":"正文引言（后端托管选项）","originalUrl":"https://www.digitalocean.com/","sourceDomain":"www.digitalocean.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文引言举的后端托管选项之二：DigitalOcean 这类 VPS（虚拟专用服务器）。与 Heroku（PaaS）对照——VPS 给你更底层的服务器自己配，PaaS 更托管。","why":"正文引言举例后端托管在哪（Heroku 或 DigitalOcean 这类 VPS）。","points":["VPS=租一台虚拟服务器自己装环境跑后端，比 PaaS 更可控也更费心。","与 Heroku 并列说明「后端上服务器」的两条路线（PaaS vs VPS）。"],"terms":["DigitalOcean","VPS"],"focus":"理解 VPS 与 PaaS 的分工差别即可，本课不要求实操部署。","takeaway":"DigitalOcean 代表 VPS 路线，与 Heroku 的 PaaS 路线并列作后端托管选项。"},"license":"DigitalOcean 官网内容版权归 DigitalOcean；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"GitHub Pages","titleZh":"GitHub Pages（静态站点托管）","type":"网站","requirement":"reference","zone":"正文引言（前端托管选项）","originalUrl":"https://pages.github.com/","sourceDomain":"pages.github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文引言举的前端托管选项之一：GitHub Pages 托管纯前端静态站点。前后端分离里，前端（HTML/CSS/JS 或 React 构建产物）上 Pages/Netlify，后端 API 在别处。","why":"正文引言举例前端用 GitHub Pages 或 Netlify 托管。","points":["GitHub Pages 托管静态前端——分离架构的前端落点。","与 World 5 前端项目部署同源（CV Application 等用过）。"],"terms":["GitHub Pages","static hosting","Jamstack"],"focus":"理解它是「前端静态托管」这一半，与后端 PaaS/VPS 配对。","takeaway":"GitHub Pages 是前后端分离里托管前端的静态站点服务。"},"license":"GitHub Pages 页面版权归 GitHub；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"What is Jamstack?（jamstack.org）","titleZh":"什么是 Jamstack？（jamstack.org）","type":"网站","requirement":"reference","zone":"正文引言（Jamstack 定义）","originalUrl":"https://jamstack.org/what-is-jamstack/","sourceDomain":"jamstack.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文把「后端上服务器、前端上静态托管」这种技术称为 Jamstack，并链到官方定义页。Jamstack 的核心：前端静态化 + 通过 API（JavaScript）与后端/服务通信，前后端解耦。","why":"正文引言：这种技术有时被称为 Jamstack，官方链到定义页。","points":["Jamstack = JavaScript + APIs +（预渲染的）Markup——前端与后端通过 API 解耦。","正是本课「让 Express 说 JSON、前端独立部署」模式的行业名称。"],"terms":["Jamstack","API-first","decoupled front/backend"],"focus":"读定义页理解 Jamstack 三要素，把它与本课的分离架构对上号。","takeaway":"Jamstack 是「前端静态托管 + API 后端」分离模式的行业术语。"},"license":"jamstack.org 内容版权归其维护者；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"What is CRUD?（Codecademy 文章）","titleZh":"什么是 CRUD？（Codecademy 文章）","type":"文章","requirement":"reference","zone":"正文 REST 节（CRUD 动作）","originalUrl":"https://www.codecademy.com/article/what-is-crud","sourceDomain":"www.codecademy.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文讲 REST 与 CRUD 动作对应时链到的科普文：CRUD = Create/Read/Update/Delete（增删改查），是数据操作的四个基本动作，正好对应 HTTP 的 POST/GET/PUT/DELETE。","why":"正文 REST 节：REST 是与 CRUD 动作对应的组织方法，链到这篇解释 CRUD。","points":["CRUD 四动作与 HTTP 四动词一一对应：Create→POST、Read→GET、Update→PUT、Delete→DELETE。","这张对应表是本课 HTTP 动词表的理论基础。"],"terms":["CRUD","Create / Read / Update / Delete"],"focus":"记住 CRUD↔HTTP 动词的对应，它是 RESTful URI 设计的动作来源。","takeaway":"CRUD 是数据操作四基本动作，REST 用 HTTP 动词表达它们。"},"license":"Codecademy 文章内容版权归 Codecademy；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"Representational state transfer (Wikipedia)","titleZh":"表现层状态转移（REST，维基百科中文条目）","type":"百科条目","requirement":"reference","zone":"正文 REST 节（技术定义）","originalUrl":"https://en.wikipedia.org/wiki/Representational_state_transfer","sourceDomain":"en.wikipedia.org","originalUrlStatus":"200","zhUrl":"https://zh.wikipedia.org/zh-cn/REST","zhType":"中文维基百科简体中文版（用 zh-cn variant 强制简体，实测 200、标题「表现层状态转换 - 维基百科，自由的百科全书」，正文汉字 4901；中文条目名「表现层状态转换」与英文 Representational state transfer 不同形，内容级核验同一主题）","zhGuide":{"overview":"REST 的实际技术定义（正文说它「有点复杂」）：表述性状态转移是一套架构约束——无状态、可缓存、统一接口、资源导向等。正文说用 Express 输出 JSON 时大部分要素已默认覆盖，我们真正要想的是 URI 组织。","why":"正文 REST 节：REST 的实际技术定义链到 Wikipedia。","points":["REST 的架构约束（无状态 statelessness、可缓存 cacheability 等）——课内说这些用 Express 出 JSON 时默认覆盖。","本课聚焦其中「资源导向的 URI 组织」这一面，不深挖完整架构理论。"],"terms":["REST","Representational State Transfer","statelessness"],"focus":"知道 REST 是一套架构约束即可；本课只用它的 URI 组织惯例。","takeaway":"REST 的完整定义偏理论，本课取其「资源导向 URI + HTTP 动词」的实用面。"},"license":"维基百科内容采用 CC BY-SA 4.0 许可；本站链接官方中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"Same-Origin Policy（MDN）","titleZh":"浏览器的同源策略（MDN 中文）","type":"官方文档","requirement":"reference","zone":"正文 CORS 节（同源策略）","originalUrl":"https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy","sourceDomain":"developer.mozilla.org","originalUrlStatus":"200","zhUrl":"https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy","zhType":"MDN 官方简体中文版（zh-CN 实测 200、标题「浏览器的同源策略 - 安全 | MDN」，正文汉字 2923）","zhGuide":{"overview":"MDN 对同源策略的说明：浏览器限制网页向「提供该页面的源」之外的不同源发请求——这是重要安全措施。前后端分离部署到不同域名时，正是它导致前端调 API 被拦，需要在服务器启用 CORS。","why":"正文 CORS 节：同源策略是浏览器的重要安全措施，链到 MDN（含什么算同源的例子）。","points":["同源=协议+域名+端口都相同；不同源的跨源请求默认被浏览器拦。","前后端分域名部署→触发同源策略→服务器要用 CORS 显式放行前端源。"],"terms":["Same-Origin Policy（同源策略）","origin（源）","CORS"],"focus":"看 MDN 里「什么算同源」的几个例子，理解为什么分离部署必须配 CORS。","takeaway":"同源策略是浏览器安全基线，跨源 API 调用要靠服务器端 CORS 放行。"},"license":"MDN 内容采用 CC-BY-SA 许可；本站链接官方简体中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"Express CORS middleware（资源页）","titleZh":"Express CORS 中间件（官方资源页）","type":"官方文档","requirement":"reference","zone":"正文 CORS 节（Express CORS 中间件包）","originalUrl":"https://expressjs.com/en/resources/middleware/cors.html","sourceDomain":"expressjs.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Express 官方中间件资源页的 cors 条目：cors 包如何在 Express 里启用跨源资源共享，含全局启用与按路由启用、以及如何配置只允许特定源。正文说「文档解释了怎么只放行你的前端」。","why":"正文 CORS 节：Express 有 CORS 中间件包帮你配置，链到此页。","points":["cors() 默认允许所有源（开发方便）；生产要配 origin 白名单只放行前端域名。","可全局 app.use(cors({...})) 或对单条路由单独启用。"],"terms":["cors middleware","origin whitelist","Access-Control-Allow-Origin"],"focus":"读配置项里的 origin——生产环境「只放行自己前端」就靠它。","takeaway":"Express 的 cors 中间件一行启用跨源，生产环境要配 origin 白名单。"},"license":"Express 官网内容版权归 OpenJS Foundation/Express；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"cors 中间件资源页无 zh-cn 中文版（实测 11 汉字，仅界面），按 C 类登记；expressjs 的 zh-cn 覆盖按分区，此 resources/middleware 页未翻译。"},
+    {"lessonId":"nodejs-api-basics","title":"Best practices for REST API design（Stack Overflow Blog）","titleZh":"RESTful API 设计最佳实践（Stack Overflow 博客）","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design","sourceDomain":"stackoverflow.blog","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 1 条：REST API 设计的最佳实践文。官方批注——若想跟着敲代码，注意文中用 body-parser 解析请求体 JSON，但自 Express 4.16.0 起该功能已并入 Express 本体（express.json()），不用再单独装。","why":"Assignment 第 1 条：读这篇 REST 设计最佳实践（带 body-parser 已内置的批注）。","points":["系统讲 RESTful URI 命名、动词使用、状态码等设计惯例——把课内原则展开。","官方批注的时代差：body-parser 已被 Express 内置，跟敲时用 express.json() 替代。"],"terms":["REST API design","body-parser","express.json()"],"focus":"读设计惯例；跟敲代码时把 body-parser 换成内置的 express.json()。","takeaway":"这篇是 RESTful 设计的实践清单，注意 body-parser 已内置 Express 的时代差。"},"license":"Stack Overflow Blog 文章内容版权归 Stack Overflow；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"正文含 body-parser 用法（2020 年文）；官方批注已指出 Express 4.16.0+ 内置解析，本站课内如实转达该批注。"},
+    {"lessonId":"nodejs-api-basics","title":"Setting up a REST API in Express（robinwieruch.de 教程）","titleZh":"在 Express 里搭建 REST API（robinwieruch 教程）","type":"教程文章","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://www.robinwieruch.de/node-express-server-rest-api/","sourceDomain":"www.robinwieruch.de","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 2 条：官方评价「我们遇到过的最佳 Express 教程之一」——手把手在 Express 里搭 REST API，还讲模块化代码组织、编写中间件，文末有很棒的补充链接。要读并跟着敲。","why":"Assignment 第 2 条：读并 code along 这篇 REST API 教程。","points":["完整走一遍 Express REST API 的搭建——把课内 REST/CORS 概念落成可运行代码。","附带讲模块化组织与自定义中间件，正好呼应「导出模块才可测」（下一课主题）。"],"terms":["Express REST API","modular code organization","middleware"],"focus":"跟着敲一遍，重点体会路由模块化与 RESTful URI 组织。","takeaway":"这篇教程把 REST API 从零搭起来，是本课概念的最佳落地练习。"},"license":"教程内容版权归 robinwieruch.de 作者；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-api-basics","title":"Representational state transfer (Simple English Wikipedia)","titleZh":"表现层状态转移（简单英语维基百科）","type":"百科条目","requirement":"optional","zone":"Additional resources","originalUrl":"https://simple.wikipedia.org/wiki/Representational_state_transfer","sourceDomain":"simple.wikipedia.org","originalUrlStatus":"200","zhUrl":"https://zh.wikipedia.org/zh-cn/REST","zhType":"中文维基百科简体中文版（用 zh-cn variant 强制简体，实测 200、标题「表现层状态转换 - 维基百科，自由的百科全书」，正文汉字 4901；官方 AR 给的是简单英语版，中文读者对照中文维基同主题条目，跨语言版本对应关系如实登记）","zhGuide":{"overview":"AR 选读：REST 的简单英语维基条目——用更浅显的语言和示例解释表述性状态转移。比正式版（en.wikipedia）好读，适合第一遍建立直觉。中文读者可对照中文维基同主题条目。","why":"AR：想要一个基于示例、更好读的 REST 定义再看。","points":["简单英语版用例子讲 REST，门槛比正式维基条目低。","与正文 REST 节的正式定义互补——先简单版建直觉、再正式版补严谨。"],"terms":["REST","Simple English Wikipedia"],"focus":"当正式维基条目的易读版，非必需。","takeaway":"简单英语维基给 REST 一个更好懂的示例式定义。"},"license":"维基百科内容采用 CC BY-SA 4.0 许可；本站链接官方中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"本条与正文的 en.wikipedia REST 条目是不同语言版本（简单英语 vs 英语），两处官方分别引用；中文对照版同为 zh.wikipedia「表现层状态转换」，跨语言对应关系如实登记。"},
+    {"lessonId":"nodejs-api-security","title":"Video: Creating and Verifying JSON Web Tokens","titleZh":"视频：创建与验证 JSON Web Token","type":"视频","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://www.youtube.com/watch?v=7nafaH9SddU","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 1 条：官方评价「极好的资源」——讲清关于创建与验证 JWT 你需要知道的一切。本课正文只建立会话→令牌的概念对照，JWT 的实操（sign/verify）全在这个视频里。","why":"Assignment 第 1 条：看这个讲创建与验证 JWT 的视频（官方称极好的资源）。","points":["演示 jsonwebtoken 的 sign（签发）与 verify（验证）——七条能力清单里「签名/验证方法」的实操。","是 Blog API 项目 JWT 认证的直接前置——跳过它做项目会卡在签发/验证那步。"],"terms":["JWT","sign / verify","jsonwebtoken"],"focus":"跟着视频理解令牌怎么签、怎么验——这是本课正文没展开的实操部分。","takeaway":"这个视频补齐 JWT 的 sign/verify 实操，是概念课正文的动手延伸。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过；为英文视频。"},
+    {"lessonId":"nodejs-api-security","title":"Video: Different ways JWTs can be useful","titleZh":"视频：JWT 能派上用场的不同方式","type":"视频","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://www.youtube.com/watch?v=7Q17ubqLfaM","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 2 条：展示 JWT 能派上用场的不同方式（不同场景/用例）。帮你在「会用 sign/verify」之上理解 JWT 的适用边界与常见用法。","why":"Assignment 第 2 条：看这个讲 JWT 各种用途的视频。","points":["列举 JWT 的多种应用场景——不止登录认证。","与 AR 的反方视频对照，形成「JWT 能做什么 / 争议在哪」的完整判断。"],"terms":["JWT use cases"],"focus":"理解 JWT 的适用场景，为 Blog API 的选型打基础。","takeaway":"JWT 用途不止登录认证，这个视频铺开它的适用场景。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过；为英文视频。"},
+    {"lessonId":"nodejs-api-security","title":"A practical guide for JWT Authentication using Node.js and Express（存档）","titleZh":"Node.js + Express 的 JWT 认证实践指南（网页存档）","type":"文章（存档）","requirement":"optional","zone":"Additional resources","originalUrl":"https://web.archive.org/web/20230207144457/https://laptrinhx.com/a-practical-guide-for-jwt-authentication-using-node-js-and-express-917791379/","sourceDomain":"web.archive.org","originalUrlStatus":"200（web.archive.org 存档快照，需较长超时；原始 laptrinhx.com 已不可达，官方给的即存档链接）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"AR 选读：用 Node.js 与 Express 做 JWT 认证的实践指南。原始 laptrinhx.com 站已下线，官方给的是 web.archive.org 的存档快照——按存档口径登记。","why":"AR：想要一篇 JWT 认证的实践指南再看（存档形态）。","points":["一步步在 Express 里落地 JWT 认证的实践文。","原站已失效，内容经 Wayback Machine 存档保留——地址即存档快照。"],"terms":["JWT authentication","web archive"],"focus":"当 JWT 实操的补充读物；注意它是存档快照、可能不含最新做法。","takeaway":"一篇 JWT 认证实践指南的存档版，原站已下线故用 web.archive 链接。"},"license":"存档文章版权归原作者；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 Markdown 原文给的即 web.archive.org 存档链接（原 laptrinhx.com 已不可达）；本站按存档口径如实登记，未替换为其他来源。"},
+    {"lessonId":"nodejs-api-security","title":"Stateless auth with Express + Passport + JWT（Medium）","titleZh":"Express + Passport + JWT 的无状态认证（Medium 文章）","type":"文章","requirement":"optional","zone":"Additional resources","originalUrl":"https://medium.com/@paul.allies/stateless-auth-with-express-passport-jwt-7a55ffae0a5c","sourceDomain":"medium.com","originalUrlStatus":"403（Cloudflare「Attention Required」拦截命令行请求，带浏览器 UA 复核仍 403——Medium 既有受限形态；真实浏览器核验可达，为官方 AR 指定的更精炼 JWT 指南）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"AR 选读：官方称「更精炼（more concise）的 Express 里用 JWT 指南」——讲无状态认证（stateless auth）如何把 Express + Passport + JWT 组合起来。比课内正文更贴近代码。","why":"AR：想要一篇更精炼的 Express+JWT 指南再看。","points":["演示 Passport 的 JWT 策略（passport-jwt）实现无状态认证——与 Blog API 项目工具链同源。","「无状态」=服务器不存会话，令牌自带信息，正好对照课内「会话 vs 令牌」。"],"terms":["stateless auth","passport-jwt","JWT"],"focus":"当作 Blog API 用 passport-jwt 的预热读物。","takeaway":"一篇精炼的 Express+Passport+JWT 无状态认证指南，直通 Blog API 的工具链。"},"license":"Medium 文章内容版权归作者；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行请求被 Medium（Cloudflare「Attention Required」）拦截返回 403，带浏览器 UA 复核仍 403——属 Medium 既有受限形态；地址直接取自官方 Markdown，未替换。真实浏览器核验可达性留待收尾验证阶段记录。"},
+    {"lessonId":"nodejs-api-security","title":"Video: An argument against using JWTs","titleZh":"视频：反对使用 JWT 的一个论证","type":"视频","requirement":"optional","zone":"Additional resources","originalUrl":"https://www.youtube.com/watch?v=JdGOb7AxUo0","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"AR 选读，反方视角：官方明说「不是所有人都同意 JWT 是存储认证数据的最佳方式」——这个视频是反对使用 JWT 的论证之一，以及你可能遇到的坑。培养选型判断力，别把 JWT 当银弹。","why":"AR：官方特意放反方视频，呈现 JWT 选型的争议。","points":["列举 JWT 的潜在问题（如吊销难、体积、存储位置的安全取舍）。","与前两个「JWT 怎么用」的视频形成正反对照——知道争论存在再选型。"],"terms":["JWT drawbacks","auth trade-offs"],"focus":"理解 JWT 的争议点，将来做认证选型时不当银弹。","takeaway":"JWT 不是无可争议的最佳方案——这个反方视频帮你建立选型判断力。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过；为英文视频。"},
+    {"lessonId":"node-path-nodejs-blog-api","title":"auth0/node-jsonwebtoken（GitHub 仓库）","titleZh":"node-jsonwebtoken（JWT 签发与验证库）","type":"代码仓库","requirement":"required","zone":"Assignment 第 5 条（JWT 工具）","originalUrl":"https://github.com/auth0/node-jsonwebtoken","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 5 条官方指定：用 jsonwebtoken 创建与验证 JWT。README 给出 jwt.sign（签发，含过期等选项）与 jwt.verify（验证）的完整 API。是本项目 JWT 认证的核心库。","why":"Assignment 第 5 条：可以用 jsonwebtoken 创建与验证 JWT。","points":["jwt.sign(payload, secret, options) 签发令牌，options 可设 expiresIn（过期）。","jwt.verify(token, secret) 验证令牌——Blog API 受保护路由的放行/拒绝靠它。"],"terms":["jsonwebtoken","jwt.sign / jwt.verify","secret"],"focus":"读 sign/verify 两节，配合课内「登录签发→请求携带→API 验证」流程。","takeaway":"jsonwebtoken 负责 JWT 的签发与验证，是 Blog API 认证的核心库。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-blog-api","title":"mikenicholson/passport-jwt（GitHub 仓库）","titleZh":"passport-jwt（Passport 的 JWT 策略）","type":"代码仓库","requirement":"reference","zone":"Assignment 第 5 条（Passport JWT 策略）","originalUrl":"https://github.com/mikenicholson/passport-jwt","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 5 条官方建议：用 Passport 的 JWT 策略（passport-jwt）验证 JWT——特别是已经用 local strategy 处理登录时，两套策略并存（local 管登录签发、jwt 管受保护路由验证）。README 给出 ExtractJwt（从 Authorization: Bearer 头取令牌）与策略配置。","why":"Assignment 第 5 条：可能想用 passport-jwt 验证 JWT（与已有 local strategy 并存）。","points":["passport-jwt 让你把 JWT 验证接进 Passport 中间件体系，与 local strategy 并存。","ExtractJwt.fromAuthHeaderAsBearerToken() 正对应课内「Bearer schema 的 Authorization 头」。"],"terms":["passport-jwt","JwtStrategy","ExtractJwt","Bearer"],"focus":"读策略配置与 ExtractJwt，理解它如何与登录用的 local strategy 分工。","takeaway":"passport-jwt 把 JWT 验证纳入 Passport，与登录的 local strategy 并存。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-blog-api","title":"TinyMCE Cloud Quick Start（文档）","titleZh":"TinyMCE 云快速开始（富文本编辑器文档）","type":"官方文档","requirement":"reference","zone":"Assignment 第 7 条（作者站可选富文本编辑器）","originalUrl":"https://www.tiny.cloud/docs/tinymce/6/cloud-quick-start/","sourceDomain":"www.tiny.cloud","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 7 条的可选项：作者站的 NEW POST 表单想讲究一点，可以用 TinyMCE 这类富文本编辑器。这是 TinyMCE 云版的快速开始文档。官方措辞是「想 get fancy 可以用」——非必需。","why":"Assignment 第 7 条：NEW POST 表单想讲究可用 TinyMCE 富文本编辑器。","points":["TinyMCE 提供所见即所得的富文本编辑，云版按文档接入 API key 即可。","纯可选项——作者站用普通 textarea 也完全达标。"],"terms":["TinyMCE","rich text editor","WYSIWYG"],"focus":"只有想给作者站加富文本编辑时才需要，非必需。","takeaway":"TinyMCE 是作者站 NEW POST 表单的可选富文本编辑器。"},"license":"TinyMCE 官方文档版权归 Tiny；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-testing-routes-and-controllers","title":"SuperTest（forwardemail/supertest，GitHub 仓库与文档）","titleZh":"SuperTest（HTTP 断言测试库，现 forwardemail 仓库）","type":"代码仓库","requirement":"required","zone":"Assignment 第 1 条（正文引用同仓库旧地址 visionmedia/supertest）","originalUrl":"https://github.com/forwardemail/supertest","sourceDomain":"github.com","originalUrlStatus":"200（现仓库地址；正文引用的 github.com/visionmedia/supertest 为迁移前旧组织地址，301 重定向到此——同仓合并登记现地址、旧地址事实记 note）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 1 条：通读 SuperTest 文档。SuperTest 在 supertest 层提供 request(app).get().expect() 这类 HTTP 断言——不启动真服务器就能对 Express app 发请求验响应。README 有全部方法。","why":"Assignment 第 1 条：确保通读 SuperTest 文档。","points":["request(app) 包住 Express app、直接发请求断言响应头/体/状态码——.expect 链是核心。","README 列全部可用方法，官方说「你应该去读」——课内只演示了 get/post/expect/type/send。"],"terms":["supertest","request(app)",".expect()"],"focus":"通读 README 的方法清单，重点看 .expect 的几种重载与 .send/.type。","takeaway":"SuperTest 让你不启动服务器就对 Express app 做 HTTP 断言，README 是方法全集。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方正文引用 github.com/visionmedia/supertest（迁移前旧组织地址），Assignment 引用 github.com/forwardemail/supertest（现仓库地址）——仓库已从 visionmedia 迁移至 forwardemail 组织，旧地址 301 到新地址。本条按现仓库地址登记，旧地址事实如实记录，不重复建条。"},
+    {"lessonId":"nodejs-testing-routes-and-controllers","title":"SuperAgent（文档站）","titleZh":"SuperAgent（SuperTest 的底层 HTTP 库文档）","type":"官方文档","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://forwardemail.github.io/superagent/","sourceDomain":"forwardemail.github.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 2 条：SuperTest 取材于 SuperAgent——SuperAgent 里能调用的任何方法在 SuperTest 里也能调用，所以要过一遍 SuperAgent 文档。它是底层 HTTP 客户端，SuperTest 在其上加了 app 绑定与断言。","why":"Assignment 第 2 条：SuperTest 取材于 SuperAgent，需过一遍它的文档。","points":["SuperAgent 是链式 HTTP 请求库（.get/.post/.set/.send/.then）——SuperTest 复用其全部方法。","读它能明白 .type/.send/.then 这些链式调用的底层来源。"],"terms":["SuperAgent","chainable HTTP client"],"focus":"把 SuperAgent 的请求链方法与课内 SuperTest 用法对上号。","takeaway":"SuperAgent 是 SuperTest 的底料——它的方法在 SuperTest 里都可用。"},"license":"SuperAgent 文档版权归其维护者（开源，MIT）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-testing-database-operations","title":"Jest configuration#globalsetup（文档）","titleZh":"Jest 配置：globalSetup（官方文档锚点）","type":"官方文档","requirement":"reference","zone":"正文引用（Jest global setup file）","originalUrl":"https://jestjs.io/docs/configuration#globalsetup-string","sourceDomain":"jestjs.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文讲「用 process.loadEnvFile() 在 Jest global setup file 里加载环境变量」时链到的 Jest 配置文档 globalSetup 锚点。globalSetup 是 Jest 在所有测试套件前运行一次的模块——适合放环境加载等一次性初始化。","why":"正文引用：可以在 Jest global setup file 里用 process.loadEnvFile() 加载环境变量。","points":["globalSetup 指向的模块在全部测试前跑一次——放 process.loadEnvFile() 正合适。","这是 Jest「不直接调 node、--env-file 用不了」的官方绕行方案落点。"],"terms":["Jest globalSetup","process.loadEnvFile()"],"focus":"读 globalSetup 选项的定义，理解它是「测试前一次性初始化」的钩子。","takeaway":"Jest 的 globalSetup 是放环境加载（process.loadEnvFile）的一次性钩子。"},"license":"Jest 文档版权归 Meta/Jest 贡献者（MIT 文档许可）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"jestjs.io 有 /zh-Hans/ 路由，但实测该页正文段落仍为英文（仅导航与「备注/提示」等告示标签译中，article 正文未翻译，实测正文中文段为英文原句）——按可汗学院「内容区判定」先例判 C 类，不挂 zhUrl；zh-Hans 路由存在但正文未译的事实如实记录。"},
+    {"lessonId":"node-path-nodejs-testing-database-operations","title":"Jest environment-variables#node_env（文档）","titleZh":"Jest 环境变量：NODE_ENV（官方文档锚点）","type":"官方文档","requirement":"reference","zone":"正文引用（Jest 默认 NODE_ENV=test）","originalUrl":"https://jestjs.io/docs/environment-variables#node_env","sourceDomain":"jestjs.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文讲「Jest 默认把 NODE_ENV 设为 test、会覆盖 .env 里的 development」时链到的文档锚点。正因为这个默认值，切库三元式（NODE_ENV===test ? TEST_DATABASE_URL : DATABASE_URL）在测试里自动切到测试库，「无需做花哨的事」。","why":"正文引用：Jest 默认 NODE_ENV=test，会覆盖 .env 的 development。","points":["Jest 未显式设置时会把 NODE_ENV 置为 test——这是官方文档明写的默认行为。","本课的连接串切换正是利用这个默认值，测试环境自动连测试库。"],"terms":["NODE_ENV","Jest default environment"],"focus":"确认「Jest 默认 NODE_ENV=test」这一行为，它是切库逻辑的支点。","takeaway":"Jest 默认 NODE_ENV=test——切库三元式靠它自动选中测试库。"},"license":"Jest 文档版权归 Meta/Jest 贡献者（MIT 文档许可）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"jestjs.io /zh-Hans/ 路由存在但该页正文未翻译（实测 122 汉字、标题仍英文 Environment Variables）——按内容区判定判 C 类，不挂 zhUrl。"},
+    {"lessonId":"node-path-nodejs-testing-database-operations","title":"Jest cli#--runinband（文档）","titleZh":"Jest CLI：--runInBand（官方文档锚点）","type":"官方文档","requirement":"reference","zone":"正文引用（串行执行旗标）","originalUrl":"https://jestjs.io/docs/cli#--runinband","sourceDomain":"jestjs.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文讲「Jest 默认并行执行测试文件，加 --runInBand 强制串行」时链到的 CLI 文档锚点。多文件测试同时操作测试库会互相搅混，--runInBand 让文件一个接一个跑，配合 beforeEach 重置才隔离干净。","why":"正文引用：Jest 默认并行，给 test 脚本加 --runInBand 确保串行。","points":["--runInBand 让所有测试在同一进程内串行跑（而非默认的多 worker 并行）。","数据库测试并行的话，A 文件的清表会删掉 B 文件正在断言的数据——串行避免这种搅混。"],"terms":["--runInBand","sequential execution","test isolation"],"focus":"理解 --runInBand 的作用（串行）与它在数据库测试里的必要性。","takeaway":"--runInBand 强制 Jest 串行跑测试文件，是多文件数据库测试隔离的前提。"},"license":"Jest 文档版权归 Meta/Jest 贡献者（MIT 文档许可）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"jestjs.io /zh-Hans/ 路由存在但该页正文未翻译（标题仍英文 Jest CLI Options）——按内容区判定判 C 类，不挂 zhUrl。"},
+    {"lessonId":"node-path-nodejs-testing-database-operations","title":"pg's tests directory（brianc/node-postgres）","titleZh":"pg 的测试目录（node-postgres 仓库）","type":"代码仓库视图","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://github.com/brianc/node-postgres/tree/master/packages/pg/test","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 1 条（唯一一条）：不用深潜，但看一眼 pg 的 GitHub 仓库的 tests 目录——看看多数流行库被测得有多充分。这直接支撑正文第一节的判断：pg 自身已充分测试，你调它做简单读写不必重复测。","why":"Assignment 第 1 条：看 pg 的 tests 目录，见识流行库被测得多充分。","points":["pg 对自己全部动作有大量测试——所以「只是调 pg 读写」的代码不必你再测。","亲眼看这个测试目录，就理解了正文「单元测试你到底需不需要」的判断依据。"],"terms":["pg (node-postgres)","test coverage"],"focus":"扫一眼它的测试文件数量与覆盖面，体会「流行库已自测」这句话的分量。","takeaway":"pg 的 tests 目录证明流行库已充分自测——你该测的是自己的逻辑，不是它的。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-where-s-waldo-a-photo-tagging-app","title":"Where's Wally? (Wikipedia)","titleZh":"威利在哪里？（维基百科中文条目）","type":"百科条目","requirement":"reference","zone":"正文引言（游戏背景介绍）","originalUrl":"http://en.wikipedia.org/wiki/Where's_Wally%3F","sourceDomain":"en.wikipedia.org","originalUrlStatus":"200","zhUrl":"https://zh.wikipedia.org/zh-cn/%E5%A8%81%E5%88%A9%E5%9C%A8%E5%93%AA%E9%87%8C","zhType":"中文维基百科简体中文版（用 zh-cn variant 强制简体，实测 200、标题「威利在哪里？ - 维基百科，自由的百科全书」；中文条目名「威利在哪里？」与英文 Where's Wally? 同义不同形——Wally 为美版名、Wally/Waldo 同一角色，内容级核验同一事物）","zhGuide":{"overview":"官方引言用它介绍游戏背景：一幅繁忙拥挤的插画里藏着特定角色（威利/Waldo），玩家要找到他。没玩过的人看这条就懂本项目要建什么——照片标签游戏。","why":"正文引言：你玩过 Where's Waldo 吗？没玩过的话我们来拆解——链到维基条目。","points":["游戏玩法：在拥挤插画里找出藏起来的特定角色——本项目把它做成「点照片、框角色、后端验证」。","Wally（英版）与 Waldo（美版）是同一角色的不同地区名——中文条目名「威利在哪里？」。"],"terms":["Where's Wally / Where's Waldo","photo tagging"],"focus":"理解游戏玩法即可，它是本项目交互设计的原型。","takeaway":"威利在哪里=在拥挤图里找特定角色——本项目就是它的照片标签 Web 版。"},"license":"维基百科内容采用 CC BY-SA 4.0 许可；本站链接官方中文版并提供原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"英文条目名为 Where's Wally?（英版名，美版为 Where's Waldo?）；中文维基对应条目名「威利在哪里？」，不同形——内容级核验同一事物后登记 zhUrl。"},
+    {"lessonId":"node-path-nodejs-odin-book","title":"Socket.IO","titleZh":"Socket.IO（实时双向通信库）","type":"网站","requirement":"reference","zone":"正文引言（豁免特性的技术举例）","originalUrl":"https://socket.io/","sourceDomain":"socket.io","originalUrlStatus":"200（首页；实测正文汉字 4，界面偶有零星中文、本体为英文——判 C 类）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"正文提到聊天、实时更新、通知这些「你没接触过的特性」时举例：socket.io 可以用 websockets 做实时通信。官方明确这些是豁免的（除非你非常有信心）——socket.io 只是「知道有这个东西」的举例，不是要求。","why":"正文引言：实时更新等特性不在要求内，举例 socket.io 可做实时通信。","points":["socket.io 基于 websocket 实现服务器主动推送——正是 REST 请求-响应做不到的实时更新。","官方把它放在豁免语境里：本课程没教实时技术，odin-book 不要求实现聊天/实时/通知。"],"terms":["socket.io","websocket","real-time"],"focus":"知道它是实时通信方案即可——本项目不要求用它。","takeaway":"socket.io 是实时推送的举例，属官方豁免范围，odin-book 不必实现。"},"license":"Socket.IO 官网内容版权归其维护者（开源，MIT）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-odin-book","title":"faker-js/faker（GitHub 仓库）","titleZh":"Faker（假数据生成库，faker-js/faker）","type":"代码仓库","requirement":"required","zone":"Getting started 第 4 条","originalUrl":"https://github.com/faker-js/faker","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Getting started 第 4 条指定：用 npm 的 Faker 模块灌假数据——新建 seeds.js 导入 Prisma 模型，用 faker 生成并保存大量用户（帖子同理）。README 有各语言/类型的假数据生成 API（姓名、邮箱、文本、头像等）。","why":"Getting started 第 4 条：用 Faker 灌假数据（seeds.js 导入 Prisma 模型生成用户）。","points":["faker 生成逼真的假数据（名字/邮箱/文本/图片 URL），让关注流、资料页有内容可显示。","配合 seeds.js 脚本一次灌入——演示与自测的弹药，也是招聘者看作品时的观感来源。"],"terms":["Faker","seeds.js","seed data"],"focus":"读它的 API（faker.person/internet/lorem 等），写进 seeds.js 生成用户与帖子。","takeaway":"Faker 生成假数据、seeds.js 灌库——让 odin-book 有可演示的内容。"},"license":"开源仓库（MIT，见仓库 LICENSE）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-nodejs-odin-book","title":"Gravatar","titleZh":"Gravatar（全球头像服务）","type":"工具","requirement":"reference","zone":"Requirements 第 9 条（头像生成）","originalUrl":"https://www.gravatar.com/","sourceDomain":"www.gravatar.com","originalUrlStatus":"000（命令行 curl 连接失败——gravatar.com 对命令行/数据中心请求的连接受限；地址直接取自官方 Markdown，收尾阶段真实浏览器导航亦 ERR_CONNECTION_TIMED_OUT，双通路均不可达，按验证受限如实登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Requirements 第 9 条：用户资料要带头像——如果认证方式（如 passport-github2）拿不到现成头像，可以用 Gravatar 按邮箱生成。Gravatar 是「邮箱→头像」的全球关联服务，很多站点用它兜底默认头像。","why":"Requirements 第 9 条：认证拿不到头像时用 Gravatar 生成。","points":["Gravatar 按邮箱哈希返回关联头像——不用自己存图片就有头像。","是「资料带头像」这条要求的低成本兜底方案（认证无现成头像时）。"],"terms":["Gravatar","avatar","email hash"],"focus":"理解它「按邮箱给头像」的机制，作为头像功能的兜底选项。","takeaway":"Gravatar 按邮箱生成头像，是资料头像要求的兜底方案。"},"license":"Gravatar 服务/页面版权归 Automattic；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行 curl 对 www.gravatar.com 与 gravatar.com 均返回 000（连接失败，疑站点对命令行/数据中心请求限制或网络策略）；地址直接取自官方 Markdown，未替换。收尾阶段真实浏览器导航亦返回 ERR_CONNECTION_TIMED_OUT（独立端口验证轮实测），双通路均不可达，按验证受限如实登记，未声称为「已验证可访问」。"},
+    {"lessonId":"node-path-nodejs-odin-book","title":"Cloudinary Node.js integration（文档）","titleZh":"Cloudinary Node.js 集成（官方文档）","type":"官方文档","requirement":"optional","zone":"Extra credit 第 1 条（图片帖）","originalUrl":"https://cloudinary.com/documentation/node_integration","sourceDomain":"cloudinary.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Extra credit 第 1 条：让帖子带图片时，官方回指 File Uploader 项目——Cloudinary 的 Node.js 集成文档教你用它的 SDK 上传用户图片、拿回 URL 存库（代替原始二进制）。与 file-uploader 的 cloudinary.com/ 首页是不同页面（这是 Node 集成文档）。","why":"Extra credit 第 1 条：图片帖可用 Cloudinary，官方链到 Node 集成文档。","points":["Cloudinary Node SDK 的上传流程：本地/流上传→返回带 URL 的响应→URL 存进 Prisma。","与 file-uploader 第 6 步同源方案——「文件上云、URL 入库」在图片帖上重演。"],"terms":["Cloudinary","node_integration","image upload"],"focus":"读 Node 集成的上传与 URL 获取，套用到帖子图片字段。","takeaway":"Cloudinary Node 集成文档是图片帖 Extra credit 的上云操作指南。"},"license":"Cloudinary 官方文档版权归 Cloudinary；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"本条 originalUrl 为 cloudinary.com/documentation/node_integration（Node 集成文档），与 file-uploader 章登记的 cloudinary.com/（产品首页）是不同页面，各自登记；Supabase storage 的 EC 引用同 file-uploader 首现 URL，按跨课合并不在 odin-book 重复登记。"},
+    {"lessonId":"nodejs-conclusion","title":"Node.js Documentation（官方文档首页）","titleZh":"Node.js 官方文档首页","type":"官方文档","requirement":"reference","zone":"Next steps（通读文档建议）","originalUrl":"https://nodejs.org/en/docs/","sourceDomain":"nodejs.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Next steps 建议的「很好的第一步」之一：从头到尾通读 Node.js 官方文档。docs 首页是全部 API 与指南的入口。nodejs.org 的文档/API 区无官方中文（既有事实：站点页有中文、Learn/API 区无），按 C 类登记。","why":"Next steps：通读 NodeJS 文档是继续成长的第一步。","points":["Node 官方文档是 API 与指南的权威入口——官方建议 front-to-back 通读。","nodejs.org 的中文覆盖按分区：首页/about 有中文，docs/API 区无——本条为英文文档首页。"],"terms":["Node.js docs","API reference"],"focus":"把它当 Node 的权威参考入口，遇到 API 疑问回来查。","takeaway":"Node 官方文档是通读与查 API 的权威入口（docs 区无官方中文）。"},"license":"Node.js 文档版权归 Node.js  contributors（CC/MIT 许可）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"nodejs.org/zh-cn/docs/ 实测 301/无中文正文（沿用阶段 2「nodejs.org 中文覆盖按分区：Learn/API 区无中文」的既有事实），本条按 C 类登记。"},
+    {"lessonId":"nodejs-conclusion","title":"Express Security Best Practices（官方文档）","titleZh":"Express 生产环境最佳实践：安全防护（官方中文）","type":"官方文档","requirement":"reference","zone":"Next steps → Security（安全方向）","originalUrl":"https://expressjs.com/en/advanced/best-practice-security.html","sourceDomain":"expressjs.com","originalUrlStatus":"200","zhUrl":"https://expressjs.com/zh-cn/advanced/best-practice-security.html","zhType":"Express 官网简体中文分区（实测 200、标题「生产环境最佳实践：安全防护 · Express.js」、article 正文汉字 2318、正文段落级中文——比阶段 2 记录的 guide 区「部分翻译、中英混排」更完整，advanced/best-practice 分区正文已实质翻译；A 类判定按「正文有实质中文内容」口径）","zhGuide":{"overview":"Next steps 的安全方向：开始做面向公众的应用后安全越来越重要，Express 官方文档的进阶安全最佳实践。zh-cn 分区正文已实质翻译（安全防护清单：不要用废弃版本、用 TLS、设 CSP、禁用 x-powered-by 等）。","why":"Next steps → Security：ExpressJS 文档包含进阶安全最佳实践。","points":["列生产环境 Express 的安全实践：用 TLS、关 x-powered-by、设 CSP、依赖安全审计等。","expressjs.com/zh-cn/advanced 分区正文已翻译（区别于 guide 区的部分翻译），可直接读中文。"],"terms":["security best practices","TLS","CSP","x-powered-by"],"focus":"读安全清单，把「面向公众应用要做的防护」过一遍。","takeaway":"Express 官方安全最佳实践（有中文版）是面向公众应用的防护清单。"},"license":"Express 官网内容版权归 OpenJS Foundation/Express（zh-cn 分区为社区翻译）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-conclusion","title":"Redis","titleZh":"Redis（内存数据结构存储）","type":"网站","requirement":"reference","zone":"Next steps → Caching（缓存方向）","originalUrl":"https://redis.io/","sourceDomain":"redis.io","originalUrlStatus":"200（首页正文汉字 0，英文站）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Next steps 的缓存方向：缓存通过减少数据库调用让应用更快，官方建议如果职位招聘或资料里常见 Redis 就认识一下它。Redis 是内存数据结构存储，常用作缓存/会话/队列。Assignment 第 1 条的 Express 缓存文档是落地点。","why":"Next steps → Caching：招聘常见就认识一下 Redis。","points":["Redis=内存键值/数据结构存储，最常用于缓存热点数据、减少数据库调用。","官方给的判断依据是「你所在地区职位招聘里常不常见它」——需求驱动学习。"],"terms":["Redis","caching","in-memory store"],"focus":"知道 Redis 是缓存的常用选择即可，本课不要求实操。","takeaway":"Redis 是减少数据库调用的内存缓存方案，按招聘需求决定要不要学。"},"license":"Redis 官网内容版权归 Redis；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-conclusion","title":"Learn MongoDB（MongoDB University）","titleZh":"Learn MongoDB（MongoDB 学习站）","type":"网站","requirement":"reference","zone":"Next steps → Non-relational data（非关系数据方向）","originalUrl":"https://learn.mongodb.com","sourceDomain":"learn.mongodb.com","originalUrlStatus":"200（首页正文汉字 0，英文站）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Next steps 的非关系数据方向：已接触关系库 PostgreSQL，官方建议了解非关系数据库——MongoDB 是流行选择，Learn MongoDB 网站提供入门教程与文档。「不是每个问题都需要锤子」，理解两类数据库的适用场景。","why":"Next steps → Non-relational data：MongoDB 是流行选择，Learn MongoDB 提供入门教程。","points":["MongoDB 是文档型（非关系）数据库的代表——与 PostgreSQL 的关系型对照。","官方金句「不是每个问题都需要锤子」：两类数据库各有适用场景，要理解何时用哪种。"],"terms":["MongoDB","non-relational database","document store"],"focus":"知道 MongoDB 代表非关系数据库这一类，理解与关系库的取舍。","takeaway":"MongoDB（Learn MongoDB 站）是了解非关系数据库的入口，与 PostgreSQL 互补。"},"license":"MongoDB 学习站内容版权归 MongoDB；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-conclusion","title":"Frameworks built on Express（存档）","titleZh":"基于 Express 的框架（网页存档）","type":"文章（存档）","requirement":"optional","zone":"Other resources","originalUrl":"https://web.archive.org/web/20240328030121/https://expressjs.com/en/resources/frameworks.html","sourceDomain":"web.archive.org","originalUrlStatus":"200（web.archive.org 存档快照；原始 expressjs.com/en/resources/frameworks.html 已下线，官方给的即存档链接）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Other resources 之一：探索基于 Express 构建的更多框架（可能更适合某类应用）。原始 Express frameworks 资源页已下线，官方给的是 web.archive.org 存档快照——按存档口径登记。","why":"Other resources：探索基于 Express 的更多框架（存档页）。","points":["列出构建在 Express 之上的框架——扩展你对 Node 生态的认知。","原页已下线，内容经 Wayback Machine 存档保留。"],"terms":["Express frameworks","web archive"],"focus":"当作 Node 生态的横向了解，非必需；注意是存档快照。","takeaway":"基于 Express 的框架清单（存档版），帮你了解 Node 生态的更多选择。"},"license":"存档内容版权归 OpenJS Foundation/Express；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 Markdown 原文给的即 web.archive.org 存档链接（原 expressjs.com/en/resources/frameworks.html 已下线）；本站按存档口径如实登记，未替换为其他来源。"},
+    {"lessonId":"nodejs-conclusion","title":"Video: More about APIs","titleZh":"视频：更多关于 API 如何工作","type":"视频","requirement":"optional","zone":"Other resources","originalUrl":"https://www.youtube.com/watch?v=oBW_VNg4qD0","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Other resources 之一：进一步了解 API 如何工作的视频。是 API 章（api-basics/api-security）之外的补充视角，帮你在结课时巩固 API 心智。","why":"Other resources：看这个视频再多了解 API 如何工作。","points":["补充讲解 API 的工作方式——API 章的课外延伸。","适合结课时回顾「一后端多前端」的 API 思维。"],"terms":["API"],"focus":"当作 API 概念的巩固视频，非必需。","takeaway":"一个补充视频，加深对 API 工作方式的理解。"},"license":"YouTube 视频，版权归原作者/频道；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过；为英文视频。"},
+    {"lessonId":"nodejs-conclusion","title":"Design Patterns: Elements of Reusable Object-Oriented Software（Amazon）","titleZh":"《设计模式：可复用面向对象软件的基础》（Amazon 书页）","type":"书籍","requirement":"optional","zone":"Other resources","originalUrl":"https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8","sourceDomain":"www.amazon.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Other resources 之一：面向对象设计模式的经典书（GoF《设计模式》）。官方定位为「更深入软件架构」的读物——结课后想深挖工程功底的经典入口。Amazon 商品页。","why":"Other resources：这本是面向对象设计模式的经典书。","points":["GoF《设计模式》是软件设计模式的奠基经典——深入架构的必读之一。","属结课后的进阶阅读，非课程要求。"],"terms":["Design Patterns","GoF","object-oriented design"],"focus":"知道这是设计模式的经典书，想深挖架构时读。","takeaway":"《设计模式》（GoF）是面向对象设计模式的经典进阶读物。"},"license":"书籍商品页版权归出版社/Amazon；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"本站只提供官方 Markdown 给出的 Amazon 商品页链接与本站原创导读，不复制书籍内容；该书有正版中文译本《设计模式》，但官方未给中文链接，本站不擅自替换来源。"},
+    {"lessonId":"nodejs-conclusion","title":"Clean Code（Amazon）","titleZh":"《代码整洁之道》（Clean Code，Amazon 书页）","type":"书籍","requirement":"optional","zone":"Other resources","originalUrl":"https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?dchild=1&keywords=Clean+Code&qid=1602168590&s=digital-text&sr=1-1","sourceDomain":"www.amazon.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Other resources 之一：《Clean Code》——学习编写可读、可维护代码的原则。官方定位为深入软件工程的读物，与《设计模式》并列为结课后的工程功底进阶书。Amazon 商品页。","why":"Other resources：读 Clean Code 学习编写可读可维护代码的原则。","points":["《Clean Code》讲命名、函数、注释、错误处理等让代码可读可维护的原则。","结课后提升工程质量的经典进阶读物，非课程要求。"],"terms":["Clean Code","readable code","maintainability"],"focus":"知道这是「写干净代码」的经典书，想提升代码质量时读。","takeaway":"《Clean Code》是编写可读可维护代码的经典原则书。"},"license":"书籍商品页版权归出版社/Amazon；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"本站只提供官方 Markdown 给出的 Amazon 商品页链接与本站原创导读，不复制书籍内容；originalUrl 保留了官方原文的完整查询参数（ref/keywords/qid 等），未做规范化删改以忠实于官方来源。"},
+    {"lessonId":"nodejs-conclusion","title":"syntax.fm Podcast","titleZh":"syntax.fm 播客（Web 开发）","type":"网站","requirement":"optional","zone":"Other resources","originalUrl":"https://syntax.fm","sourceDomain":"syntax.fm","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Other resources 之一：syntax.fm 是覆盖 Web 开发的播客（Scott Tolinski 与 Wes Bos 主持）。官方在 Next steps 提过「播客每天都有新信息」——这是具体的订阅入口，适合通勤/业余磨耳朵跟进生态。","why":"Other resources：syntax.fm 是覆盖 Web 开发的播客。","points":["Web 开发主题的播客——跟进生态新知的轻量方式。","呼应官方「博客、Stack Overflow、播客每天产生新信息」的持续学习建议。"],"terms":["syntax.fm","web dev podcast"],"focus":"当作跟进 Web 生态的播客入口，非必需。","takeaway":"syntax.fm 是跟进 Web 开发动态的播客，适合业余磨耳朵。"},"license":"syntax.fm 内容版权归其主理人；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"nodejs-conclusion","title":"Node.js Blog（官方博客）","titleZh":"Node.js 官方博客","type":"网站","requirement":"optional","zone":"Other resources","originalUrl":"https://nodejs.org/en/blog/","sourceDomain":"nodejs.org","originalUrlStatus":"200（英文博客，正文汉字 0）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Other resources 之一：Node.js 官方博客——发布版本、安全公告、生态动态。官方在 Next steps 说「博客/Stack Overflow/播客每天有新信息」，这是 Node 官方的一手信息源。","why":"Other resources：NodeJS Blog 是官方 Node.js 博客。","points":["Node 官方博客发布新版本、安全公告、生态文章——一手权威信息。","是「持续学习」建议里 Node 方向的官方订阅源。"],"terms":["Node.js blog","release notes"],"focus":"当作跟进 Node 版本与安全公告的官方源。","takeaway":"Node.js 官方博客是跟进 Node 版本与安全动态的一手来源（英文）。"},"license":"Node.js 博客内容版权归 Node.js contributors（CC 许可）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"nodejs.org 博客区无官方中文（沿用 docs/API 区无中文的既有分区事实），按 C 类登记。"},
+    {"lessonId":"nodejs-conclusion","title":"Express Performance Best Practices: Cache Request Results（官方文档锚点）","titleZh":"Express 生产环境最佳实践：性能与可靠性（缓存请求结果，官方中文）","type":"官方文档","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://expressjs.com/en/advanced/best-practice-performance.html#cache-request-results","sourceDomain":"expressjs.com","originalUrlStatus":"200","zhUrl":"https://expressjs.com/zh-cn/advanced/best-practice-performance.html#cache-request-results","zhType":"Express 官网简体中文分区（实测 200、标题「生产环境最佳实践：性能与可靠性 · Express.js」、article 正文汉字 3806、正文段落级中文；advanced/best-practice 分区正文已实质翻译，A 类判定按「正文有实质中文内容」口径；中文页锚点 cache-request-results 沿用英文锚点 id）","zhGuide":{"overview":"Assignment 第 1 条：看 Express 文档的缓存节（cache-request-results 锚点）。这是 Next steps「缓存让应用更快、减少数据库调用」方向的落地阅读——讲如何缓存请求结果提升性能。zh-cn 分区正文已实质翻译。","why":"Assignment 第 1 条：看 Express 文档关于缓存的部分。","points":["cache-request-results 讲缓存请求结果以减少重复计算/数据库调用——性能优化实践。","与 Next steps 的 Redis/缓存方向呼应，是本课唯一的硬性 Assignment 阅读。"],"terms":["caching","cache request results","performance"],"focus":"读 cache-request-results 一节，理解缓存请求结果的性能收益。","takeaway":"Express 缓存请求结果（有中文版）是结课 Assignment 的性能优化落地阅读。"},"license":"Express 官网内容版权归 OpenJS Foundation/Express（zh-cn 分区为社区翻译）；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"zh-cn 分区正文实测 3806 汉字、段落级中文（部分小节标题保留英文如 Use gzip compression）；本条为 Assignment 第 1 条指定的 cache-request-results 锚点，中文页锚点 id 沿用英文。"},
+    {"lessonId":"nodejs-conclusion","title":"TOP Discord 服务器（社区）","titleZh":"TOP 官方 Discord 服务器（社区参与入口）","type":"社区板块","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://discordapp.com/channels/505093832157691914/505093832157691916","sourceDomain":"discordapp.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Assignment 第 2 条：访问 TOP 官方 Discord 服务器看看社区在做什么——「我们很希望你参与进来！」这是结课后融入 TOP 社区、求助与交流的入口。与前面多课登记的 TOP Discord 同一社区。","why":"Assignment 第 2 条：访问官方 Discord 服务器、看看我们在做什么。","points":["TOP 官方 Discord 是社区求助、交流、参与课程改进的入口。","结课后的持续参与渠道——呼应 Contributing 节「课程开源、需要你的帮助」。"],"terms":["TOP Discord","community"],"focus":"加入社区跟进讨论、必要时求助——非技术阅读。","takeaway":"TOP Discord 是结课后融入社区、参与交流与非正式学习的入口。"},"license":"Discord 服务器为 TOP 社区空间；本站只做链接与本站原创中文导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"本条为 Assignment 第 2 条指定的 TOP Discord 社区入口，按既有 Discord 登记先例（motivation-and-mindset / join-the-odin-community / recipes 等）作为社区板块登记，非行政剔除口径。"},
+    /* ===== 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，World 8 求职 14 课、全站 197 课收官）新增 97 条 =====
+     * 分布：networking 9 / strategy 4 / companies-want 7 / prepare 10 / portfolio 19（Show designs 17 站
+     * 按灵感参考 reference 口径全收）/ collect 9（招聘板）/ qualify 1（TOP 官方指定阅读材料 hire-beware）/
+     * resume 5（正文工具 4 + Optional reading 1）/ applying 1 / interview 30（正文七小节全收）/ handling 2。
+     * A 类新增 2：leetcode.cn（力扣中文站，真实浏览器实测首页渲染 3288 汉字）、visualgo.net/zh
+     * （官网中文界面，内容级核验 3285 汉字——工具界面即本体先例）。受限新增 8 见 verifyLimitedUrls。
+     * 迁移事实 15 处如实登记：sourcing.io→underdog.io、blog.udacity→udacity.com/blog（2013 同文）与
+     * →nanodegree 课程页（2015 内容替换）、arc.dev developer-blog→talent-blog、programmers.SE→
+     * softwareengineering.SE、joelonsoftware 三篇旧路径→日期式新路径、flowcv.io→.com、
+     * talent.hubstaff.com→hubstafftalent.net、coursera /course/algo→/specializations/algorithms、
+     * google careers students/guide→buildyourfuture/resources、interviewcake tips-and-tricks→
+     * coding-interview-tips、dorigan 栏目重组、informationweek 分区改名、glassdoor→.com.hk 区域重定向、
+     * insights.dice http→https。B2 纪律：唯一视频条目（networking 的 YouTube LinkedIn 视频）
+     * 「中文字幕」全卡恰 1 次且只在 license；oEmbed 核验通过（DThompsonDev）。 */
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"80% Of Jobs Are Not On Job Boards. Here's How To Find Them (Forbes)","titleZh":"Forbes：80% 的工作不在招聘板上——怎么找到它们","type":"杂志文章","requirement":"reference","zone":"正文「Why is a professional network useful?」节（80% 隐藏就业市场数据出处）","originalUrl":"https://www.forbes.com/sites/dianatsai/2017-10-02/80-of-jobs-are-not-on-job-boards-heres-how-to-find-them/?sh=29ada3fcd455","sourceDomain":"www.forbes.com","originalUrlStatus":"双通路不可达（2026-09-29 命令行 curl 000；真实浏览器导航 ERR_CONNECTION_TIMED_OUT）——forbes.com 对本轮网络环境不可达，如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Forbes 专栏文章（Diana Tsai，2017）：官方正文「高达 80% 的工作不发布在网上」这一关键数据的出处。文章讲隐藏就业市场（hidden job market）的成因与进入方式—— networking、内推、直接接触决策人，与本课主旨互为印证。","why":"正文引用：80% 数据的原始出处，理解隐藏就业市场为什么真实存在且规模可观。","points":["公开招聘板只覆盖约 20% 的职位市场——刷板海投是在最小、最卷的市场里竞争。","隐藏市场靠人脉与推荐进入：公司省去发布、筛选、面试的成本，员工内推还有奖金激励。"],"terms":["hidden job market（隐藏就业市场）","networking（人脉经营）"],"focus":"结合本课「三大用途」一节读：数据本身（80%）比文章细节更重要——官方也注明「比例或因来源不同有出入」。","takeaway":"求职策略若不打隐藏市场的主意，就是在自削胜算。"},"license":"内容版权归原作者（forbes.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文即带 ?sh= 分享参数的地址，原样登记。forbes.com 命令行 000、真实浏览器 ERR_CONNECTION_TIMED_OUT——双通路不可达（gravatar 先例口径），入 verifyLimitedUrls。"},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"Break Into Tech With Informational Interviewing (Merit Blog)","titleZh":"Merit 博客：用信息面试进入科技行业","type":"博客文章","requirement":"reference","zone":"正文「Informational interview」节","originalUrl":"https://blog.get-merit.com/break-into-tech-with-informational-interviewing/","sourceDomain":"blog.get-merit.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Merit 博客讲「信息面试」（informational interview）的操作方法：如何找到值得聊的人、怎么开口约、聊什么、聊完怎么跟进——官方正文用它给「informational interviews」一词做链接锚点。","why":"正文引用：信息面试的展开阅读——本课第五节的实操补充。","points":["信息面试不是求职面试：目的是了解路径、日常、挑战与建议，同时建立连接。","聊完的跟进动作（感谢 + LinkedIn 连接）决定这次对话能否变成长期人脉。"],"terms":["informational interview（信息面试）"],"focus":"配合本课「信息面试」节的问题清单读：你走过什么路径 / 典型工作日 / 给像我这样的人的建议 / 角色面临的挑战。","takeaway":"信息面试是隐藏就业市场的侦察手段——快速拿到可靠信息，同时把人脉网往前织一格。"},"license":"内容版权归原作者（blog.get-merit.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"Meetup","titleZh":"Meetup（本地活动平台）","type":"平台","requirement":"required","zone":"Assignment 第 1 条（线下人脉）","originalUrl":"https://www.meetup.com/","sourceDomain":"www.meetup.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"全球本地线下活动平台：按主题与城市找聚会——技术 meetup（Ruby / JavaScript / 前端 / 创业等）是它的主力品类。官方 Assignment 让你用它（配合 LinkedIn 与 Google）摸清你所在地有哪些聚焦特定技术的本地社区。","why":"Assignment 第 1 条：查本地技术社区的三个入口之一。","points":["搜索用「城市 + 技术关键词」组合；大城镇多有成熟小组，小社区可能有限。","线下 meetup 是人脉课「双轨建设」里本地轨的主战场——顺带可与学习合并（官方原话：编码脑力训练之间的换气）。"],"terms":["meetup（线下聚会）"],"focus":"目标是「参加」而不是「收藏」——找到一两个能持续去的小组比浏览一百个有用。","takeaway":"本地技术社区的最直接入口；去了就有机会练「通用问题 + 30 秒电梯陈述」。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"LinkedIn","titleZh":"LinkedIn（领英，职业社交平台）","type":"平台","requirement":"required","zone":"Assignment 第 1、2 条（同页合并）","originalUrl":"https://www.linkedin.com/","sourceDomain":"www.linkedin.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"职业社交平台：官方定位是「你的档案就是你的虚拟简历」——第一印象重要。Assignment 第 2 条给了完整用法：优化档案 → 关注想去的公司与能学到东西的个人 → 用提问评论参与内容 → 创作自己的开发者之旅内容 → 与互动者建立真实连接（查档案找共同点）。第 1 条里它还是查本地社区的入口之一。","why":"Assignment 第 1 条（查本地社区）与第 2 条（虚拟人脉主平台）双处点名。","points":["档案=虚拟简历：LinkedIn 正在快速取代简历（prepare 课原话）——投入时间优化它。","连接要真实化：看对方档案找共同点再开口——反「冷启动索取」纪律的平台落地。"],"terms":["profile（档案）","connection（连接）"],"focus":"中国大陆网络环境下 LinkedIn 职业社交功能已调整（领英中国转型）——可及性因地区而异，如实提示；虚拟人脉轨还有 Discord 与开源两条路。","takeaway":"把 LinkedIn 当「叙事的公开载体」经营，而不是通讯录收藏夹。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"Assignment 第 1 条与第 2 条两处引用同一首页地址，同页合并为一条（zone 注明双条目）。"},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"Tips to Optimize Your LinkedIn Profile for Developers (Samantha Ming)","titleZh":"Samantha Ming：开发者 LinkedIn 档案优化技巧","type":"博客文章","requirement":"required","zone":"Assignment 第 2 条（LinkedIn 子弹内）","originalUrl":"https://www.samanthaming.com/blog/tips-to-optimize-your-linkedin-profile-for-developers/","sourceDomain":"www.samanthaming.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"前端开发者 Samantha Ming 的实操文：逐项过一遍开发者 LinkedIn 档案该怎么填——标题行（headline）、关于（about）、经历、技能、项目展示区，每一项给开发者视角的写法建议。","why":"Assignment 第 2 条：优化档案（Put some time into optimizing your profile）的指定教材。","points":["标题行别只写「Student」——写你在做什么、要往哪去。","项目展示区与 GitHub、个人网站互链，让三个载体讲同一个叙事。"],"terms":["headline（标题行）","about section（关于区）"],"focus":"边读边改自己的档案——这篇的价值在当场执行。","takeaway":"档案是虚拟简历：第一印象只有一次。"},"license":"内容版权归原作者（www.samanthaming.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"Discord","titleZh":"Discord（语音/文字社区平台）","type":"平台","requirement":"required","zone":"Assignment 第 2 条（虚拟人脉）","originalUrl":"https://discord.com/","sourceDomain":"discord.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"社区语音/文字聊天平台：官方 Assignment 的用法是「大概率有专注某语言/框架的频道可以提问求助——注册后搜索你感兴趣的方向（如 NodeJS、Ruby on Rails）申请加入」。TOP 自己的 Discord 服务器也是全课程最大的学员社区。","why":"Assignment 第 2 条：虚拟人脉四平台之一。","points":["按语言/框架搜服务器申请加入——提问与回答就是人脉课说的「维护动作」。","与论坛的差异：实时、低门槛、对话式——更容易形成真实连接而不是单向索取。"],"terms":["server（服务器）","channel（频道）"],"focus":"先观察一个频道的文化再发言；持续 answering questions 比一次性提问更能积累连接。","takeaway":"Discord 是虚拟人脉轨的「日常化」入口——人脉像花园，这里最适合日常浇水。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"平台官网首页（非 discord.gg 邀请链接——邀请链接按既有口径剔除，本站结语课的 discord.gg 即剔除例）。"},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"HOW TO USE LINKEDIN AS A DEVELOPER to get a job in tech! (DThompsonDev, YouTube)","titleZh":"YouTube：开发者如何用 LinkedIn 在科技行业找到工作（DThompsonDev）","type":"视频","requirement":"reference","zone":"Additional Resources","originalUrl":"https://www.youtube.com/watch?v=SG5Sb5WTV_g","sourceDomain":"www.youtube.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"DThompsonDev 的视频：开发者视角的 LinkedIn 求职与人脉经营实操——档案怎么搭、内容怎么发、怎么与招聘方和同行互动。是 Assignment 第 2 条 LinkedIn 用法的动态版补充。","why":"AR 第 1 条：How to use LinkedIn as a developer to get a job in tech。","points":["视频覆盖「优化档案 → 发内容 → 互动」全链条，与官方 Assignment 文字版互补。","演示了开发者常见的 LinkedIn 错误形态（只挂简历不发内容不互动）。"],"terms":["LinkedIn networking（领英人脉经营）"],"focus":"英文视频；配合本课「建立真实连接」一节的纪律看——工具操作之外，真实性才是内核。","takeaway":"LinkedIn 不是简历托管处，是内容与互动的经营场。"},"license":"YouTube 视频，版权归原作者/频道（DThompsonDev）；本站只做链接与本站原创导读，不声称有中文字幕。","handling":"link-only","verifiedAt":"2026-09-29","note":"oEmbed 核验通过（标题 HOW TO USE LINKEDIN AS A DEVELOPER to get a job in tech! How to network!，频道 DThompsonDev）；为英文视频。"},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"How to Network: a Guide for Remote Software Developers & Engineers (Arc)","titleZh":"Arc：远程软件开发者与工程师的人脉经营指南","type":"博客文章","requirement":"reference","zone":"Additional Resources","originalUrl":"https://arc.dev/developer-blog/how-to-network-as-remote-developer/","sourceDomain":"arc.dev","originalUrlStatus":"200（301 迁移：官方给的 /developer-blog/ 路径现跳转 /talent-blog/ 同文——arc.dev 博客分区改名，如实登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"远程开发者招聘平台 Arc 的博客：没有办公室偶遇、没有走廊闲聊，远程开发者怎么建人脉——线上社区、开源协作、内容创作、虚拟咖啡聊天等渠道的具体做法。","why":"AR 第 2 条：远程场景下的人脉经营专题。","points":["远程人脉的核心补偿机制：把「偶遇」变成「刻意安排」——定期约线上咖啡、固定参加社区活动。","与本课「双轨建设」互补：虚拟轨的可操作方法论。"],"terms":["remote networking（远程人脉经营）"],"focus":"挑两三个能持续做的渠道，别把清单全试一遍。","takeaway":"远程不等于孤立——人脉从「顺路」变成「专项」，投入要更刻意。"},"license":"内容版权归原作者（arc.dev）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 路径迁移新事实：arc.dev 博客从 /developer-blog/ 分区改为 /talent-blog/（CF 产品分区形态第二例同类）。"},
+    {"lessonId":"node-path-getting-hired-professional-networking","title":"First Ruby Friend","titleZh":"First Ruby Friend（Ruby 路径免费导师制）","type":"社区","requirement":"reference","zone":"Additional Resources","originalUrl":"https://firstrubyfriend.org","sourceDomain":"firstrubyfriend.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Ruby 社区的免费导师配对项目：想学 Ruby 的新人与友好志愿者结对，定期视频/语音聊天答疑。官方 AR 注明「Ruby 路径的人可以在这里找到友好志愿者的免费导师制」。","why":"AR 第 3 条：people on the ruby path can find free mentorship from friendly volunteers here。","points":["形态是「真人定期聊天」而不是问答帖——正是信息面试与人脉维护的现成场景。","本站是 JavaScript 路径（World 3-8）——此条对 JS 学习者是「社区导师制长什么样」的参照。"],"terms":["mentorship（导师制）"],"focus":"JS 路径学习者可将此模式迁移：在 Discord / 开源社区里寻找等价的长期结对关系。","takeaway":"导师制是人脉的高级形态——双向的、定期的、真实的。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-strategy","title":"How to Get A Programmer Job (Happy Bear Software, web.archive)","titleZh":"Happy Bear Software：如何拿到程序员工作（存档）","type":"博客文章（存档）","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://web.archive.org/web/20160925155912/http://www.happybearsoftware.com/how-to-get-a-programmer-job.html","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照；命令行首轮 000、加长超时重试 200——archive.org 对 curl 的已知慢响应形态）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Happy Bear Software 的长篇求职方法论（原文已下线，官方给存档链接）：从自我评估、技能定位到渠道选择、面试应对的全流程实战总结——官方评价「极彻底（very thorough）」，是开始求职之旅的绝佳起点。interview 课正文再次引用它（跨课合并，归本课首现）。","why":"Assignment 唯一条目：A fantastic place to start your \"getting hired\" journey。","points":["长文覆盖九步路径的多个环节——读到哪步回头对照本课的策略地图。","写于 2013-2016 年代：具体网站与薪资数字会过时，方法论骨架仍有效。"],"terms":["job search strategy（求职策略）"],"focus":"通读一遍抓结构，求职推进到对应环节时回来重读相应章节。","takeaway":"把「想清楚要什么→找线索→筛选→接触」的链条在真实案例里走一遍。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"跨课合并：interview 课 Introduction 正文再次引用同一存档链接——按首现课（本课）登记，interview 侧不重复建条目。"},
+    {"lessonId":"node-path-getting-hired-strategy","title":"How To Land Your First IT Job (InformationWeek)","titleZh":"InformationWeek：如何拿到你的第一份 IT 工作","type":"杂志文章","requirement":"reference","zone":"Additional Resources","originalUrl":"https://www.informationweek.com/team-building-and-staffing/how-to-land-your-first-it-job","sourceDomain":"www.informationweek.com","originalUrlStatus":"200（301 路径迁移：官方给的 /team-building-and-staffing/ 分区现跳转 /it-leadership/ 同文，如实登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"InformationWeek 给 IT 新人的入行指导：第一份工作的现实门槛、可迁移的切入渠道（ help desk / 实习 / 认证 / 人脉）、以及雇主对「零经验候选人」的真实期待。","why":"AR 第 1 条：Getting your first IT job。","points":["视角比 Web 开发更宽（IT 全般）——用来校准「第一份工作未必是理想形态」的预期。","与九步路径的第 3 步「提前铺垫」呼应：认证、项目、人脉都是铺垫物。"],"terms":["entry-level（入门级）"],"focus":"重点读「雇主期待」部分，渠道部分按你所处市场取舍。","takeaway":"第一份工作的功能是「被验证过」——拿到那个对勾，后续路径才打开。"},"license":"内容版权归原作者（www.informationweek.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-strategy","title":"Engineer's Guide to US Visas (sourcing.io blog → underdog.io)","titleZh":"工程师的美国签证指南（原 sourcing.io 博客）","type":"博客文章","requirement":"reference","zone":"Additional Resources","originalUrl":"http://blog.sourcing.io/visa-guide","sourceDomain":"blog.sourcing.io","originalUrlStatus":"200（301 站点迁移：blog.sourcing.io 整站跳转 underdog.io/blog/engineers-guide-to-us-visas——sourcing.io 团队并入 underdog.io，如实登记生效地址）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"面向想在美工作的软件工程师的签证类型科普：H-1B、O-1、L-1、TN 等常见工作签证的适用条件与申请路径——对计划赴美求职的读者是渠道信息，对其他地区读者是「跨国求职有签证变量」的认知补充。","why":"AR 第 2 条：Engineer's Guide to US Visas。","points":["签证 sponsorship 是美国求职的显性门槛——部分公司明确不 sponsor。","与 collect 课招聘板呼应：underdog.io（Join-Startups）正是同一团队的创业职位板。"],"terms":["visa sponsorship（签证担保）","H-1B"],"focus":"不计划赴美求职的读者可跳过细节，知道「地点标准里可能藏着签证变量」即可。","takeaway":"跨国求职的第一步是搞清楚签证可行性，再谈线索与投递。"},"license":"内容版权归原作者（underdog.io）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"站点迁移新事实：blog.sourcing.io → underdog.io/blog（301 实测生效地址）。"},
+    {"lessonId":"node-path-getting-hired-strategy","title":"Lessons from a Silicon Valley Job Search (Robert Heaton)","titleZh":"Robert Heaton：一次硅谷求职的经验教训","type":"博客文章","requirement":"reference","zone":"Additional Resources","originalUrl":"https://robertheaton.com/2014-03-07/lessons-from-a-silicon-valley-job-search/","sourceDomain":"robertheaton.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Robert Heaton 复盘自己 2013 年硅谷求职全程的长文：时间线、渠道效果、面试形态、offer 谈判的真实数据与教训——一手求职实录，是九步路径的完整案例演示。","why":"AR 第 3 条：Lessons from a Silicon Valley Job Search。","points":["实录印证「批量并行流程」的价值：多个 offer 在手才有谈判筹码（handling 课的核心策略）。","内推与直接接触的转化率显著高于招聘板海投——四级来源排序的实证。"],"terms":["job search funnel（求职漏斗）"],"focus":"重点读渠道效果对比与谈判部分；具体公司名与薪资数字是 2013 年硅谷语境，取其结构不取数值。","takeaway":"把求职当项目管理：并行流程、记录数据、按期望值分配时间。"},"license":"内容版权归原作者（robertheaton.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"The Best Way to Hire Software Developers (Dice Insights)","titleZh":"Dice Insights：雇软件开发者的最佳方式","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"http://insights.dice.com/2013-05-31/hiring-software-developers/","sourceDomain":"insights.dice.com","originalUrlStatus":"命令行 301（http→https 同路径）后 https 直连 000；真实浏览器实测 200（标题 The Best Way to Hire Software Developers | Dice.com 在位）——dice 对命令行流量的受限形态，浏览器可达","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Dice（大型科技招聘板）insights 频道的招聘方视角文章：管理者雇开发者最常犯的两个大错、什么样的招聘流程能吸引到好的候选人——读它是为了从对面看清「他们在找什么、怕什么」。","why":"Assignment 第 1 条第 1 篇：了解招聘经理的视角。","points":["招聘方最怕「雇错人」的成本——这正是他们依赖社会证明与多轮筛选的原因。","对照本课三要素：文章里的「好候选人」画像=能力+动机+契合的招聘方表述。"],"terms":["hiring manager（招聘经理）"],"focus":"读的时候做换位练习：每一条「他们想要 X」都翻译成「我的材料里哪里能证明 X」。","takeaway":"招聘是双向的风险规避——你的社会证明就是他们的安全感。"},"license":"内容版权归原作者（insights.dice.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文给 http 协议地址；301 至 https 后命令行仍 000（TLS 层拒绝 curl），真实浏览器导航 200 内容在位——不入受限清单（浏览器可达，jsbin 先例口径）。"},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"How to Hire Talent (Life of a Program Manager)","titleZh":"程序经理博客：如何雇人才","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"http://lifeofaprogrammanager.blogspot.com/2006/06/how-to-hire-talent.html","sourceDomain":"lifeofaprogrammanager.blogspot.com","originalUrlStatus":"200（http 直达，无 https 强制跳转）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"一位程序经理（program manager）2006 年写下的招人经验：从管理者日常的第一视角讲怎么筛人、面试里看什么、哪些信号预示好雇员——年代久远但管理者视角的底层逻辑变化不大。","why":"Assignment 第 1 条第 2 篇：拼出「他们为什么雇你」的图景。","points":["管理者招人首先为了解决自己的 workload 痛——与本课「帷幕后的生活」一节直接互证。","「能把事做完」的信号比聪明更难伪造——简历与面试里的完成记录最值钱。"],"terms":["program manager（程序经理）"],"focus":"2006 年的工具与渠道描述直接跳过，只看判断人的标准部分。","takeaway":"雇主的决策函数十几年没怎么变：降低风险、尽快减负、别再招第二次。"},"license":"内容版权归原作者（lifeofaprogrammanager.blogspot.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"blogspot 老站仍在线（http 直达 200）。"},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"Finding Great Developers (Joel on Software)","titleZh":"Joel on Software：寻找优秀开发者","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"http://www.joelonsoftware.com/articles/FindingGreatDevelopers.html","sourceDomain":"www.joelonsoftware.com","originalUrlStatus":"200（301 路径迁移：官方给的 /articles/ 旧路径现跳转 /2006/09/06/finding-great-developers-2/ 日期式新路径，同文）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Joel Spolsky（Stack Overflow 联合创始人）的长篇檄文（官方原话 lengthy diatribe）：优秀开发者有多难找、传统招聘渠道为什么失效、顶级候选人的流动方式——官方说读完你会理解「雇到优秀工程师的需求与痛苦」。","why":"Assignment 第 1 条第 3 篇：感受招聘方对优秀工程师的渴求与痛点。","points":["核心论断：优秀的人从来不在招聘板上——他们被内推、被挖、被社区声望带出来（隐藏就业市场的供给侧论证）。","雇主愿意为「被验证过的优秀」支付溢价——你的作品集与开源记录就是在制造这种验证。"],"terms":["talent market（人才市场）"],"focus":"文章立场是雇主侧的焦虑——反过来读：每一条「找不到人」的抱怨，都是你「被找到」的路径提示。","takeaway":"让优秀可见（GitHub、社区、作品）比让简历完美更重要。"},"license":"内容版权归原作者（www.joelonsoftware.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"joelonsoftware.com 全站已迁移至日期式 URL（三篇旧 /articles/ 路径全部 301 至对应日期路径）。"},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"The Guerrilla Guide to Interviewing (version 3.0) (Joel on Software)","titleZh":"Joel on Software：游击面试指南（3.0 版）","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"http://www.joelonsoftware.com/articles/GuerrillaInterviewing3.html","sourceDomain":"www.joelonsoftware.com","originalUrlStatus":"200（301 路径迁移：/articles/ 旧路径现跳转 /2006/10/25/the-guerrilla-guide-to-interviewing-version-30/ 日期式新路径，同文）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Joel Spolsky 的面试官操作手册（面试方法论名文）：官方点名让你找的核心句——找「1. 聪明（Smart），2. 能把事做完（Get things done）」的人。文章讲怎么用行为问题与现场编程题区分这两类特质、为什么「聪明但不做事」与「做事但不聪明」都是灾难。","why":"Assignment 第 1 条第 4 篇：官方指定找「Smart + Get things done」这句话。","points":["两特质模型直接对应本课三要素里的「能力」与「动机」——契合则是面试官现场的另一条线。","行为面试问题（讲一次你解决难题的经历）的设计意图：验证「能把事做完」的历史证据。"],"terms":["smart and gets things done（聪明且能把事做完）","behavioral question（行为问题）"],"focus":"从被面试者视角反读：准备好两三个「聪明地做成了事」的具体故事，STAR 结构讲清。","takeaway":"面试官在找两类证据：思维质量与完成记录——你的每个回答都该往这两筐里放东西。"},"license":"内容版权归原作者（www.joelonsoftware.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"Beyond a Resume: What Tech Recruiters Want (Udacity Blog)","titleZh":"Udacity 博客：简历之外——技术招聘官想要什么","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"http://blog.udacity.com/2013/09/beyond-resume-what-tech-recruiters-want.html","sourceDomain":"blog.udacity.com","originalUrlStatus":"200（301 路径迁移：blog.udacity.com 旧路径现跳转 www.udacity.com/blog/beyond-resume-what-tech-recruiters-want/ 同文）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Udacity 博客讲技术招聘官（recruiter）筛材料时看什么：简历之外的信号——项目链接、GitHub 活跃度、作品集呈现、以及「这个人能不能立刻上手」的证据。","why":"Assignment 第 1 条第 5 篇：Learn what recruiters look for。","points":["recruiter 与 hiring manager 是两个角色：recruiter 先按关键词与硬条件粗筛——简历要为两道关分别优化。","项目与部署链接是 recruiter 少数能看懂的技术信号——这就是 portfolio 课存在的理由。"],"terms":["recruiter（招聘官）","screening（初筛）"],"focus":"对照自己的简历检查：recruiter 十秒内能不能找到「教育/雇佣记录/亮眼项目」三个标题项。","takeaway":"简历要同时通过机器与人的初筛——可读的项目证据比技术术语堆砌有效。"},"license":"内容版权归原作者（www.udacity.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"blog.udacity.com 子域已并入 www.udacity.com/blog（301 实测）。"},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"How do I get a Software Internship (MetaFilter)","titleZh":"MetaFilter：我怎么拿到软件实习（讨论帖）","type":"社区讨论帖","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"http://ask.metafilter.com/226621/How-do-I-get-a-software-internship","sourceDomain":"ask.metafilter.com","originalUrlStatus":"双通路不可达（2026-09-29 命令行 curl 000；真实浏览器导航 ERR_CONNECTION_TIMED_OUT）——如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"MetaFilter 问答社区的老帖：提问者问「怎么拿到软件实习」，回复区是多位从业者的真实建议——无门槛切入渠道、小公司策略、作品集的作用。官方 Assignment 用它做实习信息的一手社区视角。","why":"Assignment 第 2 条第 1 篇：Read through this thread。","points":["社区问答的价值在多样性：同一个问题有学生、雇主、转行者多个视角的回答。","实习策略与本课一致：有薪、看重成长潜力、本质是超长面试。"],"terms":["internship（实习）"],"focus":"若不可达可跳过——实习的核心判据（必须有薪/看潜力/超长面试）本课正文已给全。","takeaway":"实习是绕开 catch-22 的正规军通道。"},"license":"内容版权归原作者（ask.metafilter.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"双通路不可达：命令行 000 + 真实浏览器 ERR_CONNECTION_TIMED_OUT（metafilter 对本轮网络环境不可达），入 verifyLimitedUrls（gravatar 先例口径）。"},
+    {"lessonId":"node-path-getting-hired-what-companies-want","title":"InternMatch / WayUp: IT Internships","titleZh":"InternMatch（WayUp）：IT 实习机会浏览","type":"招聘平台","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://www.wayup.com/s/internships/it/","sourceDomain":"www.wayup.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"面向学生与新毕业生的实习/入门职位平台（官方链接文字为 InternMatch，该品牌已并入 WayUp，链接即 wayup 域名的 IT 实习分区）：按行业与城市浏览可用的 IT 实习。","why":"Assignment 第 2 条第 2 篇：Use InternMatch to explore available internships。","points":["浏览时用本课筛选标准：有薪是硬门槛，成长环境按八问评估。","美国市场为主——其他地区读者取「实习平台长什么样」的参照即可。"],"terms":["internship listing（实习列表）"],"focus":"把看中的每条实习记进电子表格（collect 课的纪律从现在开始适用）。","takeaway":"实习渠道要主动浏览——它们是「超长面试」的入口。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"品牌迁移事实：官方链接文字 InternMatch，实际域名 wayup.com——InternMatch 品牌并入 WayUp，如实按官方链接登记。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"How I Got Hired Contributing to Open Source Projects (OpenSauced, dev.to)","titleZh":"dev.to（OpenSauced）：我如何靠贡献开源项目被雇用","type":"博客文章","requirement":"reference","zone":"正文「Build a portfolio」节","originalUrl":"https://dev.to/opensauced/how-i-got-hired-contributing-to-open-source-projects-546i","sourceDomain":"dev.to","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"OpenSauced 团队在 dev.to 的一手经历文：作者如何通过持续的开源贡献积累可见度与协作记录，最终把开源履历兑换成工作——正文用它支撑「开源贡献可以杠杆进求职」。","why":"正文引用：check out this Dev.to article to learn you can leverage open source contributions in your job search。","points":["开源贡献的社会证明成色最高：与维护者的协作记录是「别人和你共事过」的直接证据。","起步路径与官方建议一致：从文档、小修复开始，逐步到功能贡献。"],"terms":["open source contribution（开源贡献）"],"focus":"重点看「贡献如何被雇主看到」的链路，而不是具体技术细节。","takeaway":"开源是最慢但最硬的铺垫——它同时产出作品、协作记录与人脉。"},"license":"内容版权归原作者（dev.to）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"同节 github.com/TheOdinProject org 根地址为操作目标（去仓库上手贡献），按既有口径剔除不收录。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"How to Explain Your Career Transition (Dorie Clark, HBR, web.archive)","titleZh":"HBR（Dorie Clark）：如何解释你的职业转型（存档）","type":"杂志文章（存档）","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://web.archive.org/web/20190822194330/https://hbr.org/2013/04/how-to-explain-your-career-tra","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照；官方给的存档 URL 本身即截断形态 …your-career-tra，存档站按前缀命中同文快照，原样登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"哈佛商业评论（HBR）Dorie Clark 的文章：转行者怎么向雇主解释「你为什么换赛道」——把看似不连贯的职业轨迹讲成有逻辑的叙事线。官方指定给转行者（If you are changing careers）。","why":"Assignment 第 1 条：转行者的叙事教材。","points":["转型解释的核心是「连续性」：新赛道要能接上旧经历积累的能力与视角。","与本课「Craft a narrative」一节直接配套：非传统背景缝合术的具体方法。"],"terms":["career transition（职业转型）"],"focus":"写出你自己的一句话转型逻辑：旧职业给了我 X，X 正是新职业需要的 Y。","takeaway":"转行史不是要遮掩的疑点，是可以讲成资产的故事线。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方存档 URL 的截断形态（…career-tra）为原文如此，存档站前缀命中，原样登记。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"A Programmer's Portfolio (Coding Horror)","titleZh":"Coding Horror：程序员的作品集","type":"博客文章","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://blog.codinghorror.com/a-programmers-portfolio/","sourceDomain":"blog.codinghorror.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Jeff Atwood（Stack Overflow 联合创始人、Coding Horror 博主）2004 年的经典文：为什么程序员必须有作品集——展示真实代码比简历上的自我描述有力得多；「你写过什么」是可验证的，「你精通什么」不是。","why":"Assignment 第 2 条第 1 篇：understand how showing your actual code is more powerful than relying on a resume。","points":["作品集的本质是可验证性：代码在那里，任何人可以读、可以跑。","写于 GitHub 出现之前——今天「作品集=GitHub」的形态是这篇论点的历史延续。"],"terms":["portfolio（作品集）"],"focus":"短文，十分钟读完；重点吸收「可验证 vs 自述」的对比。","takeaway":"没有作品集的程序员，等于作家拿不出任何一篇写过的东西。"},"license":"内容版权归原作者（blog.codinghorror.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"The Power of a Programming Portfolio (GrokCode)","titleZh":"GrokCode：编程作品集的力量","type":"博客文章","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"http://grokcode.com/58/the-power-of-a-programming-portfolio/","sourceDomain":"grokcode.com","originalUrlStatus":"200（301 至 http://www.grokcode.com 同路径；http 直达，无 https）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"GrokCode 讲作品集如何让你在候选人群里脱颖而出：选什么项目进作品集、怎么呈现、作品集与简历的分工——「描述 how 与 why 的项目」比「功能堆砌的项目」更能展示工程判断。","why":"Assignment 第 2 条第 2 篇：describes how a portfolio can help you stand out。","points":["少而精：两三个能讲清决策过程的项目，胜过十个课程作业克隆。","与 portfolio 课（个人网站）衔接：站点是呈现层，GitHub 是证据层。"],"terms":["stand out（脱颖而出）"],"focus":"对照自己现有的项目清单做一次取舍：哪两三个值得放到最前面？","takeaway":"作品集的说服力来自工程决策的可见性，不是功能数量。"},"license":"内容版权归原作者（grokcode.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"grokcode.com 为 http 直达老站（无 https 跳转强制）。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"Software Engineers Are In Demand, And GitHub Is How You Find Them (Forbes)","titleZh":"Forbes：软件工程师供不应求，GitHub 是找到他们的方式","type":"杂志文章","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"http://www.forbes.com/sites/anthonykosner/2012-10-20/software-engineers-are-in-demand-and-github-is-how-you-find-them/","sourceDomain":"www.forbes.com","originalUrlStatus":"双通路不可达（2026-09-29 命令行 curl 000；同域 dianatsai 文真实浏览器导航亦 ERR_CONNECTION_TIMED_OUT）——forbes.com 对本轮网络环境不可达，如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Forbes 2012 年文章（Anthony Kosner）：GitHub 如何成为中心化招聘工具——雇主直接在 GitHub 上看候选人的代码、活跃度与协作记录。官方引用它支撑「GitHub 是让雇主看到你代码的中心化招聘工具」。","why":"Assignment 第 2 条第 3 篇：GitHub is a central hiring tool that lets employers see your code。","points":["「雇主会看你的 GitHub」不是假设而是行业实践——这就是档案必须修整的原因。","2012 年的判断在今天更成立：GitHub 档案已是事实上的公开技术简历。"],"terms":["central hiring tool（中心化招聘工具）"],"focus":"读完立刻做一件事：无痕窗口打开自己的 GitHub 档案，用雇主视角审一遍。","takeaway":"GitHub 不只是代码托管——它是被动的、全天候的求职通道。"},"license":"内容版权归原作者（www.forbes.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"双通路不可达（命令行 000；forbes 域浏览器导航超时），入 verifyLimitedUrls。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"BrandYourself","titleZh":"BrandYourself（个人品牌管理工具）","type":"工具","requirement":"required","zone":"Assignment 第 3 条","originalUrl":"http://brandyourself.com","sourceDomain":"brandyourself.com","originalUrlStatus":"200（301 至 https://brandyourself.com:443/ 显式端口形态，同站）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"个人品牌管理工具：监控搜索结果里关于你的内容、优化正面信息的排名、淡化不希望雇主看到的结果。官方一句话定位：「帮你……品牌……你自己。基础服务免费」（helps you... brand... yourself. Basic services are free）。","why":"Assignment 第 3 条第 1 篇：个人品牌工具入口。","points":["对应本课「清理网络形象」节的工具化落地：先 Google 自己，再用工具持续监控。","免费档够个人基本使用——付费档偏专业人士/高管场景。"],"terms":["personal branding（个人品牌）","online reputation（在线声誉）"],"focus":"注册前先手工无痕 Google 一遍自己——知道问题在哪再决定用不用工具。","takeaway":"网络形象是持续工程，不是一次性大扫除。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 生效地址带显式 :443 端口形态，同站，如实登记。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"Control Your Online Reputation (Monster, web.archive)","titleZh":"Monster：控制你的在线声誉（存档）","type":"文章（存档）","requirement":"required","zone":"Assignment 第 3 条","originalUrl":"https://web.archive.org/web/20201123201302/https://www.monster.com/career-advice/article/control-your-online-reputation","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Monster（大型招聘平台）职业建议频道的文章（官方给存档链接）：雇主怎么做背景调查、搜索结果里什么会伤害你、怎么系统性管理在线声誉——「清理网络形象」一节的展开阅读。","why":"Assignment 第 3 条第 2 篇：another good article（官方原话）。","points":["雇主的 Google 是流程化动作：清理要在投递开始前完成，不是被拒后补救。","社媒旧内容的处理优先级：公开可见的负面内容 > 无关内容 > 正面内容维护。"],"terms":["background check（背景调查）","online reputation（在线声誉）"],"focus":"对照做一遍清单：搜索结果、社媒公开内容、旧账号——三处都过一遍。","takeaway":"你无法阻止雇主 Google 你，但能决定他们看到什么。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文即给 web.archive 存档链接（monster.com 原文已下线），原样登记。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"How Important Is It for a Programmer to Have an Online Presence? (Stack Exchange)","titleZh":"Stack Exchange：程序员有网络形象多重要？","type":"社区问答","requirement":"required","zone":"Assignment 第 3 条","originalUrl":"http://programmers.stackexchange.com/questions/143673/how-important-is-it-for-a-programmer-to-have-an-online-presence","sourceDomain":"programmers.stackexchange.com","originalUrlStatus":"301 站点迁移至 softwareengineering.stackexchange.com 同问题路径后，命令行 403、真实浏览器 Cloudflare 安全验证挑战页——受限形态如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Programmers Stack Exchange（现 Software Engineering Stack Exchange）的高票问答：程序员的网络形象（博客/Stack Overflow/GitHub/社媒）到底多重要——多位资深开发者的正反方观点交锋，比单一文章更接近真实分歧。","why":"Assignment 第 3 条第 3 篇：网络形象重要性的多视角讨论。","points":["正方：网络形象是被动求职通道与社会证明；反方：代码质量与面试表现才是本体，形象是放大器不是替代品。","共识区：GitHub 档案的权重远高于其他社媒——因为它可验证。"],"terms":["online presence（网络形象）"],"focus":"重点读高票答案的论证结构——正读观点，反读论据。","takeaway":"网络形象的价值排序：可验证的（GitHub）> 可互动的（社区）> 可展示的（社媒）。"},"license":"Stack Exchange 用户贡献内容，CC BY-SA 许可；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"站点迁移新事实：programmers.stackexchange.com 已 301 迁移至 softwareengineering.stackexchange.com（同问题 id 143673 路径保留）；迁移后命令行 403、真实浏览器 Cloudflare 挑战页——入 verifyLimitedUrls（可汗 Client Challenge 先例口径）。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"How to Build Your Digital Presence as a Software Developer (Pramp, Medium)","titleZh":"Medium（Pramp）：如何建设软件开发者的数字形象","type":"博客文章","requirement":"required","zone":"Assignment 第 3 条","originalUrl":"https://medium.com/pramp/how-to-build-your-digital-presence-as-a-software-developer-cb61c4c1aab","sourceDomain":"medium.com","originalUrlStatus":"双通路不可达（2026-09-29 命令行 curl 403——Medium 反爬常态；真实浏览器导航 ERR_CERT_AUTHORITY_INVALID——本轮网络通路证书异常）——如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Pramp（模拟面试平台）在 Medium 的文章：开发者数字形象的系统建设——个人网站、GitHub 档案、技术博客、社媒presence 的组合策略与优先级。","why":"Assignment 第 3 条第 4 篇：Learn How to Build Your Digital Presence。","points":["数字形象=多载体一致性：所有渠道讲同一个叙事（呼应 Craft a narrative 一节）。","起步优先级：GitHub 档案 > 个人网站 > 内容产出 > 社媒。"],"terms":["digital presence（数字形象）"],"focus":"若不可达可跳过——本课「清理网络形象」节已覆盖其核心框架。","takeaway":"数字形象的建设顺序与雇主查看顺序一致：先修 GitHub，再建主场，最后扩声量。"},"license":"内容版权归原作者（medium.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"双通路不可达：命令行 403（Medium 反爬）+ 真实浏览器 ERR_CERT_AUTHORITY_INVALID（本轮网络通路证书异常，forbes/monster 同形态），入 verifyLimitedUrls。"},
+    {"lessonId":"node-path-getting-hired-what-you-can-do-to-prepare","title":"How to Win Friends and Influence People — Book Summary (Farnam Street)","titleZh":"Farnam Street：《人性的弱点》书籍摘要","type":"博客文章","requirement":"required","zone":"Assignment 第 4 条","originalUrl":"https://fs.blog/how-to-win-friends-and-influence-people/","sourceDomain":"fs.blog","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Farnam Street（fs.blog，以读书摘要与思维模型闻名的博客）对卡耐基《人性的弱点》（How to Win Friends and Influence People）全书要点的摘要。官方评价：这本书是关乎商业与人脉的经典、适用于你周围社交世界的所有面向——摘要「覆盖了我们认为重要的全部要点」。","why":"Assignment 第 4 条：不想读整本书的人读这份摘要。","points":["书的核心与人脉课的纪律同源：对他人真实感兴趣、记住名字、谈对方感兴趣的事、避免争辩——「让对话关于他们而不是你」。","摘要按原书四部分组织：处理人际关系的基本技巧 / 让人喜欢你的方法 / 赢得认同的说服方式 / 改变他人而不引起反感。"],"terms":["social world（社交世界）"],"focus":"读完摘要挑两条当周实践：一次「先问对方」的对话、一次真诚的感谢——人脉课的「维护动作」就是这本书的操作版。","takeaway":"人脉技巧的底层是对人的真实兴趣——1936 年的书与今天的课程讲的是同一件事。"},"license":"内容版权归原作者（fs.blog）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方链接为带 title 属性的 Markdown 形态（[summary of the book](url \"summary of ...\")）——链接提取脚本正则曾漏抓带 title 链接，人工复核补登记（唯一一处）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Stratis Bakas — personal portfolio site","titleZh":"Stratis Bakas 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://stratisbakas.com/","sourceDomain":"stratisbakas.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：前端开发者个人站：作品网格 + 简介 + 联系方式的极简结构。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Matt Farley — personal portfolio site","titleZh":"Matt Farley 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://mattfarley.ca/","sourceDomain":"mattfarley.ca","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：自由职业设计师站：服务、作品集、客户证言的商业化呈现范例。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Dejan Markovic — personal portfolio site","titleZh":"Dejan Markovic 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://www.dejan.works/","sourceDomain":"www.dejan.works","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者/设计师个人站：深色视觉 + 项目卡片流。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Ian Lunn — personal portfolio site","titleZh":"Ian Lunn 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://ianlunn.co.uk/","sourceDomain":"ianlunn.co.uk","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：前端开发者站：以开源项目（Hover.css 等）为门面的技术型个人站范例。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Ben Adam — personal portfolio site","titleZh":"Ben Adam 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://benadam.me/","sourceDomain":"benadam.me","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：设计师/开发者站：大字体排版 + 精选作品的「少即是多」形态。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Seb Kay — personal portfolio site","titleZh":"Seb Kay 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://sebkay.com/","sourceDomain":"sebkay.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：Web 设计师站：以案例研究（case study）形式呈现项目过程。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Andriy Chemerynskiy — personal portfolio site","titleZh":"Andriy Chemerynskiy 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://andrewchmr.com/","sourceDomain":"andrewchmr.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：前端开发者站：动效克制、信息层级清晰的单页形态。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Chris Ota's Portfolio — personal portfolio site","titleZh":"Chris Ota's Portfolio 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://www.otadesigns.com/","sourceDomain":"www.otadesigns.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：设计师站：视觉驱动的作品集呈现。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Pierre Nel — personal portfolio site","titleZh":"Pierre Nel 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://pierre.io/","sourceDomain":"pierre.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者站：极简域名 + 极简页面的技术型个人站。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Adrien Laurent's Portfolio — personal portfolio site","titleZh":"Adrien Laurent's Portfolio 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://adrienlaurent.fr/","sourceDomain":"adrienlaurent.fr","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者作品集站：法语区开发者的呈现范例。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Thomas' Portfolio — personal portfolio site","titleZh":"Thomas' Portfolio 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://www.thomasbosc.com","sourceDomain":"www.thomasbosc.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者站：项目 + 写作并行的双载体形态。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Timmy O'Mahony — personal portfolio site","titleZh":"Timmy O'Mahony 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://timmyomahony.com/","sourceDomain":"timmyomahony.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者/写作者站：博客与项目互链的叙事型个人站。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Elliot's Portfolio — personal portfolio site","titleZh":"Elliot's Portfolio 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://elliotcondon.com/","sourceDomain":"elliotcondon.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者作品集站：卡片式项目陈列。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"James Warner — personal portfolio site","titleZh":"James Warner 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://jmswrnr.com/","sourceDomain":"jmswrnr.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：设计/开发者站：排版与留白讲究的极简形态。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Tiago Sá's Portfolio — personal portfolio site","titleZh":"Tiago Sá's Portfolio 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://i-am-tiago.com/","sourceDomain":"i-am-tiago.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者站：域名即口号（i-am-tiago）的人格化呈现。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Patrick David — personal portfolio site","titleZh":"Patrick David 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://bepatrickdavid.com/","sourceDomain":"bepatrickdavid.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者站：项目详解 + 技术栈标注的证据型作品集。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Luis Krötz — personal portfolio site","titleZh":"Luis Krötz 的个人作品集网站","type":"个人作品集站","requirement":"reference","zone":"正文「Show designs」节（官方折叠清单 17 站之一）","originalUrl":"https://luiskr.com/","sourceDomain":"luiskr.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方 Show designs 清单中的职业开发者作品集站：开发者/设计站：交互实验与商业项目并列的展示形态。官方明说清单用途——「学生应该分析这些站点，理解自己的作品集应该放什么、应该怎么呈现」。","why":"正文 Show designs 节：17 个参照系之一（分析用，非模板）。","points":["分析三问：首页十秒内能不能看懂「他是谁/做什么/作品在哪」？导航结构几层？项目页给了什么证据（链接/截图/说明）？","对照总原则检验：简单、干净、切中要点——它有没有堆砌「看我会什么」的功能？"],"terms":["portfolio site（作品集网站）"],"focus":"带着「我要抄结构不抄设计」的心态分析：信息架构可借鉴，视觉是自己的。","takeaway":"好作品集站的共性：让作品自己说话，页面本身保持安静。"},"license":"第三方个人网站，内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方 details 折叠块内清单条目；按灵感参考（reference）口径登记（todo-list 灵感应用先例）。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Why Every Job Seeker Should Have a Personal Website (Forbes)","titleZh":"Forbes：为什么每个求职者都该有个人网站","type":"杂志文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"http://www.forbes.com/sites/jacquelynsmith/2013-04-26/why-every-job-seeker-should-have-a-personal-website-and-what-it-should-include/","sourceDomain":"www.forbes.com","originalUrlStatus":"双通路不可达（2026-09-29 命令行 curl 000；同域他文真实浏览器导航亦 ERR_CONNECTION_TIMED_OUT）——forbes.com 对本轮网络环境不可达，如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Forbes 2013 年文章（Jacquelyn Smith）：个人网站为什么能助推求职——控制你的搜索结果、展示作品与人格、给雇主一个「直达你」的地址；标题里还承诺讲「该包含什么」。","why":"Assignment 第 1 条：understand why having a personal website can boost your job search。","points":["与本课定位一致：个人网站是「直达管道」+「叙事载体」——不是面子工程。","2013 年的判断在社媒算法时代更成立：自有域名是你唯一完全控制的网络资产。"],"terms":["personal website（个人网站）"],"focus":"若不可达可跳过——正文四节已覆盖其核心论点（简单干净/文档四件套/真人感）。","takeaway":"个人网站的本质是叙事主权：以你选择的方式被找到。"},"license":"内容版权归原作者（www.forbes.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"双通路不可达（命令行 000 + forbes 域浏览器超时），入 verifyLimitedUrls。"},
+    {"lessonId":"node-path-getting-hired-building-your-personal-website","title":"Beginner's Guide to Writing Documentation (Write the Docs)","titleZh":"Write the Docs：写文档新手指南","type":"文档指南","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"http://www.writethedocs.org/guide/writing/beginners-guide-to-docs/","sourceDomain":"www.writethedocs.org","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Write the Docs 社区（技术写作者的行业社区）的新手指南：文档的类型（教程/操作指南/参考）、结构原则、写作风格——官方用它支撑「结构良好文档的最佳实践」。","why":"Assignment 第 2 条：learn best practices for writing well structured documentation。","points":["README 四件套（描述/截图/为什么建/本地运行）在这里能找到每一件的展开写法。","「同时为技术与非技术受众写」的实操：分层信息架构——第一段给所有人，细节给工程师。"],"terms":["documentation（文档）","README"],"focus":"直接对照你现有项目的 README 逐条检查：四件套齐不齐？非技术的人能不能跟着跑起来？","takeaway":"文档是求职者的隐藏闪光点——写文档的能力就是「能被协作」的能力。"},"license":"内容版权归原作者（www.writethedocs.org）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Authentic Jobs","titleZh":"Authentic Jobs（开发者职位板）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"http://www.authenticjobs.com","sourceDomain":"www.authenticjobs.com","originalUrlStatus":"200（301 至 https://authenticjobs.com/）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：a place to find developer jobs from various companies——面向开发者与设计者的职位板，历史悠久的技术向招聘站。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["技术聚焦度高：职位多为开发/设计岗，非全行业大杂烩。","美国市场为主——职位地域集中度高，非美国读者可参照其职位描述形态。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"CWJobs","titleZh":"CWJobs（英国科技职位板）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"http://cwjobs.co.uk","sourceDomain":"cwjobs.co.uk","originalUrlStatus":"200（301 至 https://www.cwjobs.co.uk/）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：check out this site for tech roles, especially if you're based in the UK——英国主流 IT/科技招聘板。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["英国市场的技术职位密度最高的板块之一。","非英国读者可参照其职位描述格式（英国 JD 的常见写法）。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"White Truffle","titleZh":"White Truffle（创业公司职位板）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"http://www.whitetruffle.com","sourceDomain":"www.whitetruffle.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：weighted towards startups right now——偏创业公司的职位聚合板（2010s 早期创业招聘生态的代表站）。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["创业公司职位的特点：头衔与职责边界模糊、成长快、薪资换股权。","站点年代较久，职位新鲜度以实际浏览为准。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Dice.com","titleZh":"Dice.com（大型科技招聘板）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"http://www.dice.com","sourceDomain":"www.dice.com","originalUrlStatus":"200（301 至 https://www.dice.com/）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：one of the biggest tech job boards with tons of software listings——美国最大的科技职位板之一，海量软件职位。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["量大：适合按技术关键词做批量线索收集（喂表格效率高）。","官方对招聘板的总评同样适用：量大=羊群大，侧门优先。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Coderwall","titleZh":"Coderwall（工程实力展示平台）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"http://coderwall.com","sourceDomain":"coderwall.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：lets you display your engineering prowess and they can come to you——按 GitHub 数据生成成就徽章、反向吸引雇主的平台（「让他们来找你」形态的早期代表）。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["与「走侧门」的被动形态呼应：公开地优秀到他们来找你。","平台历史上多次停运重启，现状以实际访问为准。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Join-Startups (underdog.io)","titleZh":"Join-Startups / underdog.io（创业公司空缺）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"https://underdog.io/","sourceDomain":"underdog.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：open startup jobs in a dozen cities——十几个城市的创业公司公开空缺聚合（官方链接文字为 Join-Startups，品牌现用 underdog.io）。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["一次申请触达多家创业公司的批量形态。","与 strategy 课 AR 的签证指南同源（underdog 博客）——同一团队产品。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Work At A Startup (Y Combinator)","titleZh":"Work At A Startup（YC 系创业公司招聘）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"https://www.workatastartup.com/","sourceDomain":"www.workatastartup.com","originalUrlStatus":"命令行 406（反爬）；真实浏览器实测 200（YC startup jobs 首页在位）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：Y-Combinator Startups——YC（Y Combinator）孵化创业公司的统一招聘入口：一份档案投递多家公司。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["YC 系公司的共性：早期、快节奏、工程文化浓。","命令行 406 为反爬形态，浏览器可达。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行 406、真实浏览器 200——不入受限清单（浏览器可达口径）。"},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Hubstaff Talent","titleZh":"Hubstaff Talent（自由职业与远程）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"https://talent.hubstaff.com/","sourceDomain":"talent.hubstaff.com","originalUrlStatus":"200（301 站点迁移至 https://hubstafftalent.net/——域名独立化，如实登记生效地址）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：for freelancers and remote——面向自由职业者与远程职位的人才目录：企业直接浏览你的档案联系你（零佣金形态）。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["远程/自由职业轨的入口——与「你想要什么」（远程还是团队）自评呼应。","站点迁移新事实：talent.hubstaff.com → hubstafftalent.net。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-collecting-job-leads","title":"Wellfound (formerly AngelList Talent)","titleZh":"Wellfound（原 AngelList Talent，创业公司招聘）","type":"招聘板","requirement":"required","zone":"Assignment 第 1 条（官方九站清单之一）","originalUrl":"https://wellfound.com/jobs","sourceDomain":"wellfound.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：transparent startup hiring——创业公司招聘平台（原 AngelList Talent 更名）：薪资与股权区间透明是招牌特性。","why":"Assignment 第 1 条：试试这些招聘板（越技术聚焦越好）——找到的每条线索都进电子表格。","points":["透明薪资区间=筛选课的「付的钱够不够」标准可直接对照。","AngelList→Wellfound 更名事实如实登记（官方链接文字已注明）。"],"terms":["job board（招聘板）"],"focus":"记住它是四级来源的第 4 级（pretty much awful）：产出线索可以，别当主战场——每条线索先查 Connections 列。","takeaway":"招聘板是线索漏斗的最宽入口，也是质量最低的入口——用它喂表格，不用它定策略。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-qualifying-job-leads","title":"Hire Beware (The Odin Project Blog)","titleZh":"TOP 官方博客：Hire Beware（雇用警告信号）","type":"官方博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://github.com/TheOdinProject/blog/blob/main/hire-beware.md","sourceDomain":"github.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"TOP 官方博客仓库里的《Hire Beware》：罗列「不理想机会的警告信号」（warning signs for less-than-ideal opportunities）——无偿试岗、模糊职责、画饼式股权、对离职员工的恶评等危险形态。官方 Assignment 唯一条目：把警告信号加进你的筛选负面清单。","why":"Assignment 第 1 条：Read this Hire Beware blog post about some warning signs for less-than-ideal opportunities。","points":["警告信号是「必须有」标准的镜像：不满足必须有的划掉，中了警告信号的降级或划掉——即使期望值算出来很高。","与「别显得绝望」互为表里：绝望的人最容易无视红旗——清单是防冲动的护栏。"],"terms":["warning signs（警告信号）","red flag（红旗）"],"focus":"逐条对照你表格里期望值最高的三条线索——中了几面旗？","takeaway":"筛选不只选「好机会」，还要认「坏机会」——负面清单与正面标准同样重要。"},"license":"TOP 官方博客内容（The Odin Project 仓库），版权按仓库许可；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"TOP 官方指定阅读材料（区别于操作目标型 GitHub 链接的剔除口径）——登记并建任务映射。"},
+    {"lessonId":"node-path-getting-hired-building-your-resume","title":"5 Best Free Resume Builder Websites (Career Tool Belt, web.archive)","titleZh":"Career Tool Belt：最佳免费简历构建网站（存档）","type":"文章（存档）","requirement":"reference","zone":"正文 Introduction（简历工具推荐，非 Assignment）","originalUrl":"https://web.archive.org/web/20230930114027/https://www.careertoolbelt.com/5-best-free-resume-builder-websites/","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照；官方标题写 6 free resume builder websites，存档页原标题为 5 Best——以存档实际内容为准，标题差异如实登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"免费简历构建网站的盘点清单文（官方给存档链接）：逐个点评可用的免费在线简历工具——排版模板、导出格式、免费额度。","why":"正文引用：This Career Tool Belt article lists 6 free resume builder websites。","points":["工具只是排版引擎——内容仍按「一页+三标题项+故事线」的官方标准组织。","存档文里的工具链接可能已失效，以当前可直接访问的工具（如 FlowCV、Novorésumé）优先。"],"terms":["resume builder（简历构建器）"],"focus":"快速扫一遍清单知道有哪些选择即可，别在工具比较上花超过半小时。","takeaway":"简历工具解决排版，不解决内容——内容判据全在本课正文。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方正文链接文字「6 free resume builder websites」与存档页标题「5 Best Free Resume Builder Websites」数字不一致——存档快照为 2023-09-30 版，如实按存档登记并注明差异。"},
+    {"lessonId":"node-path-getting-hired-building-your-resume","title":"Novorésumé","titleZh":"Novorésumé（在线简历构建器）","type":"工具","requirement":"reference","zone":"正文 Introduction（简历工具推荐，非 Assignment）","originalUrl":"https://novoresume.com/","sourceDomain":"novoresume.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"在线简历构建器：官方定位「也有免费档与可用模板」（also has a free tier with templates available, as an alternate resource）——模板质量与引导式填写是它的特点。","why":"正文引用：作为替代资源的免费简历工具。","points":["免费档限一份简历/一页——恰好与「ONE PAGE」硬约束兼容。","模板自带排版纪律：帮你避免字号混乱、留白失衡等自制模板常见病。"],"terms":["resume template（简历模板）"],"focus":"选最朴素的模板——招聘方看内容不看装饰，花哨模板反而稀释标题项。","takeaway":"工具选免费档就够：一页简历不需要付费功能。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-building-your-resume","title":"Example Resume (Gayle Laakmann McDowell / CareerCup)","titleZh":"CareerCup 示例简历（Gayle Laakmann McDowell）","type":"示例文档","requirement":"reference","zone":"正文 Introduction（简历工具推荐，非 Assignment）","originalUrl":"https://www.gayle.com/resume","sourceDomain":"www.gayle.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"《Cracking the Coding Interview》作者 Gayle Laakmann McDowell 的个人站上的示例简历页：一份按「10 秒扫描」原则组织的开发者简历实例。官方评注：「格式可以更好，但这是个示例」（Formatting could use some work）。","why":"正文引用：example resume from CareerCup.com。","points":["看它的内容组织而不是排版：教育/经历/项目三块的顺序与颗粒度。","官方特意点了「格式可以更好」——示例的价值在结构判据，不在视觉。"],"terms":["example resume（示例简历）"],"focus":"对照三标题项检查：这份示例里「在哪受教育/谁雇过/亮眼项目」分别放在哪、占多大版面。","takeaway":"示例是用来对照结构的，不是用来抄的。"},"license":"内容版权归原作者（www.gayle.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-building-your-resume","title":"FlowCV","titleZh":"FlowCV（免费简历构建器）","type":"工具","requirement":"reference","zone":"正文 Introduction（简历工具推荐，非 Assignment）","originalUrl":"https://flowcv.io/","sourceDomain":"flowcv.io","originalUrlStatus":"200（301 域名迁移：flowcv.io → flowcv.com 同站，如实登记生效域名）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方评价「另一个很棒的（完全免费）简历构建器」（Another great (totally free) resume builder）：无水印、模板现代、导出 PDF 不收钱的简历工具。","why":"正文引用：totally free 的简历构建器。","points":["「完全免费」是官方特意标注的差异点——多数同类工具在导出环节收费。","域名迁移：flowcv.io 现 301 至 flowcv.com，服务延续。"],"terms":["resume builder（简历构建器）"],"focus":"用它产出的 PDF 记得把文件名改成你的名字（applying 课的文件名纪律）。","takeaway":"免费工具足够——简历的成败在内容组织，不在工具付费档。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"域名迁移新事实：flowcv.io → flowcv.com（301 实测）。"},
+    {"lessonId":"node-path-getting-hired-building-your-resume","title":"Getting Your Résumé Read (Joel on Software)","titleZh":"Joel on Software：让你的简历被读到","type":"博客文章","requirement":"optional","zone":"Optional reading 节","originalUrl":"http://www.joelonsoftware.com/articles/ResumeRead.html","sourceDomain":"www.joelonsoftware.com","originalUrlStatus":"200（301 路径迁移：/articles/ 旧路径现跳转 /2004-01-26/getting-your-resume-read/ 日期式新路径，同文）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Joel Spolsky 从「筛简历的人」的视角写：简历是怎么被处理的（第一关常常是非技术的筛人者）、什么样的简历会被直接扔掉、一页原则的历史论证——与本课「10 秒扫描」互为表里。","why":"Optional reading 节：官方指定的可选延伸阅读。","points":["筛简历第一关可能是完全不懂技术的人——关键词可读性比技术炫技重要。","2004 年的文章与本课 10 秒规则完全一致：一页、标题项前置、无照片无花活。"],"terms":["resume screening（简历初筛）"],"focus":"读完用「非技术筛人者」视角重看自己的简历：他们能找到三个标题项吗？","takeaway":"简历的第一读者可能不懂技术——为最不利的第一读者优化。"},"license":"内容版权归原作者（www.joelonsoftware.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"Optional reading 节条目——official.optional 与资料区双登记（EC/可选口径）。"},
+    {"lessonId":"node-path-getting-hired-applying-for-web-development-jobs","title":"Want to Work for a Startup? Here's How to Get Noticed (The Muse)","titleZh":"The Muse：想去创业公司？如何让他们注意到你","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://www.themuse.com/advice/want-to-work-for-a-startup-heres-how-to-get-noticed","sourceDomain":"www.themuse.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"The Muse（职业建议站）的文章：创业公司的招聘逻辑与大公司不同——更看文化契合与主动展示的兴趣，「走侧门」在创业公司场景的具体打法：研究产品、直接联系创始人/工程师、用作品说话。","why":"Assignment 唯一条目：read about how to get noticed by a startup you want to work for。","points":["创业公司的侧门更宽：人少、层级平——直接触达决策者的概率远高于大公司。","「把项目定向到他们身上」（克隆+新功能）在创业公司场景命中率最高——他们最缺的就是主动证明兴趣的人。"],"terms":["startup hiring（创业公司招聘）"],"focus":"挑你表格里期望值最高的一家创业公司，按文章步骤做一次完整侧门尝试。","takeaway":"创业公司要的不是完美简历，是「这个人真的想来」的证据。"},"license":"内容版权归原作者（www.themuse.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Mastering the Phone Interview (Monster Career Advice)","titleZh":"Monster：掌握电话面试","type":"文章","requirement":"reference","zone":"正文「The phone screen」节","originalUrl":"http://career-advice.monster.com/job-interview/interview-preparation/mastering-the-phone-interview/article.aspx","sourceDomain":"career-advice.monster.com","originalUrlStatus":"双通路不可达（2026-09-29 命令行 301 至 https://career-advice.monster.com:443/… 显式端口形态后 000；真实浏览器导航 ERR_CERT_AUTHORITY_INVALID）——如实登记","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Monster 职业建议频道的电话面试指导：电话筛选的准备清单（安静环境、简历在手、预演自我介绍）、常见电话问题、声音状态的自我管理。","why":"正文 The phone screen 节第 1 条配套阅读。","points":["电话筛选的独特约束：没有肢体语言——声音的热情与清晰度承载全部信号（对应「诚实、热情、开放」）。","准备动作：打印简历、备好纸笔、找安静房间、站着说话提气。"],"terms":["phone screen（电话筛选）"],"focus":"若不可达可跳过——本课正文已给电话筛选的形态与基本战术。","takeaway":"电话面试拼的是准备度与声音状态——对着镜子练不是玩笑，是官方建议。"},"license":"内容版权归原作者（career-advice.monster.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"双通路不可达：命令行 301→显式 :443 端口形态后 000；真实浏览器 ERR_CERT_AUTHORITY_INVALID（本轮网络通路证书异常），入 verifyLimitedUrls。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"7 Steps for Mastering the Telephone Interview (Dorigan)","titleZh":"Dorigan：掌握电话面试的 7 步","type":"博客文章","requirement":"reference","zone":"正文「The phone screen」节","originalUrl":"http://dorigan.com/how-to-interview/mastering-telephone-interview/","sourceDomain":"dorigan.com","originalUrlStatus":"200（301 路径迁移：/how-to-interview/mastering-telephone-interview/ 现跳转 /job-search-tips/mastering-telephone-interview 同文）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"电话面试的 7 步操作框架：从接听前的环境准备到通话中的节奏控制、再到挂断后的跟进动作——把电话筛选拆成可练习的步骤。","why":"正文 The phone screen 节第 2 条配套阅读。","points":["7 步框架与本课「基本战术不是战术」互补：战术是心态，7 步是流程。","跟进动作（当天感谢邮件）与 applying 课的 Following up 纪律一致。"],"terms":["telephone interview（电话面试）"],"focus":"把 7 步抄成一张检查卡，第一通电话筛选前过一遍。","takeaway":"电话面试可训练：环境、开场、节奏、收尾、跟进，各有动作。"},"license":"内容版权归原作者（dorigan.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 路径迁移（站点栏目重组），生效地址同文。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Getting the Interview Phone Screen Right (Coding Horror)","titleZh":"Coding Horror：把面试电话筛选做对","type":"博客文章","requirement":"reference","zone":"正文「The phone screen」节","originalUrl":"https://blog.codinghorror.com/getting-the-interview-phone-screen-right/","sourceDomain":"blog.codinghorror.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Jeff Atwood 讲「更技术向的电话筛选」形态：有些公司的电话筛选直接进入技术问题——官方 FINAL NOTE 点名的「很多公司跳过轻量部分直接进技术筛选」就是讲这种情况（The Coding Horror link below is more descriptive about that case）。","why":"正文 The phone screen 节第 3 条：A much more technical phone screen。","points":["技术型电话筛选的应对：手边有纸笔/编辑器，出声思考的习惯从现在开始练。","「不知道就说不知道」在电话里同样成立——沉默比坦白更致命（对方看不到你的表情）。"],"terms":["technical phone screen（技术电话筛选）"],"focus":"读完按最坏情况准备：假设第一通电话就有技术题。","takeaway":"电话筛选的下限是聊天，上限是技术面——按上限准备。"},"license":"内容版权归原作者（blog.codinghorror.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Peerfect — Free Mock Interviews","titleZh":"Peerfect（免费同伴模拟面试）","type":"练习平台","requirement":"reference","zone":"正文「Links」节","originalUrl":"https://peerfect.net/","sourceDomain":"peerfect.net","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：free online practice for behavioral, technical, and coding mock interviews with peers——免费的同伴模拟面试平台：行为面、技术面、编码面三类，与同水平的练习者互为面试官。","why":"正文 Links 节第 1 条：模拟面试练习入口。","points":["同伴练习的价值：低成本暴露「出声思考」与「节奏控制」的问题。","与 Exponent / interviewing.io 构成三档练习选择（免费同伴 → 结构化练习 → 匿名实战）。"],"terms":["mock interview（模拟面试）"],"focus":"第一场模拟面试安排在真实面试之前——把它当彩排。","takeaway":"面试是表演性技能：只能靠带观众的练习提升。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Exponent — Interview Practice","titleZh":"Exponent（面试准备与同伴练习）","type":"练习平台","requirement":"reference","zone":"正文「Links」节","originalUrl":"https://www.tryexponent.com/practice?ref=pramp&utm_source=pramp&utm_campaign=pramp_banner","sourceDomain":"www.tryexponent.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：allows you to prepare for coding interviews and practice your coding skills with peers——编码面试准备平台（原 Pramp 并入 Exponent）：课程化的面试准备 + 同伴练习匹配。","why":"正文 Links 节第 2 条。","points":["官方链接自带 ref=pramp 参数——Pramp（知名免费模拟面试站）已并入 Exponent 的历史痕迹，如实原样登记。","免费与付费功能混合：同伴练习基础形态免费，课程化内容部分收费。"],"terms":["coding interview practice（编码面试练习）"],"focus":"用免费同伴练习部分即可满足本课需求，付费课程非必需。","takeaway":"练习平台选一个坚持用，别在平台比较上消耗备面时间。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文即带 ref/utm 参数的地址，原样登记（qr.ae 参数先例）。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Interviewing.io — Anonymous Mock Interviews","titleZh":"Interviewing.io（匿名技术筛选练习）","type":"练习平台","requirement":"reference","zone":"正文「Links」节","originalUrl":"http://interviewing.io/","sourceDomain":"interviewing.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：gives you a chance to practice tech screens anonymously online——匿名在线练习技术筛选：与真人面试官做模拟技术面，表现好还能直接获得真实面试邀请。","why":"正文 Links 节第 3 条。","points":["匿名机制解除「练砸了毁名声」的心理负担——正好治面试恐惧。","练习即渠道：平台会把优秀表现直接对接给招聘公司（隐藏的侧门）。"],"terms":["anonymous practice（匿名练习）","tech screen（技术筛选）"],"focus":"把它当「技术电话筛选按上限准备」的实战场。","takeaway":"匿名练习是面试脱敏疗法——练到紧张消失为止。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Interview Tips (Interview Cake)","titleZh":"Interview Cake：面试技巧","type":"文章","requirement":"reference","zone":"正文「Links」节","originalUrl":"http://www.interviewcake.com/tips-and-tricks","sourceDomain":"www.interviewcake.com","originalUrlStatus":"200（301 路径迁移：/tips-and-tricks 现跳转 /coding-interview-tips 同文）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Interview Cake（编码面试教学站）的面试技巧总览：编码面试的答题框架、沟通节奏、卡壳时的自救动作——与本课「在评判下思考的操作要领」互为补充。","why":"正文 Links 节第 4 条：Interview Tips。","points":["答题框架与官方要领一致：先澄清问题 → 说思路 → 暴力解 → 优化。","「把卡点讲出来」的具体话术模板在这篇里最完整。"],"terms":["coding interview（编码面试）"],"focus":"重点读沟通与卡壳处理部分——算法知识靠刷题站补。","takeaway":"编码面试一半考代码，一半考「让别人看懂你怎么想」。"},"license":"内容版权归原作者（www.interviewcake.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 路径迁移生效地址 /coding-interview-tips。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"How to Ace Your Technical Interview (Dice Insights)","titleZh":"Dice Insights：如何搞定你的技术面试","type":"博客文章","requirement":"reference","zone":"正文「Links」节","originalUrl":"http://insights.dice.com/2014-10-12/ace-technical-interview/","sourceDomain":"insights.dice.com","originalUrlStatus":"命令行 301（http→https）后 https 直连 000；真实浏览器实测 200（标题 How to Ace Your Technical Interview | Dice.com 在位）——浏览器可达","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Dice insights 的技术面试指导：面试前的准备清单、现场答题的结构化方法、面试后的跟进——与 companies-want 课的 Dice 招聘方文章构成「两侧视角」的一对。","why":"正文 Links 节第 5 条。","points":["准备清单形态：复习项目细节（每个项目备好 60 秒版本）+ 刷基础算法 + 研究公司。","与官方要领重合度高：出声思考、暴力先行、诚实说不知道。"],"terms":["technical interview（技术面试）"],"focus":"当作官方要领的展开练习册读。","takeaway":"技术面试的确定性来自准备度：项目故事、算法戏法、公司信息三线并进。"},"license":"内容版权归原作者（insights.dice.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行 301→https 后 000（TLS 拒绝 curl）、真实浏览器 200——不入受限清单（浏览器可达口径，与 2013 文同形态）。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"How You Can Stand Out in Your Next Web Developer Interview (Udacity)","titleZh":"Udacity：下次 Web 开发者面试如何脱颖而出","type":"博客文章","requirement":"reference","zone":"正文「Links」节","originalUrl":"http://blog.udacity.com/2015-01/how-to-stand-out-in-your-web-developer-interview.html","sourceDomain":"blog.udacity.com","originalUrlStatus":"200（301 重定向终点为 https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011——原博客文章已下线，旧地址现跳转 Udacity 前端纳米学位课程页，内容替换事实如实登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方链接指向的 Udacity 博客文章（2015，讲 Web 开发者面试如何脱颖而出）已下线——旧地址现 301 至 Udacity 的 Front-End Web Developer Nanodegree 课程页。登记生效地址的当前形态：一门前端职业纳米学位课程的介绍页。","why":"正文 Links 节第 6 条（原文章形态已不可达，如实登记迁移终点）。","points":["原文内容不可得——链接现指向付费课程页，参考价值形态已变。","同类替代：本 Links 节的 Interview Cake 与 Dice 文章覆盖同样的「脱颖而出」主题。"],"terms":["stand out（脱颖而出）"],"focus":"知道链接现状即可，不必为课程页停留。","takeaway":"老链接的内容漂移是常态——以生效地址的实际形态为准。"},"license":"内容版权归原作者（www.udacity.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"内容替换新事实：blog.udacity.com 2015 面试文章已下线，301 终点为 front-end nanodegree 课程页（同域不同内容）——与 2013 文（同文迁移至 /blog/ 路径）形态不同，分别如实登记。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Finding a Job You'll Love: The Interview (Martin C. Martin)","titleZh":"Martin C. Martin：找到你热爱的工作——面试篇","type":"博客文章","requirement":"reference","zone":"正文「Links」节","originalUrl":"https://martincmartin.com/2010-01-08/finding-a-job-youll-love-the-interview/","sourceDomain":"martincmartin.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Martin C. Martin「找到你热爱的工作」系列的面试篇：从双向匹配视角讲面试——既讲怎么表现，更讲怎么在面试中评估对方（这正是本课 fit 面试「你也在测试他们」的展开）。","why":"正文 Links 节第 7 条：Post on The Interview。","points":["双向视角：面试是你收集「这是不是我想去的公司」证据的最好场合。","问题清单的构造方法：从你的「必须有/最好有」清单直接派生。"],"terms":["two-way interview（双向面试）"],"focus":"配合 fit 面试一节读：带上问题清单，确保它们被回答。","takeaway":"面试的隐藏议程：他们在筛你，你也在筛他们。"},"license":"内容版权归原作者（martincmartin.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"40 Key Computer Science Concepts Explained In Layman's Terms (Carl Cheo, web.archive)","titleZh":"Carl Cheo：40 个关键计算机科学概念的白话解释（存档）","type":"文章（存档）","requirement":"reference","zone":"正文「Links」节","originalUrl":"https://web.archive.org/web/20220901190653/http://carlcheo.com/compsci","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照；官方给存档链接，原站已下线）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"40 个计算机科学核心概念的一句话到一段话白话解释：递归、大 O、CAP 定理、哈希表、DNS……面试里「CS-y 问题」的高频概念速查表。","why":"正文 Links 节第 8 条：Read「40 Key Computer Science Concepts Explained In Layman’s Terms」。","points":["官方点名要补「数据结构与算法」——这篇是概念层的快速扫盲入口。","白话解释适合建立第一层理解，深度仍要靠 Algorithms training 三资源。"],"terms":["CS concepts（计算机科学概念）","Big O（大 O 记法）"],"focus":"先扫一遍标记完全陌生的概念，再逐个用 VisuaLGo / 课程补深。","takeaway":"面试官的 CS-y 问题多数落在这 40 个概念里——扫盲性价比极高。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文即给 web.archive 存档链接（carlcheo.com 已下线），原样登记。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Google's Guide for Technical Development","titleZh":"Google 技术发展指南","type":"官方指南","requirement":"reference","zone":"正文「Links」节（官方标注 advanced 高阶）","originalUrl":"https://www.google.com/about/careers/students/guide-to-technical-development.html","sourceDomain":"www.google.com","originalUrlStatus":"200（301 大幅路径迁移：/about/careers/students/guide-to-technical-development.html 现跳转 /about/careers/applications/buildyourfuture/resources/——Google 招聘站信息架构重组，生效页为 Build for Future 资源聚合页）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Google 官方给技术岗候选人的发展指南（官方标注 advanced）：推荐的学习路径、算法与系统设计准备、面试流程说明。原「guide-to-technical-development」专页已并入 Google 招聘站的 Build for Future 资源区。","why":"正文 Links 节第 9 条（官方标注高阶）。","points":["大厂视角的准备清单：数据结构算法 + 系统设计 + 编码风格。","迁移后的资源页覆盖学生与早期职业者——形态从单页指南变为资源聚合。"],"terms":["technical development（技术发展）"],"focus":"高阶标注意味着：先完成本课基础资源，再把它当「冲刺大厂」的补充地图。","takeaway":"Google 自己公开了「怎么准备 Google 面试」——一手信息永远优先于二手面经。"},"license":"Google 招聘站官方内容；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 大幅路径迁移新事实：旧 students/guide 专页并入 careers/applications/buildyourfuture/resources 聚合页——登记生效地址与迁移形态。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Ruby on Rails Popular Job Interview Questions (Nopio)","titleZh":"Nopio：Ruby on Rails 常见面试题","type":"博客文章","requirement":"reference","zone":"正文「Links」节","originalUrl":"https://www.nopio.com/blog/ruby-rails-popular-job-interview-questions/","sourceDomain":"www.nopio.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Rails 开发岗的常见面试题清单与简答：MVC、ActiveRecord、REST 路由、性能等高频考点——Ruby 路径的面试题库；对 JavaScript 路径学习者是「框架面试题长什么样」的参照。","why":"正文 Links 节第 10 条。","points":["框架面试题的通用形态：概念解释 + 场景应用 + 陷阱辨析——React/Node 面试同构。","本站路径是 JS——把题目形态迁移到 React/Express 语境自测。"],"terms":["interview questions（面试题）"],"focus":"看题型结构，不必背 Rails 知识点。","takeaway":"面试题是「雇主关心的概念清单」的逆向工程样本。"},"license":"内容版权归原作者（www.nopio.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Cracking the Coding Interview","titleZh":"《Cracking the Coding Interview》（破解编码面试）","type":"书籍官网","requirement":"optional","zone":"正文「Links」节（官方标注 OPTIONAL READING）","originalUrl":"https://www.crackingthecodinginterview.com/","sourceDomain":"www.crackingthecodinginterview.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Gayle Laakmann McDowell 的面试圣经官网：书籍信息、配套资源、勘误。官方评价（加粗 OPTIONAL READING）：「可能是你最好的朋友——全面覆盖编码面试的各类挑战；超出本课程范围，但会考到的其他主题它都有」。","why":"正文 Links 节第 11 条：官方标注的可选阅读。","points":["覆盖面=「超出课程范围」：位运算、面向对象设计、系统设计、行为面——课程没教的它兜底。","纸书/电子书付费——官方标 OPTIONAL，量力而行。"],"terms":["coding interview（编码面试）"],"focus":"预算有限就配合免费资源（Carl Cheo 40 概念 + 刷题站）；冲刺大厂再考虑入手。","takeaway":"它不是必需，但它是编码面试准备的最全单册。"},"license":"书籍官网内容版权归原作者与出版社；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方正文标注 OPTIONAL READING——official.optional 与资料区双登记。作者与本站 resume 课示例简历（gayle.com/resume）同源。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"8 Queens Problem (InterviewBit)","titleZh":"InterviewBit：八皇后问题","type":"博客文章","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"https://www.interviewbit.com/blog/8-queens-problem/","sourceDomain":"www.interviewbit.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"八皇后问题（8×8 棋盘放 8 个皇后互不攻击）的讲解：回溯法（backtracking）的经典入门题——官方点名「is a classic problem」。","why":"正文 Coding test questions 节第 1 条：经典题。","points":["八皇后是回溯算法的标准教学载体——先搜「回溯」的戏法再做题（lesson-note 方法论的直接应用）。","命令行核验 200；官方原文带 #:~:text 文本片段定位参数，按既有口径登记去片段的规范地址。"],"terms":["8 Queens（八皇后）","backtracking（回溯）"],"focus":"按 lesson-note 纪律：先学会回溯的通用套路，再回来独立解一遍。","takeaway":"经典题的价值在「戏法可迁移」：回溯能解八皇后，也能解数独与组合枚举。"},"license":"内容版权归原作者（www.interviewbit.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文链接带 #:~:text=Given%20a%208%20X%208… 文本片段——按 qr.ae 先例登记去片段的规范地址。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Coding for Interviews: Know Thy Standard Libraries (web.archive)","titleZh":"了解你的标准库（Coding for Interviews，存档）","type":"文章（存档）","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"http://web.archive.org/web/20210617041720/http://blog.codingforinterviews.com/reading-code-standard-libraries/","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照；官方给 http 协议存档地址，原站已下线）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"讲「读你常用语言的标准库源码」对面试与工程的价值：标准库是最优质的惯用法（idiom）教材——官方评注：对初级可能有点超纲（a bit of overkill for a junior），有时间读无害（never hurts）。","why":"正文 Coding test questions 节第 2 条（带官方超纲评注）。","points":["读标准库收获的是「地道写法」：面试官一眼能分辨背题者与真写过代码的人。","官方给了难度定位：超纲可选——别为它挤占基础算法时间。"],"terms":["standard library（标准库）"],"focus":"JS 路径的等价动作：读 MDN 示例实现、看 lodash 源码的小函数。","takeaway":"标准库是免费的「最佳实践」图书馆——但先过算法关再来。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文即给 http 协议的 web.archive 存档地址，原样登记。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Project Euler","titleZh":"Project Euler（数学编程挑战站）","type":"练习平台","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"http://projecteuler.net/","sourceDomain":"projecteuler.net","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：has more generic and challenging problems that must be solved efficiently (they can be very computationally intensive)——数学向编程挑战站：800+ 道需要高效算法才能解出的题（暴力枚举会算到天荒地老）。","why":"正文 Coding test questions 节第 3 条。","points":["「必须高效解决」的设计逼你学算法优化——每题都有时间复杂度门槛。","数学味浓：适合喜欢数论/组合的读者，不适合当通用面试题库。"],"terms":["computational problem（计算问题）"],"focus":"做前 50 题感受「暴力→优化」的循环即可，别陷进数学深水区。","takeaway":"Project Euler 训练的是「效率直觉」——面试里 brute force 之后的优化环节正考这个。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Codewars","titleZh":"Codewars（编程 kata 练习站）","type":"练习平台","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"https://www.codewars.com","sourceDomain":"www.codewars.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：has programming problems and examples of best practice. Join 'The Odin Project' clan for allies——编程 kata（题型化练习）平台：按难度分级（kyu/dan），每题解完可看他人最佳实践解法；官方特别点名：加入 The Odin Project 氏族（clan）找盟友。","why":"正文 Coding test questions 节第 4 条（含官方氏族指引）。","points":["「解完看别人答案」的机制=免费的惯用法教材——与「先学戏法」方法论天然契合。","TOP clan 是组织化练习入口：同路人进度可见、可组队。"],"terms":["kata（编程套路练习）","clan（氏族）"],"focus":"注册后第一件事：搜索并加入 The Odin Project clan（官方指定动作）。","takeaway":"Codewars 的正确用法：做题 5 分钟，读最佳实践解法 15 分钟。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方正文点名 Join The Odin Project clan——氏族为站内功能，无独立链接。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"HackerRank","titleZh":"HackerRank（算法与数据结构挑战平台）","type":"练习平台","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"https://www.hackerrank.com/","sourceDomain":"www.hackerrank.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：provides challenges, drills, and competitions on algorithms & data structures——算法与数据结构的挑战、训练与竞赛平台；同时是大公司常用的笔试（在线测评）平台——练习环境与真实笔试环境同源。","why":"正文 Coding test questions 节第 5 条。","points":["双身份：练习站 + 真实笔试场——在它上面练习等于熟悉未来考场。","按主题刷（数组/字符串/树/图/动态规划）比随机刷更符合「先学戏法」方法论。"],"terms":["drill（训练）","competition（竞赛）"],"focus":"优先做「Interview Preparation Kit」类结构化路线，竞赛量力参与。","takeaway":"HackerRank 的隐藏价值：你练习的界面就是你笔试的界面。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"LeetCode","titleZh":"LeetCode（力扣）","type":"练习平台","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"https://leetcode.com/explore/","sourceDomain":"leetcode.com","originalUrlStatus":"命令行 403（反爬）；真实浏览器导航 Cloudflare 安全验证挑战页——受限形态如实登记","zhUrl":"https://leetcode.cn/","zhType":"官方中文站（力扣 LeetCode CN）","zhGuide":{"overview":"官方描述：also has some great resources, with problems, explanations, and challenges. Best of all, you don't have to create an account to view the questions——题目、讲解、挑战俱全，且不用注册账号就能看题。中文站力扣（leetcode.cn）为同一体系的官方中文平台（题库/竞赛/讨论/学习计划全中文）。","why":"正文 Coding test questions 节第 6 条。","points":["「不注册就能看题」是官方点名的差异点——浏览题库零门槛。","lesson-note 的「go grind Leetcode」流行语主角——记住官方纠偏：先学戏法再刷题。"],"terms":["grind（刷題）","problem set（题库）"],"focus":"中文用户可直接用力扣（leetcode.cn）：界面与题解社区全中文，题库主体同源。","takeaway":"LeetCode 是好题库，但方法论决定收益：带着算法知识去刷，不要赤手空拳硬磨。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"leetcode.com/explore 命令行 403 + 真实浏览器 Cloudflare 挑战页——入 verifyLimitedUrls（可汗 Client Challenge 先例口径）。中文站 leetcode.cn 真实浏览器实测：首页渲染 3288 汉字（题库/竞赛/讨论/求职/学习计划全中文界面）——A 类判定成立。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"NeetCode","titleZh":"NeetCode（聚焦刷题与视频讲解）","type":"练习平台","requirement":"reference","zone":"正文「Coding test questions」节","originalUrl":"https://neetcode.io/","sourceDomain":"neetcode.io","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：similar to LeetCode, but fewer, more focused questions. Each problem also has video explanations that walk through the problem solution——比 LeetCode 更少更聚焦的题单（NeetCode 150 等精选路线），每题配视频讲解走一遍解法。","why":"正文 Coding test questions 节第 7 条。","points":["「更少更聚焦」正对 lesson-note 方法论：精选题单+视频戏法讲解=先学后练的成套方案。","路线图形态（按主题排序的题单）省去自己选题的成本。"],"terms":["focused problem list（聚焦题单）"],"focus":"用它的路线图代替「随机刷题」：按主题块推进，每块先看视频再做题。","takeaway":"NeetCode 是 lesson-note 方法论的产品化：戏法讲解在前，练习在后。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Udacity: Intro to Algorithms (CS215)","titleZh":"Udacity 算法导论课程（CS215）","type":"在线课程","requirement":"reference","zone":"正文「Algorithms training」节（官方标注 asynchronous 异步）","originalUrl":"https://www.udacity.com/course/intro-to-algorithms--cs215","sourceDomain":"www.udacity.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Udacity 与佐治亚理工合作的算法入门课程（官方标注 asynchronous 异步——自定进度）：动态规划、图算法、NP 完全性等面试高频主题的体系化课程。","why":"正文 Algorithms training 节第 1 条。","points":["异步形态适合在职备考：碎片时间推进，无开课日期约束。","课程化学习正是「先学戏法」的系统版——比零散题解完整。"],"terms":["asynchronous course（异步课程）"],"focus":"时间有限就挑「图算法 + 动态规划」两块面试高频章节。","takeaway":"算法训练的三资源分工：Udacity 体系课 / Coursera 节奏课 / VisuaLGo 可视化直觉。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Coursera: Algorithms Specialization","titleZh":"Coursera 算法专项课程","type":"在线课程","requirement":"reference","zone":"正文「Algorithms training」节（官方标注 semi-synchronous 半同步）","originalUrl":"https://www.coursera.org/course/algo","sourceDomain":"www.coursera.org","originalUrlStatus":"200（301 课程重组迁移：/course/algo 现跳转 /specializations/algorithms——原单课升级为专项课程（Specialization），如实登记生效地址）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"斯坦福 Algorithms 专项课程（官方标注 semi-synchronous 半同步——有建议节奏但可自定进度）：分治、随机化、图、NP 理论四门课的经典体系。","why":"正文 Algorithms training 节第 2 条。","points":["半同步形态：有 deadline 的节奏感比纯异步更防拖延——适合需要外部约束的备考者。","课程重组事实：旧单课 /course/algo 已升级为 specialization 多课包。"],"terms":["semi-synchronous（半同步）","specialization（专项课程）"],"focus":"备考时间紧就只修第一门（分治与渐进分析）。","takeaway":"Coursera 与 Udacity 二选一即可——体系课重复投入是浪费。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 课程重组迁移新事实：/course/algo → /specializations/algorithms。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"VisuAlgo","titleZh":"VisuAlgo（数据结构与算法可视化）","type":"可视化工具","requirement":"reference","zone":"正文「Algorithms training」节","originalUrl":"https://visualgo.net/","sourceDomain":"visualgo.net","originalUrlStatus":"200（301 至 https://visualgo.net/en 语言路径）","zhUrl":"https://visualgo.net/zh","zhType":"官网中文界面","zhGuide":{"overview":"官方描述：visualizes many common algorithms to help students better understand data structures and algorithms——新加坡国立大学团队的算法可视化工具：排序、链表、二叉树、BST、堆、图遍历、最短路径、并查集等常见算法的逐步动画演示。中文界面（/zh）覆盖完整（内容级核验 3285 汉字）。","why":"正文 Algorithms training 节第 3 条：可视化理解数据结构与算法。","points":["可视化直接服务「在脑海里可视化」的能力——lesson-note 的 DFS 例子在 VisuAlgo 里能一步步看。","工具界面即本体：中文界面即完整中文版（pexels 先例口径）。"],"terms":["algorithm visualization（算法可视化）","DFS（深度优先搜索）"],"focus":"配合刷题使用：卡在某算法时先到 VisuAlgo 看动画建立直觉，再回去写代码。","takeaway":"看懂动画 ≠ 会写代码——但看不懂动画基本写不出来；VisuAlgo 补的是直觉层。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"A 类判定：官网中文界面 visualgo.net/zh 内容级核验 3285 汉字（2026-09-29 命令行实测渲染文本）——工具界面即本体先例（pexels/learngitbranching 同口径）。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Teaching Software Architecture with GitHub (Avandeursen)","titleZh":"Avandeursen：用 GitHub 教软件架构","type":"博客文章","requirement":"reference","zone":"正文「Architecture」节","originalUrl":"http://avandeursen.com/2013-12-30/teaching-software-architecture-with-github/","sourceDomain":"avandeursen.com","originalUrlStatus":"200（301 至 https 同路径）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"一篇讲「用 GitHub 仓库组织软件架构教学」的文章：架构知识的载体化——用仓库结构、README、示例代码传递架构决策。Architecture 节唯一条目。","why":"正文 Architecture 节唯一资源。","points":["与作品集建设互补：架构理解力是「工程权衡决策」（prepare 课）的深层支撑。","面试里的系统设计题雏形：为什么这样分层、为什么选这个模式。"],"terms":["software architecture（软件架构）"],"focus":"初级阶段了解「架构是显性知识、可以被展示」即可，深度设计留给工作后。","takeaway":"架构能力的最早展示形态：项目 README 里那段「为什么这样设计」。"},"license":"内容版权归原作者（avandeursen.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Levels.fyi","titleZh":"Levels.fyi（科技公司职级与薪酬数据）","type":"薪酬数据站","requirement":"reference","zone":"正文「A note on compensation」节","originalUrl":"https://www.levels.fyi/","sourceDomain":"www.levels.fyi","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"科技公司职级体系与薪酬的众包数据站：按公司/职级/地区查总包（base+股票+奖金）——对照 offer 与市场价的五资源之一，科技公司数据密度最高。","why":"正文 compensation 节第 1 条：公平市场价对照资源。","points":["查询纪律（官方原话）：按经验年数 0–1 年过滤——「初级不等于该被低薪」，但对照要准。","美国科技公司数据最全；其他市场参考密度递减。"],"terms":["total compensation（总包薪酬）","level（职级）"],"focus":"拿 offer 前查一次定区间，拿 offer 后查一次验公平。","takeaway":"谈薪的底气来自数据：区间报价前先知道自己值多少。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Glassdoor Salaries","titleZh":"Glassdoor（薪酬与公司评价数据）","type":"薪酬数据站","requirement":"reference","zone":"正文「A note on compensation」节","originalUrl":"https://www.glassdoor.com/Salaries/index.htm","sourceDomain":"www.glassdoor.com","originalUrlStatus":"200（301 区域重定向：本轮网络环境下跳转 www.glassdoor.com.hk/Salaries/index.htm?countryRedirect=true——按访客地区自动分区，如实登记）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"职场数据平台 Glassdoor 的薪酬分区：众包薪酬数据 + 公司评价 + 面试经验——对照 offer 时还能顺带查公司口碑（契合面试前的功课资源）。","why":"正文 compensation 节第 2 条。","points":["双用途：薪酬对照 + 公司评价（fit 面试「你也在测试他们」的数据源）。","区域重定向形态：不同地区访客被导向对应分区站。"],"terms":["salary data（薪酬数据）","company reviews（公司评价）"],"focus":"薪酬数据按职位名+城市+年限三重过滤再看中位数。","takeaway":"Glassdoor 的面试经验区是免费的「面经真题库」——面试前必查。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"301 区域重定向事实：glassdoor.com → glassdoor.com.hk（countryRedirect=true），按访客地区分区。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Comparably","titleZh":"Comparably（公司文化与薪酬对比）","type":"薪酬数据站","requirement":"reference","zone":"正文「A note on compensation」节","originalUrl":"https://www.comparably.com/","sourceDomain":"www.comparably.com","originalUrlStatus":"命令行 403（反爬）；真实浏览器实测 200（首页标题 Comparably - Transparent Cultures, Brands & Salaries 在位）——浏览器可达","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方标语 Transparent Cultures, Brands & Salaries：公司文化评分、品牌口碑与薪酬数据的对比平台——五资源里「文化透明」维度最强的一站。","why":"正文 compensation 节第 3 条。","points":["文化评分维度（领导力/多样性/工作生活平衡）可直接喂给筛选课的八问。","命令行 403 为反爬形态，真实浏览器可达。"],"terms":["company culture（公司文化）"],"focus":"查目标公司时把文化评分与 Glassdoor 评价交叉验证。","takeaway":"薪酬数字之外，文化数据是「每天去上班会有多喜欢」的量化线索。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"命令行 403、真实浏览器 200——不入受限清单（浏览器可达口径）。"},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Payscale","titleZh":"Payscale（薪酬调研数据）","type":"薪酬数据站","requirement":"reference","zone":"正文「A note on compensation」节","originalUrl":"https://www.payscale.com/","sourceDomain":"www.payscale.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"老牌薪酬调研站：按职位/技能/地区/经验年数查薪酬区间——数据形态偏调研问卷聚合，适合做 offer 的市场校准。","why":"正文 compensation 节第 4 条。","points":["按「经验 0-1 年」过滤是官方提醒的对照纪律。","与 Levels.fyi 互补：Payscale 覆盖全行业，Levels 深耕科技公司。"],"terms":["salary survey（薪酬调研）"],"focus":"查「职位名 + 你的城市」的组合，取区间中位数做谈判锚点。","takeaway":"多源交叉才可信：单一薪酬站的数据都有样本偏差。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-preparing-to-interview-and-interviewing","title":"Talent.com Salary","titleZh":"Talent.com（薪酬数据）","type":"薪酬数据站","requirement":"reference","zone":"正文「A note on compensation」节","originalUrl":"https://www.talent.com/salary","sourceDomain":"www.talent.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"招聘聚合站 Talent.com 的薪酬分区：按职位与地区给出薪酬中位数与分布——五资源里数据获取路径最轻量的一站（无需注册即可查询）。","why":"正文 compensation 节第 5 条。","points":["轻量查询适合作第一遍粗筛：先定数量级，再用 Levels/Glassdoor 精调。","聚合站的薪酬来自职位发布数据——对「发布出来的 20%」市场有代表性，对隐藏市场无。"],"terms":["median salary（薪酬中位数）"],"focus":"五站不必全查：粗筛一站 + 精调一站的组合足够支撑区间报价。","takeaway":"薪酬对照的目的是「报得出有依据的区间」——数据够用了就停止收集。"},"license":"第三方平台页面；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-handling-a-job-offer","title":"My Ten Rules for Negotiating a Job Offer (Haseeb Qureshi)","titleZh":"Haseeb Qureshi：谈判工作 offer 的十条规则","type":"博客文章","requirement":"required","zone":"Assignment 第 1 条","originalUrl":"https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/","sourceDomain":"haseebq.com","originalUrlStatus":"200","zhUrl":null,"zhType":null,"zhGuide":{"overview":"Haseeb Qureshi（转行者拿到多家大厂 offer 的著名复盘者）的谈判方法论长文：十条规则覆盖心态（把自己当赢家）、信息不对称的处理、报价策略（区间与沉默）、多个 offer 的杠杆化——官方评价：长博客，但值得读完以进入正确的心态（get in the right mindset）。","why":"Assignment 第 1 条：进入谈判心态的指定教材。","points":["核心与本课一致：谈判力来自替代选项（另一个 offer）与信息纪律（不先报单点数字）。","「进入正确心态」是官方点名的阅读目的——谈判首先输在心态：新人总觉得「不配谈」。"],"terms":["negotiation（谈判）","leverage（筹码/杠杆）"],"focus":"十条规则抄成清单——真到谈判那天，紧张时你只会执行写下来的东西。","takeaway":"谈判不是对抗，是带规则的合作：公司留了余地（发 offer 者的 $5k 权限），不用的钱不会给你。"},"license":"内容版权归原作者（haseebq.com）；本站只做链接与本站原创导读，不翻译文章内容。","handling":"link-only","verifiedAt":"2026-09-29","note":""},
+    {"lessonId":"node-path-getting-hired-handling-a-job-offer","title":"Negotiating your Startup Job Offer (Rob.by, web.archive)","titleZh":"Rob.by：谈判你的创业公司 offer（存档）","type":"博客文章（存档）","requirement":"required","zone":"Assignment 第 2 条","originalUrl":"https://web.archive.org/web/20180626035838/http://rob.by/2013/negotiating-your-startup-job-offer/","sourceDomain":"web.archive.org","originalUrlStatus":"200（存档快照；官方给存档链接，原站已下线）","zhUrl":null,"zhType":null,"zhGuide":{"overview":"官方描述：gets into the equity component of some offers——深入创业公司 offer 特有的股权（equity）成分：期权（options）怎么估值、行权价与稀释、股权与现金薪酬的取舍——薪水之外的谈判维度。","why":"Assignment 第 2 条：股权成分的专门阅读。","points":["创业公司 offer=现金+股权的组合——只谈薪水等于放弃一半谈判面。","股权的不确定性极高：把它当彩票看，现金部分按市场价谈。"],"terms":["equity（股权）","stock options（期权）","dilution（稀释）"],"focus":"拿到创业公司 offer 时重读：对着 term sheet 逐项问「这个数字怎么算的」。","takeaway":"看不懂的股权条款就是坏条款——问清楚之前不签字。"},"license":"web.archive.org 存档快照，原内容版权归原作者；本站只做链接与本站原创导读。","handling":"link-only","verifiedAt":"2026-09-29","note":"官方原文即给 web.archive 存档链接（rob.by 已下线），原样登记。"}
   /* === END === */
   ]
 };

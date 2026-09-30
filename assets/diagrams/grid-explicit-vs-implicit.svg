@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="250" viewBox="0 0 740 250" role="img" aria-labelledby="t-grid-explicit-vs-implicit d-grid-explicit-vs-implicit">
+  <title id="t-grid-explicit-vs-implicit">显式网格 vs 隐式网格：轨道的两种来历</title>
+  <desc id="d-grid-explicit-vs-implicit">左右两栏对比图。左栏标题「显式网格（explicit）」：你用 grid-template-columns / grid-template-rows 定义出来的部分；轨道数量与尺寸都由你说了算；相当于图纸——先画好、再施工。右栏标题「隐式网格（implicit）」：项目超出显式定义时，Grid 自动创建的轨道；尺寸不继承显式轨道，默认由内容撑开；用 grid-auto-rows / grid-auto-columns 控制尺寸，用 grid-auto-flow 控制补轨道的方向。图下说明：两者是同一张网格的两半，显式部分画完后隐式部分自动接管——「第五个项目去哪了」的答案永远在隐式轨道里。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">显式网格 explicit · 你画好的部分</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">grid-template-columns / rows 定义的轨道</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">数量与尺寸都由你说了算</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">像图纸：先画好、再施工</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="158" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">隐式网格 implicit · Grid 自动补的部分</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">项目超出显式定义时自动创建的轨道</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">尺寸不继承显式轨道，默认由内容撑开</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">grid-auto-rows / columns 定尺寸，</tspan><tspan x="413" dy="18">grid-auto-flow 定方向</tspan></text>
+  <rect class="note" x="22" y="194" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="216" text-anchor="middle"><tspan x="370">同一张网格的两半：显式画完，隐式接管——「第五个项目去哪了」的答案永远在隐式轨道里。</tspan></text>
+</svg>

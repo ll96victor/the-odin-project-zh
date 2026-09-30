@@ -18,8 +18,17 @@
  *     （coinFlags 闩锁 'tier:<family>:<tier>'），重复求值 / 撤销重做都无法重复发放。
  *
  * 阈值说明：交接 D1 的示例数值（如自测 5/20/50、探索 5/15/30）按本站实际
- * 收敛——本站开放 46 课（Foundations 全部），且“同一行为不得通过撤销重做反复刷计数”，
- * 因此按课去重的族阈值上限就是 46（5/12/46）。按天/按次累计的族保留交接量级。
+ * 收敛——全站已开放 197 课（Foundations 全部 + World 2 四个章节路径课 22 课 +
+ * World 3 javascript 课程「引言」「组织 JavaScript 代码」「真实世界的 JavaScript」
+ * 「异步 JavaScript 与 API」「测试 JavaScript」「一点计算机科学」「Git 进阶」
+ * 「JavaScript 收尾」八章 41 课——World 3 全课程收组 + World 4 advanced-html-and-css
+ * 课程「动画」「无障碍」「响应式设计」三章节 16 课——World 4 全课程收组 +
+ * World 5 react 课程「引言」「React 入门」「状态与副作用」「类组件」「React 测试」
+ * 「React 生态」「更多 React 概念」「结语」八章节 25 课——World 5 全课程收组 + World 6 databases 课程「数据库」章节 3 课——World 6 全课程收组 + World 7 nodejs 课程「NodeJS 入门」「Express」「身份认证」「ORM」「API」「测试 Express」「全栈项目」「最终项目」全八章节 30 课——World 7 全课程收组 + World 8 getting-hired 课程「准备求职」「投递与面试」两章节 14 课——World 8 全课程收组、全站 197 课全部开放（超长续轮批次 7 阶段 4，v4.11.36）。订正登记：本注释 World 4
+ * 段在批次 5 阶段 3 轮漏更（停留在「两章节 11 课」旧值），批次 6 阶段 1 随本轮
+ * 现算补齐），且“同一行为不得通过撤销重做反复刷计数”，
+ * 因此按课去重的族阈值上限就是 46（5/12/46——按 Foundations 课数收敛，路径课
+ * 逐批开放不追着改阈值）。按天/按次累计的族保留交接量级。
  * Boss 族按交接原值：通过 1 次 / 高评价 3 次 / 高评价 8 次（铜阶用“通过数”、
  * 银金阶用“高评价数”，因此每阶可以有自己的 metric——tiers 结构是 tier 级的）。
  *

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-positioning-five-modes-map d-positioning-five-modes-map">
+  <title id="t-positioning-five-modes-map">定位的五种模式：参照谁定位、是否脱离文档流</title>
+  <desc id="d-positioning-five-modes-map">概念关系图。中心是「position 的五种模式」，副标题提示看两件事：参照谁定位、是否脱离文档流。五颗卫星环绕：static 静态——默认值，按文档流正常排列，top、right、bottom、left 一律不起作用；relative 相对——参照自己原本的位置偏移，不脱离文档流，原空间仍保留，后面的元素不会补位；absolute 绝对——脱离文档流，参照最近的已定位祖先，放到精确一点，适合模态框、图上文字与角标；fixed 固定——脱离文档流，参照视口定位，滚动时钉住不动，适合导航栏与悬浮按钮；sticky 粘性——不脱离文档流，滚过之前是普通元素，滚过之后才像 fixed，适合分区标题吸顶。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,197 L366,113"/>
+  <path class="spoke" d="M461,218 L473,215"/>
+  <path class="spoke" d="M409,286 L458,337"/>
+  <path class="spoke" d="M323,286 L266,345"/>
+  <path class="spoke" d="M272,218 L259,215"/>
+  <rect class="accentbox" x="272" y="197" width="189" height="89" rx="10"/>
+  <text class="hb" x="366" y="231" text-anchor="middle"><tspan x="366">position 的五种模式</tspan></text>
+  <text class="s" x="366" y="247" text-anchor="middle"><tspan x="366">看两件事：参照谁定位 ·</tspan><tspan x="366" dy="16">是否脱离文 档流</tspan></text>
+  <rect class="box" x="252" y="20" width="228" height="93" rx="6"/>
+  <text class="hb" x="366" y="43" text-anchor="middle"><tspan x="366">static 静态</tspan></text>
+  <text class="s" x="366" y="59" text-anchor="middle"><tspan x="366">默认值：按文档流正常排列，top /</tspan><tspan x="366" dy="17">right / bottom / left</tspan><tspan x="366" dy="17">一律不起 作用</tspan></text>
+  <rect class="box" x="473" y="149" width="228" height="76" rx="6"/>
+  <text class="hb" x="587" y="172" text-anchor="middle"><tspan x="587">relative 相对</tspan></text>
+  <text class="s" x="587" y="188" text-anchor="middle"><tspan x="587">参照自己原本的位置偏移；不脱流，</tspan><tspan x="587" dy="17">原空间仍保留（后面的元素不补位）</tspan></text>
+  <rect class="box" x="388" y="337" width="228" height="93" rx="6"/>
+  <text class="hb" x="502" y="359" text-anchor="middle"><tspan x="502">absolute 绝对</tspan></text>
+  <text class="s" x="502" y="375" text-anchor="middle"><tspan x="502">脱离文档流；参照最近的已定位祖先，</tspan><tspan x="502" dy="17">放到精确一点——模态框、图上文字</tspan><tspan x="502" dy="17">、角标</tspan></text>
+  <rect class="box" x="116" y="345" width="228" height="76" rx="6"/>
+  <text class="hb" x="230" y="368" text-anchor="middle"><tspan x="230">fixed 固定</tspan></text>
+  <text class="s" x="230" y="384" text-anchor="middle"><tspan x="230">脱离文档流；参照视口定位，滚动时</tspan><tspan x="230" dy="17">钉住不动——导航栏、悬浮按钮</tspan></text>
+  <rect class="box" x="31" y="149" width="228" height="76" rx="6"/>
+  <text class="hb" x="145" y="172" text-anchor="middle"><tspan x="145">sticky 粘性</tspan></text>
+  <text class="s" x="145" y="188" text-anchor="middle"><tspan x="145">不脱流；滚过之前是普通元素，滚过</tspan><tspan x="145" dy="17">之后才像 fixed——分区标题吸顶</tspan></text>
+</svg>

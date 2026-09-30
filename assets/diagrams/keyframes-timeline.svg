@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="224" viewBox="0 0 450 224" role="img" aria-labelledby="t-keyframes-timeline d-keyframes-timeline">
+  <title id="t-keyframes-timeline">@keyframes 时间轴：一个周期长什么样</title>
+  <desc id="d-keyframes-timeline">三步流程图。第一步「from / 0%」：起点帧——官方例子里是 background-color red；from 是 0% 的别名，duration 为 2 秒时读作第 0 秒。第二步「50%」：中间帧只能用百分比——例子里在中点同时改颜色为 blue 并 scale(2) 放大一倍。第三步「to / 100%」：终点帧——background-color green；to 是 100% 的别名，读作第 2 秒。三步合起来是 @keyframes 规则定义的「一个动画周期」。图下说明：iteration-count 数的是单向周期——count 为 2 且 direction 为 alternate 时，效果是红到绿、再绿到红，然后停；不写 alternate 则每个周期结束跳回起点重播。别把一次 iteration 当成一个来回的完整循环，这是官方专门设防的误区。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="55" text-anchor="middle"><tspan x="75">from / 0%</tspan></text>
+  <text class="s" x="75" y="53" text-anchor="middle"><tspan x="75">起点帧：红色</tspan><tspan x="75" dy="15">（from 是</tspan><tspan x="75" dy="15">0% 的别名 ·</tspan><tspan x="75" dy="15">第 0 秒）</tspan></text>
+  <rect class="box" x="176" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="55" text-anchor="middle"><tspan x="225">50%</tspan></text>
+  <text class="s" x="225" y="53" text-anchor="middle"><tspan x="225">中间帧只能百</tspan><tspan x="225" dy="15">分比：变蓝 +</tspan><tspan x="225" dy="15">scale(2)</tspan><tspan x="225" dy="15">放 大</tspan></text>
+  <path class="edge" d="M124,57 L169,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="326" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="375" y="55" text-anchor="middle"><tspan x="375">to / 100%</tspan></text>
+  <text class="s" x="375" y="53" text-anchor="middle"><tspan x="375">终点帧：绿色</tspan><tspan x="375" dy="15">（to 是</tspan><tspan x="375" dy="15">100% 的别名</tspan><tspan x="375" dy="15">· 第 2 秒）</tspan></text>
+  <path class="edge" d="M274,57 L319,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="398" height="104" rx="6"/>
+  <text class="s" x="225" y="116" text-anchor="middle"><tspan x="225">三步合起来是 @keyframes 定义的「一个动画周期」（按</tspan><tspan x="225" dy="18">duration 2s 折算秒数）。iteration-count 数的是单向周期：</tspan><tspan x="225" dy="18">count 2 + alternate = 红→绿、绿→红然后停；不写 alternate</tspan><tspan x="225" dy="18">则每周期结束跳回起点重播。别把一次 iteration 当成一个来回</tspan><tspan x="225" dy="18">——官方专门设防的误区。</tspan></text>
+</svg>

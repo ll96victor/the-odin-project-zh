@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="471" height="331" viewBox="0 0 471 331" role="img" aria-labelledby="t-hashmap-key-to-bucket d-hashmap-key-to-bucket">
+  <title id="t-hashmap-key-to-bucket">hash map 的一跳到位：从键到桶的五步</title>
+  <desc id="d-hashmap-key-to-bucket">五步流程图。第一步「键」：用户提供的字符串——永远不直接用键访问桶。第二步「散列函数」：质数 31 逐字符乘加，字母位置参与散列。第三步「散列码」：一个纯数字，桶索引的候选地址（例如 385）。第四步「取模」：散列码对当前容量取模（385 % 16），落进 0 到 15 的桶。第五步「桶：比键取值」：不同键可能同桶（冲突）——比较键相同才返回值，否则 null。图下说明：官方存值三步——散列键得散列码、找到该索引的桶、存入键值对；取值多一步比键，因为散列码只是位置、冲突必然发生（鸽笼原理）——桶里的链表住多个节点时，键是唯一身份。平均 O(1)，最坏 O(n)（全部数据散列到同一个桶）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="105" height="62" rx="6"/>
+  <text class="hb" x="79" y="55" text-anchor="middle"><tspan x="79">键 "Fred"</tspan></text>
+  <text class="s" x="79" y="60" text-anchor="middle"><tspan x="79">用户给的字符</tspan><tspan x="79" dy="15">串 ·</tspan><tspan x="79" dy="15">不直接访 问桶</tspan></text>
+  <rect class="box" x="183" y="26" width="105" height="62" rx="6"/>
+  <text class="hb" x="236" y="55" text-anchor="middle"><tspan x="236">散列函数</tspan></text>
+  <text class="s" x="236" y="68" text-anchor="middle"><tspan x="236">质数 31 逐字</tspan><tspan x="236" dy="15">符乘加</tspan></text>
+  <path class="edge" d="M131,57 L176,57" marker-end="url(#arr)"/>
+  <rect class="box" x="340" y="26" width="105" height="62" rx="6"/>
+  <text class="hb" x="393" y="55" text-anchor="middle"><tspan x="393">散列码 385</tspan></text>
+  <text class="s" x="393" y="68" text-anchor="middle"><tspan x="393">纯数字——桶索</tspan><tspan x="393" dy="15">引的候选地址</tspan></text>
+  <path class="edge" d="M288,57 L333,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="105" height="62" rx="6"/>
+  <text class="hb" x="79" y="179" text-anchor="middle"><tspan x="79">取模 % 16</tspan></text>
+  <text class="s" x="79" y="184" text-anchor="middle"><tspan x="79">385 % 16 →</tspan><tspan x="79" dy="15">落进 0–15</tspan><tspan x="79" dy="15">的 桶</tspan></text>
+  <rect class="accentbox" x="183" y="150" width="105" height="62" rx="6"/>
+  <text class="hb" x="236" y="179" text-anchor="middle"><tspan x="236">桶：比键取值</tspan></text>
+  <text class="s" x="236" y="192" text-anchor="middle"><tspan x="236">冲突共存——键</tspan><tspan x="236" dy="15">相同才返回值</tspan></text>
+  <path class="edge" d="M131,181 L176,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M393,88 L393,119 L79,119 L79,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="419" height="87" rx="6"/>
+  <text class="s" x="236" y="240" text-anchor="middle"><tspan x="236">官方存值三步：散列键得散列码 → 找到该索引的桶 → 存入键值对。取</tspan><tspan x="236" dy="18">值多一步比键：散列码只是位置，不同键可能同码（冲突必然发生——鸽</tspan><tspan x="236" dy="18">笼原理）；每个桶是一条链表，住多个节点时键是唯一身份。平均</tspan><tspan x="236" dy="18">O(1)，最坏 O(n)（全部数据散列到同一个桶）。</tspan></text>
+</svg>

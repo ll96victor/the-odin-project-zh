@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-hiring-three-factors d-hiring-three-factors">
+  <title id="t-hiring-three-factors">招聘经理找的三样东西</title>
+  <desc id="d-hiring-three-factors">辐射结构图。中央方框：招聘经理找什么（两个门槛项 + 一个决定项）；三个卫星框以连线围绕：能力 Capability（尽快创造价值——相关经验 + 技术门槛；新人用项目/开源/实习做社会证明破 catch-22）、动机 Motivation（成长曲线而非静态直线——自学走到这里 + 真实职业目标 + 学得飞快）、契合 Fit（团队想不想整天与你共事——几乎所有流程让全团队评估后期候选人，常是决定性一票）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,205 L366,113"/>
+  <path class="spoke" d="M450,278 L480,291"/>
+  <path class="spoke" d="M282,278 L272,283"/>
+  <rect class="accentbox" x="276" y="205" width="180" height="73" rx="10"/>
+  <text class="hb" x="366" y="239" text-anchor="middle"><tspan x="366">招聘经理找什么</tspan></text>
+  <text class="s" x="366" y="255" text-anchor="middle"><tspan x="366">两个门槛项 + 一个决定项</tspan></text>
+  <rect class="box" x="252" y="20" width="228" height="93" rx="6"/>
+  <text class="hb" x="366" y="43" text-anchor="middle"><tspan x="366">能力 Capability</tspan></text>
+  <text class="s" x="366" y="59" text-anchor="middle"><tspan x="366">尽快创造价值——相关经验 + 技术门</tspan><tspan x="366" dy="17">槛；新人用项目/开源/实习做社会证</tspan><tspan x="366" dy="17">明破 catch-22</tspan></text>
+  <rect class="box" x="453" y="291" width="228" height="76" rx="6"/>
+  <text class="hb" x="567" y="314" text-anchor="middle"><tspan x="567">动机 Motivation</tspan></text>
+  <text class="s" x="567" y="330" text-anchor="middle"><tspan x="567">成长曲线而非静态直线——自学走到这</tspan><tspan x="567" dy="17">里 + 真实职业目标 + 学得飞快</tspan></text>
+  <rect class="box" x="51" y="283" width="228" height="93" rx="6"/>
+  <text class="hb" x="165" y="305" text-anchor="middle"><tspan x="165">契合 Fit</tspan></text>
+  <text class="s" x="165" y="321" text-anchor="middle"><tspan x="165">团队想不想整天与你共事——几乎所有</tspan><tspan x="165" dy="17">流程让全团队评估后期候选人，常是</tspan><tspan x="165" dy="17">决定性一票</tspan></text>
+</svg>

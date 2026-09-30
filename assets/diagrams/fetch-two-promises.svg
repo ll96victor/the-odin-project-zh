@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="561" height="313" viewBox="0 0 561 313" role="img" aria-labelledby="t-fetch-two-promises d-fetch-two-promises">
+  <title id="t-fetch-two-promises">fetch 的两层 Promise：从请求到上屏的五步</title>
+  <desc id="d-fetch-two-promises">五步流程图。第一步「fetch 请求」：url 进、Promise 出——发起请求即返回 Promise #1。第二步「Response 外壳」：查 ok 与 status——404 也会 resolve。第三步「response.json()」：解析响应体，返回 Promise #2。第四步「数据对象」：层层钻取（如 data.images.original.url）。第五步「上屏」：img.src 赋值渲染。图下说明：两层 Promise、两个 .then()（async/await 版就是两个 await）；fetch 只在网络层失败时 reject——API 有响应就算有效，非 2XX 要在 .then() 里查 Response.ok / status 手动分支（官方 Assignment 明文）。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="135" height="62" rx="6"/>
+  <text class="hb" x="94" y="55" text-anchor="middle"><tspan x="94">fetch 请求</tspan></text>
+  <text class="s" x="94" y="60" text-anchor="middle"><tspan x="94">url 进、Promise</tspan><tspan x="94" dy="15">出——返回</tspan><tspan x="94" dy="15">Promise #1</tspan></text>
+  <rect class="box" x="213" y="26" width="135" height="62" rx="6"/>
+  <text class="hb" x="281" y="55" text-anchor="middle"><tspan x="281">Response 外壳</tspan></text>
+  <text class="s" x="281" y="68" text-anchor="middle"><tspan x="281">查 ok / status ——</tspan><tspan x="281" dy="15">404 也 resolve</tspan></text>
+  <path class="edge" d="M161,57 L206,57" marker-end="url(#arr)"/>
+  <rect class="box" x="400" y="26" width="135" height="62" rx="6"/>
+  <text class="hb" x="468" y="55" text-anchor="middle"><tspan x="468">response.json()</tspan></text>
+  <text class="s" x="468" y="68" text-anchor="middle"><tspan x="468">解析响应体 · 返回</tspan><tspan x="468" dy="15">Promise #2</tspan></text>
+  <path class="edge" d="M348,57 L393,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="135" height="62" rx="6"/>
+  <text class="hb" x="94" y="179" text-anchor="middle"><tspan x="94">数据对象</tspan></text>
+  <text class="s" x="94" y="192" text-anchor="middle"><tspan x="94">层层钻取：</tspan><tspan x="94" dy="15">data.images.original.url</tspan></text>
+  <rect class="accentbox" x="213" y="150" width="135" height="62" rx="6"/>
+  <text class="hb" x="281" y="179" text-anchor="middle"><tspan x="281">上屏</tspan></text>
+  <text class="s" x="281" y="192" text-anchor="middle"><tspan x="281">img.src = …（赋值</tspan><tspan x="281" dy="15">渲染）</tspan></text>
+  <path class="edge" d="M161,181 L206,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M468,88 L468,119 L94,119 L94,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="509" height="69" rx="6"/>
+  <text class="s" x="281" y="240" text-anchor="middle"><tspan x="281">两层 Promise、两个 .then()（async/await 版就是两个 await）。fetch 只在网</tspan><tspan x="281" dy="18">络层失败时 reject——API 有响应就算有效，非 2XX 要在 .then() 里查</tspan><tspan x="281" dy="18">Response.ok / status 手动分支（官方 Assignment 明文）。</tspan></text>
+</svg>

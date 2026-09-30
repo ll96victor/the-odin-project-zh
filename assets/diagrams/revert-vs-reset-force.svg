@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="297" viewBox="0 0 740 297" role="img" aria-labelledby="t-revert-vs-reset-force d-revert-vs-reset-force">
+  <title id="t-revert-vs-reset-force">撤销已推送的提交：两条路的分界</title>
+  <desc id="d-revert-vs-reset-force">两列对比图。左列「revert：只增不改（官方正解）」：生成反转原提交改动的新提交；历史只增不改、旧提交全部还在；正常 push 即可——对协作者零风险；git revert HEAD 后照常推送。右列「reset + force：改写 + 覆写（军规禁区）」：reset 改写本地历史；force 用改写后的历史覆写远端；别人基于旧提交的工作直接断链——官方灾难实验里第四个文件本地远端双双消失；军规：reset 绝不用于已推送的提交；确需强推（更新 PR、清敏感信息）优先 --force-with-lease。图下说明：分界线只有一条——历史发布了吗？发布了就用 revert（只增不改），没发布才轮到 reset；--force-with-lease 是带保险丝的强推：目标分支被别人更新过就报错拒绝，先 fetch 再决定。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="170" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">revert · 只增不改（官方正解）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">生成反转原提交改动的新提交</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">历史只增不改——旧提交全部还在</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">正常 push 即可 · 对协作者零风险</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="170" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">reset + force · 改写覆写（禁区）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">reset 改写本地历史</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">force 用改写后的历史覆写远端</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">别人基于旧提交的工作直接断链</tspan></text>
+  <circle cx="403" cy="172" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="176" text-anchor="start"><tspan x="413">确需强推优先 --force-with-lease</tspan></text>
+  <rect class="note" x="22" y="206" width="696" height="69" rx="6"/>
+  <text class="s" x="370" y="228" text-anchor="middle"><tspan x="370">分界线只有一条：历史发布了吗？发布了就用 revert（只增不改），没发布才轮到 reset。官方灾难实验：push 后</tspan><tspan x="370" dy="18">rebase 删提交再 force——第四个文件本地远端双双消失。--force-with-lease 是带保险丝的强推：目标分支被别人更</tspan><tspan x="370" dy="18">新过就报错拒绝，先 fetch 再决定；合法强推场景只有更新 PR 与清除误传的敏感信息。</tspan></text>
+</svg>

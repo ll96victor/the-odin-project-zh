@@ -39,7 +39,19 @@ const loadData = (file, globalName) => {
   vm.runInNewContext(fs.readFileSync(path.join(root, file), 'utf8'), sandbox);
   return JSON.parse(JSON.stringify(sandbox.window[globalName]));
 };
-const guide = loadData('lessons.js', 'ODIN_GUIDE');
+/* 路径课试点批次 3（2026-09-25）：课程数据改为与 HTML 同序合并加载
+ * （lessons.js → courses/*.js → lesson-sources.js）——映射完整性断言对
+ * 合并后的全量课程生效（World 2 起，映射文件也要覆盖路径课）。 */
+const guide = (() => {
+  const sandbox = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lessons.js'), 'utf8'), sandbox);
+  const coursesDir = path.join(root, 'courses');
+  fs.readdirSync(coursesDir).filter(f => f.endsWith('.js')).sort().forEach(f => {
+    vm.runInNewContext(fs.readFileSync(path.join(coursesDir, f), 'utf8'), sandbox, { filename: 'courses/' + f });
+  });
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lesson-sources.js'), 'utf8'), sandbox, { filename: 'lesson-sources.js' });
+  return JSON.parse(JSON.stringify(sandbox.window.ODIN_GUIDE));
+})();
 const resourceData = loadData('external-resources.js', 'ODIN_RESOURCES');
 const taskLinks = loadData('lesson-task-links.js', 'ODIN_TASK_LINKS');
 
@@ -56,7 +68,6 @@ const officialOf = page => collectByClass(mainOf(page), 'section-official')[0];
  * v4.11.5 折叠容器只包 Assignment / KC 列表，资源区保持节级直接子——被包裹即前言断言碎） */
 const preambleTexts = page => (officialOf(page).childNodes || []).filter(n => n.tagName === 'P').map(textOf);
 const taskLinksOf = page => collectByClass(mainOf(page), 'task-link');
-const urlBase = u => String(u).split('#')[0].replace(/\/+$/, '');
 /* v4.11.5（交接 3.C）：按文档序穿透收集 root 下所有指定 tag 的元素。
  * Assignment <ol> 被包进 div.collapse-body 之后，「节级直接子 OL」取法是 0 个，
  * 旧的 if (ols.length) 守卫会整段静默跳过条目文本保护（测试全绿但保护空转）。
@@ -74,7 +85,7 @@ const collectTagDeep = (root, tagName) => {
 };
 
 const LESSON_IDS = guide.lessons.map(l => l.id);
-assert.equal(LESSON_IDS.length, 46, '前提：46 课');
+assert.equal(LESSON_IDS.length, 197, '前提：197 课（Foundations 46 + World 2 四个章节 22 课 + World 3 javascript 全八章 41 课——收组 + World 4「动画」「无障碍」「响应式设计」三章节 16 课——收组 + World 5 react 八章节 25 课——收组 + World 6 databases「数据库」章节 3 课——收组 + World 7 nodejs 全八章节 30 课——收组 + World 8 getting-hired「准备求职」「投递与面试」两章节 14 课——收组，全站 197 课全部开放）');
 
 /* ===== C-数据层：映射文件完整性（防悬空引用） ===== */
 assert.equal(taskLinks.version, 1, 'C: 映射文件带版本号');
@@ -95,10 +106,18 @@ assert.ok(guide.lessons.every(l => l.official.knowledgeCheck.length === 0),
 let mappedAssignmentItems = 0, mappedAssignmentUrls = 0;
 for (const lesson of guide.lessons) {
   const entry = taskLinks.links[lesson.id];
+  /* B+ 轮阶段 5.1：锚点级映射校验收紧——普查（488/488）实证全部映射链接与本课
+   * 资源清单（originalUrl/zhUrl）之一**逐字全等**：16 条含锚点条目两侧锚点全部一致
+   * （Chrome 快捷键 #zippy / GitHub 文档 #锚点 / MDN 中文节锚 / W3C #validate_by_input
+   * 等），零「资源裸 URL、映射加深链」、零「资源带锚、映射刻意去锚」、零跨课形态。
+   * 据此把断言从「去锚点后相等」收紧为「逐字成员」——旧 urlBase 规则抓不住锚点漂移
+   * （资源 #callbacks vs 映射 #callbacksX 会静默放行），新规则任何锚点差异必红。
+   * 未来若出现合法的映射 URL ≠ 资源 URL 场景（如深链补充），要么把带锚 URL 登记为
+   * 资源条目、要么改映射，不允许静默漂移。 */
   const lessonUrls = new Set();
   resourceData.resources.filter(r => r.lessonId === lesson.id).forEach(r => {
-    lessonUrls.add(urlBase(r.originalUrl));
-    if (r.zhUrl) lessonUrls.add(urlBase(r.zhUrl));
+    lessonUrls.add(String(r.originalUrl));
+    if (r.zhUrl) lessonUrls.add(String(r.zhUrl));
   });
   for (const [num, urls] of Object.entries(entry.a || {})) {
     const n = Number(num);
@@ -107,8 +126,8 @@ for (const lesson of guide.lessons) {
     assert.ok(Array.isArray(urls) && urls.length >= 1, `C: ${lesson.id} a${num} 链接组非空`);
     urls.forEach(u => {
       assert.ok(/^https?:\/\//.test(u), `C: ${lesson.id} a${num} 地址为 http(s)`);
-      assert.ok(lessonUrls.has(urlBase(u)),
-        `C: ${lesson.id} a${num} 的地址（去锚点）必须属于本课资源清单——防悬空引用：${u}`);
+      assert.ok(lessonUrls.has(String(u)),
+        `C: ${lesson.id} a${num} 的地址必须与本课资源清单 URL 逐字一致（锚点级校验，阶段 5 普查 488/488 逐字后收紧）——防悬空引用与锚点漂移：${u}`);
     });
     mappedAssignmentItems += 1;
     mappedAssignmentUrls += urls.length;
@@ -116,8 +135,8 @@ for (const lesson of guide.lessons) {
 }
 /* 覆盖率钉住：本轮人工核对的映射规模（73/149）。数字变化必须是有意的
  * （新增映射或课程数据变更），而不是解析规则悄悄失效。 */
-assert.equal(mappedAssignmentItems, 76, 'C: Assignment 接链条目数 = 76（本轮语义核对结论，课 44 两个跟练视频接链、Project 课均显式空映射，课 45/46 显式空映射——课 46 官方无 Assignment）；');
-assert.equal(mappedAssignmentUrls, 117, 'C: Assignment 链接总数 = 117');
+assert.equal(mappedAssignmentItems, 365, 'C: Assignment 接链条目数 = 365（Foundations 76 + World 2 试点 5 + World 2 第二批 13 + World 2 第三批 14 + World 2 第四批 7 + World 2 第五批 8 + World 3 批次 4 阶段 1 的 28——javascript 课程 15 课里 13 课有接链条目；how-this-course-will-work 官方无 Assignment 节、organizing-code-with-objects 无作业声明，两课显式空映射 + World 3 批次 4 阶段 2 的 20——linting 3 + 表单校验 JS 3 + ECMAScript 2 + 异步代码 7 + API 2 + async/await 2 + 天气应用 1（7 课全有 Assignment 节；未接条目为本地动手 / 项目扩展步骤） + World 3 批次 4 阶段 3 的 37——测试基础 5 + 测试练习 1 + 更多测试 5 + CS 引言 5 + 递归方法 5 + 时间复杂度 3 + 空间复杂度 2 + 常见数据结构 6 + HashMap 原理 1 + HashMap 项目 1 + 二叉搜索树 3（recursion / linked-lists / knights-travails 三课显式空映射：官方 Assignment 面板无第三方外链——资料全在正文区；未接条目为本地动手 / 项目设计 / 部署操作） + World 3 批次 4 阶段 4 的 5——Git 深入 3（Pro Git 三章全接中文版）+ 远程协作 2（GitHub 合并冲突文档中文版 / Think Like a Git 英文站；real-world / battleship / conclusion 三课显式空映射：操作目标为 TOP curriculum 仓库本体 / 全部本地动手 / 官方无 Assignment 节） + World 4 批次 5 阶段 1 的 13——变换 4（第 1 条双链）+ 过渡 5（第 4 条 CSS Triggers 为跨课合并条目不接）+ 关键帧 4（含练习目录条目；三课全有 Assignment 节、无新增显式空映射 + 批次 5 阶段 2 的 18——无障碍 8 课里 7 课有接链条目：导论 2 + WCAG 2 + 语义化 4 + 键盘 2 + 文本 2 + ARIA 2 + 审计 4（accessible-colors 官方无 Assignment 节为显式空映射——全站第四门）+ 批次 5 阶段 3 的 7——导论 1 + 自然响应 2 + 响应式图片 3（第 1 条官方一条含 MDN 三属性文档、三链全接）+ 媒体查询 1（homepage 为 Project 课显式空映射：pexels 与 materialdesignicons 跨课合并归属首现课、devicon 为 reference 素材按先例不接） + 批次 6 阶段 1 的 11——React 引言 3（第 1 条 react.dev 跨课合并归属 javascript 结语课不接）+ 环境搭建 2 + JSX 2 + 数据传递 1 + 渲染技巧 2 + key 1（第 1 条与 rendering-lists 同页跨课引用不接；react 版 how-this-course-will-work 官方无 Assignment 节为全站第五门、react-components 跨课合并后零条目，两课显式空映射） + 批次 6 阶段 2 的 10——状态简介 2（第 1 条双子项接 zh-hans 两页）+ 再谈状态 1（第 1 条三子项接 zh-hans 三页）+ CV 项目 1（第 6 步部署接 4 链：Vite 文档中文版 + 三平台导入入口）+ 副作用 3 条全接 + 记忆卡片 1（第 3 条只接 PokéAPI——Giphy 跨课合并归属 javascript 异步 API 课不接）+ 生命周期 2 条全接（class-based-components 显式空映射：三条全部本地动手，finishing-up 先例同型）+ 批次 6 阶段 3 的 24——测试简介 4 + 模拟 2 + 路由 2（第 2 条本地动手不接）+ 取数 2 + 样式 3（三条全接：第 1/2 条各双链）+ 购物车 2（第 8 条数据源 + 第 11 条三平台文档三链，其余九条本地动手不接）+ Context 2 + 归约 2 + Ref 5（react 版 conclusion 显式空映射：官方有 Assignment 节但唯一条目为课程反馈表单按行政表单口径剔除——「有 Assignment 节但条目全部剔除」新形态，与 accessible-colors hasAssignment:false 不同型）+ 超长轮批次 7 阶段 1 的 7——数据库导论 4 + 数据库与 SQL 2 + SQL Zoo 1（databases 三课全有 Assignment 节；sql-zoo 第 2 条课程反馈表按行政表单口径剔除，第 1 条 SQL Zoo 练习站照接） + 超长轮批次 7 阶段 2 的 25——后端入门 3 + 什么是 NodeJS 3 + Node 入门 5（五条全接、第 2/3/5 站多子项 9 链）+ 调试 2 + 环境变量 1 + 框架简介 2 + Express 入门 1 + 路由 1 + 控制器 2 + 视图 2 + 部署 1（第 2 条接三平台专用指南 3 链）+ 安装 PostgreSQL 1（双指南 2 链）+ 使用 PostgreSQL 1（basic-info-site / mini-message-board / forms / inventory-application 四课显式空映射：三门 Project 全本地动手 + forms 五条全本地编码、Further Reading 无编号条目承接） + 超长轮批次 7 阶段 3 的 21——身份认证基础 2 + Prisma ORM 2 + 文件上传 3 + API 基础 2 + API 安全 2 + 博客 API 2 + 测试路由与控制器 2 + 测试数据库操作 1 + Odin-Book 3 + 结语 2（members_only / wheres-waldo / messaging-app 三门 Project 显式空映射：members-only 跨课合并后零条目、waldo 与 messaging 官方 Assignment 全本地动手无第三方外链） + 超长续轮批次 7 阶段 4 的 16——职业人脉 2 + 策略 1 + 公司想要什么 2 + 你可以做的准备 4 + 个人网站 2 + 收集线索 1 + 筛选线索 1 + 申请 1 + 处理 offer 2（htcww / starts-with-you / conclusion 三门官方无 Assignment 节 + resume 与 interview 两门链接全住正文无条目可承接，五课显式空映射））；');
+assert.equal(mappedAssignmentUrls, 488, 'C: Assignment 链接总数 = 488（Foundations 117 + World 2 试点 6：导读课 2 + SVG 1 + 表格课 3 + World 2 第二批 18：默认样式 3 + 单位 3 + 文本样式 3 + 属性文档 6 + 高级选择器 3 + World 2 第三批 14：定位 4 + 函数 2 + 自定义属性 3 + 兼容性 2 + 框架与预处理器 3 + World 2 第四批 7：表单基础 4 + 表单校验 3 + 第五批 8：创建网格 3 + 定位网格元素 2 + 搭配使用 3 + World 3 批次 4 阶段 1 的 40：对象构造器 3 + 图书库 3 + 工厂函数 3 + 井字棋 1 + 类 6 + ES6 模块 2 + npm 4 + Webpack 2 + 餐厅页面 1 + 再探 Webpack 1 + JSON 4 + OOP 原则 4 + 待办清单 6 + 阶段 2 的 22：linting 3 + 表单校验 JS 3 + ECMAScript 2 + 异步代码 7 + API 2 + async/await 3 + 天气应用 2 + 阶段 3 的 39：测试基础 5 + 测试练习 1 + 更多测试 5 + CS 引言 5 + 递归方法 5 + 时间复杂度 3 + 空间复杂度 2 + 常见数据结构 8 + HashMap 原理 1 + HashMap 项目 1 + 二叉搜索树 3 + 阶段 4 的 5：Git 深入 3 + 远程协作 2 + 批次 5 阶段 1 的 14：变换 5 + 过渡 5 + 关键帧 4 + 批次 5 阶段 2 的 22：导论 2 + WCAG 2 + 语义化 7（第 1 条四平台屏幕阅读器四链）+ 键盘 3（第 1 条双视频）+ 文本 2 + ARIA 2 + 审计 4 + 批次 5 阶段 3 的 9：导论 1 + 自然响应 2 + 响应式图片 5（第 1 条 MDN 三属性三链）+ 媒体查询 1 + 批次 6 阶段 1 的 11：React 引言 3 + 环境搭建 2 + JSX 2 + 数据传递 1 + 渲染技巧 2 + key 1 + 批次 6 阶段 2 的 16：状态简介 3 + 再谈状态 3 + CV 部署 4 + 副作用 3 + 记忆卡片 1 + 生命周期 2 + 批次 6 阶段 3 的 30：测试简介 6 + 模拟 2 + 路由 2 + 取数 2 + 样式 5 + 购物车 4 + Context 2 + 归约 2 + Ref 5 + 超长轮批次 7 阶段 1 的 7：数据库导论 4 + 数据库与 SQL 2 + SQL Zoo 1 + 超长轮批次 7 阶段 2 的 32：后端入门 3 + 什么是 NodeJS 3 + Node 入门 9 + 调试 2 + 环境变量 1 + 框架简介 2 + Express 入门 1 + 路由 1 + 控制器 2 + 视图 2 + 部署 3 + 安装 PostgreSQL 2 + 使用 PostgreSQL 1 + 超长轮批次 7 阶段 3 的 34：身份认证基础 5 + Prisma ORM 10 + 文件上传 4 + API 基础 2 + API 安全 2 + 博客 API 3 + 测试路由与控制器 2 + 测试数据库操作 1 + Odin-Book 3 + 结语 2 + 超长续轮批次 7 阶段 4 的 37：职业人脉 5（第 1 条 Meetup+LinkedIn 双链、第 2 条 LinkedIn+优化档案文+Discord 三链）+ 策略 1 + 公司想要什么 7（五篇招聘方视角 + 实习两条）+ 你可以做的准备 9（转型文 1 + GitHub 重要性 3 + 个人品牌 4 + 书籍摘要 1）+ 个人网站 2 + 收集线索 9（九招聘板全接）+ 筛选线索 1 + 申请 1 + 处理 offer 2）');
 
 /* ===== C-渲染层 ===== */
 for (const lesson of guide.lessons) {
@@ -265,9 +284,11 @@ for (const lesson of guide.lessons) {
  * 章节序列 = 清单 sectionIndex 的稳定排序（同章按清单顺序）。
  * 渲染层「无 sectionIndex 的图保持旧位置（main 直接子级）」的兼容分支
  * 保留未动，但当前数据已没有无 sectionIndex 的图——旧位置断言随事实迁移。 */
+/* totalFigures 提升到块外：文末汇总消息用插值引用（阶段 3 起消息数字自动跟随，
+ * 修掉阶段 2 以来「89 张」硬编码滞后于断言真值的欠账）。 */
+var totalFigures = 0;
 {
   const diagramData = loadData('diagrams.js', 'ODIN_DIAGRAMS');
-  let totalFigures = 0;
   for (const lesson of guide.lessons) {
     const page = mountLesson(lesson.id);
     const main = mainOf(page);
@@ -290,7 +311,7 @@ for (const lesson of guide.lessons) {
     assert.deepEqual(chapterSequence, expected.map(item => item.sectionIndex).sort((a, b) => a - b),
       `B: ${lesson.id} 每张图落在其 sectionIndex 章节之后（同章按清单顺序稳定排序）`);
   }
-  assert.equal(totalFigures, 53, 'B: 全站渲染 53 张图（v4.11.6 的 47 张 + v4.11.17 第 21/22 课 2 张 + v4.11.18 第 24/25 课 2 张 + v4.11.19 第 27/28 课各 1 张）');
+  assert.equal(totalFigures, 117, 'B: 全站渲染 117 张图（v4.11.6 的 47 张 + v4.11.17 第 21/22 课 2 张 + v4.11.18 第 24/25 课 2 张 + v4.11.19 第 27/28 课各 1 张 + 路径课试点批次 3 的 SVG 2 张与表格 1 张 + v4.11.21 World 2 第二批的 CSS 单位参照物对比 1 张与高级选择器对比 2 张 + World 2 第三批的定位五模式关系图 1 张与自定义属性作用域树 1 张 + World 2 第四批的表单校验三态时间线 1 张 + World 2 第五批的显式隐式网格对比、网格线单元格解剖、auto-fit 与 auto-fill 对比 3 张 + World 3 批次 4 阶段 1 的 javascript 课程 9 张：原型命名对比与原型链查找、闭包私有变量、类糖衣对照、模块依赖图、npm install 流程、打包流程、开发生产双模式对比、JSON 往返 + 阶段 2 的 5 张：linter 与 formatter 分工、两层表单校验、ECMAScript 命名时间线、回调地狱与 Promise 链、fetch 两层 Promise 流程 + 阶段 3 的 5 张：TDD 工作循环、递归下潜与上浮、Big-O 快慢两侧对比、hash map 键到桶五步、BFS 与 DFS 容器配对 + 阶段 4 的 3 张：reset 三档、revert 与 reset+force 分界、开源工作流环路 + 批次 5 阶段 1 的 2 张：链式变换顺序对比、关键帧时间轴 + 批次 5 阶段 2 的 3 张：对比度阈值 AA/AAA 对比、隐藏内容两方案对比、ARIA 四属性辐射图 + 批次 5 阶段 3 的 1 张：图片适配两族工具对比 + 批次 6 阶段 1 的 2 张：条件渲染工具箱三选型、key 跨渲染配对机制流程 + 批次 6 阶段 2 的 2 张：useEffect 三形态选型、类生命周期与 useEffect 对照词典 + 批次 6 阶段 3 的 3 张：RTL 查询前缀与 ByX 二维矩阵、嵌套路由 URL 匹配与 Outlet 替换链条、React 缓存工具箱四件分工 + 超长轮批次 7 阶段 1 的 1 张：四种 JOIN 各保留哪些行决策卡片 + 批次 7 阶段 2 的 5 张：Express 请求旅程流程、MVC 终极中间人辐射、静态与动态托管对比、PRG 模式流程、参数化查询对比 + 批次 7 阶段 3 的 6 张：登录态链路流程、Prisma 三件套辐射、单体与前后端分离对比、会话 cookie 与 JWT 令牌对比、supertest 测试链流程、NODE_ENV 切开发库测试库对比 + 超长续轮批次 7 阶段 4 的 5 张：求职九步路径流程、招聘漏斗七步流程、隐藏与公开就业市场对比、招聘三要素辐射、四级职位来源优先级流程）');
   /* 抽查：git-areas 的归属与文件引用（v4.11.2 B 组的两个事实继续沿用） */
   const gb = mountLesson('git-basics');
   const gbFigures = collectByClass(mainOf(gb), 'concept-diagram');
@@ -333,10 +354,15 @@ for (const lesson of guide.lessons) {
    * 第二句不说「就在本节末尾的『本课外部资料』」（不存在的落点），如实说明
    * 本课没有外部资料。与 app.js renderLessonV2 的三分支同源。 */
   const lessonHasResources = resourceData.resources.some(resource => resource.lessonId === lesson.id);
-  /* v4.11.20 第九批：官方无 Assignment 的课（当前仅第 46 课结语课）第四分支——
-   * 如实说明无 Assignment，不描述不存在的列表（与 app.js renderLessonV2 同源）。 */
+  /* v4.11.20 第九批：官方无 Assignment 的课（Foundations 里仅第 46 课结语课）第四分支——
+   * 如实说明无 Assignment，不描述不存在的列表（与 app.js renderLessonV2 同源）。
+   * World 3 批次 4：无 Assignment 课增至两门（javascript 引言课官方文件无该节）——
+   * 括注措辞按课分支、外部资料半句按资源存在性条件渲染，两侧同源迁移。 */
+  const noAssignParenthetical = lesson.id === 'choose-your-path-forward'
+    ? '（结语课，官方文件顶部声明因独特的课结构豁免常规布局）'
+    : '（官方该课文件没有 Assignment 节）';
   const expectedOfficialGuide = lesson.official.assignment.length === 0
-    ? '这一课官方没有布置 Assignment（结语课，官方文件顶部声明因独特的课结构豁免常规布局）。本站只收录官方正文的中文化梳理与本站自拟的回顾任务；正文推荐的外部文章在下方「本课外部资料」有中文辅助入口。'
+    ? `这一课官方没有布置 Assignment${noAssignParenthetical}。本站只收录官方正文的中文化梳理与本站自拟的回顾任务${lessonHasResources ? '；正文推荐的外部文章在下方「本课外部资料」有中文辅助入口' : ''}。`
     : (!lessonHasResources
     ? '以下是官方原课的 Assignment 的中文化版本，Assignment 列表可以用标题旁的按钮收起或展开。这一课官方没有布置外部资料，跟着本页讲解与任务说明往下走即可。'
     : (lesson.official.exercise.length
@@ -375,7 +401,7 @@ for (const lesson of guide.lessons) {
    * 唯一一处在 why 的零资源分句里（「本站的中文辅助就是本页的中文讲解与自测」）。
    * lessons.js 正文数据里的合法提及按课加回（当前只有课 01 的中文讲解正文
    * 含 1 处，数据文件是红线不改）。 */
-  /* v4.11.20 第九批：官方无 Assignment 的课（当前仅第 46 课，有 1 条正文资源）基数 4——
+  /* v4.11.20 第九批：官方无 Assignment 的课（Foundations 里仅第 46 课，有 1 条正文资源）基数 4——
    * Assignment 标题内的跳转链接随标题整块不渲染，前言第四分支自带 1 处「中文辅助入口」。 */
   const noAssignmentBase = !lessonHasResources ? 1 : (lesson.official.assignment.length === 0 ? 4 : 5);
   const dataCount = (JSON.stringify(lesson).match(/中文辅助/g) || []).length;
@@ -401,7 +427,9 @@ for (const lesson of guide.lessons) {
   const usage = textOf(querySelect(home.dom.body, '.site-usage'));
   assert.ok(usage.includes('可以在本站学完并自查'), 'D5/D0: 首页 FAQ「本站怎么用」与自足口径一致');
   assert.ok(!usage.includes('正式完成动作仍在 TOP 原课进行'), 'D5/D0: 首页 FAQ 旧口径已移除');
-  assert.ok(usage.includes('Foundations 之后的路径课程请回官方原课学习'), 'D5: 覆盖边界声明保留（事实边界；v4.11.20 第九批起 Foundations 46 课全开，边界指向路径课程）');
+  /* 路径课试点批次 3：边界从「路径课程请回官方」收窄为「未开放的课回官方」——
+   * World 2 起已有逐批开放的中文正文（首批 3 课），不能再说整段路径课程都回官方。 */
+  assert.ok(usage.includes('未开放的课程请回官方原课学习'), 'D5: 覆盖边界声明保留（事实边界；路径课试点批次 3 起 World 2 已有首批 3 课中文正文，边界收窄为未开放的课）');
   assert.ok(usage.includes('项目提交、Discord 社区与其后课程在 TOP 官方进行'), 'D5/D6: 项目提交与社区仍明确在官方（事实边界，非过度承诺）');
   assert.ok(usage.includes('不提供成品答案'), 'D5: FAQ 明确 Project 课不提供成品答案（红线第 4 条的首页口径）');
 }
@@ -532,4 +560,4 @@ for (const lesson of guide.lessons) {
   assert.equal(querySelect(officialOf(badPage), '#official-assignment-body').hidden, false, 'E4: 非法值按展开处理');
 }
 
-console.log(`通过：课页读者向断言（v4.11.20 第九批口径）——A1 资源区零审计信息（有资源的课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（全 46 课）、B 概念图全站归位（53 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（46 课 / Assignment 76 条 117 链接，地址零悬空；自查题映射已整体下线且反向钉住；recipes 与课 26、课 30、课 32、课 33、课 38、课 40、课 43、课 45、课 46 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且不再声称有官方自查题在本页、D2 官方任务开头按数据逐字钉住且节内零直接子链接（v4.11.19 起零资料课三分支）、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导按资源分支不堆砌（有资源 5 处 / 零资源 1 处））、E 折叠与跳转（折叠头 button[aria-expanded] 恰 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记（零资料课跳转与锚点整块不渲染）、折叠偏好随档案生效且非法值按展开）。`);
+console.log(`通过：课页读者向断言（超长轮批次 7 阶段 3 口径）——A1 资源区零审计信息（有资源的课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（全 ${LESSON_IDS.length} 课）、B 概念图全站归位（${totalFigures} 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（${LESSON_IDS.length} 课 / Assignment ${mappedAssignmentItems} 条 ${mappedAssignmentUrls} 链接，地址零悬空；自查题映射已整体下线且反向钉住；recipes 与课 26、课 30、课 32、课 33、课 38、课 40、课 43、课 45、课 46 及 Grid 批的 introduction-to-grid / advanced-grid-properties / admin-dashboard、javascript 课程批的 how-this-course-will-work / organizing-code-with-objects、阶段 3 的 javascript-recursion / javascript-linked-lists / javascript-knights-travails 及阶段 4 的 javascript-using-git-in-the-real-world / node-path-javascript-battleship / node-path-javascript-conclusion、批次 5 的 accessible-colors / advanced-html-and-css-homepage 及批次 6 的 react 版 how-this-course-will-work / react-components / class-based-components / react 版 conclusion 及批次 7 阶段 2 的 basic-info-site / mini-message-board / forms / inventory-application 及批次 7 阶段 3 的 members-only / wheres-waldo / messaging-app 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且不再声称有官方自查题在本页、D2 官方任务开头按数据逐字钉住且节内零直接子链接（v4.11.19 起零资料课三分支）、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导按资源分支不堆砌（有资源课固定 5 处 / 零资源课按分支现算））、E 折叠与跳转（折叠头 button[aria-expanded] 恰 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记（零资料课跳转与锚点整块不渲染）、折叠偏好随档案生效且非法值按展开）。`);

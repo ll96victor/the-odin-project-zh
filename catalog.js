@@ -11,7 +11,8 @@
  *
  * 字段说明：
  *   order     官方目录里的序号，1-46，连续且不重复
- *   slug      官方课程页 URL 末段，与 lessons.js 的 id 对已开放的 46 课逐字相同
+ *   slug      官方课程页 URL 末段，与 lessons.js 的 id 逐字相同（catalog 覆盖
+ *             Foundations 全部 46 课；路径课试点批次起路径课另在 courses/*.js）
  *   title     官方英文标题，作为次级文字原样保留
  *   zh        简体中文标题。01-29 沿用 lessons.js 已定稿的译名（tests/catalog.test.cjs
  *             会断言两边逐字一致）。

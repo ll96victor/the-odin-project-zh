@@ -36,6 +36,11 @@
  *
  * 扫描范围：根目录现行 *.md。排除：history/、answers/、release/、tasks/（非根级）、
  *   TEST-REPORT.md、PLAN-v2.md、REUSE-NOTES.md（历史记录类，按惯例保持原样）。
+ * 历史区区段排除（B+ 轮阶段 1 增，2026-09-29 豁免瘦身）：MAINTENANCE.md（变更历史
+ *   账本）与 project-achievements.md（版本演进史）按**显式标记**区段排除——「doc-numbers:
+ *   历史区起点」标记行起（含标记行）全部跳过，标记之前的现状区照旧全量扫描；文件存在
+ *   但标记缺失 → 断言失败（不得静默降级）。合法排除三判据与红线见 HISTORY_MARKER
+ *   常量处注释。此机制取代了此前两文件内逐键登记的三百余条历史快照豁免。
  *
  * 至少覆盖本轮暴露的三类盲区（本文件存在的理由）：
  *   - 任务映射数：D1（N 条 M 链接 / KC 映射数 / N 条任务映射）；
@@ -66,11 +71,25 @@ const loadRaw = (file, globalName) => {
 };
 const loadData = (file, globalName) => JSON.parse(JSON.stringify(loadRaw(file, globalName)));
 
-/* ===================== 事实来源（零硬编码，全部现算） ===================== */
+/* ===================== 事实来源（零硬编码，全部现算） =====================
+ * 路径课试点批次 3（2026-09-25）：开放数与课数真值走汇总层——lessons.js +
+ * courses/*.js + lesson-sources.js 与 HTML 同序装载（lesson-sources 会把路径课
+ * 并入 ODIN_GUIDE）。T_AVAIL 从合并后课程数现算（lessons.js 红线：未开放课的
+ * 正文不进 lessons.js，故合并层总数即全站开放数），与 stale-claims R2 同口径。
+ * T_REMAIN 保持 Foundations 目录口径（catalog available 已 46/46，恒 0）。 */
 const CATALOG = loadData('catalog.js', 'ODIN_CATALOG');
-const T_AVAIL = CATALOG.lessons.filter(l => l.available).length;          /* 已开放课数 */
 
-const GUIDE = loadData('lessons.js', 'ODIN_GUIDE');
+const GUIDE = (() => {
+  const sandbox = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lessons.js'), 'utf8'), sandbox, { filename: 'lessons.js' });
+  const coursesDir = path.join(root, 'courses');
+  for (const f of fs.readdirSync(coursesDir).filter(f => f.endsWith('.js')).sort()) {
+    vm.runInNewContext(fs.readFileSync(path.join(coursesDir, f), 'utf8'), sandbox, { filename: 'courses/' + f });
+  }
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lesson-sources.js'), 'utf8'), sandbox, { filename: 'lesson-sources.js' });
+  return JSON.parse(JSON.stringify(sandbox.window.ODIN_GUIDE));
+})();
+const T_AVAIL = GUIDE.lessons.length;                                     /* 全站已开放课数（Foundations + 路径课） */
 const T_LESSONS = GUIDE.lessons.length;                                    /* 课数 */
 const T_CHAPTERS = GUIDE.lessons.reduce((s, l) => s + l.sections.length, 0); /* 总章数 */
 const T_KC = GUIDE.lessons.reduce((s, l) => s + l.official.knowledgeCheck.length, 0); /* 官方自查题总数（v4.11.17 起应为 0） */
@@ -109,6 +128,26 @@ Object.values(TASK_LINKS.links).forEach(entry => {
 });
 
 const TIERS = loadData('tiers.js', 'ODIN_TIERS');
+
+/* ===================== 资产族真值（v4.11.20 后 FIX 批次 0-B 新增） ===================== */
+/* 加载顺序与 HTML 一致：companions.js 先于 companion-registry.js——且必须同一 sandbox
+ * 顺序执行（registry 组装依赖 window.ODIN_COMPANIONS 的 legacy 清单；loadRaw 每次新
+ * sandbox，分开加载 registry 只会拿到 fallback 的 14 项而非 28 项——D14 真值实测踩过） */
+const companionSandbox = { window: {} };
+vm.runInNewContext(fs.readFileSync(path.join(root, 'companions.js'), 'utf8'), companionSandbox, { filename: 'companions.js' });
+vm.runInNewContext(fs.readFileSync(path.join(root, 'companion-registry.js'), 'utf8'), companionSandbox, { filename: 'companion-registry.js' });
+const REGISTRY = companionSandbox.window.ODIN_COMPANION_REGISTRY;
+const AVATARS = loadData('avatars.js', 'ODIN_AVATARS');
+const THEMES = loadRaw('themes.js', 'ODIN_THEMES');
+const readyC = item => item && (item.render.engine === 'procedural' || item.render.engine === 'inline' || (item.render.engine === 'fixedArt' && item.art && item.art.status === 'ready'));
+const notRetired = (item, ids) => !ids.includes(item.id);
+const T_AVATAR_DATA = AVATARS.avatars.length;                          /* avatars.js 数据总数（含退役 terminal） */
+const T_AVATAR_PANEL_GEO = AVATARS.avatars.filter(x => !REGISTRY.retiredAvatarIds.includes(x.id)).length;  /* 面板几何口径 */
+const T_COMPANION_AVATAR = REGISTRY.companions.filter(x => readyC(x) && !REGISTRY.retiredIds.includes(x.id)).length; /* 伙伴形象头像口径 */
+const T_PANEL_TOTAL = T_AVATAR_PANEL_GEO + T_COMPANION_AVATAR;         /* 面板格子总数 */
+const T_THEMES = Array.isArray(THEMES) ? THEMES.length : (THEMES.themes ? THEMES.themes.length : Object.keys(THEMES).length);
+const DIAGRAM_LESSONS = new Set(DIAGRAMS.diagrams.map(d => d.lessonId));
+const T_KNOWLEDGE_WITH_DIAGRAM = GUIDE.lessons.filter(l => !/Project/i.test(l.title) && DIAGRAM_LESSONS.has(l.id)).length; /* 有图知识课数 */
 const TIER_TRIPLE = {};                                                    /* 族 id → [铜, 银, 金] */
 TIERS.TIER_FAMILIES.forEach(f => { TIER_TRIPLE[f.id] = f.tiers.map(t => t.value); });
 /* 文档里「tiers 金阶 N」的措辞历史上指按课去重两族（自测 / 探索）的金阶，两族金阶必须相等 */
@@ -130,10 +169,40 @@ const readDoc = rel => fs.readFileSync(path.join(root, rel), 'utf8');
 const norm = s => s.replace(/[\s*]/g, '');               /* 去空白与 markdown 加粗星号 */
 const shapeOf = raw => norm(raw).replace(/\d+/g, '#');   /* 数字 → # 形状（豁免键的一部分） */
 
+/* ===================== 历史区显式标记（B+ 轮阶段 1，2026-09-29 豁免瘦身） =====================
+ * 问题：豁免清单三轮涨到五百余条，其中约七成全落在 MAINTENANCE.md（变更历史账本）与
+ * project-achievements.md（版本演进史）——这两份文件里的数字语义是「变更当时的结果值
+ * 快照」（自带时间戳 / 用「→」表增量），用「当前真值」去核对历史账本本身就是错的用法。
+ * 机制：两文件的历史区起点各有一条显式 HTML 注释标记（不依赖行号——行号会随文档增长漂移）。
+ *   · 读到标记后，该文件其余行全部跳过（标记行自身也跳过）；
+ *   · 标记之前的现状区继续受全部规则管辖；
+ *   · 文件存在但标记缺失 → 断言失败（不得静默降级——标记被误删就会静默失去区段保护）。
+ * 合法排除三判据（规划轮定死，全中才算合法）：① 被排除内容语义上就是历史快照；
+ * ② 该文件有明确现状区且现状区不被排除；③ 排除边界是显式标记而非行号/正则巧合。
+ * 🔴 本机制不是放宽断言：任何 runRule 的正则与真值零改动；带现状陈述的文件
+ * （AGENTS / NEXT-PHASE / README / specs / CODEx入口说明 / EXTERNAL-RESOURCES /
+ * SOURCES / PROGRESS-SCHEMA / LESSON-PAGE-GUIDE 等）一律照旧全文件扫描。 */
+const HISTORY_MARKER = 'doc-numbers: 历史区起点';
+const HISTORY_MARKER_FILES = new Set(['MAINTENANCE.md', 'project-achievements.md']);
+/* 标记存在性自检（先于一切扫描执行；导出模式文件不存在时跳过——与 DOCS 的 existsSync 守卫同口径） */
+for (const rel of HISTORY_MARKER_FILES) {
+  if (!DOCS.includes(rel)) continue;
+  assert.ok(readDoc(rel).includes(HISTORY_MARKER),
+    check(`${rel}: 缺少「${HISTORY_MARKER}」显式标记——历史区排除边界依赖该标记；标记被误删时不得静默降级为全文件扫描（历史条目会被当前真值误伤），请在历史区起点恢复标记原文`));
+}
+/* 可扫描行：历史标记文件只返回标记之前的现状区；其余文件全量返回（行为不变） */
+const scannableLines = rel => {
+  const lines = readDoc(rel).split(/\r?\n/);
+  if (!HISTORY_MARKER_FILES.has(rel)) return lines;
+  const idx = lines.findIndex(l => l.includes(HISTORY_MARKER));
+  /* idx < 0 不可达：上方存在性自检已断言标记在位（断言失败即中止） */
+  return idx >= 0 ? lines.slice(0, idx) : lines;
+};
+
 function scanLines(makeRe) {
   const hits = [];
   for (const rel of DOCS) {
-    readDoc(rel).split(/\r?\n/).forEach((line, i) => {
+    scannableLines(rel).forEach((line, i) => {
       const re = makeRe();
       let m;
       while ((m = re.exec(line))) hits.push({ rel, line: i + 1, raw: m[0], m, text: line.trim() });
@@ -151,30 +220,105 @@ const EXEMPT = new Map();
 const usedExempt = new Set();
 const exempt = (key, reason) => { EXEMPT.set(key, reason); };
 
+/* ---- World 3 批次 4 阶段 3（2026-09-27）历史叙述豁免 ---- */
+
+exempt('D3|AGENTS.md|前缀、CS#课|11',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：- 代码版本：**v4.11.25**（2026-09-27，**本地领先线上、）');
+exempt('D3|AGENTS.md|本站已开放#课|11',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：- 代码版本：**v4.11.25**（2026-09-27，**本地领先线上、）');
+exempt('D3|CODEx入口说明-odin-foundations-zh.md|前缀、CS#课|11',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：| 产品 / 版本 | Odin 中文学习站（The Odin Project ）');
+exempt('D3|NEXT-PHASE.md|前缀、CS#课|11',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：- **批次 4 阶段 3 已完成（2026-09-27，v4.11.25）');
+exempt('D3|SOURCES.md|前缀；CS#课|11',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：- **World 3 javascript 课程「测试 JavaScript」）');
+exempt('D3|README.md|已开放全部八章#课|41',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：- Foundations 的 46 课与 World 2「中级 HTML 与 ）');
+exempt('D5e|AGENTS.md|A类#|158',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：- 代码版本：**v4.11.26**（2026-09-27，**本地领先线上、）');
+exempt('D5f|EXTERNAL-RESOURCES.md|C类#|3',
+  '历史叙述（批次 4 阶段 1/2 条目与版本沿革旧值，阶段 3 轮登记；语境：> **World 3 批次 4 阶段 4（2026-09-27，v4.11.2）');
+
+/* ---- 批次 5 阶段 2 转历史豁免（2026-09-27 v4.11.28 轮登记）----
+ * 阶段 2 新真值（120 课 / 92 图覆盖 61 知识课 / 529 资料 A179 C350 / 809 章 /
+ * Boss 19 单元 120 题 / 244 条 312 链接）前进后，上一批（批次 5 阶段 1，
+ * v4.11.27）条目里的当时真值陈述与成就快照转为历史值，按既有惯例逐键补登。 */
+exempt('D8d|AGENTS.md|Boss#→#单元|18',
+  '版本沿革句：批次 5 阶段 1 段「Boss 17 → **18** 单元 113 题」迁移叙述的当轮终点值（批次 5 阶段 2 起真值 19，转历史豁免）');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|18',
+  '版本沿革句：入口说明版本行批次 5 阶段 1 句 17→18 迁移叙述的当轮终点值（批次 5 阶段 2 起真值 19，转历史豁免）');
+exempt('D8d|SOURCES.md|Boss合计#单元|18',
+  '历史核验记录：批次 5 阶段 1 核验 bullet 里的当时真值（批次 5 阶段 2 起真值 19，转历史豁免）');
+
+/* ---- 批次 5 阶段 3 转历史豁免（2026-09-27 v4.11.29 轮登记）----
+ * 阶段 3 新真值（125 课 / 93 图覆盖 62 知识课 / 540 资料 A186 C354 / 830 章 /
+ * Boss 20 单元 127 题 / 251 条 321 链接）前进后，上一批（批次 5 阶段 2，
+ * v4.11.28）条目里的当时真值陈述与成就快照转为历史值，按既有惯例逐键补登。 */
+exempt('D8d|AGENTS.md|Boss#→#单元|19',
+  '版本沿革句：批次 5 阶段 2 段「Boss 18 → **19** 单元 120 题」迁移叙述的当轮终点值（批次 5 阶段 3 起真值 20，转历史豁免）');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|19',
+  '版本沿革句：入口说明版本行批次 5 阶段 2 句 18→19 迁移叙述的当轮终点值（批次 5 阶段 3 起真值 20，转历史豁免）');
+exempt('D8d|SOURCES.md|Boss合计#单元|19',
+  '历史核验记录：批次 5 阶段 2 核验 bullet 里的当时真值（批次 5 阶段 3 起真值 20，转历史豁免）');
+exempt('D1a|SOURCES.md|#条#链接|244,312',
+  '历史核验记录：批次 5 阶段 2 核验 bullet「任务映射 +18 条 / +22 链接 → 244 条 312 链接」的当轮真值（批次 5 阶段 3 起 251/321，转历史豁免）');
+
+/* ---- 批次 6 阶段 1 转历史豁免（2026-09-27 v4.11.30 轮登记）----
+ * 阶段 1 新真值（133 课 / 95 图覆盖 64 知识课 / 563 资料 A202 C361 / 865 章 /
+ * Boss 22 单元 140 题 / 262 条 332 链接 / 命令面板 147 条）前进后，批次 5 阶段 3
+ * （v4.11.29）条目里的当时真值陈述与成就快照转为历史值，按既有惯例逐键补登。 */
+
+exempt('D1a|SOURCES.md|#条#链接|251,321',
+  '历史核验记录（批次 5 及更早条目的当时真值，批次 6 阶段 1 轮登记；SOURCES.md 行 133）');
+exempt('D8d|AGENTS.md|Boss#→#单元|20',
+  '增量句起点值（AGENTS 版本节批次 6 阶段 1 句「Boss 20 → 22 单元 127 → 140 题」的当时起点，照批次 5 各轮同键先例登记）');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|20',
+  '历史增量句（批次 5 阶段 3「Boss 19 → 20 单元 127 题」的到达点，批次 6 阶段 1 真值 22 后转历史，照 AGENTS 同键先例登记）');
+exempt('D8d|SOURCES.md|Boss合计#单元|20',
+  '历史核验记录（批次 5 及更早条目的当时真值，批次 6 阶段 1 轮登记；SOURCES.md 行 133）');
+exempt('D1a|NEXT-PHASE.md|#条#链接|262,332',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；NEXT-PHASE.md 行 84）');
+
+
+exempt('D14e|AGENTS.md|覆盖#个知识课|64',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；AGENTS.md 行 11）');
+exempt('D5e|NEXT-PHASE.md|A类#|202',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；NEXT-PHASE.md 行 84）');
+exempt('D5f|NEXT-PHASE.md|C类#|361',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；NEXT-PHASE.md 行 84）');
+exempt('D8d|AGENTS.md|Boss#→#单元|22',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；AGENTS.md 行 11）');
+exempt('D8d|NEXT-PHASE.md|Boss+#→#单元|22',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；NEXT-PHASE.md 行 84）');
+exempt('D13|AGENTS.md|#门|22',
+  '历史批次叙述（批次 6 阶段 1 及更早条目的当时真值，批次 6 阶段 2 轮转历史登记；AGENTS.md 行 11）');
+exempt('D1a|NEXT-PHASE.md|#条#链接|272,348',
+  '历史批次叙述（批次 6 阶段 2 及更早条目的当时真值，批次 6 阶段 3 轮转历史登记；NEXT-PHASE.md 行 85）');
+exempt('D3|AGENTS.md|前#课|25',
+  'World 5 课级开放数引文（批次 6 阶段 3 文本引用 World 5 收组事实「25 课」或World 5 卡实测原文「25 课 · 前 25 课已有中文学习内容」——25 是该 World 开放数、非全站开放数，真值域不同；与「前#课|3」「前#课|41」引文豁免同一惯例；AGENTS.md 行 11）');
+exempt('D14e|AGENTS.md|覆盖#个知识课|66',
+  '历史批次叙述（批次 6 阶段 2 及更早条目的当时真值，批次 6 阶段 3 轮转历史登记；AGENTS.md 行 11）');
+exempt('D5e|NEXT-PHASE.md|A类#|214',
+  '历史批次叙述（批次 6 阶段 2 及更早条目的当时真值，批次 6 阶段 3 轮转历史登记；NEXT-PHASE.md 行 85）');
+exempt('D5f|NEXT-PHASE.md|C类#|377',
+  '历史批次叙述（批次 6 阶段 2 及更早条目的当时真值，批次 6 阶段 3 轮转历史登记；NEXT-PHASE.md 行 85）');
+exempt('D8d|AGENTS.md|Boss#→#单元|24',
+  '历史批次叙述（批次 6 阶段 2 及更早条目的当时真值，批次 6 阶段 3 轮转历史登记；AGENTS.md 行 11）');
+exempt('D8d|NEXT-PHASE.md|Boss+#→#单元|24',
+  '历史批次叙述（批次 6 阶段 2 及更早条目的当时真值，批次 6 阶段 3 轮转历史登记；NEXT-PHASE.md 行 85）');
+exempt('D13|AGENTS.md|#门|23',
+  'Project 门数引文（批次 6 阶段 3 文本「全站第 23 门 Project」——23 是 Project 课累计门数、非 D13 大课/长课真值域，不同真值域豁免；AGENTS.md 行 11）');
+exempt('D13|NEXT-PHASE.md|#门|23',
+  'Project 门数引文（批次 6 阶段 3 条目「新增一门 Project 课全站第 23 门」——23 是 Project 课累计门数、非 D13 大课/长课真值域，不同真值域豁免；NEXT-PHASE.md）');
 /* ---- D1 任务映射数 ---- */
 exempt('D1a|CODEx入口说明-odin-foundations-zh.md|#条（#链接|46,54',
   '版本沿革句：描述 v4.11.2 新建映射文件时的规模，历史事实不变');
-exempt('D1a|MAINTENANCE.md|#条#链接|51,63',
-  '历史轮次记录：v4.11.17 轮测试迁移清单里当时规模的引用（:219）');
-exempt('D1a|MAINTENANCE.md|#条#链接|60,73',
-  '历史轮次记录：v4.11.18 轮测试迁移清单里当时规模的引用（覆盖率 60/118 时代值）');
-exempt('D1a|MAINTENANCE.md|#条#链接|68,84',
-  '历史轮次记录：v4.11.20 第一批维护条目里的当时规模（143 条 Assignment 时代值）');
-exempt('D1a|MAINTENANCE.md|#条#链接|72,103',
-  '历史轮次记录：v4.11.20 第三批维护条目里的当时规模（154 条 Assignment 时代值）');
-exempt('D1a|MAINTENANCE.md|#条#链接|75,115',
-  '历史轮次记录：v4.11.20 第六批修改句的当时规模（157 条 Assignment 时代值）');
-exempt('D1a|MAINTENANCE.md|#条#链接|73,106',
-  '历史轮次记录：v4.11.20 第四批维护条目里的当时规模（156 条 Assignment 时代值）');
+
 exempt('D1b|CODEx入口说明-odin-foundations-zh.md|KnowledgeCheck#题|31',
   '版本沿革句：v4.11.2 新建时的 KC 映射规模；v4.11.17 已随官方下线整体移除');
 
 exempt('D3|EXTERNAL-RESOURCES.md|开放第#课|30',
   '历史批次说明块：v4.11.19 第三批开放 Project: Landing Page 的当轮记录，非当前开放计数');
-exempt('D3|MAINTENANCE.md|开放第#课|30',
-  '历史轮次标题：v4.11.19 第三批维护条目的事件叙述（开放 Project: Landing Page），非当前开放计数');
-exempt('D3|project-achievements.md|开放第#课|30',
-  '历史成就快照：v4.11.19 第三批补充条目的事件叙述（开放 Project: Landing Page），非当前开放计数');
 exempt('D3|AGENTS.md|开放第#课|38',
   '版本沿革句：v4.11.20 第三批开放 Project: Rock Paper Scissors 的当轮记录，非当前开放计数');
 exempt('D3|AGENTS.md|开放第#课|43',
@@ -183,79 +327,27 @@ exempt('D3|AGENTS.md|开放第#课|44',
   '版本沿革句：v4.11.20 第七批开放 Object Basics 的当轮记录，非当前开放计数');
 exempt('D3|AGENTS.md|开放第#课|45',
   '版本沿革句：v4.11.20 第八批开放 Project: Calculator 的当轮记录，非当前开放计数');
-exempt('D3|MAINTENANCE.md|开放第#课|43',
-  '历史轮次标题：v4.11.20 第六批维护条目的事件叙述，非当前开放计数');
-exempt('D3|MAINTENANCE.md|开放第#课|44',
-  '历史轮次标题：v4.11.20 第七批维护条目的事件叙述（开放 Object Basics），非当前开放计数');
-exempt('D3|MAINTENANCE.md|开放第#课|45',
-  '历史轮次标题：v4.11.20 第八批维护条目的事件叙述（开放 Project: Calculator），非当前开放计数');
-exempt('D3|MAINTENANCE.md|开放第#课|38',
-  '历史轮次标题：v4.11.20 第三批维护条目的事件叙述（开放 Project: Rock Paper Scissors），非当前开放计数');
+exempt('D3|AGENTS.md|开放第#课|46',
+  '版本沿革句：v4.11.20 第九批的课号引用（Choose Your Path Forward，该批课序 46）。第九批时 46 恰为全站开放数无需豁免；路径课试点批次 3 起全站开放数含 World 2 的 3 门课（49），转为历史课号引用豁免');
 
 /* ---- D2 官方自查题数（现值真值为 0，命中的都是历史记录或阈值陈述） ---- */
 exempt('D2|CODEx入口说明-odin-foundations-zh.md|#道官方自查题|96',
   '版本沿革句：v4.11.17 下线时已开放课程的官方自查题总数');
 exempt('D2|LESSON-PAGE-GUIDE.md|#道自查题|15',
   '§3.5 设计动机叙述：引用当时 how-does-the-web-work 官方页结构（自查题 15 道 + 任务 22 条）解释标注落点为何在资源区标题下，非现状声明');
-exempt('D2|MAINTENANCE.md|#道自查题|96',
-  '历史轮次记录：v4.11.17 官方移除的自查题总数（:120/:168）');
-exempt('D2|MAINTENANCE.md|#道自查题|15',
-  '历史轮次记录：how-does-the-web-work 单课原自查题数（:157/:213）');
-exempt('D2|project-achievements.md|#道自查题|10',
-  'isHeavyLesson 体量阈值陈述（KC≥10 分支判据），不是计数；阈值公式刻意保留，官方恢复该节即自动复活');
 
 /* ---- D3 已开放课数（真值 T_AVAIL；历史轮次与单元级计数豁免） ---- */
 exempt('D3|EXTERNAL-RESOURCES.md|前#课|19',
   'v4.11.1 历史说明：描述改动前的页面状态（:21）');
-exempt('D3|MAINTENANCE.md|当前#课|23',
-  '历史轮次记录：引用当时待迁移的 app.js 注释文本（:14）与当时欠账值（:69）');
-exempt('D3|MAINTENANCE.md|当前#课|19',
-  '变更记录：heavy-lesson.test 注释迁移叙述（:256/:303）');
-exempt('D3|MAINTENANCE.md|前两处在当前#课|19',
-  '变更记录：heavy-lesson.test:110 注释迁移叙述（旧值为 19 课时代值、新值 20，:256/:303）');
-exempt('D3|MAINTENANCE.md|当前#课|20',
-  '变更记录：同一迁移的目标值，v4.11.16 轮事实（:294/:303）');
-exempt('D3|MAINTENANCE.md|本站#课|19',
-  '变更记录：bosses.js 头注释迁移叙述（:256/:303）');
-exempt('D3|MAINTENANCE.md|本站#课|20',
-  '变更记录：同一迁移的目标值，v4.11.16 轮事实（:256/:303）');
-exempt('D3|MAINTENANCE.md|前#课|19',
-  '历史轮次记录：指纹复核范围与 FAQ 旧文案（:288/:293/:751/:760/:961）');
-exempt('D3|MAINTENANCE.md|前#课|20',
-  '变更记录：FAQ 与课页文案迁移叙述（:211/:293/:297）');
-exempt('D3|MAINTENANCE.md|前#课|23',
-  '变更记录：FAQ 迁移目标值，v4.11.17 轮事实（:211）');
-exempt('D3|MAINTENANCE.md|开放#课|3',
-  '历史轮次记录：v4.11.17 时 css-foundations 单元级状态（:77/:238），非全站开放数');
-exempt('D3|MAINTENANCE.md|本站只开放#课|3',
-  '历史补记记录：引用当时补进 PROGRESS-SCHEMA 的解释句原文（v4.11.17 轮单元级状态，:77）');
-exempt('D3|MAINTENANCE.md|已开放的#课|3',
-  '变更记录：v4.11.18 轮 stale-claims R2 豁免键迁移叙述引用的旧键名（:17），单元级计数非全站开放数');
-exempt('D3|MAINTENANCE.md|已开放的#课|5',
-  '变更记录：同一迁移叙述引用的新键名（:17），unit-4 单元级计数非全站开放数');
-exempt('D3|MAINTENANCE.md|已开放+#课|21',
-  '「N 已开放 + M 课灰化」式表述：M 是灰化（未开放）课数，正则就近取到——与 stale-claims R2 对 browser-smoke 同形状豁免同一理由（:24）');
-exempt('D3|MAINTENANCE.md|开放的#课|21',
-  '变更记录：引用 stale-claims R2 豁免迁移叙述里的「未开放的 N 课」措辞（N = 未开放数，:24）');
 exempt('D3|NEXT-PHASE.md|本站第#课|7',
   '课号引用：§4-4 环境课处置指回第 07 课 installations 的运行环境选择，非开放计数');
 exempt('D3|NEXT-PHASE.md|开放第#课|20',
   '课号引用：§3 批次表 P1 行 answers 实施记录文件名里的 Recipes 开放事件叙述，正则就近取到课号');
-exempt('D3|MAINTENANCE.md|已开放的#课|8',
-  'v4.11.16 轮记录：引用 unit-3 单元级开放数（含 Recipes 后 8 课），非全站开放数（:283）');
-exempt('D3|MAINTENANCE.md|开放课、D#/D#课|2',
-  '变更记录：课页文案按课型分支的 D1/D2 引导语迁移叙述（:289），正则跨词取到分支编号');
-exempt('D3|MAINTENANCE.md|本站覆盖前#课|19',
-  'v4.11.2 轮记录：引用当时三条保留项之一的事实边界文案（:961），该文案此后已随扩课更新');
 /* 旧键 D3|project-achievements.md|本站开放#/#课|46 已删：46/46 全开后该历史口径行被
  * 重写，扫描不再命中（死豁免自检逼删）。 */
 exempt('D3|SOURCES.md|前）、第#课|20',
   '核验批次划分叙述（:66）：正则跨词取到「第 20 课」课号引用，非开放计数');
-exempt('D3|MAINTENANCE.md|前#课|25',
-  '历史轮次记录：v4.11.18 轮测试迁移清单里「前 25 课」的当时表述（:77）');
 /* 旧键 D3|project-achievements.md|开放#/#课|46 已删：同上，46/46 全开后该行不再命中。 */
-exempt('D3|project-achievements.md|本站#课|19',
-  '历史叙述：v4.11.17 自查题下线前的全站状态（:447）');
 exempt('D3|PROGRESS-SCHEMA.md|当前开放的#课|8',
   '单元级计数：unit-3（HTML Foundations）开放课数，非全站开放数（:278）');
 exempt('D3|PROGRESS-SCHEMA.md|当前开放的#课|5',
@@ -269,60 +361,24 @@ exempt('D3|SOURCES.md|前#课|19',
 exempt('D3|AGENTS.md|开放第#课|20', '课号引用：「开放第 N 课」事件叙述（v4.11.16），非计数声明');
 exempt('D3|CODEx入口说明-odin-foundations-zh.md|开放第#课|20', '课号引用：同上（版本行 v4.11.16 条目）');
 exempt('D3|EXTERNAL-RESOURCES.md|开放第#课|20', '课号引用：同上（v4.11.16 说明块标题）');
-exempt('D3|MAINTENANCE.md|开放第#课|20', '课号引用：同上（v4.11.16 维护条目标题与行文）');
-exempt('D3|project-achievements.md|开放第#课|20', '课号引用：同上（v4.11.16 成就记录标题行文）');
 
 /* ---- D4 概念图数 ---- */
 exempt('D4a|AGENTS.md|全站#张|47',
   'v4.11.6 历史记录：当时全站概念图总数（:12）');
-exempt('D4a|project-achievements.md|全站概念图#→#张|51',
-  '历史成就快照：v4.11.18 轮全站概念图 49→51 迁移叙述（:490），正则取到该轮终点值；现值已 52');
-exempt('D4a|project-achievements.md|全站#→#张|51',
-  '历史成就快照：v4.11.18 轮 49→51 迁移叙述（:481），正则取到该轮终点值；现值已 52');
-exempt('D4a|MAINTENANCE.md|全站#→#张|51',
-  '历史轮次记录：v4.11.18 轮 49→51 迁移叙述（:76），正则取到该轮终点值；现值已 52');
 exempt('D4a|CODEx入口说明-odin-foundations-zh.md|全站#→#张|51',
   '版本沿革句：v4.11.18 轮 49→51 迁移叙述，正则取到该轮终点值；现值已 52');
-exempt('D4a|MAINTENANCE.md|全站#→#张|49',
-  '历史变更记录：v4.11.17 轮 47→49 迁移叙述，正则取到该轮新总数（:205）');
-exempt('D4a|MAINTENANCE.md|全站#张|47',
-  '历史轮次记录：v4.11.6 轮测试迁移描述（:1018）');
 exempt('D4a|AGENTS.md|全站铺开：新增#张|33',
   'v4.11.6 历史记录：该轮新生成图数量，正则从「全站铺开」跨词取到（:12）');
 exempt('D4a|CODEx入口说明-odin-foundations-zh.md|全站#张|47',
   '版本沿革句：v4.11.6 轮全站概念图总数');
 exempt('D4c|CODEx入口说明-odin-foundations-zh.md|#张概念图|2',
   '版本沿革句：当轮新增概念图数（v4.11.17 / v4.11.18 增量），非全站总数');
-exempt('D4c|MAINTENANCE.md|#张概念图|1',
-  '当轮逐课配图记录：课 24 / 25 各一张（:7），非全站总数');
-exempt('D4c|project-achievements.md|#张概念图|49',
-  '历史成就快照：v4.11.17 时状态（:471）');
-exempt('D4b|project-achievements.md|#张原创|8',
-  'v4 时代历史成就记录：当时概念图数（:25）');
 exempt('D4c|CODEx入口说明-odin-foundations-zh.md|#张概念图|39',
   '版本沿革句：v4.11.6 发布基线里白名单新增的概念图 SVG 数（生成图口径）');
-exempt('D4c|project-achievements.md|#张概念图|8',
-  '历史成就记录：v4 时代快照（:66/:125/:161/:208 共用）');
-exempt('D4c|project-achievements.md|#张概念图|1',
-  '历史成就记录：v4.11.17 轮课 21/22 逐课配一张（:458）');
-exempt('D4c|project-achievements.md|#张概念图|2',
-  '历史成就记录：v4.11.18 轮新增两张（:481）');
 exempt('D4c|SOURCES.md|#张概念图|8',
   '发布准备轮（2026-09-14）视觉资产登记快照：当时手工概念图 8 张，属带日期的历史记录（:159）');
-exempt('D4d|MAINTENANCE.md|#张图|49',
-  '历史轮次记录：v4.11.17 轮测试迁移清单（:219）');
 exempt('D4d|AGENTS.md|#张图|7',
   'v4.11.6 历史记录：该轮补 sectionIndex 归位的存量图数（:12）');
-exempt('D4d|MAINTENANCE.md|#张图|72',
-  '伙伴位图资产计数（72 张 WebP，:804），另一资产族，非概念图');
-exempt('D4d|MAINTENANCE.md|#张图|7',
-  '已退役项记录（:880）：World 卡位图从未生成的七张，非概念图');
-exempt('D4d|MAINTENANCE.md|#张图|2',
-  '配图纪律条款（:1000）：「一课 >2 张图」逐课阈值规则，非全站总数');
-exempt('D4d|MAINTENANCE.md|#张图|33',
-  '历史回滚指引（:1025）：v4.11.6 批 2 的改动范围描述');
-exempt('D4d|project-achievements.md|#张图|47',
-  '历史成就记录：v4.11.6 轮全站概念图总数（:340）');
 
 /* ---- D5 外部资料条数 ---- */
 exempt('D5a|AGENTS.md|#条外部资料|84',
@@ -333,68 +389,12 @@ exempt('D5a|CODEx入口说明-odin-foundations-zh.md|#条外部资料|3',
   '版本沿革句：v4.11.19 轮课 27 的新增条数，非全站总数');
 exempt('D5a|CODEx入口说明-odin-foundations-zh.md|#条外部资料|12',
   '版本沿革句：v4.11.17 轮新增条数');
-exempt('D5a|MAINTENANCE.md|#条外部资料|1',
-  '每课下限语义：引用 content.test「每课至少一条」断言内容（:175），非清单总数');
-exempt('D5a|MAINTENANCE.md|#条外部资料|12',
-  '历史轮次记录：v4.11.17 轮新增条数（:239）');
-exempt('D5a|project-achievements.md|#条外部资料|84',
-  '历史成就记录：v4.11.1–v4.11.15 多轮快照（:7/:66/:125/:161/:208）');
-exempt('D5a|project-achievements.md|#条外部资料|12',
-  '历史成就记录：v4.11.17 轮新增条数（:458）');
-exempt('D5a|project-achievements.md|#条外部资料|97',
-  '历史成就快照：v4.11.17 时状态（:471）');
-exempt('D5a|project-achievements.md|#条外部资料|10',
-  '历史成就记录：v4.11.18 轮新增条数（:481）');
-exempt('D5e|MAINTENANCE.md|A类#|28',
-  '历史补记记录：doc-numbers 补轮表格引用 v4.11.18 的终点值 24→28（:49），现值已 30');
 exempt('D5e|EXTERNAL-RESOURCES.md|A类#|28',
   'v4.11.19 变更记录：28→30 迁移叙述，正则取到起点值（:7）');
 exempt('D5e|EXTERNAL-RESOURCES.md|A类#|31',
   'v4.11.20 变更记录：31→43 迁移叙述，正则取到起点值（zh.javascript.info 首批入库 7 条 + MDN 新路径 5 条）');
 exempt('D5f|EXTERNAL-RESOURCES.md|C类#|87',
   'v4.11.20 变更记录：87→89 迁移叙述，正则取到起点值（Live Preview + W3Schools 两条 C 类）');
-exempt('D7a|MAINTENANCE.md|#课/#章|30,277',
-  '历史轮次记录：v4.11.19 第三批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|33,300',
-  '历史轮次记录：v4.11.20 第一批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|43,389',
-  '历史轮次记录：v4.11.20 第六批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|44,396',
-  '历史轮次记录：v4.11.20 第七批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|45,405',
-  '历史轮次记录：v4.11.20 第八批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|42,382',
-  '历史轮次记录：v4.11.20 第五批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|40,361',
-  '历史轮次记录：v4.11.20 第四批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|38,341',
-  '历史轮次记录：v4.11.20 第三批验证句的当时真值快照');
-exempt('D7a|MAINTENANCE.md|#课/#章|37,333',
-  '历史轮次记录：v4.11.20 第二批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|30',
-  '历史轮次记录：v4.11.19 第三批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|33',
-  '历史轮次记录：v4.11.20 第一批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|43',
-  '历史轮次记录：v4.11.20 第六批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|44',
-  '历史轮次记录：v4.11.20 第七批修改句与验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|45',
-  '历史轮次记录：v4.11.20 第八批修改句与验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|42',
-  '历史轮次记录：v4.11.20 第五批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|40',
-  '历史轮次记录：v4.11.20 第四批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|38',
-  '历史轮次记录：v4.11.20 第三批验证句的当时真值快照');
-exempt('D9a|MAINTENANCE.md|金阶#|37',
-  '历史轮次记录：v4.11.20 第二批验证句的当时真值快照');
-exempt('D5e|project-achievements.md|A类#|31',
-  '历史成就快照：v4.11.19 第二批补充条目记录的当时值，非当前值');
-exempt('D5e|MAINTENANCE.md|A类#|11',
-  '历史轮次记录：v4.11.20 第二批条目「A 类 11 + C 类 11」是该批四课的增量计数，非全站 A 类总数');
-exempt('D5f|MAINTENANCE.md|C类#|11',
-  '历史轮次记录：同上行的 C 类增量计数（该批四课 22 条中 C 类 11 条），非全站 C 类总数');
 exempt('D5e|EXTERNAL-RESOURCES.md|A类#|26',
   'v4.11.18 变更记录：26→28 迁移叙述，正则取到起点值（:7）');
 exempt('D5e|EXTERNAL-RESOURCES.md|A类#|24',
@@ -410,43 +410,54 @@ exempt('D5f|SOURCES.md|C类#|60',
 exempt('D5h|SOURCES.md|#条A类|24',
   '首批核验记录（84 条批次范围，:141）：当时批次内 A 类条数，属带日期的历史记录；当前 A 类计数由 D5gA/D5h 对 EXTERNAL-RESOURCES.md 统计表与域名分布引言钉住');
 
-/* ---- D3c 「N 课中文正文」历史快照（v4.11.20 发布前 FIX 轮登记） ---- */
-exempt('D3c|project-achievements.md|#课中文正文|19',
-  '历史成就快照：v4.11.1–v4.11.3 轮「19 课中文正文（本轮一字未改）」的当时规模（:125/:161/:208 三行同键）');
-
 /* ---- D6 成就总数 ---- */
-exempt('D6b|MAINTENANCE.md|成就总数#|61',
-  '变更记录：61→64 迁移叙述（:79），正则取到起点值');
-exempt('D6b|MAINTENANCE.md|成就总数#|65',
-  '历史轮次记录：批次 8 之前条目引用的当时成就总数（65 个时代值）');
-exempt('D6b|project-achievements.md|成就总数#|65',
-  '历史成就快照：v4.11.19 第三批补充条目引用的当时成就总数（65 个时代值）');
-exempt('D6c|MAINTENANCE.md|这样#个成就|61',
-  '历史欠账记录：引用当时 PROGRESS-SCHEMA 的欠账值（:71），补记轮已修正');
-exempt('D6d|MAINTENANCE.md|成就#个|63',
-  '历史补记记录（:482）：引用当时修正 specs 计数不一致时的正文旧值');
-exempt('D6d|MAINTENANCE.md|成就#个|2',
-  '历史补记记录（:482）：引用大课体量成就子集叙述');
 exempt('D6d|specs.md|成就#个|2',
   '子集计数（:101）：「大课体量成就 2 个」指 heavy-first / heavy-all 两条，非成就总数');
 
-/* ---- D7 课数 / 章数 ---- */
-exempt('D7a|project-achievements.md|#课/#章|23,227',
-  '历史成就快照：v4.11.17 轮当时规模（:471）');
-exempt('D7b|MAINTENANCE.md|共#章|382',
-  '历史轮次记录：v4.11.20 第五批修改句的当时总章数');
-exempt('D7b|MAINTENANCE.md|共#章|396',
-  '历史轮次记录：v4.11.20 第七批修改句的当时总章数');
-exempt('D7b|MAINTENANCE.md|共#章|405',
-  '历史轮次记录：v4.11.20 第八批修改句的当时总章数');
-exempt('D7b|MAINTENANCE.md|共#章|35',
-  '历史轮次记录：v4.11.17 新增三课的合计章数（:186），非全站总章数');
-
-/* ---- D8 Boss ---- */
-exempt('D8b|MAINTENANCE.md|#个配置了Boss的单元|4',
-  '历史补记记录：v4.11.17 轮修订 specs 措辞时的引用（:78），当时 Boss 单元为四个');
-exempt('D8c|MAINTENANCE.md|共#题|22',
-  '历史补记记录：v4.11.17 时 Boss 总题数（:78）；v4.11.18 新增层叠高塔后为现值');
+/* ---- D8d「Boss 限定语 + N 单元」裸形态历史值（批次 5 阶段 0 建规则时登记，2026-09-27）----
+ * 建规则时普查命中 48 处：现值陈述恰为真值直接通过，其余全部是历史沿革叙述与
+ * 历史成就快照（各批条目里的当时真值），逐键登记。批后现值前进时（如阶段 1 起
+ * Boss 单元数增加），上一批的现值陈述句转为历史值、按同一惯例补键。 */
+exempt('D8d|AGENTS.md|Boss#单元|7',
+  '版本沿革句：v4.11.20 第九批「Boss 7 单元 43 题」与 World 2 第二批「（旧值…）」引用的当时真值');
+exempt('D8d|AGENTS.md|Boss#单元|8',
+  '版本沿革句：World 2 第四批条目「Boss 8 单元 50 题均不变」的当时真值');
+exempt('D8d|AGENTS.md|Boss#→#单元|11',
+  '版本沿革句：World 2 第五批条目 8→11 迁移叙述的当轮终点值');
+exempt('D8d|AGENTS.md|Boss#→#单元|12',
+  '版本沿革句：批次 4 阶段 1 条目 11→12 迁移叙述的当轮终点值');
+exempt('D8d|AGENTS.md|Boss#→#单元|14',
+  '版本沿革句：批次 4 阶段 2 条目 12→14 迁移叙述的当轮终点值');
+exempt('D8d|AGENTS.md|Boss#→#单元|16',
+  '版本沿革句：批次 4 阶段 3 条目 14→16 迁移叙述的当轮终点值');
+exempt('D8d|AGENTS.md|Boss#→#单元|17',
+  '版本沿革句：批次 4 阶段 4 条目 16→17 迁移叙述的当轮终点值（批次 5 阶段 1 起真值 18，转历史豁免）');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#单元|7',
+  '版本沿革句：入口说明版本行 World 2 第二批条目引用的当时真值（旧值括注形态）');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#单元|8',
+  '版本沿革句：入口说明版本行 World 2 第四批条目「Boss 8 单元 50 题均不变」的当时真值');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|11',
+  '版本沿革句：入口说明版本行 World 2 第五批条目 8→11 迁移叙述的当轮终点值');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|12',
+  '版本沿革句：入口说明版本行批次 4 阶段 1 条目 11→12 迁移叙述的当轮终点值');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|14',
+  '版本沿革句：入口说明版本行批次 4 阶段 2 条目 12→14 迁移叙述的当轮终点值');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|16',
+  '版本沿革句：入口说明版本行批次 4 阶段 3 条目 14→16 迁移叙述的当轮终点值');
+exempt('D8d|CODEx入口说明-odin-foundations-zh.md|Boss#→#单元|17',
+  '版本沿革句：入口说明版本行批次 4 阶段 4 条目 16→17 迁移叙述的当轮终点值（批次 5 阶段 1 起真值 18，转历史豁免）');
+exempt('D8d|NEXT-PHASE.md|Boss（合计#单元|11',
+  '历史轮次记录：World 2 收组批条目「四个章节就此全部开放，且全部配有 Boss（合计 11 单元）」的当时真值');
+exempt('D8d|SOURCES.md|Boss合计#单元|11',
+  '历史核验记录：World 2 第五批（收组）核验 bullet 里的当时真值');
+exempt('D8d|SOURCES.md|Boss合计#单元|12',
+  '历史核验记录：批次 4 阶段 1 核验 bullet 里的当时真值');
+exempt('D8d|SOURCES.md|Boss合计#单元|14',
+  '历史核验记录：批次 4 阶段 2 核验 bullet 里的当时真值');
+exempt('D8d|SOURCES.md|Boss合计#单元|16',
+  '历史核验记录：批次 4 阶段 3 核验 bullet 里的当时真值');
+exempt('D8d|SOURCES.md|Boss合计#单元|17',
+  '历史核验记录：批次 4 阶段 4 核验 bullet 里的当时真值（批次 5 阶段 1 起真值 18，转历史豁免）');
 
 /* ---- D9 金阶 / 阈值三元组 ---- */
 exempt('D9a|AGENTS.md|金阶#|5',
@@ -455,71 +466,35 @@ exempt('D9a|CODEx入口说明-odin-foundations-zh.md|金阶#|23',
   '版本沿革句：v4.11.18 变化叙述（23→25），正则取到起点值');
 exempt('D9a|CODEx入口说明-odin-foundations-zh.md|金阶#|25',
   '版本沿革句：v4.11.19 变化叙述（25→27），正则取到起点值');
-exempt('D9a|MAINTENANCE.md|金阶#|23',
-  '变更记录：tiers.js 金阶迁移叙述（:14），正则取到起点值');
 
 /* ---- D10 单元成就分母（同文件一致性） ---- */
 exempt('D10|PROGRESS-SCHEMA.md|分母#|u4|3',
   '历史沿革：unit-4 新增时（开放第 21–23 课）的分母；:279 表格、:281 解释段、:283 来历段三处「表格+解释段」叙述共用本豁免，现值均为真值');
-exempt('D10|MAINTENANCE.md|分母#|u4|3',
-  '变更记录：unit-4 desc 分母 3→5 迁移叙述（:14/:22），正则取到起点值');
-exempt('D10|MAINTENANCE.md|分母#|u4|23',
-  '同一行里的全课程分母变更记录（started-all / quiz-all 等 23→25），因行内含 unit-4 字样被就近取到，非 unit-4 分母（:14）');
-exempt('D10|MAINTENANCE.md|分母#|u3|7',
-  '变更记录：20 课开放之后 unit-3 分母 7→8 迁移叙述（:297），正则取到起点值');
-exempt('D10|project-achievements.md|分母#|u4|3',
-  '历史成就记录：3→5 变化叙述与解锁边界说明（:487）');
 exempt('D10|PROGRESS-SCHEMA.md|分母#|u403|3',
   '历史沿革（:283）：3→5 变化叙述；同行还提及 unit-0～unit-3，单元串按出现顺序就近取得');
-exempt('D10|MAINTENANCE.md|分母因此取#|u4|3',
-  '历史补记记录（:77）：引用当时补进 PROGRESS-SCHEMA 的解释句原文');
 
-exempt('D3|MAINTENANCE.md|当前#课|25',
-  '变更记录：v4.11.19 轮迁移叙述，正则取到起点值（MAINTENANCE 本轮条目）');
-exempt('D3|MAINTENANCE.md|开放前#课|2',
-  '变更记录：v4.11.19 轮迁移叙述，正则取到起点值（MAINTENANCE 本轮条目）');
-exempt('D9a|MAINTENANCE.md|金阶#|25',
-  '变更记录：v4.11.19 轮迁移叙述，正则取到起点值（MAINTENANCE 本轮条目）');
-exempt('D3|project-achievements.md|前两课，其中第#课|26',
-  '课号引用：「其中第 26 课」指 Introduction to Flexbox 这一课，正则从前文「前」跨词取到，非开放计数（v4.11.19 成就条目）');
 
-exempt('D3|MAINTENANCE.md|前#课|27',
-  '历史轮次记录：v4.11.19 批次 1 条目里的当时值（27 课时代），第二批开放后为 29');
-exempt('D3|project-achievements.md|开放#课|27',
-  '历史轮次记录：v4.11.19 批次 1 条目里的当时值（27 课时代），第二批开放后为 29');
+exempt('D4a|CODEx入口说明-odin-foundations-zh.md|全站#→#张|52',
+  '历史沿革值：同上（v4.11.19 第二批 51→52）。试点批次起 53 不再是真值，53 历史句一并豁免');
+exempt('D4a|CODEx入口说明-odin-foundations-zh.md|全站#张|53',
+  '历史沿革值：v4.11.19–v4.11.20 时代全站图数为 53（入口说明版本段两处）；路径课试点批次 3 起 56 张，历史句豁免');
 exempt('D4a|CODEx入口说明-odin-foundations-zh.md|全站#→#张|52',
   '版本沿革句：v4.11.19 第一批 51→52 迁移叙述取到终点值；第二批后现值 53');
-exempt('D4a|MAINTENANCE.md|全站#→#张|52',
-  '历史轮次记录：v4.11.19 第一批的终点值；第二批后现值 53');
-exempt('D4a|project-achievements.md|全站#张|52',
-  '历史成就快照：v4.11.19 第一批的终点值；第二批后现值 53');
 exempt('D5a|CODEx入口说明-odin-foundations-zh.md|#条外部资料|5',
   '当轮增量：v4.11.19 第二批（28–29 课）新增条数，非全站总数');
 exempt('D5e|EXTERNAL-RESOURCES.md|A类#|30',
   'v4.11.19 第二批后的历史值豁免（批次 1 条目的当时值）');
-exempt('D5e|project-achievements.md|A类#|30',
-  'v4.11.19 第二批后的历史值豁免（批次 1 条目的当时值）');
 exempt('D5f|EXTERNAL-RESOURCES.md|C类#|80',
   'v4.11.19 第二批后的历史值豁免（批次 1 条目的当时值）');
-exempt('D9a|MAINTENANCE.md|金阶#|27',
-  '变更记录：v4.11.19 第二批迁移叙述，正则取到起点值（MAINTENANCE 本轮条目）');
-exempt('D10|MAINTENANCE.md|分母#|u5|27',
-  '变更记录：v4.11.19 第二批「started-all 阈值 27→29」迁移叙述的起点值 27 与行内 unit-5 字样就近碰撞，非 unit-5 分母声明（flexbox 组现 4 课）');
 exempt('D5f|EXTERNAL-RESOURCES.md|C类#|84',
-  '变更记录：v4.11.19 第三批迁移叙述的起点值（批次 2 条目或本轮条目内的历史值）');
-exempt('D6b|MAINTENANCE.md|成就总数#|64',
   '变更记录：v4.11.19 第三批迁移叙述的起点值（批次 2 条目或本轮条目内的历史值）');
 exempt('D6b|CODEx入口说明-odin-foundations-zh.md|成就总数#|64',
   '版本沿革句：v4.11.19 第三批变化叙述（成就总数 64→65），正则取到起点值');
 
-exempt('D6d|project-achievements.md|成就#个|64',
-  '历史成就快照：v4.11.17 轮当时状态（23 课时代值，:471）');
 
 /* 旧键 D10|u54|3 已删：行 11 措辞随第九批重写后旧命中消失（新键 u6754|3 已登记）。 */
 exempt('D10|CODEx入口说明-odin-foundations-zh.md|分母#|u6754|3',
   '变更记录：v4.11.18 条目「unit-4 成就分母 3→5」的历史迁移叙述起点值；行 11 同行含第九批新句的 unit-6/unit-7 引用属就近碰撞，均非当前态分母声明');
-exempt('D9a|MAINTENANCE.md|金阶#|29',
-  '变更记录：v4.11.19 第三批金阶 29→30 迁移叙述，正则取到起点值');
 /* ---- D13 大课门数 ---- */
 exempt('D13|AGENTS.md|#门|2',
   'v4.11.8 历史记录：长课章节导航覆盖数此前误记为两门的订正叙述，非大课集合门数（:12）');
@@ -527,14 +502,8 @@ exempt('D13|CODEx入口说明-odin-foundations-zh.md|#门|4',
   '版本沿革句：第五批第 41 课（14 章达大课阈值）开放后大课门数才升到 5，此为之前的当时值');
 exempt('D13|CODEx入口说明-odin-foundations-zh.md|#门|2',
   '版本沿革句：v4.11.8 条目里同一订正叙述');
-exempt('D13|project-achievements.md|#门|4',
-  '历史成就记录（:468）：v4.11.17 轮的当时真值（第 41 课开放后变 5）');
-exempt('D13|MAINTENANCE.md|#门|3',
-  '历史变更记录（:170）：v4.11.17 自查题下线使大课集合短暂收为三门，同轮第 21 课进入后恢复');
 exempt('D13|AGENTS.md|#门|4',
   '历史版本行（:12）：v4.11.16 交付记录里的大课门数当时值，第 41 课开放（第五批）前的真值');
-exempt('D13|MAINTENANCE.md|#门|4',
-  '历史轮次记录：第五批前各维护条目里的大课门数当时值（第 41 课 14 章达标后变 5）');
 
 /* ===================== 通用判定 ===================== */
 function resolveKey(rule, key, hit, nums, truth) {
@@ -558,14 +527,121 @@ function runRule(rule, label, makeRe, truth, minHits, numGroups = [1]) {
 }
 
 /* ===================== D1 · 任务映射数（盲区一） ===================== */
+/* ---- World 2 第三批（2026-09-26）历史快照豁免：第四批（表单 3 课）起真值前进，
+ * 第三批维护条目与成就条目里的当时值转为历史豁免（键与理由文案都不含
+ * 「前缀词+数字+课」式可触发句，避免自身构成 stale-claims R2 的命中）。 ---- */
+exempt('D13|AGENTS.md|#门|5',
+  '历史轮次记录：v4.11.20 第五批叙述里的当时大课门数，World 2 第四批起为 6');
+exempt('D13|CODEx入口说明-odin-foundations-zh.md|#门|5',
+  '历史轮次记录：v4.11.20 第五批叙述里的当时大课门数，World 2 第四批起为 6');
+exempt('D13|NEXT-PHASE.md|#门|5',
+  '历史轮次记录：v4.11.20 第五批完成标注里的当时大课门数，World 2 第四批起为 6');
+exempt('D13|SOURCES.md|#门|5',
+  '历史轮次记录：课 41 逐课核验记录里的当时大课门数，World 2 第四批起为 6');
+/* ---- 超长轮批次 7 阶段 1（2026-09-28，v4.11.33，World 6 收组）：批次 6 阶段 3 旧值转历史豁免 ---- */
+exempt('D1a|NEXT-PHASE.md|#条#链接|296,378',
+  '历史批次叙述（批次 6 阶段 3 条目的当时真值，批次 7 阶段 1 轮转历史登记；NEXT-PHASE.md 行 86）');
+exempt('D14e|AGENTS.md|覆盖#个知识课|69',
+  '历史叙述（批次 6 阶段 3 及更早条目的当时真值，批次 7 阶段 1 轮转历史登记）（AGENTS.md:11）');
+exempt('D5f|AGENTS.md|C类#|430',
+  '历史叙述（批次 6 阶段 3 及更早条目的当时真值，批次 7 阶段 1 轮转历史登记）（AGENTS.md:11）');
+exempt('D5f|NEXT-PHASE.md|C类#|430',
+  '历史叙述（批次 6 阶段 3 及更早条目的当时真值，批次 7 阶段 1 轮转历史登记）（NEXT-PHASE.md:86）');
+exempt('D8d|AGENTS.md|Boss#→#单元|27',
+  '历史叙述（批次 6 阶段 3 及更早条目的当时真值，批次 7 阶段 1 轮转历史登记）（AGENTS.md:11）');
+exempt('D8d|NEXT-PHASE.md|Boss+#→#单元|27',
+  '历史叙述（批次 6 阶段 3 及更早条目的当时真值，批次 7 阶段 1 轮转历史登记）（NEXT-PHASE.md:86）');
+exempt('D13|AGENTS.md|#门|24',
+  'Project 门数引文（批次 7 阶段 1 文本「全站第 24 门 Project」——24 是 Project 课累计门数、非 D13 大课/长课真值域，不同真值域豁免；AGENTS.md 行 11）');
+exempt('D13|NEXT-PHASE.md|#门|24',
+  'Project 门数引文（批次 7 阶段 1 条目「新增一门 Project 课全站第 24 门」——24 是 Project 课累计门数、非 D13 大课/长课真值域，不同真值域豁免；NEXT-PHASE.md 行 88）');
+exempt('D13|NEXT-PHASE.md|#门|27',
+  'Project 门数引文（批次 7 阶段 2 文本「全站第 25/26/27 门 Project」——门数是 Project 课累计计数、非 D13 大课/长课真值域，不同真值域豁免（D13|AGENTS|#门|24 阶段 1 先例同型）；NEXT-PHASE.md:88 语境「- **超长轮批次 7 阶段 2 已完成（2026-09-28，v4.11.34」）');
+exempt('D13|CODEx入口说明-odin-foundations-zh.md|#门|27',
+  'Project 门数引文（批次 7 阶段 2 文本「全站第 25/26/27 门 Project」——门数是 Project 课累计计数、非 D13 大课/长课真值域，不同真值域豁免（D13|AGENTS|#门|24 阶段 1 先例同型）；CODEx入口说明-odin-foundations-zh.md:11 语境「| 产品 / 版本 | Odin 中文学习站（The Odin Project Chinese Learning Com」）');
+exempt('D13|AGENTS.md|#门|27',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
+exempt('D8d|NEXT-PHASE.md|Boss+#→#单元|28',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:89 语境「- **超长轮批次 7 阶段 1 已完成（2026-09-28，v4.11.33，World 6 收组」）');
+exempt('D8d|NEXT-PHASE.md|Boss合计#单元|28',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:49 语境「- 全站当前 8 个已开放分组全部收组（HTML Foundations 含 Project: Recipes 8/8、」）');
+exempt('D8d|AGENTS.md|Boss#→#单元|28',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
+exempt('D5f|NEXT-PHASE.md|C类#|440',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:88 语境「- **超长轮批次 7 阶段 2 已完成（2026-09-28，v4.11.34」）');
+exempt('D5f|EXTERNAL-RESOURCES.md|C类#|70',
+  '批次增量叙述（EXTERNAL-RESOURCES.md 批次 7 阶段 2 说明行的本批新增条数、非全站总数——D5e|MAINTENANCE A类#|13 批次增量豁免先例同型；EXTERNAL-RESOURCES.md:13 语境「> **超长轮批次 7 阶段 2（2026-09-28，v4.11.34」）');
+exempt('D5f|AGENTS.md|C类#|440',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
+exempt('D5e|NEXT-PHASE.md|A类#|224',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:86 语境「- **批次 6 阶段 3 已完成（2026-09-28，v4.11.32，World 5 收组」）');
+/* ---- 超长续轮批次 7 阶段 2（2026-09-29，v4.11.34，World 7 nodejs 两章 17 课）：批次 7 阶段 1 旧值转历史豁免 ---- */
+exempt('D5e|AGENTS.md|A类#|224',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
+exempt('D14e|AGENTS.md|覆盖#个知识课|70',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
+exempt('D3c|NEXT-PHASE.md|#课中文正文|153',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:7 语境「- 官方 Foundations 全课程数：**46 课**；本站 Foundations 已覆盖全部 **46 课**」）');
+exempt('D3|NEXT-PHASE.md|前缀、其余#课|13',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:88 语境「- **超长轮批次 7 阶段 2 已完成（2026-09-28，v4.11.34」）');
+/* ---- 超长续轮批次 7 阶段 2（2026-09-29，v4.11.34，World 7 nodejs 两章 17 课）：批次 7 阶段 1 旧值转历史豁免 ---- */
+exempt('D1a|NEXT-PHASE.md|#条#链接|303,385',
+  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:89 语境「- **超长轮批次 7 阶段 1 已完成（2026-09-28，v4.11.33，World 6 收组」）');
+/* ---- 超长续轮批次 7 阶段 3（2026-09-29，v4.11.35，World 7 收组）：批次 7 阶段 2 旧值转历史豁免 + 阶段 3 增量叙述与不同真值域豁免（35 键） ---- */
+exempt('D3|AGENTS.md|前缀一致#课|170',
+  '历史叙述（批次 7 阶段 2 版本行 check_links 当时值「前缀一致 170 课页」，批次 7 阶段 3 轮转历史登记；AGENTS.md:11）');
+exempt('D3|NEXT-PHASE.md|前缀一致、#课|170',
+  '历史叙述（批次 7 阶段 2 条目 check_links 当时值，批次 7 阶段 3 轮转历史登记；NEXT-PHASE.md:89）');
+exempt('D5e|AGENTS.md|A类#|234',
+  '历史叙述 + 增量起点（批次 7 阶段 2 版本行「A 类 224 → 234」终点值与阶段 3 版本行「A 类 234 → 243」起点值，批次 7 阶段 3 轮转历史登记；AGENTS.md:11）');
+exempt('D5e|EXTERNAL-RESOURCES.md|A类#|9',
+  '增量叙述（批次 7 阶段 3 批次说明行与覆盖段「A 类 9 / C 类 65」「A 类 9 条——zh.wikipedia ×5…」为本批增量数非全站 A 类总数，与阶段 2「A 类 10 / C 类 70」增量豁免同型；EXTERNAL-RESOURCES.md:13/72）');
+exempt('D5e|NEXT-PHASE.md|A类#|234',
+  '历史叙述 + 增量起点（批次 7 阶段 2 条目「A 类 224 → 234」终点与阶段 3 条目「A 类 234 → 243」起点；NEXT-PHASE.md:88/89）');
+exempt('D5f|AGENTS.md|C类#|510',
+  '历史叙述 + 增量起点（批次 7 阶段 2 版本行「C 类 440 → 510」终点值与阶段 3 版本行「C 类 510 → 575」起点值；AGENTS.md:11）');
+exempt('D5f|EXTERNAL-RESOURCES.md|C类#|65',
+  '增量叙述（批次 7 阶段 3 批次说明行「A 类 9 / C 类 65」为本批增量数非全站 C 类总数；EXTERNAL-RESOURCES.md:13）');
+exempt('D5f|NEXT-PHASE.md|C类#|510',
+  '历史叙述 + 增量起点（批次 7 阶段 2 条目终点与阶段 3 条目起点；NEXT-PHASE.md:88/89）');
+exempt('D8d|AGENTS.md|Boss#→#单元|30',
+  '历史叙述 + 增量起点（批次 7 阶段 2 版本行「Boss 28 → 30 单元」终点与阶段 3 版本行「Boss 30 → 34 单元」起点；AGENTS.md:11）');
+exempt('D8d|NEXT-PHASE.md|Boss+#→#单元|30',
+  '历史叙述（批次 7 阶段 2 条目「Boss +2 → 30 单元 191 题」当时值；NEXT-PHASE.md:89）');
+exempt('D13|AGENTS.md|#门|33',
+  '不同真值域（批次 7 阶段 3 版本行「六门为全站第 28–33 门 Project」序号尾数，非大课集合门数——大课真值 6 由 controllers 等六门钉住；AGENTS.md:11）');
+exempt('D13|AGENTS.md|#门|9',
+  '不同真值域（批次 7 阶段 3 版本行「slug 前缀混杂累计 9 门」为 nodejs 课程前缀混杂课数，非大课集合门数；AGENTS.md:11）');
+exempt('D13|CODEx入口说明-odin-foundations-zh.md|#门|33',
+  '不同真值域（批次 7 阶段 3 增量段「六门 Project 为全站第 28–33 门」序号尾数，非大课集合门数；CODEx入口说明:11）');
+exempt('D13|NEXT-PHASE.md|#门|9',
+  '不同真值域（批次 7 阶段 3 条目「slug 前缀混杂累计 9 门」与「全站第 9 门零资料课」序号/课数，非大课集合门数；NEXT-PHASE.md:88/89）');
+exempt('D13|NEXT-PHASE.md|#门|33',
+  '不同真值域（批次 7 阶段 3 条目「六门 Project 为全站第 28–33 门」序号尾数；NEXT-PHASE.md:88）');
+exempt('D13|NEXT-PHASE.md|#门|2',
+  '不同真值域（批次 7 阶段 3 条目「全站第 2 门跨课合并后零条目课」序号，非大课集合门数；NEXT-PHASE.md:88）');
+/* ---- 批次 7 阶段 4（2026-09-29，v4.11.36）：D1a/D3/D3c 豁免须在对应 runRule 之前注册（阶段 4 教训——豁免块统一放文件尾对先执行的规则无效）---- */
+exempt('D1a|AGENTS.md|#条#链接|349,451',
+  '阶段 3 转历史（AGENTS.md:11 版本行阶段 3 粗体段的任务映射定格值——阶段 4 真值 365/488 已写入阶段 4 段）');
+exempt('D1a|EXTERNAL-RESOURCES.md|#条#链接|349,451',
+  '阶段 3 转历史（EXTERNAL-RESOURCES.md:14 阶段 3 说明行的当轮定格值）');
+exempt('D1a|NEXT-PHASE.md|#条#链接|349,451',
+  '阶段 3 转历史（NEXT-PHASE.md:89 阶段 3 条目的当轮定格值）');
+exempt('D1a|NEXT-PHASE.md|#条#链接|16,37',
+  '批次增量叙述（NEXT-PHASE.md:88 阶段 4 条目「任务映射 16 条 37 链接」为本批新增数、非全站总数——阶段 3 条目「21 条 34 链」增量豁免先例同型）');
+exempt('D3|NEXT-PHASE.md|前缀一致收组、#课|183',
+  '阶段 3 转历史（NEXT-PHASE.md:89 阶段 3 条目「全站 183 课」定格值）');
 runRule('D1a', '映射规模 N 条 M 链接', () => /(\d+)\s*条\s*[（(]?\s*(\d+)\s*链接/g,
   [T_MAP_ITEMS, T_MAP_URLS], 3, [1, 2]);
 runRule('D1b', 'KC 映射数（v4.11.17 起应为 0）', () => /(?:KC|Knowledge\s+Check)\s*(\d+)\s*题/g,
   [T_KC_MAPS], 1);
 runRule('D1c', '任务映射条数', () => /(\d+)\s*条任务映射/g, [T_MAP_ITEMS], 1);
 
-/* ===================== D2 · 官方自查题数（现值 0） ===================== */
-runRule('D2', '官方自查题数', () => /(\d+)\s*[道条]\s*(?:官方)?自查题/g, [T_KC], 4);
+/* ===================== D2 · 官方自查题数（现值 0） =====================
+ * 防空转 4→2（B+ 轮阶段 1）：MAINTENANCE / project-achievements 历史区排除后，
+ * 扫描面命中只剩 2 处（入口说明版本行与 LESSON-PAGE-GUIDE 设计动机叙述，均已豁免）。
+ * 命中下降是区段排除的预期结果、非正则失效；该句式在现状区再出现仍照旧被咬。 */
+runRule('D2', '官方自查题数', () => /(\d+)\s*[道条]\s*(?:官方)?自查题/g, [T_KC], 2);
 
 /* ===================== D3 · 已开放课数（.md 侧，stale-claims R2 的文档补位） =====================
  * 前缀词与「课」字拆成常量拼装：本文件在 stale-claims.test.cjs 的扫描范围内，
@@ -589,7 +665,7 @@ runRule('D3', '已开放课数', RE_OPEN_COUNT, [T_AVAIL], 20, [2]);
  * 的触发句（结构性规避，非放宽断言）。数字两侧卡死与 D3 同款（排除两端夹数字
  * 的未开放范围式声明）。 */
 const P_REMAIN_PREFIX = '剩' + '余';
-const T_REMAIN = CATALOG.lessons.length - T_AVAIL;   /* 未开放课数（官方总课数现算减已开放数） */
+const T_REMAIN = CATALOG.lessons.length - CATALOG.lessons.filter(l => l.available).length;   /* 未开放课数（Foundations 目录口径：官方目录减已开放，46/46 后恒 0） */
 const RE_REMAIN_COUNT = () => new RegExp(
   P_REMAIN_PREFIX + '[^。\\n]{0,6}?(?<![\\d–—-])(\\d+)(?!\\s*[–—-])\\*{0,2}\\s*' + P_WORD_LESSON, 'g');
 /* v4.11.20 第九批（46/46 全开）：T_REMAIN = 0，且「剩余 N 课」句式在文档中已全部
@@ -610,6 +686,80 @@ const P_BODY_WORD = '课中文' + '正文';   /* 拆装避免模式定义行自�
 runRule('D3c', '已开放课数·中文正文句式',
   () => new RegExp('(?<!第\\s?)(?<![\\d–—-])(\\d+)\\s*' + P_BODY_WORD, 'g'),
   [T_AVAIL], 2);
+
+/* ===================== D3d · 已开放课数·「N 门已上线 / 已开放」句式（World 2 第五批补位，2026-09-26） =====================
+ * 缺口成因（与 D3b / D3c / D14e 同型，第四次）：D3 族单位词只认「课」且须落在
+ * P_OPEN_PREFIX 前缀上，README 的「两个章节共 8 门已上线」整句隐形——规划轮已独立
+ * 复现（8 ≠ 真值，且与同文件「三个章节共 16 课」自相矛盾）。
+ * 先普查再建规则（2026-09-26 全量扫描扫描面文档）：「N 门」全部命中约 60 处，分布是
+ * ① 大课 / 长课计数（含历史倒装叙述，D13 / D13b 管辖或已有历史豁免）；② 「N 门课」
+ * 「N 门路径课程」等其他量词句；③ 真正断言已开放总数的后置句式「门已上线 / 门已开放」
+ * 仅 2 处（README 的旧值 8——本轮 B1 订正对象；EXTERNAL-RESOURCES 的旧值 62——同轮订正）。
+ * 规则设计据此取**后置信号**而不是 D3 式前缀：
+ *   · 命中 = 数字 + 门 +（已）上线 / 开放——只有开放计数断言会带这个尾巴；
+ *   · 「N 门覆盖」（EXTERNAL-RESOURCES 的速览覆盖句：「全站 N 门已开放课程中 M 门覆盖」
+ *     的 M，语义是其中 M 门有覆盖 ≠ 开放总数，且该句当前是正确的）被后置集合天然排除，
+ *     **不误伤**；同行的 N（门已开放）恰是本规则该管的开放总数断言；
+ *   · 「当前恰 N 门」「此前只记 N 门」等前缀式命中（普查清单里的全部大课 / 长课历史
+ *     计数句）不带上线 / 开放尾巴——本句式**刻意不覆盖**：它们语义上归 D13（大课）、
+ *     D13b（长课）或既有历史豁免管辖；若改用前缀式抓取，会把三种不同真值的句式混进
+ *     一条规则、豁免将淹没断言（与 D3c「精准咬人优先于覆盖广」同一判据）。
+ * 数字两侧卡死同 D3（范围式被环视排除）、容忍加粗星号；不跨句（后置尾巴紧邻数字短语）。
+ * 普查时点命中 2 处；本轮 B1 把 README 句改写为课字句后常驻命中为 1 处（EXTERNAL-RESOURCES
+ * 覆盖句的开放总数），minHits 定 1——该句式再出现即被咬住。 */
+const P_WORD_GATE = '门';
+const P_OPEN_TAIL = '(?:上线|开放)';
+runRule('D3d', '已开放课数·门已上线/已开放句式',
+  () => new RegExp('(?<![\\d–—-])(\\d+)\\s*\\*{0,2}\\s*' + P_WORD_GATE + '\\*{0,2}\\s*(?:已)?' + P_OPEN_TAIL, 'g'),
+  [T_AVAIL], 1);
+
+/* ===================== D14 · 资产族计数（v4.11.20 后 FIX 批次 0-B，句式清单机制首批） =====================
+ * 机制背景：连续三轮扩课各有一种新数字句式从规则缝隙溜过（「当前 N 门」→
+ * 「N 课中文正文」→「N 个知识课」），被动补漏改为主动枚举。本族覆盖资产族
+ * 四句式；其余族（课数 / 内容 / 成就 / Boss / 版本）已由 D1–D13 各族覆盖。
+ * 命中普查（2026-09-25）：四句式合计命中约 12 处，当前态陈述约 6 处、历史
+ * 叙述约 6 处——豁免占比可控，规则有效。真值全部从数据文件现算零硬编码。 */
+runRule('D14a', '面板头像总数「面板 N 款可选」', () => /面板\s*(\d+)\s*款可选/g, [T_PANEL_TOTAL], 1);
+runRule('D14b', '面板几何头像「N 个原创几何头像」', () => /(\d+)\s*个原创几何头像/g, [T_AVATAR_PANEL_GEO], 1);
+runRule('D14c', '伙伴形象头像「N 个学习伙伴形象头像」', () => /(\d+)\s*个学习伙伴形象头像/g, [T_COMPANION_AVATAR], 2);
+runRule('D14d', '页面主题「N 套页面主题」', () => /(\d+)\s*套页面主题/g, [T_THEMES], 1);
+exempt('D5e|EXTERNAL-RESOURCES.md|A类#|10',
+  '批次增量叙述（EXTERNAL-RESOURCES.md 批次 7 阶段 2 说明行「A 类 10」为本批新增条数、非全站 A 类总数——D5e|MAINTENANCE A类#|13 与 A类#|7 批次增量豁免先例同型）');
+/* ---- 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，World 8 收组、全站 197 课收官）：批次 7 阶段 3 旧值转历史豁免 + 阶段 4 增量叙述与不同真值域豁免（31 键） ----
+ * 转历史：映射 349/451、当轮全站课数 183、A 类 243 / C 类 575、Boss 34 单元等阶段 3 定格值仍住在各文档的阶段 3 条目与成就快照里；
+ * 增量叙述：阶段 4 新写文本中的「A 类 2 / C 类 95」「16 条 37 链」「Boss 34 → 36」「A 类 243 → 245 起点值」等为本批增量/迁移起点，非全站总数；
+ * 不同真值域：「全站第 34、35 门 Project」为 Project 累计门数、「3 门零资料课」为零资料课计数，均非 D13 大课真值域。
+ * 文档实值侧本轮已同步修四处：AGENTS 文件清单 818→915、README 112→117 张 / 81→86 课、MAINTENANCE 阶段 4 条目 stale-claims 段「开放+十四课」字面文本改汉字数字避开 D3。 */
+exempt('D5e|AGENTS.md|A类#|243',
+  '阶段 3 转历史 + 阶段 4 增量起点（AGENTS.md:11 阶段 3 段「A 类 243」定格值与阶段 4 段「A 类 243 → 245」迁移起点，非当前全站 A 类总数 245）');
+exempt('D5e|EXTERNAL-RESOURCES.md|A类#|2',
+  '批次增量叙述（EXTERNAL-RESOURCES.md:13 阶段 4 说明行「A 类 2 / C 类 95」与 :73 总览 World 8 段「A 类 2 条」均为本批新增条数——阶段 2「A 类 10」增量豁免先例同型）');
+exempt('D5e|EXTERNAL-RESOURCES.md|A类#|243',
+  '批次增量叙述（EXTERNAL-RESOURCES.md:13 阶段 4 说明行「全站 A 类 243 → 245」迁移起点值——阶段 3「A 类 9」增量豁免先例同型）');
+exempt('D5e|NEXT-PHASE.md|A类#|243',
+  '批次增量叙述（NEXT-PHASE.md:88 阶段 4 条目「A 类 243 → 245」迁移起点值）');
+exempt('D5f|AGENTS.md|C类#|575',
+  '阶段 3 转历史 + 阶段 4 增量起点（AGENTS.md:11 阶段 3 段「C 类 575」定格值与阶段 4 段「C 类 575 → 670」迁移起点）');
+exempt('D5f|EXTERNAL-RESOURCES.md|C类#|95',
+  '批次增量叙述（EXTERNAL-RESOURCES.md:13 阶段 4 说明行「C 类 95 条」为本批新增条数）');
+exempt('D5f|EXTERNAL-RESOURCES.md|C类#|575',
+  '批次增量叙述（EXTERNAL-RESOURCES.md:13 阶段 4 说明行「C 类 575 → 670」迁移起点值）');
+exempt('D8d|AGENTS.md|Boss#→#单元|34',
+  '批次增量叙述（AGENTS.md:11 阶段 4 段「Boss 34 → 36 单元」迁移起点值——阶段 3「32 → 34」同键豁免转历史后本轮新起点）');
+exempt('D8d|NEXT-PHASE.md|Boss+#→#单元|34',
+  '阶段 3 转历史（NEXT-PHASE.md:89 阶段 3 条目当轮定格值）');
+exempt('D13|AGENTS.md|#门|35',
+  'Project 门数引文（阶段 4 文本「全站第 34、35 门 Project」——门数是 Project 课累计计数、非 D13 大课真值域，阶段 2「25/26/27 门」豁免先例同型）');
+exempt('D13|AGENTS.md|#门|3',
+  '不同真值域（阶段 4 文本「3 门零资料课」为零资料课计数、非 D13 大课真值域——阶段 3「9 门零资料课」豁免先例同型）');
+exempt('D13|CODEx入口说明-odin-foundations-zh.md|#门|35',
+  'Project 门数引文（阶段 4 增量列表「两门 Project 为全站第 34/35 门」——D13|AGENTS|#门|35 先例同型）');
+exempt('D13|NEXT-PHASE.md|#门|35',
+  'Project 门数引文（阶段 4 条目「全站第 34、35 门」——D13|AGENTS|#门|35 先例同型）');
+runRule('D14e', '概念图覆盖「覆盖/绑 N 个知识课」', () => /(?:覆盖|绑)\s*(\d+)\s*个知识课/g, [T_KNOWLEDGE_WITH_DIAGRAM], 2);
+/* D14f（NV-3 补位）：specs 的「头像 N 个（…解锁分布…）」是 avatars.js 数据总数口径
+ * （含退役 terminal）——与 D14b 的面板口径（36，去退役）刻意区分，两个口径都有人写。 */
+runRule('D14f', '头像数据总数「头像 N 个」', () => /头像\s*\*{0,2}(\d+)\*{0,2}\s*个（/g, [T_AVATAR_DATA], 1);
 
 /* ===================== D4 · 概念图数 ===================== */
 runRule('D4a', '全站 N 张', () => /全站[^。\n]{0,12}?(\d+)\s*\*{0,2}\s*张/g, [T_DIAGRAMS], 3);
@@ -650,15 +800,58 @@ runRule('D6b', '成就总数 N', () => /成就总数\s*(\d+)/g, [T_ACH], 2);
 runRule('D6c', '这样 N 个成就', () => /这样\s*(\d+)\s*个成就/g, [T_ACH], 1);
 runRule('D6d', '成就 N 个', () => /成就\s*\*{0,2}\s*(\d+)\s*\*{0,2}\s*个/g, [T_ACH], 1);
 
-/* ===================== D7 · 课数 / 章数配对与总章数 ===================== */
+/* ===================== D7 · 课数 / 章数配对与总章数 =====================
+ * 防空转 1→0（B+ 轮阶段 1，按 D3b「正向零命中」先例）：两句式的全部既有陈述都住在
+ * 两份历史账本的历史条目里，历史区排除后扫描面为零命中。零命中不是失效：任何文档
+ * 再写出「N 课 / M 章」「共 N 章」句式，命中即必须等于当前真值或登记豁免。 */
 runRule('D7a', 'N 课 / M 章', () => /(\d+)\s*课\s*[/／]\s*(\d+)\s*章/g,
-  [T_LESSONS, T_CHAPTERS], 1, [1, 2]);
-runRule('D7b', '共 N 章', () => /共\s*(\d+)\s*章/g, [T_CHAPTERS], 1);
+  [T_LESSONS, T_CHAPTERS], 0, [1, 2]);
+runRule('D7b', '共 N 章', () => /共\s*(\d+)\s*章/g, [T_CHAPTERS], 0);
 
 /* ===================== D8 · Boss 单元数与总题数 ===================== */
 runRule('D8a', 'N 个单元 Boss', () => /(\d+)\s*个单元\s*Boss/g, [T_BOSS], 1);
-runRule('D8b', 'N 个配置了 Boss 的单元', () => /(\d+)\s*个配置了\s*Boss\s*的单元/g, [T_BOSS], 2);
-runRule('D8c', 'Boss 总题数（共 N 题）', () => /共\s*(\d+)\s*题/g, [T_BOSS_Q], 2);
+/* 防空转 2→1（B+ 轮阶段 1）：历史区排除后两句式扫描面各剩 1 处命中、且均为真值的
+ * 现状陈述——命中下降是区段排除的预期结果、非正则失效，句式再出现仍照旧被咬。 */
+runRule('D8b', 'N 个配置了 Boss 的单元', () => /(\d+)\s*个配置了\s*Boss\s*的单元/g, [T_BOSS], 1);
+runRule('D8c', 'Boss 总题数（共 N 题）', () => /共\s*(\d+)\s*题/g, [T_BOSS_Q], 1);
+
+/* ===================== D8d · Boss 单元数·「Boss 限定语 + N 单元」裸形态（批次 5 阶段 0 补位，2026-09-27） =====================
+ * 缺口成因（与 D3 / D13 / D3b / D3c / D3d 同型，第五次）：D8a 要求「N 个单元 Boss」
+ * （含「个」、数字在 Boss 之前）、D8b 要求「N 个配置了 Boss 的单元」——而
+ * NEXT-PHASE.md 统计节的现状陈述形态是「全站 Boss 合计 12 单元」：无「个」、语序
+ * 相反，整句不匹配，陈旧值长期隐形（阶段 2/3/4 各加 Boss 均未回头更新该句）。
+ *
+ * ⚠️ 设计陷阱（建规则前全量普查 80 处独立复现，规划交接预警属实且不止两个真值域）：
+ * 「单元」一词在本项目对应**三个**互不相干的真值域——
+ *   ① Boss 单元数（T_BOSS，现算）；
+ *   ② Foundations 地图分组数（8：「8 单元纵向纯 CSS 路线图」、specs 地图 / 技能路线节）；
+ *   ③ 伙伴成长阶段阶梯（specs.md「Lv.10 或 2 单元或 30h → Lv.15 或 4 单元或 60h」式）。
+ * 裸匹配「N 单元」会把 ②③ 的语义正确陈述一次判红。故本规则**限定语驱动**：
+ * 「Boss」之后 12 字符内（不跨句）数字直接跟「单元」（无「个」，与 D8a/D8b 互补
+ * 不重叠）。普查证明 ②③ 全部命中行内近旁无 Boss 字样，被结构性排除——负向验证
+ * 以「把地图分组 8 改成别的数，本规则不得咬住」为核心对照。
+ * (?<!\+) 排除「Boss +N 单元」纯增量形态（增量数不是全站真值；「+1 单元 → 17 单元」
+ * 式混合句仍经间隔跨段取到终点值，普查实测符合预期）。
+ *
+ * 刻意不覆盖的形态与理由（照 D3d「精准咬人优先于覆盖广」判据，不放宽断言）：
+ *   · 「数据层 N 单元 N 题」（MAINTENANCE / project-achievements 批次验证记录）与
+ *     「bosses.js → N 单元 M 题」——无紧邻 Boss 限定语；放宽成裸形态会扫进 ②③
+ *     两个错误真值域，宁可不覆盖。历史验证记录数字按惯例保持原样；
+ *   · Boss 与数字被长题名列表隔开的「共 N 单元 N 题」（NEXT-PHASE 阶段 2/3 完成
+ *     条目）——12 字符间隔上限刻意不追；同文件的现状陈述行已由「Boss 合计 N 单元」
+ *     相邻形态管辖；
+ *   · 小写「bosses 7 单元」与全大写「BOSSES 6 单元」——限定语大小写敏感取「Boss」，
+ *     忽略大小写会误咬 pathBossUnitId 等标识符内嵌片段，且两形态均为历史记录；
+ *   · 「Boss 6 单元 36 题 → **7 单元 43 题**」的终点值段——首个匹配消费掉起点段后
+ *     终点值无 Boss 前缀不再命中；该形态仅历史叙述，起点值已被豁免键管辖。
+ * 模式串拆常量拼装（同 D3 / D13b 纪律），避免规则定义行自身构成字面触发句。
+ * 命名订正：规划交接称本规则为「D8c」，但 D8c 槽位已被「Boss 总题数（共 N 题）」
+ * 占用（规划轮未察觉既有编号），按既有编号顺序落为 D8d——规则内容与规划要求一致。 */
+const P_BOSS_WORD = 'Bo' + 'ss';
+const P_UNIT_WORD = '单' + '元';
+const RE_BOSS_UNIT_BARE = () => new RegExp(
+  P_BOSS_WORD + '[^。\\n]{0,12}?(?<!\\+)(\\d+)\\*{0,2}\\s*' + P_UNIT_WORD, 'g');
+runRule('D8d', 'Boss 单元数（Boss 限定语裸形态）', RE_BOSS_UNIT_BARE, [T_BOSS], 10);
 
 /* ===================== D9 · tiers 金阶与阈值三元组 ===================== */
 runRule('D9a', 'tiers 金阶 N', () => /金阶\s*(\d+)/g, [T_GOLD], 2);
@@ -666,7 +859,7 @@ runRule('D9a', 'tiers 金阶 N', () => /金阶\s*(\d+)/g, [T_GOLD], 2);
 {
   const hits = [];
   for (const rel of DOCS) {
-    readDoc(rel).split(/\r?\n/).forEach((line, i) => {
+    scannableLines(rel).forEach((line, i) => {
       const m = /^\|\s*`([a-z][a-z-]*)`\s*\|[^|\n]*\|\s*(\d+)\s*\/\s*(\d+)\s*\/\s*(\d+)/.exec(line);
       if (m && TIER_TRIPLE[m[1]]) {
         hits.push({ rel, line: i + 1, raw: m[0], m, text: line.trim(), id: m[1], nums: [Number(m[2]), Number(m[3]), Number(m[4])] });
@@ -703,7 +896,7 @@ runRule('D9d', 'Boss 族行内三元组', () => /Boss（通过\s*(\d+)\s*\/\s*�
 {
   const hits = [];
   for (const rel of DOCS) {
-    readDoc(rel).split(/\r?\n/).forEach((line, i) => {
+    scannableLines(rel).forEach((line, i) => {
       const ure = /unit-(\d)/g;
       const units = [];
       let u;
@@ -762,7 +955,7 @@ runRule('D9d', 'Boss 族行内三元组', () => /Boss（通过\s*(\d+)\s*\/\s*�
 {
   const hits = [];
   for (const rel of DOCS) {
-    readDoc(rel).split(/\r?\n/).forEach((line, i) => {
+    scannableLines(rel).forEach((line, i) => {
       if (!/大课|heavy/i.test(line)) return;
       const re = /(\d+)\s*门/g;
       let m;
@@ -776,6 +969,35 @@ runRule('D9d', 'Boss 族行内三元组', () => /Boss（通过\s*(\d+)\s*\/\s*�
   console.log(`  D13 大课门数：命中 ${hits.length} 处，豁免 ${ex} 处（真值 ${T_HEAVY}）`);
 }
 
+/* ===================== D13b · 长课门数（「N 门长课」句式，World 2 第五批补位，2026-09-26） =====================
+ * 缺口成因：D13 有原文门槛（行内须含「大课 / heavy」才扫「N 门」），LESSON-PAGE-GUIDE
+ * 的「当前真实覆盖 5 门长课」整句隐形——规划轮已独立复现（真值 7 门时代名单就与集合
+ * 不符：漏 dom-manipulation-and-events 与 form-basics 两门在册长课）。与 D3b / D3c / D3d
+ * 同型，第四次。
+ * **真值 ≠ T_HEAVY（关键区分，用错会把正确陈述判红）**：本项目
+ *   「长课」= sections 数 ≥ app.js 的 LESSON_CHAPTER_NAV_MIN（章节导航渲染阈值，
+ *             本规则从 app.js 源码现读该常量、不硬编码数值）；
+ *   「大课」= isHeavyLesson（sections ≥ 14 或官方自查题 ≥ 10，D13 的真值 T_HEAVY）。
+ * 两者不同源：批后长课 8 门（含恰达 12 章的 html-boilerplate 与 advanced-grid-properties），
+ * 大课 6 门——集合有交集但不相等。
+ * 先普查再建规则（2026-09-26）：「门长课」相邻句式在扫描面文档仅 LESSON-PAGE-GUIDE
+ * §4.8 一处计数命中（本轮 B1 按现算重写门数与名单）；同文件 §4.9 的「两门长课」是
+ * 汉字数词且属样板覆盖范围的局部陈述，数字正则天然不命中、也无需豁免；倒装形
+ * 「长课实际 N 门」出现在 AGENTS / CODEx入口说明的 v4.11.8 历史叙述行——那些行含
+ * heavy 字样、其「N 门」由 D13 的既有历史豁免管辖，本句式不重复覆盖（一行一义，
+ * 避免同一数字被两条规则要求成两个不同真值）。
+ * 模式串按 D3 同款纪律拆常量拼装，避免模式定义行自身构成字面触发句。 */
+const APP_SRC_FOR_NAV = fs.existsSync(path.join(root, 'app.js'))
+  ? fs.readFileSync(path.join(root, 'app.js'), 'utf8') : '';
+const NAV_MIN_MATCH = /LESSON_CHAPTER_NAV_MIN\s*=\s*(\d+)/.exec(APP_SRC_FOR_NAV);
+assert.ok(NAV_MIN_MATCH,
+  check('D13b 前提：app.js 源码可读且含 LESSON_CHAPTER_NAV_MIN 常量（长课阈值的唯一事实源）'));
+const T_LONG = GUIDE.lessons.filter(l => l.sections.length >= Number(NAV_MIN_MATCH[1])).length; /* 长课门数（章节导航阈值口径，非 T_HEAVY） */
+const P_WORD_LONG = '门' + '长课';
+runRule('D13b', '长课门数（门长课句式）',
+  () => new RegExp('(?<![\\d–—-])(\\d+)\\s*\\*{0,2}\\s*' + P_WORD_LONG, 'g'),
+  [T_LONG], 1);
+
 /* ===================== 死豁免自检 ===================== */
 if (FULL_MODE) {
   for (const key of EXEMPT.keys()) {
@@ -785,4 +1007,4 @@ if (FULL_MODE) {
   console.log(`  死豁免自检：${EXEMPT.size} 条豁免全部命中`);
 }
 
-console.log(`doc-numbers.test.cjs：全部 ${checks} 项断言通过 ✔（FULL_MODE=${FULL_MODE}；扫描 ${DOCS.length} 份文档；真值：开放 ${T_AVAIL} 课 / ${T_CHAPTERS} 章 / 成就 ${T_ACH} / 图 ${T_DIAGRAMS} / 资料 ${T_RES}（A ${T_ZH} / C ${T_C} / 精译 ${T_TRANS}）/ Boss ${T_BOSS} 单元 ${T_BOSS_Q} 题 / 映射 ${T_MAP_ITEMS} 条 ${T_MAP_URLS} 链接 / 金阶 ${T_GOLD} / 大课 ${T_HEAVY} 门）`);
+console.log(`doc-numbers.test.cjs：全部 ${checks} 项断言通过 ✔（FULL_MODE=${FULL_MODE}；扫描 ${DOCS.length} 份文档；真值：开放 ${T_AVAIL} 课 / ${T_CHAPTERS} 章 / 成就 ${T_ACH} / 图 ${T_DIAGRAMS} / 资料 ${T_RES}（A ${T_ZH} / C ${T_C} / 精译 ${T_TRANS}）/ Boss ${T_BOSS} 单元 ${T_BOSS_Q} 题 / 映射 ${T_MAP_ITEMS} 条 ${T_MAP_URLS} 链接 / 金阶 ${T_GOLD} / 大课 ${T_HEAVY} 门 / 长课 ${T_LONG} 门）`);

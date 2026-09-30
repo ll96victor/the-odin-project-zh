@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="262" viewBox="0 0 740 262" role="img" aria-labelledby="t-css-units-absolute-vs-relative d-css-units-absolute-vs-relative">
+  <title id="t-css-units-absolute-vs-relative">CSS 单位参照物地图：绝对还是相对</title>
+  <desc id="d-css-units-absolute-vs-relative">对比图。左列标题「绝对单位（px）」：任何上下文里都恒定——不随页面上别的东西变；网页项目里你唯一该用的绝对单位；in / cm 等物理单位属于打印场景。右列标题「相对单位（随参照物变）」：rem = 根元素字号的倍数（经验法则：优先）；em = 自身/父级字号的倍数（随上下文漂移）；% = 父元素对应尺寸的比例；vh / vw = 视口高/宽的 1%。底部注释：选单位先答「这个尺寸该跟着什么变」——固定用 px、跟根字号用 rem、跟父级用 %、跟视口用 vw/vh。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="170" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">绝对单位（px）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">任何上下文里都恒定——不随页面上别的东西变</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">网页项目里你唯一该用的绝对单位</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">in / cm 等物理单位属于打印场景</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="170" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">相对单位（随参照物变）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">rem = 根元素字号的倍数（经验法则：优先）</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">em = 自身/父级字号的倍数（随上下文漂移）</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">% = 父元素对应尺寸的比例</tspan></text>
+  <circle cx="403" cy="172" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="176" text-anchor="start"><tspan x="413">vh / vw = 视口高/宽的 1%</tspan></text>
+  <rect class="note" x="22" y="206" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="228" text-anchor="middle"><tspan x="370">选单位先答「这个尺寸该跟着什么变」：固定 → px；跟根字号 → rem；跟父级 → %；跟视口 → vw/vh。</tspan></text>
+</svg>

@@ -9,9 +9,19 @@
   <link rel="stylesheet" href="style.css">
   <script src="version.js" defer></script>
   <script src="lessons.js" defer></script>
+  <script src="courses/intermediate-html-and-css.js" defer></script>
+  <script src="courses/javascript.js" defer></script>
+  <script src="courses/advanced-html-and-css.js" defer></script>
+  <script src="courses/react.js" defer></script>
+  <script src="courses/databases.js" defer></script>
+  <script src="courses/nodejs.js" defer></script>
+  <script src="courses/getting-hired.js" defer></script>
+  <script src="lesson-sources.js" defer></script>
   <script src="external-resources.js" defer></script>
-  <script src="lesson-task-links.js" defer></script>
-  <script src="diagrams.js" defer></script>
+  <!-- B+ 轮阶段 2（v4.11.37）：diagrams.js 与 lesson-task-links.js 为课页专用数据
+       （app.js 唯一消费点在课页渲染链路 diagramsFor / taskLinkMap，首页运行时探针实证零读取），
+       首页不再加载，省 307 KB 解析体积。新增脚本时两页清单同步纪律见
+       tests/version-identity.test.cjs 第 6 节与 tests/dom-stub.cjs 的 HOME_EXCLUDED_SCRIPTS。 -->
   <script src="avatars.js" defer></script>
   <script src="icons.js" defer></script>
   <script src="catalog.js" defer></script>

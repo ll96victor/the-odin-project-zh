@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="296" viewBox="0 0 612 296" role="img" aria-labelledby="t-supertest-chain d-supertest-chain">
+  <title id="t-supertest-chain">supertest 测试链：建 app → 发请求 → expect → done</title>
+  <desc id="d-supertest-chain">流程图，五步。第一步测试文件建迷你 app——挂被测 router、不调用 listen；第二步 request(app).get 或 .post——supertest 直接对 app 对象发请求；第三步 .expect 链式断言——查响应头、响应体、状态码；第四步 POST 用 .then 串一个 GET——验证写操作的副作用（先操作后验证）；第五步 done 传进最后一个 expect——SuperTest 替我们标记异步测试完成。图下注：app.js 只管启动（listen）不测，index.js 导出 router 才测，测试里另建一个不 listen 的 app，避免启动真服务器还能跳过无关配置。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="55" text-anchor="middle"><tspan x="102">测试文件建迷你 app</tspan></text>
+  <text class="s" x="102" y="68" text-anchor="middle"><tspan x="102">挂被测 router、不调</tspan><tspan x="102" dy="15">用 listen</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="46" text-anchor="middle"><tspan x="306">request(app).get</tspan><tspan x="306" dy="18">/ .post</tspan></text>
+  <text class="s" x="306" y="68" text-anchor="middle"><tspan x="306">supertest 直接对</tspan><tspan x="306" dy="15">app 发请求</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="55" text-anchor="middle"><tspan x="510">.expect 链式断言</tspan></text>
+  <text class="s" x="510" y="68" text-anchor="middle"><tspan x="510">响应头 / 响应体 /</tspan><tspan x="510" dy="15">状 态码</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="170" text-anchor="middle"><tspan x="102">POST 用 .then</tspan><tspan x="102" dy="18">串 GET</tspan></text>
+  <text class="s" x="102" y="199" text-anchor="middle"><tspan x="102">验证写操作的副作用</tspan></text>
+  <rect class="accentbox" x="230" y="150" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="170" text-anchor="middle"><tspan x="306">done 传进最后一个</tspan><tspan x="306" dy="18">expect</tspan></text>
+  <text class="s" x="306" y="192" text-anchor="middle"><tspan x="306">SuperTest</tspan><tspan x="306" dy="15">替我们标记 完成</tspan></text>
+  <path class="edge" d="M178,181 L223,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M510,88 L510,119 L102,119 L102,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="560" height="52" rx="6"/>
+  <text class="s" x="306" y="240" text-anchor="middle"><tspan x="306">app.js 只管启动（listen）不测；index.js 导出 router 才测——测试里另建一个不 listen</tspan><tspan x="306" dy="18">的 app，避免启动真服务器、还能跳过无关配置。</tspan></text>
+</svg>

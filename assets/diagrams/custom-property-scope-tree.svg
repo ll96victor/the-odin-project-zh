@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="856" height="372" viewBox="0 0 856 372" role="img" aria-labelledby="t-custom-property-scope-tree d-custom-property-scope-tree">
+  <title id="t-custom-property-scope-tree">自定义属性的作用域：声明在选择器上，覆盖范围是它和它的后代</title>
+  <desc id="d-custom-property-scope-tree">层级树。根节点是「:root（全局声明 --main-color）」，表示声明在根选择器上的变量全文件任何选择器都能取到，因为其他选择器都是它的后代。根下有三个子节点：第一个是「.cool-div（局部声明 --main-bg）」，它自己又有两个子节点——「.cool-paragraph：取到 --main-bg，因为它是后代、在作用域内」与「.card：重定义 --main-bg，只改这一支、别处不受影响」；第二个是「.boring-paragraph：取不到 --main-bg，因为它不是 .cool-div 的后代」；第三个是「[data-theme="dark"]：同名变量换一套取值，这就是主题」。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M428,84 L428,112 L232,112 L232,134" marker-end="url(#arr)"/>
+  <path class="spoke" d="M428,84 L428,112 L535,112 L535,134" marker-end="url(#arr)"/>
+  <path class="spoke" d="M428,84 L428,112 L732,112 L732,134" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="366" y="26" width="125" height="58" rx="6"/>
+  <text class="hb" x="428" y="51" text-anchor="middle"><tspan x="428">:root（全局声明</tspan><tspan x="428" dy="18">--main-color）</tspan></text>
+  <path class="spoke" d="M232,198 L232,226 L128,226 L128,265" marker-end="url(#arr)"/>
+  <path class="spoke" d="M232,198 L232,226 L333,226 L333,265" marker-end="url(#arr)"/>
+  <rect class="box" x="155" y="140" width="153" height="58" rx="6"/>
+  <text class="b" x="232" y="165" text-anchor="middle"><tspan x="232">.cool-div（局部声明</tspan><tspan x="232" dy="18">--main-bg）</tspan></text>
+  <rect class="box" x="38" y="271" width="179" height="75" rx="6"/>
+  <text class="b" x="128" y="296" text-anchor="middle"><tspan x="128">.cool-paragraph：取到</tspan><tspan x="128" dy="18">--main-bg（是后代，在作</tspan><tspan x="128" dy="18">用域内）</tspan></text>
+  <rect class="box" x="241" y="271" width="184" height="75" rx="6"/>
+  <text class="b" x="333" y="296" text-anchor="middle"><tspan x="333">.card：重定义 --main-bg</tspan><tspan x="333" dy="18">→</tspan><tspan x="333" dy="18">只改这一支，别处不受影 响</tspan></text>
+  <rect class="box" x="449" y="140" width="172" height="75" rx="6"/>
+  <text class="b" x="535" y="165" text-anchor="middle"><tspan x="535">.boring-paragraph：取</tspan><tspan x="535" dy="18">不到 --main-bg（不是</tspan><tspan x="535" dy="18">.cool-div 的后代）</tspan></text>
+  <rect class="box" x="645" y="140" width="173" height="75" rx="6"/>
+  <text class="b" x="732" y="165" text-anchor="middle"><tspan x="732">[data-theme="dark"]：</tspan><tspan x="732" dy="18">同名变量换一套取值 =</tspan><tspan x="732" dy="18">主 题</tspan></text>
+</svg>

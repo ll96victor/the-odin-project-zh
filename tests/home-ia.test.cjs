@@ -33,6 +33,59 @@ function openSheetOf(page) {
   return collectByClass(page.dom.body, 'sheet').find(item => item.open === true) || null;
 }
 
+/* 批次 0（2026-09-26）起：某个 World 已有多少课开放——按数据现算，口径与 app.js 的
+ * courseOpenCountOf 一致（Foundations 走 catalog 口径 = 全站开放数 − 其他 World 的开放数；
+ * 路径 World 按 curriculum section 成员归属计数）。
+ * World 卡的「前 N 课已有中文学习内容」与预览条的「已开放 N / M」都用它，
+ * 之后每批开放路径课都不必再迁移这些文案里的数字。 */
+function courseOpenCountOf(page, order) {
+  const cur = page.sandbox.window.ODIN_CURRICULUM;
+  const guide = page.sandbox.window.ODIN_GUIDE;
+  const slugOrder = new Map();
+  cur.courses.forEach(c => (c.sections || []).forEach(s => s.lessons.forEach(l => slugOrder.set(l.slug, c.order))));
+  const counts = new Map();
+  guide.lessons.forEach(l => {
+    const o = slugOrder.get(l.id);
+    if (o) counts.set(o, (counts.get(o) || 0) + 1);
+  });
+  if (order === 1) {
+    /* Foundations：catalog 口径（全站开放数减去属于其他 World 的课数） */
+    const pathTotal = [...counts.entries()].reduce((sum, [o, n]) => (o === 1 ? sum : sum + n), 0);
+    return guide.lessons.length - pathTotal;
+  }
+  return counts.get(order) || 0;
+}
+
+/* 8 张 World 卡的开放矩阵（is-open / 迷你进度条）——按数据现算，顺序与 app.js
+ * `curriculum.courses.forEach` 的渲染顺序一致：World 1 走 catalog 口径（lessonsInCatalog）
+ * 恒为开放，其余 World 按「该 World 是否已有开放课」。批次 0 起改用本 helper，
+ * 之后开放 World 3 及以后的课时这三处矩阵钉子零迁移。 */
+function worldCardOpenMatrix(page) {
+  const cur = page.sandbox.window.ODIN_CURRICULUM;
+  /* 注意：cur.courses 是 vm 沙箱 realm 的数组，直接 .map 会返回沙箱 realm 的数组，
+   * 而 assert.deepEqual（严格版）会比较原型——跨 realm 即使内容全同也判不等。
+   * 先用 [...] 落到测试 realm 再 map。 */
+  return [...cur.courses].map(c => (c.lessonsInCatalog ? true : courseOpenCountOf(page, c.order) > 0));
+}
+
+/* 批次 0（2026-09-26）：首页路线预览条「三个路径 World 格」的期望状态与 is-open——
+ * 按 curriculum.js + 汇总层课程数据现算，与 app.js 的 courseOpenCountOf 同一口径。
+ * 本文件有两处钉子（F/B3 组与「信息带」组）共用它，后续每批开放路径课都不必再迁移
+ * 这四格文案；形制由调用方的正则断言钉死，写坏仍然红。 */
+function previewExpectations(page) {
+  const PREVIEW_ORDERS = [2, 3, 7];   /* 与 app.js PREVIEW_STAGES 的 order 一致（World 2 / 3 / 7） */
+  const cur = page.sandbox.window.ODIN_CURRICULUM;
+  return {
+    orders: PREVIEW_ORDERS,
+    states: PREVIEW_ORDERS.map(order => {
+      const course = cur.courses.find(c => c.order === order);
+      const n = courseOpenCountOf(page, order);
+      return n ? `已开放 ${n} / ${course.totalLessons}` : '尚未开放';
+    }),
+    isOpen: PREVIEW_ORDERS.map(order => courseOpenCountOf(page, order) > 0)
+  };
+}
+
 /* ===================== 1. 首页默认 DOM 极简（§13.1 / A2） ===================== */
 {
   const page = newPage({ storage: makeStorage() });
@@ -187,10 +240,60 @@ function openSheetOf(page) {
   const worldCards = collectByClass(sheet, 'world-card');
   assert.equal(worldCards.length, 8, check('F2：世界地图 Tab 顶层是 8 个 World 卡（官方全路线）'));
   assert.ok(worldCards[0].textContent.includes('Foundations'), check('F2：World 1 是 Foundations'));
-  assert.ok(worldCards[0].textContent.includes('前 46 课已有中文学习内容'),
-    check('第三轮：World 1 卡片承载中文覆盖说明（自 Hero 下沉）'));
+  assert.ok(worldCards[0].textContent.includes(`前 ${courseOpenCountOf(page, 1)} 课已有中文学习内容`),
+    check('第三轮：World 1 卡片承载中文覆盖说明（自 Hero 下沉，开放数按 World 各自现算；批次 0 起钉子也按数据现算）'));
   assert.ok(worldCards[7].textContent.includes('求职之路'), check('F2：World 8 是求职之路（Getting Hired）'));
-  assert.ok(worldCards[1].textContent.includes('尚未开放中文内容'), check('F3：后续 World 卡明确「尚未开放中文内容」'));
+  /* 超长续轮批次 7 阶段 4 迁移（2026-09-29，v4.11.36，全站收官）：getting-hired 两章 14 课开放，
+   * World 8 就此开放——8 个 World 全部有中文内容，「尚未开放中文内容」占位卡全站清零。 */
+  assert.ok(worldCards[7].textContent.includes(`前 ${courseOpenCountOf(page, 8)} 课已有中文学习内容`),
+    check('F3 迁移：World 8 卡承载自己的课数（批次 7 阶段 4 起 14 课开放、按 curriculum + 汇总层数据现算）'));
+  /* 路径课试点批次 3：World 2 已有中文正文——卡片不再显示「尚未开放」，而是
+   * 承载该 World 自己的课数（批次 2 的动态推导口径），迷你进度条分母为开放课数。 */
+  assert.ok(worldCards[1].textContent.includes(`前 ${courseOpenCountOf(page, 2)} 课已有中文学习内容`),
+    check('World 2 卡片承载自己的课数（按 curriculum + 汇总层数据现算，批次 0 起钉子不再写死数字）'));
+  assert.ok(!worldCards[1].textContent.includes('尚未开放'),
+    check('路径课试点批次 3：World 2 卡片不得再显示「尚未开放中文内容」'));
+  /* World 3 批次 4：javascript 课程前两章 15 课开放——World 3 卡按同一动态口径承载课数。 */
+  assert.ok(worldCards[2].textContent.includes(`前 ${courseOpenCountOf(page, 3)} 课已有中文学习内容`),
+    check('World 3 卡片承载自己的课数（按 curriculum + 汇总层数据现算）'));
+  assert.ok(!worldCards[2].textContent.includes('尚未开放'),
+    check('World 3 批次 4：World 3 卡片不得再显示「尚未开放中文内容」'));
+  /* World 4 批次 5：advanced-html-and-css 课程「动画」章节 3 课开放——World 4 卡按同一动态口径承载课数。 */
+  assert.ok(worldCards[3].textContent.includes(`前 ${courseOpenCountOf(page, 4)} 课已有中文学习内容`),
+    check('World 4 卡片承载自己的课数（按 curriculum + 汇总层数据现算）'));
+  assert.ok(!worldCards[3].textContent.includes('尚未开放'),
+    check('World 4 批次 5：World 4 卡片不得再显示「尚未开放中文内容」'));
+  /* World 5 批次 6：react 两章 8 课开放——World 5 卡按同一动态口径承载课数。 */
+  assert.ok(worldCards[4].textContent.includes(`前 ${courseOpenCountOf(page, 5)} 课已有中文学习内容`),
+    check('World 5 卡片承载自己的课数（按 curriculum + 汇总层数据现算）'));
+  assert.ok(!worldCards[4].textContent.includes('尚未开放'),
+    check('World 5 批次 6：World 5 卡片不得再显示「尚未开放中文内容」'));
+  /* World 6 批次 7：databases「数据库」章节 3 课开放、World 6 收组——World 6 卡按同一动态口径承载课数。 */
+  assert.ok(worldCards[5].textContent.includes(`前 ${courseOpenCountOf(page, 6)} 课已有中文学习内容`),
+    check('World 6 卡片承载自己的课数（按 curriculum + 汇总层数据现算）'));
+  assert.ok(!worldCards[5].textContent.includes('尚未开放'),
+    check('World 6 批次 7：World 6 卡片不得再显示「尚未开放中文内容」'));
+  /* 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，全站收官）：getting-hired 两章 14 课开放、World 8 收组——World 8 卡按同一动态口径承载课数；至此 8 个 World 全部开放，不再有占位卡。 */
+  assert.ok(worldCards[6].textContent.includes(`前 ${courseOpenCountOf(page, 7)} 课已有中文学习内容`),
+    check('World 7 卡片承载自己的课数（按 curriculum + 汇总层数据现算）'));
+  assert.ok(!worldCards[6].textContent.includes('尚未开放'),
+    check('批次 7 阶段 2：World 7 卡片不得再显示「尚未开放中文内容」'));
+  assert.ok(worldCards[7].textContent.includes(`前 ${courseOpenCountOf(page, 8)} 课已有中文学习内容`),
+    check('批次 7 阶段 4：World 8 卡片承载自己的课数（全站收官）'));
+  assert.ok(!worldCards[7].textContent.includes('尚未开放'),
+    check('批次 7 阶段 4：World 8 卡片不得再显示「尚未开放中文内容」——8 个 World 全部开放，占位形态就此退役'));
+  /* 批次 7 阶段 4 收官修复（真实浏览器验证抓出的缺陷回归钉）：openWorldOrders 原只走
+   * curriculumLessonWorld slug 反查——Foundations 走 lessonsInCatalog（明细在 catalog.js、
+   * curriculum sections 无其课程清单）反查恒 null，openWorldOrders 恒为 {2..8}、
+   * allWorldsOpen 恒 false：顶部说明文案的动态分支成死代码，全开放后页面仍显示
+   * 「其余 World 展示官方结构占位…尚未开放中文内容」失实旧文案。app.js 已按 World 卡
+   * open 判定同口径补 lessonsInCatalog 特例，此处钉住修复后的全开放文案形态。 */
+  assert.ok(sheet.textContent.includes('已开放全部 8 个 World'),
+    check('阶段 4 收官修复：地图顶部说明文案为「已开放全部 8 个 World」动态分支（Foundations lessonsInCatalog 特例在位）'));
+  assert.ok(sheet.textContent.includes('开放完毕'),
+    check('阶段 4 收官修复：「官方 Full Stack JavaScript 路线的全部课程就此在本站开放完毕」收官句在位'));
+  assert.ok(!sheet.textContent.includes('尚未开放中文内容'),
+    check('阶段 4 收官修复：World 列表层不再出现「尚未开放中文内容」占位说明（全站无未开放 World）'));
   assert.equal(collectByClass(sheet, 'map-nodes').length, 0, check('F4：World 列表层不平铺 46 节点地图'));
   /* 进 Foundations World：五阶节点地图 + Boss 入口 */
   dispatch(worldCards[0], 'click', {});
@@ -200,12 +303,20 @@ function openSheetOf(page) {
   assert.ok(backBtn, check('F2：World 内部有返回列表按钮'));
   dispatch(backBtn, 'click', {});
   assert.equal(collectByClass(sheet, 'world-card').length, 8, check('F2：返回后回到 World 列表'));
-  /* 进未开放 World（React）：结构占位、无 lesson 链接（F3 结构红线） */
-  dispatch(collectByClass(sheet, 'world-card')[4], 'click', {});
-  assert.ok(sheet.textContent.includes('React'), check('F2：World 5 是 React'));
-  assert.ok(sheet.textContent.includes('尚未开放中文内容'), check('F3：占位视图明确未开放'));
-  assert.ok(collectByClass(sheet, 'world-lesson').length >= 20, check('F2：React World 展示官方课程结构占位'));
-  assert.equal(collectByClass(sheet, 'lesson-link').length, 0, check('F3：占位课程结构上没有进入本站正文的链接'));
+  /* 进已开放 World（求职）：批次 7 阶段 4 起 World 8 全 14 课开放——F3 占位红线就此退役，
+   * 断言迁移为已开放形态——getting-hired 两章课程全部有进入本站正文的真链接、不再显示「尚未开放中文内容」。
+   * 历史（批次 7 阶段 2 时点此段为占位视图断言：无 lesson 链接、无 lesson.html 锚点）。 */
+  dispatch(collectByClass(sheet, 'world-card')[7], 'click', {});
+  assert.ok(sheet.textContent.includes('求职之路'), check('F2：World 8 是求职之路'));
+  assert.ok(!sheet.textContent.includes('尚未开放中文内容'), check('F3 迁移：World 8 内部视图不再显示「尚未开放中文内容」（阶段 4 全开放）'));  /* 阶段 4 收官修复第二处（真实浏览器验证抓出）：World 详情说明文案原只有「混合/未开放」
+   * 两支——全开放 World 仍说「其余课程仍为官方结构占位」失实（World 2–8 收组后共性尾巴）。
+   * app.js 已加 openedInCourse >= totalLessons 全开放分支，此处钉住 World 8 详情形态。 */
+  assert.ok(sheet.textContent.includes(`已开放全部 ${courseOpenCountOf(page, 8)} 课中文正文`),
+    check('阶段 4 收官修复：World 8 详情文案为全开放分支「已开放全部十四课中文正文」形态（课数按数据现算）'));
+  assert.ok(!sheet.textContent.includes('其余课程仍为官方结构占位'),
+    check('阶段 4 收官修复：全开放 World 详情不得再出现「其余课程仍为官方结构占位」失实文案'));
+  assert.ok(collectByClass(sheet, 'world-lesson').length >= 14, check('F2：求职 World 展示官方课程结构（官方 14 课）'));
+  assert.equal(collectByClass(sheet, 'world-lesson-link').length, 14, check('F3 迁移：14 课全部有进入本站正文的真链接（world-lesson-link 恰 14）'));
   const anchors = [];
   (function walk(el) {
     el.children.forEach(child => {
@@ -213,8 +324,8 @@ function openSheetOf(page) {
       walk(child);
     });
   })(sheet);
-  assert.equal(anchors.length, 0, check('F3：占位视图不存在任何 lesson.html 链接'));
-  assert.ok(sheet.textContent.includes('官方共 25 课'), check('F5：占位视图带官方课数（快照口径，React World 官方 25 课，与本站开放数无关）'));
+  assert.ok(anchors.length >= 14, check('F3 迁移：内部视图存在 lesson.html 链接（14 课可进入本站正文）'));
+  assert.ok(sheet.textContent.includes('官方共 14 课'), check('F5：内部视图带官方课数（快照口径，求职 World 官方 14 课）'));
   /* 切到 Foundations 探索 Tab：独立入口直达节点地图（交接 B「按信息架构合理归位」） */
   clickMapTab('Foundations 探索');
   assert.ok(collectByClass(sheet, 'map-nodes').length >= 1, check('B：Foundations 探索 Tab 直达五阶节点地图'));
@@ -508,11 +619,21 @@ function openSheetOf(page) {
   assert.deepEqual(items.map(i => querySelect(i, '.world-preview-name').textContent),
     ['Foundations', 'HTML & CSS', 'JavaScript', 'Node.js'],
     check('F/B3：四格名称一字不变'));
-  assert.deepEqual(items.map(i => querySelect(i, '.world-preview-state').textContent),
-    ['0 / 46', '尚未开放', '尚未开放', '尚未开放'],
-    check('F/B3：四格状态文案与进度口径一字不变（Foundations 带真实进度）'));
-  assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true, false, false, false],
-    check('F/B3：开放/未开放标记不变（只有 Foundations 是 is-open）'));
+  /* 批次 0（2026-09-26）：预览条状态从硬编码「尚未开放」改为按数据现算（与 World 卡片
+   * 共用 app.js 的 courseOpenCountOf），本钉子同步改为**数据现算**（previewExpectations）
+   * ——后续每批开放路径课不必再迁移这四格文案；形制另用正则钉死（未开放格必须写
+   * 「尚未开放」、已开放格必须是「已开放 N / M」），文案形制被改坏仍然红，保护力度不减。
+   * 口径区分：Foundations 格说的是**用户进度**（已完成 N / M），路径 World 格说的是
+   * **本站已有多少可学内容**（已开放 N / M），与 World 卡片「前 N 课已有中文学习内容」
+   * 同一事实源。 */
+  const preview = previewExpectations(page);
+  const states = items.map(i => querySelect(i, '.world-preview-state').textContent);
+  assert.deepEqual(states, ['0 / 46'].concat(preview.states),
+    check('F/B3：四格状态文案 = Foundations 真实进度 + 三个路径 World 按数据现算的开放数（空档案下 Foundations 为 0 / 46）'));
+  assert.ok(states.slice(1).every(s => /^尚未开放$|^已开放 \d+ \/ \d+$/.test(s)),
+    check('F/B3：路径 World 格状态形制钉死——「尚未开放」或「已开放 N / M」，不接受其他写法'));
+  assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true].concat(preview.isOpen),
+    check('F/B3：is-open 标记按「该 World 是否已有开放课」现算（不再只有 Foundations 一格）'));
 
   /* 场景化的钩子：色相写在 data-world-tone 上，是纯展示层，不是课程数据 */
   assert.deepEqual(items.map(i => i.dataset.worldTone),
@@ -650,20 +771,36 @@ function openSheetOf(page) {
     check('G2a：8 个 World 的中文名与 curriculum.js 真实顺序一致（钉住 World 4 = 高级 HTML 与 CSS，不是 Node.js）'));
   assert.ok(cards.every(c => c.tagName === 'BUTTON' && c.type === 'button'),
     check('G2a：8 张卡仍然都是 button（type=button），没有变成 div 或链接'));
-  assert.deepEqual(cards.map(c => c.classList.contains('is-open')), [true, false, false, false, false, false, false, false],
-    check('G2a：开放状态不变——只有 World 1 Foundations 是 is-open'));
-  assert.deepEqual(cards.map(c => c.classList.contains('is-locked')), [false, true, true, true, true, true, true, true],
-    check('G2a：锁定状态不变——其余 7 张仍是 is-locked'));
+  /* 路径课试点批次 3（2026-09-25）按新事实迁移：World 2「中级 HTML 与 CSS」第 1 章节
+   * 3 课已开放（courses/ 并入 data.lessons），worldListChildren 按真实已开放 World
+   * 动态推导 is-open——不再是「只有 World 1」。 */
+  assert.deepEqual(cards.map(c => c.classList.contains('is-open')), worldCardOpenMatrix(page),
+    check('G2a：开放状态按数据现算——已开放课的世界是 is-open（World 1 Foundations 走 catalog 口径，其余按该 World 是否已有开放课）'));
+  assert.deepEqual(cards.map(c => c.classList.contains('is-locked')), worldCardOpenMatrix(page).map(open => !open),
+    check('G2a：锁定状态与开放状态严格互补——未开放的卡是 is-locked'));
   assert.ok(cards.every(c => ['world-order', 'world-zh', 'world-en', 'world-stats', 'world-hint']
     .every(cls => querySelect(c, '.' + cls))),
     check('G2a：每张卡的文案结构（编号 / 中文名 / 英文名 / 统计 / 提示）完整保留'));
-  assert.deepEqual(cards.map(c => Boolean(querySelect(c, '.world-mini-progress'))),
-    [true, false, false, false, false, false, false, false],
-    check('G2a：只有开放的 World 1 带完成度进度条，未开放卡不放假进度'));
-  assert.ok(cards[0].textContent.includes('前 46 课已有中文学习内容'),
-    check('G2a：World 1 的中文覆盖说明保留（自 Hero 下沉的那句）'));
-  assert.ok(cards.slice(1).every(c => c.textContent.includes('尚未开放中文内容')),
-    check('G2a：7 张未开放卡仍明确写「尚未开放中文内容」——装饰不替代状态文案'));
+  assert.deepEqual(cards.map(c => Boolean(querySelect(c, '.world-mini-progress'))), worldCardOpenMatrix(page),
+    check('G2a：只有开放卡带完成度进度条，未开放卡不放假进度'));
+  assert.ok(cards[0].textContent.includes(`前 ${courseOpenCountOf(page, 1)} 课已有中文学习内容`),
+    check('G2a：World 1 的中文覆盖说明保留（Foundations 口径按 catalog 现算，不因路径课并入跟到全站口径）'));
+  assert.ok(cards[1].textContent.includes(`前 ${courseOpenCountOf(page, 2)} 课已有中文学习内容`),
+    check('G2a：World 2 的中文覆盖说明按批次进度现算（钉子同样数据现算，批次 0 起不写死数字）'));
+  assert.ok(cards[2].textContent.includes(`前 ${courseOpenCountOf(page, 3)} 课已有中文学习内容`),
+    check('G2a：World 3 的中文覆盖说明按批次进度现算（World 3 批次 4 起开放）'));
+  assert.ok(cards[3].textContent.includes(`前 ${courseOpenCountOf(page, 4)} 课已有中文学习内容`),
+    check('G2a：World 4 的中文覆盖说明按批次进度现算（World 4 批次 5 起开放）'));
+  assert.ok(cards[4].textContent.includes(`前 ${courseOpenCountOf(page, 5)} 课已有中文学习内容`),
+    check('G2a：World 5 的中文覆盖说明按批次进度现算（World 5 批次 6 起开放）'));
+  assert.ok(cards[5].textContent.includes(`前 ${courseOpenCountOf(page, 6)} 课已有中文学习内容`),
+    check('G2a：World 6 的中文覆盖说明按批次进度现算（World 6 批次 7 起开放、收组）'));
+  assert.ok(cards[6].textContent.includes(`前 ${courseOpenCountOf(page, 7)} 课已有中文学习内容`),
+    check('G2a：World 7 的中文覆盖说明按批次进度现算（超长轮批次 7 阶段 2 起两章 17 课开放）'));
+  /* 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，全站收官）：World 8 开放——8 张卡
+   * 全部开放、未开放卡清零；「装饰不替代状态文案」纪律迁移为反面形态断言。 */
+  assert.ok(cards.every(c => !c.textContent.includes('尚未开放中文内容')),
+    check('G2a：0 张未开放卡（批次 7 阶段 4 起 8 个 World 全开放——不再有任何卡写「尚未开放中文内容」）'));
   assert.ok(cards.every((c, i) => {
     const label = c.getAttribute('aria-label') || '';
     return label.startsWith('World ' + (i + 1) + ' ') && label.includes(G2A_ZH[i]);
@@ -728,9 +865,9 @@ function openSheetOf(page) {
   dispatch(collectByClass(sheet, 'world-back')[0], 'click', {});
   assert.equal(collectByClass(sheet, 'world-card').length, 8,
     check('G2a：返回后回到 8 张 World 卡'));
-  dispatch(collectByClass(sheet, 'world-card')[4], 'click', {});
-  assert.ok(sheet.textContent.includes('React') && collectByClass(sheet, 'lesson-link').length === 0,
-    check('G2a：未开放 World 仍是结构占位、零 lesson.html 链接（F3 红线不回归）'));
+  dispatch(collectByClass(sheet, 'world-card')[5], 'click', {});
+  assert.ok(sheet.textContent.includes('数据库') && collectByClass(sheet, 'lesson-link').length === 0,
+    check('G2a：未开放 World 仍是结构占位、零 lesson.html 链接（F3 红线不回归；批次 6 起首个未开放 World 是数据库）'));
   dispatch(collectByClass(sheet, 'world-back')[0], 'click', {});
   assert.deepEqual(storageKeys(), keysAtStart,
     check('G2a：整条「开列表 → 进 World → 返回」链路零新增 localStorage key（色相不进存档、不进 schema）'));
@@ -941,9 +1078,8 @@ function openSheetOf(page) {
   assert.deepEqual(cards.map(c => c.dataset.worldTone),
     ['foundations', 'html-css', 'javascript', 'html-css-deep', 'world-generic-a', 'world-generic-b', 'nodejs', 'world-generic-c'],
     check('撤回：G2a 的 8 个 tone 映射逐项未变（World 4 仍是 html-css-deep、World 7 仍是 nodejs）'));
-  assert.deepEqual(cards.map(c => c.classList.contains('is-open')),
-    [true, false, false, false, false, false, false, false],
-    check('撤回：开放/锁定状态未变——只有 World 1 是 is-open'));
+  assert.deepEqual(cards.map(c => c.classList.contains('is-open')), worldCardOpenMatrix(page),
+    check('撤回：开放/锁定状态按数据现算，与 G2a 组同口径'));
   assert.ok(cards.every((c, i) => (c.getAttribute('aria-label') || '').startsWith(`World ${i + 1} `)),
     check('撤回：8 张卡的 aria-label 仍按「World N + 中文名」组织'));
   assert.ok(css.includes('v4.11 G2a：学习地图 8 张 World 卡的轻量场景层'),
@@ -1028,11 +1164,16 @@ function openSheetOf(page) {
   assert.deepEqual(previewItems.map(i => querySelect(i, '.world-preview-name').textContent),
     ['Foundations', 'HTML & CSS', 'JavaScript', 'Node.js'],
     check('信息带：预览条四项名称与顺序一字不变'));
-  assert.deepEqual(previewItems.map(i => querySelect(i, '.world-preview-state').textContent),
-    ['0 / 46', '尚未开放', '尚未开放', '尚未开放'],
-    check('信息带：预览条四项状态文案未变（状态没有因为收口被改写）'));
-  assert.deepEqual(previewItems.map(i => i.classList.contains('is-open')), [true, false, false, false],
-    check('信息带：预览条开放标记未变（只有 Foundations 是 is-open）'));
+  /* 批次 0（2026-09-26）：本组与 F/B3 组共用 previewExpectations——预览条状态改为
+   * 按数据现算后，「未变」的含义是「与课程数据一致」，不是「与某批的硬编码字面量一致」。 */
+  const bandPreview = previewExpectations(page);
+  const bandStates = previewItems.map(i => querySelect(i, '.world-preview-state').textContent);
+  assert.deepEqual(bandStates, ['0 / 46'].concat(bandPreview.states),
+    check('信息带：预览条四项状态文案 = Foundations 进度 + 路径 World 按数据现算（形制同 F/B3 组）'));
+  assert.ok(bandStates.slice(1).every(s => /^尚未开放$|^已开放 \d+ \/ \d+$/.test(s)),
+    check('信息带：预览条路径 World 格状态形制钉死（「尚未开放」或「已开放 N / M」）'));
+  assert.deepEqual(previewItems.map(i => i.classList.contains('is-open')), [true].concat(bandPreview.isOpen),
+    check('信息带：预览条开放标记按该 World 是否已有开放课现算'));
   assert.deepEqual(previewItems.map(i => i.dataset.worldTone),
     ['foundations', 'html-css', 'javascript', 'nodejs'],
     check('信息带：预览条四项 data-world-tone 未漂移'));
@@ -1489,8 +1630,10 @@ function openSheetOf(page) {
     ['Foundations', 'HTML & CSS', 'JavaScript', 'Node.js'], check('收口：四项名称与顺序不变'));
   assert.deepEqual(items.map(i => i.dataset.worldTone),
     ['foundations', 'html-css', 'javascript', 'nodejs'], check('收口：data-world-tone 不变'));
-  assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true, false, false, false],
-    check('收口：开放标记不变（只有 Foundations 是 is-open）'));
+  /* 批次 0（2026-09-26）：预览条 is-open 改为按数据现算后，本组与 F/B3、信息带两组
+   * 共用 previewExpectations（「不变」的含义是「与课程数据一致」，不是与某批字面量一致）。 */
+  assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true].concat(previewExpectations(page).isOpen),
+    check('收口：开放标记按该 World 是否已有开放课现算（Foundations 恒为 is-open）'));
 
   /* ---------- 5. 点击路径与零持久化 ---------- */
   dispatch(strip, 'click', {});

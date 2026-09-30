@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="296" viewBox="0 0 600 296" role="img" aria-labelledby="t-interview-funnel d-interview-funnel">
+  <title id="t-interview-funnel">技术招聘漏斗七步</title>
+  <desc id="d-interview-funnel">流程图，七个方框分两行。第一行依次为：①电话筛选（常为 HR 约半小时）、②技术面试（现场编码 / 逻辑题 / 白板）、③技术挑战（带回家，最多一整天）、④契合面试（见全团队，一票否决）；第二行依次为：⑤Job Offer（让细节落邮件）、⑥Offer 谈判（另一 offer 是最强筹码）、⑦接受 Offer（签约前别买房子）。图下注：技术挑战的位置随公司浮动——有时先做 take-home 再电话筛选；很多公司跳过轻量寒暄直接进技术筛选——按上限准备。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="55" text-anchor="middle"><tspan x="75">电话筛选</tspan></text>
+  <text class="s" x="75" y="68" text-anchor="middle"><tspan x="75">常为 HR 约</tspan><tspan x="75" dy="15">半小时</tspan></text>
+  <rect class="box" x="176" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="55" text-anchor="middle"><tspan x="225">技术面试</tspan></text>
+  <text class="s" x="225" y="60" text-anchor="middle"><tspan x="225">现场编码 /</tspan><tspan x="225" dy="15">逻辑题 /</tspan><tspan x="225" dy="15">白 板</tspan></text>
+  <path class="edge" d="M124,57 L169,57" marker-end="url(#arr)"/>
+  <rect class="box" x="326" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="375" y="55" text-anchor="middle"><tspan x="375">技术挑战</tspan></text>
+  <text class="s" x="375" y="68" text-anchor="middle"><tspan x="375">带回家，最多</tspan><tspan x="375" dy="15">一整天</tspan></text>
+  <path class="edge" d="M274,57 L319,57" marker-end="url(#arr)"/>
+  <rect class="box" x="476" y="26" width="98" height="62" rx="6"/>
+  <text class="hb" x="525" y="55" text-anchor="middle"><tspan x="525">契合面试</tspan></text>
+  <text class="s" x="525" y="68" text-anchor="middle"><tspan x="525">见全团队，一</tspan><tspan x="525" dy="15">票否决</tspan></text>
+  <path class="edge" d="M424,57 L469,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="75" y="179" text-anchor="middle"><tspan x="75">Job Offer</tspan></text>
+  <text class="s" x="75" y="199" text-anchor="middle"><tspan x="75">让细节落邮件</tspan></text>
+  <rect class="box" x="176" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="225" y="179" text-anchor="middle"><tspan x="225">Offer 谈判</tspan></text>
+  <text class="s" x="225" y="192" text-anchor="middle"><tspan x="225">另一 offer</tspan><tspan x="225" dy="15">是最强筹码</tspan></text>
+  <path class="edge" d="M124,181 L169,181" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="326" y="150" width="98" height="62" rx="6"/>
+  <text class="hb" x="375" y="179" text-anchor="middle"><tspan x="375">接受 Offer</tspan></text>
+  <text class="s" x="375" y="192" text-anchor="middle"><tspan x="375">签约前别买</tspan><tspan x="375" dy="15">房子</tspan></text>
+  <path class="edge" d="M274,181 L319,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M525,88 L525,119 L75,119 L75,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="548" height="52" rx="6"/>
+  <text class="s" x="300" y="240" text-anchor="middle"><tspan x="300">技术挑战的位置随公司浮动——有时先做 take-home 再电话筛选；很多公司跳过轻量寒暄直接</tspan><tspan x="300" dy="18">进技术筛选——按上限准备。</tspan></text>
+</svg>

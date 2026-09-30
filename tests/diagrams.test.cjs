@@ -23,7 +23,19 @@ function loadData(file, globalName) {
 }
 
 const diagrams = loadData('diagrams.js', 'ODIN_DIAGRAMS');
-const guide = loadData('lessons.js', 'ODIN_GUIDE');
+/* 路径课试点批次 3（2026-09-25）：课程数据改为与 HTML 同序合并加载
+ * （lessons.js → courses/*.js → lesson-sources.js）——概念图可绑定路径课
+ * （World 2 起），与线上渲染的数据口径一致；loadData 的单文件形式保留给 diagrams.js。 */
+const guide = (() => {
+  const sandbox = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lessons.js'), 'utf8'), sandbox);
+  const coursesDir = path.join(root, 'courses');
+  fs.readdirSync(coursesDir).filter(f => f.endsWith('.js')).sort().forEach(f => {
+    vm.runInNewContext(fs.readFileSync(path.join(coursesDir, f), 'utf8'), sandbox, { filename: 'courses/' + f });
+  });
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lesson-sources.js'), 'utf8'), sandbox, { filename: 'lesson-sources.js' });
+  return JSON.parse(JSON.stringify(sandbox.window.ODIN_GUIDE));
+})();
 
 const TRADITIONAL_CHARS = '個們來時說後過發對還進種會學將無現點實樣經麼頭開問間馬鳥魚車東長書電話腦見觀視聽寫讀記憶體軟網頁連線圖檔資訊號設計劃輸處變據庫係統應執碼鍵數單雙復複選擇載陣類參屬監觸獲擊佈顏';
 
@@ -245,12 +257,19 @@ assert.ok(perLesson.size >= 6, `图应分布在多节课上，实际只覆盖 ${
 /* ---------- 8. 源码级约束与加载顺序 ---------- */
 const source = fs.readFileSync(path.join(root, 'diagrams.js'), 'utf8');
 assert.ok(!/\bfetch\(|XMLHttpRequest|innerHTML|document\.cookie/.test(source), 'diagrams.js 不联网、不注入标记、不读写 cookie');
-for (const file of ['index.html', 'lesson.html']) {
-  const html = fs.readFileSync(path.join(root, file), 'utf8');
+/* B+ 轮阶段 2（v4.11.37）：diagrams.js 为课页专用——首页运行时探针实证零读取后
+ * index.html 不再加载它。加载顺序钉子随之只对 lesson.html 生效（课页照旧钉死
+ * 「必须在 app.js 之前」），并对 index.html 反向钉「不得引用」（瘦身形态防回退；
+ * 两页清单与 dom-stub 的三方同步钉子另见 version-identity.test.cjs 第 6b 节）。 */
+{
+  const html = fs.readFileSync(path.join(root, 'lesson.html'), 'utf8');
   const at = html.indexOf('src="diagrams.js"');
   const appAt = html.indexOf('src="app.js"');
-  assert.ok(at >= 0, `${file}: 未加载 diagrams.js`);
-  assert.ok(at < appAt, `${file}: diagrams.js 必须在 app.js 之前加载`);
+  assert.ok(at >= 0, 'lesson.html: 未加载 diagrams.js');
+  assert.ok(at < appAt, 'lesson.html: diagrams.js 必须在 app.js 之前加载');
+  const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.ok(!indexHtml.includes('src="diagrams.js"'),
+    'index.html: 不得引用课页专用的 diagrams.js（B+ 轮阶段 2 首页瘦身，回退即红）');
 }
 /* 清单里引用的每个文件都要真实存在，且目录里没有清单外的孤儿 SVG */
 const onDisk = fs.readdirSync(path.join(root, diagrams.directory)).filter(name => name.endsWith('.svg')).sort();
@@ -300,7 +319,7 @@ assert.deepEqual(onDisk, [...files].sort(), 'assets/diagrams/ 下的文件应与
     assert.ok(onDiskText.includes(`<desc id="d-${spec.id}">`), `9d: ${spec.id} SVG desc id 规范`);
     assert.ok(onDiskText.includes(manifestEntry.zhTitle), `9d: ${spec.id} SVG title 应等于清单 zhTitle`);
   }
-  console.log(`通过：${diagrams.diagrams.length} 张本站原创 SVG 概念图（合计 ${(totalBytes / 1024).toFixed(1)} KB，单张最大 ${(Math.max(...diagrams.diagrams.map(d => fs.statSync(path.join(root, diagrams.directory, d.file)).size)) / 1024).toFixed(1)} KB）、覆盖 ${perLesson.size} 节课；手工 8 条绑定 + 生成器 ${specs.length} 条 specs 数据驱动并集一致、XML 良构、含 title/desc 与 role=img、只用系统字体、无远程引用与脚本、单张 < 20 KB 且合计 < 600 KB、简体中文保险、sectionIndex 范围合法（按章归位试点）、两个 HTML 的加载顺序、生成器幂等且入库 SVG 与产出逐字节一致。`);
+  console.log(`通过：${diagrams.diagrams.length} 张本站原创 SVG 概念图（合计 ${(totalBytes / 1024).toFixed(1)} KB，单张最大 ${(Math.max(...diagrams.diagrams.map(d => fs.statSync(path.join(root, diagrams.directory, d.file)).size)) / 1024).toFixed(1)} KB）、覆盖 ${perLesson.size} 节课；手工 8 条绑定 + 生成器 ${specs.length} 条 specs 数据驱动并集一致、XML 良构、含 title/desc 与 role=img、只用系统字体、无远程引用与脚本、单张 < 20 KB 且合计 < 600 KB、简体中文保险、sectionIndex 范围合法（按章归位试点）、lesson.html 加载顺序与 index.html 不引用钉、生成器幂等且入库 SVG 与产出逐字节一致。`);
 })().catch(error => {
   console.error(error && error.message ? error.message : error);
   process.exitCode = 1;

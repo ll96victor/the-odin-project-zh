@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="298" viewBox="0 0 740 298" role="img" aria-labelledby="t-hidden-vs-visible-market d-hidden-vs-visible-market">
+  <title id="t-hidden-vs-visible-market">隐藏就业市场 vs 公开招聘职位</title>
+  <desc id="d-hidden-vs-visible-market">两列对比图。左列「隐藏就业市场（高达 80%）」：多数职位从不发布在网上、靠推荐与内推成交；公司省去发布、筛选、面试的全部流程成本，宁愿走隐藏市场；许多公司给成功内推的员工发奖金，传名激励双向；入场券是让网络把你视作拥有特定技能集的可靠个人。右列「公开招聘职位（约 20%）」：刷招聘板只能看到约 20% 的职位，仍值得投；海投等于进入羊群，与海量申请者竞争更少的职位；质量优先于数量，少量定制化申请好过几百份雷同简历；选你觉得有趣、核心价值观你认同的公司。图下注：比例因来源不同有出入，但隐藏市场真实存在且规模可观——策略不打它的主意，就是在自削胜算。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="206" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">隐藏就业市场（高达 80%）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">多数职位从不发布在网上——靠推荐与内推成交</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">公司省去发布、筛选、面试的全部流程成本——宁愿走</tspan><tspan x="52" dy="18">隐藏市场</tspan></text>
+  <circle cx="42" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="164" text-anchor="start"><tspan x="52">许多公司给成功内推的员工发奖金——传名激励双向</tspan></text>
+  <circle cx="42" cy="190" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="194" text-anchor="start"><tspan x="52">入场券：让网络把你视作「拥有特定技能集的可靠</tspan><tspan x="52" dy="18">个人」</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="206" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">公开招聘职位（约 20%）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">刷招聘板只能看到约 20% 的职位——仍值得投</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">海投 = 进入羊群：与海量申请者竞争更少的职位</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">质量优先于数量：少量定制化申请好过几百份雷同</tspan><tspan x="413" dy="18">简历</tspan></text>
+  <circle cx="403" cy="190" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="194" text-anchor="start"><tspan x="413">选你觉得有趣、核心价值观你认同的公司</tspan></text>
+  <rect class="note" x="22" y="242" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="264" text-anchor="middle"><tspan x="370">比例因来源不同有出入，但隐藏市场真实存在且规模可观——策略不打它的主意，就是在自削胜算。</tspan></text>
+</svg>

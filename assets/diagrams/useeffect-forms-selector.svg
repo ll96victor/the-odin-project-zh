@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="483" viewBox="0 0 732 483" role="img" aria-labelledby="t-useeffect-forms-selector d-useeffect-forms-selector">
+  <title id="t-useeffect-forms-selector">useEffect 三形态：依赖数组定时机，返回值定退场</title>
+  <desc id="d-useeffect-forms-selector">中心辐射图。中心是 useEffect 三形态选型，副题注明依赖数组决定何时执行、回调返回的清理函数决定如何退场。四个卫星节点：无依赖数组——每次渲染后都执行，Clock 第 2 车的原因，绝大多数场景是误用信号；空数组——只在挂载时执行一次，一次性初始化与取数据的家，配 cleanup 在卸载时退场；列出依赖 a 与 b——挂载时加 a 或 b 变化时执行，跟随某个值同步外部系统的标准形态；返回清理函数——不是第四种数组形态而是叠加项，下次 effect 重跑前与组件卸载时执行，定时器、订阅、监听器的退场通道。图下注：先问有没有外部系统要同步，再选形态；依赖不用手搓，linter 报什么修什么。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <path class="spoke" d="M366,197 L366,105"/>
+  <path class="spoke" d="M465,242 L484,242"/>
+  <path class="spoke" d="M366,286 L366,379"/>
+  <path class="spoke" d="M267,242 L248,242"/>
+  <rect class="accentbox" x="267" y="197" width="198" height="89" rx="10"/>
+  <text class="hb" x="366" y="231" text-anchor="middle"><tspan x="366">useEffect 三形态选型</tspan></text>
+  <text class="s" x="366" y="247" text-anchor="middle"><tspan x="366">依赖数组决定何时执行，返回的清理函</tspan><tspan x="366" dy="16">数决定如何退场</tspan></text>
+  <rect class="box" x="252" y="29" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="51" text-anchor="middle"><tspan x="366">无依赖数组</tspan></text>
+  <text class="s" x="366" y="67" text-anchor="middle"><tspan x="366">每次渲染后都执行——Clock 第 2 车</tspan><tspan x="366" dy="17">的原因，绝大多数场景是误用信号</tspan></text>
+  <rect class="box" x="484" y="195" width="228" height="93" rx="6"/>
+  <text class="hb" x="598" y="218" text-anchor="middle"><tspan x="598">空数组 []</tspan></text>
+  <text class="s" x="598" y="234" text-anchor="middle"><tspan x="598">只在挂载时执行一次：一次性初始化</tspan><tspan x="598" dy="17">与取数据的家，配 cleanup</tspan><tspan x="598" dy="17">卸载退 场</tspan></text>
+  <rect class="box" x="252" y="379" width="228" height="76" rx="6"/>
+  <text class="hb" x="366" y="401" text-anchor="middle"><tspan x="366">依赖 [a, b]</tspan></text>
+  <text class="s" x="366" y="417" text-anchor="middle"><tspan x="366">挂载时 + a 或 b 变化时执行：跟随</tspan><tspan x="366" dy="17">某个值同步外部系统的标准形态</tspan></text>
+  <rect class="box" x="20" y="195" width="228" height="93" rx="6"/>
+  <text class="hb" x="134" y="218" text-anchor="middle"><tspan x="134">返回清理函数</tspan></text>
+  <text class="s" x="134" y="234" text-anchor="middle"><tspan x="134">叠加项非第四种数组：重跑前与卸载</tspan><tspan x="134" dy="17">时执行——定时器、订阅、监听器的退</tspan><tspan x="134" dy="17">场通道</tspan></text>
+</svg>

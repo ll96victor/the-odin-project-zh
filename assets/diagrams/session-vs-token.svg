@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="280" viewBox="0 0 740 280" role="img" aria-labelledby="t-session-vs-token d-session-vs-token">
+  <title id="t-session-vs-token">会话 cookie vs JWT 令牌：认证的两种载体</title>
+  <desc id="d-session-vs-token">两列对比图。左列会话认证（cookie）：登录建会话，浏览器持 connect.sid；服务器端存会话数据；cookie 随每个请求自动带上；前后端分离跨域时 cookie 复杂化。右列令牌认证（JWT）：登录签发一个令牌给前端；服务器不存会话（无状态）；令牌放 Authorization Bearer 头；可设过期，适合跨域 API。图下注：换载体不换流程——Passport 仍是检查载体后认证或拒绝，只是载体从 cookie 换成令牌，这是 Blog API 前后端分离后的认证形态。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="170" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">会话认证（cookie）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">登录建会话，浏览器持 connect.sid</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">服务器端存会话数据</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">cookie 随每个请求自动带上</tspan></text>
+  <circle cx="42" cy="172" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="176" text-anchor="start"><tspan x="52">前后端分离跨域时 cookie 复杂化</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="170" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">令牌认证（JWT）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">登录签发一个令牌给前端</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">服务器不存会话（无状态）</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">令牌放 Authorization: Bearer 头</tspan></text>
+  <circle cx="403" cy="172" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="176" text-anchor="start"><tspan x="413">可设过期，适合跨域 API</tspan></text>
+  <rect class="note" x="22" y="206" width="696" height="52" rx="6"/>
+  <text class="s" x="370" y="228" text-anchor="middle"><tspan x="370">换载体不换流程：Passport 仍是「检查载体 → 认证或拒绝」，只是载体从 cookie 换成令牌——Blog API 前后端分离</tspan><tspan x="370" dy="18">后的认证形态。</tspan></text>
+</svg>

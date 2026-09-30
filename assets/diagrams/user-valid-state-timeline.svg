@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="296" viewBox="0 0 612 296" role="img" aria-labelledby="t-user-valid-state-timeline d-user-valid-state-timeline">
+  <title id="t-user-valid-state-timeline">校验样式的三态时间线：:user-valid 与 :user-invalid 什么时候才命中</title>
+  <desc id="d-user-valid-state-timeline">流程图，五个节点从左到右依次推进。第一步「页面刚加载」，副标题「中性外观」——用户还没碰过任何输入框，:user-valid 与 :user-invalid 都不命中，输入框保持浏览器默认样式。第二步「填入非法值」，副标题「仍未完成交互」——只是输入了错误内容但没有离开这个框，边框不会变红。第三步「点击别处 / Tab 离开」，副标题「变红（:user-invalid）」——这构成一次完整的用户交互，伪类开始命中，边框切换成红色。第四步「改成合法值」，副标题「自动变绿」——:user-valid 命中，边框自动切换成绿色。第五步「再改回非法」，副标题「自动变回红」——此后边框会随内容的合法性在红绿之间自动来回切换，不需要再写任何脚本。图下方的说明是：:user-valid 与 :user-invalid 只在用户完成一次完整交互后才命中，所以页面刚加载时不会满屏红框，这正是它们与 :invalid / :valid 的关键差别。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="55" text-anchor="middle"><tspan x="102">页面刚加载</tspan></text>
+  <text class="s" x="102" y="75" text-anchor="middle"><tspan x="102">中性外观</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="55" text-anchor="middle"><tspan x="306">填入非法值</tspan></text>
+  <text class="s" x="306" y="75" text-anchor="middle"><tspan x="306">仍未完成交互</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="46" text-anchor="middle"><tspan x="510">点击别处 / Tab</tspan><tspan x="510" dy="18">离 开</tspan></text>
+  <text class="s" x="510" y="75" text-anchor="middle"><tspan x="510">变红（:user-invalid）</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="box" x="26" y="150" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="179" text-anchor="middle"><tspan x="102">改成合法值</tspan></text>
+  <text class="s" x="102" y="199" text-anchor="middle"><tspan x="102">自动变绿</tspan></text>
+  <rect class="accentbox" x="230" y="150" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="179" text-anchor="middle"><tspan x="306">再改回非法</tspan></text>
+  <text class="s" x="306" y="199" text-anchor="middle"><tspan x="306">自动变回红</tspan></text>
+  <path class="edge" d="M178,181 L223,181" marker-end="url(#arr)"/>
+  <path class="edge" d="M510,88 L510,119 L102,119 L102,143" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="218" width="560" height="52" rx="6"/>
+  <text class="s" x="306" y="240" text-anchor="middle"><tspan x="306">:user-valid 与 :user-invalid 只在用户完成一次完整交互后才命中——所以页面刚加载时不</tspan><tspan x="306" dy="18">会满屏红框，这正是它们与 :invalid / :valid 的关键差别。</tspan></text>
+</svg>

@@ -304,7 +304,13 @@ def behaviour_checks():
 
             for path in ['/lesson.html', '/lessons.js', '/progress.js', '/app.js',
                          '/external-resources.js', '/lesson-task-links.js', '/style.css',
-                         '/tokens.css', '/version.js']:
+                         '/tokens.css', '/version.js',
+                         '/courses/intermediate-html-and-css.js', '/courses/javascript.js',
+                         '/courses/advanced-html-and-css.js',
+                         '/courses/react.js',
+                         '/courses/databases.js', '/courses/nodejs.js',
+                         '/courses/getting-hired.js',
+                         '/lesson-sources.js']:
                 code, payload = fetch(TEST_PORT, path)
                 check(f'{path} 返回 200', code == 200, f'实际 {code}')
                 if code == 200:

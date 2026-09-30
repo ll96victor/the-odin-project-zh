@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="250" viewBox="0 0 740 250" role="img" aria-labelledby="t-bfs-vs-dfs-shapes d-bfs-vs-dfs-shapes">
+  <title id="t-bfs-vs-dfs-shapes">BFS 与 DFS：容器决定搜索形状</title>
+  <desc id="d-bfs-vs-dfs-shapes">两列对比图。左列「BFS 广度优先 · 用队列」：先进先出——先发现的先处理；一层扫完再下一层；第一次到达目标的层数就是最少步数。右列「DFS 深度优先 · 用栈」：后进先出——最后发现的先处理；一条路走到底、走不通再回头；必须记录已访问顶点——图有环时会陷入无尽循环。图下说明：官方点名——队列与栈的原理分别是广度优先搜索与深度优先搜索使用的概念；骑士之旅项目官方说两者都可行，但其中一个需要你处理「陷入无尽循环」的可能性；目标是「最短路径」时，先想清楚哪种搜索的层数即步数。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">BFS 广度优先 · 用队列</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">先进先出：先发现的先处理</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">一层扫完再下一层</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">第一次到达的层数即最少步数</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="140" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">DFS 深度优先 · 用栈</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">后进先出：最后发现的先处理</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">一条路走到底 · 走不通再回头</tspan></text>
+  <circle cx="403" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="146" text-anchor="start"><tspan x="413">必须记录已访问——有环会无尽循环</tspan></text>
+  <rect class="note" x="22" y="176" width="696" height="52" rx="6"/>
+  <text class="s" x="370" y="198" text-anchor="middle"><tspan x="370">官方点名：队列与栈的原理分别是广度优先搜索与深度优先搜索使用的概念。骑士之旅项目官方说两者都可行——但其中一</tspan><tspan x="370" dy="18">个需要你处理「陷入无尽循环」的可能性；目标是「最短路径」时，先想清楚哪种搜索的层数即步数。</tspan></text>
+</svg>

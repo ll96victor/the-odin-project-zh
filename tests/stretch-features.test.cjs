@@ -4,7 +4,7 @@
  *   I6/I7/I8 目录搜索 + 「已开放中文」「需要复习」过滤——默认视图仍是
  *            完整 46 课（30 链接 + 16 锁定红线不动），过滤只影响可见行，
  *            计数行客观事实不漂移；
- *   I9 命令面板 Ctrl/Cmd+K——全量 52 条命令无静默截断、输入过滤、
+ *   I9 命令面板 Ctrl/Cmd+K——全量命令无静默截断（条目数 = 动作数 + 已开放课数，真值现算）、输入过滤、
  *      ↑↓ 循环高亮（aria-activedescendant）、Enter 执行、关闭焦点归还；
  *   I1 最近使用主题（内存级）——「使用」成功才记录，重开 picker 可见、
  *      点击即预览、不新增持久化 key；
@@ -12,6 +12,8 @@
  *   I5 世界地图 Foundations 完成度进度条——口径 = completedCount/已开放数；
  *   I12 microcopy——设置 Tab 不再出现「危险操作」后台腔。 */
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const {
   FIRST_LESSON, querySelect, collectByClass, dispatch, makeStorage, newPage, archiveJson, STORAGE_KEY
@@ -81,7 +83,9 @@ function clickChip(dialog, label) {
 
   /* 过滤：已开放中文 */
   clickChip(dialog, '已开放中文');
-  assert.equal(collectByClass(dialog, 'lesson-link').length, 46, check('「已开放中文」= 46 课'));
+  /* 路径课试点批次 3：措辞避开「开放…N 课」句式——本对话框目录是 Foundations
+   * catalog 口径（46），全站开放数另含路径课 3 门（stale-claims R2 全站口径）。 */
+  assert.equal(collectByClass(dialog, 'lesson-link').length, 46, check('「已开放中文」过滤后列表为 46 行（Foundations 目录口径）'));
   assert.equal(collectByClass(dialog, 'lesson-locked').length, 0, check('「已开放中文」不含锁定行'));
   assert.match(querySelect(dialog, '.catalog-count').textContent, /^显示 46 \/ 46 课$/, check('计数行 46/46'));
   /* 分组计数不被过滤漂移 */
@@ -115,7 +119,22 @@ function clickChip(dialog, label) {
   assert.ok(dialog, check('Ctrl+K 打开命令面板'));
   assert.equal(page.dom.activeElement && page.dom.activeElement.className.includes('command-input'), true, check('打开即聚焦搜索框'));
   const items = collectByClass(dialog, 'command-item');
-  assert.equal(items.length, 60, check('全量 60 条命令（14 动作 + 46 课），无静默截断'));
+  /* v4.11.20 后 FIX（路径课试点前）：断言从硬编码 60 改为真值现算——
+   * 「全量无静默截断」的语义 = 条目数恰好等于动作数 + 已开放课数（含 courses/*）。
+   * 不放宽成 >= 或 <=：那会失去「检测 slice 上限截断」的能力（命令面板贴顶事故
+   * 的教训——上限 60 与全量 60 相等时零余量，开任意一课即静默截断）。 */
+  const totalLessons = page.sandbox.window.ODIN_GUIDE.lessons.length;
+  const expectedCommandCount = 14 + totalLessons;
+  assert.equal(items.length, expectedCommandCount, check(`全量 ${expectedCommandCount} 条命令（14 动作 + ${totalLessons} 门已开放课），无静默截断`));
+  /* 负向验证暴露的盲区（NV-4）：「全量无截断」断言只能在截断已发生时红；当上限
+   * 恰好等于当前全量（贴顶零余量）时它仍是绿的——而下一课开放就会静默截断。
+   * 这条前置守卫直接从 app.js 源码读 slice 上限，钉「上限 ≥ 全路线终点」
+   * （动作 14 + 官方全路线 197 课 = 211；上限写在 renderCommandResults 里）。 */
+  const appSource = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');
+  const capMatch = appSource.match(/commandEntries\(\)\.filter\(item => commandMatches\(item, query\)\)\.slice\(0,\s*(\d+)\)/);
+  assert.ok(capMatch, check('命令面板上限可从源码解析（renderCommandResults 的 slice）'));
+  const COMMAND_TERMINAL = 14 + 197;   /* 全路线终点：14 动作 + 197 门官方课程 */
+  assert.ok(Number(capMatch[1]) >= COMMAND_TERMINAL, check(`命令面板上限 ${capMatch[1]} ≥ 全路线终点 ${COMMAND_TERMINAL}（贴顶零余量事故的前置守卫）`));
   assert.equal(querySelect(dialog, '.command-input').getAttribute('role'), 'combobox', check('input 有 combobox 角色'));
   const list = querySelect(dialog, '.command-list');
   assert.equal(list.getAttribute('role'), 'listbox', check('结果列表 role=listbox'));
@@ -289,9 +308,11 @@ function clickChip(dialog, label) {
   assert.equal(mini.getAttribute('aria-hidden'), 'true', check('进度条装饰性（数字已在 stats 文本里）'));
   const fill = querySelect(mini, '.today-mini-fill');
   assert.equal(fill.style.width, '0%', check('零完成时 width 0%'));
-  /* 锁定 World 无进度条（没有可完成的中文内容，不放假进度） */
-  const locked = collectByClass(sheet, 'world-card').find(c => c.classList.contains('is-locked'));
-  assert.equal(querySelect(locked, '.world-mini-progress'), null, check('未开放 World 不放进度条'));
+  /* 锁定 World 无进度条（没有可完成的中文内容，不放假进度）——超长续轮批次 7 阶段 4
+   * （2026-09-29，v4.11.36，全站收官）：8 个 World 全开放，is-locked 卡清零，
+   * 断言迁移为「不存在锁定卡」的形态钉（原「未开放 World 不放进度条」失去对象）。 */
+  const locked = collectByClass(sheet, 'world-card').filter(c => c.classList.contains('is-locked'));
+  assert.equal(locked.length, 0, check('阶段 4 全站收官：不再存在未开放的 World 卡（is-locked 清零）'));
   sheet.close();
 }
 
@@ -392,4 +413,4 @@ function clickChip(dialog, label) {
   picker.close();
 }
 
-console.log(`通过：Batch 10 Stretch 功能 ${checks} 项断言（目录搜索/已开放/需要复习过滤、命令面板 Ctrl+K 全量 52 条无截断/键盘导航/执行跳转、最近使用主题内存级零新 key、小奥当日成就庆祝、世界地图完成度进度条、microcopy 去后台腔、主题选择器展示优先顺序 夜空→石墨→冰川 且只动顺序不动数据）。`);
+console.log(`通过：Batch 10 Stretch 功能 ${checks} 项断言（目录搜索/已开放/需要复习过滤、命令面板 Ctrl+K 全量无截断（真值现算）/键盘导航/执行跳转、最近使用主题内存级零新 key、小奥当日成就庆祝、世界地图完成度进度条、microcopy 去后台腔、主题选择器展示优先顺序 夜空→石墨→冰川 且只动顺序不动数据）。`);

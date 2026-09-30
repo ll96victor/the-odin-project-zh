@@ -13,6 +13,13 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const sandbox = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, 'lessons.js'), 'utf8'), sandbox);
+/* 路径课试点批次 3：装载走汇总层（courses/*.js + lesson-sources.js 与 HTML 同序），
+ * lessons 是全站 197 课（超长续轮批次 7 阶段 4 起含 World 8 getting-hired 两章节 14 课——World 8 收组、全站 197 课全部开放）——
+ * completedAll/startedCount 类成就的分母随全站口径走。 */
+for (const f of fs.readdirSync(path.join(root, 'courses')).filter(f => f.endsWith('.js')).sort()) {
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'courses', f), 'utf8'), sandbox, { filename: 'courses/' + f });
+}
+vm.runInNewContext(fs.readFileSync(path.join(root, 'lesson-sources.js'), 'utf8'), sandbox);
 vm.runInNewContext(fs.readFileSync(path.join(root, 'avatars.js'), 'utf8'), sandbox);
 vm.runInNewContext(fs.readFileSync(path.join(root, 'icons.js'), 'utf8'), sandbox);
 vm.runInNewContext(fs.readFileSync(path.join(root, 'economy.js'), 'utf8'), sandbox);
@@ -465,7 +472,7 @@ const dailyFor = days => {
     check('当日差 1 秒不满 10 分钟，不计入连续天数'));
 
   /* C. 课程完成数 */
-  const LESSON_TIERS = [['lessons-3', 3], ['lessons-5', 5], ['lessons-10', 10], ['lessons-15', 15], ['all-lessons', 46]];
+  const LESSON_TIERS = [['lessons-3', 3], ['lessons-5', 5], ['lessons-10', 10], ['lessons-15', 15], ['all-lessons', 197]];
   for (const [id, n] of LESSON_TIERS) {
     assert.ok(unlocksWith(s => completeFirst(s, n)).has(id), check(`${id} 完成 ${n} 课即解锁`));
     assert.ok(!unlocksWith(s => completeFirst(s, n - 1)).has(id), check(`${id} 完成 ${n - 1} 课不解锁`));
@@ -475,7 +482,7 @@ const dailyFor = days => {
     check('只完成第二课不解锁 first-lesson'));
 
   /* D. 官方任务 */
-  const OFFICIAL_TIERS = [['official-first', 1], ['official-3', 3], ['official-5', 5], ['official-10', 10], ['official-all', 46]];
+  const OFFICIAL_TIERS = [['official-first', 1], ['official-3', 3], ['official-5', 5], ['official-10', 10], ['official-all', 197]];
   for (const [id, n] of OFFICIAL_TIERS) {
     assert.ok(unlocksWith(s => completeFirst(s, n, 'officialCompleted')).has(id), check(`${id} 标记 ${n} 课即解锁`));
     assert.ok(!unlocksWith(s => completeFirst(s, n - 1, 'officialCompleted')).has(id), check(`${id} 标记 ${n - 1} 课不解锁`));
@@ -498,18 +505,18 @@ const dailyFor = days => {
     assert.ok(unlocksWith(s => { for (let i = 0; i < n; i += 1) s.cosmetics.purchases[`avatar:p${i}`] = true; }).has(id), check(`${id} 兑换 ${n} 件即解锁`));
     assert.ok(!unlocksWith(s => { for (let i = 0; i < n - 1; i += 1) s.cosmetics.purchases[`avatar:p${i}`] = true; }).has(id), check(`${id} 少一件不解锁`));
   }
-  assert.ok(unlocksWith(s => { lessons.forEach(l => Logic.markVisited(s, l.id, AT, DAY)); }).has('started-all'), check('started-all 打开全部 46 课解锁'));
+  assert.ok(unlocksWith(s => { lessons.forEach(l => Logic.markVisited(s, l.id, AT, DAY)); }).has('started-all'), check('started-all 打开全部 90 课解锁（含 World 2 四章节 22 门与 World 3 javascript 前四章 22 门）'));
   assert.ok(!unlocksWith(s => { for (let i = 0; i < 9; i += 1) Logic.markVisited(s, lessonIds[i], AT, DAY); }).has('started-10'), check('started-10 只开 9 课不解锁'));
 
-  const QUIZ_TIERS = [['quiz-first', 1], ['quiz-3', 3], ['quiz-5', 5], ['quiz-10', 10], ['quiz-all', 46]];
+  const QUIZ_TIERS = [['quiz-first', 1], ['quiz-3', 3], ['quiz-5', 5], ['quiz-10', 10], ['quiz-all', 197]];
   for (const [id, n] of QUIZ_TIERS) {
     assert.ok(unlocksWith(s => completeFirst(s, n, 'quizCompleted')).has(id), check(`${id} 标记 ${n} 课即解锁`));
     assert.ok(!unlocksWith(s => completeFirst(s, n - 1, 'quizCompleted')).has(id), check(`${id} 标记 ${n - 1} 课不解锁`));
   }
 
   /* 三类计数互不串台：只标记官方任务不应解锁自测或完成类成就 */
-  const officialOnly = unlocksWith(s => completeFirst(s, 46, 'officialCompleted'));
-  assert.ok(officialOnly.has('official-all'), check('46 课官方任务全标记解锁 official-all'));
+  const officialOnly = unlocksWith(s => completeFirst(s, 197, 'officialCompleted'));
+  assert.ok(officialOnly.has('official-all'), check('197 课官方任务全标记解锁 official-all（全站口径）'));
   assert.ok(!officialOnly.has('quiz-all'), check('官方任务不会顶替自测成就'));
   assert.ok(!officialOnly.has('all-lessons'), check('官方任务不会顶替课程完成成就'));
   assert.ok(!officialOnly.has('unit-0'), check('官方任务不会顶替单元成就'));
@@ -581,7 +588,7 @@ const dailyFor = days => {
     /* 每日目标连续成就：把 100 天每天提到 20 分钟以上（目标默认 20 分钟） */
     Object.keys(state.daily).forEach(key => { state.daily[key] = 1300; });
     state.daily[DAY] = 8000;                         /* 单日 2 小时+，3 档单日全解锁 */
-    lessons.forEach(lesson => Logic.markVisited(state, lesson.id, AT, DAY));  /* 46 课全看过 */
+    lessons.forEach(lesson => Logic.markVisited(state, lesson.id, AT, DAY));  /* 全站课全看过 */
     for (let i = 0; i < 10; i += 1) state.cosmetics.purchases[`avatar:fixture-${i}`] = true;  /* 10 件兑换 */
     /* v4.3：Boss 成就（boss-first / 未战先知）需要真实的 Boss 纪录；
      * Batch 10（Stretch N5）：隐藏成就「未战先达」需要 2 个单元预检 ≥70% */
@@ -589,9 +596,9 @@ const dailyFor = days => {
       introduction: { attempts: 1, passCount: 1, highCount: 1, lastPassDay: DAY, lastHighDay: DAY, bestPct: 100, firstPct: 100, lastPct: 100, firstWasPrecheck: true, precheckBestPct: 100 },
       prerequisites: { attempts: 1, passCount: 1, highCount: 1, lastPassDay: DAY, lastHighDay: DAY, bestPct: 90, firstPct: 90, lastPct: 90, firstWasPrecheck: true, precheckBestPct: 85 }
     };
-    completeFirst(state, 46);
-    completeFirst(state, 46, 'officialCompleted');
-    completeFirst(state, 46, 'quizCompleted');
+    completeFirst(state, 197);
+    completeFirst(state, 197, 'officialCompleted');
+    completeFirst(state, 197, 'quizCompleted');
     /* Batch 10（Stretch N5）：隐藏成就「精通的滋味」需要 3 课走过
      * “标记过又清空”的复习周期（mastered = 三项齐全 + everMarked + 无待复习） */
     [5, 6, 7].forEach(index => {
@@ -599,7 +606,7 @@ const dailyFor = days => {
       Logic.setLessonFlag(state, lessonIds[index], 'needsReview', false, AT, 0);
     });
     Logic.evaluateAchievements(state, lessons, AT, DAY);
-    assert.equal(Object.keys(state.achievements).length, Logic.ACHIEVEMENTS.length, check('该状态解锁全部 65 个成就（含 2 个 Batch 10 隐藏成就 + v4.11.3 两个大课成就 + v4.11.17 的 unit-4 + v4.11.19 的 unit-5）'));
+    assert.equal(Object.keys(state.achievements).length, Logic.ACHIEVEMENTS.length, check('该状态解锁全部 67 个成就（含 2 个 Batch 10 隐藏成就 + v4.11.3 两个大课成就 + unit-4/5/6 + v4.11.22 补配两 unit 成就）'));
     assert.equal(Logic.unlockedFrames(state).length, Logic.FRAMES.length - 8, check('该状态解锁全部非叶片头像框（8 个叶片框未解锁，刻意不算已解锁）'));
     assert.equal(state.xp, xpBefore, check('解锁全部成就与非兑换头像框都不发放任何 XP'));
     assert.equal(state.minuteXpAwarded, 0, check('直接改 totalActiveSeconds 不会绕过分钟 XP 结算位点'));
@@ -782,7 +789,7 @@ const dailyFor = days => {
   assert.equal(s.startedCount, 1, check('summary 已开始课程数'));
   assert.equal(s.needsReviewCount, 1, check('summary 需复习课程数'));
   assert.equal(s.reviewEverMarked, false, check('summary 暴露复习闩锁（直接改 entry 不算标记过）'));
-  assert.equal(s.totalLessons, 46, check('summary 课程总数仍为当前开放的 46'));
+  assert.equal(s.totalLessons, 197, check('summary 课程总数为全站已开放的 197（含 World 2 四个章节 22 门、World 3 javascript 全八章 41 门、World 4 三章节 16 门——收组、World 5 react 八章节 25 门——收组、World 6 databases 3 门——收组、World 7 nodejs 全八章节 30 门——收组与 World 8 getting-hired 两章节 14 门——收组，全站收官）'));
   assert.equal(s.level, 4, check('summary 等级（v4.5 曲线：250 XP = Lv.4）'));
   assert.equal(s.achievementTotal, 67, check('summary 成就总数为 67（v4.11.3 起含两个大课成就，v4.11.17 起含 unit-4，v4.11.19 起含 unit-5，v4.11.20 第九批起含 unit-6/unit-7 收组）'));
 

@@ -39,10 +39,25 @@ const loadData = (file, globalName) => {
   return JSON.parse(JSON.stringify(sandbox.window[globalName]));
 };
 
-/* ===================== 事实来源（零硬编码） ===================== */
+/* ===================== 事实来源（零硬编码） =====================
+ * 路径课试点批次 3（2026-09-25）起，本站已开放数 = Foundations 目录 available 数
+ * + courses/*.js 已并入的路径课数。事实源跟着汇总层走（lesson-sources.js 同款
+ * 推导），不在这里硬编码「49」——扩下一批课时这里自动前进。 */
 const CATALOG = loadData('catalog.js', 'ODIN_CATALOG');
 const CATALOG_TOTAL = CATALOG.lessons.length;                             /* 官方 Foundations 总课数 */
-const AVAILABLE_TOTAL = CATALOG.lessons.filter(l => l.available).length;  /* 本站已开放中文正文的课数 */
+const COURSE_DIR = path.join(root, 'courses');
+const COURSE_FILES = fs.readdirSync(COURSE_DIR).filter(f => f.endsWith('.js'));
+const COURSE_LESSON_COUNT = COURSE_FILES.reduce((sum, f) => {
+  const sandbox = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(COURSE_DIR, f), 'utf8'), sandbox);
+  /* 与 lesson-sources.js 同款逐 course 守卫：结构不完整不计入 */
+  for (const key of Object.keys(sandbox.window)) {
+    const course = sandbox.window[key];
+    if (course && Array.isArray(course.lessons) && Array.isArray(course.groups)) sum += course.lessons.length;
+  }
+  return sum;
+}, 0);
+const AVAILABLE_TOTAL = CATALOG.lessons.filter(l => l.available).length + COURSE_LESSON_COUNT; /* 本站已开放中文正文的课数（Foundations + 路径课） */
 const LOCKED_FROM = AVAILABLE_TOTAL + 1;                                  /* 未开放范围起点 */
 
 /* version.js 的真实版本值（与 version-identity.test.cjs 同一解析口径） */
@@ -117,6 +132,42 @@ const R2_EXEMPT = new Set([
   /* bosses.js「JavaScript Basics 单元综合预检（本站已开放 15 课）」：单元级计数（15 = 该单元
    * 全部 15 课），不是全站开放数。v4.11.20 第九批登记。 */
   'bosses.js|本站已开放15课',
+  /* bosses.js「『中级 CSS 概念』章节综合预检（本站已开放 10 课）」：路径课**章节级**计数
+   * （10 = curriculum.js 里 intermediate-css-concepts 章节的全部 10 课，本章已全开放才配 Boss），
+   * 不是全站开放数。World 2 第三批登记。 */
+  'bosses.js|本站已开放10课',
+  /* bosses.js「『中级 HTML 概念』/『表单』章节综合预检（本站已开放 3 课）」：路径课章节级
+   * 计数（3 = 各自章节的全部课数，两章均已全开放；World 2 第五批补配 Boss 时登记）。
+   * 两条 desc 同串，共用一条豁免键（与 profile.test「两处同串」先例一致）。 */
+  'bosses.js|本站已开放3课',
+  /* bosses.js「『Grid 布局』章节综合预检（本站已开放 6 课）」：路径课章节级计数
+   * （6 = grid 章节全部课数，本章 6/6 全开即配）。World 2 第五批登记。 */
+  'bosses.js|本站已开放6课',
+  /* bosses.js「『组织 JavaScript 代码』章节综合预检（本站已开放 14 课）」：路径课章节级
+   * 计数（14 = curriculum.js 里 organizing-your-javascript-code 章节的全部 14 课，本章
+   * 14/14 全开即配）。World 3 批次 4 阶段 1 登记。 */
+  'bosses.js|本站已开放14课',
+  /* bosses.js「『异步 JavaScript 与 API』章节综合预检（本站已开放 4 课）」：路径课章节级
+   * 计数（4 = curriculum.js 里 asynchronous-javascript-and-apis 章节的全部 4 课，本章
+   * 4/4 全开即配；「真实世界的 JavaScript」desc 为「本站已开放 3 课」，与既有 World 2
+   * 表单章节同串、共用上方既有豁免键）。World 3 批次 4 阶段 2 登记。 */
+  'bosses.js|本站已开放4课',
+  /* bosses.js「『一点计算机科学』章节综合预检（本站已开放 11 课）」：路径课章节级
+   * 计数（11 = curriculum.js 里 a-bit-of-computer-science 章节的全部 11 课，本章
+   * 11/11 全开即配，其中 6 门 Project 课不出题）。「试炼考馆」desc 为「本站已开放
+   * 3 课」，与「真实世界回廊」及 World 2 表单章节同串、共用上方既有豁免键。
+   * World 3 批次 4 阶段 3 登记。 */
+  'bosses.js|本站已开放11课',
+  /* bosses.js「『无障碍』章节综合预检（本站已开放 8 课）」：路径课章节级计数
+   * （8 = curriculum.js 里 accessibility 章节的全部 8 课，本章 8/8 全开即配）。
+   * World 4 批次 5 阶段 2 登记。 */
+  'bosses.js|本站已开放8课',
+  /* bosses.js「『类组件』章节综合预检（本站已开放 2 课）」：路径课章节级计数
+   * （2 = curriculum.js 里 class-components 章节的全部 2 课，本章 2/2 全开即配——
+   * 「齿轮档案厅」；配 Boss 判据为知识点密度足，理由登记 bosses.js 单元注释与
+   * map-boss 断言）。「潮汐观测所」desc 为「本站已开放 5 课」（states-and-effects
+   * 章节全部 5 课），与既有 5 课豁免键同串共用。World 5 批次 6 阶段 2 登记。 */
+  'bosses.js|本站已开放2课',
   'tests/profile.test.cjs|已开放的5课',
   'tests/profile.test.cjs|本站开放5课',
   /* browser-smoke.js 目录注释：灰化课数紧邻「已开放」字样被 R2 就近取数。
@@ -138,6 +189,14 @@ const R2_EXEMPT = new Set([
   /* external-resources.js 头注释「v4.11.20 第八批：开放第 45 课 Project: Calculator」：
    * 历史批次记录的课号引用（事件叙述），非当前开放计数。v4.11.20 第九批迁移，键随新批次登记。 */
   'external-resources.js|开放第45课',
+  /* external-resources.js 头注释「v4.11.20 第九批：开放第 46 课 Choose Your Path Forward」：
+   * 历史批次记录的课号引用（事件叙述）。第九批时 46 恰为全站开放数无需豁免；
+   * 路径课试点批次 3 起全站开放数含 World 2 的 3 课（49），该课号引用转为豁免。 */
+  'external-resources.js|开放第46课',
+  /* catalog.test.cjs 头注释「2026-09-25 开放第 46 课 Choose Your Path Forward」：
+   * 历史事件叙述 + Foundations 目录口径（catalog.test 的 AVAILABLE_TOTAL 刻意硬编码
+   * 逼人复核，与本文件的全站推导口径刻意不统一——见本文件头注释）。 */
+  'tests/catalog.test.cjs|开放第46课',
   /* map-boss.test.cjs 注释「v4.11.19 第三批：flexbox 组 5/5 全组开放（第 30 课…）」：
    * 历史批次记录的课号引用，非当前开放计数。 */
   'tests/map-boss.test.cjs|开放（第30课',

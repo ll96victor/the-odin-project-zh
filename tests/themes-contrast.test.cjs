@@ -472,4 +472,63 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
       check(`${bad} 的最差档（深 ${minDark.toFixed(2)} / 浅 ${minLight.toFixed(2)}）与 2026-09-21 实测基线（深 ${darkBase} / 浅 ${lightBase}）一致，数值没被悄悄美化`));
   }
 }
-console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退、v4.11.9 wash 底文本 ink/wash 全 ${THEMES.themes.length} 套达标 + muted/accent 在 wash 上确实不达标的反向钉子、v4.11.13 mask 结构钉 + token 派生色全 ${THEMES.themes.length} 套 × 三背景面 ≥ 2.2 + 深墨/旧绿固定色必红的反向钉子）。`);
+/* ============ 9. B+ 轮阶段 3（a11y，v4.11.38）：焦点环非文本对比 + 占位文字配色 ============
+ * 9.1 焦点环（WCAG 1.4.11 非文本对比 ≥3:1）：全站 focus-visible 是 3px accent
+ *   outline，画在 paper（页面底）或 wash（容器底）上——第 3 节六组钉的是 accent/paper
+ *   的**文本**下限 4.5，本节把**非文本**下限 3 对 paper 与 wash 两个背景面显式钉死
+ *   （阶段 3 实测最小：accent/paper 4.52 bamboo / accent/wash 4.03 dune）。
+ * 9.2 占位文字（WCAG 1.4.3 文本对比 ≥4.5:1）：此前无 ::placeholder 规则、吃 UA
+ *   默认色——Chrome 实测 #757575 落 night 输入底（paper）仅 3.68:1 不达标（浅色纸底
+ *   同样约 4.3 不达标）。已改 color-mix(ink 72%, paper)：本节从 style.css 解析实际
+ *   比例、对 tokens.css 逐主题现算，全 30 套 ≥4.5（阶段 3 实测最差 linen 4.80）；
+ *   比例是解析来的不是硬编码——改 CSS 比例这里自动跟着算，跌破即红。
+ * 9.3 反向钉：UA 默认灰对 night 输入底必须 <4.5（钉住修复动机——把规则删回
+ *   UA 默认等于回到不达标态）。 */
+{
+  const styleCss = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const varsOf = id => (cssThemes[id] ? cssThemes[id].vars : rootVars);
+
+  /* 9.1 焦点环 */
+  let worstFocus = { ratio: Infinity, where: '' };
+  for (const t of THEMES.themes) {
+    const vars = varsOf(t.id);
+    for (const surface of ['paper', 'wash']) {
+      const r = contrast(vars['--color-accent'], vars['--color-' + surface]);
+      if (r < worstFocus.ratio) worstFocus = { ratio: r, where: `${t.id}（${t.zh}）/${surface}` };
+      assert.ok(r >= 3,
+        check(`9.1 ${t.id}（${t.zh}）焦点环 accent/${surface} ${r.toFixed(2)}:1 ≥ 3（WCAG 1.4.11 非文本）`));
+    }
+  }
+  console.log(`  9.1 焦点环：30 套 × 两背景面最差 ${worstFocus.ratio.toFixed(2)}:1（${worstFocus.where}）`);
+
+  /* 9.2 占位文字 */
+  const phRule = /::placeholder\s*{[^}]*color-mix\(in srgb, var\(--color-ink\)\s*(\d+)%, var\(--color-paper\)\)/.exec(styleCss);
+  assert.ok(phRule, check('9.2 style.css 有 ::placeholder 的 ink→paper color-mix 规则（缺规则 = 回落 UA 默认灰，必红）'));
+  const pct = Number(phRule[1]);
+  assert.ok(pct >= 50 && pct <= 90, check(`9.2 占位色 ink 比例 ${pct}% 在 50–90 合理带内（过低不达标、过高与值文字无区分）`));
+  const mixHex = (a, b, p) => {
+    const A = hexToRgb(a), B = hexToRgb(b);
+    return '#' + A.map((v, i) => Math.round(v * p / 100 + B[i] * (1 - p / 100)).toString(16).padStart(2, '0')).join('');
+  };
+  let worstPh = { ratio: Infinity, where: '' };
+  for (const t of THEMES.themes) {
+    const vars = varsOf(t.id);
+    const mixed = mixHex(vars['--color-ink'], vars['--color-paper'], pct);
+    const r = contrast(mixed, vars['--color-paper']);
+    if (r < worstPh.ratio) worstPh = { ratio: r, where: `${t.id}（${t.zh}）` };
+    assert.ok(r >= 4.5,
+      check(`9.2 ${t.id}（${t.zh}）占位色 mix(ink ${pct}%, paper) 对输入底 ${r.toFixed(2)}:1 ≥ 4.5（WCAG 1.4.3）`));
+    const valueR = contrast(vars['--color-ink'], vars['--color-paper']);
+    assert.ok(valueR - r >= 1.5,
+      check(`9.2 ${t.id}（${t.zh}）值文字（${valueR.toFixed(2)}）与占位（${r.toFixed(2)}）对比度差 ≥1.5——占位与已输入值可区分`));
+  }
+  console.log(`  9.2 占位色：ink ${pct}% mix，30 套最差 ${worstPh.ratio.toFixed(2)}:1（${worstPh.where}）`);
+
+  /* 9.3 反向钉：UA 默认灰对 night 输入底 <4.5 */
+  const nightPaper = varsOf('night')['--color-paper'];
+  const uaGray = contrast('#757575', nightPaper);
+  assert.ok(uaGray < 4.5,
+    check(`9.3 反向钉：Chrome UA 默认占位灰 #757575 对 night 输入底仅 ${uaGray.toFixed(2)}:1 < 4.5——删掉 ::placeholder 规则回落默认色即不达标（2026-09-29 真实浏览器实测 3.68 同族）`));
+}
+
+console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退、v4.11.9 wash 底文本 ink/wash 全 ${THEMES.themes.length} 套达标 + muted/accent 在 wash 上确实不达标的反向钉子、v4.11.13 mask 结构钉 + token 派生色全 ${THEMES.themes.length} 套 × 三背景面 ≥ 2.2 + 深墨/旧绿固定色必红的反向钉子、B+ 轮阶段 3 焦点环 accent 对 paper/wash 全 ${THEMES.themes.length} 套 ≥3 + 占位色 color-mix 现算全 ${THEMES.themes.length} 套 ≥4.5 + UA 默认灰必不达标的反向钉子）。`);

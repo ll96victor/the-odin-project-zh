@@ -229,7 +229,7 @@
     { id: 'lessons-5', zh: '完成 5 课', desc: '累计完成 5 课', category: 'lesson', goal: { kind: 'completed', value: 5 } },
     { id: 'lessons-10', zh: '完成 10 课', desc: '累计完成 10 课', category: 'lesson', goal: { kind: 'completed', value: 10 } },
     { id: 'lessons-15', zh: '完成 15 课', desc: '累计完成 15 课', category: 'lesson', goal: { kind: 'completed', value: 15 } },
-    { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（当前开放 46 课，含五个 Project——Foundations 全部课程）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
+    { id: 'all-lessons', zh: '完成当前全部课程', desc: '完成本站当前收录的全部课程（当前开放 197 课，含三十五个 Project——Foundations 全部课程、World 2「中级 HTML 与 CSS」四个章节 22 课、World 3「JavaScript」课程「引言」「组织 JavaScript 代码」「真实世界的 JavaScript」「异步 JavaScript 与 API」「测试 JavaScript」「一点计算机科学」「Git 进阶」「JavaScript 收尾」八章 41 课——World 3 全课程收组、World 4「高级 HTML 与 CSS」课程「动画」「无障碍」「响应式设计」三章节 16 课——World 4 全课程收组、World 5「React」课程「引言」「React 入门」「状态与副作用」「类组件」「React 测试」「React 生态」「更多 React 概念」「结语」八章节 25 课——World 5 全课程收组，World 6「Databases」课程「数据库」章节 3 课——World 6 全课程收组，World 7「NodeJS」课程「NodeJS 入门」「Express」「身份认证」「ORM」「API」「测试 Express」「全栈项目」「最终项目」全八章节 30 课——World 7 全课程收组，及 World 8「求职之路」课程「准备求职」「投递与面试」两章节 14 课——World 8 全课程收组、全站 197 课全部开放）', category: 'lesson', goal: { kind: 'completedAll' }, milestone: true },
     /* C2. 大课体量（v4.11.3 交接 C3）：既有 61 个成就全部按数量维度（完成数 /
      * 时长 / 连续天数），没有任何一个考察「单课体量」——最重的课
      * （links-and-images，22 章 5151 字）与最轻的课（866 字 5 章）在完成
@@ -237,21 +237,21 @@
      * 零改动（用户已明确选择不改数值），成就不带 XP，补发不会补发经验值。
      * 体量判定见 isHeavyLesson（由真实数据算出，不硬编码课 id）。 */
     { id: 'heavy-first', zh: '啃下一门大课', desc: '完成一门内容体量明显更大的课程（章节数显著高于其余课程）', category: 'lesson', goal: { kind: 'completedHeavy', value: 1 } },
-    { id: 'heavy-all', zh: '大课全数拿下', desc: '把本站体量最大的几门课（当前 5 门）全部完成', category: 'lesson', goal: { kind: 'completedHeavy' } },
+    { id: 'heavy-all', zh: '大课全数拿下', desc: '把本站体量最大的几门课（当前 6 门）全部完成', category: 'lesson', goal: { kind: 'completedHeavy' } },
 
     /* D. 官方任务 */
     { id: 'official-first', zh: '首次完成官方任务', desc: '第一次把任意一课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 1 } },
     { id: 'official-3', zh: '完成 3 课官方任务', desc: '累计 3 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 3 } },
     { id: 'official-5', zh: '完成 5 课官方任务', desc: '累计 5 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 5 } },
     { id: 'official-10', zh: '完成 10 课官方任务', desc: '累计 10 课标记为官方任务已完成', category: 'official', goal: { kind: 'official', value: 10 } },
-    { id: 'official-all', zh: '完成当前开放课程的官方任务', desc: '当前收录的 46 课全部标记为官方任务已完成', category: 'official', goal: { kind: 'officialAll' }, milestone: true },
+    { id: 'official-all', zh: '完成当前开放课程的官方任务', desc: '当前收录的 197 课全部标记为官方任务已完成', category: 'official', goal: { kind: 'officialAll' }, milestone: true },
 
     /* E. 本站自测 */
     { id: 'quiz-first', zh: '首次完成本站自测', desc: '第一次把任意一课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 1 } },
     { id: 'quiz-3', zh: '完成 3 课本站自测', desc: '累计 3 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 3 } },
     { id: 'quiz-5', zh: '完成 5 课本站自测', desc: '累计 5 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 5 } },
     { id: 'quiz-10', zh: '完成 10 课本站自测', desc: '累计 10 课标记为本站自测已完成', category: 'quiz', goal: { kind: 'quiz', value: 10 } },
-    { id: 'quiz-all', zh: '完成当前开放课程的本站自测', desc: '当前收录的 46 课全部标记为本站自测已完成', category: 'quiz', goal: { kind: 'quizAll' } },
+    { id: 'quiz-all', zh: '完成当前开放课程的本站自测', desc: '当前收录的 197 课全部标记为本站自测已完成', category: 'quiz', goal: { kind: 'quizAll' } },
 
     /* F. 单元。unit-3 的分母取自 lessons.js 里该分组的课程数，2026-09-23 开放
      * Project: Recipes 后自动从 7 变 8——用户拍板 Project 课**计入**单元完成成就，
@@ -302,7 +302,7 @@
 
     /* K. 学习广度（v4.2 新增） */
     { id: 'started-10', zh: '读过 10 课', desc: '打开过 10 节课程页面', category: 'exploration', goal: { kind: 'startedCount', value: 10 } },
-    { id: 'started-all', zh: '全部课程都看过', desc: '打开过当前收录的全部 46 课', category: 'exploration', goal: { kind: 'startedCount', value: 46 } },
+    { id: 'started-all', zh: '全部课程都看过', desc: '打开过当前收录的全部 197 课', category: 'exploration', goal: { kind: 'startedCount', value: 197 } },
 
     /* L. 章节挑战（v4.3 新增，交接 E3）。高分只代表“已有相关背景知识 /
      * 当前题目掌握良好”，成就文案不宣称“无需学习整章”。 */
@@ -362,7 +362,7 @@
     { id: 'frame-time', zh: '时间框', desc: '累计有效学习 10 小时', unlock: { kind: 'achievement', value: 'active-10h' }, css: 'frame-time' },
     { id: 'frame-quiz', zh: '自测框', desc: '完成当前开放全部课程的本站自测', unlock: { kind: 'achievement', value: 'quiz-all' }, css: 'frame-quiz' },
     { id: 'frame-task', zh: '任务框', desc: '完成当前开放全部课程的官方任务', unlock: { kind: 'achievement', value: 'official-all' }, css: 'frame-task' },
-    { id: 'frame-graduate', zh: '当前阶段毕业框', desc: '完成当前开放的全部 46 课', unlock: { kind: 'achievement', value: 'all-lessons' }, css: 'frame-graduate' },
+    { id: 'frame-graduate', zh: '当前阶段毕业框', desc: '完成当前开放的全部 197 课', unlock: { kind: 'achievement', value: 'all-lessons' }, css: 'frame-graduate' },
     /* v4.3 Batch 6（交接 H/E3）：Boss 挑战的纪念框——首破任意单元 Boss 即解锁 */
     { id: 'frame-boss', zh: '破甲框', desc: '第一次通过任意单元的 Boss 挑战', unlock: { kind: 'achievement', value: 'boss-first' }, css: 'frame-boss' },
     /* v4.2 叶片解锁框（交接 §4、§5）：解锁方式是花叶片解锁后永久拥有。
@@ -1170,7 +1170,17 @@
    *   6. 以上都不成立时的兜底，只陈述事实，不编造夸奖。 */
   function assistantTip(brief) {
     if (brief.totalLessons > 0 && brief.completedCount >= brief.totalLessons) {
-      return { kind: 'all-done', text: '当前开放课程已全部完成，后续课程尚未开放。' };
+      /* 超长续轮批次 7 阶段 4（2026-09-29，v4.11.36，全站收官）：8 个 World 全开放后
+       * 「后续课程尚未开放」失实——终局文案按官方路线总课数动态分支（curriculum.js
+       * 在 progress.js 之前加载；对照不上时保守回退原文案，不谎报终点）。 */
+      const cur = (typeof window !== 'undefined') && window.ODIN_CURRICULUM;
+      const officialTotal = cur && Array.isArray(cur.courses)
+        ? cur.courses.reduce((sum, c) => sum + (Number(c.totalLessons) || 0), 0)
+        : 0;
+      const allOpen = officialTotal > 0 && brief.totalLessons >= officialTotal;
+      return { kind: 'all-done', text: allOpen
+        ? '当前开放课程已全部完成——官方 Full Stack JavaScript 路线的全部 197 课都已在本站开放，你已抵达终点。'
+        : '当前开放课程已全部完成，后续课程尚未开放。' };
     }
     if (brief.todaySeconds < STREAK_MIN_DAY_SECONDS) {
       const missingMinutes = Math.ceil((STREAK_MIN_DAY_SECONDS - brief.todaySeconds) / 60);
@@ -1478,6 +1488,27 @@
 
   /* bosses 条目白名单：分数夹在 0–100，计数夹在 [0, COUNTER_MAX]，
    * 字段结构与 bosses.js 的 emptyBossRecord 一致（tests/map-boss.test.cjs 钉住） */
+  /* Boss 纪录 unitId 白名单（2026-09-26 批次 4 起独立于 ASSET_ID_PATTERN）：
+   * Foundations 分组 id 是单段形态；路径课 Boss 是 `<courseId>/<sectionId>`
+   * 两段形态（命名约定的构造入口在 bosses.js 的 pathBossUnitId）。段内字符集
+   * 与 ASSET_ID_PATTERN 相同，但长度上限放宽到 40——curriculum 最长的 section id
+   * 实测 37 字符（applying-to-and-interviewing-for-jobs），超出 ASSET_ID_PATTERN
+   * 的 32 上限；斜杠只允许出现一次作分段符。 */
+  const BOSS_UNIT_ID_PATTERN = /^[a-z][a-z0-9-]{0,39}(?:\/[a-z][a-z0-9-]{0,39})?$/;
+
+  /* 路径课 Boss 旧键一次性重映射表（2026-09-26 批次 4，方案 B 档案兼容）：
+   * 旧约定 unitId = 裸 section id，撞名修复后改为带 course 前缀。存量路径课
+   * Boss 只有 World 2 四个章节（功能未发布，但用户本机档案可能有自己的试玩
+   * 记录，按防御性处理、不做静默丢弃）。重映射放在 sanitizeState 的 bosses
+   * 白名单归一化处——自动读档（宽容）与显式导入（严格）两条路径都会经过；
+   * 新旧键同时出现（理论上只有手改档案才可能）时新键优先，旧键不覆盖它。 */
+  const LEGACY_PATH_BOSS_UNIT_IDS = {
+    'intermediate-html-concepts': 'intermediate-html-and-css/intermediate-html-concepts',
+    'intermediate-css-concepts': 'intermediate-html-and-css/intermediate-css-concepts',
+    'forms': 'intermediate-html-and-css/forms',
+    'grid': 'intermediate-html-and-css/grid'
+  };
+
   function sanitizeBossEntry(raw) {
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
     const int = (value, max) => Math.min(Math.max(0, Math.floor(Number(value) || 0)), max);
@@ -1814,11 +1845,25 @@
       const rejection = reject('bosses 字段格式不正确（自动读档已忽略该字段）');
       if (rejection) return rejection;
     } else {
-      /* bosses 同理：坏条目丢弃（Boss 可以重新挑战），不拒绝整份档案 */
-      for (const [unitId, raw] of Object.entries(candidate.bosses || {})) {
-        if (typeof unitId !== 'string' || !ASSET_ID_PATTERN.test(unitId)) continue;
+      /* bosses 同理：坏条目丢弃（Boss 可以重新挑战），不拒绝整份档案。
+       * 2026-09-26 批次 4：路径课旧键（裸 section id）经 LEGACY_PATH_BOSS_UNIT_IDS
+       * 搬到 `<courseId>/<sectionId>` 新键；校验模式换用 BOSS_UNIT_ID_PATTERN
+       * （ASSET_ID_PATTERN 的 32 字符上限装不下前缀形态，直接沿用会把新键
+       * 纪录整条静默丢掉——那正是要防的）。新旧键并存时新键优先：旧键条目
+       * 只在新键还没有被接受的条目时落位，两条路都不静默丢数据。 */
+      const acceptedBossKeys = new Set();
+      for (const [rawId, raw] of Object.entries(candidate.bosses || {})) {
+        if (typeof rawId !== 'string') continue;
+        const unitId = Object.prototype.hasOwnProperty.call(LEGACY_PATH_BOSS_UNIT_IDS, rawId)
+          ? LEGACY_PATH_BOSS_UNIT_IDS[rawId]
+          : rawId;
+        if (!BOSS_UNIT_ID_PATTERN.test(unitId)) continue;
+        if (unitId !== rawId && acceptedBossKeys.has(unitId)) continue;
         const entry = sanitizeBossEntry(raw);
-        if (entry) state.bosses[unitId] = entry;
+        if (entry) {
+          state.bosses[unitId] = entry;
+          acceptedBossKeys.add(unitId);
+        }
       }
     }
 
@@ -1941,6 +1986,8 @@
     isPersistentMode, formatSeconds,
     /* v4.3：复习阶梯与 Boss/复习条目的白名单校验（测试直接可测） */
     REVIEW_INTERVALS_DAYS, sanitizeReviewEntry, sanitizeBossEntry,
+    /* 2026-09-26 批次 4：Boss unitId 白名单模式与路径课旧键重映射表（测试钉住） */
+    BOSS_UNIT_ID_PATTERN, LEGACY_PATH_BOSS_UNIT_IDS,
     /* v4.3（交接 G）：轻量复习调度纯函数 */
     emptyReviewEntry, ensureReviewSchedule, pauseReviewSchedule, completeReview, markStillWeak,
     reviewsDue, nextReviewDue, reviewUpcoming

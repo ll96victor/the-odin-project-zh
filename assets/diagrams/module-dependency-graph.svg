@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="816" height="172" viewBox="0 0 816 172" role="img" aria-labelledby="t-module-dependency-graph d-module-dependency-graph">
+  <title id="t-module-dependency-graph">入口与依赖图：一个 script 标签管全部</title>
+  <desc id="d-module-dependency-graph">四步流程图。第一步「HTML 只挂一个 script 标签」：type=module 指向入口文件 two.js。第二步「two.js import one.js」：one.js 成为 two.js 的依赖。第三步「浏览器加载入口 two.js」：看到依赖，把 one.js 的代码也加载进来。第四步「依赖图可以继续长」：three.js 导出给 two.js，或经 one.js 间接依赖，入口不变。图下说明：入口永远是依赖链最上游的消费者——用 one.js 当入口就坏事，它不依赖任何文件，two.js 的代码根本不会被用到；type=module 自动延迟执行、不必写 defer；file:// 直开的页面不能加载 ES 模块，需要本地服务器。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="26" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="102" y="46" text-anchor="middle"><tspan x="102">HTML 只挂一个</tspan><tspan x="102" dy="18">script</tspan></text>
+  <text class="s" x="102" y="68" text-anchor="middle"><tspan x="102">type=module 指向入口</tspan><tspan x="102" dy="15">two.js</tspan></text>
+  <rect class="box" x="230" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="306" y="46" text-anchor="middle"><tspan x="306">two.js import</tspan><tspan x="306" dy="18">one.js</tspan></text>
+  <text class="s" x="306" y="75" text-anchor="middle"><tspan x="306">one.js 成为依赖</tspan></text>
+  <path class="edge" d="M178,57 L223,57" marker-end="url(#arr)"/>
+  <rect class="box" x="434" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="510" y="55" text-anchor="middle"><tspan x="510">浏览器加载入口</tspan></text>
+  <text class="s" x="510" y="68" text-anchor="middle"><tspan x="510">看到依赖，把 one.js</tspan><tspan x="510" dy="15">也加载进来</tspan></text>
+  <path class="edge" d="M382,57 L427,57" marker-end="url(#arr)"/>
+  <rect class="accentbox" x="638" y="26" width="152" height="62" rx="6"/>
+  <text class="hb" x="714" y="55" text-anchor="middle"><tspan x="714">依赖图可以继续长</tspan></text>
+  <text class="s" x="714" y="68" text-anchor="middle"><tspan x="714">three.js / 间接依赖，</tspan><tspan x="714" dy="15">入口不变</tspan></text>
+  <path class="edge" d="M586,57 L631,57" marker-end="url(#arr)"/>
+  <rect class="note" x="26" y="94" width="764" height="52" rx="6"/>
+  <text class="s" x="408" y="116" text-anchor="middle"><tspan x="408">入口永远是依赖链最上游的消费者——用 one.js 当入口就坏事：two.js 的代码根本不会被用到。type=module 自动延迟、不必</tspan><tspan x="408" dy="18">defer；file:// 直开的页面加载不了 ES 模块，需要本地服务器。</tspan></text>
+</svg>

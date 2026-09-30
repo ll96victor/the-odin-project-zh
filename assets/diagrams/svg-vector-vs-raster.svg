@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="280" viewBox="0 0 740 280" role="img" aria-labelledby="t-svg-vector-vs-raster d-svg-vector-vs-raster">
+  <title id="t-svg-vector-vs-raster">矢量 vs 位图：公式定义，还是像素网格</title>
+  <desc id="d-svg-vector-vs-raster">对比图。左列标题「矢量图形（SVG）」：图像由数学公式定义，形状与线条、没有像素网格；任意缩放，质量与文件体积都不变；源码是 XML，人类可读、可贴进 HTML 成为 DOM 元素；适合图标、图表、大型简单图像、图案背景。右列标题「位图（JPEG / PNG）」：图像由像素网格定义，细节受限于网格大小；放大要给新像素决定长相（没有简单解法），网格越大文件越大；二进制格式，文本编辑器打开是乱码；适合照片、细腻纹理。底部注释：怎么选——要照片级真实或细腻纹理就位图；要任意缩放、程序化修改（CSS/JS 改属性）就 SVG。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#276148"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#68706a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #2f3430; }
+    .h { font-size: 15px; font-weight: 700; }
+    .hb { font-size: 13.5px; font-weight: 700; fill: #276148; }
+    .b { font-size: 13.5px; }
+    .s { font-size: 12.5px; fill: #68706a; }
+    .box { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .accentbox { fill: #e8eee9; stroke: #a9bcb0; stroke-width: 1.5; }
+    .head { fill: #e8eee9; stroke: #276148; stroke-width: 1.5; }
+    .chip { fill: #fbfbfa; stroke: #c9cec8; stroke-width: 1.25; }
+    .note { fill: #f4f5f2; stroke: #c9cec8; stroke-width: 1.5; }
+    .edge { stroke: #276148; stroke-width: 2; fill: none; }
+    .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
+    .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
+    .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
+  </style>
+
+  <rect class="box" x="22" y="22" width="335" height="188" rx="8"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <rect class="head" x="22" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="22" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M22,62 L357,62"/>
+  <text class="hb" x="190" y="47" text-anchor="middle"><tspan x="190">矢量图形（SVG）</tspan></text>
+  <circle cx="42" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="86" text-anchor="start"><tspan x="52">图像由数学公式定义：形状与线条，没有像素网格</tspan></text>
+  <circle cx="42" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="116" text-anchor="start"><tspan x="52">任意缩放，质量与文件体积都不变</tspan></text>
+  <circle cx="42" cy="142" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="146" text-anchor="start"><tspan x="52">源码是 XML：人类可读、可贴进 HTML 成为</tspan><tspan x="52" dy="18">DOM 元素</tspan></text>
+  <circle cx="42" cy="190" r="2.5" fill="#276148"/>
+  <text class="b" x="52" y="194" text-anchor="start"><tspan x="52">适合：图标、图表、大型简单图像、图案背景</tspan></text>
+  <rect class="box" x="383" y="22" width="335" height="188" rx="8"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <rect class="head" x="383" y="22" width="335" height="40" rx="8"/>
+  <rect class="head" x="383" y="48" width="335" height="14" rx="0"/>
+  <path class="divider" d="M383,62 L718,62"/>
+  <text class="hb" x="551" y="47" text-anchor="middle"><tspan x="551">位图（JPEG / PNG）</tspan></text>
+  <circle cx="403" cy="82" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="86" text-anchor="start"><tspan x="413">图像由像素网格定义：细节受限于网格大小</tspan></text>
+  <circle cx="403" cy="112" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="116" text-anchor="start"><tspan x="413">放大要给新像素决定长相（无简单解法），网格越大</tspan><tspan x="413" dy="18">文件越大</tspan></text>
+  <circle cx="403" cy="160" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="164" text-anchor="start"><tspan x="413">二进制格式：文本编辑器打开是乱码</tspan></text>
+  <circle cx="403" cy="190" r="2.5" fill="#276148"/>
+  <text class="b" x="413" y="194" text-anchor="start"><tspan x="413">适合：照片、细腻纹理（grunge 等）</tspan></text>
+  <rect class="note" x="22" y="224" width="696" height="34" rx="6"/>
+  <text class="s" x="370" y="246" text-anchor="middle"><tspan x="370">怎么选：要照片级真实或细腻纹理就位图；要任意缩放、程序化修改（CSS/JS 改属性）就 SVG。</tspan></text>
+</svg>

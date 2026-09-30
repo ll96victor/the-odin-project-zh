@@ -131,4 +131,31 @@ for (const pageName of ['home', 'lesson']) {
   }
 }
 
+/* ===================== 6b. 两页脚本清单同步钉（B+ 轮阶段 2，v4.11.37） =====================
+ * 背景：index.html 与 lesson.html 曾长期加载完全相同的 33 个脚本（6.80 MB）；运行时探针
+ * 实证 diagrams.js 与 lesson-task-links.js 为课页专用（首页全交互路径零读取）后，首页
+ * 不再加载它们。本组断言把「两页清单 + dom-stub 挂载清单」三方钉在一起：
+ *   · lesson.html 必须仍加载课页专用脚本（课页功能的事实源）；
+ *   · index.html 不得引用它们（否则瘦身回退）；
+ *   · index 清单 == lesson 清单 − HOME_EXCLUDED（顺序一致）——新增脚本时要么两页都加、
+ *     要么登记进 dom-stub 的 HOME_EXCLUDED_SCRIPTS 并证明首页不需要，否则这里红；
+ *   · dom-stub SCRIPTS == lesson.html 清单（顺序一致）——防「测试挂载比真实页面宽松」假绿。 */
+{
+  const { SCRIPTS, HOME_EXCLUDED_SCRIPTS } = require('./dom-stub.cjs');
+  const srcListOf = file => [...read(file).matchAll(/<script src="([^"]+)" defer><\/script>/g)].map(m => m[1]);
+  const idx = srcListOf('index.html');
+  const les = srcListOf('lesson.html');
+  for (const s of HOME_EXCLUDED_SCRIPTS) {
+    assert.ok(les.includes(s), check(`6b：lesson.html 必须加载课页专用脚本 ${s}`));
+    assert.ok(!idx.includes(s), check(`6b：index.html 不得引用课页专用脚本 ${s}（首页运行时探针实证零读取，B+ 轮阶段 2 瘦身）`));
+  }
+  const expectedIdx = les.filter(s => !HOME_EXCLUDED_SCRIPTS.has(s));
+  assert.deepEqual(idx, expectedIdx,
+    check('6b：index.html 清单必须 == lesson.html 清单 − HOME_EXCLUDED_SCRIPTS（顺序一致；新增脚本须两页同步或登记排除）'));
+  assert.deepEqual(SCRIPTS.map(s => s.name), les,
+    check('6b：dom-stub SCRIPTS 必须与 lesson.html 清单逐项同序一致（测试挂载不得比真实页面宽松或滞后）'));
+  assert.deepEqual([...HOME_EXCLUDED_SCRIPTS].sort(), les.filter(s => !idx.includes(s)).sort(),
+    check('6b：HOME_EXCLUDED_SCRIPTS 必须恰为两页清单差集（防排除清单与实际漂移）'));
+}
+
 console.log(`version-identity.test.cjs：全部 ${checks} 项断言通过 ✔`);

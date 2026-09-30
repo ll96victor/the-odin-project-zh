@@ -16,11 +16,22 @@ const root = path.resolve(__dirname, '..');
 const FIRST_LESSON = 'how-this-course-will-work';
 const SCRIPTS = [
   'version.js',
-  'lessons.js', 'external-resources.js', 'lesson-task-links.js', 'diagrams.js', 'avatars.js', 'icons.js',
+  'lessons.js', 'courses/intermediate-html-and-css.js', 'courses/javascript.js', 'courses/advanced-html-and-css.js', 'courses/react.js', 'courses/databases.js', 'courses/nodejs.js', 'courses/getting-hired.js', 'lesson-sources.js',
+  'external-resources.js', 'lesson-task-links.js', 'diagrams.js', 'avatars.js', 'icons.js',
   'catalog.js', 'companions.js', 'companion-registry.js', 'companion-view.js', 'companion-wardrobe.js', 'themes.js', 'bosses.js', 'curriculum.js', 'map.js', 'economy.js',
   'collections.js', 'daily.js', 'stats.js', 'challenges.js', 'tiers.js',
   'history.js', 'progress.js', 'app.js'
+  /* v4.11.20 后批次 1（路径课试点）：courses/ 与 lesson-sources.js 的加载位置与
+   * index.html / lesson.html 一致——lessons.js 之后、app.js 之前。新增 course 文件时
+   * 这里要同步登记（serve_test.py 的脚本清单同理，见其 200 检查清单）。 */
 ].map(name => ({ name, src: fs.readFileSync(path.join(root, name), 'utf8') }));
+
+/* B+ 轮阶段 2（v4.11.37）：课页专用脚本——index.html 已不再加载 diagrams.js 与
+ * lesson-task-links.js（首页运行时探针实证零读取；app.js 唯一消费点在课页渲染链路）。
+ * dom-stub 与真实页面同步：非 lesson 页挂载跳过这两个脚本，防止「测试比真实页面
+ * 宽松」的假绿——若未来首页代码开始读它们，home 挂载会像真实首页一样拿到 undefined。
+ * 两页清单与本清单的同步钉子住 version-identity.test.cjs 第 6 节。 */
+const HOME_EXCLUDED_SCRIPTS = new Set(['lesson-task-links.js', 'diagrams.js']);
 
 
 /* ===================== 最小 DOM stub ===================== */
@@ -333,10 +344,16 @@ function makeStorage(overrides = {}) {
 const STORAGE_KEY = 'the-odin-project-zh.progress.v1';
 const LEGACY_STORAGE_KEY = 'odin-foundations-zh.progress.v1';
 
-/* 载入一个完整“页面”：index.html 的骨架 + 全部脚本按 defer 顺序执行 */
+/* 载入一个完整“页面”：页面骨架 + 脚本按 defer 顺序执行。
+ * B+ 轮阶段 2 起按页型加载：page === 'lesson' 走 lesson.html 全清单；
+ * 其余（home / 默认）走 index.html 清单——跳过 HOME_EXCLUDED_SCRIPTS 里的课页专用脚本。 */
 function newPage(options = {}) {
   const page = makeDom(options);
-  for (const script of SCRIPTS) vm.runInNewContext(script.src, page.sandbox, { filename: script.name });
+  const isLesson = options.page === 'lesson';
+  for (const script of SCRIPTS) {
+    if (!isLesson && HOME_EXCLUDED_SCRIPTS.has(script.name)) continue;
+    vm.runInNewContext(script.src, page.sandbox, { filename: script.name });
+  }
   page.progress = page.sandbox.window.ODIN_PROGRESS;
   return page;
 }
@@ -377,7 +394,7 @@ function dom_consoleHas(page, text) {
 }
 
 module.exports = {
-  FIRST_LESSON, SCRIPTS, STORAGE_KEY, LEGACY_STORAGE_KEY,
+  FIRST_LESSON, SCRIPTS, HOME_EXCLUDED_SCRIPTS, STORAGE_KEY, LEGACY_STORAGE_KEY,
   makeDom, querySelect, collectByClass, dispatch, makeStorage,
   newPage, archiveJson, lessonEntryJson, dom_consoleHas
 };
