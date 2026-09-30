@@ -49,7 +49,19 @@ export function loadManifest(rootDir = ROOT) {
 export const PALETTE = {
   fill: '#f4f5f2',        /* 普通节点底 */
   edge: '#c9cec8',        /* 普通描边 / 生命线 */
-  line: '#8b918b',        /* 次级连线（关系辐条等） */
+  line: '#878c87',        /* 次级连线（关系辐条等）。v4.11.40 由 #8b918b 压暗一阶：
+                             原值对 PALETTE.fill 只有 2.943，低于 WCAG 1.4.11 非文本 3:1。
+                             新值三口径实测同时达标——① 审计原口径 vs PALETTE.fill 3.130；
+                             ② 浅色真实渲染（spoke 跨 SVG 透明区，实际底色是
+                             .diagram-img 的 var(--color-paper)）22 套最差 3.029（pixel）；
+                             ③ 深色真实渲染（8 套深色主题经 style.css 的
+                             invert(1)+hue-rotate(180deg)+saturate(.92) 反相，且该规则下
+                             background:transparent、页面深色底透出）最差 3.426（terminal）。
+                             取值刻意「刚好过线」不追裕量，保住 109 张生成图的观感。
+                             防回归钉在 tests/a11y.test.cjs §8（三口径现算，改回旧值必红）。 */
+  /* 设计取舍（v4.11.40 用户拍板「只调次级连线」）：edge(#c9cec8, 1.460) 与
+   * accentEdge(#a9bcb0, 1.698) 刻意保留不调深——连线是背景语义层，文字节点与
+   * alt 文本（>20 字）才承载完整语义；调深会明显改变 109 张概念图的视觉风格。 */
   ink: '#2f3430',         /* 正文 */
   muted: '#68706a',       /* 次要文字 */
   accent: '#276148',      /* 唯一强调色（同既有手绘图） */

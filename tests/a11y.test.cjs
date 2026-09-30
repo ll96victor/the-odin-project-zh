@@ -14,7 +14,8 @@
  *   6. ::placeholder 显式配色规则在位（数值达标由 themes-contrast 第 9 节现算管）；
  *   7. dom-stub 实渲染遍历：标题层级不跳级 / img 全有 alt 属性（空 alt = 装饰合法）/
  *      aria-hidden 不包交互元素 / 按钮全有可访问名。
- * 对比度数值（焦点环 ≥3、占位色 ≥4.5、正文六组）住 themes-contrast.test.cjs；
+ * 对比度数值（焦点环 ≥3、占位色 ≥4.5、正文六组，以及 v4.11.40 起的概念图次级连线
+ * PALETTE.line 三口径 ≥3）住 themes-contrast.test.cjs（概念图那条在其第 10 节）；
  * 运行时焦点行为（打开聚焦、Esc 实关、焦点实归还）住真实浏览器验收——dom-stub
  * 的 dialog 只有 showModal 没有 close 事件，行为面不在这里假装覆盖。
  *

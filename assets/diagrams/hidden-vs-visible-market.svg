@@ -23,7 +23,7 @@
     .edge { stroke: #276148; stroke-width: 2; fill: none; }
     .dash { stroke: #68706a; stroke-width: 2; fill: none; stroke-dasharray: 5 5; }
     .life { stroke: #c9cec8; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
-    .spoke { stroke: #8b918b; stroke-width: 1.5; fill: none; }
+    .spoke { stroke: #878c87; stroke-width: 1.5; fill: none; }
     .divider { stroke: #c9cec8; stroke-width: 1.5; fill: none; }
     .outline { fill: none; stroke: #c9cec8; stroke-width: 1.5; }
   </style>

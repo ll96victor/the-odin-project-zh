@@ -531,4 +531,155 @@ for (const m of css.matchAll(/html\[data-theme="([a-z-]+)"\]\s*{[^}]*color-schem
     check(`9.3 反向钉：Chrome UA 默认占位灰 #757575 对 night 输入底仅 ${uaGray.toFixed(2)}:1 < 4.5——删掉 ::placeholder 规则回落默认色即不达标（2026-09-29 真实浏览器实测 3.68 同族）`));
 }
 
-console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退、v4.11.9 wash 底文本 ink/wash 全 ${THEMES.themes.length} 套达标 + muted/accent 在 wash 上确实不达标的反向钉子、v4.11.13 mask 结构钉 + token 派生色全 ${THEMES.themes.length} 套 × 三背景面 ≥ 2.2 + 深墨/旧绿固定色必红的反向钉子、B+ 轮阶段 3 焦点环 accent 对 paper/wash 全 ${THEMES.themes.length} 套 ≥3 + 占位色 color-mix 现算全 ${THEMES.themes.length} 套 ≥4.5 + UA 默认灰必不达标的反向钉子）。`);
+/* ============ 10. v4.11.40（B1）：概念图次级连线 PALETTE.line 非文本对比度（三口径现算） ============
+ * 为什么需要它：B+ 轮阶段 3 审计量出概念图三条描边都低于 WCAG 1.4.11 非文本 3:1
+ * （edge 1.46 / line 2.94 / accentEdge 1.70），当轮按「设计取舍」登记待拍板；
+ * v4.11.40 用户拍板**只调次级连线 line**（#8b918b → #878c87）。本节把达标事实钉死。
+ *
+ * 三个口径都要算，因为「底色」在三种渲染情形下不是同一个东西：
+ *   A 审计原口径 —— line 对生成器的 PALETTE.fill。阶段 3 报告的 2.94 就是这个口径
+ *     （复现值 2.943），保留它是为了与历史报告可比。
+ *   B 浅色真实渲染 —— 生成的 SVG **没有自带背景 rect**、.concept-diagram 也没有底色，
+ *     spoke 连线跨的是透明区，实际衬底是 .diagram-img 的 var(--color-paper)。这才是
+ *     浅色主题下用户真看到的对比度，而且它**比 A 严**：旧值 #8b918b 在 A 下是 2.943、
+ *     在 B 下 22 套里最差只有 2.848（pixel），只看 A 会把「真实渲染仍不达标」漏过去。
+ *   C 深色真实渲染 —— 8 套深色主题靠 style.css 的 filter 反相适配，且该规则下
+ *     background:transparent、页面深色底透出，所以要算「反相后的 line 对深色 paper」。
+ *     滤镜矩阵按 CSS Filter Effects 规范现算，参数**从 style.css 实解析**——改滤镜
+ *     会让本节跟着重算，不会拿旧参数假算。
+ *     ⚠️ 口径 C 是**规范矩阵模型**，不是浏览器像素读数。2026-09-30 用真实 Chrome 的
+ *     Canvas 2D `ctx.filter` 让浏览器自己的滤镜实现产出像素对账：模型 #717671(113,118,113)
+ *     vs 浏览器 #707570(112,117,112)，三通道各差 1/255（Skia 管线的量化差；同一探针对
+ *     旧值 #8b918b 两边完全一致，无滤镜对照 #878c87→#878c87 证明探针链路无色彩管理偏移）。
+ *     该偏差让模型比浏览器**乐观约 0.05**（模型 3.434 / 浏览器 3.385）。所以口径 C 不要
+ *     贴着 3.0 调——保留 ≥0.1 余量才吃得住这个偏差；当前实测余量 0.385，安全。
+ *     口径 A / B 是纯 hex 对 hex 的 WCAG 公式计算、无滤镜参与，两侧输入都由真实浏览器
+ *     getComputedStyle 实证过（浅色 `.diagram-img` 背景 = tokens.css 的 --color-paper
+ *     逐套相符、深色 filter 串与 background:transparent 逐套相符），不存在模型偏差。
+ *
+ * 设计取舍登记（用户拍板「只调次级连线」）：edge(#c9cec8，对 fill 1.460) 与
+ * accentEdge(#a9bcb0，对 accentFill 1.698) **刻意保留不调深**——连线是背景语义层，
+ * 文字节点与 alt 文本（>20 字，a11y.test.cjs §7 钉住）才承载完整语义；调深会明显
+ * 改变 109 张生成概念图的视觉风格。下面 10.E 两条是「取舍登记钉」：日后有人调了这两个
+ * 值这里会红，逼一次有意识的决定，而不是让取舍悄悄失效。
+ *
+ * 生成物一致性不在本节重复：diagrams.test.cjs 已钉「入库 SVG = 生成器产出」逐字节，
+ * 改了 PALETTE 不重跑生成器那边就红。 */
+{
+  /* --- 从生成器源码解析 PALETTE（ESM，不能 require；与 diagrams.test 同一手法） --- */
+  const genSrc = fs.readFileSync(path.join(root, 'tools/build-diagrams.mjs'), 'utf8');
+  const palBlock = /export const PALETTE = \{([\s\S]*?)\n\};/.exec(genSrc);
+  assert.ok(palBlock, check('10 build-diagrams.mjs 有 export const PALETTE 块（本节从源解析，不硬编码色值）'));
+  const PAL = {};
+  for (const m of palBlock[1].matchAll(/(\w+):\s*'(#[0-9a-fA-F]{6})'/g)) PAL[m[1]] = m[2];
+  for (const k of ['fill', 'edge', 'line', 'accentFill', 'accentEdge']) {
+    assert.ok(PAL[k], check(`10 PALETTE.${k} 可从生成器源码解析（实际 ${PAL[k]}）`));
+  }
+
+  /* --- 两个口径的前提要从 CSS 实证，不能默认 --- */
+  const styleCss = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  assert.ok(/\.diagram-img\s*\{[^}]*background:\s*var\(--color-paper\)/.test(styleCss),
+    check('10 口径 B 前提：.diagram-img 的底色是 var(--color-paper)（spoke 跨 SVG 透明区，衬底即此）'));
+  assert.ok(/filter:\s*invert\(1\)[^}]*background:\s*transparent;/.test(styleCss),
+    check('10 口径 C 前提：深色概念图规则 background:transparent（页面深色底透出，反相只作用于 SVG 内容）'));
+
+  /* --- 反相 filter 实解析 + 规范矩阵现算 --- */
+  const fr = /filter:\s*((?:invert|hue-rotate|saturate)\([^)]*\)(?:\s+(?:invert|hue-rotate|saturate)\([^)]*\))*)\s*;/.exec(styleCss);
+  assert.ok(fr, check('10 style.css 的概念图反相 filter 可解析（本节按实解析的参数现算）'));
+  const filterStr = fr[1];
+  assert.equal(filterStr.replace(/\s+/g, ' '), 'invert(1) hue-rotate(180deg) saturate(.92)',
+    check(`10 反相 filter 与 v4.11.5 基线逐字一致（实解析：${filterStr}）——改滤镜参数须同步复核本节三口径与 109 张图的深色观感`));
+  const mat = (m, v) => m.map(row => row[0] * v[0] + row[1] * v[1] + row[2] * v[2]);
+  function applyFilter(hexStr) {
+    let rgb = hexToRgb(hexStr);
+    for (const fn of filterStr.match(/[a-z-]+\([^)]*\)/g) || []) {
+      const name = fn.slice(0, fn.indexOf('('));
+      const arg = fn.slice(fn.indexOf('(') + 1, -1).trim();
+      if (name === 'invert') {
+        const a = parseFloat(arg);
+        rgb = rgb.map(v => v * (1 - a) + (255 - v) * a);
+      } else if (name === 'hue-rotate') {
+        const ang = (parseFloat(arg) * Math.PI) / 180;
+        const cos = Math.cos(ang), sin = Math.sin(ang);
+        rgb = mat([
+          [0.213 + cos * 0.787 - sin * 0.213, 0.715 - cos * 0.715 - sin * 0.715, 0.072 - cos * 0.072 + sin * 0.928],
+          [0.213 - cos * 0.213 + sin * 0.143, 0.715 + cos * 0.285 + sin * 0.140, 0.072 - cos * 0.072 - sin * 0.283],
+          [0.213 - cos * 0.213 - sin * 0.787, 0.715 - cos * 0.715 + sin * 0.715, 0.072 + cos * 0.928 + sin * 0.072]
+        ], rgb);
+      } else if (name === 'saturate') {
+        const s = parseFloat(arg);
+        rgb = mat([
+          [0.213 + 0.787 * s, 0.715 - 0.715 * s, 0.072 - 0.072 * s],
+          [0.213 - 0.213 * s, 0.715 + 0.285 * s, 0.072 - 0.072 * s],
+          [0.213 - 0.213 * s, 0.715 - 0.715 * s, 0.072 + 0.928 * s]
+        ], rgb);
+      } else {
+        assert.fail(`10 未预期的滤镜函数 ${name}——本节只实现了 invert / hue-rotate / saturate，新增函数须同步补实现，不得静默跳过`);
+      }
+      rgb = rgb.map(v => Math.min(255, Math.max(0, v)));   /* 每步钳位到合法域，与浏览器一致 */
+    }
+    return '#' + rgb.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+  }
+
+  const varsOf10 = id => (cssThemes[id] ? cssThemes[id].vars : rootVars);
+  const lightIds = THEMES.themes.filter(t => t.dark !== true).map(t => t.id);
+  const darkIds10 = THEMES.themes.filter(t => t.dark === true).map(t => t.id);
+  assert.equal(lightIds.length + darkIds10.length, THEMES.themes.length,
+    check(`10 浅色 ${lightIds.length} 套 + 深色 ${darkIds10.length} 套 = 清单总数（分档无遗漏）`));
+
+  /* --- 口径 A：审计原口径 --- */
+  const rA = contrast(PAL.line, PAL.fill);
+  assert.ok(rA >= 3,
+    check(`10.A 口径 A（审计原口径）：PALETTE.line ${PAL.line} 对 PALETTE.fill ${PAL.fill} = ${rA.toFixed(3)}:1 ≥ 3（WCAG 1.4.11 非文本；v4.11.38 审计值 2.94）`));
+
+  /* --- 口径 B：浅色真实渲染，全浅色主题逐套 --- */
+  let worstB = { r: Infinity, id: '' };
+  for (const id of lightIds) {
+    const paper = varsOf10(id)['--color-paper'];
+    const r = contrast(PAL.line, paper);
+    assert.ok(r >= 3, check(`10.B 口径 B（浅色真实渲染）：line ${PAL.line} 对 ${id} 的 --color-paper ${paper} = ${r.toFixed(3)}:1 ≥ 3`));
+    if (r < worstB.r) worstB = { r, id };
+  }
+
+  /* --- 口径 C：深色真实渲染（反相后），全深色主题逐套 --- */
+  const invLine = applyFilter(PAL.line);
+  const invRgb = hexToRgb(invLine);
+  assert.ok(invRgb.every(v => v >= 0 && v <= 255),
+    check(`10.C 反相结果 ${invLine} 三分量落在 0–255 合法域（常识区间自检——防解析形态出错算出荒谬值，§16.5 经验）`));
+  const invL = luminance(invLine);
+  assert.ok(invL > 0.05 && invL < 0.6,
+    check(`10.C 反相后 line ${invLine} 相对亮度 ${invL.toFixed(3)} 落在中灰区间（0.05–0.6）——超出即滤镜解析或矩阵实现有误，数值不得采信`));
+  let worstC = { r: Infinity, id: '' };
+  for (const id of darkIds10) {
+    const paper = varsOf10(id)['--color-paper'];
+    const r = contrast(invLine, paper);
+    assert.ok(r >= 3, check(`10.C 口径 C（深色真实渲染）：反相后 line ${invLine} 对 ${id} 的 --color-paper ${paper} = ${r.toFixed(3)}:1 ≥ 3`));
+    if (r < worstC.r) worstC = { r, id };
+  }
+
+  /* --- 10.D 反向钉：旧值必红（含「只看口径 A 会漏」的实证） --- */
+  const OLD_LINE = '#8b918b';
+  assert.ok(PAL.line.toLowerCase() !== OLD_LINE,
+    check(`10.D 反向钉：PALETTE.line 当前值 ${PAL.line} 不是 v4.11.39 旧值 ${OLD_LINE}`));
+  const oldA = contrast(OLD_LINE, PAL.fill);
+  assert.ok(oldA < 3, check(`10.D 反向钉：旧值 ${OLD_LINE} 对 PALETTE.fill 仅 ${oldA.toFixed(3)}:1 < 3——改回旧值本节必红`));
+  let oldWorstB = { r: Infinity, id: '' };
+  for (const id of lightIds) {
+    const r = contrast(OLD_LINE, varsOf10(id)['--color-paper']);
+    if (r < oldWorstB.r) oldWorstB = { r, id };
+  }
+  assert.ok(oldWorstB.r < 3,
+    check(`10.D 反向钉：旧值在口径 B 下全 ${lightIds.length} 套最差 ${oldWorstB.r.toFixed(3)}:1（${oldWorstB.id}）< 3——比口径 A 的 ${oldA.toFixed(3)} 更差，实证「只看审计原口径会漏掉真实渲染面」`));
+
+  /* --- 10.E 取舍登记钉：edge / accentEdge 刻意保留 <3（用户拍板只调次级连线） --- */
+  const rEdge = contrast(PAL.edge, PAL.fill);
+  assert.ok(rEdge < 3,
+    check(`10.E 取舍登记钉：edge ${PAL.edge} 对 fill = ${rEdge.toFixed(3)}:1 < 3 是**已拍板的设计取舍**（连线为背景语义层，完整语义由文字节点与 >20 字 alt 承载，调深会明显改变 109 张图的视觉风格）；若你有意调深 edge，须同步改本断言与 build-diagrams.mjs 的取舍注释`));
+  const rAccEdge = contrast(PAL.accentEdge, PAL.accentFill);
+  assert.ok(rAccEdge < 3,
+    check(`10.E 取舍登记钉：accentEdge ${PAL.accentEdge} 对 accentFill = ${rAccEdge.toFixed(3)}:1 < 3 同上（用户拍板：只调次级连线 line）`));
+
+  console.log(`  10 概念图次级连线 PALETTE.line ${PAL.line}：口径 A(vs fill) ${rA.toFixed(3)} / 口径 B(浅色 ${lightIds.length} 套最差 ${worstB.r.toFixed(3)}，${worstB.id}) / 口径 C(深色反相 ${invLine}，${darkIds10.length} 套最差 ${worstC.r.toFixed(3)}，${worstC.id})——三口径全 ≥3:1`);
+}
+
+console.log(`通过：v4.4 主题系统 ${checks} 项断言（${THEMES.themes.length} 套主题 × 7 组对比度程序化检查、清单/CSS 一一对应、swatch 不骗人、color-scheme 与 dark 标签一致、既有解锁口径不回退、v4.11.5 深色清单与概念图反相适配一一对应 + 打印还原、v4.11.7 预览条状态文字配色规则在位且未回退、v4.11.9 wash 底文本 ink/wash 全 ${THEMES.themes.length} 套达标 + muted/accent 在 wash 上确实不达标的反向钉子、v4.11.13 mask 结构钉 + token 派生色全 ${THEMES.themes.length} 套 × 三背景面 ≥ 2.2 + 深墨/旧绿固定色必红的反向钉子、B+ 轮阶段 3 焦点环 accent 对 paper/wash 全 ${THEMES.themes.length} 套 ≥3 + 占位色 color-mix 现算全 ${THEMES.themes.length} 套 ≥4.5 + UA 默认灰必不达标的反向钉子、v4.11.40 概念图次级连线 PALETTE.line 从生成器源码解析后三口径现算（审计原口径 vs PALETTE.fill / 浅色真实渲染 vs 全浅色套 --color-paper / 深色真实渲染 vs 反相后对全深色套 --color-paper，滤镜参数从 style.css 实解析）全 ≥3 + 旧值 #8b918b 必红的反向钉 + edge/accentEdge 设计取舍登记钉）。`);
