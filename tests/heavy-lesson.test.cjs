@@ -85,6 +85,18 @@ const PROGRESS = loadProgress('progress.js');
  * 对应的对照断言没有对照对象，按跳过处理（见文件头存在性判断）。 */
 const oldProgressRel = 'history/progress_20260919-v4.11.3-heavy-lessons.js';
 const hasOldProgress = fs.existsSync(path.join(root, oldProgressRel));
+/* 🔴 防「静默降级」钉（v4.11.40 阶段 5 history 分级清理轮加）：
+ * 本文件用 existsSync 决定跑不跑 C3 的两组对照断言——公开仓内没有 history/，
+ * 跳过是预期；但**私人仓内该备份缺失不是预期**：那意味着 history/ 清理把测试的
+ * 对照基准删掉了，C3-对照 与 C3-新旧解算对照 两组断言会静默变成跳过，覆盖被削弱
+ * 却不会有任何红（本文件照旧退出码 0）。这正是「静默失效的断言」形态。
+ * 私人仓判据 = 根目录有 AGENTS.md（公开仓白名单不含它，导出内 .md 仅
+ * README / SOURCES / CONTRIBUTING 三份）。
+ * 若确要删除该备份，必须同时删掉 C3 那两组对照断言，不允许留着断言抽掉基准。
+ * 误删后的恢复：git checkout <删除前的提交> -- odin-foundations-zh/history/progress_20260919-v4.11.3-heavy-lessons.js */
+const isPrivateRepo = fs.existsSync(path.join(root, 'AGENTS.md'));
+assert.ok(!isPrivateRepo || hasOldProgress,
+  `私人仓内必须存在 C3 对照基准 ${oldProgressRel}——缺失会让 C3-对照 / C3-新旧解算对照两组断言静默跳过（history/ 分级清理不得删它）`);
 const OLD_PROGRESS = hasOldProgress ? loadProgress(oldProgressRel) : null;
 const lessons = guide.lessons;
 

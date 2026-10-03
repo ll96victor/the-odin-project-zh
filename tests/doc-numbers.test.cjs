@@ -580,8 +580,6 @@ exempt('D5e|AGENTS.md|A类#|224',
   '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
 exempt('D14e|AGENTS.md|覆盖#个知识课|70',
   '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；AGENTS.md:11 语境「- 代码版本：**v4.11.34**（2026-09-28，**本地领先线上、尚未发布**——线上为已发布的 v4.1」）');
-exempt('D3c|NEXT-PHASE.md|#课中文正文|153',
-  '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:7 语境「- 官方 Foundations 全课程数：**46 课**；本站 Foundations 已覆盖全部 **46 课**」）');
 exempt('D3|NEXT-PHASE.md|前缀、其余#课|13',
   '历史叙述（批次 7 阶段 1 条目的当时真值，批次 7 阶段 2 轮转历史登记；NEXT-PHASE.md:88 语境「- **超长轮批次 7 阶段 2 已完成（2026-09-28，v4.11.34」）');
 /* ---- 超长续轮批次 7 阶段 2（2026-09-29，v4.11.34，World 7 nodejs 两章 17 课）：批次 7 阶段 1 旧值转历史豁免 ---- */
@@ -997,6 +995,30 @@ const P_WORD_LONG = '门' + '长课';
 runRule('D13b', '长课门数（门长课句式）',
   () => new RegExp('(?<![\\d–—-])(\\d+)\\s*\\*{0,2}\\s*' + P_WORD_LONG, 'g'),
   [T_LONG], 1);
+
+/* ===================== D15 · specs 当前态防回归（2026-10-03 最终收尾） =====================
+ * doc-numbers 已覆盖大量数字句式，但本轮暴露的四条陈旧描述有三条不会被既有正则稳定命中：
+ * 用户目标只写 Foundations、世界地图写“只开前三个 World / 其余 5 个未开放”、命令面板
+ * 停在 30 课 / 44 条。它们都位于 specs.md 当前规格区，不是历史快照，且再次扩课时容易复发。
+ * 本规则只在完整私人仓执行；公开导出不含 specs.md，沿用 D11 的显式跳过语义。 */
+if (DOCS.includes('specs.md')) {
+  const specText = readDoc('specs.md');
+  assert.ok(specText.includes('Full Stack JavaScript 全路线'),
+    check('D15: specs.md 用户目标/课程范围必须明确覆盖 Full Stack JavaScript 全路线'));
+  assert.ok(specText.includes(`当前 **${T_AVAIL} 课已全部开放**`),
+    check(`D15: specs.md 课程范围必须写明当前 ${T_AVAIL} 课已全部开放`));
+  assert.ok(!/已有开放课的 World 卡（Foundations\s*\/\s*World 2\s*\/\s*World 3）/.test(specText),
+    check('D15: specs.md 不得回退为只有 Foundations / World 2 / World 3 开放的旧世界地图口径'));
+  assert.ok(!/其余\s*5\s*个明确「尚未开放中文内容」/.test(specText),
+    check('D15: specs.md 不得保留“其余 5 个 World 未开放”的旧口径'));
+  assert.ok(!/14\s*动作\s*\+\s*30\s*课全量\s*44\s*条/.test(specText),
+    check('D15: specs.md 命令面板不得保留 30 课 / 44 条旧口径'));
+  assert.ok(specText.includes(`14 个固定动作 + ${T_AVAIL} 课 = **${T_AVAIL + 14} 条**`),
+    check(`D15: specs.md 命令面板必须与当前课程数同源（14 + ${T_AVAIL} = ${T_AVAIL + 14}）`));
+  console.log(`  D15 specs 当前态：全路线 ${T_AVAIL} 课 / 8 World 全开 / 命令面板 ${T_AVAIL + 14} 条`);
+} else {
+  console.log('  D15 specs 当前态：specs.md 不在扫描范围（导出模式，显式跳过）');
+}
 
 /* ===================== 死豁免自检 ===================== */
 if (FULL_MODE) {
