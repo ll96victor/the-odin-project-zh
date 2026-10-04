@@ -427,10 +427,13 @@ for (const lesson of guide.lessons) {
   const usage = textOf(querySelect(home.dom.body, '.site-usage'));
   assert.ok(usage.includes('可以在本站学完并自查'), 'D5/D0: 首页 FAQ「本站怎么用」与自足口径一致');
   assert.ok(!usage.includes('正式完成动作仍在 TOP 原课进行'), 'D5/D0: 首页 FAQ 旧口径已移除');
-  /* 路径课试点批次 3：边界从「路径课程请回官方」收窄为「未开放的课回官方」——
-   * World 2 起已有逐批开放的中文正文（首批 3 课），不能再说整段路径课程都回官方。 */
-  assert.ok(usage.includes('未开放的课程请回官方原课学习'), 'D5: 覆盖边界声明保留（事实边界；路径课试点批次 3 起 World 2 已有首批 3 课中文正文，边界收窄为未开放的课）');
-  assert.ok(usage.includes('项目提交、Discord 社区与其后课程在 TOP 官方进行'), 'D5/D6: 项目提交与社区仍明确在官方（事实边界，非过度承诺）');
+  /* v4.11.42：全站开放完毕——路径课试点批次 3 时代的「首批 3 课已上线 / 未开放的课程
+   * 请回官方原课学习」阶段性进度文案已成陈旧声明，正向钉反转：旧口径不得回流，覆盖
+   * FAQ 必须是全站口径（源码里的数字由 stale-claims R2 看守，这里钉读者可见文案）。 */
+  assert.ok(!usage.includes('首批 3 课'), 'D5: FAQ 不得保留「首批 3 课」式阶段性进度文案（全站开放完毕后已陈旧）');
+  assert.ok(!usage.includes('未开放的课程请回官方原课学习'), 'D5: FAQ 不得保留「未开放的课程请回官方」旧边界（当前已无未开放课程）');
+  assert.ok(usage.includes('本站已开放全部 197 课的中文正文'), 'D5: 覆盖 FAQ 为全站口径——全部 197 课中文正文（数字与汇总层现算一致）');
+  assert.ok(usage.includes('项目提交与 Discord 社区在 TOP 官方进行'), 'D5/D6: 项目提交与社区仍明确在官方（事实边界，非过度承诺；v4.11.42 删去已失实的「与其后课程」）');
   assert.ok(usage.includes('不提供成品答案'), 'D5: FAQ 明确 Project 课不提供成品答案（红线第 4 条的首页口径）');
 }
 
@@ -560,4 +563,60 @@ for (const lesson of guide.lessons) {
   assert.equal(querySelect(officialOf(badPage), '#official-assignment-body').hidden, false, 'E4: 非法值按展开处理');
 }
 
-console.log(`通过：课页读者向断言（超长轮批次 7 阶段 3 口径）——A1 资源区零审计信息（有资源的课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（全 ${LESSON_IDS.length} 课）、B 概念图全站归位（${totalFigures} 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（${LESSON_IDS.length} 课 / Assignment ${mappedAssignmentItems} 条 ${mappedAssignmentUrls} 链接，地址零悬空；自查题映射已整体下线且反向钉住；recipes 与课 26、课 30、课 32、课 33、课 38、课 40、课 43、课 45、课 46 及 Grid 批的 introduction-to-grid / advanced-grid-properties / admin-dashboard、javascript 课程批的 how-this-course-will-work / organizing-code-with-objects、阶段 3 的 javascript-recursion / javascript-linked-lists / javascript-knights-travails 及阶段 4 的 javascript-using-git-in-the-real-world / node-path-javascript-battleship / node-path-javascript-conclusion、批次 5 的 accessible-colors / advanced-html-and-css-homepage 及批次 6 的 react 版 how-this-course-will-work / react-components / class-based-components / react 版 conclusion 及批次 7 阶段 2 的 basic-info-site / mini-message-board / forms / inventory-application 及批次 7 阶段 3 的 members-only / wheres-waldo / messaging-app 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且不再声称有官方自查题在本页、D2 官方任务开头按数据逐字钉住且节内零直接子链接（v4.11.19 起零资料课三分支）、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导按资源分支不堆砌（有资源课固定 5 处 / 零资源课按分支现算））、E 折叠与跳转（折叠头 button[aria-expanded] 恰 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记（零资料课跳转与锚点整块不渲染）、折叠偏好随档案生效且非法值按展开）。`);
+/* ===== F：课 06 长段拆分结构与并列网址示例（v4.11.42 读者向文案审计轮） =====
+ * 用户实测反馈的两个长段：六步流程挤在同一个 <p>、五个 Web 概念粘连成一段，
+ * 读者无法按步骤/按术语扫描。数据层已把每一步、每个定义拆成独立 p 数组项
+ * （渲染层 part.p 每项一个 <p>）。本组钉住三件事：
+ *   F1 六步各自独立成段、顺序不回退、不再粘回同一段；
+ *   F2 五个概念各自独立成段（网页/网站/Web 服务器/浏览器/搜索引擎）；
+ *   F3 地址栏示例并列 Google 与 Bing 两个官方地址，并保留「具体可用性取决于
+ *      网络环境」的中性表达（不把任一搜索引擎写成所有地区保证可用）。 */
+{
+  const page = mountLesson('how-does-the-web-work');
+  const explain = collectByClass(mainOf(page), 'section-explain')[0];
+  const children = [...(explain.childNodes || [])];
+  /* 截取「某个 h3 之后到下一个 h3 之前」的 <p> 文本序列（概念图 figure 也住在
+   * 本节内，按 tagName 过滤后不影响取 P；章标题文本与 lessons.js 逐字一致） */
+  const paragraphsOf = title => {
+    const start = children.findIndex(n => n.tagName === 'H3' && textOf(n) === title);
+    assert.ok(start >= 0, `F: 章节「${title}」存在`);
+    const out = [];
+    for (let i = start + 1; i < children.length && children[i].tagName !== 'H3'; i++) {
+      if (children[i].tagName === 'P') out.push(textOf(children[i]));
+    }
+    return out;
+  };
+
+  const STEP_LABELS = ['第一步', '第二步', '第三步', '第四步', '第五步', '第六步'];
+  const steps = paragraphsOf('在地址栏输入网址后，大致发生了什么');
+  const stepIdx = STEP_LABELS.map(label => {
+    const hits = steps.map((t, i) => (t.startsWith(label) ? i : -1)).filter(i => i >= 0);
+    assert.equal(hits.length, 1, `F1: 「${label}」独立成段且恰出现一次`);
+    return hits[0];
+  });
+  assert.deepEqual(stepIdx, [...stepIdx].sort((a, b) => a - b), 'F1: 六步按第一至第六顺序排列');
+  assert.ok(!steps.some(t => (t.match(/第[一二三四五六]步/g) || []).length > 1),
+    'F1: 任何一段都不得同时含两个「第 N 步」（六步不再粘回同一段）');
+  const stepOne = steps[stepIdx[0]];
+  assert.ok(stepOne.includes('https://www.google.com') && stepOne.includes('https://www.bing.com'),
+    'F3: 第一步示例并列 Google 与 Bing 官方地址');
+  assert.ok(stepOne.includes('网络环境'),
+    'F3: 保留「具体可用性取决于网络环境」中性表达（不承诺任一引擎处处可达）');
+  assert.ok(stepOne.includes('域名（domain name）'), 'F3: 域名教学事实未因示例改写而丢失');
+
+  const CONCEPT_PREFIXES = [
+    '网页（web page）：', '网站（website）：', 'Web 服务器（web server）：',
+    '浏览器（web browser）：', '搜索引擎（search engine）：'
+  ];
+  const concepts = paragraphsOf('五个最容易混淆的概念');
+  CONCEPT_PREFIXES.forEach(prefix => {
+    assert.equal(concepts.filter(t => t.startsWith(prefix)).length, 1,
+      `F2: 「${prefix}」独立成段且恰出现一次`);
+  });
+  assert.ok(!concepts.some(t => CONCEPT_PREFIXES.filter(p => t.includes(p)).length > 1),
+    'F2: 任何一段都不得同时含两个概念定义（五个术语不再粘连）');
+  assert.ok(concepts.some(t => t.includes('官方专门指定了一篇 MDN 文章')),
+    'F2: 概念章引导句保留');
+}
+
+console.log(`通过：课页读者向断言（超长轮批次 7 阶段 3 口径）——A1 资源区零审计信息（有资源的课无计数句 / 核验日期句 / 块级受限提示；课01 精译卡仍 2 张与数据一致）、A2 前言零方法论字样（全 ${LESSON_IDS.length} 课）、B 概念图全站归位（${totalFigures} 张逐课渲染数 = 清单数、全部住在 section-explain 对应章之后、git-areas 仍归 git-basics 且 introduction-to-git 只有自己的对比图、Project 课 recipes 零配图）、C 映射完整性（${LESSON_IDS.length} 课 / Assignment ${mappedAssignmentItems} 条 ${mappedAssignmentUrls} 链接，地址零悬空；自查题映射已整体下线且反向钉住；recipes 与课 26、课 30、课 32、课 33、课 38、课 40、课 43、课 45、课 46 及 Grid 批的 introduction-to-grid / advanced-grid-properties / admin-dashboard、javascript 课程批的 how-this-course-will-work / organizing-code-with-objects、阶段 3 的 javascript-recursion / javascript-linked-lists / javascript-knights-travails 及阶段 4 的 javascript-using-git-in-the-real-world / node-path-javascript-battleship / node-path-javascript-conclusion、批次 5 的 accessible-colors / advanced-html-and-css-homepage 及批次 6 的 react 版 how-this-course-will-work / react-components / class-based-components / react 版 conclusion 及批次 7 阶段 2 的 basic-info-site / mini-message-board / forms / inventory-application 及批次 7 阶段 3 的 members-only / wheres-waldo / messaging-app 显式空映射）+ 渲染一致 + 本地动作条目负向钉住 + 条目文本零改动（OL 穿透折叠容器取到，含负向验证：包裹后直接子取法拿不到、穿透仍拿到、篡改文本必红）、D 修订版立场（D1 第 1 节引导在位且不再声称有官方自查题在本页、D2 官方任务开头按数据逐字钉住且节内零直接子链接（v4.11.19 起零资料课三分支）、D4 末节已移除、D5 「以原课为准」保留且来源核对行零出现、D6 禁语零出现、D7 引导按资源分支不堆砌（有资源课固定 5 处 / 零资源课按分支现算））、E 折叠与跳转（折叠头 button[aria-expanded] 恰 1 个且挂在 h3 内、零新增 details、资源区未被折叠包裹、跳转入口在 Assignment 标题内指向 #lesson-resources 且无外链标记（零资料课跳转与锚点整块不渲染）、折叠偏好随档案生效且非法值按展开）、F 课 06 六步与五概念逐项分段结构 + Google/Bing 并列示例与网络环境中性表达（v4.11.42 读者向文案审计轮）。`);

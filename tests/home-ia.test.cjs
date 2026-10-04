@@ -36,8 +36,8 @@ function openSheetOf(page) {
 /* 批次 0（2026-09-26）起：某个 World 已有多少课开放——按数据现算，口径与 app.js 的
  * courseOpenCountOf 一致（Foundations 走 catalog 口径 = 全站开放数 − 其他 World 的开放数；
  * 路径 World 按 curriculum section 成员归属计数）。
- * World 卡的「前 N 课已有中文学习内容」与预览条的「已开放 N / M」都用它，
- * 之后每批开放路径课都不必再迁移这些文案里的数字。 */
+ * World 卡的「前 N 课已有中文学习内容」与预览条的「中文内容已开放 N / M」（v4.11.42
+ * 起显式前缀）都用它，之后每批开放路径课都不必再迁移这些文案里的数字。 */
 function courseOpenCountOf(page, order) {
   const cur = page.sandbox.window.ODIN_CURRICULUM;
   const guide = page.sandbox.window.ODIN_GUIDE;
@@ -80,7 +80,7 @@ function previewExpectations(page) {
     states: PREVIEW_ORDERS.map(order => {
       const course = cur.courses.find(c => c.order === order);
       const n = courseOpenCountOf(page, order);
-      return n ? `已开放 ${n} / ${course.totalLessons}` : '尚未开放';
+      return n ? `中文内容已开放 ${n} / ${course.totalLessons}` : '尚未开放';
     }),
     isOpen: PREVIEW_ORDERS.map(order => courseOpenCountOf(page, order) > 0)
   };
@@ -622,16 +622,19 @@ function previewExpectations(page) {
   /* 批次 0（2026-09-26）：预览条状态从硬编码「尚未开放」改为按数据现算（与 World 卡片
    * 共用 app.js 的 courseOpenCountOf），本钉子同步改为**数据现算**（previewExpectations）
    * ——后续每批开放路径课不必再迁移这四格文案；形制另用正则钉死（未开放格必须写
-   * 「尚未开放」、已开放格必须是「已开放 N / M」），文案形制被改坏仍然红，保护力度不减。
-   * 口径区分：Foundations 格说的是**用户进度**（已完成 N / M），路径 World 格说的是
-   * **本站已有多少可学内容**（已开放 N / M），与 World 卡片「前 N 课已有中文学习内容」
-   * 同一事实源。 */
+   * 「尚未开放」、已开放格必须是「中文内容已开放 N / M」），文案形制被改坏仍然红，
+   * 保护力度不减。v4.11.42 语义前缀钉：Foundations 格说的是**用户完成度**（已完成
+   * N / M），路径 World 格说的是**本站中文内容开放度**（中文内容已开放 N / M，与
+   * World 卡片「前 N 课已有中文学习内容」同一事实源）——两种分母必须一眼可区分，
+   * 前缀被抹掉或互换都会红（CONTENT-STYLE-GUIDE.md 第 10 节）。 */
   const preview = previewExpectations(page);
   const states = items.map(i => querySelect(i, '.world-preview-state').textContent);
-  assert.deepEqual(states, ['0 / 46'].concat(preview.states),
-    check('F/B3：四格状态文案 = Foundations 真实进度 + 三个路径 World 按数据现算的开放数（空档案下 Foundations 为 0 / 46）'));
-  assert.ok(states.slice(1).every(s => /^尚未开放$|^已开放 \d+ \/ \d+$/.test(s)),
-    check('F/B3：路径 World 格状态形制钉死——「尚未开放」或「已开放 N / M」，不接受其他写法'));
+  assert.deepEqual(states, ['已完成 0 / 46'].concat(preview.states),
+    check('F/B3：四格状态文案 = Foundations「已完成 N / M」（空档案下为 0 / 46）+ 三个路径 World「中文内容已开放 N / M」按数据现算'));
+  assert.ok(states.slice(1).every(s => /^尚未开放$|^中文内容已开放 \d+ \/ \d+$/.test(s)),
+    check('F/B3：路径 World 格状态形制钉死——「尚未开放」或「中文内容已开放 N / M」，不接受其他写法'));
+  assert.ok(/^已完成 \d+ \/ \d+$/.test(states[0]),
+    check('F/B3：Foundations 格状态形制钉死——「已完成 N / M」用户完成度语义（不得与路径 World 格的开放度前缀混写）'));
   assert.deepEqual(items.map(i => i.classList.contains('is-open')), [true].concat(preview.isOpen),
     check('F/B3：is-open 标记按「该 World 是否已有开放课」现算（不再只有 Foundations 一格）'));
 
@@ -1168,10 +1171,10 @@ function previewExpectations(page) {
    * 按数据现算后，「未变」的含义是「与课程数据一致」，不是「与某批的硬编码字面量一致」。 */
   const bandPreview = previewExpectations(page);
   const bandStates = previewItems.map(i => querySelect(i, '.world-preview-state').textContent);
-  assert.deepEqual(bandStates, ['0 / 46'].concat(bandPreview.states),
-    check('信息带：预览条四项状态文案 = Foundations 进度 + 路径 World 按数据现算（形制同 F/B3 组）'));
-  assert.ok(bandStates.slice(1).every(s => /^尚未开放$|^已开放 \d+ \/ \d+$/.test(s)),
-    check('信息带：预览条路径 World 格状态形制钉死（「尚未开放」或「已开放 N / M」）'));
+  assert.deepEqual(bandStates, ['已完成 0 / 46'].concat(bandPreview.states),
+    check('信息带：预览条四项状态文案 = Foundations「已完成 N / M」+ 路径 World「中文内容已开放 N / M」按数据现算（形制同 F/B3 组）'));
+  assert.ok(bandStates.slice(1).every(s => /^尚未开放$|^中文内容已开放 \d+ \/ \d+$/.test(s)),
+    check('信息带：预览条路径 World 格状态形制钉死（「尚未开放」或「中文内容已开放 N / M」）'));
   assert.deepEqual(previewItems.map(i => i.classList.contains('is-open')), [true].concat(bandPreview.isOpen),
     check('信息带：预览条开放标记按该 World 是否已有开放课现算'));
   assert.deepEqual(previewItems.map(i => i.dataset.worldTone),

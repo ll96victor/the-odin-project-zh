@@ -6757,7 +6757,10 @@
     const total = catalogTotal();
     const stages = [{
       name: 'Foundations',
-      state: total ? `${summary.completedCount} / ${total}` : `已完成 ${summary.completedCount}`,
+      /* v4.11.42：状态前缀显式写「已完成」——这一格是**用户完成度**，与路径 World 格
+       * 的「中文内容已开放」（本站开放度）是两种分母，前缀不写出来读者无法一眼区分
+       * （文案规则住 CONTENT-STYLE-GUIDE.md 第 10 节，形制钉子住 home-ia.test）。 */
+      state: total ? `已完成 ${summary.completedCount} / ${total}` : `已完成 ${summary.completedCount}`,
       open: true,
       tone: 'foundations'
     }];
@@ -6767,16 +6770,16 @@
       const course = courseAt(stage.order);
       if (!course) return;
       /* 批次 0（2026-09-26）：状态与 is-open 改为按数据现算，与 World 卡片走同一个
-       * courseOpenCountOf 口径。「已开放 N / M」的形制对齐 Foundations 格的
-       * 「已完成 N / M」，但语义刻意不同且可区分：Foundations 格说的是**你的进度**，
-       * 路径 World 格说的是**本站已有多少可学内容**（与 World 卡片「前 N 课已有
-       * 中文学习内容」同一事实）。totalLessons 拿不到时只报已开放数，不编造总数
-       * （与 catalogBodyChildren / Foundations 格同口径）。 */
+       * courseOpenCountOf 口径。v4.11.42：两类分母的语义写进状态前缀——Foundations 格
+       * 「已完成 N / M」说的是**你的进度**，路径 World 格「中文内容已开放 N / M」说的是
+       * **本站已有多少可学内容**（与 World 卡片「前 N 课已有中文学习内容」同一事实）；
+       * 此前两格同为裸「N / M」形制，初学者无法一眼区分两种分母。totalLessons 拿不到
+       * 时只报已开放数，不编造总数（与 catalogBodyChildren / Foundations 格同口径）。 */
       const openCount = courseOpenCountOf(course, summary);
       stages.push({
         name: stage.name,
         state: openCount
-          ? (course.totalLessons ? `已开放 ${openCount} / ${course.totalLessons}` : `已开放 ${openCount} 课`)
+          ? (course.totalLessons ? `中文内容已开放 ${openCount} / ${course.totalLessons}` : `中文内容已开放 ${openCount} 课`)
           : '尚未开放',
         open: openCount > 0,
         tone: stage.tone
@@ -6858,11 +6861,15 @@
     usage.append(node('summary', '关于本站'));
     const usageBody = node('div', undefined, 'site-usage-body');
     const faqItems = [
-      ['本站怎么用？', 'Foundations 全部 46 课有完整中文学习内容：讲解、示例、本站自测，以及官方 Assignment 的中文化版本——可以在本站学完并自查。Project 课的代码要你自己写：本站提供要求中文版、拆解与验收清单，不提供成品答案；项目提交、Discord 社区与其后课程在 TOP 官方进行，每课页面都提供官方直达入口。'],
-      /* 路径课试点批次 3：边界声明从「路径课程请回官方原课」改为「未开放的课回官方」
-       * ——World 2 起已有逐批开放的中文正文。句式刻意避开「开放…N 课」（stale-claims
-       * R2 的全站开放计数口径），46 是 Foundations 范围声明不是全站开放数。 */
-      ['中文内容覆盖到哪里？', 'Foundations 的全部 46 课已有完整中文学习内容（八个分组、46 课全部开放——含 Choose Your Path Forward）；路径课程自 World 2「中级 HTML 与 CSS」起逐批提供中文正文，首批 3 课已上线（入口在「学习地图」的 World 列表）；本站同时展示 8 个 World、197 课的完整路线结构，未开放的课程请回官方原课学习。'],
+      /* v4.11.42 去重：覆盖范围（哪些课有中文内容）只住第 2 项，本项只答使用方法与
+       * 边界——此前两项都写「Foundations 全部 46 课有完整中文学习内容」，同一事实说了
+       * 两遍（CONTENT-STYLE-GUIDE.md 第 2、10 节）。「与其后课程在 TOP 官方进行」随
+       * 全站开放完毕一并删除（路径课已在本站，不再属于「回官方」范围）。 */
+      ['本站怎么用？', '每一课都有中文讲解、示例与本站自测，以及官方 Assignment 的中文化版本——可以在本站学完并自查。Project 课的代码要你自己写：本站提供要求中文版、拆解与验收清单，不提供成品答案；项目提交与 Discord 社区在 TOP 官方进行，每课页面都提供官方直达入口。'],
+      /* v4.11.42：全站开放完毕后，旧文案的「首批 3 课已上线」「未开放的课程请回官方
+       * 原课学习」已成陈旧声明，改为全站覆盖口径。「本站已开放全部 197 课」句式刻意
+       * 命中 stale-claims R2 全站开放计数——将来扩课时这里漏改会直接红。 */
+      ['中文内容覆盖到哪里？', '本站已开放全部 197 课的中文正文，覆盖官方 Full Stack JavaScript 路线的 8 个 World，从 Foundations 直到求职课都可以直接在本站学。课程入口在「学习地图」的 World 列表。'],
       ['哪些内容需要联网？', '中文课程与学习记录可在本地使用；TOP 原课、视频及外部资料需要联网。官方课程如有更新，以 TOP 为准。'],
       /* v4.11.2 A2：外部资料核验方法论从课页资源区移到这里。方法论（状态码、
        * 重定向、内容级语言核验、oEmbed）是审计信息，读者主动打开「关于本站」时
