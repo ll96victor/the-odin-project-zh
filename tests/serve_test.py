@@ -302,7 +302,7 @@ def behaviour_checks():
             check('首页内容与磁盘上的 index.html 逐字节一致', body == index_bytes,
                   f'取回 {len(body)} 字节，磁盘 {len(index_bytes)} 字节')
 
-            for path in ['/lesson.html', '/lessons.js', '/progress.js', '/app.js',
+            for path in ['/lesson.html', '/lessons.js', '/progress.js', '/cloud-sync.js', '/app.js',
                          '/external-resources.js', '/lesson-task-links.js', '/style.css',
                          '/tokens.css', '/version.js',
                          '/courses/intermediate-html-and-css.js', '/courses/javascript.js',

@@ -40,6 +40,10 @@
   /* v4.5（交接 A2）：版本身份单一事实源（version.js）。footer 版本行与
    * 「关于本站」区块只从这里读，不允许在任何别处硬编码版本字符串。 */
   const versionInfo = window.ODIN_VERSION || null;
+  /* v4.11.44（云同步轮）：站内云同步纯逻辑（cloud-sync.js，缺失只降级该区块）。
+   * 站点侧零网络请求：这里只做 UI 与事件，网络请求与凭据都在用户自愿安装的
+   * 伴随脚本里；通道是 window.postMessage（标准 API）。 */
+  const cloudSync = window.ODIN_CLOUD_SYNC || null;
   const REQUIREMENT_LABEL = { required: '必做', optional: '可选', reference: '参考' };
   const FILE_MODE_NOTE = '当前为直接文件模式。课程可以正常阅读，但学习进度无法保证可靠保存。需要记录进度时，请使用 start.bat 打开。';
   let activeLessonId = null;
@@ -2509,8 +2513,448 @@
     });
     copyRow.append(copyButton);
     block.append(copyRow);
-    block.append(node('p', '本站是纯本地静态页面：无账号、无后端、无云同步。学习数据与「当前页面地址」绑定——如果这个地址和你平时用的不一致（端口不同、或 localhost 与 127.0.0.1 混用），你打开的可能是另一个服务实例，两边数据互不相通。', 'muted'));
+    block.append(node('p', '本站是纯本地静态页面：没有账号体系、也没有后端服务器。学习数据默认只存在这台设备的浏览器里；可选的「云同步（坚果云）」把档案存在你自己配置的坚果云账号里，同样不经过本站。学习数据与「当前页面地址」绑定——如果这个地址和你平时用的不一致（端口不同、或 localhost 与 127.0.0.1 混用），你打开的可能是另一个服务实例，两边数据互不相通。', 'muted'));
     return block;
+  }
+
+  /* ---------- v4.11.44：云同步（坚果云 WebDAV）；v4.11.45 FIX-1 补实时复查 ----------
+   * 站点侧这里**只做 UI 与事件**：真正的网络请求发生在用户自愿安装的伴随脚本
+   * （userscripts/odin-cloud-sync.user.js）里，两边通道是 window.postMessage；
+   * 账号与应用密码只经这条通道交给脚本、写进脚本自己的存储，本站一概不保存、
+   * 不落盘（凭据不进本站存储，测试源码扫描钉住）。
+   * 判定逻辑（信封 / 节流 / 时间戳对比 / 状态机 / 手动备份决策）都在 cloud-sync.js，这里不重算。
+   * **覆盖安全的两道闸**（v4.11.45）：站点侧「点备份时实时刷新云端 → 决策」（UI 决策，
+   * 负责弹不弹二次确认）+ 脚本侧「PUT 前现场 PROPFIND 比较」（最终拦截，负责实际不覆盖）。
+   * 站点缓存永远不是放行依据。 */
+  const CLOUD_MANUAL_LABEL = '云同步（坚果云）';
+  let cloudClientRef = null;
+  let cloudStatus = null;          /* 脚本回传的状态快照（内存缓存，不持久化） */
+  let cloudNotice = '';            /* 区块内提示（保存配置 / 备份 / 恢复的结果） */
+  let cloudBusy = false;
+  let cloudProbed = false;         /* 本次会话是否已问过脚本（防面板重建时重复探测） */
+  let cloudPendingRestore = null;  /* 两段确认：待恢复的档案原文（点确认前只放内存） */
+  let cloudPendingBackup = null;   /* 两段确认：待覆盖云端的备份请求（v4.11.45，点确认前只放内存） */
+  let cloudAutoInFlight = false;   /* 进行中保护：一次离开只放行一条「检查 + PUT」链路（v4.11.45） */
+
+  function cloudApi() {
+    if (!cloudClientRef && cloudSync) cloudClientRef = cloudSync.createClient();
+    return cloudClientRef;
+  }
+  /* 页面消息通道是否可用（真浏览器恒为真；测试桩里没有 postMessage 时走降级） */
+  function cloudTransportReady() {
+    try { return typeof window.postMessage === 'function'; } catch (error) { return false; }
+  }
+  function cloudState() {
+    if (!cloudSync) return 'no-module';
+    if (!cloudTransportReady()) return 'no-bridge';
+    return cloudSync.bridgeStateOf(cloudStatus, cloudBusy);
+  }
+  /* 问脚本要一次状态（只发页面消息、不发网络请求；checkCloud 时才顺带读云端时间戳） */
+  function cloudRefresh(options) {
+    if (!cloudSync) return Promise.resolve(null);
+    if (!cloudTransportReady()) { cloudStatus = { installed: false, unavailable: true }; reflectCloud(); return Promise.resolve(cloudStatus); }
+    const client = cloudApi();
+    if (!client) return Promise.resolve(null);
+    cloudBusy = !(options && options.quiet);
+    return client.status({ checkCloud: Boolean(options && options.checkCloud) }).then(reply => {
+      cloudBusy = false;
+      if (reply && reply.ok) cloudStatus = reply;
+      else cloudStatus = { installed: false, timeout: Boolean(reply && reply.timeout), error: (reply && reply.error) || '未知原因' };
+      reflectCloud();
+      return cloudStatus;
+    }, error => {
+      cloudBusy = false;
+      cloudStatus = { installed: false, error: (error && error.message) || '未知原因' };
+      reflectCloud();
+      return cloudStatus;
+    });
+  }
+  function reflectCloud() {
+    if (isPanelOpen()) refreshProfilePanel();
+  }
+  function cloudRun(label, promise, describe) {
+    cloudBusy = true;
+    reflectCloud();
+    return promise.then(reply => {
+      cloudBusy = false;
+      cloudNotice = describe(reply);
+      cloudRefresh({ quiet: true });
+      return reply;
+    }, error => {
+      cloudBusy = false;
+      cloudNotice = `${label}失败：${(error && error.message) || '未知原因'}`;
+      reflectCloud();
+      return { ok: false, error: cloudNotice };
+    });
+  }
+
+  function cloudField(labelText, input) {
+    const wrap = node('label', undefined, 'cloud-sync-field');
+    wrap.append(node('span', labelText));
+    wrap.append(input);
+    return wrap;
+  }
+  function cloudInput(type, name, autocomplete) {
+    const input = node('input', undefined, 'cloud-sync-input');
+    input.type = type;
+    input.name = name;
+    if (autocomplete) input.autocomplete = autocomplete;
+    return input;
+  }
+
+  function buildCloudSyncBlock() {
+    const block = node('div', undefined, 'cloud-sync-block');
+    block.append(node('h4', CLOUD_MANUAL_LABEL));
+    if (!cloudSync) {
+      block.append(node('p', '云同步模块未载入（cloud-sync.js 缺失），本区块暂不可用；导出、导入与本地备份不受影响。', 'notice'));
+      return block;
+    }
+    block.append(node('p', '把学习档案同步到你自己的坚果云账号：本站不保存你的账号、不经手你的数据，网络请求只发生在你自愿安装的伴随脚本里。平时学习离开页面会自动备份一次（档案有变化且距上次超过 30 分钟），换设备时点「从云端恢复」取回。', 'muted'));
+    block.append(node('p', `服务器地址固定为 ${cloudSync.SERVER_URL}，云端文件是「${cloudSync.REMOTE_LABEL}」。只支持坚果云——脚本的网络白名单里也只有这一个域名。`, 'meta'));
+
+    const status = node('p', undefined, 'cloud-sync-status');
+    status.setAttribute('role', 'status');
+    const state = cloudState();
+
+    if (state === 'no-module') return block;
+
+    /* 未检测到脚本：给安装指引（不隐藏配置表单——用户可能刚装好还没刷新） */
+    if (state === 'no-bridge') {
+      const guide = node('div', undefined, 'cloud-sync-guide');
+      guide.append(node('p', '还没检测到伴随脚本。云同步需要你在浏览器里安装本站在油猴（Tampermonkey 等脚本管理器）上的伴随脚本，账号与网络请求都由它承担。', 'muted'));
+      const steps = node('ol', undefined, 'cloud-sync-steps');
+      ['桌面：装 Tampermonkey（或同类脚本管理器）后，打开下面的脚本地址确认安装。',
+        'Android：用 Firefox（或 Kiwi）浏览器 + Tampermonkey，把脚本文件传到手机后打开安装。',
+        'iOS / iPadOS：Safari 上装支持用户脚本的管理器（Tampermonkey iOS 版 / Stay / Userscripts 任选其一），再从脚本地址安装。'
+      ].forEach(text => steps.append(node('li', text)));
+      guide.append(steps);
+      const installLink = link('打开伴随脚本安装地址', `${window.location.origin}/userscripts/odin-cloud-sync.user.js`, 'cloud-sync-install', true);
+      guide.append(installLink);
+      guide.append(node('p', '装好后回到这里点「检测脚本」。iOS 上能不能用坚果云 WebDAV 需要真机试一次，脚本管理器的支持情况各不相同。', 'meta'));
+      block.append(guide);
+    }
+
+    /* 配置表单：账号 + 应用密码（密码永不回显，账号只显掩码） */
+    const form = node('div', undefined, 'cloud-sync-form');
+    const accountInput = cloudInput('email', 'cloudAccount', 'username');
+    accountInput.placeholder = cloudStatus && cloudStatus.accountMask ? cloudStatus.accountMask : '注册邮箱';
+    const passwordInput = cloudInput('password', 'cloudAppPassword', 'current-password');
+    passwordInput.placeholder = cloudStatus && cloudStatus.configured ? '已保存（留空则不修改）' : '第三方应用密码';
+    form.append(cloudField('坚果云账号', accountInput));
+    form.append(cloudField('应用密码', passwordInput));
+    form.append(node('p', '应用密码在坚果云「账户信息 → 安全选项 → 第三方应用管理」里生成：它不是你的登录密码，可以随时单独吊销。密码只保存在这台设备的脚本管理器里，页面与任何服务器都不经手。', 'meta'));
+    block.append(form);
+
+    const configRow = node('div', undefined, 'cloud-sync-actions');
+    const saveConfig = node('button', '保存配置', 'button-secondary');
+    saveConfig.type = 'button';
+    saveConfig.disabled = cloudBusy;
+    saveConfig.addEventListener('click', () => {
+      const account = String(accountInput.value || '').trim();
+      const password = String(passwordInput.value || '');
+      if (!account) { cloudNotice = '请先填坚果云账号（注册邮箱）。'; reflectCloud(); return; }
+      cloudRun('保存配置', cloudApi().configure({ account, password }), reply => {
+        if (!reply || !reply.ok) return `保存失败：${(reply && reply.error) || '未知原因'}`;
+        passwordInput.value = '';
+        return reply.passwordKept ? '配置已保存（密码沿用上次保存的，未改动）。' : '配置已保存。可以点「测试连接」验证，再点「立即备份」。';
+      });
+    });
+    const clearConfig = node('button', '清除配置', 'button-secondary');
+    clearConfig.type = 'button';
+    clearConfig.disabled = cloudBusy;
+    clearConfig.addEventListener('click', () => {
+      if (!window.confirm('清除本机脚本里保存的坚果云账号与应用密码？清除后将停止自动备份，云端已有的档案不受影响。')) return;
+      cloudRun('清除配置', cloudApi().clearConfig(), reply => (reply && reply.ok ? '已清除本机保存的坚果云配置。' : `清除失败：${(reply && reply.error) || '未知原因'}`));
+    });
+    const detect = node('button', '检测脚本', 'button-secondary');
+    detect.type = 'button';
+    detect.disabled = cloudBusy;
+    detect.addEventListener('click', () => { cloudNotice = '正在检测伴随脚本…'; cloudRefresh({ quiet: true }).then(() => { cloudNotice = ''; reflectCloud(); }); });
+    configRow.append(saveConfig, clearConfig, detect);
+    block.append(configRow);
+
+    /* 动作：测试连接 / 立即备份 / 从云端恢复 */
+    const actionRow = node('div', undefined, 'cloud-sync-actions');
+    const testBtn = node('button', '测试连接', 'button-secondary');
+    testBtn.type = 'button';
+    testBtn.disabled = cloudBusy || !cloudStatus || !cloudStatus.configured;
+    testBtn.addEventListener('click', () => {
+      cloudRun('测试连接', cloudApi().testConnection(), reply => (reply && reply.ok ? '连接正常，坚果云可读写。' : `连接失败：${(reply && reply.error) || '未知原因'}`));
+    });
+    const backupBtn = node('button', '立即备份到云端', 'button-secondary');
+    backupBtn.type = 'button';
+    backupBtn.disabled = cloudBusy || Boolean(cloudPendingBackup) || !cloudStatus || !cloudStatus.configured;
+    backupBtn.addEventListener('click', () => {
+      if (!progress.isPersistent()) { cloudNotice = FILE_MODE_NOTE; reflectCloud(); return; }
+      if (cloudBusy) return;
+      /* v4.11.45（FIX-1）：真正上传前**实时**复查云端，不再用打开设置页时的缓存——
+       * 缓存可能已被另一台设备的新档案作废，只信缓存就是「用旧档案覆盖新档案」。
+       * 顺序固定：刷新云端 → 比较 →（云端更新才）页面内二次确认 → PUT；
+       * 读不到云端状态一律停止，不把「读不到」当「不存在」。 */
+      cloudNotice = '正在确认云端最新状态…';
+      cloudBusy = true;
+      reflectCloud();
+      cloudRefresh({ quiet: true, checkCloud: true }).then(() => {
+        cloudBusy = false;
+        const decision = cloudSync.manualBackupDecision(cloudStatus, progress.getLastSavedAt());
+        if (decision.action === 'stop') { cloudNotice = decision.message; reflectCloud(); return; }
+        const raw = progress.exportArchive();
+        const signature = cloudSync.archiveSignature(raw);
+        if (decision.action === 'confirm') {
+          cloudPendingBackup = { raw, signature, cloudSavedAt: cloudStatus.cloudSavedAt || null };
+          cloudNotice = decision.message;
+          reflectCloud();
+          return;
+        }
+        cloudNotice = '';
+        cloudRun('备份', cloudApi().backup(cloudEnvelope(raw), signature, { localSavedAt: progress.getLastSavedAt(), allowOverwrite: false }),
+          reply => cloudBackupDescribe(reply, raw, signature));
+      });
+    });
+    const restoreBtn = node('button', '从云端恢复…', 'button-secondary');
+    restoreBtn.type = 'button';
+    restoreBtn.disabled = cloudBusy || !cloudStatus || !cloudStatus.configured;
+    restoreBtn.addEventListener('click', () => {
+      cloudNotice = '正在读取云端档案…';
+      reflectCloud();
+      cloudApi().restore().then(reply => {
+        if (!reply || !reply.ok) { cloudNotice = `读取云端失败：${(reply && reply.empty) ? '云端还没有备份文件，请先在另一台设备点「立即备份」。' : ((reply && reply.error) || '未知原因')}`; reflectCloud(); return; }
+        const envelope = cloudSync.validateEnvelope(reply.envelope);
+        if (!envelope.ok) { cloudNotice = `云端档案不可用：${envelope.error}`; reflectCloud(); return; }
+        const preview = progress.previewImport(envelope.data);
+        if (!preview.ok) { cloudNotice = `云端档案未通过本站校验，已拒绝恢复（本机数据未动）：${preview.error}`; reflectCloud(); return; }
+        /* 对比要拿**云端**那一份的数字，不能拿本机的充数（本机数字由本机状态现算）。
+         * previewImport 严格校验时已经解析出云端档案，这里就用它现算摘要。 */
+        cloudPendingRestore = {
+          raw: envelope.data,
+          savedAt: reply.savedAt || null,
+          cloudSummary: cloudSummaryOf(preview.state),
+          cloudNickname: cloudNicknameOf(preview.state)
+        };
+        cloudNotice = '云端档案已通过校验，请确认下面的对比结果。';
+        reflectCloud();
+      }, error => { cloudNotice = `读取云端失败：${(error && error.message) || '未知原因'}`; reflectCloud(); });
+    });
+    actionRow.append(testBtn, backupBtn, restoreBtn);
+    block.append(actionRow);
+
+    /* 自动备份开关（独立类名，不进「六个界面开关」清单——它是云同步自己的偏好） */
+    const autoRow = node('label', undefined, 'cloud-sync-toggle');
+    const autoBox = node('input');
+    autoBox.type = 'checkbox';
+    autoBox.checked = !(cloudStatus && cloudStatus.autoBackup === false);
+    autoBox.disabled = cloudBusy || !cloudStatus || !cloudStatus.configured;
+    autoBox.addEventListener('change', () => {
+      cloudRun('设置自动备份', cloudApi().setAutoBackup(autoBox.checked), reply => (reply && reply.ok ? (reply.autoBackup ? '已开启离开页面自动备份。' : '已关闭自动备份；「立即备份」仍可用。') : `设置失败：${(reply && reply.error) || '未知原因'}`));
+    });
+    autoRow.append(autoBox, node('span', '离开页面时自动备份（有变化且距上次备份超过 30 分钟才发）'));
+    block.append(autoRow);
+
+    /* 两段确认：恢复摘要对比 + 确认 / 取消 */
+    if (cloudPendingRestore) {
+      const pending = cloudPendingRestore;
+      const panel = node('div', undefined, 'cloud-sync-confirm');
+      panel.append(node('p', '云端档案 vs 本机档案（确认后会用云端档案覆盖本机学习数据）：', 'cloud-sync-compare-title'));
+      const list = node('dl', undefined, 'cloud-sync-compare');
+      const localSummary = progress.summary();
+      const rows = [
+        ['云端档案时间', pending.savedAt ? cloudSync.formatTimestamp(pending.savedAt) : '未知'],
+        ['本机最近保存', progress.getLastSavedAt() ? cloudSync.formatTimestamp(progress.getLastSavedAt()) : '本次会话尚未写档'],
+        ['等级', cloudCompareText(pending.cloudSummary, localSummary, 'level', value => `Lv.${value}`)],
+        ['XP', cloudCompareText(pending.cloudSummary, localSummary, 'xp')],
+        ['已完成课程', cloudCompareText(pending.cloudSummary, localSummary, 'completedCount', value => `${value} 课`)],
+        ['学习叶片', cloudCompareText(pending.cloudSummary, localSummary, 'coins')],
+        ['成就', cloudCompareText(pending.cloudSummary, localSummary, 'achievementCount')],
+        ['累计学习时长', cloudCompareText(pending.cloudSummary, localSummary, 'totalSeconds', value => progress.formatSeconds(value))],
+        ['昵称', `云端「${pending.cloudNickname || '未设置'}」 / 本机「${cloudNicknameOf(progress.getState()) || '未设置'}」`]
+      ];
+      rows.forEach(pair => { list.append(node('dt', pair[0])); list.append(node('dd', String(pair[1]))); });
+      panel.append(list);
+      const confirmRow = node('div', undefined, 'cloud-sync-actions');
+      const yes = node('button', '确认恢复（覆盖本机档案）', 'button-danger');
+      yes.type = 'button';
+      yes.addEventListener('click', () => {
+        const result = progress.importArchive(pending.raw);
+        cloudPendingRestore = null;
+        if (result && result.ok) {
+          cloudNotice = `已从云端恢复（云端档案时间 ${pending.savedAt ? cloudSync.formatTimestamp(pending.savedAt) : '未知'}）。恢复前已自动留一份本机备份，可在「本地备份」里找回。`;
+          refreshAll();
+        } else {
+          cloudNotice = `恢复失败，本机档案未改变：${(result && result.error) || '未知原因'}`;
+          reflectCloud();
+        }
+      });
+      const no = node('button', '取消', 'button-secondary');
+      no.type = 'button';
+      no.addEventListener('click', () => { cloudPendingRestore = null; cloudNotice = '已取消恢复，本机数据未改动。'; reflectCloud(); });
+      confirmRow.append(yes, no);
+      panel.append(confirmRow);
+      block.append(panel);
+    }
+
+    /* 两段确认（手动备份覆盖云端，v4.11.45 FIX-1）：刻意用**页面内**确认，不用
+     * `window.confirm` —— v4.11.44 实测原生对话框会把真实浏览器的自动化通道整条卡死，
+     * 接受/取消两分支都跑不到证据。页面内确认与恢复路径同一套语法，且可被测试驱动。 */
+    if (cloudPendingBackup) {
+      const pending = cloudPendingBackup;
+      const panel = node('div', undefined, 'cloud-sync-confirm');
+      panel.append(node('p', '云端档案比本机新（另一台设备可能刚备份过）。继续会用本机档案覆盖云端：', 'cloud-sync-compare-title'));
+      const list = node('dl', undefined, 'cloud-sync-compare');
+      [
+        ['云端档案时间', pending.cloudSavedAt ? cloudSync.formatTimestamp(pending.cloudSavedAt) : '未知'],
+        ['本机最近保存', progress.getLastSavedAt() ? cloudSync.formatTimestamp(progress.getLastSavedAt()) : '本次会话尚未写档']
+      ].forEach(pair => { list.append(node('dt', pair[0])); list.append(node('dd', String(pair[1]))); });
+      panel.append(list);
+      const confirmRow = node('div', undefined, 'cloud-sync-actions');
+      const yes = node('button', '确认覆盖云端', 'button-danger');
+      yes.type = 'button';
+      yes.addEventListener('click', () => {
+        const target = cloudPendingBackup;
+        cloudPendingBackup = null;
+        if (!target) { reflectCloud(); return; }
+        cloudRun('备份', cloudApi().backup(cloudEnvelope(target.raw), target.signature, { localSavedAt: progress.getLastSavedAt(), allowOverwrite: true }),
+          reply => cloudBackupDescribe(reply, target.raw, target.signature));
+      });
+      const no = node('button', '取消', 'button-secondary');
+      no.type = 'button';
+      no.addEventListener('click', () => { cloudPendingBackup = null; cloudNotice = '已取消，云端与本机都没有改动。'; reflectCloud(); });
+      confirmRow.append(yes, no);
+      panel.append(confirmRow);
+      block.append(panel);
+    }
+
+    status.textContent = cloudNotice || cloudSync.describeStatus(cloudStatus, cloudBusy);
+    block.append(status);
+    if (state === 'error' && cloudStatus && cloudStatus.lastError) {
+      block.append(node('p', `上次备份失败：${cloudStatus.lastError}`, 'notice'));
+    }
+    block.append(node('p', '恢复永远要你手动点两次确认，页面加载时不会自动覆盖本机数据。每次备份前都会实时查一次云端（不是用打开设置时的旧数据）：云端档案比本机新时，自动备份会跳过并在状态行提醒你，手动备份要你在页面内确认后才会覆盖。查不到云端状态时备份会停下并说明原因，不会在状态未知时覆盖云端。', 'meta'));
+
+    /* 面板重建时：本会话首次进入才去问一次脚本状态（防重建触发重复探测） */
+    if (!cloudProbed) {
+      cloudProbed = true;
+      if (cloudTransportReady()) cloudRefresh({ quiet: true, checkCloud: true });
+    }
+    return block;
+  }
+
+  /* 用站点自己的口径给**任意一份**档案状态算摘要（云端那份也走同一条公式，
+   * 不另造一套数字）；缺能力时返回 null，UI 会如实显示「无法读取」。 */
+  function cloudSummaryOf(parsedState) {
+    try {
+      const guide = window.ODIN_GUIDE;
+      if (!parsedState || !progress || !progress.Logic || !guide || !Array.isArray(guide.lessons)) return null;
+      return progress.Logic.summary(parsedState, guide.lessons, progress.todayKey());
+    } catch (error) { return null; }
+  }
+  function cloudNicknameOf(state) {
+    return state && state.profile && typeof state.profile.nickname === 'string' ? state.profile.nickname : '';
+  }
+  /* 「云端 X / 本机 Y」对比文本；云端无法解析时如实说明，不拿本机数字冒充云端 */
+  function cloudCompareText(cloudSummary, localSummary, field, format) {
+    const render = typeof format === 'function' ? format : value => value;
+    const cloud = cloudSummary && cloudSummary[field] !== undefined ? String(render(cloudSummary[field])) : '无法读取';
+    const local = localSummary && localSummary[field] !== undefined ? String(render(localSummary[field])) : '无法读取';
+    return `云端 ${cloud} / 本机 ${local}`;
+  }
+  function cloudEnvelopeMeta(source) {
+    return {
+      source,
+      app: versionInfo ? versionInfo.app : null,
+      productVersion: versionInfo ? versionInfo.version : null,
+      schemaVersion: progress && progress.Logic ? progress.Logic.SCHEMA_VERSION : null
+    };
+  }
+  function cloudEnvelope(raw) { return cloudSync.buildEnvelope(raw, cloudEnvelopeMeta('site-manual')); }
+  /* 备份结果 → 中文提示（v4.11.45）。两条特殊分支都在这里收口：
+   *   cloudNewer → 脚本在 PUT 前现场发现云端更新（站点复查之后云端又被改过，或站点那次
+   *                复查之后才发生的竞态），此时**没有 PUT**，转成页面内二次确认；
+   *   cloudUnknown → 脚本读不到云端状态，同样没有 PUT，如实说明并停止。 */
+  function cloudBackupDescribe(reply, raw, signature) {
+    if (reply && reply.ok) return `已备份到坚果云（${cloudSync.formatTimestamp(reply.savedAt)}，${reply.bytes || 0} 字符）。`;
+    if (reply && reply.cloudNewer) {
+      cloudPendingBackup = { raw, signature, cloudSavedAt: reply.cloudSavedAt || null };
+      return '云端档案比本机新（另一台设备可能刚备份过），已停止备份。确认后才会覆盖云端。';
+    }
+    if (reply && reply.cloudUnknown) return `备份已停止：${(reply && reply.error) || '无法确认云端状态'}（本机与云端都没有改动）。`;
+    return `备份失败：${(reply && reply.error) || '未知原因'}`;
+  }
+
+  /* 自动备份：离开页面（隐藏 / pagehide）时跑一次判定，条件与节流都在 cloud-sync.js。
+   * 失败不阻塞关页、不重试轰炸；结果落进脚本的状态，下次打开设置在状态行可见。
+   *
+   * v4.11.45（FIX-1）两点纪律：
+   *   ① **进行中保护**：`visibilitychange` 转 hidden 与 `pagehide` 会在同一次离开时先后
+   *      触发，两条链路并发会各发一套「检查 + PUT」。只放行先到的那个。
+   *   ② **真正写入前的云端复查放在脚本侧、紧邻 PUT**（`evaluateCloudGuard`），这里刻意
+   *      不再多跳一次「先问状态再备份」：pagehide 时页面随时可能被销毁，多一跳会让备份
+   *      整个丢失（本函数已是在同一任务里直接发消息的形态）。站点缓存只用于提前跳过，
+   *      不作为放行依据。 */
+  function cloudAutoBackupRun() {
+    if (!cloudSync || !cloudTransportReady() || !progress || !progress.isPersistent()) return;
+    if (!cloudStatus || !cloudStatus.installed || !cloudStatus.configured) return;
+    if (cloudAutoInFlight) return;
+    let raw = null;
+    try { raw = progress.exportArchive(); } catch (error) { return; }
+    const signature = cloudSync.archiveSignature(raw);
+    const localSavedAt = progress.getLastSavedAt();
+    const decision = cloudSync.shouldAutoBackup({
+      configured: cloudStatus.configured,
+      autoBackup: cloudStatus.autoBackup !== false,
+      raw,
+      signature,
+      lastBackedUpSignature: cloudStatus.lastBackedUpSignature,
+      localSavedAt,
+      lastBackedUpSavedAt: cloudStatus.lastBackedUpSavedAt,
+      lastBackupAt: cloudStatus.lastBackupAt,
+      cloudSavedAt: cloudStatus.cloudSavedAt,
+      nowMs: Date.now()
+    });
+    if (!decision.should) {
+      if (decision.reason === 'cloud-newer') {
+        cloudNotice = '云端档案比本机新（另一台设备可能刚备份过），已跳过本次自动备份。要强制覆盖请用「立即备份到云端」。';
+        reflectCloud();
+      }
+      return;
+    }
+    cloudAutoInFlight = true;
+    const envelope = cloudSync.buildEnvelope(raw, cloudEnvelopeMeta('site-auto'));
+    cloudApi().backup(envelope, signature, { localSavedAt, allowOverwrite: false }).then(reply => {
+      cloudAutoInFlight = false;
+      if (reply && reply.ok) cloudNotice = `已自动备份到坚果云（${cloudSync.formatTimestamp(reply.savedAt)}）。`;
+      else if (reply && reply.cloudNewer) cloudNotice = '云端档案比本机新（另一台设备可能刚备份过），已跳过本次自动备份（云端未被覆盖）。要强制覆盖请用「立即备份到云端」。';
+      else if (reply && reply.cloudUnknown) cloudNotice = `自动备份已停止：${(reply && reply.error) || '无法确认云端状态'}（本机与云端都没有改动）。`;
+      else cloudNotice = `自动备份失败：${(reply && reply.error) || '未知原因'}（不影响本机数据；下次打开设置可看到原因）`;
+      cloudRefresh({ quiet: true });
+    }, error => {
+      cloudAutoInFlight = false;
+      cloudNotice = `自动备份失败：${(error && error.message) || '未知原因'}`;
+      cloudStatus = cloudStatus || { installed: true, configured: true, lastBackupResult: 'failed' };
+      cloudStatus.lastBackupResult = 'failed';
+      reflectCloud();
+    });
+  }
+
+  function setupCloudSync() {
+    if (!cloudSync) return;
+    try {
+      if (typeof document.addEventListener === 'function') {
+        document.addEventListener('visibilitychange', () => {
+          try { if (document.visibilityState === 'hidden') cloudAutoBackupRun(); } catch (error) { /* 不阻断页面 */ }
+        });
+      }
+      if (typeof window.addEventListener === 'function') {
+        window.addEventListener('pagehide', () => cloudAutoBackupRun());
+      }
+    } catch (error) { /* 事件挂不上只影响自动备份，不影响手动功能 */ }
+    /* 开场静默探测一次（只发页面消息、不发网络请求）：装没装脚本、配置没配置。
+     * 延迟到空闲，不参与首屏渲染路径。 */
+    if (cloudTransportReady()) {
+      const schedule = (typeof window.requestIdleCallback === 'function')
+        ? cb => window.requestIdleCallback(cb)
+        : cb => window.setTimeout(cb, 1500);
+      schedule(() => { cloudProbed = true; cloudRefresh({ quiet: true }); });
+    }
   }
 
   /* ---------- v4.2：备份与恢复（交接 §16） ---------- */
@@ -2554,11 +2998,13 @@
   function buildArchiveSection() {
     const block = node('section', undefined, 'profile-section');
     block.append(node('h3', '学习档案'));
-    block.append(node('p', '档案是一份 JSON 文件，包含完成状态、有效学习时长、XP、成就，以及昵称、头像与头像框。数据只存在这台设备的这个浏览器里，本站没有账号、没有云同步；换设备或换浏览器时用导出与导入手工搬运。', 'muted'));
+    block.append(node('p', '档案是一份 JSON 文件，包含完成状态、有效学习时长、XP、成就，以及昵称、头像与头像框。数据默认只存在这台设备的这个浏览器里，用导出与导入手工搬运；如果你想让它自动跟着你换设备，可以在下面开启「云同步」——数据存进你自己的坚果云账号，本站不经手。', 'muted'));
     block.append(node('p', '导入会先只做校验不写入：档案不合法时给出中文原因并保持当前档案不变；校验通过后还会再确认一次，明确告知会覆盖本机档案。旧版（schemaVersion 1）档案会自动迁移，XP、时长与完成状态一个都不会丢。', 'meta'));
     buildArchiveControls().forEach(part => block.append(part));
     /* v4.2：本地备份与恢复（§16） */
     block.append(buildBackupBlock());
+    /* v4.11.44：云同步（坚果云）——可选能力，需用户自愿安装伴随脚本并自配账号 */
+    block.append(buildCloudSyncBlock());
     return block;
   }
 
@@ -5528,7 +5974,7 @@
     /* 档案导出导入放在进度 sheet（数据管理一步可达）；备份 / 重置等完整
      * 数据管理仍在个人中心「设置」Tab，两边共用 buildArchiveControls。 */
     children.push(node('h3', '学习档案'));
-    children.push(node('p', '档案是一份 JSON 文件，只存在这台设备上。换设备或换浏览器时用导出与导入手工搬运。备份与恢复在个人中心 → 设置里。', 'muted'));
+    children.push(node('p', '档案是一份 JSON 文件，默认只存在这台设备上。换设备或换浏览器时用导出与导入手工搬运，或在个人中心 → 设置里开启「云同步（坚果云）」。备份与恢复也在那里。', 'muted'));
     buildArchiveControls().forEach(part => children.push(part));
     children.push(node('p', dataLocationText(), 'meta'));
     children.push(node('p', '有效学习时长只在页面可见且你近期有操作时累计：约 2 分钟无操作会自动暂停，回来继续操作就接着计。把页面挂在后台不会累积时长。', 'meta'));
@@ -7406,6 +7852,8 @@
     applyUiSettings();
     /* v4.2：跨标签页同步——课页勾选完成时，已打开的首页 Dashboard 立即更新（§2.2） */
     watchStorage();
+    /* v4.11.44：云同步——注册离开页面时的自动备份钩子 + 开场静默探测伴随脚本 */
+    setupCloudSync();
     progress.onAchievement(unlockedIds => {
       showAchievementNote(unlockedIds);
       /* 新成就可能同时解锁头像框，玩家入口与面板都要跟着刷新 */

@@ -930,6 +930,29 @@ a.map-node:hover, button.map-node:hover { transform: scale(1.12); }
 html.hide-english .english { display: none; }
 html.hide-unavailable .lesson-list li:has(> .lesson-locked) { display: none; }
 
+/* ===================== v4.11.44：云同步（坚果云）设置区块 =====================
+ * 站点侧只有 UI：不新增 token、不引入动画。表单用原生控件 + 既有 token；
+ * 输入框显式改成可收缩宽度（UA 默认 size=20 的输入框在 320px 的窄面板里会撑出横向滚动），
+ * 靠 flex-wrap 在窄屏逐行收窄。wash 底上的文字一律取 --color-ink（全站配色纪律）。 */
+.cloud-sync-block { margin-top: var(--space-lg); }
+.cloud-sync-field { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin: .4rem 0; }
+.cloud-sync-field > span { flex: none; min-width: 5rem; font-size: var(--text-small); color: var(--color-muted); }
+.cloud-sync-input { flex: 1 1 12rem; min-width: 0; max-width: 100%; padding: .35rem .5rem; border: 1px solid var(--color-rule); border-radius: var(--radius-small); background: var(--color-paper); color: var(--color-ink); font: inherit; font-size: var(--text-small); }
+.cloud-sync-actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: var(--space-sm) 0; }
+.cloud-sync-toggle { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin: .4rem 0; font-size: var(--text-small); }
+.cloud-sync-status { margin: var(--space-sm) 0 0; padding: .35rem .7rem; border-left: 3px solid var(--color-accent); background: var(--color-wash); border-radius: var(--radius-small); font-size: var(--text-small); color: var(--color-ink); overflow-wrap: anywhere; }
+.cloud-sync-guide { margin: var(--space-sm) 0; padding: .5rem .75rem; border: 1px solid var(--color-rule); border-radius: var(--radius-small); background: var(--color-wash); }
+.cloud-sync-steps { margin: .3rem 0; padding-left: 1.3rem; font-size: var(--text-small); color: var(--color-ink); }
+.cloud-sync-steps li { margin: .15rem 0; }
+/* 脚本地址是一条没有空格的长 URL：不留折行点会在 320px 下撑出横向滚动 */
+.cloud-sync-install { font-size: var(--text-small); overflow-wrap: anywhere; }
+.cloud-sync-guide p { overflow-wrap: anywhere; }
+.cloud-sync-confirm { margin-top: var(--space-sm); }
+.cloud-sync-compare-title { margin: 0 0 var(--space-xs); font-weight: 700; color: var(--color-ink); }
+.cloud-sync-compare { margin: var(--space-sm) 0; padding: .5rem .75rem; border: 1px solid var(--color-rule); border-radius: var(--radius-small); background: var(--color-wash); font-size: var(--text-small); }
+.cloud-sync-compare dt { margin-top: .25rem; font-weight: 700; color: var(--color-ink); }
+.cloud-sync-compare dd { margin: 0; color: var(--color-ink); overflow-wrap: anywhere; }
+
 /* ===================== v4.3 Batch 7（交接 K）：移动端与 320px 收尾 =====================
  * 只做间距、尺寸与字号的收紧，不改信息结构、不加大动画。
  * 320px 视口下个人资料面板内容宽约 288px：热力图缩小格子后 17 周

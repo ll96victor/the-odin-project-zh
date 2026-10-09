@@ -20,7 +20,7 @@ const SCRIPTS = [
   'external-resources.js', 'lesson-task-links.js', 'diagrams.js', 'avatars.js', 'icons.js',
   'catalog.js', 'companions.js', 'companion-registry.js', 'companion-view.js', 'companion-wardrobe.js', 'themes.js', 'bosses.js', 'curriculum.js', 'map.js', 'economy.js',
   'collections.js', 'daily.js', 'stats.js', 'challenges.js', 'tiers.js',
-  'history.js', 'progress.js', 'app.js'
+  'history.js', 'progress.js', 'cloud-sync.js', 'app.js'
   /* v4.11.20 后批次 1（路径课试点）：courses/ 与 lesson-sources.js 的加载位置与
    * index.html / lesson.html 一致——lessons.js 之后、app.js 之前。新增 course 文件时
    * 这里要同步登记（serve_test.py 的脚本清单同理，见其 200 检查清单）。 */

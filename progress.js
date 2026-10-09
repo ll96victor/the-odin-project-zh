@@ -2119,6 +2119,10 @@
    * 完成、当场看到成就解锁提示，但 save() 因配额满或存储被浏览器策略禁用而失败时，
    * 刷新后一切归零，且界面没有任何解释。现在记录最近一次保存结果，由 UI 显式提示。 */
   let lastSaveFailed = false;
+  /* v4.11.44（云同步轮）：本机最近一次**成功写档**的时间（模块级内存值，不写进档案、
+   * 不升 schema）。用途：云同步判断「本机档案有没有新变化」的兜底信号与设置页展示。
+   * 页面刷新即回到 null——它是「这次会话写过没有」，不是档案的持久字段。 */
+  let lastSavedAtIso = null;
 
   function save() {
     if (!persistent) return false;
@@ -2130,6 +2134,7 @@
     try {
       store.setItem(STORAGE_KEY, JSON.stringify(state));
       lastSaveFailed = false;
+      lastSavedAtIso = nowIso();
       return true;
     } catch (error) {
       lastSaveFailed = true;
@@ -2601,6 +2606,9 @@
     FRAMES: Logic.FRAMES,
     isPersistent: () => persistent,
     storageKey: () => STORAGE_KEY,
+    /* v4.11.44（云同步轮）：本机最近一次成功写档时间（ISO 或 null）——只读，
+     * 供云同步节流判断与设置页展示；不写档案、不升 schema。 */
+    getLastSavedAt: () => lastSavedAtIso,
     /* 发布准备轮（改名迁移）：历史 key 只读暴露，供测试与诊断核对迁移行为 */
     legacyStorageKey: () => LEGACY_STORAGE_KEY,
     /* v4.2：保存失败不再静默，UI 据此向用户显示中文警告（交接 §2） */

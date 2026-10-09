@@ -1,10 +1,10 @@
 /* userscript GM storage 同步验证专项（v4.11 批次 A）。
  *
- * 被测对象：userscripts/odin-gm-sync-check.user.js（开发阶段验证工具，不进公开仓）。
- * **公开仓内为 skip 语义**：被测源文件不在公开仓白名单里（release/PUBLIC-REPO-PLAN.md §3），
- * 因此公开仓内本文件找不到被测对象，会打印一行明确的跳过说明并以退出码 0 结束——
- * 既不让公开仓的测试套件出现一个必崩文件，也不静默冒充「已通过」。
- * 完整断言只在私人开发仓（源文件存在）运行，行为与改造前逐字一致。
+ * 被测对象：userscripts/odin-cloud-sync.user.js（v1.1.0 起为站点官方伴随脚本；v1.0.x 原名 odin-gm-sync-check.user.js）。
+ * 源文件存在性守卫：v4.11.44 起 userscripts/ 已进公开仓白名单，故公开仓内本文件同样找得到
+ * 被测对象、正常跑满断言；守卫仅在源文件缺失（异常场景）时打印一行跳过说明并以退出码 0
+ * 结束，不静默冒充「已通过」。
+ * 行为断言与 v1.0.x 一致（面板通道零改动），仅路径与元数据边界随 v1.1.0 更新。
  * 方法：dom-stub 真实挂载整站（index.html 全部脚本按 defer 顺序）+ 注入 GM_setValue /
  * GM_getValue / unsafeWindow / dispatchEvent 桩，把 userscript 跑进同一个 vm 沙箱，
  * 然后**验证最终数据结果**而不是「函数执行成功」：
@@ -31,13 +31,13 @@ const {
 } = require('./dom-stub.cjs');
 
 const root = path.resolve(__dirname, '..');
-const userscriptPath = path.join(root, 'userscripts', 'odin-gm-sync-check.user.js');
+const userscriptPath = path.join(root, 'userscripts', 'odin-cloud-sync.user.js');
 
-/* 源文件存在性判断（v4.11 公开发布轮新增）：只加这一道门，源文件存在时下面逐字不变。
- * 源文件缺失 = 公开仓场景（该目录不进白名单），按跳过处理：打印原因 + 退出码 0。 */
+/* 源文件存在性守卫：源文件缺失属异常场景（正常仓库与公开仓均包含它），按跳过处理：
+ * 打印原因 + 退出码 0，不冒充通过。 */
 if (!fs.existsSync(userscriptPath)) {
-  console.log('跳过：userscript GM storage 同步验证专项 —— 被测源文件 userscripts/odin-gm-sync-check.user.js 不存在。'
-    + '该脚本是开发阶段验证工具，不进公开仓白名单，故公开仓内本文件无被测对象，0 项断言、退出码 0（未冒充通过）。');
+  console.log('跳过：userscript GM storage 同步验证专项 —— 被测源文件 userscripts/odin-cloud-sync.user.js 不存在。'
+    + '0 项断言、退出码 0（未冒充通过）。');
   process.exit(0);
 }
 const userscriptSrc = fs.readFileSync(userscriptPath, 'utf8');
@@ -58,7 +58,7 @@ function attachUserscript(page) {
    * 这里把它路由进 dom-stub 的 fireWindow，等价于真实浏览器的 window storage 事件。 */
   page.sandbox.dispatchEvent = event => page.fireWindow(event.type, event);
   page.sandbox.module = { exports: {} };
-  vm.runInNewContext(userscriptSrc, page.sandbox, { filename: 'odin-gm-sync-check.user.js' });
+  vm.runInNewContext(userscriptSrc, page.sandbox, { filename: 'odin-cloud-sync.user.js' });
   page.gmStore = gmStore;
   page.api = page.sandbox.module.exports;
   return page;
@@ -77,35 +77,44 @@ const seededArchive = overrides => archiveJson(Object.assign({
   profile: { nickname: '验证水手', avatarId: 'terminal', avatarData: null, equippedFrameId: 'frame-basic' }
 }, overrides));
 
-/* ===================== 0. 元数据与安全边界（源码扫描） ===================== */
+/* ===================== 0. 元数据与安全边界（源码扫描） =====================
+ * v1.1.0 起本脚本含 WebDAV 桥（显式网络能力），边界断言从 v1.0.x 的「零网络请求」
+ * 升级为「单域白名单 + 凭据不进站点」：@connect 恰好一条 dav.jianguoyun.com、
+ * @match 恰好两条、@grant 恰好四项、源码里除 @match / @connect 与该白名单域名外
+ * 零其它 http(s) URL；不得出现 @match 全网通配与远程依赖 @require。 */
 {
-  /* v1.0.1 起 @match 恰好两条：本地开发环回 + 公开仓 GitHub Pages 项目路径。
-   * 清单级断言：不多不少、不含 localhost、不含站点根通配、不含全网通配。 */
+  /* @match 清单级断言：不多不少、不含 localhost、不含站点根通配、不含全网通配。 */
   const matchLines = (userscriptSrc.match(/^\/\/ @match\s+\S+$/gm) || []).map(line => line.replace(/^\/\/ @match\s+/, ''));
   assert.deepEqual(matchLines, ['http://127.0.0.1/*', 'https://ll96victor.github.io/the-odin-project-zh/*'],
     check('@match 清单恰好 = 本地环回任意端口 + 公开仓 Pages 项目路径（/* 覆盖首页与子路径）'));
   assert.ok(!matchLines.includes('https://ll96victor.github.io/*'), check('不匹配 GitHub 站点根（只到项目路径）'));
   assert.ok(!userscriptSrc.includes('*://*/*'), check('源码无 *://*/* 全网匹配'));
   const grants = [...userscriptSrc.matchAll(/^\/\/ @grant\s+(\S+)/gm)].map(m => m[1]).sort();
-  assert.deepEqual(grants, ['GM_getValue', 'GM_setValue', 'unsafeWindow'], check('@grant 恰好三项：GM_setValue / GM_getValue / unsafeWindow（无网络类 grant）'));
-  for (const banned of ['GM_xmlhttpRequest', 'XMLHttpRequest', 'fetch(', '@require', '@connect']) {
-    assert.ok(!userscriptSrc.includes(banned), check(`源码无网络/远程依赖字样：${banned}`));
-  }
-  /* 除 @match 外不得出现任何 http(s) URL（不加载远程资源） */
-  const urlLines = userscriptSrc.split('\n').filter(line => /https?:\/\//.test(line) && !line.includes('@match'));
-  assert.equal(urlLines.length, 0, check('除 @match 外源码零 URL（零远程字体/脚本/接口）'));
+  assert.deepEqual(grants, ['GM_getValue', 'GM_setValue', 'GM_xmlhttpRequest', 'unsafeWindow'],
+    check('@grant 恰好四项：GM_setValue / GM_getValue / GM_xmlhttpRequest / unsafeWindow（无其它权限）'));
+  const connectLines = [...userscriptSrc.matchAll(/^\/\/ @connect\s+(\S+)/gm)].map(m => m[1]);
+  assert.deepEqual(connectLines, ['dav.jianguoyun.com'],
+    check('@connect 恰好一条 = dav.jianguoyun.com（单域白名单，绝无全网通配）'));
+  assert.ok(!/@require/.test(userscriptSrc), check('无 @require 远程依赖'));
+  /* 除 @match / @connect 行外，源码里出现的 http(s) URL 只允许坚果云白名单域名 */
+  const urlLines = userscriptSrc.split('\n').filter(line => /https?:\/\//.test(line) && !/@match|@connect/.test(line));
+  const strayUrls = urlLines.filter(line => !/dav\.jianguoyun\.com/.test(line));
+  assert.equal(strayUrls.length, 0, check('除 @match/@connect 与白名单域名外源码零其它 URL（不加载远程字体/脚本/接口）'));
+  assert.ok(urlLines.length >= 1, check('源码确有坚果云白名单域名条目（防清理干净后边界名存实亡）'));
   assert.match(userscriptSrc, /更新日志：/, check('头部有更新日志块（全局脚本规范）'));
   /* 历史条目保留（最新版本在最上面的规范由下方 newestEntry 断言钉住） */
   assert.match(userscriptSrc, /v1\.0\.0 \(2026-09-17\)/, check('历史更新日志条目保留（v1.0.0 首建）'));
+  assert.match(userscriptSrc, /v1\.0\.1 \(2026-09-17\)/, check('历史更新日志条目保留（v1.0.1）'));
   const metaVersion = /@version\s+(\S+)/.exec(userscriptSrc)[1];
   const constVersion = /SCRIPT_VERSION = '([^']+)'/.exec(userscriptSrc)[1];
   assert.equal(metaVersion, constVersion, check(`@version 与 SCRIPT_VERSION 常量一致（${metaVersion}）`));
+  assert.equal(metaVersion, '1.1.1', check('本版 @version = 1.1.1（v1.1.0 重命名合并为 odin-cloud-sync；v1.1.1 补上传前实时复查云端）'));
   /* 更新日志最新一条必须等于当前 @version */
   const logBlock = /更新日志：([\s\S]*?)\n \*\//.exec(userscriptSrc)[1];
   const newestEntry = /v(\d+\.\d+\.\d+) \(\d{4}-\d{2}-\d{2}\)/.exec(logBlock);
   assert.ok(newestEntry, check('更新日志能解析出最新版本条目'));
   assert.equal(newestEntry[1], metaVersion, check(`更新日志最新一条 = 当前 @version（${metaVersion}）`));
-  assert.match(userscriptSrc, /Ready for Human Verification/, check('源码明确标注跨设备同步为 Ready for Human Verification'));
+  assert.match(userscriptSrc, /Ready for Human Verification/, check('源码明确标注真实连通性/跨设备同步为 Ready for Human Verification'));
 }
 
 /* ===================== 1. 面板挂载与「加载零写入」 ===================== */
@@ -397,4 +406,4 @@ let envelopeFromA = null;
   assert.equal(exported.downloaded, false, check('导出：downloaded=false 如实标注'));
 }
 
-console.log(`通过：userscript GM storage 同步验证专项 ${checks} 项断言（元数据/零网络边界、面板挂载与加载零写入、A 保存回读逐字段、B 两段确认恢复+双恢复点+UI 就地刷新+回滚、刷新链路与失败兜底、C 旧 schema/缺字段/无效 JSON/未知课程/敏感字段/外来信封、损坏档案冻结页恢复解冻、旧 key 回落、导出兜底内容）。油猴实机与跨设备同步不在 Node 范围，见 TEST-REPORT「Ready for Human Verification」。（本文件在公开仓内为 skip 语义：被测源文件不进公开仓，缺失时打印跳过说明并以退出码 0 结束。）`);
+console.log(`通过：userscript GM storage 同步验证专项 ${checks} 项断言（元数据/单域白名单边界、面板挂载与加载零写入、A 保存回读逐字段、B 两段确认恢复+双恢复点+UI 就地刷新+回滚、刷新链路与失败兜底、C 旧 schema/缺字段/无效 JSON/未知课程/敏感字段/外来信封、损坏档案冻结页恢复解冻、旧 key 回落、导出兜底内容）。油猴实机与真实跨设备同步不在 Node 范围，见 TEST-REPORT「Ready for Human Verification」。WebDAV 桥的断言在 tests/userscript-webdav-bridge.test.cjs。（源文件缺失属异常场景，届时打印跳过说明并以退出码 0 结束，不冒充通过。）`);
